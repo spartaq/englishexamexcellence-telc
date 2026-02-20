@@ -1,0 +1,545 @@
+================================================================================
+INTERACTIVE BLOCKS LOGIC SUMMARY
+================================================================================
+This document summarizes the logic and structure of each interactive block
+component in src/components/engine/InteractiveBlocks/
+
+================================================================================
+1. GapFillBlock.jsx
+================================================================================
+PURPOSE: Fill-in-the-blank questions with word bank selection
+
+PROPS:
+  - data: { content, options, answers }
+  - showWordBankOnly: boolean - render only the word bank
+  - selections: object - user's gap selections { gapIndex: word }
+  - activeGap: object - currently selected gap { parentId, gapId }
+  - onWordSelect: callback when word is clicked
+  - onGapClick: callback when gap is clicked
+  - isReviewMode: boolean - disable interactions, show correct/incorrect
+
+LOGIC:
+1. Parses content using regex /__+\((\d+)\)__+/g to find gap markers
+2. Splits content into text parts and gap markers
+3. Renders interactive gaps that can be clicked to select
+4. Word bank shows available options; used words are disabled
+5. In review mode:
+   - Shows green checkmark for correct answers
+   - Shows red X for incorrect answers
+   - Displays correct answer hint for wrong/missing answers
+
+DATA STRUCTURE:
+{
+  id: "question-id",
+  content: "Text with ____(1)____ gaps ____(2)____",
+  options: ["word1", "word2", "word3"],
+  answers: ["answer1", "answer2"]
+}
+
+================================================================================
+2. HeadingMatchBlock.jsx
+================================================================================
+PURPOSE: Match paragraphs to headings (IELTS Type 3: Matching Headings)
+
+PROPS:
+  - data: { instruction, headings, content, answers }
+  - selections: object - user's selections { paraId: headingIndex }
+  - onSelect: callback(paraId, headingIndex)
+  - isReviewMode: boolean
+
+LOGIC:
+1. Displays list of headings with roman numerals (i, ii, iii, iv...)
+2. For each paragraph, shows a dropdown to select matching heading
+3. In review mode:
+   - Green border/check for correct matches
+   - Red border/X for incorrect matches
+   - Shows correct answer for wrong/missing
+
+DATA STRUCTURE:
+{
+  instruction: "Match headings to paragraphs",
+  headings: ["Heading 1 text", "Heading 2 text", ...],
+  content: [
+    { id: "A", text: "Paragraph A text..." },
+    { id: "B", text: "Paragraph B text..." }
+  ],
+  answers: { "A": 0, "B": 2 } // paragraph ID -> heading index
+}
+
+================================================================================
+3. MatchingChoiceBlock.jsx
+================================================================================
+PURPOSE: Match questions to letter options A, B, C... (IELTS Type 4: Matching Information)
+
+PROPS:
+  - data: { instruction, questions, options, allowReuse }
+  - onUpdate: callback(questionId, value)
+  - userAnswers: object - { questionId: selectedOption }
+  - isReviewMode: boolean
+  - allowReuse: boolean - options can be used more than once
+  - showUsageCount: boolean - display usage count for each option
+
+LOGIC:
+1. Extracts options from data.content or data.options
+2. For each question, renders button group (A, B, C, D...)
+3. If allowReuse=false, disables already-used options
+4. Shows usage count badges when allowReuse=true
+5. In review mode:
+   - Green for correct, red for wrong
+   - Shows correct answer hints
+   - Displays score summary
+
+DATA STRUCTURE:
+{
+  instruction: "Match questions to paragraphs",
+  questions: [
+    { id: "1", text: "Question text", answer: "A" },
+    { id: "2", text: "Question text", answer: "C" }
+  ],
+  allowReuse: true // "You may use any letter more than once"
+}
+
+================================================================================
+4. MatchingFeaturesBlock.jsx
+================================================================================
+PURPOSE: Match statements to features (IELTS Type 6: Matching Features)
+
+PROPS:
+  - data: { instruction, features, questions, allowReuse }
+  - userAnswers: object - { questionId: featureId }
+  - onUpdate: callback(questionId, featureId)
+  - isReviewMode: boolean
+  - allowReuse: boolean
+
+LOGIC:
+1. Displays features box with all available features (A, B, C...)
+2. Each question has a dropdown to select feature
+3. Tracks feature usage - marks features as "used"
+4. In review mode:
+   - Color-coded feedback (green/red)
+   - Shows correct answer with feature name
+   - Score summary
+
+DATA STRUCTURE:
+{
+  instruction: "Match each statement to the correct feature.",
+  features: [
+    { id: "A", name: "Feature A description" },
+    { id: "B", name: "Feature B description" }
+  ],
+  questions: [
+    { id: "1", text: "Statement text", answer: "A" }
+  ],
+  allowReuse: true
+}
+
+================================================================================
+5. MCQBlock.jsx
+================================================================================
+PURPOSE: Multiple Choice Questions (IELTS Type 1)
+
+PROPS:
+  - data: { question, options, correctIndex/answer, multiSelect, correctIndices }
+  - onSelect: callback(selectedIndex)
+  - selectedAnswer: number - single selection
+  - isReviewMode: boolean
+  - multiSelect: boolean - enable multi-select mode
+  - selectedAnswers: array - for multi-select [idx1, idx2]
+  - onMultiSelect: callback(selectedIndices)
+  - minSelect: number - minimum selections required
+  - maxSelect: number - maximum selections allowed
+
+LOGIC:
+1. Renders question with option buttons
+2. Single-select: only one option can be selected
+3. Multi-select: checkbox-style selection with min/max limits
+4. Shows selection count indicator for multi-select
+5. In review mode:
+   - Green highlight for correct option(s)
+   - Red highlight for wrong selections
+   - Shows all correct answers for multi-select
+
+DATA STRUCTURE (Single):
+{
+  id: "1",
+  question: "Question text?",
+  options: ["Option A", "Option B", "Option C"],
+  correctIndex: 1 // or answer: 1
+}
+
+DATA STRUCTURE (Multi-select):
+{
+  id: "1",
+  question: "Select all that apply:",
+  options: ["Option A", "Option B", "Option C"],
+  multiSelect: true,
+  correctIndices: [0, 2], // or answer: [0, 2]
+  maxSelect: 2
+}
+
+================================================================================
+6. ReorderingBlock.jsx
+================================================================================
+PURPOSE: Drag-and-drop reordering exercises
+
+PROPS:
+  - items: array - [{ id, text }] items to reorder
+  - setItems: callback - update items order
+
+LOGIC:
+1. Uses framer-motion Reorder component
+2. Items can be dragged to new positions
+3. Visual feedback during drag (scale, shadow)
+4. Grip handle icon for drag indication
+
+DATA STRUCTURE:
+items = [
+  { id: "1", text: "First step" },
+  { id: "2", text: "Second step" },
+  { id: "3", text: "Third step" }
+]
+
+================================================================================
+7. SentenceMatchingBlock.jsx
+================================================================================
+PURPOSE: Match sentence beginnings to endings (IELTS Type 7: Sentence Completion)
+
+PROPS:
+  - data: { options, questions }
+  - userAnswers: object - { questionId: optionId }
+  - onUpdate: callback(questionId, letter)
+  - isReviewMode: boolean
+
+LOGIC:
+1. Displays options bank (A, B, C, D, E...) with text
+2. Each question shows sentence stem with dropdown
+3. In review mode:
+   - Green checkmark for correct
+   - Red X with correct answer for wrong
+
+DATA STRUCTURE:
+{
+  options: [
+    { id: "A", text: "Option A ending" },
+    { id: "B", text: "Option B ending" }
+  ],
+  questions: [
+    { id: "1", text: "Sentence beginning...", answer: "A" }
+  ]
+}
+
+================================================================================
+8. ShortAnswerBlock.jsx
+================================================================================
+PURPOSE: Short answer questions with word limit (IELTS Type 11)
+
+PROPS:
+  - data: { questions, instruction, wordLimit, allowNumber }
+  - userAnswers: object - { questionId: answer }
+  - onUpdate: callback(questionId, value)
+  - isReviewMode: boolean
+  - wordLimit: number - max words allowed
+  - allowNumber: boolean - numbers count separately
+  - validateFromText: boolean - check if answer exists in source
+  - sourceText: string - text for validation
+
+LOGIC:
+1. Displays instruction with word limit warning
+2. Text input for each question
+3. Real-time word count with over-limit warning
+4. Hyphenated words count as one word
+5. Numbers can be counted separately if allowNumber=true
+6. In review mode:
+   - Shows correct answer for wrong/missing
+   - Displays word count for correct answer
+
+DATA STRUCTURE:
+{
+  instruction: "Answer the following questions.",
+  wordLimit: 2,
+  allowNumber: true,
+  questions: [
+    { id: "1", text: "Question text?", answer: "correct answer" }
+  ]
+}
+
+================================================================================
+9. SmartInputBlock.jsx
+================================================================================
+PURPOSE: Simple input with word limit validation
+
+PROPS:
+  - data: { id, wordLimit }
+  - userAnswers: object - { id: answer }
+  - onUpdate: callback(id, value)
+
+LOGIC:
+1. Simple text input with word limit
+2. Shows word count feedback
+3. Error styling when over limit
+
+DATA STRUCTURE:
+{
+  id: "1",
+  wordLimit: 3
+}
+
+================================================================================
+10. TokenSelectBlock.jsx
+================================================================================
+PURPOSE: Click-to-select words in text (grammar/vocabulary drills)
+
+PROPS:
+  - data: { content, correctTokens, instruction, xpReward, title }
+  - onComplete: callback({ selected: string[] })
+  - isReviewMode: boolean
+
+LOGIC:
+1. Tokenizes content into words and punctuation
+2. Identifies correct token indices by matching correctTokens phrases
+3. Click toggles token selection
+4. Punctuation and whitespace are not clickable
+5. In review mode:
+   - Green: correctly selected
+   - Red: incorrectly selected
+   - Yellow: missed correct tokens
+6. Shows legend for review mode colors
+
+DATA STRUCTURE:
+{
+  title: "Find the Adjectives",
+  instruction: "Click on all adjectives in the text",
+  content: "The quick brown fox jumps over the lazy dog.",
+  correctTokens: ["quick", "brown", "lazy"],
+  xpReward: 10
+}
+
+================================================================================
+11. TrinaryBlock.jsx
+================================================================================
+PURPOSE: True/False/Not Given or Yes/No/Not Given questions (IELTS Type 2)
+
+PROPS:
+  - data: { mode, questions, instruction }
+  - userAnswers: object - { questionId: answer }
+  - onUpdate: callback(questionId, value)
+  - isReviewMode: boolean
+
+LOGIC:
+1. mode='tfng' -> TRUE, FALSE, NOT GIVEN
+2. mode='ynng' -> YES, NO, NOT GIVEN
+3. Three buttons per question
+4. In review mode:
+   - Green for correct selection
+   - Red for wrong selection
+   - Shows what should have been selected
+
+DATA STRUCTURE:
+{
+  mode: "tfng", // or "ynng"
+  instruction: "Do the following statements agree...",
+  questions: [
+    { id: "1", text: "Statement text", answer: "TRUE" },
+    { id: "2", text: "Statement text", answer: "NOT GIVEN" }
+  ]
+}
+
+================================================================================
+12. DiagramLabelBlock.jsx
+================================================================================
+PURPOSE: Complete labels on a diagram (IELTS Type 10)
+
+PROPS:
+  - data: { diagram, labels, wordLimit, instruction }
+  - userAnswers: object - { labelId: answer }
+  - onUpdate: callback(labelId, value)
+  - isReviewMode: boolean
+
+LOGIC:
+1. Displays diagram image (optional)
+2. Each label has input field with word limit
+3. Word count indicator shown
+4. In review mode:
+   - Green/red styling for correct/incorrect
+   - Shows correct answers for wrong/missing
+
+DATA STRUCTURE:
+{
+  diagram: {
+    src: "/path/to/image.png",
+    alt: "Diagram description",
+    caption: "Figure 1: Process diagram"
+  },
+  labels: [
+    { id: "1", description: "Label description", answer: "correct answer" }
+  ],
+  wordLimit: 2,
+  instruction: "Write NO MORE THAN TWO WORDS AND/OR A NUMBER"
+}
+
+================================================================================
+13. FlowChartCompletionBlock.jsx
+================================================================================
+PURPOSE: Complete a flow-chart with steps (IELTS Type 9)
+
+PROPS:
+  - data: { title, steps, wordLimit, wordList, instruction, direction }
+  - userAnswers: object - { stepId: answer }
+  - onUpdate: callback(stepId, value)
+  - isReviewMode: boolean
+
+LOGIC:
+1. Renders flow-chart with connected boxes
+2. direction: 'horizontal' or 'vertical'
+3. Steps can be static text or gaps (type: 'gap')
+4. If wordList provided, uses dropdown instead of text input
+5. Arrows connect steps
+6. In review mode:
+   - Shows correct answers for wrong/missing
+   - Green/red styling
+
+DATA STRUCTURE:
+{
+  title: "Process Flow",
+  direction: "horizontal",
+  wordLimit: 2,
+  wordList: ["option1", "option2"], // optional
+  steps: [
+    { id: "1", type: "text", text: "First step" },
+    { id: "2", type: "gap", answer: "fill in" },
+    { id: "3", type: "text", text: "Final step" }
+  ]
+}
+
+================================================================================
+14. NotesCompletionBlock.jsx
+================================================================================
+PURPOSE: Complete structured notes (IELTS Type 9)
+
+PROPS:
+  - data: { title, notes, wordLimit, wordList, instruction }
+  - userAnswers: object - { noteId: answer }
+  - onUpdate: callback(noteId, value)
+  - isReviewMode: boolean
+
+LOGIC:
+1. Renders notes with hierarchical structure (sections -> items)
+2. Supports nested children with indentation
+3. Bullet styles vary by depth (●, ○, ▪)
+4. Gap items have input fields or dropdowns
+5. In review mode:
+   - Shows correct answers
+   - Green/red styling
+
+DATA STRUCTURE:
+{
+  title: "Lecture Notes",
+  wordLimit: 2,
+  wordList: ["option1", "option2"], // optional
+  notes: [
+    {
+      heading: "Section Title",
+      items: [
+        { id: "1", type: "text", text: "Note text" },
+        { id: "2", type: "gap", label: "Label:", answer: "answer" },
+        { 
+          id: "3", 
+          type: "text", 
+          text: "Parent item",
+          children: [
+            { id: "3a", type: "gap", answer: "nested answer" }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+================================================================================
+15. TableCompletionBlock.jsx
+================================================================================
+PURPOSE: Complete table cells (IELTS Type 9)
+
+PROPS:
+  - data: { table, gaps, wordLimit, wordList, instruction }
+  - userAnswers: object - { gapId: answer }
+  - onUpdate: callback(gapId, value)
+  - isReviewMode: boolean
+
+LOGIC:
+1. Renders HTML table with headers and rows
+2. Gaps are identified by rowIndex and colIndex
+3. Gap cells have input fields or dropdowns
+4. Question number badges on gap cells
+5. In review mode:
+   - Shows correct answers
+   - Green/red styling
+
+DATA STRUCTURE:
+{
+  table: {
+    headers: ["Column 1", "Column 2", "Column 3"],
+    rows: [
+      ["Cell 1", "GAP", "Cell 3"],
+      ["GAP", "Cell 2", "Cell 3"]
+    ]
+  },
+  gaps: [
+    { id: "1", rowIndex: 0, colIndex: 1, answer: "answer1" },
+    { id: "2", rowIndex: 1, colIndex: 0, answer: "answer2" }
+  ],
+  wordLimit: 2,
+  wordList: ["option1", "option2"] // optional
+}
+
+================================================================================
+COMMON PATTERNS ACROSS ALL BLOCKS
+================================================================================
+
+1. REVIEW MODE:
+   - All blocks support isReviewMode prop
+   - Disables interactions (inputs, buttons, dropdowns)
+   - Shows visual feedback: green for correct, red for incorrect
+   - Displays correct answers for wrong/missing responses
+
+2. ANSWER NORMALIZATION:
+   - Most blocks use normalizeAnswer() for comparison
+   - Trims whitespace and converts to lowercase
+   - Handles string/number type mismatches
+
+3. WORD LIMIT VALIDATION:
+   - Blocks with text input often have wordLimit prop
+   - Real-time word count display
+   - Warning styling when over limit
+   - countWords() helper function
+
+4. STYLING:
+   - Consistent use of CSS variables (--lab-indigo, --border-color)
+   - Tailwind-like color values (#10b981 green, #ef4444 red, #f59e0b amber)
+   - Border radius: 8px-16px for containers
+   - Padding: 12px-24px standard
+
+5. ICONS (lucide-react):
+   - CheckCircle: correct answers
+   - XCircle: incorrect answers
+   - AlertCircle: warnings/missing
+   - AlertTriangle: word limit warnings
+   - ArrowRight/ArrowDown: flow connectors
+
+================================================================================
+IELTS QUESTION TYPE MAPPING
+================================================================================
+
+Type 1:  MCQBlock (Multiple Choice)
+Type 2:  TrinaryBlock (True/False/Not Given)
+Type 3:  HeadingMatchBlock (Matching Headings)
+Type 4:  MatchingChoiceBlock (Matching Information)
+Type 5:  MatchingFeaturesBlock (Matching Features)
+Type 6:  MatchingFeaturesBlock (Matching Features - variant)
+Type 7:  SentenceMatchingBlock (Sentence Completion - matching)
+Type 8:  GapFillBlock (Sentence Completion - gap fill)
+Type 9:  TableCompletionBlock, NotesCompletionBlock, FlowChartCompletionBlock
+Type 10: DiagramLabelBlock (Diagram Label Completion)
+Type 11: ShortAnswerBlock (Short-Answer Questions)
+
+================================================================================

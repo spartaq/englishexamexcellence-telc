@@ -1,0 +1,333 @@
+/* --- 1. RESET & VARIABLES --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --lab-indigo: #5850EC;
+  --deep-slate: #1F2937;
+  --surface-white: #FFFFFF;
+  --xp-amethyst: #8B5CF6;
+  --success-mint: #10B981;
+  --warning-amber: #F59E0B;
+  --bg-app: #F9FAFB;
+  --neutral-gray: #6B7280;
+  --border-color: #E5E7EB;
+
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --sidebar-width: 260px;
+  --max-content-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-app);
+  color: var(--deep-slate);
+  min-height: 100vh;
+  /* Removed the Flex centering that was breaking the layout */
+}
+
+/* --- 2. THE APP SHELL (GRID) --- */
+.app-shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Prevent horizontal overflow */
+}
+
+/* High Focus Mode: Collapse Sidebar column */
+.app-shell.high-focus-layout {
+  grid-template-columns: 1fr;
+}
+
+/* --- 3. SIDEBAR --- */
+.desktop-sidebar {
+  background: var(--deep-slate);
+  color: white;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  color: #94a3b8;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.nav-item:hover {
+  background: rgba(255,255,255,0.05);
+  color: white;
+}
+
+.nav-item.active {
+  background: var(--lab-indigo);
+  color: white;
+}
+
+/* --- 4. MAIN CANVAS & WORKSPACE --- */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0; /* Prevents flex items from overflowing */
+  min-height: 100vh; /* Ensure full viewport height */
+}
+
+.workspace-container {
+  flex: 1;
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 40px;
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Focus mode: Make text easier to read by narrowing the container */
+.high-focus-layout .workspace-container {
+  max-width: 850px;
+}
+
+/* --- 5. COMPONENT STYLES --- */
+.app-header {
+  height: 72px;
+  background: white;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.exit-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #F3F4F6;
+  color: var(--deep-slate);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.exit-btn:hover {
+  background: #E5E7EB;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-app: #111827;
+    --surface-white: #1F2937;
+    --border-color: #374151;
+    --neutral-gray: #9CA3AF;
+  }
+
+  body {
+    background-color: var(--bg-app);
+    color: #F3F4F6;
+  }
+
+  .app-header {
+    background: var(--surface-white);
+    border-bottom-color: var(--border-color);
+  }
+
+  .exit-btn {
+    background: #374151;
+    color: #F3F4F6;
+  }
+
+  .exit-btn:hover {
+    background: #4B5563;
+  }
+
+  /* Card backgrounds in dark mode */
+  .card,
+  .reading-passage,
+  .reorder-item {
+    background: var(--surface-white);
+    border-color: var(--border-color);
+  }
+
+  .passage-text {
+    color: #F3F4F6;
+  }
+
+  /* Mobile nav in dark mode */
+  .mobile-nav {
+    background: var(--surface-white);
+    border-top-color: var(--border-color);
+  }
+
+  .mobile-nav-item {
+    color: var(--neutral-gray);
+  }
+
+  .mobile-nav-item.active {
+    color: var(--lab-indigo);
+  }
+
+  /* Lesson footer in dark mode */
+  .lesson-footer {
+    background: var(--surface-white);
+    border-top-color: var(--border-color);
+  }
+}
+
+.xp-badge {
+  background: rgba(139, 92, 246, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.xp-text {
+  color: var(--xp-amethyst);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+/* Utility Cards */
+.card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* --- 6. MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+  .desktop-sidebar {
+    display: none;
+  }
+  .workspace-container {
+    padding: 20px;
+  }
+  .app-header {
+    padding: 0 20px;
+  }
+}
+
+/* --- MOBILE BOTTOM NAV --- */
+.mobile-nav {
+  display: none; /* Hidden by default (Desktop) */
+}
+
+@media (max-width: 768px) {
+  .mobile-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: white;
+    border-top: 1px solid var(--border-color);
+    padding-bottom: env(safe-area-inset-bottom); /* For iPhone notches */
+    z-index: 100;
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    color: var(--neutral-gray);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .mobile-nav-item.active {
+    color: var(--lab-indigo);
+  }
+
+  /* Adjust workspace padding so the bottom nav doesn't cover content */
+  .workspace-container {
+    padding-bottom: 100px;
+  }
+
+  /* Stack workspace grid on mobile for reading exercises */
+  .workspace-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .reading-pane,
+  .question-pane {
+    width: 100%;
+  }
+
+  /* Lesson Footer - Fixed at bottom on mobile */
+  .lesson-footer {
+    /*position: fixed;*/
+    bottom: 70px; /* Above mobile nav */
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 16px 20px;
+    border-top: 1px solid var(--border-color);
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+  }
+
+  .lesson-footer .btn-primary {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* Desktop footer styles */
+.lesson-footer {
+  background: white;
+  padding: 20px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+}
+
+.lesson-footer .btn-primary {
+  max-width: var(--max-content-width);
+  width: 100%;
+}

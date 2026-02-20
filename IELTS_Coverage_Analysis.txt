@@ -1,0 +1,374 @@
+================================================================================
+IELTS ACADEMIC READING QUESTION TYPES vs EXISTING BLOCKS
+Cross-Reference Analysis Report
+================================================================================
+
+================================================================================
+COVERAGE SUMMARY
+================================================================================
+
+IELTS Question Types: 11
+Existing Block Types: 11
+
+COVERAGE STATUS:
+✅ FULLY COVERED:     6 types
+⚠️ PARTIALLY COVERED: 3 types
+❌ MISSING:           2 types
+
+================================================================================
+DETAILED MAPPING
+================================================================================
+
+--------------------------------------------------------------------------------
+Type 1: MULTIPLE CHOICE
+--------------------------------------------------------------------------------
+IELTS Description:
+- Question with four possible answers (A, B, C, D)
+- OR first half of sentence with four possible endings
+- Sometimes longer list with multiple answers to choose
+- Questions in same order as text information
+
+YOUR COVERAGE: ✅ FULLY COVERED
+
+Block: MCQBlock.jsx
+Capabilities:
+- Single-answer multiple choice ✓
+- Four options (A, B, C, D) ✓
+- Review mode with correct/incorrect feedback ✓
+
+GAPS:
+- Multi-select variation (choose more than one answer) - NOT SUPPORTED
+- Sentence ending format (could be handled by SentenceMatchingBlock)
+
+RECOMMENDATION: Add multi-select mode to MCQBlock or create new MCQMultiSelectBlock
+
+--------------------------------------------------------------------------------
+Type 2: IDENTIFYING INFORMATION (True/False/Not Given)
+--------------------------------------------------------------------------------
+IELTS Description:
+- Given statements, must determine if they agree with text
+- Answers: TRUE, FALSE, or NOT GIVEN
+- FALSE = contradicts text
+- NOT GIVEN = neither agrees nor contradicts
+
+YOUR COVERAGE: ✅ FULLY COVERED
+
+Block: TrinaryBlock.jsx (mode: 'tfng')
+Capabilities:
+- TRUE/FALSE/NOT GIVEN options ✓
+- Review mode with feedback ✓
+- Correct answer comparison ✓
+
+NO GAPS IDENTIFIED
+
+--------------------------------------------------------------------------------
+Type 3: IDENTIFYING WRITER'S VIEWS/CLAIMS (Yes/No/Not Given)
+--------------------------------------------------------------------------------
+IELTS Description:
+- Given statements about writer's views/claims
+- Answers: YES, NO, or NOT GIVEN
+- NO = contradicts writer's view
+- NOT GIVEN = neither agrees nor contradicts
+
+YOUR COVERAGE: ✅ FULLY COVERED
+
+Block: TrinaryBlock.jsx (mode: 'ynng')
+Capabilities:
+- YES/NO/NOT GIVEN options ✓
+- Same logic as TFNG, different labels ✓
+
+NO GAPS IDENTIFIED
+
+--------------------------------------------------------------------------------
+Type 4: MATCHING INFORMATION
+--------------------------------------------------------------------------------
+IELTS Description:
+- Find specific information in paragraphs (A, B, C, etc.)
+- Write letter of correct paragraph
+- Not every paragraph may be used
+- Some paragraphs may be used more than once
+- Focuses on: specific details, examples, reasons, descriptions, comparisons, 
+  summaries, explanations
+
+YOUR COVERAGE: ⚠️ PARTIALLY COVERED
+
+Block: MatchingChoiceBlock.jsx
+Capabilities:
+- Match questions to letter options ✓
+- Review mode ✓
+
+GAPS:
+- No support for "use any letter more than once" mode
+- No tracking of which paragraphs have been used
+- No visual indication of reusable options
+- No enforcement of single-use vs multi-use options
+
+RECOMMENDATION: Enhance MatchingChoiceBlock with:
+- allowReuse prop
+- Visual indicator for "can be used more than once"
+- Usage counter on options
+
+--------------------------------------------------------------------------------
+Type 5: MATCHING HEADINGS
+--------------------------------------------------------------------------------
+IELTS Description:
+- List of headings (i, ii, iii, etc.)
+- Match heading to correct paragraph (A, B, C, etc.)
+- More headings than paragraphs (some not used)
+- No heading used more than once
+- May have example already matched
+
+YOUR COVERAGE: ✅ FULLY COVERED
+
+Block: HeadingMatchBlock.jsx
+Capabilities:
+- Match paragraphs to headings ✓
+- Dropdown selection ✓
+- Review mode ✓
+
+GAPS:
+- Uses Arabic numerals (1, 2, 3) instead of Roman numerals (i, ii, iii)
+- No example pre-matching feature
+- No enforcement of "no heading used more than once"
+
+RECOMMENDATION: Minor enhancements:
+- Add Roman numeral display option
+- Add exampleMatch prop for pre-filled answers
+
+--------------------------------------------------------------------------------
+Type 6: MATCHING FEATURES
+--------------------------------------------------------------------------------
+IELTS Description:
+- Match statements/information to list of options
+- Options are features (people, inventions, theories, etc.)
+- Letters (A, B, C) identify options
+- Some options may not be used
+- Some options may be used more than once
+
+YOUR COVERAGE: ⚠️ PARTIALLY COVERED
+
+Block: MatchingFeaturesBlock.jsx
+Capabilities:
+- Match questions to features ✓
+- Feature display box ✓
+
+GAPS:
+- Very basic implementation (minimal styling)
+- No review mode implementation
+- No "use more than once" support
+- No visual feedback for correct/incorrect
+
+RECOMMENDATION: Major enhancement needed:
+- Add full review mode
+- Add allowReuse support
+- Add proper styling consistent with other blocks
+
+--------------------------------------------------------------------------------
+Type 7: MATCHING SENTENCE ENDINGS
+--------------------------------------------------------------------------------
+IELTS Description:
+- Given first half of sentences
+- Choose from list of endings (A, B, C, etc.)
+- More endings than beginnings
+- Sentence beginnings in same order as text
+
+YOUR COVERAGE: ✅ FULLY COVERED
+
+Block: SentenceMatchingBlock.jsx
+Capabilities:
+- Options bank display ✓
+- Sentence stems with dropdown ✓
+- Review mode ✓
+
+NO GAPS IDENTIFIED
+
+--------------------------------------------------------------------------------
+Type 8: SENTENCE COMPLETION
+--------------------------------------------------------------------------------
+IELTS Description:
+- Fill gaps in sentences using words FROM THE TEXT
+- Word limit given (e.g., "NO MORE THAN TWO WORDS AND/OR A NUMBER")
+- Answers must be exact words from text
+- Questions in same order as text information
+- Hyphenated words count as single words
+
+YOUR COVERAGE: ⚠️ PARTIALLY COVERED
+
+Block: GapFillBlock.jsx (partial)
+Block: ShortAnswerBlock.jsx (partial)
+
+GAPS:
+- GapFillBlock uses word bank, not text extraction
+- ShortAnswerBlock has no word limit enforcement
+- No "words from text" validation
+- No hyphenated word handling
+- No number counting logic
+
+RECOMMENDATION: Create new block or enhance ShortAnswerBlock:
+- Add wordLimit prop with enforcement
+- Add number counting (WORDS AND/OR A NUMBER)
+- Add validation against text source
+- Add hyphenated word handling
+
+--------------------------------------------------------------------------------
+Type 9: SUMMARY/NOTE/TABLE/FLOW-CHART COMPLETION
+--------------------------------------------------------------------------------
+IELTS Description:
+- Complete summary/notes/table/flow-chart using words from text
+- TWO VARIATIONS:
+  1. Select words directly from text (word limit applies)
+  2. Choose from list of words (letters A, B, C)
+- May be continuous text, notes, table, or flow-chart format
+- Answers usually from one part of text
+
+YOUR COVERAGE: ⚠️ PARTIALLY COVERED
+
+Variation 1 (words from text):
+- NO BLOCK EXISTS for this variation
+- GapFillBlock uses word bank, not text extraction
+
+Variation 2 (word list):
+- GapFillBlock.jsx ✓ (covers this variation)
+
+Format Support:
+- Continuous text: GapFillBlock ✓
+- Notes: NO BLOCK
+- Table: NO BLOCK
+- Flow-chart: NO BLOCK
+
+GAPS:
+- No text extraction mode (must find words in passage)
+- No notes format block
+- No table completion block
+- No flow-chart completion block
+
+RECOMMENDATION: Create specialized blocks:
+- TableCompletionBlock.jsx
+- FlowChartCompletionBlock.jsx
+- NotesCompletionBlock.jsx
+Or create a universal CompletionBlock with format prop
+
+--------------------------------------------------------------------------------
+Type 10: DIAGRAM LABEL COMPLETION
+--------------------------------------------------------------------------------
+IELTS Description:
+- Complete labels on a diagram
+- Diagram based on text description
+- May be machine, building, or other visual information
+- Word limit applies
+- Answers from text, not necessarily in order
+
+YOUR COVERAGE: ❌ MISSING
+
+NO EXISTING BLOCK
+
+RECOMMENDATION: Create DiagramLabelBlock.jsx
+Features needed:
+- Image/diagram display area
+- Clickable label positions
+- Text input for each label
+- Word limit enforcement
+- Answer validation against text
+
+--------------------------------------------------------------------------------
+Type 11: SHORT-ANSWER QUESTIONS
+--------------------------------------------------------------------------------
+IELTS Description:
+- Answer factual detail questions
+- Write answers in words or numbers
+- Answers taken from text
+- Word limit applies (e.g., "NO MORE THAN TWO WORDS AND/OR A NUMBER")
+- Numbers can be figures or words
+- Answers in same order as text
+
+YOUR COVERAGE: ⚠️ PARTIALLY COVERED
+
+Block: ShortAnswerBlock.jsx
+Capabilities:
+- Free text input ✓
+- Review mode ✓
+- Correct answer comparison ✓
+
+GAPS:
+- No word limit enforcement
+- No "words from text" validation
+- No number handling logic
+- No instruction display for word limit
+
+RECOMMENDATION: Enhance ShortAnswerBlock:
+- Add wordLimit prop
+- Add number counting logic
+- Add text source validation option
+- Display word limit in instruction
+
+================================================================================
+MISSING BLOCKS SUMMARY
+================================================================================
+
+❌ CRITICAL MISSING: Diagram Label Completion Block
+   - Required for IELTS Type 10
+   - Visual diagram with label inputs
+   - Complex UI component
+
+❌ PARTIAL MISSING: Table/Flow-Chart/Notes Completion
+   - Required for IELTS Type 9 variations
+   - Multiple format support needed
+
+================================================================================
+ENHANCEMENT RECOMMENDATIONS
+================================================================================
+
+HIGH PRIORITY:
+1. Create DiagramLabelBlock.jsx for diagram completion
+2. Create TableCompletionBlock.jsx for table format
+3. Enhance ShortAnswerBlock with word limit enforcement
+4. Enhance MatchingFeaturesBlock with full review mode
+
+MEDIUM PRIORITY:
+5. Create FlowChartCompletionBlock.jsx
+6. Create NotesCompletionBlock.jsx
+7. Add multi-select mode to MCQBlock
+8. Add "use more than once" support to matching blocks
+
+LOW PRIORITY:
+9. Add Roman numeral display to HeadingMatchBlock
+10. Add example pre-matching feature
+11. Add text extraction validation to completion blocks
+
+================================================================================
+PROPOSED NEW BLOCKS
+================================================================================
+
+1. DiagramLabelBlock.jsx
+   Props:
+   - diagram: { src, alt, width, height }
+   - labels: [{ id, position: {x, y}, answer, wordLimit }]
+   - userAnswers: object
+   - onUpdate: callback
+   - isReviewMode: boolean
+
+2. TableCompletionBlock.jsx
+   Props:
+   - table: { headers[], rows[][] }
+   - gaps: [{ rowIndex, colIndex, answer, wordLimit }]
+   - userAnswers: object
+   - onUpdate: callback
+   - isReviewMode: boolean
+
+3. FlowChartCompletionBlock.jsx
+   Props:
+   - steps: [{ id, text, type: 'text'|'gap', answer, wordLimit }]
+   - connections: [{ from, to }]
+   - userAnswers: object
+   - onUpdate: callback
+   - isReviewMode: boolean
+
+4. TextExtractionBlock.jsx (for sentence completion from text)
+   Props:
+   - sentences: [{ id, text, gapPosition, wordLimit }]
+   - sourceText: string
+   - userAnswers: object
+   - onUpdate: callback
+   - isReviewMode: boolean
+
+================================================================================

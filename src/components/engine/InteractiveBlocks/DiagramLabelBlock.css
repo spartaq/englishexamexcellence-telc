@@ -1,0 +1,265 @@
+/* DiagramLabelBlock.css */
+
+/* Main Block Container */
+.diagram-label-block {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Header */
+.diagram-label-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.diagram-label-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.diagram-label-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--lab-indigo);
+  text-transform: uppercase;
+  background: #eef2ff;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+/* Instruction Box */
+.diagram-label-instruction {
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #92400e;
+}
+
+/* Diagram Container */
+.diagram-container {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.diagram-image {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.diagram-caption {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Labels Container */
+.labels-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Label Row */
+.label-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 2px solid;
+  border-color: #e2e8f0;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.label-row.over-limit {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}
+
+/* Label Row - Review Mode */
+.label-row.row-correct {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.label-row.row-incorrect {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+/* Label Number Badge */
+.label-number {
+  min-width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--lab-indigo);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.label-row.row-correct .label-number {
+  background: #10b981;
+}
+
+.label-row.row-incorrect .label-number {
+  background: #ef4444;
+}
+
+/* Label Description */
+.label-description {
+  min-width: 120px;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* Input Field */
+.label-input {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #1e293b;
+  font-weight: 500;
+  outline: none;
+  cursor: text;
+}
+
+.label-input:focus {
+  box-shadow: 0 0 0 2px var(--lab-indigo);
+}
+
+.label-input:disabled {
+  background: transparent;
+  cursor: default;
+}
+
+/* Word Count */
+.label-word-count {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 600;
+  min-width: 60px;
+  text-align: right;
+}
+
+.label-word-count.over-limit {
+  color: #f59e0b;
+}
+
+/* Correct Answer Hint */
+.correct-answer-hint {
+  padding: 8px 12px;
+  background: #ecfdf5;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #059669;
+  font-weight: 600;
+}
+
+/* ============================================
+   DARK MODE STYLES
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  .diagram-label-block {
+    background: var(--surface-white);
+    border-color: var(--border-color);
+  }
+  
+  .diagram-label-title {
+    color: #F3F4F6;
+  }
+  
+  .diagram-label-badge {
+    background: rgba(88, 80, 236, 0.2);
+    color: var(--lab-indigo);
+  }
+  
+  .diagram-label-instruction {
+    background: rgba(245, 158, 11, 0.1);
+    color: #fbbf24;
+  }
+  
+  /* Diagram Container */
+  .diagram-container {
+    background: var(--bg-app);
+    border-color: var(--border-color);
+  }
+  
+  .diagram-caption {
+    color: var(--neutral-gray);
+  }
+  
+  /* Label Row */
+  .label-row {
+    background: var(--surface-white);
+    border-color: var(--border-color);
+  }
+  
+  .label-row.over-limit {
+    border-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+  }
+  
+  /* Label Row - Review Mode */
+  .label-row.row-correct {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+  }
+  
+  .label-row.row-incorrect {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+  }
+  
+  /* Label Description */
+  .label-description {
+    color: #9CA3AF;
+  }
+  
+  /* Input Field */
+  .label-input {
+    background: var(--bg-app);
+    color: #F3F4F6;
+  }
+  
+  .label-input::placeholder {
+    color: #6B7280;
+  }
+  
+  /* Word Count */
+  .label-word-count {
+    color: #6B7280;
+  }
+  
+  .label-word-count.over-limit {
+    color: #f59e0b;
+  }
+  
+  /* Correct Answer Hint */
+  .correct-answer-hint {
+    background: rgba(5, 150, 105, 0.15);
+    color: #34d399;
+  }
+}

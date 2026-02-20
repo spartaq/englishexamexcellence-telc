@@ -1,0 +1,332 @@
+/* TableCompletionBlock.css */
+
+/* ============================================
+   1. MAIN CONTAINER & LAYOUT
+   ============================================ */
+.table-completion-block {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  overflow-x: hidden;
+}
+
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -24px;
+  padding: 0 24px;
+}
+
+/* ============================================
+   2. HEADER & BADGES
+   ============================================ */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.table-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.table-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--lab-indigo);
+  text-transform: uppercase;
+  background: #eef2ff;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+/* ============================================
+   3. INSTRUCTIONS & WORD LIST
+   ============================================ */
+.table-instruction {
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #92400e;
+}
+
+.table-word-list {
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.word-list-title {
+  margin: 0 0 10px 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.word-list-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.word-list-item {
+  padding: 6px 12px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* ============================================
+   4. TABLE CORE
+   ============================================ */
+.table-main {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 500px;
+}
+
+.table-header-row {
+  background: #f1f5f9;
+}
+
+.table-header-cell {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  /*white-space: nowrap;*/
+}
+
+.table-cell {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  background: white;
+  vertical-align: top;
+}
+
+.table-cell.header-cell {
+  background: #f1f5f9;
+}
+
+/* ============================================
+   5. INTERACTIVE GAPS & INPUTS
+   ============================================ */
+.table-cell.gap-cell {
+  padding: 8px 12px;
+  background: #fafafa;
+  position: relative;
+}
+
+.gap-badge {
+  position: absolute;
+  top: -8px;
+  left: 8px;
+  background: var(--lab-indigo);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 800;
+  z-index: 1;
+}
+
+.gap-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.gap-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gap-select, 
+.gap-input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 2px solid #cbd5e1;
+  background: white;
+  outline: none;
+}
+
+.gap-select {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.gap-input {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.gap-select:focus,
+.gap-input:focus {
+  border-color: var(--lab-indigo);
+}
+
+.gap-input:disabled {
+  font-weight: 700;
+}
+
+/* ============================================
+   6. FEEDBACK & STATES
+   ============================================ */
+/* Over Limit State */
+.table-cell.gap-cell.over-limit { background: #fffbeb; }
+.gap-word-count.over-limit { color: #f59e0b; }
+
+.gap-word-count {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 4px;
+  text-align: right;
+}
+
+/* Correct/Incorrect State */
+.table-cell.row-correct { background: #f0fdf4; }
+.table-cell.row-incorrect { background: #fef2f2; }
+
+.table-cell.row-correct .gap-badge { background: #10b981; }
+.table-cell.row-incorrect .gap-badge { background: #ef4444; }
+
+.correct-hint {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #059669;
+  font-weight: 600;
+}
+
+/* ============================================
+   7. RESPONSIVE (MOBILE)
+   ============================================ */
+@media (max-width: 640px) {
+  /* 1. Reduce padding to save horizontal space */
+  .table-completion-block {
+    padding: 12px; /* Reduced from 16px */
+  }
+
+  /* 2. Allow the table to shrink smaller than 300px if needed */
+  .table-main {
+    min-width: 100%; /* Changed from 300px */
+    table-layout: auto; 
+  }
+
+  /* 3. Allow headers to wrap onto multiple lines */
+  .table-header-cell {
+    white-space: normal; /* Changed from nowrap */
+    padding: 10px 8px;   /* Reduced padding */
+    font-size: 11px;     /* Smaller text for tight spaces */
+  }
+
+  /* 4. Reduce cell padding so columns can be narrower */
+  .table-cell {
+    padding: 10px 8px;
+  }
+
+  /* 5. Adjust the container bleed */
+  .table-container {
+    margin: 0 -12px;
+    padding: 0 12px;
+  }
+}
+
+/* Extra tweak for very small phones (under 350px) */
+@media (max-width: 350px) {
+  .gap-input, .gap-select {
+    padding: 8px 4px; /* Slimmer inputs */
+    font-size: 12px;
+  }
+}
+
+/* ============================================
+   8. DARK MODE
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  .table-completion-block {
+    background: var(--surface-white);
+    border-color: var(--border-color);
+  }
+  
+  .table-title { color: #F3F4F6; }
+  .table-badge { background: rgba(88, 80, 236, 0.2); }
+  
+  .table-instruction {
+    background: rgba(245, 158, 11, 0.1);
+    color: #fbbf24;
+  }
+  
+  .table-word-list {
+    background: var(--bg-app);
+    border-color: var(--border-color);
+  }
+  
+  .word-list-title { color: var(--neutral-gray); }
+  
+  .word-list-item {
+    background: var(--surface-white);
+    border-color: var(--border-color);
+    color: #9CA3AF;
+  }
+  
+  .table-main { border-color: var(--border-color); }
+  
+  .table-header-cell,
+  .table-cell.header-cell {
+    background: var(--bg-app);
+    color: var(--neutral-gray);
+    border-color: var(--border-color);
+  }
+  
+  .table-cell {
+    background: var(--surface-white);
+    color: #9CA3AF;
+    border-color: var(--border-color);
+  }
+  
+  .table-cell.gap-cell { background: var(--bg-app); }
+  
+  .table-cell.gap-cell.over-limit { background: rgba(245, 158, 11, 0.1); }
+  
+  .table-cell.row-correct { background: rgba(16, 185, 129, 0.1); }
+  .table-cell.row-incorrect { background: rgba(239, 68, 68, 0.1); }
+  
+  .gap-select,
+  .gap-input {
+    background: var(--surface-white);
+    border-color: var(--border-color);
+    color: #F3F4F6;
+  }
+  
+  .gap-word-count { color: #6B7280; }
+  .correct-hint { color: #34d399; }
+}

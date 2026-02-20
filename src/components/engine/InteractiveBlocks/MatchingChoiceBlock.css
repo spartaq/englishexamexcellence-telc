@@ -1,0 +1,230 @@
+/* MatchingChoiceBlock.css */
+
+.matching-choice-container {
+  background: var(--surface-white);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 24px 0;
+  min-width: 0; /* Allows flex children to shrink properly */
+  word-break: break-word;
+}
+
+.matching-choice-row {
+  display: flex;
+  flex-direction: column; /* Stack on mobile, side-by-side on desktop via media query */
+  gap: 12px;
+  padding: 16px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.matching-choice-row:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.matching-choice-text {
+  font-size: 1rem;
+  color: #1e293b;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.q-number {
+  color: #3b82f6;
+  font-weight: 800;
+  margin-right: 4px;
+}
+
+.choice-button-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.choice-btn {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: white;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.choice-btn:hover:not(:disabled) {
+  border-color: #94a3b8;
+  color: #1e293b;
+  background-color: #f8fafc;
+}
+
+/* Active State */
+.choice-btn.active {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.4);
+  transform: scale(1.05);
+}
+
+/* Review/Disabled State */
+.choice-btn:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.choice-btn.active:disabled {
+  opacity: 1;
+}
+
+/* Desktop Layout */
+@media (min-width: 768px) {
+  .matching-choice-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .matching-choice-text {
+    flex: 1;
+  }
+
+  .choice-button-group {
+    justify-content: flex-end;
+  }
+}
+
+/* Review Mode Row Styles */
+.matching-choice-row.row-correct {
+  border-left: 4px solid #10b981;
+  background-color: #f0fdf4;
+}
+
+.matching-choice-row.row-incorrect {
+  border-left: 4px solid #ef4444;
+  background-color: #fef2f2;
+}
+
+.status-icon {
+  margin-left: 10px;
+  vertical-align: middle;
+  display: inline-flex;
+}
+
+/* Button Feedback States */
+
+/* 1. Correct Choice: Solid Green */
+.choice-btn.btn-correct {
+  background-color: #10b981 !important;
+  border-color: #10b981 !important;
+  color: white !important;
+  opacity: 1 !important;
+}
+
+/* 2. Wrong Choice: Solid Red */
+.choice-btn.btn-wrong {
+  background-color: #ef4444 !important;
+  border-color: #ef4444 !important;
+  color: white !important;
+  opacity: 1 !important;
+}
+
+/* 3. The Answer you SHOULD have picked: Green Outline/Ghost */
+.choice-btn.btn-should-have-been {
+  border: 2px dashed #10b981 !important;
+  color: #059669 !important;
+  background-color: #ecfdf5 !important;
+  opacity: 1 !important;
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Ensure disabled buttons aren't too faded during review */
+.choice-btn:disabled:not(.btn-correct):not(.btn-wrong):not(.btn-should-have-been) {
+  opacity: 0.3;
+  border-color: #e2e8f0;
+}
+
+/* ============================================
+   DARK MODE STYLES
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  .matching-choice-container {
+    background: var(--surface-white);
+  }
+  
+  .matching-choice-row {
+    background-color: var(--surface-white);
+    border-color: var(--border-color);
+  }
+  
+  .matching-choice-row:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .matching-choice-text {
+    color: #F3F4F6;
+  }
+  
+  .choice-btn {
+    background-color: var(--surface-white);
+    border-color: var(--border-color);
+    color: #9CA3AF;
+  }
+  
+  .choice-btn:hover:not(:disabled) {
+    border-color: #6B7280;
+    color: #F3F4F6;
+    background-color: var(--bg-app);
+  }
+  
+  /* Review Mode Row Styles */
+  .matching-choice-row.row-correct {
+    border-left: 4px solid #10b981;
+    background-color: rgba(16, 185, 129, 0.1);
+  }
+  
+  .matching-choice-row.row-incorrect {
+    border-left: 4px solid #ef4444;
+    background-color: rgba(239, 68, 68, 0.1);
+  }
+  
+  /* Button Feedback States - Dark mode adjustments */
+  .choice-btn.btn-correct {
+    background-color: #10b981 !important;
+    border-color: #10b981 !important;
+    color: white !important;
+  }
+  
+  .choice-btn.btn-wrong {
+    background-color: #ef4444 !important;
+    border-color: #ef4444 !important;
+    color: white !important;
+  }
+  
+  .choice-btn.btn-should-have-been {
+    border: 2px dashed #10b981 !important;
+    color: #4ade80 !important;
+    background-color: rgba(16, 185, 129, 0.15) !important;
+  }
+  
+  /* Ensure disabled buttons aren't too faded during review */
+  .choice-btn:disabled:not(.btn-correct):not(.btn-wrong):not(.btn-should-have-been) {
+    opacity: 0.3;
+    border-color: var(--border-color);
+  }
+}

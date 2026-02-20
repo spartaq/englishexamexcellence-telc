@@ -1,0 +1,797 @@
+================================================================================
+INTERACTIVE BLOCKS - LOGIC SUMMARY TEMPLATE
+================================================================================
+Location: src/components/engine/InteractiveBlocks/
+Purpose: Reusable interactive question components for exam engine
+Total Blocks: 15 (11 original + 4 new)
+Last Updated: 2026-02-14
+================================================================================
+
+================================================================================
+1. GapFillBlock.jsx
+================================================================================
+PURPOSE:
+Fill-in-the-blank questions where users select words from a word bank to 
+complete a passage.
+
+PROPS:
+- data: { id, content, options[], answers[] }
+- showWordBankOnly: boolean - renders only the word bank (for split view)
+- selections: object - maps gap indices to selected words
+- activeGap: object - { parentId, gapId } tracks currently selected gap
+- onWordSelect: callback when a word is clicked
+- onGapClick: callback when a gap is clicked
+- isReviewMode: boolean - disables interaction, shows correct/incorrect
+
+CORE LOGIC:
+1. GAP PARSING:
+   - Uses regex /__+\((\d+)\)__+/g to find gap markers in content
+   - Splits content while preserving gap indices
+   - Gap format: __(1)__, __(2)__, etc.
+
+2. WORD SELECTION FLOW:
+   - User clicks word in word bank → handleWordClick()
+   - Finds first empty gap automatically
+   - Calls onGapClick() then onWordSelect() with delay
+
+3. REVIEW MODE EVALUATION:
+   - Compares user selection vs correct answer (case-insensitive, trimmed)
+   - States: correct (green), incorrect (red), missing (shows answer)
+   - Shows correct answer hint for wrong/missing answers
+
+4. RENDER MODES:
+   - Full: text with gaps + word bank below
+   - Word bank only: for separate pane display
+
+KEY PATTERNS:
+- AnimatePresence for smooth transitions between states
+- Used words are disabled in word bank
+- Gap badges show index number or check/X icons in review
+
+================================================================================
+2. HeadingMatchBlock.jsx
+================================================================================
+PURPOSE:
+Match paragraphs to their corresponding headings from a list.
+
+PROPS:
+- data: { content: [{id, text}], headings: [], answers: {} }
+- selections: object - maps paragraph IDs to selected heading index
+- onSelect: callback(paraId, headingIndex)
+- isReviewMode: boolean
+
+CORE LOGIC:
+1. RENDER STRUCTURE:
+   - Header with title and review mode indicator
+   - For each paragraph: label, text, and dropdown select
+
+2. SELECTION HANDLING:
+   - Dropdown contains all headings with index numbers
+   - onSelect called with paragraph ID and selected heading index
+
+3. REVIEW MODE EVALUATION:
+   - Compares userChoice vs correctChoice from data.answers
+   - Uses == for comparison (handles string/number mix)
+   - States: correct, incorrect, missing
+   - Shows correct heading text for wrong/missing answers
+
+KEY PATTERNS:
+- Visual border indicators (green/red left border)
+- CheckCircle/XCircle icons for status
+- Dropdown disabled in review mode
+
+================================================================================
+3. MatchingChoiceBlock.jsx [ENHANCED]
+================================================================================
+PURPOSE:
+Multiple choice matching where questions are matched to letter options (A-K).
+Supports IELTS Type 4: Matching Information.
+
+PROPS:
+- data: { content[], options[], questions: [{id, text, answer}], allowReuse }
+- onUpdate: callback(questionId, selectedLetter)
+- userAnswers: object - maps question IDs to selected letters
+- isReviewMode: boolean
+- allowReuse: boolean - allows options to be used more than once
+- showUsageCount: boolean - displays usage count for each option
+
+CORE LOGIC:
+1. OPTION EXTRACTION:
+   - Extracts letters from content using regex /\[([A-Z])\]/
+   - Falls back to explicit options array
+   - Default fallback: A-H letters
+
+2. QUESTION HANDLING:
+   - Supports both data.questions array and single question format
+   - Each question has id, text, and answer (correct letter)
+
+3. REUSE SUPPORT (NEW):
+   - When allowReuse=true, options can be selected multiple times
+   - Usage count displayed for each option
+   - Options marked as "(used)" when already selected (single-use mode)
+
+4. REVIEW MODE EVALUATION:
+   - Button states: btn-correct, btn-wrong, btn-should-have-been
+   - Shows what the correct answer was for wrong selections
+   - Row-level styling: row-correct, row-incorrect
+   - Score summary at bottom
+
+KEY PATTERNS:
+- Button group layout for A-K options
+- Active state for selected button
+- Disabled buttons in review mode
+- Usage indicator badges for reuse mode
+
+================================================================================
+4. MatchingFeaturesBlock.jsx [ENHANCED]
+================================================================================
+PURPOSE:
+Match questions to features/categories from a provided list.
+Supports IELTS Type 6: Matching Features.
+
+PROPS:
+- data: { features: [{id, name}], questions: [{id, text, answer}], allowReuse }
+- userAnswers: object - maps question IDs to feature IDs
+- onUpdate: callback(questionId, featureId)
+- isReviewMode: boolean
+- allowReuse: boolean - allows features to be used more than once
+
+CORE LOGIC:
+1. DISPLAY STRUCTURE:
+   - Feature box at top showing all available features
+   - Usage count displayed for each feature
+   - Question rows with dropdown for feature selection
+
+2. REUSE SUPPORT (NEW):
+   - When allowReuse=true, features can be selected multiple times
+   - Visual indicator "Used X times" shown
+   - "May be used more than once" badge displayed
+
+3. SELECTION:
+   - Dropdown populated with feature IDs
+   - Disabled options for already-used features (single-use mode)
+
+4. REVIEW MODE (NEW):
+   - Full correct/incorrect visual feedback
+   - Green/red row styling
+   - CheckCircle/XCircle status icons
+   - Correct answer hints for wrong/missing
+   - Score summary at bottom
+
+KEY PATTERNS:
+- Feature usage tracking
+- Visual badges for reuse mode
+- Consistent styling with other blocks
+
+================================================================================
+5. MCQBlock.jsx [ENHANCED]
+================================================================================
+PURPOSE:
+Single or multiple answer multiple choice questions.
+Supports IELTS Type 1: Multiple Choice.
+
+PROPS:
+- data: { id, question/text, options[], correctIndex/answer, correctIndices[], multiSelect }
+- onSelect: callback(selectedIndex)
+- selectedAnswer: number - currently selected option index
+- isReviewMode: boolean
+- multiSelect: boolean - enable multi-select mode
+- selectedAnswers: array - for multi-select mode
+- onMultiSelect: callback(selectedIndices[])
+- minSelect: number - minimum selections required
+- maxSelect: number - maximum selections allowed
+
+CORE LOGIC:
+1. FLEXIBLE DATA HANDLING:
+   - Accepts data.question or data.text for question text
+   - Accepts data.correctIndex or data.answer for correct answer
+   - Handles both index-based and text-based answer matching
+
+2. MULTI-SELECT MODE (NEW):
+   - Enabled via multiSelect prop or correctIndices array
+   - Checkbox-style selection UI
+   - minSelect/maxSelect constraints
+   - Selection count display
+
+3. OPTION RENDERING:
+   - Each option is a clickable button
+   - Visual states: selected (indigo), correct (green), wrong (red)
+   - Option letters shown in multi-select mode (A, B, C, D)
+
+4. REVIEW MODE EVALUATION:
+   - Correct answer: green border, green background, checkmark
+   - Wrong selected: red border, red background, X icon
+   - Non-selected options dimmed (opacity: 0.6)
+   - Shows tip message for incorrect answers
+   - Shows all correct answers for multi-select
+
+KEY PATTERNS:
+- Full-width button layout
+- Inline style-based theming
+- Review mode badge in corner
+- Multi-select checkbox indicators
+
+================================================================================
+6. ReorderingBlock.jsx
+================================================================================
+PURPOSE:
+Drag-and-drop list reordering for sequencing tasks.
+
+PROPS:
+- items: [{id, text}] - array of items to reorder
+- setItems: callback to update item order
+
+CORE LOGIC:
+1. DRAG AND DROP:
+   - Uses Framer Motion's Reorder component
+   - Vertical axis reordering
+   - Visual feedback during drag (scale, shadow, border)
+
+2. ITEM RENDERING:
+   - Each item has drag handle (GripVertical icon)
+   - Text content displayed alongside handle
+
+NOTE: No review mode - component is for practice only.
+Scoring would need to compare final order to correct sequence.
+
+================================================================================
+7. SentenceMatchingBlock.jsx
+================================================================================
+PURPOSE:
+Match sentence beginnings (stems) to their endings from an options bank.
+Supports IELTS Type 7: Matching Sentence Endings.
+
+PROPS:
+- data: { options: [{id, text}], questions: [{id, text, answer}] }
+- userAnswers: object - maps question IDs to option IDs
+- onUpdate: callback(questionId, optionId)
+- isReviewMode: boolean
+
+CORE LOGIC:
+1. TWO-PART DISPLAY:
+   - Options Bank: grid of available endings (A-K)
+   - Stems List: sentence beginnings with dropdown selector
+
+2. SELECTION FLOW:
+   - User reads options bank
+   - Selects matching option from dropdown for each stem
+
+3. REVIEW MODE EVALUATION:
+   - Border color indicates correct/incorrect
+   - Shows "Ans: X" with XCircle for wrong answers
+   - CheckCircle for correct answers
+   - Dropdown disabled in review mode
+
+KEY PATTERNS:
+- Two-column grid for options bank
+- Inline status display next to dropdown
+- Background color changes in review mode
+
+================================================================================
+8. ShortAnswerBlock.jsx [ENHANCED]
+================================================================================
+PURPOSE:
+Free-text input questions with word limit enforcement.
+Supports IELTS Type 11: Short-Answer Questions and Type 8: Sentence Completion.
+
+PROPS:
+- data: { instruction, questions: [{id, text, answer}], wordLimit, allowNumber }
+- userAnswers: object - maps question IDs to user input
+- onUpdate: callback(questionId, userInput)
+- isReviewMode: boolean
+- wordLimit: number - max words allowed (e.g., 2)
+- allowNumber: boolean - whether numbers count separately
+- validateFromText: boolean - validate answer exists in source
+- sourceText: string - source text for validation
+
+CORE LOGIC:
+1. WORD LIMIT ENFORCEMENT (NEW):
+   - Counts words and numbers separately
+   - Hyphenated words count as one word
+   - Visual counter: "X/Y words"
+   - Over-limit warning with yellow styling
+
+2. INSTRUCTION DISPLAY:
+   - Yellow instruction box with warning styling
+   - Auto-generates "NO MORE THAN X WORDS AND/OR A NUMBER" format
+
+3. INPUT HANDLING:
+   - Text input for each question
+   - Real-time updates via onUpdate
+   - Word count display
+
+4. REVIEW MODE EVALUATION:
+   - Case-insensitive, trimmed comparison
+   - Correct: green background, green border, CheckCircle
+   - Incorrect: red background, red border, XCircle
+   - Shows "Correct Answer: X" for wrong answers
+   - Shows word count of correct answer
+
+KEY PATTERNS:
+- Full-width text input
+- Visual feedback on correctness
+- Disabled input in review mode
+- Word/number count breakdown
+
+================================================================================
+9. SmartInputBlock.jsx
+================================================================================
+PURPOSE:
+Word-limited text input with real-time word count feedback.
+
+PROPS:
+- data: { id, wordLimit }
+- userAnswers: object - maps question ID to text
+- onUpdate: callback(questionId, text)
+
+CORE LOGIC:
+1. WORD COUNT TRACKING:
+   - Splits on whitespace, filters empty strings
+   - Real-time count display: "X/Y words"
+
+2. LIMIT ENFORCEMENT:
+   - Visual error state when over limit
+   - Error class applied to input
+
+NOTE: No review mode - component is for input only.
+Used for writing tasks with word limits.
+
+================================================================================
+10. TokenSelectBlock.jsx
+================================================================================
+PURPOSE:
+Click-to-select words in a passage for grammar/vocabulary identification tasks.
+
+PROPS:
+- data: { content, correctTokens[], instruction, xpReward, title }
+- onComplete: callback({ selected: string[] })
+- isReviewMode: boolean
+
+CORE LOGIC:
+1. TOKENIZATION:
+   - Splits content on whitespace and punctuation
+   - Preserves punctuation as separate tokens
+
+2. CORRECT ANSWER MAPPING:
+   - Uses clean() function to normalize words (remove punctuation, lowercase)
+   - Maps multi-word phrases to token indices
+   - Handles phrase matching across token boundaries
+
+3. SELECTION TOGGLE:
+   - Click token to select/deselect
+   - Punctuation and whitespace tokens are not clickable
+   - Selected count shown on submit button
+
+4. REVIEW MODE EVALUATION:
+   - Selected + Correct: green background
+   - Selected + Wrong: red background
+   - Not Selected + Should Have Been: yellow highlight
+   - Legend showing color meanings
+
+KEY PATTERNS:
+- Natural text flow with inline clickable tokens
+- XP reward display in header
+- Phrase-level answer matching (not just single words)
+
+================================================================================
+11. TrinaryBlock.jsx
+================================================================================
+PURPOSE:
+Three-option questions: TRUE/FALSE/NOT GIVEN or YES/NO/NOT GIVEN.
+Supports IELTS Type 2 and Type 3.
+
+PROPS:
+- data: { mode: 'tfng'|'ynng', questions: [{id, text, answer}] }
+- userAnswers: object - maps question IDs to selected value
+- onUpdate: callback(questionId, value)
+- isReviewMode: boolean
+
+CORE LOGIC:
+1. MODE SELECTION:
+   - 'tfng': TRUE, FALSE, NOT GIVEN
+   - 'ynng': YES, NO, NOT GIVEN
+
+2. BUTTON GROUP:
+   - Three buttons per question
+   - Single selection (radio-like behavior)
+
+3. REVIEW MODE EVALUATION:
+   - Button states: btn-correct, btn-wrong, btn-should-have-been
+   - Row-level styling: row-correct, row-incorrect
+   - CheckCircle/XCircle status icons
+
+KEY PATTERNS:
+- Horizontal button group layout
+- Active state for selected button
+- Common IELTS reading question type
+
+================================================================================
+NEW BLOCKS - IELTS TYPE 9 & 10
+================================================================================
+
+================================================================================
+12. DiagramLabelBlock.jsx [NEW]
+================================================================================
+PURPOSE:
+Complete labels on a diagram based on text description.
+Supports IELTS Type 10: Diagram Label Completion.
+
+PROPS:
+- data: { 
+    diagram: { src, alt, width, height, caption },
+    labels: [{ id, description, answer, wordLimit }],
+    wordLimit,
+    instruction
+  }
+- userAnswers: object - maps label IDs to user input
+- onUpdate: callback(labelId, value)
+- isReviewMode: boolean
+
+CORE LOGIC:
+1. DIAGRAM DISPLAY:
+   - Renders image with configurable dimensions
+   - Optional caption below diagram
+   - Centered layout with background styling
+
+2. LABEL INPUTS:
+   - Each label has numbered badge
+   - Optional description text
+   - Text input with word limit
+   - Real-time word count display
+
+3. WORD LIMIT ENFORCEMENT:
+   - Visual counter: "X/Y words"
+   - Yellow warning styling when over limit
+   - Counts words after trimming whitespace
+
+4. REVIEW MODE:
+   - Correct: green background, green border, CheckCircle
+   - Incorrect: red background, red border, XCircle
+   - Shows correct answer for wrong/missing labels
+
+KEY PATTERNS:
+- Badge-style label numbers
+- Inline word count display
+- Consistent review mode styling
+
+================================================================================
+13. TableCompletionBlock.jsx [NEW]
+================================================================================
+PURPOSE:
+Complete a table using words from text or from a word list.
+Supports IELTS Type 9: Summary/Note/Table Completion (Table format).
+
+PROPS:
+- data: {
+    table: { headers[], rows[][] },
+    gaps: [{ id, rowIndex, colIndex, answer, wordLimit }],
+    wordLimit,
+    wordList: string[], // optional - enables dropdown mode
+    instruction
+  }
+- userAnswers: object - maps gap IDs to user input
+- onUpdate: callback(gapId, value)
+- isReviewMode: boolean
+
+CORE LOGIC:
+1. TABLE RENDERING:
+   - Standard HTML table with headers
+   - Configurable columns and rows
+   - Responsive overflow handling
+
+2. GAP CELLS:
+   - Identified by rowIndex and colIndex
+   - Can be text input or dropdown (if wordList provided)
+   - Word count display for text inputs
+
+3. TWO VARIATIONS:
+   - Text input mode: free text with word limit
+   - Word list mode: dropdown selection from provided words
+
+4. REVIEW MODE:
+   - Cell background indicates correct/incorrect
+   - Border color changes
+   - Shows correct answer for wrong/missing
+
+KEY PATTERNS:
+- Table-based layout
+- Mixed static and gap cells
+- Word list display above table
+
+================================================================================
+14. FlowChartCompletionBlock.jsx [NEW]
+================================================================================
+PURPOSE:
+Complete a flow-chart (series of boxes/steps linked by arrows).
+Supports IELTS Type 9: Summary/Note/Table/Flow-Chart Completion (Flow-Chart format).
+
+PROPS:
+- data: {
+    title,
+    steps: [{ id, type: 'text'|'gap', text, answer, wordLimit }],
+    wordLimit,
+    wordList: string[], // optional
+    instruction,
+    direction: 'horizontal'|'vertical'
+  }
+- userAnswers: object - maps step IDs to user input
+- onUpdate: callback(stepId, value)
+- isReviewMode: boolean
+
+CORE LOGIC:
+1. FLOW RENDERING:
+   - Sequential steps with arrow connectors
+   - Horizontal or vertical layout
+   - Scrollable for horizontal overflow
+
+2. STEP TYPES:
+   - 'text': static text display
+   - 'gap': input field (text or dropdown)
+
+3. CONNECTORS:
+   - ArrowRight for horizontal layout
+   - ArrowDown for vertical layout
+   - Lucide-react icons
+
+4. REVIEW MODE:
+   - Step box styling changes
+   - Badge color indicates status
+   - Correct answer hints
+
+KEY PATTERNS:
+- Numbered step badges
+- Arrow connectors between steps
+- Flexible direction support
+
+================================================================================
+15. NotesCompletionBlock.jsx [NEW]
+================================================================================
+PURPOSE:
+Complete a set of notes using words from text or from a word list.
+Supports IELTS Type 9: Summary/Note/Table/Flow-Chart Completion (Notes format).
+
+PROPS:
+- data: {
+    title,
+    notes: [{
+      heading: string, // optional section heading
+      items: [{
+        id, type: 'text'|'gap', text, label, answer, wordLimit,
+        bullet: string, // custom bullet character
+        bold: boolean,
+        children: [] // nested items
+      }]
+    }],
+    wordLimit,
+    wordList: string[], // optional
+    instruction
+  }
+- userAnswers: object - maps note IDs to user input
+- onUpdate: callback(noteId, value)
+- isReviewMode: boolean
+
+CORE LOGIC:
+1. NOTES STRUCTURE:
+   - Multiple sections with headings
+   - Nested bullet points (up to 3 levels)
+   - Mixed static text and gap inputs
+
+2. BULLET STYLES:
+   - Level 0: ● (filled circle)
+   - Level 1: ○ (empty circle)
+   - Level 2: ▪ (square)
+   - Custom bullets supported
+
+3. GAP ITEMS:
+   - Numbered badge for identification
+   - Optional label text before input
+   - Text input or dropdown mode
+
+4. REVIEW MODE:
+   - Item background indicates status
+   - Badge shows CheckCircle/XCircle
+   - Correct answer hints
+
+KEY PATTERNS:
+- Hierarchical note structure
+- Indentation for nesting
+- Section-based organization
+
+================================================================================
+COMMON PATTERNS ACROSS ALL BLOCKS
+================================================================================
+
+1. REVIEW MODE PATTERN:
+   - All blocks accept isReviewMode prop
+   - Disables interaction when true
+   - Shows correct/incorrect visual feedback
+   - Displays correct answers for wrong/missing responses
+
+2. ANSWER COMPARISON:
+   - Most use case-insensitive, trimmed comparison
+   - Flexible data structure handling (multiple property names)
+   - normalizeAnswer() helper function
+
+3. CALLBACK PATTERN:
+   - onUpdate/onSelect for answer changes
+   - Parent component manages state
+
+4. STATUS ICONS:
+   - CheckCircle (lucide-react) for correct
+   - XCircle (lucide-react) for incorrect
+   - AlertCircle/AlertTriangle for warnings
+
+5. STYLING APPROACH:
+   - Mix of CSS classes and inline styles
+   - CSS files for complex styling (GapFillBlock, TrinaryBlock, etc.)
+   - Inline styles for dynamic state-based styling
+   - Consistent color palette (green=#10b981, red=#ef4444, indigo=var(--lab-indigo))
+
+6. WORD LIMIT PATTERN:
+   - countWords() function for validation
+   - Real-time counter display
+   - Visual warning when over limit
+   - Hyphenated words count as one
+
+================================================================================
+DATA STRUCTURE TEMPLATES
+================================================================================
+
+GapFillBlock:
+{
+  id: "Q1",
+  content: "The cat __(1)__ on the mat __(2)__.",
+  options: ["sat", "quietly", "jumped"],
+  answers: ["sat", "quietly"]
+}
+
+HeadingMatchBlock:
+{
+  content: [{ id: "A", text: "Paragraph text..." }],
+  headings: ["First Heading", "Second Heading"],
+  answers: { "A": 0, "B": 1 }
+}
+
+MCQBlock (single):
+{
+  id: "Q1",
+  question: "What is the answer?",
+  options: ["Option A", "Option B", "Option C", "Option D"],
+  correctIndex: 2
+}
+
+MCQBlock (multi-select):
+{
+  id: "Q1",
+  question: "Which TWO factors are mentioned?",
+  options: ["Factor A", "Factor B", "Factor C", "Factor D"],
+  correctIndices: [0, 2],
+  multiSelect: true,
+  maxSelect: 2
+}
+
+TrinaryBlock:
+{
+  mode: "tfng",
+  questions: [
+    { id: "1", text: "The statement to evaluate", answer: "TRUE" }
+  ]
+}
+
+ShortAnswerBlock:
+{
+  instruction: "Write NO MORE THAN TWO WORDS",
+  wordLimit: 2,
+  allowNumber: true,
+  questions: [
+    { id: "1", text: "What is the capital?", answer: "Paris" }
+  ]
+}
+
+TokenSelectBlock:
+{
+  title: "Find the Adjectives",
+  instruction: "Click on all adjectives in the text",
+  content: "The quick brown fox jumps over the lazy dog.",
+  correctTokens: ["quick", "brown", "lazy"],
+  xpReward: 50
+}
+
+DiagramLabelBlock:
+{
+  diagram: {
+    src: "/images/water-cycle.png",
+    alt: "Water Cycle Diagram",
+    caption: "The water cycle process"
+  },
+  labels: [
+    { id: "1", description: "Process name", answer: "evaporation", wordLimit: 2 }
+  ],
+  wordLimit: 2
+}
+
+TableCompletionBlock:
+{
+  table: {
+    headers: ["Category", "Feature", "Example"],
+    rows: [
+      ["Type A", "GAP", "Example text"],
+      ["Type B", "Feature 2", "GAP"]
+    ]
+  },
+  gaps: [
+    { id: "1", rowIndex: 0, colIndex: 1, answer: "fast growth" },
+    { id: "2", rowIndex: 1, colIndex: 2, answer: "sample data" }
+  ],
+  wordLimit: 2
+}
+
+FlowChartCompletionBlock:
+{
+  title: "Process Flow",
+  direction: "horizontal",
+  steps: [
+    { id: "1", type: "text", text: "Start" },
+    { id: "2", type: "gap", answer: "processing", wordLimit: 2 },
+    { id: "3", type: "text", text: "End" }
+  ],
+  wordLimit: 2
+}
+
+NotesCompletionBlock:
+{
+  title: "Lecture Notes",
+  notes: [
+    {
+      heading: "Introduction",
+      items: [
+        { id: "1", type: "text", text: "Background information", bullet: "●" },
+        { id: "2", type: "gap", label: "Year:", answer: "1995", wordLimit: 1 }
+      ]
+    }
+  ],
+  wordLimit: 2
+}
+
+MatchingFeaturesBlock:
+{
+  features: [
+    { id: "A", name: "First Feature" },
+    { id: "B", name: "Second Feature" }
+  ],
+  questions: [
+    { id: "1", text: "Statement to match", answer: "A" }
+  ],
+  allowReuse: true
+}
+
+MatchingChoiceBlock:
+{
+  questions: [
+    { id: "1", text: "Which paragraph mentions X?", answer: "B" }
+  ],
+  options: ["A", "B", "C", "D", "E"],
+  allowReuse: true
+}
+
+================================================================================
+IELTS QUESTION TYPE COVERAGE
+================================================================================
+
+Type 1  - Multiple Choice                    → MCQBlock ✓
+Type 2  - Identifying Information (T/F/NG)   → TrinaryBlock (mode: 'tfng') ✓
+Type 3  - Identifying Writer's Views (Y/N/NG)→ TrinaryBlock (mode: 'ynng') ✓
+Type 4  - Matching Information               → MatchingChoiceBlock ✓
+Type 5  - Matching Headings                  → HeadingMatchBlock ✓
+Type 6  - Matching Features                  → MatchingFeaturesBlock ✓
+Type 7  - Matching Sentence Endings          → SentenceMatchingBlock ✓
+Type 8  - Sentence Completion                → ShortAnswerBlock ✓
+Type 9  - Summary/Note/Table/Flow-Chart      → TableCompletionBlock, 
+                                                FlowChartCompletionBlock, 
+                                                NotesCompletionBlock ✓
+Type 10 - Diagram Label Completion           → DiagramLabelBlock ✓
+Type 11 - Short-Answer Questions             → ShortAnswerBlock ✓
+
+ALL 11 IELTS ACADEMIC READING QUESTION TYPES ARE NOW COVERED.
+
+================================================================================

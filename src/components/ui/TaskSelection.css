@@ -1,0 +1,182 @@
+/* TaskSelection.css */
+
+.task-selection-view {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.selection-header {
+  margin-bottom: 24px;
+}
+
+.btn-back-link {
+  background: none;
+  border: none;
+  color: var(--lab-indigo);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.btn-back-link:hover {
+  opacity: 0.7;
+}
+
+.selection-title {
+  margin-top: 16px;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Base Task Item */
+.task-item-compact {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.task-item-compact:hover {
+  border-color: var(--lab-indigo);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.task-info-main {
+  flex: 1;
+}
+
+.task-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.task-title-row h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.task-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--neutral-gray);
+  font-weight: 600;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Tier Badges */
+.tier-badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+}
+
+.tier-badge.gold {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+}
+
+.tier-badge.bronze {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+/* Locked State */
+.task-item-compact.is-locked {
+  background: #f8fafc;
+  cursor: default;
+}
+
+.task-item-compact.is-locked .task-title-row h4,
+.task-item-compact.is-locked .task-meta {
+  opacity: 0.5;
+}
+
+.lock-container {
+  color: var(--neutral-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #f1f5f9;
+  border-radius: 50%;
+}
+
+.play-container {
+  color: var(--lab-indigo);
+}
+
+/* No tasks message */
+.no-tasks-message {
+  text-align: center;
+  color: var(--neutral-gray);
+  padding: 40px 20px;
+  font-size: 16px;
+}
+
+/* ============================================
+   DARK MODE STYLES (Must be at end of file)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  .selection-title {
+    color: #F3F4F6;
+  }
+  
+  .task-item-compact {
+    background: var(--surface-white) !important;
+    border-color: var(--border-color);
+  }
+  
+  .task-title-row h4 {
+    color: #F3F4F6;
+  }
+  
+  .task-item-compact.is-locked {
+    background: #374151 !important;
+  }
+  
+  .lock-container {
+    background: #4B5563;
+    color: var(--neutral-gray);
+  }
+  
+  .tier-badge.bronze {
+    background: #374151;
+    color: #9CA3AF;
+    border-color: #4B5563;
+  }
+}

@@ -1,0 +1,102 @@
+import React from 'react';
+import { CheckCircle, XCircle } from 'lucide-react';
+import './HeadingMatchBlock.css';
+
+const HeadingMatchBlock = ({ data, selections = {}, onSelect, isReviewMode = false }) => {
+  const handleSelect = (paraId, headingIndex) => {
+    // Prevent selection if review mode is active
+    if (isReviewMode) return;
+    if (onSelect) onSelect(paraId, headingIndex);
+  };
+
+  return (
+    <div className="heading-match-container">
+      {/* Instruction Box */}
+      {data.instruction && (
+        <div className="hm-instruction">
+          {data.instruction}
+        </div>
+      )}
+      
+      {/* Headings List */}
+      {data.headings && (
+        <div className="hm-headings-list">
+          <h4 className="hm-headings-title">
+            List of Headings
+          </h4>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {data.headings.map((heading, idx) => (
+              <div key={idx} className="hm-heading-item">
+                {heading}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      
+      <div className="hm-row-header">
+        <span>Match Paragraph to Heading</span>
+        {isReviewMode && <span style={{ color: 'var(--lab-indigo)' }}>Review Mode</span>}
+      </div>
+      
+      {data.content.map((para) => {
+        // Logic for Review Mode
+        const userChoice = selections[para.id];
+        const correctChoice = data.answers[para.id];
+        const isCorrect = isReviewMode && userChoice == correctChoice; // use == to handle string/num mix
+        const isIncorrect = isReviewMode && userChoice != undefined && userChoice != correctChoice;
+        const isMissing = isReviewMode && userChoice == undefined;
+
+        return (
+          <div 
+            key={para.id} 
+            className={`match-row ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''} ${isReviewMode ? 'review' : ''}`}
+            style={{ 
+              position: 'relative',
+              borderLeft: isCorrect ? '4px solid #10b981' : isIncorrect ? '4px solid #ef4444' : '4px solid transparent'
+            }}
+          >
+            <div className="para-label">
+              {isCorrect ? <CheckCircle size={14} color="#10b981" /> : 
+               isIncorrect ? <XCircle size={14} color="#ef4444" /> : 
+               para.id}
+            </div>
+            
+            <div className="para-text">{para.text}</div>
+            
+            <div className="select-wrapper" style={{ minWidth: '180px' }}>
+              <select 
+                className={`heading-select ${isCorrect ? 'success' : ''} ${isIncorrect ? 'error' : ''}`}
+                value={selections[para.id] || ""}
+                disabled={isReviewMode}
+                onChange={(e) => handleSelect(para.id, e.target.value)}
+                style={{ 
+                  width: '100%',
+                  opacity: isReviewMode ? 0.8 : 1,
+                  cursor: isReviewMode ? 'default' : 'pointer',
+                  borderColor: isCorrect ? '#10b981' : isIncorrect ? '#ef4444' : '#cbd5e1'
+                }}
+              >
+                <option value="" disabled>Select Heading...</option>
+                {data.headings.map((heading, idx) => (
+                  <option key={idx} value={idx}>
+                    {heading}
+                  </option>
+                ))}
+              </select>
+
+              {/* Show the correct answer if the user was wrong or skipped it */}
+              {(isIncorrect || isMissing) && (
+                <div className="hm-correct-hint">
+                  Correct: {parseInt(correctChoice) + 1}. {data.headings[correctChoice]}
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default HeadingMatchBlock;

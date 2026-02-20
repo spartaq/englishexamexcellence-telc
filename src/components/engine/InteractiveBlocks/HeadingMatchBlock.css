@@ -1,0 +1,175 @@
+/* HeadingMatchBlock.css */
+.heading-match-container {
+  background: var(--surface-white);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+/* Instruction Box */
+.hm-instruction {
+  background: #f1f5f9;
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #334155;
+  white-space: pre-wrap;
+  line-height: 1.6;
+  border: 1px solid #e2e8f0;
+}
+
+/* Headings List Box */
+.hm-headings-list {
+  background: #f8fafc;
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.hm-headings-title {
+  margin: 0 0 12px 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.hm-heading-item {
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+}
+
+/* Match Row Header */
+.hm-row-header {
+  padding: 16px;
+  background: #f1f5f9;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+}
+
+.match-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  gap: 12px;
+}
+
+.match-row:last-child {
+  border-bottom: none;
+}
+
+.para-label {
+  width: 32px;
+  height: 32px;
+  background: var(--lab-indigo);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.para-text {
+  flex: 1;
+  min-width: 200px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--deep-slate);
+}
+
+.heading-select {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  color: #1e293b;
+  outline: none;
+  appearance: none; /* Remove default arrow to style our own later */
+  cursor: pointer;
+}
+
+.heading-select:focus {
+  border-color: var(--lab-indigo);
+  background: white;
+}
+
+/* Correct answer hint */
+.hm-correct-hint {
+  font-size: 11px;
+  color: #059669;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* ============================================
+   DARK MODE STYLES
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  .heading-match-container {
+    background: var(--surface-white);
+    border-color: var(--border-color);
+  }
+  
+  .hm-instruction {
+    background: rgba(30, 41, 59, 0.5);
+    color: #CBD5E1;
+    border-color: var(--border-color);
+  }
+  
+  .hm-headings-list {
+    background: rgba(30, 41, 59, 0.5);
+    border-color: var(--border-color);
+  }
+  
+  .hm-headings-title {
+    color: #94A3B8;
+  }
+  
+  .hm-heading-item {
+    color: #CBD5E1;
+  }
+  
+  .hm-row-header {
+    background: rgba(30, 41, 59, 0.5);
+    color: #94A3B8;
+  }
+  
+  .match-row {
+    border-bottom-color: var(--border-color);
+  }
+  
+  .para-text {
+    color: #F3F4F6;
+  }
+  
+  .heading-select {
+    background: var(--bg-app);
+    border-color: var(--border-color);
+    color: #F3F4F6;
+  }
+  
+  .heading-select:focus {
+    background: var(--surface-white);
+    border-color: var(--lab-indigo);
+  }
+  
+  .hm-correct-hint {
+    color: #34D399;
+  }
+}

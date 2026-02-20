@@ -1,0 +1,256 @@
+/* ShortAnswerBlock.css */
+/* IELTS Type 11: Short-Answer Questions */
+
+/* Main Container */
+.short-answer-container {
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Instruction Box */
+.sa-instruction-box {
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #92400e;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Question Row */
+.sa-row {
+  margin-bottom: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  background: transparent;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.sa-row.correct {
+  background: #f0fdf4;
+  border-color: #10b981;
+}
+
+.sa-row.incorrect {
+  background: #fef2f2;
+  border-color: #ef4444;
+}
+
+.sa-row.over-limit {
+  background: #fffbeb;
+  border-color: #f59e0b;
+}
+
+/* Question Header */
+.sa-question-num {
+  font-weight: 800;
+  color: var(--lab-indigo);
+  min-width: 30px;
+}
+
+.sa-question-text {
+  margin: 0;
+  flex: 1;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+/* Input Field */
+.sa-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  background-color: white;
+  color: #1e293b;
+  transition: all 0.2s ease;
+}
+
+.sa-input:focus {
+  border-color: var(--lab-indigo);
+}
+
+.sa-input.correct {
+  border-color: #10b981;
+  background-color: #f8fafc;
+  color: #065f46;
+  font-weight: bold;
+}
+
+.sa-input.incorrect {
+  border-color: #ef4444;
+  background-color: #f8fafc;
+  color: #991b1b;
+  font-weight: bold;
+}
+
+/* Word Count Indicator */
+.sa-word-count {
+  font-size: 12px;
+  font-weight: 600;
+  color: #94a3b8;
+  background: #f8fafc;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.sa-word-count.over-limit {
+  color: #f59e0b;
+  background: #fffbeb;
+}
+
+/* Correct Answer Display */
+.sa-correct-answer {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: #059669;
+  background: #ecfdf5;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px dashed #10b981;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Tip Box */
+.sa-tip-box {
+  margin-top: 20px;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================ */
+@media (max-width: 640px) {
+  .short-answer-container {
+    padding: 16px;
+  }
+  
+  .sa-row {
+    padding: 12px;
+  }
+  
+  .sa-question-num {
+    min-width: 24px;
+  }
+  
+  .sa-input {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .sa-instruction-box {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .short-answer-container {
+    padding: 12px;
+  }
+  
+  .sa-row {
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+  
+  .sa-question-text {
+    font-size: 0.9rem;
+  }
+  
+  .sa-input {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ============================================
+   DARK MODE STYLES
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  .short-answer-container {
+    background: var(--surface-white);
+    border-color: var(--border-color);
+  }
+  
+  .sa-instruction-box {
+    background: rgba(245, 158, 11, 0.1);
+    color: #fcd34d;
+    border-left-color: #f59e0b;
+  }
+  
+  .sa-row.correct {
+    background: rgba(16, 185, 129, 0.1);
+  }
+  
+  .sa-row.incorrect {
+    background: rgba(239, 68, 68, 0.1);
+  }
+  
+  .sa-row.over-limit {
+    background: rgba(245, 158, 11, 0.1);
+  }
+  
+  .sa-question-text {
+    color: #F3F4F6;
+  }
+  
+  .sa-input {
+    background-color: var(--bg-app);
+    border-color: var(--border-color);
+    color: #F3F4F6;
+  }
+  
+  .sa-input:focus {
+    border-color: var(--lab-indigo);
+  }
+  
+  .sa-input.correct {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #34d399;
+  }
+  
+  .sa-input.incorrect {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+  }
+  
+  .sa-word-count {
+    background: var(--bg-app);
+    color: #9CA3AF;
+  }
+  
+  .sa-word-count.over-limit {
+    color: #fcd34d;
+    background: rgba(245, 158, 11, 0.2);
+  }
+  
+  .sa-correct-answer {
+    background: rgba(5, 150, 105, 0.15);
+    color: #34d399;
+    border-color: #10b981;
+  }
+  
+  .sa-tip-box {
+    background: var(--bg-app);
+    border-color: var(--border-color);
+    color: #9CA3AF;
+  }
+}

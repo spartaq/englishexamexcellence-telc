@@ -1,0 +1,247 @@
+import React, { useState, useEffect } from 'react';
+import { CheckCircle, XCircle, AlertCircle } from 'lucide-react';
+import './MCQBlock.css';
+
+/**
+ * MCQBlock - IELTS Type 1: Multiple Choice
+ * 
+ * Single or multiple answer multiple choice questions.
+ * 
+ * Enhanced with:
+ * - Multi-select mode (choose more than one answer)
+ * - Configurable number of correct answers
+ * - Better visual feedback for multi-select
+ */
+const MCQBlock = ({ 
+  data, 
+  onSelect, 
+  selectedAnswer, 
+  isReviewMode = false,
+  // Enhanced props
+  multiSelect = false, // Enable multi-select mode
+  selectedAnswers = [], // Array for multi-select mode
+  onMultiSelect = null, // Callback for multi-select: (selectedIndices) => void
+  minSelect = 1, // Minimum selections required
+  maxSelect = null // Maximum selections allowed (null = unlimited)
+}) => {
+  const questionText = data.question || data.text || "";
+  const correctAnswer = data.correctIndex ?? data.answer;
+  const options = data.options || [];
+  
+  // Multi-select correct answers (can be array or single value)
+  const correctAnswers = data.correctIndices ?? 
+                         (Array.isArray(data.correctIndex) ? data.correctIndex : 
+                         (Array.isArray(data.answer) ? data.answer : null));
+  
+  // Internal state for multi-select if not controlled
+  const [internalSelected, setInternalSelected] = useState([]);
+  
+  // Determine if we're in multi-select mode
+  const isMultiSelect = multiSelect || data.multiSelect || Array.isArray(correctAnswers);
+  
+  // Get current selections
+  const currentSelections = isMultiSelect 
+    ? (selectedAnswers || internalSelected) 
+    : (selectedAnswer !== undefined ? [selectedAnswer] : []);
+  
+  // Maximum selections allowed
+  const maxSelections = maxSelect ?? data.maxSelect ?? options.length;
+
+  // Handle single selection
+  const handleSingleSelect = (idx) => {
+    if (isReviewMode) return;
+    if (onSelect) onSelect(idx);
+  };
+
+  // Handle multi-selection toggle
+  const handleMultiSelect = (idx) => {
+    if (isReviewMode) return;
+    
+    let newSelections;
+    if (currentSelections.includes(idx)) {
+      // Deselect
+      newSelections = currentSelections.filter(i => i !== idx);
+    } else {
+      // Select (check max limit)
+      if (currentSelections.length >= maxSelections) {
+        // Replace oldest selection or don't allow
+        return;
+      }
+      newSelections = [...currentSelections, idx];
+    }
+    
+    // Update state
+    if (onMultiSelect) {
+      onMultiSelect(newSelections);
+    } else {
+      setInternalSelected(newSelections);
+    }
+    
+    // Also call onSelect for compatibility
+    if (onSelect) {
+      onSelect(newSelections);
+    }
+  };
+
+  // Check if an option is selected
+  const isSelected = (idx) => {
+    return isMultiSelect 
+      ? currentSelections.includes(idx)
+      : selectedAnswer === idx;
+  };
+
+  // Check if an option is correct
+  const isCorrectOption = (idx) => {
+    if (isMultiSelect && correctAnswers) {
+      return correctAnswers.includes(idx);
+    }
+    return correctAnswer === idx || correctAnswer === options[idx];
+  };
+
+  // Check if user got it right
+  const isUserCorrect = () => {
+    if (isMultiSelect && correctAnswers) {
+      // All correct must be selected, no incorrect selected
+      const sortedUser = [...currentSelections].sort();
+      const sortedCorrect = [...correctAnswers].sort();
+      return JSON.stringify(sortedUser) === JSON.stringify(sortedCorrect);
+    }
+    return selectedAnswer === correctAnswer || selectedAnswer === correctAnswer;
+  };
+
+  // Get selection count text
+  const getSelectionText = () => {
+    if (!isMultiSelect) return null;
+    const count = currentSelections.length;
+    const required = minSelect > 1 ? ` (min ${minSelect})` : '';
+    return `Selected: ${count}${required}`;
+  };
+
+  // If no options and no question, show empty state
+  if (!questionText && options.length === 0) return null;
+
+  return (
+    <div className="mcq-question-area">
+      {/* Instruction Box */}
+      {data.instruction && (
+        <div className="mcq-instruction">
+          {data.instruction}
+        </div>
+      )}
+      {/* Review Mode Badge */}
+      {isReviewMode && (
+        <div className="mcq-review-badge">
+          Review Mode
+        </div>
+      )}
+
+      {/* Multi-select indicator */}
+      {isMultiSelect && !isReviewMode && (
+        <div className={`mcq-multi-indicator ${currentSelections.length >= minSelect ? 'minimum-met' : 'needs-more'}`}>
+          {getSelectionText()}
+          {maxSelections < options.length && ` / ${maxSelections} max`}
+        </div>
+      )}
+
+      {/* Question */}
+      <h3 className={`mcq-question ${isMultiSelect ? 'multiselect' : ''}`}>
+        <span className="mcq-question-label">{data.id}.</span>
+        {data.question || data.text}
+        {isMultiSelect && (
+          <span className="mcq-question-subtext">
+            {data.selectInstruction || `Choose ${minSelect > 1 ? `${minSelect} or more` : 'all that apply'}.`}
+          </span>
+        )}
+      </h3>
+
+      {/* Options */}
+      <div className="mcq-options">
+        {options.map((option, idx) => {
+          const selected = isSelected(idx);
+          const isCorrect = isCorrectOption(idx);
+          
+          // Build class names for the option button
+          let optionClasses = 'mcq-option';
+          if (selected) {
+            optionClasses += ' selected';
+            if (isMultiSelect) optionClasses += ' multiselect';
+          }
+          if (isReviewMode) {
+            if (isCorrect) {
+              optionClasses += ' review-correct';
+            } else if (selected && !isCorrect) {
+              optionClasses += ' review-incorrect';
+            } else {
+              optionClasses += ' review-dimmed';
+            }
+          }
+
+          return (
+            <button
+              key={idx}
+              onClick={() => isMultiSelect ? handleMultiSelect(idx) : handleSingleSelect(idx)}
+              disabled={isReviewMode}
+              className={optionClasses}
+            >
+              {/* Multi-select checkbox indicator */}
+              {isMultiSelect && !isReviewMode && (
+                <span className={`mcq-checkbox ${selected ? 'selected' : ''}`}>
+                  {selected && (
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M2 6L5 9L10 3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )}
+                </span>
+              )}
+              
+              {/* Option letter for multi-select */}
+              {isMultiSelect && (
+                <span className={`mcq-option-letter ${selected ? 'selected' : ''}`}>
+                  {String.fromCharCode(65 + idx)}.
+                </span>
+              )}
+              
+              <span className="mcq-option-text">{option}</span>
+              
+              {isReviewMode && (
+                <>
+                  {isCorrect && <CheckCircle size={18} color="#10b981" />}
+                  {selected && !isCorrect && <XCircle size={18} color="#ef4444" />}
+                </>
+              )}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Multi-select minimum warning */}
+      {isMultiSelect && !isReviewMode && currentSelections.length < minSelect && (
+        <div className="mcq-warning">
+          <AlertCircle size={16} />
+          Please select at least {minSelect} option{minSelect > 1 ? 's' : ''}.
+        </div>
+      )}
+
+      {/* Review Mode Feedback */}
+      {isReviewMode && (
+        <>
+          {!isUserCorrect() && (
+            <p className="mcq-tip">
+              Tip: Read the passage section regarding this topic again to see why the green option{isMultiSelect ? 's are' : ' is'} correct.
+            </p>
+          )}
+          
+          {/* Show correct answers for multi-select */}
+          {isMultiSelect && correctAnswers && (
+            <div className="mcq-correct-answers">
+              <strong>Correct Answers:</strong>{' '}
+              {correctAnswers.map(idx => String.fromCharCode(65 + idx)).join(', ')}
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
+};
+
+export default MCQBlock;
