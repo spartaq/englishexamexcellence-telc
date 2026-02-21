@@ -111,7 +111,7 @@ function App() {
   // ============================================================
   
   // Navigation State
-  const [view, setView] = useState('landing');             
+  const [view, setView] = useState('dashboard');             
   const [activeTest, setActiveTest] = useState(null);       
   const [activeCategory, setActiveCategory] = useState(null); 
   const [activeSection, setActiveSection] = useState(null);   
@@ -145,7 +145,7 @@ function App() {
   // Layout logic for specialized views
   const isHighFocus = activeLesson && ['WRITING', 'SPEAKING', 'LISTENING', 'VOCAB', 'WRITING_MOCK', 'ielts-speaking'].includes(activeLesson.type);
   const showSidebar = !isHighFocus && view !== 'results' && view !== 'landing';
-  const showHeader = view !== 'results' && view !== 'landing';
+  const showHeader = view !== 'results' && view !== 'landing' && view !== 'dashboard';
 
   // ============================================================
   // CHAPTER 4: THE GRADING MACHINE (CORE LOGIC)
