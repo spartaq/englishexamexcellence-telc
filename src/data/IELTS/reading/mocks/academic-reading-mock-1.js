@@ -13,10 +13,21 @@ export const academicReadingMock1 = {
       title: 'Section 1: Electroreception',
       description: 'Questions 1–13 based on Reading Passage 1',
       passages: [
-        {
+         {
           id: 'p1',
           title: 'Electroreception',
           type: 'ielts-complex',
+          vocabId: 'v_science_bronze_1',
+          vocabList: [
+            { term: 'perceive', hu: 'érzékel', definition: 'To become aware of through the senses', example: 'Fish perceive electrical signals in water.' },
+            { term: 'stimuli', hu: 'ingerek', definition: 'Things that cause a response', example: 'The fish responds to electrical stimuli.' },
+            { term: 'conductor', hu: 'vezető', definition: 'A material that allows electricity to pass through', example: 'Water is an efficient conductor of electricity.' },
+            { term: 'prey', hu: 'zsákmány', definition: 'An animal that is hunted for food', example: 'The shark detects its prey using electroreception.' },
+            { term: 'predator', hu: 'ragadozó', definition: 'An animal that hunts other animals for food', example: 'Sharks are top predators in the ocean.' },
+            { term: 'encounter', hu: 'találkozás', definition: 'To meet or come across', example: 'The fish encounters various resistances in water.' },
+            { term: 'mechanism', hu: 'mechanizmus', definition: 'A natural or man-made process', example: 'The jamming avoidance response is a fascinating mechanism.' },
+            { term: 'proximity', hu: 'közelség', definition: 'The state of being near', example: 'As the shark reaches proximity to its prey, it attacks.' }
+          ],
           content: [
   `<p>A Open your eyes in sea water and it is difficult to see much more than a murky, bleary green colour. Sounds, too, are garbled and difficult to comprehend. Without specialised equipment humans would be lost in these deep sea habitats, so how do fish make it seem so easy? Much of this is due to a biological phenomenon known as electroreception – the ability to perceive and act upon electrical stimuli as part of the overall senses. This ability is only found in aquatic or amphibian species because water is an efficient conductor of electricity.</p>`,
 
@@ -79,11 +90,22 @@ export const academicReadingMock1 = {
       title: 'Section 2: Fair Games?',
       description: 'Questions 14–27 based on Reading Passage 2',
       passages: [
-        {
+         {
           id: 'p2',
           title: 'The Olympic Legacy',
           type: 'ielts-complex',
-         content: [
+          vocabId: 'v_sports_bronze_1',
+          vocabList: [
+            { term: 'spectacle', hu: 'megjelenés', definition: 'A visually striking display', example: 'The Olympics are a captivating spectacle.' },
+            { term: 'mitigate', hu: 'csökkent', definition: 'To make less severe or painful', example: 'Tourist revenues help mitigate the costs.' },
+            { term: 'exorbitant', hu: 'riasztóan magas', definition: 'Excessively high', example: 'Host cities face exorbitant bills.' },
+            { term: 'budget', hu: 'költségvetés', definition: 'A plan for spending money', example: 'Budgeting for the Olympics is difficult.' },
+            { term: 'infrastructure', hu: 'infrastruktúra', definition: 'Basic systems and services', example: 'The Olympics require new infrastructure.' },
+            { term: 'revamped', hu: 'újrahangolt', definition: 'Improved or modernized', example: 'Some areas get revamped sports facilities.' },
+            { term: 'disenfranchisement', hu: 'megfosztás', definition: 'Deprivation of rights', example: 'Minor cities face disenfranchisement.' },
+            { term: 'elusive', hu: 'szűkös', definition: 'Difficult to capture or achieve', example: 'The "feel good" factor is elusive.' }
+          ],
+          content: [
   `<p>For seventeen days every four years the world is briefly arrested by the captivating, dizzying spectacle of athleticism, ambition, pride and celebration on display at the Summer Olympic Games. After the last weary spectators and competitors have returned home, however, host cities are often left awash in high debts and costly infrastructure maintenance. The staggering expenses involved in a successful Olympic bid are often assumed to be easily mitigated by tourist revenues and an increase in local employment, but more often than not host cities are short-changed and their taxpayers for generations to come are left settling the debt.</p>`,
 
   `<p>Olympic extravagances begin with the application process. Bidding alone will set most cities back about $20 million, and while officially bidding only takes two years (for cities that make the shortlist), most cities can expect to exhaust a decade working on their bid from the moment it is initiated to the announcement of voting results from International Olympic Committee members. Aside from the financial costs of the bid alone, the process ties up real estate in prized urban locations until the outcome is known. This can cost local economies millions of dollars of lost revenue from private developers who could have made use of the land, and can also mean that particular urban quarters lose their vitality due to the vacant lots. All of this can be for nothing if a bidding city does not appease the whims of IOC members – private connections and opinions on government conduct often hold sway (Chicago’s 2012 bid is thought to have been undercut by tensions over U.S. foreign policy).</p>`,
@@ -157,10 +179,21 @@ export const academicReadingMock1 = {
       title: 'Section 3: Time Travel',
       description: 'Questions 28–40 based on Reading Passage 3',
       passages: [
-        {
+         {
           id: 'p3',
           title: 'The Science of Time Travel',
           type: 'ielts-complex',
+          vocabId: 'v_physics_bronze_1',
+          vocabList: [
+            { term: 'hypothesis', hu: 'hipotézis', definition: 'A proposed explanation', example: 'Scientists test hypotheses through experiments.' },
+            { term: 'phenomenon', hu: 'jelenség', definition: 'A fact or situation that can be observed', example: 'Time travel is a fascinating phenomenon.' },
+            { term: 'consistent', hu: 'konzisztens', definition: 'Steady and unchanging', example: 'The neutrinos arrived at a consistent rate.' },
+            { term: 'sceptical', hu: 'szkeptikus', definition: 'Doubting or questioning', example: 'There is reason to remain sceptical.' },
+            { term: 'relativity', hu: 'relativitás', definition: 'Einstein\'s theory of space and time', example: 'Relativity theory has been challenged.' },
+            { term: 'paradox', hu: 'paradoxon', definition: 'A contradictory situation', example: 'The grandfather paradox questions time travel.' },
+            { term: 'trajectory', hu: 'útvonal', definition: 'A path followed by something', example: 'Alterations divert to a new trajectory.' },
+            { term: 'hypothetical', hu: 'hipotetikus', definition: 'Based on assumption', example: 'Parallel universes are hypothetical.' }
+          ],
           content: [
   `<p>Time travel took a small step away from science fiction and toward science recently when physicists discovered that sub-atomic particles known as neutrinos – progeny of the sun’s radioactive debris – can exceed the speed of light. The unassuming particle – it is electrically neutral, small but with a “non-zero mass” and able to penetrate the human form undetected – is on its way to becoming a rock star of the scientific world.</p>`,
 

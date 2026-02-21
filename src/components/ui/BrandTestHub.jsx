@@ -64,6 +64,15 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
           </button>
           
           <button 
+            className="btn-base btn-primary" 
+            onClick={() => onSelectPath('academic-flow')}
+            style={{ marginBottom: '12px' }}
+          >
+            <BookOpen size={18} style={{ marginRight: '8px' }} />
+            Take Academic Mini Test
+          </button>
+          
+          <button 
             className="btn-base btn-outline"
             onClick={() => onSelectPath('skill-tests')}
           >

@@ -54,7 +54,7 @@ import { useXP } from './hooks/useXP';
 import { useExamStore } from './store/useExamStore';
 import ScrollToTop from './scrollToTop';
 import { evaluateDrill } from './utils/evaluate';
-import { getAtomsFromMocks, pluckRandom, getVocabById, pluckRandomFullMock } from './utils/mockPlucker';
+import { getAtomsFromMocks, pluckRandom, getVocabById, pluckRandomFullMock, findVocabFromReading } from './utils/mockPlucker';
 
 // ============================================================
 // CHAPTER 2: THE SYLLABUS (EXAM CONFIGURATIONS)
@@ -324,41 +324,7 @@ function App() {
       // Mini-test flow: pick random exercises from each skill
       // Vocab comes from the reading passage in this test
       const readingExercise = pluckRandom('reading');
-      
-      // Get vocab from reading's passages, or fall back to random vocab
-      let vocabExercise = null;
-      
-      // Check if reading has sections (nested passages)
-      if (readingExercise?.sections) {
-        // Look through passages for one with vocabId
-        for (const section of readingExercise.sections) {
-          if (section?.passages) {
-            for (const passage of section.passages) {
-              if (passage?.vocabId) {
-                // Found a passage with vocab - load that vocab category
-                vocabExercise = getVocabById(passage.vocabId);
-                break;
-              }
-            }
-          }
-          if (vocabExercise) break;
-        }
-      }
-      
-      // Also check for passages at root level (mock3-6, academicReadingMock1)
-      if (!vocabExercise && readingExercise?.passages) {
-        for (const passage of readingExercise.passages) {
-          if (passage?.vocabId) {
-            vocabExercise = getVocabById(passage.vocabId);
-            break;
-          }
-        }
-      }
-      
-      // Fall back to random vocab if no vocabId found
-      if (!vocabExercise) {
-        vocabExercise = pluckRandom('vocabulary');
-      }
+      const vocabExercise = findVocabFromReading(readingExercise);
       
       const flowLesson = {
         id: 'dynamic-flow',
@@ -382,6 +348,36 @@ function App() {
             ]
           }), skill: 'speaking' },
           { ...pluckRandom('writing'), skill: 'writing' }
+        ].filter(Boolean)
+      };
+      setActiveLesson(flowLesson);
+    } else if (taskMetadata.type === 'academic-flow') {
+      // Academic Mini Flow: uses academic reading and writing
+      const readingExercise = pluckRandom('reading_academic');
+      const vocabExercise = findVocabFromReading(readingExercise);
+      
+      const flowLesson = {
+        id: 'academic-dynamic-flow',
+        title: taskMetadata.title || 'Academic Mini Test',
+        type: 'mixed-flow',
+        xpReward: taskMetadata.xp || 1500,
+        sections: [
+          { ...vocabExercise, skill: 'vocab' },
+          { ...readingExercise, skill: 'reading' },
+          { ...pluckRandom('listening'), skill: 'listening' },
+          { ...(pluckRandom('speaking') || {
+            id: 'speaking-fallback',
+            title: 'Speaking Practice',
+            type: 'SPEAKING',
+            xp: 200,
+            prompts: [
+              'Tell me about your hometown.',
+              'What do you like to do in your free time?',
+              'Describe your favorite food.',
+              'What is your favorite season? Why?'
+            ]
+          }), skill: 'speaking' },
+          { ...pluckRandom('writing_academic'), skill: 'writing' }
         ].filter(Boolean)
       };
       setActiveLesson(flowLesson);
@@ -412,38 +408,7 @@ function App() {
     } else if (taskMetadata.id === 'mini-test-flow') {
       // Legacy flow handling - also use vocab from reading
       const readingExercise = pluckRandom('reading');
-      
-      // Get vocab from reading's passages, or fall back to random vocab
-      let vocabExercise = null;
-      
-      // Check if reading has sections (nested passages)
-      if (readingExercise?.sections) {
-        for (const section of readingExercise.sections) {
-          if (section?.passages) {
-            for (const passage of section.passages) {
-              if (passage?.vocabId) {
-                vocabExercise = getVocabById(passage.vocabId);
-                break;
-              }
-            }
-          }
-          if (vocabExercise) break;
-        }
-      }
-      
-      // Also check for passages at root level (mock3-6, academicReadingMock1)
-      if (!vocabExercise && readingExercise?.passages) {
-        for (const passage of readingExercise.passages) {
-          if (passage?.vocabId) {
-            vocabExercise = getVocabById(passage.vocabId);
-            break;
-          }
-        }
-      }
-      
-      if (!vocabExercise) {
-        vocabExercise = pluckRandom('vocabulary');
-      }
+      const vocabExercise = findVocabFromReading(readingExercise);
       
       const flowLesson = {
         id: 'dynamic-flow',
@@ -794,6 +759,48 @@ function App() {
                   
                   if (miniTest.sections.length > 0) {
                     setActiveLesson(miniTest);
+                    setActiveSectionIndex(0);
+                    setView('lesson');
+                  }
+                } else if (path === 'academic-flow') {
+                  // Academic Mini Flow: pick academic-specific exercises
+                  const readingExercise = pluckRandom('reading_academic');
+                  const vocabExercise = findVocabFromReading(readingExercise);
+                  const writingExercise = pluckRandom('writing_academic');
+                  const speakingExercise = pluckRandom('speaking');
+                  const listeningExercise = pluckRandom('listening');
+                  
+                   // Create a mini-test flow with all exercises as sections
+                   const academicMiniTest = {
+                     id: 'academic-mini-flow',
+                     title: 'Academic Mini Test',
+                     type: 'academic-mini-flow',
+                     xp: 1500,
+                     sections: [
+                       { ...vocabExercise, skill: 'vocab' },
+                       { ...readingExercise, skill: 'reading' },
+                       { ...listeningExercise, skill: 'listening' },
+                       { ...writingExercise, skill: 'writing' },
+                       { 
+                         ...(speakingExercise || {
+                           id: 'speaking-fallback',
+                           title: 'Speaking Practice',
+                           type: 'SPEAKING',
+                           xp: 200,
+                           prompts: [
+                             'Tell me about your hometown.',
+                             'What do you like to do in your free time?',
+                             'Describe your favorite food.',
+                             'What is your favorite season? Why?'
+                           ]
+                         }),
+                         skill: 'speaking' 
+                       }
+                     ].filter(Boolean)
+                   };
+                  
+                  if (academicMiniTest.sections.length > 0) {
+                    setActiveLesson(academicMiniTest);
                     setActiveSectionIndex(0);
                     setView('lesson');
                   }
@@ -1188,9 +1195,27 @@ function App() {
               <div className="footer-buttons">
                 {(activeLesson.sections?.[activeSectionIndex]?.passages?.[activePassageIndex + 1]) ? (
                   <button className="btn-secondary" onClick={() => { setActivePassageIndex(prev => prev + 1); setIsReviewMode(false); }}>Next Passage <ArrowRight size={18} /></button>
-                ) : 
-                (activeLesson.sections || activeLesson.passages || activeLesson.parts)?.[activeSectionIndex + 1] ? (
-                  <button className="btn-secondary" onClick={() => { setActiveSectionIndex(prev => prev + 1); setActivePassageIndex(0); setIsReviewMode(false); }}>Next Part <ArrowRight size={18} /></button>
+                 ) : 
+                 (activeLesson.sections || activeLesson.passages || activeLesson.parts)?.[activeSectionIndex + 1] ? (
+                   <button className="btn-secondary" onClick={() => { 
+                     const nextSectionIndex = activeSectionIndex + 1;
+                     setActiveSectionIndex(nextSectionIndex); 
+                     setActivePassageIndex(0); 
+                     setIsReviewMode(false); 
+                     // Update activeSkillTab to match the new section's skill
+                     const sections = activeLesson.sections || activeLesson.passages || activeLesson.parts || [];
+                     const nextSection = sections[nextSectionIndex];
+                     if (nextSection.skill) {
+                       const skillOrder = ['vocab', 'reading', 'writing', 'speaking', 'listening'];
+                       const availableSkills = skillOrder.filter(skill => 
+                         sections.some(s => s.skill === skill)
+                       );
+                       const newSkillIndex = availableSkills.findIndex(skill => skill === nextSection.skill);
+                       if (newSkillIndex !== -1) {
+                         setActiveSkillTab(newSkillIndex);
+                       }
+                     }
+                   }}>Next Part <ArrowRight size={18} /></button>
                 ) : (
                   <button className="btn-finish" onClick={handleFinishLesson}>Finish & View Score <Award size={18} /></button>
                 )}

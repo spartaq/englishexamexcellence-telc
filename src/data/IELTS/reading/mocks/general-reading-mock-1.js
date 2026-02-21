@@ -13,10 +13,21 @@ export const generalReadingMock1 = {
       title: 'Section 1: The Earth',
       description: 'Questions 1–13 based on Reading Passage 1',
       passages: [
-        {
+         {
           id: 'p1',
           title: 'The Earth',
           type: 'ielts-complex',
+          vocabId: 'v_env_bronze_1',
+          vocabList: [
+            { term: 'approximately', hu: 'körülbelül', definition: 'About or roughly', example: 'The Earth formed approximately 4.5 billion years ago.' },
+            { term: 'consist', hu: 'áll', definition: 'To be composed or made up of', example: 'The Solar System consists of eight planets.' },
+            { term: 'surface', hu: 'felszín', definition: 'The outside or top layer', example: 'The Earth\'s surface is 71% water.' },
+            { term: 'originate', hu: 'eredet', definition: 'To come from a source', example: 'The idea of months originated from the moon.' },
+            { term: 'habitat', hu: 'élőhely', definition: 'A natural home for organisms', example: 'The biosphere includes all habitats on Earth.' },
+            { term: 'convert', hu: 'átalakít', definition: 'To change from one form to another', example: 'Cyanobacteria convert sunlight to oxygen.' },
+            { term: 'diameter', hu: 'átmérő', definition: 'The distance across a circle', example: 'The Earth has a diameter of about 12,742 km.' },
+            { term: 'rotate', hu: 'forog', definition: 'To spin on an axis', example: 'The Earth rotates on its axis once a day.' }
+          ],
           content: [
             `<p>(A) The Earth is the third planet from the Sun and it is the only planet known to have life on it. The Earth formed around 4.5 billion years ago. It is one of four rocky planets on the inside of the Solar System. The other three are Mercury, Venus, and Mars.</p>`,
             `<p>(B) The large mass of the Sun makes the Earth move around it, just as the mass of the Earth makes the Moon move around it. The Earth also turns round in space, so different parts face the Sun at different times. The Earth goes around the Sun once (one "year") for every 365¼ times it turns all the way around (one "day").</p>`,
@@ -65,10 +76,21 @@ export const generalReadingMock1 = {
       title: 'Section 2: Job Advertisements',
       description: 'Questions 14–28 based on Reading Passage 2',
       passages: [
-        {
+         {
           id: 'p2',
           title: 'Part-time Openings',
           type: 'ielts-complex',
+          vocabId: 'v_employment_bronze_1',
+          vocabList: [
+            { term: 'approximately', hu: 'körülbelül', definition: 'About or roughly', example: 'The Vitamin Shoppe has approximately 1,946 openings.' },
+            { term: 'extensive', hu: 'kiterjedt', definition: 'Covering a large area', example: 'Advantage Sales & Marketing offers extensive services.' },
+            { term: 'flexible', hu: 'rugalmas', definition: 'Able to adapt', example: 'Chipotle offers a flexible work schedule.' },
+            { term: 'progressive', hu: 'progresszív', definition: 'Forward-thinking', example: 'The Vitamin Shoppe has progressive policies.' },
+            { term: 'compassionate', hu: 'áldozatos', definition: 'Showing care and concern', example: 'PSA Healthcare provides compassionate care.' },
+            { term: 'candidate', hu: 'jelölt', definition: 'A person being considered for a position', example: 'Candidates must have experience.' },
+            { term: 'opportunity', hu: 'lehetőség', definition: 'A chance for progress', example: 'There are room for advancement opportunities.' },
+            { term: 'comprehensive', hu: 'közérthető', definition: 'Complete and thorough', example: 'PSA Healthcare provides comprehensive services.' }
+          ],
           content: [
             `<p><strong>1. The Vitamin Shoppe: 1,946 part-time openings.</strong><br/>The Vitamin Shoppe is a New Jersey-based retailer of nutritional supplements. They also operate stores in Canada under the name "VitaPath". The company provides approximately 8,000 different SKU's of supplements through its retail stores and over 20,000 different SKU's of supplements through its online retail websites.<br/><em>Employee Review:</em> "Good growth opportunities and stores opening all over the US all year 'round. Company based out of NJ, so more progressive policies on employment and benefits. Good vacation, health, and dental benefits. Payment is above average. Good policies on customer service interaction as well. Focus on Customer service vs. pushing products."</p>`,
             `<p><strong>2. Chipotle: 1,553 part-time openings.</strong><br/>Chipotle is known for its use of organic meats throughout its more than 1,500 restaurants, which are located in 45 states. Since having been founded in 1993, the chain has since exploded and now counts some 37,000 employees. It is a pioneer in the "fast casual" dining movement.<br/><em>Employee Review:</em> "The people I work with are awesome and the food is good. It pays my bills and makes me laugh. The schedule is super flexible but it's a lot of work. If you're looking for something easy and laid back, keep looking."</p>`,
@@ -116,10 +138,21 @@ export const generalReadingMock1 = {
       title: 'Section 3: What to do in a fire?',
       description: 'Questions 29–40 based on Reading Passage 3',
       passages: [
-        {
+         {
           id: 'p3',
           title: 'What to do in a fire?',
           type: 'ielts-complex',
+          vocabId: 'v_community_bronze_1',
+          vocabList: [
+            { term: 'emergency', hu: 'vész', definition: 'A serious, unexpected situation', example: 'Fire drills prepare you for emergencies.' },
+            { term: 'evacuate', hu: 'elhagy', definition: 'To leave a dangerous place', example: 'You must evacuate during a fire.' },
+            { term: 'hazard', hu: 'veszély', definition: 'A danger or risk', example: 'Fire is a major hazard.' },
+            { term: 'respond', hu: 'válaszol', definition: 'To react to something', example: 'People must respond quickly to fire alarms.' },
+            { term: 'precaution', hu: 'elózmény', definition: 'A measure taken to prevent something', example: 'Fire drills are an important precaution.' },
+            { term: 'calm', hu: 'nyugodt', definition: 'Not showing nervousness', example: 'It is important to stay calm during a fire.' },
+            { term: 'route', hu: 'útvonal', definition: 'A path to be taken', example: 'Families should have escape routes.' },
+            { term: 'detector', hu: 'észlelő', definition: 'A device that senses something', example: 'Smoke detectors alert people to fires.' }
+          ],
           content: [
             `<p>Fire drills are a big part of being safe in school: They prepare you for what you need to do in case of a fire. But what if there was a fire where you live? Would you know what to do? Talking about fires can be scary because no one likes to think about people getting hurt or their things getting burned. But you can feel less worried if you are prepared.</p>`,
             `<p>It's a good idea for families to talk about what they would do to escape a fire. Different families will have different strategies. Some kids live in one-story houses and other kids live in tall buildings. You'll want to talk about escape plans and escape routes, so let's start there.</p>`,

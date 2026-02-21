@@ -324,7 +324,91 @@ export const pluckRandom = (skill) => {
     };
   }
   
+  if (skill === 'reading_academic') {
+    // Pull only Academic Reading passages
+    const academicReadingPassages = getAllReadingPassages().filter(p => {
+      // Check if passage is from academicReadingMock1 or has academic indicator
+      return p.mockId === 'academic-reading-mock-1' || p.sourceTitle?.includes('Academic');
+    });
+    
+    const passage = getRandomItem(academicReadingPassages);
+    if (passage) {
+      return {
+        ...passage,
+        type: passage.type || 'reading-practice'
+      };
+    }
+  }
+  
+  if (skill === 'writing_academic') {
+    // Pull only Academic Writing tasks
+    const academicWritingTasks = getAllWritingTasks().filter(t => {
+      // Check if task is from academic writing hub or has academic indicator
+      return t.mockId === 'writing-mock1' || t.title?.includes('Academic') || t.prompt?.includes('Academic');
+    });
+    
+    const task = getRandomItem(academicWritingTasks);
+    if (task) {
+      return {
+        ...task,
+        type: 'WRITING',
+        xp: task.xp || 150
+      };
+    }
+    
+    // Fallback to academic-specific writing task
+    return {
+      id: 'writing-academic-quick',
+      title: 'Academic Writing Task',
+      type: 'WRITING',
+      prompt: 'Discuss both views and give your opinion on the role of technology in education.',
+      xp: 150
+    };
+  }
+  
   return null;
+};
+
+/**
+ * Helper function to find vocab from a reading exercise
+ * Extracts vocabId from reading exercise and returns corresponding vocab block
+ * @param {Object} readingExercise - The reading exercise to extract vocab from
+ * @returns {Object} The vocab block or null if no vocab found
+ */
+export const findVocabFromReading = (readingExercise) => {
+  let vocabExercise = null;
+  
+  // Check if reading has sections (nested passages)
+  if (readingExercise?.sections) {
+    for (const section of readingExercise.sections) {
+      if (section?.passages) {
+        for (const passage of section.passages) {
+          if (passage?.vocabId) {
+            vocabExercise = getVocabById(passage.vocabId);
+            break;
+          }
+        }
+      }
+      if (vocabExercise) break;
+    }
+  }
+  
+  // Also check for passages at root level
+  if (!vocabExercise && readingExercise?.passages) {
+    for (const passage of readingExercise.passages) {
+      if (passage?.vocabId) {
+        vocabExercise = getVocabById(passage.vocabId);
+        break;
+      }
+    }
+  }
+  
+  // Fall back to random vocab if no vocabId found
+  if (!vocabExercise) {
+    vocabExercise = pluckRandom('vocabulary');
+  }
+  
+  return vocabExercise;
 };
 
 /**
