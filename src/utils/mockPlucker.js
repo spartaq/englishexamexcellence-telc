@@ -358,7 +358,7 @@ export const pluckRandom = (skill) => {
   if (skill === 'writing_general') {
     // Pull only General Writing tasks (letter writing, informal/semi-formal)
     const generalWritingTasks = getAllWritingTasks().filter(t => {
-      return t.mockId === 'writing_mock2' || t.title?.includes('Letter') || t.mockTitle?.includes('Letter');
+      return t.mockId === 'writing-mock2' || t.title?.includes('Letter') || t.mockTitle?.includes('Letter');
     });
     
     const task = getRandomItem(generalWritingTasks);
