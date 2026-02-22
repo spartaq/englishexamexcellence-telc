@@ -60,7 +60,7 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
             style={{ marginBottom: '12px' }}
           >
             <Shuffle size={18} style={{ marginRight: '8px' }} />
-            Take Random Mini Test
+            Take General Mini Test
           </button>
           
           <button 

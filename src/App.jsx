@@ -65,6 +65,14 @@ const TEST_PLATFORM_CONFIG = {
     title: 'IELTS',
     description: 'Complete Academic and General Training prep',
     color: '#e11d48',
+    modules: [
+      { id: 'reading_ac', title: 'Academic Reading', icon: <BookOpen size={20} />, hubKey: 'reading_academic' },
+      { id: 'reading_gt', title: 'General Reading', icon: <BookOpen size={20} />, hubKey: 'reading_general' },
+      { id: 'writing_ac', title: 'Academic Writing', icon: <PenTool size={20} />, hubKey: 'writing_academic' },
+      { id: 'writing_gt', title: 'General Writing', icon: <PenTool size={20} />, hubKey: 'writing_general' },
+      { id: 'listening', title: 'Listening', icon: <Headset size={20} />, hubKey: 'listening' },
+      { id: 'speaking', title: 'Speaking', icon: <Mic size={20} />, hubKey: 'speaking' },
+    ]
   },
   langcert: {
     id: 'langcert',
@@ -726,17 +734,17 @@ function App() {
               activeTest={activeTest} 
               onSelectPath={(path, skill) => {
                 if (path === 'mini-test') {
-                  // Mini-test flow: pick random exercises from each skill + vocab
-                  const readingExercise = pluckRandom('reading');
-                  const vocabExercise = pluckRandom('vocabulary');
-                  const writingExercise = pluckRandom('writing');
+                  // Mini-test flow: pick random exercises from general reading/writing + shared listening/speaking
+                  const readingExercise = pluckRandom('reading_general');
+                  const vocabExercise = findVocabFromReading(readingExercise);
+                  const writingExercise = pluckRandom('writing_general');
                   const speakingExercise = pluckRandom('speaking');
                   const listeningExercise = pluckRandom('listening');
                   
                    // Create a mini-test flow with all exercises as sections
                    const miniTest = {
                      id: 'mini-test-flow',
-                     title: 'Mini Test',
+                     title: 'General Mini Test',
                      type: 'mini-test-flow',
                      xp: 1000,
                      sections: [
