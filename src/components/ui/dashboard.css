@@ -247,7 +247,7 @@
     =========================================== */
 @media (max-width: 768px) {
   .dashboard-hero {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     padding: 24px 20px;
   }
   
@@ -262,6 +262,20 @@
   .dashboard-hero-icon {
     width: 120px;
     height: 120px;
+  }
+  
+  /* Mobile exam cards - narrower with wrapped text */
+  .exam-card {
+    max-width: 220px;
+    padding: 16px;
+  }
+  
+  .exam-card h3 {
+    font-size: 1rem;
+  }
+  
+  .exam-card p {
+    font-size: 0.8rem;
   }
 }
 
@@ -337,12 +351,14 @@
   cursor: pointer;
   background: white;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  min-width: 160px;
+  max-width: 220px;
   min-height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
+  flex-shrink: 0;
   flex-shrink: 0;
 }
 
@@ -367,15 +383,23 @@
 }
 
 .exam-card h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 800;
   margin: 0 0 6px 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
 }
 
 .exam-card p {
   color: #64748b;
   margin: 0;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
 }
 
 /* ===========================================

@@ -17,12 +17,12 @@ const Dashboard = ({
       <header className="dashboard-hero">
         <div className="dashboard-hero-content">
           <h1>
-            {isPremium ? "Ready for today's session? ??" : "Let's get to work. ??"}
+            {isPremium ? "Ready for today's session?" : "Let's get to work."}
           </h1>
           <p>
             {isPremium 
               ? "Your training plan is ready. Remember: 15 minutes of focused work is better than 3 hours of aimless practice." 
-              : "Welcome to the Lab. Pick your target exam below and we'll start breaking it down into manageable atoms."}
+              : "Welcome to the Lab. Pick your exam and start training for the test."}
           </p>
           
           {/* Quick Effort Summary */}

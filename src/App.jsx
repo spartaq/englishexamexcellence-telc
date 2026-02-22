@@ -65,22 +65,27 @@ const TEST_PLATFORM_CONFIG = {
     title: 'IELTS',
     description: 'Complete Academic and General Training prep',
     color: '#e11d48',
+  },
+  langcert: {
+    id: 'langcert',
+    title: 'LangCert',
+    description: 'International ESOL qualification',
+    color: '#2563eb',
+    modules: [
+      { id: 'speaking', title: 'Speaking', icon: <Mic size={20} />, hubKey: 'speaking' },
+    ]
+  },
+  toefl: {
+    id: 'toefl',
+    title: 'TOEFL',
+    description: 'Test of English as a Foreign Language',
+    color: '#3b82f6',
     modules: [
       { id: 'r_ac', title: 'Academic Reading', icon: <BookOpen size={20} />, hubKey: 'reading_academic' },
       { id: 'r_gt', title: 'General Reading', icon: <BookOpen size={20} />, hubKey: 'reading_general' },
       { id: 'w_ac', title: 'Academic Writing', icon: <PenTool size={20} />, hubKey: 'writing_academic' },
       { id: 'w_gt', title: 'General Writing', icon: <PenTool size={20} />, hubKey: 'writing_general' },
       { id: 'listening', title: 'Listening', icon: <Headset size={20} />, hubKey: 'listening' },
-      { id: 'speaking', title: 'Speaking', icon: <Mic size={20} />, hubKey: 'speaking' },
-      { id: 'ielts_atoms', title: 'IELTS Atoms', icon: <Atom size={20} />, hubKey: 'ielts_atoms' },
-    ]
-  },
-  langcert: {
-    id: 'langcert',
-    title: 'LangCert ESOL',
-    description: 'International ESOL B2/C1 qualification',
-    color: '#2563eb',
-    modules: [
       { id: 'speaking', title: 'Speaking', icon: <Mic size={20} />, hubKey: 'speaking' },
     ]
   }
