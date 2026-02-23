@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate, useParams } from 'react-router-dom';
 import './styles/globals.css';
 import './App.css';
 
@@ -115,16 +116,24 @@ const EXTRA_TOOLS = [
     icon: <Zap size={24} />, 
     hubKey: 'general_drills',
     color: '#f59e0b' 
+  },
+  { 
+    id: 'ielts-atoms', 
+    title: 'IELTS Atoms', 
+    description: 'Quick practice exercises from each skill area.', 
+    icon: <Atom size={24} />, 
+    hubKey: 'ielts_atoms',
+    color: '#06b6d4' 
   }
 ];
 
-function App() {
+function App({ initialView }) {
   // ============================================================
   // CHAPTER 3: THE TEACHER'S GRADEBOOK (STATE MANAGEMENT)
   // ============================================================
   
   // Navigation State
-  const [view, setView] = useState('dashboard');             
+  const [view, setView] = useState(initialView || 'dashboard');
   const [activeTest, setActiveTest] = useState(null);       
   const [activeCategory, setActiveCategory] = useState(null); 
   const [activeSection, setActiveSection] = useState(null);   
@@ -140,6 +149,9 @@ function App() {
   const [lessonResults, setLessonResults] = useState({ accuracy: 0, earnedXP: 0, isPerfect: false });
   const [isReviewMode, setIsReviewMode] = useState(false);    
 
+  // Router Navigate
+  const navigate = useNavigate();
+  
   // Complex Interaction State
   const [gapFillSelections, setGapFillSelections] = useState({});
   const [activeGap, setActiveGap] = useState(null);
@@ -153,7 +165,35 @@ function App() {
   // Effort Tracking Hooks
   const isUserInApp = view !== 'landing';
   useActive(isUserInApp); 
-  useXP(isUserInApp);     
+  useXP(isUserInApp);
+  
+  // Effect to handle initial view (routing)
+  useEffect(() => {
+    if (initialView && initialView !== 'dashboard') {
+      // Check if it's a strategy route (e.g., ielts-strategy)
+      if (initialView.includes('-strategy')) {
+        const testId = initialView.split('-')[0]; // Extract test id (e.g., ielts from ielts-strategy)
+        if (TEST_PLATFORM_CONFIG[testId]) {
+          setActiveTest(TEST_PLATFORM_CONFIG[testId]);
+          setView('strategy');
+        }
+      } else {
+        // Check if it's a mini test route (skillCategories in ATOM_HUB)
+        const taskMetadata = ATOM_HUB.skillCategories[initialView];
+        if (taskMetadata) {
+          handleStartTask(taskMetadata);
+        } else {
+          // Check if it's a hub route (HUBS object keys)
+          const hubKey = initialView;
+          if (HUBS[hubKey]) {
+            // Directly set the view and activeCategory instead of calling handleSelectModule
+            setActiveCategory(HUBS[hubKey]);
+            setView('hub');
+          }
+        }
+      }
+    }
+  }, [initialView]);     
 
   // Layout logic for specialized views
   const isHighFocus = activeLesson && ['WRITING', 'SPEAKING', 'LISTENING', 'VOCAB', 'WRITING_MOCK', 'ielts-speaking'].includes(activeLesson.type);
@@ -280,30 +320,17 @@ function App() {
   // CHAPTER 5: THE HALLWAYS (NAVIGATION HANDLERS)
   // ============================================================
   const handleGetStarted = () => setView('landing'); 
-  const handleSelectTest = (testId) => { setActiveTest(TEST_PLATFORM_CONFIG[testId]); setView('strategy'); };
+  const handleSelectTest = (testId) => {
+    setActiveTest(TEST_PLATFORM_CONFIG[testId]);
+    setView('strategy');
+    navigate(`/dashboard/${testId}-strategy`);
+  };
 
   const handleSelectModule = (hubKey) => {
-    if (hubKey === 'ielts_atoms') {
-      // Use ATOM_HUB directly - categories are the tasks
-      setActiveCategory(ATOM_HUB);
-      setView('hub');
-      return;
-    }
-        
-    const hubData = HUBS[hubKey];
-    if (hubData) {
-      const subItems = hubData.sections || hubData.categories || [];
-      
-      // If only one category and it's NOT using sections (like READING_HUB), skip hub
-      if (subItems.length === 1 && !hubData.sections) {
-        setActiveCategory(hubData);      
-        setActiveSection(subItems[0]); 
-        setView('selection');            
-      } else {
-        setActiveCategory(hubData);
-        setView('hub');
-      }
-    }
+    console.log('handleSelectModule called with', hubKey);
+    const hubPath = `/dashboard/${hubKey.replace('_', '-')}`;
+    console.log('navigating to', hubPath);
+    navigate(hubPath);
   };
 
   const handleSelectSection = (section) => {
@@ -314,7 +341,7 @@ function App() {
   }
   
   // If this is from the DRILLS_HUB, use standard behavior
-  if (activeCategory?.title === "General Practice Drills") {
+  if (activeCategory && activeCategory.title === "General Practice Drills") {
     setActiveSection(section);
   } 
   // If this is an 'atom' section from ATOM_HUB, go pluck the tasks from the mocks
@@ -643,12 +670,9 @@ function App() {
   // ============================================================
   // CHAPTER 7: THE SCHOOL BUILDING (MAIN RENDER)
   // ============================================================
-  if (view === 'landing') return <LandingPage onGetStarted={() => setView('dashboard')} />;
-
   return (
-    
     <div className={`app-shell ${isHighFocus ? 'high-focus-layout' : ''}`}>
-       <ScrollToTop /> 
+      <ScrollToTop /> 
       {/* SIDEBAR NAVIGATION */}
       {showSidebar && (
         <aside className="desktop-sidebar">

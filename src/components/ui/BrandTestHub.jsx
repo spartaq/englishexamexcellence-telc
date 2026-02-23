@@ -1,5 +1,6 @@
 import React from 'react';
 import { Zap, Clock, BookOpen, Headset, PenTool, Mic, Info, List, Shuffle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './ExamStrategy.css';
 
 /**
@@ -54,23 +55,23 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
             Take a random mini-test or practice specific skills.
           </p>
           
-          <button 
+          <Link 
+            to="/dashboard/mini-test"
             className="btn-base btn-primary" 
-            onClick={() => onSelectPath('mini-test')}
-            style={{ marginBottom: '12px' }}
+            style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none', color: 'inherit' }}
           >
             <Shuffle size={18} style={{ marginRight: '8px' }} />
             Take General Mini Test
-          </button>
+          </Link>
           
-          <button 
+          <Link 
+            to="/dashboard/academic-flow"
             className="btn-base btn-primary" 
-            onClick={() => onSelectPath('academic-flow')}
-            style={{ marginBottom: '12px' }}
+            style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none', color: 'inherit' }}
           >
             <BookOpen size={18} style={{ marginRight: '8px' }} />
             Take Academic Mini Test
-          </button>
+          </Link>
           
           <button 
             className="btn-base btn-outline"

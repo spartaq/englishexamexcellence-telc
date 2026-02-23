@@ -407,14 +407,9 @@
     =========================================== */
 
 .extra-tools-grid {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 16px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 8px;
-  scrollbar-width: thin;
-  scrollbar-color: #e2e8f0 transparent;
 }
 
 .extra-tools-grid::-webkit-scrollbar {
@@ -441,6 +436,8 @@
   flex-shrink: 0;
   justify-content: center;
   text-align: center;
+  cursor: pointer;
+  user-select: none;
 }
 
 .extra-tools-grid .exam-card-icon {

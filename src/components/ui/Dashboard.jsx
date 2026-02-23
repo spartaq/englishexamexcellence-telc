@@ -69,7 +69,12 @@ const Dashboard = ({
           <div 
             key={tool.id} 
             className="exam-card" 
-            onClick={() => onSelectModule(tool.hubKey)} 
+            onClick={(e) => {
+              console.log('Button clicked');
+              console.log('Tool:', tool);
+              console.log('onSelectModule:', onSelectModule);
+              onSelectModule(tool.hubKey);
+            }} 
           >
             <div 
               className="exam-card-icon"
