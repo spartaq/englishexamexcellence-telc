@@ -4,7 +4,7 @@ import './hub.css';
 
 const icons = { 'mock-tests': Trophy, 'skill-drills': Dumbbell };
 
-const SkillHub = ({ data, onBack, onSelectSection }) => {
+const SkillHub = ({ data, onBack, onSelectSection, backButtonText = 'Back' }) => {
   // Use the passed data prop directly
   const hub = data;
 
@@ -19,7 +19,13 @@ const SkillHub = ({ data, onBack, onSelectSection }) => {
       <meta name="description" content={hub.description} />
       <div className="hub-container">
       <header className="hub-header">
-        <button onClick={onBack} className="btn-icon-only" style={{background: 'none', border: 'none'}}><ArrowLeft size={20} /></button>
+        <button 
+          onClick={onBack} 
+          className="btn-back-link" 
+          style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
+        >
+          <ArrowLeft size={20} /> {backButtonText}
+        </button>
         <div className="hub-badge" style={{textTransform: 'capitalize'}}>{hub.title}</div>
       </header>
 

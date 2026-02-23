@@ -126,6 +126,7 @@ function App({ initialView }) {
   
   // Navigation State
   const [view, setView] = useState(initialView || 'dashboard');
+  const [viewHistory, setViewHistory] = useState([initialView || 'dashboard']);
   const [activeTest, setActiveTest] = useState(null);       
   const [activeCategory, setActiveCategory] = useState(null); 
   const [activeSection, setActiveSection] = useState(null);   
@@ -133,7 +134,30 @@ function App({ initialView }) {
   const [activePassageIndex, setActivePassageIndex] = useState(0); 
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
   const [activeSkillTab, setActiveSkillTab] = useState(0); // For unified skill tabs: Vocab(mini), Reading, Writing, Speaking, Listening 
-  const [showPaywall, setShowPaywall] = useState(false);      
+  const [showPaywall, setShowPaywall] = useState(false);
+
+  // Helper to set view with history tracking
+  const navigateToView = (newView) => {
+    if (newView !== view) {
+      setViewHistory(prev => [...prev, newView]);
+      setView(newView);
+    }
+  };
+
+  // Helper to go back to previous view
+  const navigateBack = () => {
+    // If we have history, go back
+    if (viewHistory.length > 1) {
+      const newHistory = [...viewHistory];
+      newHistory.pop(); // Remove current view
+      const previousView = newHistory[newHistory.length - 1];
+      setViewHistory(newHistory);
+      setView(previousView);
+    } else {
+      // If we're at the root view or directly accessed, go to dashboard
+      setView('dashboard');
+    }
+  };      
 
   // Learning & Result State
   const [userAnswers, setUserAnswers] = useState({});
@@ -167,6 +191,8 @@ function App({ initialView }) {
         const testId = initialView.split('-')[0]; // Extract test id (e.g., ielts from ielts-strategy)
         if (TEST_PLATFORM_CONFIG[testId]) {
           setActiveTest(TEST_PLATFORM_CONFIG[testId]);
+          // Initialize history with dashboard -> strategy
+          setViewHistory(['dashboard', 'strategy']);
           setView('strategy');
         }
       } else {
@@ -180,7 +206,12 @@ function App({ initialView }) {
           if (HUBS[hubKey]) {
             // Directly set the view and activeCategory instead of calling handleSelectModule
             setActiveCategory(HUBS[hubKey]);
+            // Initialize history with dashboard -> hub
+            setViewHistory(['dashboard', 'hub']);
             setView('hub');
+          } else {
+            // For any other route not matching known patterns, go to dashboard
+            setView('dashboard');
           }
         }
       }
@@ -311,10 +342,10 @@ function App({ initialView }) {
   // ============================================================
   // CHAPTER 5: THE HALLWAYS (NAVIGATION HANDLERS)
   // ============================================================
-  const handleGetStarted = () => setView('landing'); 
+  const handleGetStarted = () => navigateToView('landing'); 
   const handleSelectTest = (testId) => {
     setActiveTest(TEST_PLATFORM_CONFIG[testId]);
-    setView('strategy');
+    navigateToView('strategy');
     navigate(`/dashboard/${testId}-strategy`);
   };
 
@@ -325,7 +356,7 @@ function App({ initialView }) {
     navigate(hubPath);
   };
 
-  const handleSelectSection = (section) => {
+   const handleSelectSection = (section) => {
   // Check if this is an ATOM_HUB category (has 'type' property indicating it's a task)
   if (section.type) {
     handleStartTask(section);
@@ -345,7 +376,7 @@ function App({ initialView }) {
   else {
     setActiveSection(section);
   }
-  setView('selection');
+  navigateToView('selection');
 };
 
   const handleStartTask = (taskMetadata) => {
@@ -481,15 +512,15 @@ function App({ initialView }) {
     setMcqSelections({});
     setActiveGap(null);
     setIsReviewMode(false);
-    setView('lesson');
+    navigateToView('lesson');
   };
 
-  const handleFinishLesson = () => setView('results');
+  const handleFinishLesson = () => navigateToView('results');
 
   const handleFinalClaim = () => {
     claimXp(lessonResults.earnedXP || activeLesson.xpReward || activeLesson.xp || 0);
     setShowReflection(false);
-    setView('dashboard');
+    navigateToView('dashboard');
     setActiveLesson(null);
   };
 
@@ -673,15 +704,15 @@ function App({ initialView }) {
             <p style={{ fontSize: '0.7rem', opacity: 0.5 }}>{activeTest ? activeTest.title.toUpperCase() : 'SELECT EXAM'}</p>
           </div>
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <button onClick={() => { setView('dashboard'); setActiveTest(null); }} className={`nav-item ${view === 'dashboard' ? 'active' : ''}`}>
+            <button onClick={() => { navigateToView('dashboard'); setActiveTest(null); }} className={`nav-item ${view === 'dashboard' ? 'active' : ''}`}>
               <LayoutDashboard size={18} /> Dashboard
             </button>
             {activeTest && (
-              <button onClick={() => setView('testHub')} className={`nav-item ${view === 'testHub' ? 'active' : ''}`}>
+              <button onClick={() => navigateToView('testHub')} className={`nav-item ${view === 'testHub' ? 'active' : ''}`}>
                 <BookOpen size={18} /> {activeTest.title} Hub
               </button>
             )}
-            <button className="nav-item" onClick={() => setView('landing')} style={{ marginTop: 'auto', opacity: 0.5 }}>
+            <button className="nav-item" onClick={() => navigateToView('landing')} style={{ marginTop: 'auto', opacity: 0.5 }}>
               <LogOut size={18} /> Exit Lab
             </button>
           </nav>
@@ -691,7 +722,7 @@ function App({ initialView }) {
 
       <main className="main-content">
         
-        {/* HEADER & GLOBAL TOOLS */}
+         {/* HEADER & GLOBAL TOOLS */}
         {showHeader && (
           <header className="app-header">
             <div>
@@ -704,16 +735,14 @@ function App({ initialView }) {
               {view === 'lesson' && (
                 <button onClick={() => { 
                   setActiveLesson(null); 
-                  // Check if we came from atoms hub - go back to atoms hub/selection
-                  if (activeCategory?.title === 'IELTS Atoms') {
-                    setView('hub');
-                  } else if (activeSection && activeSection.title) {
-                    setView('selection');
+                  // If we have a history, go back; otherwise, go to dashboard
+                  if (viewHistory.length > 1) {
+                    navigateBack();
                   } else {
-                    setView('testHub');
+                    setView('dashboard');
                   }
                 }} className="exit-btn">
-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Tasks
+                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> {viewHistory.length > 1 ? 'Back' : 'Dashboard'}
                 </button>
               )}
               {view === 'results' && (
@@ -833,9 +862,9 @@ function App({ initialView }) {
                     setActiveSectionIndex(0);
                     setView('lesson');
                   }
-                } else if (path === 'skill-tests') {
-                  // Show the skill tests view with individual skill options
-                  setView('skillTests');
+                  } else if (path === 'skill-tests') {
+                   // Show the skill tests view with individual skill options
+                   navigateToView('skillTests');
                 } else if (path === 'atom-skill') {
                   // Start a random exercise from the specific skill
                   // skill = 'reading-ac', 'reading-gt', 'writing-ac', etc.
@@ -861,11 +890,11 @@ function App({ initialView }) {
                     setActiveSectionIndex(0);
                     setView('lesson');
                   }
-                } else if (path === 'mocks') {
-                  setView('testHub');
+                 } else if (path === 'mocks') {
+                   navigateToView('testHub');
                 }
               }}
-              onShowDescription={() => setView('description')}
+               onShowDescription={() => navigateToView('description')}
             />
           )}
 
@@ -873,7 +902,7 @@ function App({ initialView }) {
           {view === 'description' && (
             <ExamDescription 
               activeTest={activeTest}
-              onBack={() => setView('strategy')}
+              onBack={navigateBack}
             />
           )}
 
@@ -881,7 +910,7 @@ function App({ initialView }) {
           {view === 'skillTests' && (
             <div className="strategy-container">
               <header className="strategy-header">
-                <button onClick={() => setView('strategy')} className="btn-back-link">
+                <button onClick={navigateBack} className="btn-back-link">
                   ← Back
                 </button>
                 <h1>Skill Tests</h1>
@@ -896,7 +925,7 @@ function App({ initialView }) {
                     if (exercise) {
                       setActiveLesson(exercise);
                       setActiveSectionIndex(0);
-                      setView('lesson');
+                      navigateToView('lesson');
                     }
                   }}
                 >
@@ -912,7 +941,7 @@ function App({ initialView }) {
                     if (exercise) {
                       setActiveLesson(exercise);
                       setActiveSectionIndex(0);
-                      setView('lesson');
+                      navigateToView('lesson');
                     }
                   }}
                 >
@@ -928,7 +957,7 @@ function App({ initialView }) {
                     if (exercise) {
                       setActiveLesson(exercise);
                       setActiveSectionIndex(0);
-                      setView('lesson');
+                      navigateToView('lesson');
                     }
                   }}
                 >
@@ -944,7 +973,7 @@ function App({ initialView }) {
                     if (exercise) {
                       setActiveLesson(exercise);
                       setActiveSectionIndex(0);
-                      setView('lesson');
+                      navigateToView('lesson');
                     }
                   }}
                 >
@@ -960,7 +989,7 @@ function App({ initialView }) {
                     if (exercise) {
                       setActiveLesson(exercise);
                       setActiveSectionIndex(0);
-                      setView('lesson');
+                      navigateToView('lesson');
                     }
                   }}
                 >
@@ -987,18 +1016,13 @@ function App({ initialView }) {
             </div>
           )}
 
-          {/* DYNAMIC HUB & SELECTION */}
-          {view === 'hub' && <SkillHub data={activeCategory} onBack={() => {
-            // For IELTS Atoms (or any hub with specific categories), go back to testHub
-            setView('testHub');
-          }} onSelectSection={handleSelectSection} />}
+           {/* DYNAMIC HUB & SELECTION */}
+          {view === 'hub' && <SkillHub data={activeCategory} onBack={() => setView('dashboard')} onSelectSection={handleSelectSection} backButtonText={initialView && initialView !== 'dashboard' ? 'Dashboard' : 'Back'} />}
           {view === 'selection' && <TaskSelection section={activeSection} onBack={() => {
-            // If activeCategory has only 1 category, go back to testHub instead of hub
-            const subItems = activeCategory?.sections || activeCategory?.categories || [];
-            if (subItems.length === 1) {
-              setView('testHub');
+            if (viewHistory.length > 1) {
+              navigateBack();
             } else {
-              setView('hub');
+              setView('dashboard');
             }
           }} onSelectTask={handleStartTask} />}
 

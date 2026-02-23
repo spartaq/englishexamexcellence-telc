@@ -15,7 +15,7 @@ const TaskSelection = ({ section, onBack, onSelectTask }) => {
       <div className="task-selection-view">
         <header className="selection-header">
           <button onClick={onBack} className="btn-back-link">
-            <ArrowLeft size={16} /> Back to Hub
+            <ArrowLeft size={16} /> Back
           </button>
           <h2 className="selection-title">{section.title}</h2>
         </header>
@@ -30,7 +30,7 @@ const TaskSelection = ({ section, onBack, onSelectTask }) => {
     <div className="task-selection-view">
       <header className="selection-header">
         <button onClick={onBack} className="btn-back-link">
-          <ArrowLeft size={16} /> Back to Hub
+          <ArrowLeft size={16} /> Back
         </button>
         <h2 className="selection-title">{section.title}</h2>
       </header>

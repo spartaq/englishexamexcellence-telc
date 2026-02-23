@@ -18,10 +18,10 @@ const ExamDescription = ({ activeTest, onBack }) => {
       <header className="strategy-header">
         <button 
           onClick={onBack} 
-          className="btn-icon-only" 
-          style={{ background: 'none', border: 'none', marginBottom: '16px', cursor: 'pointer' }}
+          className="btn-back-link" 
+          style={{ marginBottom: '16px', cursor: 'pointer' }}
         >
-          <ArrowLeft size={24} />
+          <ArrowLeft size={24} /> Back
         </button>
         <h1>About the {activeTest.title}</h1>
         <p>
