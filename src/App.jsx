@@ -116,14 +116,6 @@ const EXTRA_TOOLS = [
     icon: <Zap size={24} />, 
     hubKey: 'general_drills',
     color: '#f59e0b' 
-  },
-  { 
-    id: 'ielts-atoms', 
-    title: 'IELTS Atoms', 
-    description: 'Quick practice exercises from each skill area.', 
-    icon: <Atom size={24} />, 
-    hubKey: 'ielts_atoms',
-    color: '#06b6d4' 
   }
 ];
 

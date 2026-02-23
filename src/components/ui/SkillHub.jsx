@@ -14,7 +14,10 @@ const SkillHub = ({ data, onBack, onSelectSection }) => {
   const categories = hub.categories || [];
 
   return (
-    <div className="hub-container">
+    <>
+      <title>{hub.title} - Skill Training Hub</title>
+      <meta name="description" content={hub.description} />
+      <div className="hub-container">
       <header className="hub-header">
         <button onClick={onBack} className="btn-icon-only" style={{background: 'none', border: 'none'}}><ArrowLeft size={20} /></button>
         <div className="hub-badge" style={{textTransform: 'capitalize'}}>{hub.title}</div>
@@ -45,7 +48,8 @@ const SkillHub = ({ data, onBack, onSelectSection }) => {
 </div>
 
 
-    </div>
+     </div>
+    </>
   );
 };
 

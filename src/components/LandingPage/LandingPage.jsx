@@ -13,7 +13,10 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="landing-container">
+    <>
+      <title>English Exam Excellence - Stop Practicing, Start Training</title>
+      <meta name="description" content="Prepare for IELTS, TOEFL, PTE, and DET exams with 15-minute 'atom' training sessions. Build real skills daily instead of just taking practice tests." />
+      <div className="landing-container">
       <nav className="navbar">
         <div className="logo">
           <span className="logo-box">L</span> THE EXAM LAB
@@ -93,6 +96,7 @@ const LandingPage = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

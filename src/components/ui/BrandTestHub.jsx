@@ -18,7 +18,10 @@ import './ExamStrategy.css';
 const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
 
   return (
-    <div className="strategy-container">
+    <>
+      <title>{activeTest.title} Hub - Training & Practice</title>
+      <meta name="description" content={`Choose your training mode for ${activeTest.title}. Build skills daily with Atoms or test your stamina with full mock exams.`} />
+      <div className="strategy-container">
       
       <header className="strategy-header">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -117,7 +120,8 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
           */}
         </div>
       </div>
-    </div>
+     </div>
+    </>
   );
 };
 

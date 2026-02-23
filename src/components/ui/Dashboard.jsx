@@ -11,7 +11,10 @@ const Dashboard = ({
   EXTRA_TOOLS 
 }) => {
   return (
-    <div className="dashboard-wrapper">
+    <>
+      <title>Exam Dashboard - Choose Your Training Path</title>
+      <meta name="description" content="Select your target exam (IELTS, TOEFL, PTE, DET) or focus on specific skill atoms. Start your training with either full mock exams or daily skill-building exercises." />
+      <div className="dashboard-wrapper">
       
       {/* CHAPTER 1: THE TEACHER'S WELCOME */}
       <header className="dashboard-hero">
@@ -89,7 +92,8 @@ const Dashboard = ({
           </div>
         ))}
       </div>
-    </div>
+     </div>
+    </>
   );
 };
 
