@@ -1051,8 +1051,10 @@ function App({ initialView }) {
               {activeLesson.sections || activeLesson.passages || activeLesson.parts ? (
                 <div className="mock-flow">
                   {(() => {
-                    const sections = activeLesson.sections || activeLesson.passages || activeLesson.parts || [];
-                    const currentSection = sections[activeSectionIndex];
+                    const sections = activeLesson.sections || activeLesson.passages || [];
+                    // For speaking tests with 'parts' array (full mocks), use activeLesson directly
+                    // Otherwise use the section at activeSectionIndex
+                    const currentSection = (activeLesson.parts && activeLesson.parts.length > 0) ? activeLesson : sections[activeSectionIndex];
                     const subPassages = currentSection?.passages || [];
                     const currentPassage = subPassages[activePassageIndex];
                     const directQuestions = currentSection?.questions || [];

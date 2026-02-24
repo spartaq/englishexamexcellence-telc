@@ -39,8 +39,10 @@ const SpeakingBlock = ({ data, onComplete }) => {
   // Get current part based on active part index
   const currentPart = React.useMemo(() => {
     if (hasParts && data.parts[activePartIndex]) {
+      console.log('Returning data.parts[' + activePartIndex + ']:', data.parts[activePartIndex].title);
       return data.parts[activePartIndex];
     }
+    console.log('Returning fallback data');
     return data;
   }, [hasParts, data, activePartIndex]);
   
@@ -51,7 +53,10 @@ const SpeakingBlock = ({ data, onComplete }) => {
   if (currentPart) {
     console.log('Current part id:', currentPart.id);
     console.log('Current part title:', currentPart.title);
+    console.log('Current part type:', currentPart.type);
     console.log('Current part topics:', currentPart.topics);
+    console.log('Current part prompts:', currentPart.prompts);
+    console.log('Current part topicCard:', currentPart.topicCard);
     if (currentPart.topics) {
       console.log('Current part topics length:', currentPart.topics.length);
       console.log('Current part topics:', JSON.stringify(currentPart.topics));
@@ -75,7 +80,9 @@ const SpeakingBlock = ({ data, onComplete }) => {
 
   // Reset state when data changes (switching between parts)
   useEffect(() => {
+    console.log('useEffect triggered - currentPart.id:', currentPart.id, 'activePartIndex:', activePartIndex);
     const isTopicCard = currentPart.topicCard || currentPart.id === 'part4' || currentPart.type === 'long-turn';
+    console.log('isTopicCard:', isTopicCard);
     setMode(isTopicCard ? 'prep' : 'recording');
     setTimeLeft(isTopicCard ? 60 : 120);
     setIsRecording(false);
@@ -176,8 +183,9 @@ const SpeakingBlock = ({ data, onComplete }) => {
               <button 
                 key={idx} 
                 onClick={() => { 
-                  console.log(`Clicked on part index: ${idx}, part id: ${part.id}`);
+                  console.log('BEFORE setActivePartIndex - current activePartIndex:', activePartIndex, 'idx:', idx);
                   setActivePartIndex(idx); 
+                  console.log('AFTER setActivePartIndex - should trigger re-render');
                   setMode(part.topicCard || part.type === 'long-turn' ? 'prep' : 'recording'); 
                 }} 
                 className={`section-tab ${activePartIndex === idx ? 'active' : ''}`}
@@ -204,7 +212,7 @@ const SpeakingBlock = ({ data, onComplete }) => {
 
         <AnimatePresence mode="wait">
           {/* UI for PART 1: General Questions (IELTS format with topics) */}
-          {currentPart.prompts && mode !== 'review' && (
+          {currentPart.prompts && console.log('RENDERING PROMPTS:', currentPart.prompts) || currentPart.prompts && mode !== 'review' && (
             <motion.div key="prompts" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="prompts-list">
               {currentPart.prompts.map((p, i) => (
                 <div key={i} className="speaking-prompt-item">
@@ -226,7 +234,7 @@ const SpeakingBlock = ({ data, onComplete }) => {
           {/* UI for IELTS Part 3: Discussion topics */}
           {currentPart.topics && mode !== 'review' && (
             <motion.div key="topics" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="topics-list">
-              {currentPart.topics.map((t, i) => (
+              {console.log('RENDERING TOPICS:', currentPart.topics) || currentPart.topics.map((t, i) => (
                 <div key={i} className="speaking-topic-item">
                   <span className="speaking-topic-label">TOPIC {i+1}</span>
                   <p className="speaking-topic-title">{t.topic}</p>
@@ -239,6 +247,7 @@ const SpeakingBlock = ({ data, onComplete }) => {
               ))}
             </motion.div>
           )}
+          {currentPart.topics && console.log('Topics condition is TRUE, rendering')}
 
           {/* UI for PART 2: Situations/Scenarios */}
           {currentPart.scenarios && mode !== 'review' && (
@@ -282,7 +291,7 @@ const SpeakingBlock = ({ data, onComplete }) => {
           )}
 
           {/* UI for PART 4: Topic Card */}
-          {currentPart.topicCard && mode !== 'review' && (
+          {currentPart.topicCard && console.log('RENDERING TOPIC CARD:', currentPart.topicCard) || currentPart.topicCard && mode !== 'review' && (
             <motion.div key="topicCard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="topic-card-display">
               <div className="speaking-topic-card">
                 <h4 className="speaking-topic-card-title">{currentPart.topicCard.topic}</h4>
