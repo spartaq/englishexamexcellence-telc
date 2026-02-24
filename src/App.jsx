@@ -9,7 +9,7 @@ import './App.css';
 import { 
   LayoutDashboard, BookOpen, LogOut, Award, 
   CheckCircle, XCircle, ArrowRight, Book, Mic, Headset, PenTool,
-  Zap, Library, Atom
+  Zap, Library, Atom, RefreshCw
 } from 'lucide-react';
 // Navigation & Structure Components
 import LandingPage from './components/LandingPage/LandingPage';
@@ -46,6 +46,7 @@ import DiagramLabelBlock from './components/engine/InteractiveBlocks/DiagramLabe
 import TableCompletionBlock from './components/engine/InteractiveBlocks/TableCompletionBlock';
 import FlowChartCompletionBlock from './components/engine/InteractiveBlocks/FlowChartCompletionBlock';
 import NotesCompletionBlock from './components/engine/InteractiveBlocks/NotesCompletionBlock';
+import PunctuationCorrectionBlock from './components/engine/InteractiveBlocks/PunctuationCorrectionBlock';
 
 // Behind-the-Scenes (Data, Hooks & Utilities)
 import { HUBS, loadFullLesson } from './data/index';
@@ -135,6 +136,15 @@ function App({ initialView }) {
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
   const [activeSkillTab, setActiveSkillTab] = useState(0); // For unified skill tabs: Vocab(mini), Reading, Writing, Speaking, Listening 
   const [showPaywall, setShowPaywall] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Loading effect - set loading to false after initial render
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Helper to set view with history tracking
   const navigateToView = (newView) => {
@@ -167,6 +177,12 @@ function App({ initialView }) {
       } else if (previousView === 'strategy' && activeTest) {
         navigate(`/dashboard/${activeTest.id}-strategy`);
       } else if (previousView === 'testHub' && activeTest) {
+        navigate(`/dashboard/${activeTest.id}-test-hub`);
+      } else if (previousView === 'hub' && activeTest) {
+        // Go back to test hub for hub views
+        navigate(`/dashboard/${activeTest.id}-test-hub`);
+      } else if (previousView === 'selection' && activeTest) {
+        // If going back to selection from a hub, stay on test hub
         navigate(`/dashboard/${activeTest.id}-test-hub`);
       }
     } else {
@@ -222,19 +238,28 @@ function App({ initialView }) {
           setView('testHub');
         }
       } else {
-        // Check if it's a mini test route (skillCategories in ATOM_HUB)
-        const taskMetadata = ATOM_HUB.skillCategories[initialView];
-        if (taskMetadata) {
-          handleStartTask(taskMetadata);
-        } else {
-          // Check if it's a hub route (HUBS object keys)
-          const hubKey = initialView;
-          if (HUBS[hubKey]) {
-            // Directly set the view and activeCategory instead of calling handleSelectModule
-            setActiveCategory(HUBS[hubKey]);
+        // Check if it's a hub route (HUBS object keys) - check this FIRST to prioritize hub/selection flow
+        const hubKey = initialView;
+        if (HUBS[hubKey]) {
+          const hub = HUBS[hubKey];
+          // Directly set the view and activeCategory instead of calling handleSelectModule
+          setActiveCategory(hub);
+          
+          // If hub has only 1 category, skip directly to selection (don't include 'hub' in history)
+          if (hub.categories && hub.categories.length === 1) {
+            setActiveSection(hub.categories[0]);
+            setViewHistory(['dashboard', 'selection']);
+            setView('selection');
+          } else {
             // Initialize history with dashboard -> hub
             setViewHistory(['dashboard', 'hub']);
             setView('hub');
+          }
+        } else {
+          // Check if it's a mini test route (skillCategories in ATOM_HUB)
+          const taskMetadata = ATOM_HUB.skillCategories[initialView];
+          if (taskMetadata) {
+            handleStartTask(taskMetadata);
           } else {
             // For any other route not matching known patterns, go to dashboard
             setView('dashboard');
@@ -572,7 +597,7 @@ function App({ initialView }) {
         return <WritingBlock data={taskData} onComplete={handleCheckAnswers} />;
     }
 
-    if (taskData.type === 'LISTENING') return <ListeningBlock data={taskData} onComplete={handleCheckAnswers} />;
+    if (taskData.type === 'LISTENING' || taskData.skill === 'listening') return <ListeningBlock data={taskData} onComplete={handleCheckAnswers} />;
     if (taskData.type === 'VOCAB') return <VocabBlock data={taskData} onComplete={handleCheckAnswers} />;
 
     if (taskData.type === 'gap-fill' && taskData.label && !taskData.content) {
@@ -615,6 +640,9 @@ function App({ initialView }) {
     switch (taskData.type) {
       case 'token-select':
         return <TokenSelectBlock data={taskData} isReviewMode={isReviewMode} onComplete={(results) => handleCheckAnswers(results)} />;
+
+      case 'punctuation-correction':
+        return <PunctuationCorrectionBlock data={taskData} isReviewMode={isReviewMode} onComplete={(results) => handleCheckAnswers(results)} />;
 
       case 'ielts-complex':
         const subTasks = taskData.subTasks || taskData.questions || [];
@@ -719,6 +747,31 @@ function App({ initialView }) {
   // ============================================================
   // CHAPTER 7: THE SCHOOL BUILDING (MAIN RENDER)
   // ============================================================
+  
+  // Loading spinner
+  if (isLoading) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        flexDirection: 'column',
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        height: '100vh',
+        background: 'var(--bg-primary)',
+        color: 'var(--text-primary)'
+      }}>
+        <RefreshCw className="spinner" size={48} style={{ marginBottom: '1rem', animation: 'spin 1s linear infinite' }} />
+        <p style={{ fontSize: '1.2rem', opacity: 0.8 }}>Loading The Lab...</p>
+        <style>{`
+          @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+        `}</style>
+      </div>
+    );
+  }
+
   return (
     <div className={`app-shell ${isHighFocus ? 'high-focus-layout' : ''}`}>
       <ScrollToTop /> 

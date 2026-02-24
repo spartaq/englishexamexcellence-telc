@@ -26,8 +26,6 @@ const Router = () => {
        <Route path="/dashboard/reading-general" element={<App initialView="reading_general" />} />
        <Route path="/dashboard/writing-academic" element={<App initialView="writing_academic" />} />
        <Route path="/dashboard/writing-general" element={<App initialView="writing_general" />} />
-       <Route path="/dashboard/speaking" element={<App initialView="speaking" />} />
-       <Route path="/dashboard/listening" element={<App initialView="listening" />} />
        <Route path="/dashboard/ielts-atoms" element={<App initialView="ielts_atoms" />} />
        <Route path="/dashboard/general-drills" element={<App initialView="general_drills" />} />
        <Route path="/dashboard/vocabulary" element={<App initialView="vocabulary" />} />

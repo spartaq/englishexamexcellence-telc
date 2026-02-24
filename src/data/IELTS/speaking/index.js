@@ -17,47 +17,18 @@ export const speakingMocks = {
 // 2. The Hub Structure for the UI
 export const SPEAKING_HUB = {
   title: "IELTS Speaking Hub",
+  description: "Master all three parts of the IELTS Speaking test.",
   categories: [
     {
       id: 'full-mocks',
-      title: 'Full Mock Exams',
+      title: 'Full Speaking Mocks',
       description: 'Complete IELTS Speaking simulations',
       tasks: [
-        { 
-          id: 'ielts-speaking-mock1', 
-          title: 'Speaking Mock #1', 
-          xp: 1200, 
-          type: 'speaking-mock', 
-          tier: 'bronze' 
-        },
-        { 
-          id: 'ielts-speaking-mock2', 
-          title: 'Speaking Mock #2', 
-          xp: 1200, 
-          type: 'speaking-mock', 
-          tier: 'bronze' 
-        },
-        { 
-          id: 'ielts-speaking-mock3', 
-          title: 'Speaking Mock #3', 
-          xp: 1200, 
-          type: 'speaking-mock', 
-          tier: 'bronze' 
-        },
-        { 
-          id: 'ielts-speaking-mock4', 
-          title: 'Speaking Mock #4', 
-          xp: 1200, 
-          type: 'speaking-mock', 
-          tier: 'bronze' 
-        },
-        { 
-          id: 'ielts-speaking-mock5', 
-          title: 'Speaking Mock #5', 
-          xp: 1200, 
-          type: 'speaking-mock', 
-          tier: 'bronze' 
-        },
+        { id: 'ielts-speaking-mock1', title: 'Speaking Mock #1', xp: 1200, type: 'speaking-mock', tier: 'bronze' },
+        { id: 'ielts-speaking-mock2', title: 'Speaking Mock #2', xp: 1200, type: 'speaking-mock', tier: 'bronze' },
+        { id: 'ielts-speaking-mock3', title: 'Speaking Mock #3', xp: 1200, type: 'speaking-mock', tier: 'bronze' },
+        { id: 'ielts-speaking-mock4', title: 'Speaking Mock #4', xp: 1200, type: 'speaking-mock', tier: 'bronze' },
+        { id: 'ielts-speaking-mock5', title: 'Speaking Mock #5', xp: 1200, type: 'speaking-mock', tier: 'bronze' },
       ]
     }
   ]
