@@ -32,10 +32,15 @@ const Router = () => {
        <Route path="/dashboard/general-drills" element={<App initialView="general_drills" />} />
        <Route path="/dashboard/vocabulary" element={<App initialView="vocabulary" />} />
        
-       {/* Strategy view routes */}
-       <Route path="/dashboard/ielts-strategy" element={<App initialView="ielts-strategy" />} />
-       <Route path="/dashboard/langcert-strategy" element={<App initialView="langcert-strategy" />} />
-       <Route path="/dashboard/toefl-strategy" element={<App initialView="toefl-strategy" />} />
+        {/* Strategy view routes */}
+        <Route path="/dashboard/ielts-strategy" element={<App initialView="ielts-strategy" />} />
+        <Route path="/dashboard/langcert-strategy" element={<App initialView="langcert-strategy" />} />
+        <Route path="/dashboard/toefl-strategy" element={<App initialView="toefl-strategy" />} />
+        
+        {/* Test hub routes */}
+        <Route path="/dashboard/ielts-test-hub" element={<App initialView="ielts-test-hub" />} />
+        <Route path="/dashboard/langcert-test-hub" element={<App initialView="langcert-test-hub" />} />
+        <Route path="/dashboard/toefl-test-hub" element={<App initialView="toefl-test-hub" />} />
     </Routes>
   );
 };

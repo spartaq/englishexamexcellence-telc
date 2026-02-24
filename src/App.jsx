@@ -141,6 +141,13 @@ function App({ initialView }) {
     if (newView !== view) {
       setViewHistory(prev => [...prev, newView]);
       setView(newView);
+      
+      // Update URL based on view type
+      if (newView === 'testHub' && activeTest) {
+        navigate(`/dashboard/${activeTest.id}-test-hub`);
+      } else if (newView === 'strategy' && activeTest) {
+        navigate(`/dashboard/${activeTest.id}-strategy`);
+      }
     }
   };
 
@@ -183,7 +190,7 @@ function App({ initialView }) {
   useActive(isUserInApp); 
   useXP(isUserInApp);
   
-  // Effect to handle initial view (routing)
+   // Effect to handle initial view (routing)
   useEffect(() => {
     if (initialView && initialView !== 'dashboard') {
       // Check if it's a strategy route (e.g., ielts-strategy)
@@ -194,6 +201,15 @@ function App({ initialView }) {
           // Initialize history with dashboard -> strategy
           setViewHistory(['dashboard', 'strategy']);
           setView('strategy');
+        }
+      } else if (initialView.includes('-test-hub')) {
+        // Check if it's a test hub route (e.g., ielts-test-hub)
+        const testId = initialView.split('-')[0]; // Extract test id (e.g., ielts from ielts-test-hub)
+        if (TEST_PLATFORM_CONFIG[testId]) {
+          setActiveTest(TEST_PLATFORM_CONFIG[testId]);
+          // Initialize history with dashboard -> testHub
+          setViewHistory(['dashboard', 'testHub']);
+          setView('testHub');
         }
       } else {
         // Check if it's a mini test route (skillCategories in ATOM_HUB)
@@ -708,7 +724,7 @@ function App({ initialView }) {
               <LayoutDashboard size={18} /> Dashboard
             </button>
             {activeTest && (
-              <button onClick={() => navigateToView('testHub')} className={`nav-item ${view === 'testHub' ? 'active' : ''}`}>
+              <button onClick={() => navigate(`/dashboard/${activeTest.id}-test-hub`)} className={`nav-item ${view === 'testHub' ? 'active' : ''}`}>
                 <BookOpen size={18} /> {activeTest.title} Hub
               </button>
             )}
@@ -727,11 +743,11 @@ function App({ initialView }) {
           <header className="app-header">
             <div>
               {/* Only show header back button for views that don't have their own back button */}
-              {view === 'testHub' && (
-                <button onClick={() => setView('dashboard')} className="exit-btn">
-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Dashboard
-                </button>
-              )}
+               {view === 'testHub' && (
+                 <button onClick={() => navigate('/dashboard')} className="exit-btn">
+                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Dashboard
+                 </button>
+               )}
               {view === 'lesson' && (
                 <button onClick={() => { 
                   setActiveLesson(null); 
@@ -890,8 +906,11 @@ function App({ initialView }) {
                     setActiveSectionIndex(0);
                     setView('lesson');
                   }
-                 } else if (path === 'mocks') {
-                   navigateToView('testHub');
+                  } else if (path === 'mocks') {
+                    // Navigate to test hub with URL change
+                    if (activeTest) {
+                      navigate(`/dashboard/${activeTest.id}-test-hub`);
+                    }
                 }
               }}
                onShowDescription={() => navigateToView('description')}

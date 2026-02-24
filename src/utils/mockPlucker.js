@@ -292,16 +292,33 @@ export const pluckRandom = (skill) => {
     const randomMock = getRandomItem(allSpeakingMocks);
     
     if (randomMock && randomMock.parts && randomMock.parts.length > 0) {
-      // For mini-test, pick only ONE random part instead of all parts
-      const randomPart = getRandomItem(randomMock.parts);
+      console.log('Plucking speaking test:', randomMock.title);
+      console.log('Number of parts:', randomMock.parts.length);
+      randomMock.parts.forEach((part, index) => {
+        console.log(`Part ${index + 1}:`, part.title);
+        console.log('  Type:', part.type);
+        console.log('  Has topics:', !!part.topics);
+        if (part.topics) {
+          console.log('  Number of topics:', part.topics.length);
+        }
+      });
       
+      // For debugging purposes, let's extract the parts directly
+      const part1 = JSON.parse(JSON.stringify(randomMock.parts[0]));
+      const part2 = JSON.parse(JSON.stringify(randomMock.parts[1]));
+      const part3 = JSON.parse(JSON.stringify(randomMock.parts[2]));
+      
+      console.log('Extracted part1 id:', part1.id);
+      console.log('Extracted part2 id:', part2.id);
+      console.log('Extracted part3 id:', part3.id);
+      
+      // Return the entire speaking test with all parts
       return {
-        id: `speaking-${randomMock.id}-${randomPart.id}`,
-        title: `${randomMock.title} - ${randomPart.title}`,
+        id: `speaking-${randomMock.id}`,
+        title: randomMock.title,
         type: 'ielts-speaking',
         xp: 150,
-        // Return only the single part, not the full parts array
-        parts: [randomPart]
+        parts: [part1, part2, part3]
       };
     }
     

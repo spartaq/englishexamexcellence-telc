@@ -5,6 +5,26 @@ import { useExamStore } from '../../store/useExamStore';
 import './engine.css';
 
 const SpeakingBlock = ({ data, onComplete }) => {
+  // Log data for debugging
+  console.log('SpeakingBlock received data:', typeof data, data);
+  if (data && typeof data === 'object') {
+    console.log('Data keys:', Object.keys(data));
+    if (data.parts) {
+      console.log('Parts type:', typeof data.parts);
+      console.log('Parts value:', data.parts);
+      console.log('Parts length:', data.parts.length);
+      if (Array.isArray(data.parts)) {
+        data.parts.forEach((part, index) => {
+          console.log(`Part ${index + 1} in SpeakingBlock:`, part.title);
+          console.log('  Has topics:', !!part.topics);
+          if (part.topics) {
+            console.log('  Number of topics:', part.topics.length);
+          }
+        });
+      }
+    }
+  }
+  
   // --- NEW STATES FOR AI ANALYSIS ---
   const [audioBlob, setAudioBlob] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -12,10 +32,31 @@ const SpeakingBlock = ({ data, onComplete }) => {
 
   // Handle IELTS speaking mock structure with 'parts' array
   const hasParts = data.parts && data.parts.length > 0;
+  
+  // Use state for active part index - THIS IS THE FIX!
   const [activePartIndex, setActivePartIndex] = useState(0);
   
-  // Get the current part data (either from parts array or flat data)
-  const currentPart = hasParts ? data.parts[activePartIndex] : data;
+  // Get current part based on active part index
+  const currentPart = React.useMemo(() => {
+    if (hasParts && data.parts[activePartIndex]) {
+      return data.parts[activePartIndex];
+    }
+    return data;
+  }, [hasParts, data, activePartIndex]);
+  
+  // Debug: Show current part details
+  console.log('Data.parts:', data.parts);
+  console.log('Active part index:', activePartIndex);
+  console.log('Current part:', currentPart);
+  if (currentPart) {
+    console.log('Current part id:', currentPart.id);
+    console.log('Current part title:', currentPart.title);
+    console.log('Current part topics:', currentPart.topics);
+    if (currentPart.topics) {
+      console.log('Current part topics length:', currentPart.topics.length);
+      console.log('Current part topics:', JSON.stringify(currentPart.topics));
+    }
+  }
   
   // Determine if this is a topicCard exercise (Part 2 style) - check for topicCard or part4 ID
   const isTopicCardExercise = currentPart.topicCard || currentPart.id === 'part4' || currentPart.type === 'long-turn';
@@ -134,9 +175,19 @@ const SpeakingBlock = ({ data, onComplete }) => {
             {data.parts.map((part, idx) => (
               <button 
                 key={idx} 
-                onClick={() => { setActivePartIndex(idx); setMode(part.topicCard || part.type === 'long-turn' ? 'prep' : 'recording'); }} 
+                onClick={() => { 
+                  console.log(`Clicked on part index: ${idx}, part id: ${part.id}`);
+                  setActivePartIndex(idx); 
+                  setMode(part.topicCard || part.type === 'long-turn' ? 'prep' : 'recording'); 
+                }} 
                 className={`section-tab ${activePartIndex === idx ? 'active' : ''}`}
-                style={{ fontSize: '13px', padding: '8px 12px' }}
+                style={{ 
+                  fontSize: '13px', 
+                  padding: '15px 20px', 
+                  minWidth: '100px',
+                  zIndex: 10,
+                  position: 'relative'
+                }}
               >
                 {part.title || `Part ${idx + 1}`}
               </button>
@@ -144,7 +195,7 @@ const SpeakingBlock = ({ data, onComplete }) => {
           </div>
         )}
 
-        {/* Show instruction for current part */}
+         {/* Show instruction for current part */}
         {currentPart.instruction && mode !== 'review' && (
           <div className="speaking-instruction">
             {currentPart.instruction}
