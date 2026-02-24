@@ -55,7 +55,7 @@ import { useXP } from './hooks/useXP';
 import { useExamStore } from './store/useExamStore';
 import ScrollToTop from './scrollToTop';
 import { evaluateDrill } from './utils/evaluate';
-import { getAtomsFromMocks, pluckRandom, getVocabById, pluckRandomFullMock, findVocabFromReading } from './utils/mockPlucker';
+import { getAtomsFromMocks, pluckRandom, getVocabById, pluckRandomFullMock, findVocabFromReading, pluckSingleSpeakingPart } from './utils/mockPlucker';
 
 // ============================================================
 // CHAPTER 2: THE SYLLABUS (EXAM CONFIGURATIONS)
@@ -160,9 +160,19 @@ function App({ initialView }) {
       const previousView = newHistory[newHistory.length - 1];
       setViewHistory(newHistory);
       setView(previousView);
+      
+      // Update URL based on previous view
+      if (previousView === 'dashboard' || previousView === 'landing') {
+        navigate('/dashboard');
+      } else if (previousView === 'strategy' && activeTest) {
+        navigate(`/dashboard/${activeTest.id}-strategy`);
+      } else if (previousView === 'testHub' && activeTest) {
+        navigate(`/dashboard/${activeTest.id}-test-hub`);
+      }
     } else {
       // If we're at the root view or directly accessed, go to dashboard
       setView('dashboard');
+      navigate('/dashboard');
     }
   };      
 
@@ -414,7 +424,7 @@ function App({ initialView }) {
           { ...vocabExercise, skill: 'vocab' },
           { ...readingExercise, skill: 'reading' },
           { ...pluckRandom('listening'), skill: 'listening' },
-          { ...(pluckRandom('speaking') || {
+          { ...(pluckSingleSpeakingPart()?.sections?.[0] || {
             id: 'speaking-fallback',
             title: 'Speaking Practice',
             type: 'SPEAKING',
@@ -444,7 +454,7 @@ function App({ initialView }) {
           { ...vocabExercise, skill: 'vocab' },
           { ...readingExercise, skill: 'reading' },
           { ...pluckRandom('listening'), skill: 'listening' },
-          { ...(pluckRandom('speaking') || {
+          { ...(pluckSingleSpeakingPart()?.sections?.[0] || {
             id: 'speaking-fallback',
             title: 'Speaking Practice',
             type: 'SPEAKING',
@@ -497,7 +507,7 @@ function App({ initialView }) {
           { ...vocabExercise, skill: 'vocab' },
           { ...readingExercise, skill: 'reading' },
           { ...pluckRandom('listening'), skill: 'listening' },
-          { ...(pluckRandom('speaking') || {
+          { ...(pluckSingleSpeakingPart()?.sections?.[0] || {
             id: 'speaking-fallback',
             title: 'Speaking Practice',
             type: 'SPEAKING',
@@ -555,7 +565,7 @@ function App({ initialView }) {
   const renderQuestionBlock = (taskData) => {
     if (!taskData) return null;
 
-    if (taskData.prompts || taskData.scenarios || taskData.candidateInfo || taskData.topicCard || taskData.type === 'SPEAKING' || taskData.type === 'ielts-speaking' || taskData.parts) {
+    if (taskData.prompts || taskData.scenarios || taskData.candidateInfo || taskData.topicCard || taskData.type === 'SPEAKING' || taskData.skill === 'speaking') {
         return <SpeakingBlock data={taskData} onComplete={handleCheckAnswers} />;
     }
     if (taskData.type === 'WRITING' || taskData.prompt) {
@@ -799,9 +809,23 @@ function App({ initialView }) {
                   const readingExercise = pluckRandom('reading_general');
                   const vocabExercise = findVocabFromReading(readingExercise);
                   const writingExercise = pluckRandom('writing_general');
-                  const speakingExercise = pluckRandom('speaking');
+                  const speakingExerciseWrapper = pluckSingleSpeakingPart(); // Returns { sections: [speakingPart] }
                   const listeningExercise = pluckRandom('listening');
-                  
+                   
+                   // Extract the actual speaking part from the sections array
+                   const speakingPart = speakingExerciseWrapper?.sections?.[0] || {
+                     id: 'speaking-fallback',
+                     title: 'Speaking Practice',
+                     type: 'SPEAKING',
+                     xp: 200,
+                     prompts: [
+                       'Tell me about your hometown.',
+                       'What do you like to do in your free time?',
+                       'Describe your favorite food.',
+                       'What is your favorite season? Why?'
+                     ]
+                   };
+                   
                    // Create a mini-test flow with all exercises as sections
                    const miniTest = {
                      id: 'mini-test-flow',
@@ -813,21 +837,7 @@ function App({ initialView }) {
                        { ...readingExercise, skill: 'reading' },
                        { ...listeningExercise, skill: 'listening' },
                        { ...writingExercise, skill: 'writing' },
-                       { 
-                         ...(speakingExercise || {
-                           id: 'speaking-fallback',
-                           title: 'Speaking Practice',
-                           type: 'SPEAKING',
-                           xp: 200,
-                           prompts: [
-                             'Tell me about your hometown.',
-                             'What do you like to do in your free time?',
-                             'Describe your favorite food.',
-                             'What is your favorite season? Why?'
-                           ]
-                         }),
-                         skill: 'speaking' 
-                       }
+                       { ...speakingPart, skill: 'speaking' }
                      ].filter(Boolean)
                    };
                   
@@ -841,9 +851,23 @@ function App({ initialView }) {
                   const readingExercise = pluckRandom('reading_academic');
                   const vocabExercise = findVocabFromReading(readingExercise);
                   const writingExercise = pluckRandom('writing_academic');
-                  const speakingExercise = pluckRandom('speaking');
+                  const speakingExerciseWrapper = pluckSingleSpeakingPart(); // Returns { sections: [speakingPart] }
                   const listeningExercise = pluckRandom('listening');
-                  
+                   
+                   // Extract the actual speaking part from the sections array
+                   const speakingPart = speakingExerciseWrapper?.sections?.[0] || {
+                     id: 'speaking-fallback',
+                     title: 'Speaking Practice',
+                     type: 'SPEAKING',
+                     xp: 200,
+                     prompts: [
+                       'Tell me about your hometown.',
+                       'What do you like to do in your free time?',
+                       'Describe your favorite food.',
+                       'What is your favorite season? Why?'
+                     ]
+                   };
+                   
                    // Create a mini-test flow with all exercises as sections
                    const academicMiniTest = {
                      id: 'academic-mini-flow',
@@ -855,21 +879,7 @@ function App({ initialView }) {
                        { ...readingExercise, skill: 'reading' },
                        { ...listeningExercise, skill: 'listening' },
                        { ...writingExercise, skill: 'writing' },
-                       { 
-                         ...(speakingExercise || {
-                           id: 'speaking-fallback',
-                           title: 'Speaking Practice',
-                           type: 'SPEAKING',
-                           xp: 200,
-                           prompts: [
-                             'Tell me about your hometown.',
-                             'What do you like to do in your free time?',
-                             'Describe your favorite food.',
-                             'What is your favorite season? Why?'
-                           ]
-                         }),
-                         skill: 'speaking' 
-                       }
+                       { ...speakingPart, skill: 'speaking' }
                      ].filter(Boolean)
                    };
                   
@@ -899,14 +909,30 @@ function App({ initialView }) {
                     setView('lesson');
                   }
                 } else if (path === 'random-mock') {
-                  // Start a random full mock test immediately
-                  const randomMock = pluckRandomFullMock();
-                  if (randomMock && randomMock.sections && randomMock.sections.length > 0) {
-                    setActiveLesson(randomMock);
-                    setActiveSectionIndex(0);
-                    setView('lesson');
-                  }
-                  } else if (path === 'mocks') {
+                   // Start a random full mock test immediately
+                   const randomMock = pluckRandomFullMock();
+                   if (randomMock && randomMock.sections && randomMock.sections.length > 0) {
+                     setActiveLesson(randomMock);
+                     setActiveSectionIndex(0);
+                     setView('lesson');
+                   }
+                 } else if (path === 'general-full-mock') {
+                   // Start a General Training full mock test
+                   const generalMock = pluckRandomFullMock('general');
+                   if (generalMock && generalMock.sections && generalMock.sections.length > 0) {
+                     setActiveLesson(generalMock);
+                     setActiveSectionIndex(0);
+                     setView('lesson');
+                   }
+                 } else if (path === 'academic-full-mock') {
+                   // Start an Academic full mock test
+                   const academicMock = pluckRandomFullMock('academic');
+                   if (academicMock && academicMock.sections && academicMock.sections.length > 0) {
+                     setActiveLesson(academicMock);
+                     setActiveSectionIndex(0);
+                     setView('lesson');
+                   }
+                   } else if (path === 'mocks') {
                     // Navigate to test hub with URL change
                     if (activeTest) {
                       navigate(`/dashboard/${activeTest.id}-test-hub`);

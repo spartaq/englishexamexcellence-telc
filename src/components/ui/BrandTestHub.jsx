@@ -94,14 +94,37 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
             Use once a week to track your progress.
           </p>
           
-          <button 
-            className="btn-base btn-primary" 
-            onClick={() => onSelectPath('random-mock')}
-            style={{ marginBottom: '12px' }}
-          >
-            <Shuffle size={18} style={{ marginRight: '8px' }} />
-            Take Random Mock
-          </button>
+          {/* IELTS has General and Academic options */}
+          {activeTest.id === 'ielts' ? (
+            <>
+              <button 
+                className="btn-base btn-primary" 
+                onClick={() => onSelectPath('general-full-mock')}
+                style={{ marginBottom: '12px' }}
+              >
+                <Shuffle size={18} style={{ marginRight: '8px' }} />
+                Take General Mock
+              </button>
+              
+              <button 
+                className="btn-base btn-primary" 
+                onClick={() => onSelectPath('academic-full-mock')}
+                style={{ marginBottom: '12px' }}
+              >
+                <BookOpen size={18} style={{ marginRight: '8px' }} />
+                Take Academic Mock
+              </button>
+            </>
+          ) : (
+            <button 
+              className="btn-base btn-primary" 
+              onClick={() => onSelectPath('random-mock')}
+              style={{ marginBottom: '12px' }}
+            >
+              <Shuffle size={18} style={{ marginRight: '8px' }} />
+              Take Random Mock
+            </button>
+          )}
           
           <button 
             className="btn-base btn-outline"
