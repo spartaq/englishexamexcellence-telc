@@ -11,18 +11,21 @@ const Dashboard = ({
   EXTRA_TOOLS 
 }) => {
   return (
-    <div className="dashboard-wrapper">
+    <>
+      <title>Exam Dashboard - Choose Your Training Path</title>
+      <meta name="description" content="Select your target exam (IELTS, TOEFL, PTE, DET) or focus on specific skill atoms. Start your training with either full mock exams or daily skill-building exercises." />
+      <div className="dashboard-wrapper">
       
       {/* CHAPTER 1: THE TEACHER'S WELCOME */}
       <header className="dashboard-hero">
         <div className="dashboard-hero-content">
           <h1>
-            {isPremium ? "Ready for today's session? ??" : "Let's get to work. ??"}
+            {isPremium ? "Ready for today's session?" : "Let's get to work."}
           </h1>
           <p>
             {isPremium 
               ? "Your training plan is ready. Remember: 15 minutes of focused work is better than 3 hours of aimless practice." 
-              : "Welcome to the Lab. Pick your target exam below and we'll start breaking it down into manageable atoms."}
+              : "Welcome to the Lab. Pick your exam and start training for the test."}
           </p>
           
           {/* Quick Effort Summary */}
@@ -69,7 +72,12 @@ const Dashboard = ({
           <div 
             key={tool.id} 
             className="exam-card" 
-            onClick={() => onSelectModule(tool.hubKey)} 
+            onClick={(e) => {
+              console.log('Button clicked');
+              console.log('Tool:', tool);
+              console.log('onSelectModule:', onSelectModule);
+              onSelectModule(tool.hubKey);
+            }} 
           >
             <div 
               className="exam-card-icon"
@@ -84,7 +92,8 @@ const Dashboard = ({
           </div>
         ))}
       </div>
-    </div>
+     </div>
+    </>
   );
 };
 

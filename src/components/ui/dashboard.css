@@ -192,8 +192,8 @@
 }
 
 /* ===========================================
-   DASHBOARD WRAPPER & HERO
-   =========================================== */
+    DASHBOARD WRAPPER & HERO
+    =========================================== */
 
 .dashboard-wrapper {
   padding: 20px;
@@ -202,8 +202,8 @@
 }
 
 .dashboard-hero {
-  margin-bottom: 40px;
-  padding: 40px;
+  margin-bottom: 20px;
+  padding: 24px 20px;
   background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
   border-radius: 24px;
   color: white;
@@ -217,20 +217,20 @@
 }
 
 .dashboard-hero h1 {
-  font-size: 2.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .dashboard-hero p {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   opacity: 0.8;
   max-width: 600px;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .dashboard-hero .xp-badge-container {
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 .dashboard-hero-icon {
@@ -243,41 +243,123 @@
 }
 
 /* ===========================================
-   SECTION HEADERS
-   =========================================== */
+    RESPONSIVE HERO SECTION
+    =========================================== */
+@media (max-width: 768px) {
+  .dashboard-hero {
+    margin-bottom: 20px;
+    padding: 24px 20px;
+  }
+  
+  .dashboard-hero h1 {
+    font-size: 1.4rem;
+  }
+  
+  .dashboard-hero p {
+    font-size: 0.9rem;
+  }
+  
+  .dashboard-hero-icon {
+    width: 120px;
+    height: 120px;
+  }
+  
+  /* Mobile exam cards - narrower with wrapped text */
+  .exam-card {
+    max-width: 220px;
+    padding: 16px;
+  }
+  
+  .exam-card h3 {
+    font-size: 1rem;
+  }
+  
+  .exam-card p {
+    font-size: 0.8rem;
+  }
+}
+
+/* ===========================================
+    SECTION HEADERS
+    =========================================== */
 
 .dashboard-section-header {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .dashboard-section-header h2 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
 }
 
 .dashboard-section-header p {
   color: #64748b;
   margin: 0;
+  font-size: 0.9rem;
 }
 
 /* ===========================================
-   EXAM SELECTION GRID
-   =========================================== */
+    RESPONSIVE SECTION HEADERS
+    =========================================== */
+@media (max-width: 768px) {
+  .dashboard-section-header {
+    margin-bottom: 16px;
+  }
+  
+  .dashboard-section-header h2 {
+    font-size: 1.1rem;
+  }
+  
+  .dashboard-section-header p {
+    font-size: 0.85rem;
+  }
+}
+
+/* ===========================================
+    EXAM SELECTION GRID
+    =========================================== */
 
 .exam-selection-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-  margin-bottom: 48px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #e2e8f0 transparent;
+}
+
+.exam-selection-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.exam-selection-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.exam-selection-grid::-webkit-scrollbar-thumb {
+  background-color: #e2e8f0;
+  border-radius: 3px;
 }
 
 .exam-card {
   border: 1px solid var(--border-color);
-  padding: 32px;
-  border-radius: 20px;
+  padding: 20px;
+  border-radius: 16px;
   cursor: pointer;
   background: white;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 220px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .exam-card:hover {
@@ -290,61 +372,110 @@
 }
 
 .exam-card-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   color: white;
 }
 
 .exam-card h3 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 800;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
 }
 
 .exam-card p {
   color: #64748b;
   margin: 0;
+  font-size: 0.8rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
 }
 
 /* ===========================================
-   EXTRA TOOLS GRID
-   =========================================== */
+    EXTRA TOOLS GRID
+    =========================================== */
 
 .extra-tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #e2e8f0 transparent;
+}
+
+.exam-selection-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #e2e8f0 transparent;
+}
+
+.extra-tools-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.extra-tools-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.extra-tools-grid::-webkit-scrollbar-thumb {
+  background-color: #e2e8f0;
+  border-radius: 3px;
 }
 
 .extra-tools-grid .exam-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding: 24px;
+  gap: 14px;
+  padding: 16px;
+  min-width: 160px;
+  min-height: 180px;
+  flex-shrink: 0;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
 }
 
 .extra-tools-grid .exam-card-icon {
   width: auto;
   height: auto;
-  padding: 12px;
-  border-radius: 12px;
+  padding: 8px;
+  border-radius: 10px;
   margin-bottom: 0;
-  min-width: 48px;
+  min-width: 36px;
 }
 
 .extra-tools-grid .exam-card h4 {
   font-weight: 800;
   margin: 0;
+  font-size: 0.95rem;
 }
 
 .extra-tools-grid .exam-card p {
   color: #64748b;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin: 0;
 }
 

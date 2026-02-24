@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate, useParams } from 'react-router-dom';
 import './styles/globals.css';
 import './App.css';
 
@@ -54,7 +55,7 @@ import { useXP } from './hooks/useXP';
 import { useExamStore } from './store/useExamStore';
 import ScrollToTop from './scrollToTop';
 import { evaluateDrill } from './utils/evaluate';
-import { getAtomsFromMocks, pluckRandom, getVocabById, pluckRandomFullMock } from './utils/mockPlucker';
+import { getAtomsFromMocks, pluckRandom, getVocabById, pluckRandomFullMock, findVocabFromReading } from './utils/mockPlucker';
 
 // ============================================================
 // CHAPTER 2: THE SYLLABUS (EXAM CONFIGURATIONS)
@@ -66,21 +67,34 @@ const TEST_PLATFORM_CONFIG = {
     description: 'Complete Academic and General Training prep',
     color: '#e11d48',
     modules: [
+      { id: 'reading_ac', title: 'Academic Reading', icon: <BookOpen size={20} />, hubKey: 'reading_academic' },
+      { id: 'reading_gt', title: 'General Reading', icon: <BookOpen size={20} />, hubKey: 'reading_general' },
+      { id: 'writing_ac', title: 'Academic Writing', icon: <PenTool size={20} />, hubKey: 'writing_academic' },
+      { id: 'writing_gt', title: 'General Writing', icon: <PenTool size={20} />, hubKey: 'writing_general' },
+      { id: 'listening', title: 'Listening', icon: <Headset size={20} />, hubKey: 'listening' },
+      { id: 'speaking', title: 'Speaking', icon: <Mic size={20} />, hubKey: 'speaking' },
+    ]
+  },
+  langcert: {
+    id: 'langcert',
+    title: 'LangCert',
+    description: 'International ESOL qualification',
+    color: '#2563eb',
+    modules: [
+      { id: 'speaking', title: 'Speaking', icon: <Mic size={20} />, hubKey: 'speaking' },
+    ]
+  },
+  toefl: {
+    id: 'toefl',
+    title: 'TOEFL',
+    description: 'Test of English as a Foreign Language',
+    color: '#3b82f6',
+    modules: [
       { id: 'r_ac', title: 'Academic Reading', icon: <BookOpen size={20} />, hubKey: 'reading_academic' },
       { id: 'r_gt', title: 'General Reading', icon: <BookOpen size={20} />, hubKey: 'reading_general' },
       { id: 'w_ac', title: 'Academic Writing', icon: <PenTool size={20} />, hubKey: 'writing_academic' },
       { id: 'w_gt', title: 'General Writing', icon: <PenTool size={20} />, hubKey: 'writing_general' },
       { id: 'listening', title: 'Listening', icon: <Headset size={20} />, hubKey: 'listening' },
-      { id: 'speaking', title: 'Speaking', icon: <Mic size={20} />, hubKey: 'speaking' },
-      { id: 'ielts_atoms', title: 'IELTS Atoms', icon: <Atom size={20} />, hubKey: 'ielts_atoms' },
-    ]
-  },
-  langcert: {
-    id: 'langcert',
-    title: 'LangCert ESOL',
-    description: 'International ESOL B2/C1 qualification',
-    color: '#2563eb',
-    modules: [
       { id: 'speaking', title: 'Speaking', icon: <Mic size={20} />, hubKey: 'speaking' },
     ]
   }
@@ -105,13 +119,14 @@ const EXTRA_TOOLS = [
   }
 ];
 
-function App() {
+function App({ initialView }) {
   // ============================================================
   // CHAPTER 3: THE TEACHER'S GRADEBOOK (STATE MANAGEMENT)
   // ============================================================
   
   // Navigation State
-  const [view, setView] = useState('landing');             
+  const [view, setView] = useState(initialView || 'dashboard');
+  const [viewHistory, setViewHistory] = useState([initialView || 'dashboard']);
   const [activeTest, setActiveTest] = useState(null);       
   const [activeCategory, setActiveCategory] = useState(null); 
   const [activeSection, setActiveSection] = useState(null);   
@@ -119,7 +134,30 @@ function App() {
   const [activePassageIndex, setActivePassageIndex] = useState(0); 
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
   const [activeSkillTab, setActiveSkillTab] = useState(0); // For unified skill tabs: Vocab(mini), Reading, Writing, Speaking, Listening 
-  const [showPaywall, setShowPaywall] = useState(false);      
+  const [showPaywall, setShowPaywall] = useState(false);
+
+  // Helper to set view with history tracking
+  const navigateToView = (newView) => {
+    if (newView !== view) {
+      setViewHistory(prev => [...prev, newView]);
+      setView(newView);
+    }
+  };
+
+  // Helper to go back to previous view
+  const navigateBack = () => {
+    // If we have history, go back
+    if (viewHistory.length > 1) {
+      const newHistory = [...viewHistory];
+      newHistory.pop(); // Remove current view
+      const previousView = newHistory[newHistory.length - 1];
+      setViewHistory(newHistory);
+      setView(previousView);
+    } else {
+      // If we're at the root view or directly accessed, go to dashboard
+      setView('dashboard');
+    }
+  };      
 
   // Learning & Result State
   const [userAnswers, setUserAnswers] = useState({});
@@ -127,6 +165,9 @@ function App() {
   const [lessonResults, setLessonResults] = useState({ accuracy: 0, earnedXP: 0, isPerfect: false });
   const [isReviewMode, setIsReviewMode] = useState(false);    
 
+  // Router Navigate
+  const navigate = useNavigate();
+  
   // Complex Interaction State
   const [gapFillSelections, setGapFillSelections] = useState({});
   const [activeGap, setActiveGap] = useState(null);
@@ -140,12 +181,47 @@ function App() {
   // Effort Tracking Hooks
   const isUserInApp = view !== 'landing';
   useActive(isUserInApp); 
-  useXP(isUserInApp);     
+  useXP(isUserInApp);
+  
+  // Effect to handle initial view (routing)
+  useEffect(() => {
+    if (initialView && initialView !== 'dashboard') {
+      // Check if it's a strategy route (e.g., ielts-strategy)
+      if (initialView.includes('-strategy')) {
+        const testId = initialView.split('-')[0]; // Extract test id (e.g., ielts from ielts-strategy)
+        if (TEST_PLATFORM_CONFIG[testId]) {
+          setActiveTest(TEST_PLATFORM_CONFIG[testId]);
+          // Initialize history with dashboard -> strategy
+          setViewHistory(['dashboard', 'strategy']);
+          setView('strategy');
+        }
+      } else {
+        // Check if it's a mini test route (skillCategories in ATOM_HUB)
+        const taskMetadata = ATOM_HUB.skillCategories[initialView];
+        if (taskMetadata) {
+          handleStartTask(taskMetadata);
+        } else {
+          // Check if it's a hub route (HUBS object keys)
+          const hubKey = initialView;
+          if (HUBS[hubKey]) {
+            // Directly set the view and activeCategory instead of calling handleSelectModule
+            setActiveCategory(HUBS[hubKey]);
+            // Initialize history with dashboard -> hub
+            setViewHistory(['dashboard', 'hub']);
+            setView('hub');
+          } else {
+            // For any other route not matching known patterns, go to dashboard
+            setView('dashboard');
+          }
+        }
+      }
+    }
+  }, [initialView]);     
 
   // Layout logic for specialized views
   const isHighFocus = activeLesson && ['WRITING', 'SPEAKING', 'LISTENING', 'VOCAB', 'WRITING_MOCK', 'ielts-speaking'].includes(activeLesson.type);
   const showSidebar = !isHighFocus && view !== 'results' && view !== 'landing';
-  const showHeader = view !== 'results' && view !== 'landing';
+  const showHeader = view !== 'results' && view !== 'landing' && view !== 'dashboard';
 
   // ============================================================
   // CHAPTER 4: THE GRADING MACHINE (CORE LOGIC)
@@ -266,34 +342,21 @@ function App() {
   // ============================================================
   // CHAPTER 5: THE HALLWAYS (NAVIGATION HANDLERS)
   // ============================================================
-  const handleGetStarted = () => setView('landing'); 
-  const handleSelectTest = (testId) => { setActiveTest(TEST_PLATFORM_CONFIG[testId]); setView('strategy'); };
-
-  const handleSelectModule = (hubKey) => {
-    if (hubKey === 'ielts_atoms') {
-      // Use ATOM_HUB directly - categories are the tasks
-      setActiveCategory(ATOM_HUB);
-      setView('hub');
-      return;
-    }
-        
-    const hubData = HUBS[hubKey];
-    if (hubData) {
-      const subItems = hubData.sections || hubData.categories || [];
-      
-      // If only one category and it's NOT using sections (like READING_HUB), skip hub
-      if (subItems.length === 1 && !hubData.sections) {
-        setActiveCategory(hubData);      
-        setActiveSection(subItems[0]); 
-        setView('selection');            
-      } else {
-        setActiveCategory(hubData);
-        setView('hub');
-      }
-    }
+  const handleGetStarted = () => navigateToView('landing'); 
+  const handleSelectTest = (testId) => {
+    setActiveTest(TEST_PLATFORM_CONFIG[testId]);
+    navigateToView('strategy');
+    navigate(`/dashboard/${testId}-strategy`);
   };
 
-  const handleSelectSection = (section) => {
+  const handleSelectModule = (hubKey) => {
+    console.log('handleSelectModule called with', hubKey);
+    const hubPath = `/dashboard/${hubKey.replace('_', '-')}`;
+    console.log('navigating to', hubPath);
+    navigate(hubPath);
+  };
+
+   const handleSelectSection = (section) => {
   // Check if this is an ATOM_HUB category (has 'type' property indicating it's a task)
   if (section.type) {
     handleStartTask(section);
@@ -301,7 +364,7 @@ function App() {
   }
   
   // If this is from the DRILLS_HUB, use standard behavior
-  if (activeCategory?.title === "General Practice Drills") {
+  if (activeCategory && activeCategory.title === "General Practice Drills") {
     setActiveSection(section);
   } 
   // If this is an 'atom' section from ATOM_HUB, go pluck the tasks from the mocks
@@ -313,7 +376,7 @@ function App() {
   else {
     setActiveSection(section);
   }
-  setView('selection');
+  navigateToView('selection');
 };
 
   const handleStartTask = (taskMetadata) => {
@@ -324,41 +387,7 @@ function App() {
       // Mini-test flow: pick random exercises from each skill
       // Vocab comes from the reading passage in this test
       const readingExercise = pluckRandom('reading');
-      
-      // Get vocab from reading's passages, or fall back to random vocab
-      let vocabExercise = null;
-      
-      // Check if reading has sections (nested passages)
-      if (readingExercise?.sections) {
-        // Look through passages for one with vocabId
-        for (const section of readingExercise.sections) {
-          if (section?.passages) {
-            for (const passage of section.passages) {
-              if (passage?.vocabId) {
-                // Found a passage with vocab - load that vocab category
-                vocabExercise = getVocabById(passage.vocabId);
-                break;
-              }
-            }
-          }
-          if (vocabExercise) break;
-        }
-      }
-      
-      // Also check for passages at root level (mock3-6, academicReadingMock1)
-      if (!vocabExercise && readingExercise?.passages) {
-        for (const passage of readingExercise.passages) {
-          if (passage?.vocabId) {
-            vocabExercise = getVocabById(passage.vocabId);
-            break;
-          }
-        }
-      }
-      
-      // Fall back to random vocab if no vocabId found
-      if (!vocabExercise) {
-        vocabExercise = pluckRandom('vocabulary');
-      }
+      const vocabExercise = findVocabFromReading(readingExercise);
       
       const flowLesson = {
         id: 'dynamic-flow',
@@ -382,6 +411,36 @@ function App() {
             ]
           }), skill: 'speaking' },
           { ...pluckRandom('writing'), skill: 'writing' }
+        ].filter(Boolean)
+      };
+      setActiveLesson(flowLesson);
+    } else if (taskMetadata.type === 'academic-flow') {
+      // Academic Mini Flow: uses academic reading and writing
+      const readingExercise = pluckRandom('reading_academic');
+      const vocabExercise = findVocabFromReading(readingExercise);
+      
+      const flowLesson = {
+        id: 'academic-dynamic-flow',
+        title: taskMetadata.title || 'Academic Mini Test',
+        type: 'mixed-flow',
+        xpReward: taskMetadata.xp || 1500,
+        sections: [
+          { ...vocabExercise, skill: 'vocab' },
+          { ...readingExercise, skill: 'reading' },
+          { ...pluckRandom('listening'), skill: 'listening' },
+          { ...(pluckRandom('speaking') || {
+            id: 'speaking-fallback',
+            title: 'Speaking Practice',
+            type: 'SPEAKING',
+            xp: 200,
+            prompts: [
+              'Tell me about your hometown.',
+              'What do you like to do in your free time?',
+              'Describe your favorite food.',
+              'What is your favorite season? Why?'
+            ]
+          }), skill: 'speaking' },
+          { ...pluckRandom('writing_academic'), skill: 'writing' }
         ].filter(Boolean)
       };
       setActiveLesson(flowLesson);
@@ -412,38 +471,7 @@ function App() {
     } else if (taskMetadata.id === 'mini-test-flow') {
       // Legacy flow handling - also use vocab from reading
       const readingExercise = pluckRandom('reading');
-      
-      // Get vocab from reading's passages, or fall back to random vocab
-      let vocabExercise = null;
-      
-      // Check if reading has sections (nested passages)
-      if (readingExercise?.sections) {
-        for (const section of readingExercise.sections) {
-          if (section?.passages) {
-            for (const passage of section.passages) {
-              if (passage?.vocabId) {
-                vocabExercise = getVocabById(passage.vocabId);
-                break;
-              }
-            }
-          }
-          if (vocabExercise) break;
-        }
-      }
-      
-      // Also check for passages at root level (mock3-6, academicReadingMock1)
-      if (!vocabExercise && readingExercise?.passages) {
-        for (const passage of readingExercise.passages) {
-          if (passage?.vocabId) {
-            vocabExercise = getVocabById(passage.vocabId);
-            break;
-          }
-        }
-      }
-      
-      if (!vocabExercise) {
-        vocabExercise = pluckRandom('vocabulary');
-      }
+      const vocabExercise = findVocabFromReading(readingExercise);
       
       const flowLesson = {
         id: 'dynamic-flow',
@@ -484,15 +512,15 @@ function App() {
     setMcqSelections({});
     setActiveGap(null);
     setIsReviewMode(false);
-    setView('lesson');
+    navigateToView('lesson');
   };
 
-  const handleFinishLesson = () => setView('results');
+  const handleFinishLesson = () => navigateToView('results');
 
   const handleFinalClaim = () => {
     claimXp(lessonResults.earnedXP || activeLesson.xpReward || activeLesson.xp || 0);
     setShowReflection(false);
-    setView('dashboard');
+    navigateToView('dashboard');
     setActiveLesson(null);
   };
 
@@ -665,12 +693,9 @@ function App() {
   // ============================================================
   // CHAPTER 7: THE SCHOOL BUILDING (MAIN RENDER)
   // ============================================================
-  if (view === 'landing') return <LandingPage onGetStarted={() => setView('dashboard')} />;
-
   return (
-    
     <div className={`app-shell ${isHighFocus ? 'high-focus-layout' : ''}`}>
-       <ScrollToTop /> 
+      <ScrollToTop /> 
       {/* SIDEBAR NAVIGATION */}
       {showSidebar && (
         <aside className="desktop-sidebar">
@@ -679,15 +704,15 @@ function App() {
             <p style={{ fontSize: '0.7rem', opacity: 0.5 }}>{activeTest ? activeTest.title.toUpperCase() : 'SELECT EXAM'}</p>
           </div>
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <button onClick={() => { setView('dashboard'); setActiveTest(null); }} className={`nav-item ${view === 'dashboard' ? 'active' : ''}`}>
+            <button onClick={() => { navigateToView('dashboard'); setActiveTest(null); }} className={`nav-item ${view === 'dashboard' ? 'active' : ''}`}>
               <LayoutDashboard size={18} /> Dashboard
             </button>
             {activeTest && (
-              <button onClick={() => setView('testHub')} className={`nav-item ${view === 'testHub' ? 'active' : ''}`}>
+              <button onClick={() => navigateToView('testHub')} className={`nav-item ${view === 'testHub' ? 'active' : ''}`}>
                 <BookOpen size={18} /> {activeTest.title} Hub
               </button>
             )}
-            <button className="nav-item" onClick={() => setView('landing')} style={{ marginTop: 'auto', opacity: 0.5 }}>
+            <button className="nav-item" onClick={() => navigateToView('landing')} style={{ marginTop: 'auto', opacity: 0.5 }}>
               <LogOut size={18} /> Exit Lab
             </button>
           </nav>
@@ -697,7 +722,7 @@ function App() {
 
       <main className="main-content">
         
-        {/* HEADER & GLOBAL TOOLS */}
+         {/* HEADER & GLOBAL TOOLS */}
         {showHeader && (
           <header className="app-header">
             <div>
@@ -710,16 +735,14 @@ function App() {
               {view === 'lesson' && (
                 <button onClick={() => { 
                   setActiveLesson(null); 
-                  // Check if we came from atoms hub - go back to atoms hub/selection
-                  if (activeCategory?.title === 'IELTS Atoms') {
-                    setView('hub');
-                  } else if (activeSection && activeSection.title) {
-                    setView('selection');
+                  // If we have a history, go back; otherwise, go to dashboard
+                  if (viewHistory.length > 1) {
+                    navigateBack();
                   } else {
-                    setView('testHub');
+                    setView('dashboard');
                   }
                 }} className="exit-btn">
-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Tasks
+                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> {viewHistory.length > 1 ? 'Back' : 'Dashboard'}
                 </button>
               )}
               {view === 'results' && (
@@ -756,17 +779,17 @@ function App() {
               activeTest={activeTest} 
               onSelectPath={(path, skill) => {
                 if (path === 'mini-test') {
-                  // Mini-test flow: pick random exercises from each skill + vocab
-                  const readingExercise = pluckRandom('reading');
-                  const vocabExercise = pluckRandom('vocabulary');
-                  const writingExercise = pluckRandom('writing');
+                  // Mini-test flow: pick random exercises from general reading/writing + shared listening/speaking
+                  const readingExercise = pluckRandom('reading_general');
+                  const vocabExercise = findVocabFromReading(readingExercise);
+                  const writingExercise = pluckRandom('writing_general');
                   const speakingExercise = pluckRandom('speaking');
                   const listeningExercise = pluckRandom('listening');
                   
                    // Create a mini-test flow with all exercises as sections
                    const miniTest = {
                      id: 'mini-test-flow',
-                     title: 'Mini Test',
+                     title: 'General Mini Test',
                      type: 'mini-test-flow',
                      xp: 1000,
                      sections: [
@@ -797,9 +820,51 @@ function App() {
                     setActiveSectionIndex(0);
                     setView('lesson');
                   }
-                } else if (path === 'skill-tests') {
-                  // Show the skill tests view with individual skill options
-                  setView('skillTests');
+                } else if (path === 'academic-flow') {
+                  // Academic Mini Flow: pick academic-specific exercises
+                  const readingExercise = pluckRandom('reading_academic');
+                  const vocabExercise = findVocabFromReading(readingExercise);
+                  const writingExercise = pluckRandom('writing_academic');
+                  const speakingExercise = pluckRandom('speaking');
+                  const listeningExercise = pluckRandom('listening');
+                  
+                   // Create a mini-test flow with all exercises as sections
+                   const academicMiniTest = {
+                     id: 'academic-mini-flow',
+                     title: 'Academic Mini Test',
+                     type: 'academic-mini-flow',
+                     xp: 1500,
+                     sections: [
+                       { ...vocabExercise, skill: 'vocab' },
+                       { ...readingExercise, skill: 'reading' },
+                       { ...listeningExercise, skill: 'listening' },
+                       { ...writingExercise, skill: 'writing' },
+                       { 
+                         ...(speakingExercise || {
+                           id: 'speaking-fallback',
+                           title: 'Speaking Practice',
+                           type: 'SPEAKING',
+                           xp: 200,
+                           prompts: [
+                             'Tell me about your hometown.',
+                             'What do you like to do in your free time?',
+                             'Describe your favorite food.',
+                             'What is your favorite season? Why?'
+                           ]
+                         }),
+                         skill: 'speaking' 
+                       }
+                     ].filter(Boolean)
+                   };
+                  
+                  if (academicMiniTest.sections.length > 0) {
+                    setActiveLesson(academicMiniTest);
+                    setActiveSectionIndex(0);
+                    setView('lesson');
+                  }
+                  } else if (path === 'skill-tests') {
+                   // Show the skill tests view with individual skill options
+                   navigateToView('skillTests');
                 } else if (path === 'atom-skill') {
                   // Start a random exercise from the specific skill
                   // skill = 'reading-ac', 'reading-gt', 'writing-ac', etc.
@@ -825,11 +890,11 @@ function App() {
                     setActiveSectionIndex(0);
                     setView('lesson');
                   }
-                } else if (path === 'mocks') {
-                  setView('testHub');
+                 } else if (path === 'mocks') {
+                   navigateToView('testHub');
                 }
               }}
-              onShowDescription={() => setView('description')}
+               onShowDescription={() => navigateToView('description')}
             />
           )}
 
@@ -837,7 +902,7 @@ function App() {
           {view === 'description' && (
             <ExamDescription 
               activeTest={activeTest}
-              onBack={() => setView('strategy')}
+              onBack={navigateBack}
             />
           )}
 
@@ -845,7 +910,7 @@ function App() {
           {view === 'skillTests' && (
             <div className="strategy-container">
               <header className="strategy-header">
-                <button onClick={() => setView('strategy')} className="btn-back-link">
+                <button onClick={navigateBack} className="btn-back-link">
                   ← Back
                 </button>
                 <h1>Skill Tests</h1>
@@ -860,7 +925,7 @@ function App() {
                     if (exercise) {
                       setActiveLesson(exercise);
                       setActiveSectionIndex(0);
-                      setView('lesson');
+                      navigateToView('lesson');
                     }
                   }}
                 >
@@ -876,7 +941,7 @@ function App() {
                     if (exercise) {
                       setActiveLesson(exercise);
                       setActiveSectionIndex(0);
-                      setView('lesson');
+                      navigateToView('lesson');
                     }
                   }}
                 >
@@ -892,7 +957,7 @@ function App() {
                     if (exercise) {
                       setActiveLesson(exercise);
                       setActiveSectionIndex(0);
-                      setView('lesson');
+                      navigateToView('lesson');
                     }
                   }}
                 >
@@ -908,7 +973,7 @@ function App() {
                     if (exercise) {
                       setActiveLesson(exercise);
                       setActiveSectionIndex(0);
-                      setView('lesson');
+                      navigateToView('lesson');
                     }
                   }}
                 >
@@ -924,7 +989,7 @@ function App() {
                     if (exercise) {
                       setActiveLesson(exercise);
                       setActiveSectionIndex(0);
-                      setView('lesson');
+                      navigateToView('lesson');
                     }
                   }}
                 >
@@ -951,18 +1016,13 @@ function App() {
             </div>
           )}
 
-          {/* DYNAMIC HUB & SELECTION */}
-          {view === 'hub' && <SkillHub data={activeCategory} onBack={() => {
-            // For IELTS Atoms (or any hub with specific categories), go back to testHub
-            setView('testHub');
-          }} onSelectSection={handleSelectSection} />}
+           {/* DYNAMIC HUB & SELECTION */}
+          {view === 'hub' && <SkillHub data={activeCategory} onBack={() => setView('dashboard')} onSelectSection={handleSelectSection} backButtonText={initialView && initialView !== 'dashboard' ? 'Dashboard' : 'Back'} />}
           {view === 'selection' && <TaskSelection section={activeSection} onBack={() => {
-            // If activeCategory has only 1 category, go back to testHub instead of hub
-            const subItems = activeCategory?.sections || activeCategory?.categories || [];
-            if (subItems.length === 1) {
-              setView('testHub');
+            if (viewHistory.length > 1) {
+              navigateBack();
             } else {
-              setView('hub');
+              setView('dashboard');
             }
           }} onSelectTask={handleStartTask} />}
 
@@ -1188,9 +1248,27 @@ function App() {
               <div className="footer-buttons">
                 {(activeLesson.sections?.[activeSectionIndex]?.passages?.[activePassageIndex + 1]) ? (
                   <button className="btn-secondary" onClick={() => { setActivePassageIndex(prev => prev + 1); setIsReviewMode(false); }}>Next Passage <ArrowRight size={18} /></button>
-                ) : 
-                (activeLesson.sections || activeLesson.passages || activeLesson.parts)?.[activeSectionIndex + 1] ? (
-                  <button className="btn-secondary" onClick={() => { setActiveSectionIndex(prev => prev + 1); setActivePassageIndex(0); setIsReviewMode(false); }}>Next Part <ArrowRight size={18} /></button>
+                 ) : 
+                 (activeLesson.sections || activeLesson.passages || activeLesson.parts)?.[activeSectionIndex + 1] ? (
+                   <button className="btn-secondary" onClick={() => { 
+                     const nextSectionIndex = activeSectionIndex + 1;
+                     setActiveSectionIndex(nextSectionIndex); 
+                     setActivePassageIndex(0); 
+                     setIsReviewMode(false); 
+                     // Update activeSkillTab to match the new section's skill
+                     const sections = activeLesson.sections || activeLesson.passages || activeLesson.parts || [];
+                     const nextSection = sections[nextSectionIndex];
+                     if (nextSection.skill) {
+                       const skillOrder = ['vocab', 'reading', 'writing', 'speaking', 'listening'];
+                       const availableSkills = skillOrder.filter(skill => 
+                         sections.some(s => s.skill === skill)
+                       );
+                       const newSkillIndex = availableSkills.findIndex(skill => skill === nextSection.skill);
+                       if (newSkillIndex !== -1) {
+                         setActiveSkillTab(newSkillIndex);
+                       }
+                     }
+                   }}>Next Part <ArrowRight size={18} /></button>
                 ) : (
                   <button className="btn-finish" onClick={handleFinishLesson}>Finish & View Score <Award size={18} /></button>
                 )}

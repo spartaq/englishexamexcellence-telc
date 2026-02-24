@@ -1,5 +1,6 @@
 import React from 'react';
 import { Zap, Clock, BookOpen, Headset, PenTool, Mic, Info, List, Shuffle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './ExamStrategy.css';
 
 /**
@@ -17,7 +18,10 @@ import './ExamStrategy.css';
 const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
 
   return (
-    <div className="strategy-container">
+    <>
+      <title>{activeTest.title} Hub - Training & Practice</title>
+      <meta name="description" content={`Choose your training mode for ${activeTest.title}. Build skills daily with Atoms or test your stamina with full mock exams.`} />
+      <div className="strategy-container">
       
       <header className="strategy-header">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -54,14 +58,23 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
             Take a random mini-test or practice specific skills.
           </p>
           
-          <button 
+          <Link 
+            to="/dashboard/mini-test"
             className="btn-base btn-primary" 
-            onClick={() => onSelectPath('mini-test')}
-            style={{ marginBottom: '12px' }}
+            style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none', color: 'inherit' }}
           >
             <Shuffle size={18} style={{ marginRight: '8px' }} />
-            Take Random Mini Test
-          </button>
+            Take General Mini Test
+          </Link>
+          
+          <Link 
+            to="/dashboard/academic-flow"
+            className="btn-base btn-primary" 
+            style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none', color: 'inherit' }}
+          >
+            <BookOpen size={18} style={{ marginRight: '8px' }} />
+            Take Academic Mini Test
+          </Link>
           
           <button 
             className="btn-base btn-outline"
@@ -107,7 +120,8 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
           */}
         </div>
       </div>
-    </div>
+     </div>
+    </>
   );
 };
 

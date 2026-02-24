@@ -122,19 +122,29 @@ export const IELTS_ATOMS = {
       tier: 'bronze',
       getContent: () => pluckRandom('listening')
     },
-    'speaking': {
-      id: 'speaking',
-      title: 'Speaking',
-      description: 'Random Speaking exercise (from full mocks)',
-      type: 'random-pick',
-      skill: 'speaking',
-      xp: 300,
-      tier: 'bronze',
-      getContent: () => pluckRandom('speaking')
-    }
+     'speaking': {
+       id: 'speaking',
+       title: 'Speaking',
+       description: 'Random Speaking exercise (from full mocks)',
+       type: 'random-pick',
+       skill: 'speaking',
+       xp: 300,
+       tier: 'bronze',
+       getContent: () => pluckRandom('speaking')
+     },
+     'academic-flow': {
+       id: 'academic-flow',
+       title: 'Academic Mini Flow',
+       description: 'A quick academic-focused test with vocab, reading, listening, speaking, and writing',
+       type: 'academic-flow',
+       sequence: ['vocab', 'reading', 'listening', 'speaking', 'writing'], 
+       xp: 1500,
+       tier: 'bronze',
+       getContent: () => generateMiniTest()
+     }
   },
   
-  // Legacy categories for backward compatibility with TaskSelection
+   // Legacy categories for backward compatibility with TaskSelection
   categories: [
     {
       id: 'mini-test-flow',
@@ -143,6 +153,16 @@ export const IELTS_ATOMS = {
       type: 'flow',
       sequence: ['vocab', 'reading', 'writing'], 
       xp: 1000,
+      tier: 'bronze',
+      getContent: () => generateMiniTest()
+    },
+    {
+      id: 'academic-flow',
+      title: 'Academic Mini Flow',
+      description: 'Academic-focused test with vocab, reading, listening, speaking, and writing',
+      type: 'academic-flow',
+      sequence: ['vocab', 'reading', 'listening', 'speaking', 'writing'], 
+      xp: 1500,
       tier: 'bronze',
       getContent: () => generateMiniTest()
     },

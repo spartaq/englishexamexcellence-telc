@@ -324,7 +324,174 @@ export const pluckRandom = (skill) => {
     };
   }
   
+  if (skill === 'reading_general') {
+    // Pull only General Reading passages
+    const generalReadingPassages = getAllReadingPassages().filter(p => {
+      return p.mockId === 'general-reading-mock-1' || p.sourceTitle?.includes('General');
+    });
+    
+    const passage = getRandomItem(generalReadingPassages);
+    if (passage) {
+      return {
+        ...passage,
+        type: passage.type || 'reading-practice'
+      };
+    }
+  }
+  
+  if (skill === 'reading_academic') {
+    // Pull only Academic Reading passages
+    const academicReadingPassages = getAllReadingPassages().filter(p => {
+      // Check if passage is from academicReadingMock1 or has academic indicator
+      return p.mockId === 'academic-reading-mock-1' || p.sourceTitle?.includes('Academic');
+    });
+    
+    const passage = getRandomItem(academicReadingPassages);
+    if (passage) {
+      return {
+        ...passage,
+        type: passage.type || 'reading-practice'
+      };
+    }
+  }
+  
+  if (skill === 'writing_general') {
+    // Pull only General Writing tasks (letter writing, informal/semi-formal)
+    const generalWritingTasks = getAllWritingTasks().filter(t => {
+      return t.mockId === 'writing-mock2' || t.title?.includes('Letter') || t.mockTitle?.includes('Letter');
+    });
+    
+    const task = getRandomItem(generalWritingTasks);
+    if (task) {
+      return {
+        ...task,
+        type: 'WRITING',
+        xp: task.xp || 150
+      };
+    }
+    
+    // Fallback to general-specific writing task
+    return {
+      id: 'writing-general-quick',
+      title: 'General Writing Task',
+      type: 'WRITING',
+      prompt: 'You recently moved to a new city. Write a letter to a friend telling them about your new home and inviting them to visit.',
+      bullets: ['Describe your new home', 'Explain what you like about the area', 'Suggest when they could visit'],
+      xp: 150
+    };
+  }
+  
+  if (skill === 'writing_academic') {
+    // Pull only Academic Writing tasks
+    const academicWritingTasks = getAllWritingTasks().filter(t => {
+      // Check if task is from academic writing hub or has academic indicator
+      return t.mockId === 'writing-mock1' || t.title?.includes('Academic') || t.prompt?.includes('Academic');
+    });
+    
+    const task = getRandomItem(academicWritingTasks);
+    if (task) {
+      return {
+        ...task,
+        type: 'WRITING',
+        xp: task.xp || 150
+      };
+    }
+    
+    // Fallback to academic-specific writing task
+    return {
+      id: 'writing-academic-quick',
+      title: 'Academic Writing Task',
+      type: 'WRITING',
+      prompt: 'Discuss both views and give your opinion on the role of technology in education.',
+      xp: 150
+    };
+  }
+  
   return null;
+};
+
+/**
+ * Helper function to find vocab from a reading exercise
+ * Extracts vocabId from reading exercise and returns corresponding vocab block
+ * @param {Object} readingExercise - The reading exercise to extract vocab from
+ * @returns {Object} The vocab block or null if no vocab found
+ */
+export const findVocabFromReading = (readingExercise) => {
+  let vocabExercise = null;
+  
+  // Priority 1: Check if the reading exercise itself has vocabList directly
+  if (readingExercise?.vocabList && readingExercise.vocabList.length > 0) {
+    const shuffledWords = [...readingExercise.vocabList].sort(() => Math.random() - 0.5);
+    const selectedWords = shuffledWords.slice(0, Math.min(5, shuffledWords.length));
+    vocabExercise = {
+      id: readingExercise.vocabId || `vocab-${readingExercise.id}`,
+      title: readingExercise.vocabTitle || `${readingExercise.title} Vocabulary`,
+      type: 'VOCAB',
+      xp: 100,
+      words: selectedWords
+    };
+  }
+  
+  // Priority 2: Check if the reading exercise itself has a vocabId
+  if (!vocabExercise && readingExercise?.vocabId) {
+    vocabExercise = getVocabById(readingExercise.vocabId);
+  }
+  
+  // Priority 3: Check if reading has sections (nested passages)
+  if (!vocabExercise && readingExercise?.sections) {
+    for (const section of readingExercise.sections) {
+      if (section?.passages) {
+        for (const passage of section.passages) {
+          if (passage?.vocabList && passage.vocabList.length > 0) {
+            const shuffledWords = [...passage.vocabList].sort(() => Math.random() - 0.5);
+            const selectedWords = shuffledWords.slice(0, Math.min(5, shuffledWords.length));
+            vocabExercise = {
+              id: passage.vocabId || `vocab-${passage.id}`,
+              title: passage.vocabTitle || `${passage.title} Vocabulary`,
+              type: 'VOCAB',
+              xp: 100,
+              words: selectedWords
+            };
+            break;
+          }
+          if (!vocabExercise && passage?.vocabId) {
+            vocabExercise = getVocabById(passage.vocabId);
+          }
+          if (vocabExercise) break;
+        }
+      }
+      if (vocabExercise) break;
+    }
+  }
+  
+  // Priority 4: Check for passages at root level
+  if (!vocabExercise && readingExercise?.passages) {
+    for (const passage of readingExercise.passages) {
+      if (passage?.vocabList && passage.vocabList.length > 0) {
+        const shuffledWords = [...passage.vocabList].sort(() => Math.random() - 0.5);
+        const selectedWords = shuffledWords.slice(0, Math.min(5, shuffledWords.length));
+        vocabExercise = {
+          id: passage.vocabId || `vocab-${passage.id}`,
+          title: passage.vocabTitle || `${passage.title} Vocabulary`,
+          type: 'VOCAB',
+          xp: 100,
+          words: selectedWords
+        };
+        break;
+      }
+      if (!vocabExercise && passage?.vocabId) {
+        vocabExercise = getVocabById(passage.vocabId);
+        break;
+      }
+    }
+  }
+  
+  // Fall back to random vocab if no vocabId found
+  if (!vocabExercise) {
+    vocabExercise = pluckRandom('vocabulary');
+  }
+  
+  return vocabExercise;
 };
 
 /**

@@ -1,10 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import XPDemo from './XPDemo';
 import './LandingPage.css';
 
-const LandingPage = ({ onGetStarted }) => {
+const LandingPage = () => {
+  const navigate = useNavigate();
+  
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log('handleClick called');
+    navigate('/dashboard');
+  };
+
   return (
-    <div className="landing-container">
+    <>
+      <title>English Exam Excellence - Stop Practicing, Start Training</title>
+      <meta name="description" content="Prepare for IELTS, TOEFL, PTE, and DET exams with 15-minute 'atom' training sessions. Build real skills daily instead of just taking practice tests." />
+      <div className="landing-container">
       <nav className="navbar">
         <div className="logo">
           <span className="logo-box">L</span> THE EXAM LAB
@@ -28,15 +40,17 @@ const LandingPage = ({ onGetStarted }) => {
             down into 15-minute "atoms" so you can build real skills, every single day.
           </p>
           <div className="hero-ctas">
-            <button className="btn-primary" onClick={onGetStarted}>
-              Enter the Lab
+            <button 
+              className="btn-primary"
+              onClick={handleClick}
+            >
+              TEST DASHBOARD LINK
             </button>
             <p className="cta-hint">No credit cards. Just hard work.</p>
           </div>
         </div>
 
         <div className="hero-visual">
-          {/* This represents the 'Active Timer' we discussed */}
           <XPDemo />
         </div>
       </header>
@@ -71,7 +85,6 @@ const LandingPage = ({ onGetStarted }) => {
         </div>
       </section>
 
-      {/* Added a small "Teacher's Note" section for that extra personal touch */}
       <section className="teacher-note">
         <div className="note-content">
           <h4>A quick word from the teacher:</h4>
@@ -83,6 +96,7 @@ const LandingPage = ({ onGetStarted }) => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
