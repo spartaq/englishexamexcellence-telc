@@ -1,6 +1,6 @@
 // IELTS Listening Mock 1 - Conforms to IELTS Guidelines
 // 4 Parts, 10 Questions each = 40 Total Questions
-// Uses existing InteractiveBlocks: MCQBlock, GapFillBlock, ShortAnswerBlock, 
+// Uses existing InteractiveBlocks: MCQBlock, SentenceCompleteBlock, ShortAnswerBlock, 
 // TableCompletionBlock, DiagramLabelBlock, NotesCompletionBlock, MatchingChoiceBlock
 
 export const listeningMock1 = {

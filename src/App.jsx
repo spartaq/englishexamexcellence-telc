@@ -36,6 +36,7 @@ import TokenSelectBlock from './components/engine/InteractiveBlocks/TokenSelectB
 import ReorderingBlock from './components/engine/InteractiveBlocks/ReorderingBlock';
 import VocabBlock from './components/engine/VocabBlock';
 import HeadingMatchBlock from './components/engine/InteractiveBlocks/HeadingMatchBlock';
+import SentenceCompleteBlock from './components/engine/InteractiveBlocks/SentenceCompleteBlock';
 import GapFillBlock from './components/engine/InteractiveBlocks/GapFillBlock';
 import TrinaryBlock from './components/engine/InteractiveBlocks/TrinaryBlock';
 import MatchingChoiceBlock from './components/engine/InteractiveBlocks/MatchingChoiceBlock';
@@ -83,6 +84,7 @@ const TEST_PLATFORM_CONFIG = {
     color: '#2563eb',
     modules: [
       { id: 'speaking', title: 'Speaking', icon: <Mic size={20} />, hubKey: 'speaking' },
+      { id: 'reading', title: 'Reading', icon: <BookOpen size={20} />, hubKey: 'langcert_reading' },
     ]
   },
   toefl: {
@@ -363,6 +365,15 @@ function App({ initialView }) {
       const evaluation = evaluateDrill(activeLesson, drillAnswers?.selected || []);
       results = { accuracy: evaluation.accuracy, earnedXP: evaluation.earnedXP, isPerfect: evaluation.isPerfect };
     } 
+    else if (activeLesson.type === 'gap-fill-tokens') {
+      // GapFillBlock returns { correct, total, accuracy, gapResults }
+      const accuracy = drillAnswers?.accuracy || 0;
+      results = { 
+        accuracy, 
+        earnedXP: Math.round((activeLesson.xpReward || 0) * (accuracy / 100)), 
+        isPerfect: accuracy >= 100 
+      };
+    } 
     else {
       const allQuestions = getFlattenedQuestions(activeLesson);
       let correctCount = 0;
@@ -504,7 +515,7 @@ function App({ initialView }) {
           xpReward: taskMetadata.xp || 500
         });
       }
-    } else if (taskMetadata.type === 'specific') {
+    } else if (taskMetadata.type === 'specific' || taskMetadata.type === 'gap-fill-tokens') {
       // Specific exercise: load by exerciseId
       const fullLesson = loadFullLesson(taskMetadata);
       setActiveLesson(fullLesson);
@@ -676,13 +687,30 @@ function App({ initialView }) {
       case 'gap-fill':
         if (taskData.questions) return taskData.questions.map(q => <div key={q.id}>{renderQuestionBlock({ ...q, type: 'gap-fill' })}</div>);
         return (
-          <GapFillBlock 
+          <SentenceCompleteBlock 
             data={{ id: taskData.id, content: taskData.text || taskData.content, options: taskData.wordBank || taskData.options, answers: Array.isArray(taskData.answer) ? taskData.answer : [taskData.answer] }} 
             isReviewMode={isReviewMode} 
             selections={gapFillSelections[taskData.id] || {}} 
             activeGap={activeGap} 
             onWordSelect={(w) => handleGapFillWordSelect(w, taskData.id)} 
             onGapClick={(idx) => setActiveGap({ parentId: taskData.id, gapId: idx })} 
+          />
+        );
+
+      case 'gap-fill-tokens':
+        return (
+          <GapFillBlock
+            data={{
+              id: taskData.id,
+              title: taskData.title,
+              instruction: taskData.instruction,
+              passage: taskData.passage || taskData.text,
+              tokens: taskData.tokens || taskData.wordBank || [],
+              answers: taskData.answers || taskData.answer || [],
+              xpReward: taskData.xpReward
+            }}
+            isReviewMode={isReviewMode}
+            onComplete={(results) => handleCheckAnswers(results)}
           />
         );
 
@@ -1275,7 +1303,7 @@ function App({ initialView }) {
                                   {hasGapFill ? (
                                     // Render only gap-fill subtasks - the text with gaps is self-contained
                                     subTasks.filter(t => t.type === 'gap-fill').map((task, idx) => (
-                                      <GapFillBlock 
+                                      <SentenceCompleteBlock 
                                         key={`gap-${idx}`}
                                         data={{ 
                                           id: task.id || `${currentPassage?.id || currentSection?.id}-gap-${idx}`, 

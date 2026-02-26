@@ -1,13 +1,13 @@
 ================================================================================
-INTERACTIVE BLOCKS LOGIC SUMMARY
+INTERACTIVE BLOCKS LOGIC SUMMARY (17 Blocks)
 ================================================================================
 This document summarizes the logic and structure of each interactive block
 component in src/components/engine/InteractiveBlocks/
 
 ================================================================================
-1. GapFillBlock.jsx
+1. SentenceCompleteBlock.jsx
 ================================================================================
-PURPOSE: Fill-in-the-blank questions with word bank selection
+PURPOSE: Fill-in-the-blank questions with word bank selection (Sentence Completion)
 
 PROPS:
   - data: { content, options, answers }
@@ -493,6 +493,79 @@ DATA STRUCTURE:
 }
 
 ================================================================================
+16. PunctuationCorrectionBlock.jsx
+================================================================================
+PURPOSE: Interactive drill for adding punctuation (commas, etc.) between words
+
+PROPS:
+  - data: { title, instruction, xpReward, sentences, punctuationMark }
+  - onComplete: callback(results) - called with score when checking answers
+  - isReviewMode: boolean - disable interactions, show correct/incorrect
+
+LOGIC:
+  1. Renders sentences with clickable gaps between words
+  2. Users click between words to toggle punctuation marks
+  3. Tracks user placements as Set of positions for each sentence
+  4. In review mode:
+     - Green (#dcfce7): correctly placed punctuation
+     - Red (#fee2e2): extra/wrong punctuation placed
+     - Yellow (#fef9c3): missed punctuation
+     - Shows explanation for each sentence
+  5. Calculates accuracy score and displays feedback
+  6. Supports XP reward system for gamification
+
+DATA STRUCTURE:
+{
+  id: 'comma-drill-1',
+  type: 'punctuation-correction',
+  title: 'Comma Usage',
+  instruction: 'Click between words to add commas where needed.',
+  xpReward: 100,
+  punctuationMark: ',',
+  sentences: [
+    {
+      id: 's1',
+      text: 'However the results were inconclusive.',
+      correctPositions: [0], // positions after word index where comma belongs
+      explanation: 'Use a comma after introductory words like "however".'
+    }
+  ]
+}
+
+================================================================================
+17. GapFillBlock.jsx
+================================================================================
+PURPOSE: Traditional gap fill exercise with token word selection
+
+PROPS:
+  - data: { title, instruction, passage, tokens, answers, xpReward }
+  - onComplete: callback(results) - called with score when checking answers
+  - isReviewMode: boolean - disable interactions, show correct/incorrect
+
+LOGIC:
+  1. Renders passage with gap lines (____(n)____ markers)
+  2. Shows shuffled token buttons below the passage
+  3. User clicks tokens to fill first available gap
+  4. Click on filled gap to remove selection
+  5. In review mode:
+     - Green: correctly filled
+     - Red: incorrectly filled
+     - Yellow: missing (not filled)
+  6. Calculates accuracy score
+
+DATA STRUCTURE:
+{
+  id: 'gap-fill-1',
+  type: 'gap-fill',
+  title: 'Fill in the Blanks',
+  instruction: 'Complete the passage by selecting the correct words.',
+  xpReward: 50,
+  passage: 'The text with ____(1)____ gaps and ____(2)____ words to fill.',
+  tokens: ['word1', 'word2', 'word3', 'distractor1', 'distractor2'],
+  answers: ['word1', 'word2']
+}
+
+================================================================================
 COMMON PATTERNS ACROSS ALL BLOCKS
 ================================================================================
 
@@ -537,9 +610,15 @@ Type 4:  MatchingChoiceBlock (Matching Information)
 Type 5:  MatchingFeaturesBlock (Matching Features)
 Type 6:  MatchingFeaturesBlock (Matching Features - variant)
 Type 7:  SentenceMatchingBlock (Sentence Completion - matching)
-Type 8:  GapFillBlock (Sentence Completion - gap fill)
+Type 8:  SentenceCompleteBlock (Sentence Completion - gap fill)
 Type 9:  TableCompletionBlock, NotesCompletionBlock, FlowChartCompletionBlock
 Type 10: DiagramLabelBlock (Diagram Label Completion)
 Type 11: ShortAnswerBlock (Short-Answer Questions)
+
+Drill Types (Non-IELTS):
+- TokenSelectBlock (Vocabulary/Grammar drills)
+- PunctuationCorrectionBlock (Punctuation drills)
+- SmartInputBlock (Simple input validation)
+- ReorderingBlock (Sentence ordering)
 
 ================================================================================

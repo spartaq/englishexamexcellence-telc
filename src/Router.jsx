@@ -38,6 +38,7 @@ const Router = () => {
         {/* Test hub routes */}
         <Route path="/dashboard/ielts-test-hub" element={<App initialView="ielts-test-hub" />} />
         <Route path="/dashboard/langcert-test-hub" element={<App initialView="langcert-test-hub" />} />
+       <Route path="/dashboard/langcert-reading" element={<App initialView="langcert_reading" />} />
         <Route path="/dashboard/toefl-test-hub" element={<App initialView="toefl-test-hub" />} />
     </Routes>
   );

@@ -20,6 +20,7 @@ import { LISTENING_HUB as IELTS_LISTENING, listeningMocks as ieltsListeningMocks
 // 4. Import LangCert
 // ==========================================
 import { SPEAKING_HUB as LANGCERT_SPEAKING, speakingMocks as langcertSpeakingMocks } from './LangCert/speaking/index';
+import { READING_HUB as LANGCERT_READING, readingMocks as langcertReadingMocks } from './LangCert/reading/index';
 
 // ==========================================
 // 5. Import Practice Exercises & Vocabulary
@@ -52,6 +53,7 @@ const lessonDatabase = {
   ...ieltsListeningMocks,
   ...ieltsSpeakingMocks,
   ...langcertSpeakingMocks,
+  ...langcertReadingMocks,
   ...drillsData,  
   ...vocabLessons,    // Extracted from your vocabulary.js
 };
@@ -69,7 +71,8 @@ export const HUBS = {
   listening: IELTS_LISTENING,
   ielts_atoms: IELTS_ATOMS, 
   general_drills: DRILLS_HUB, 
-  vocabulary: VOCAB_HUB,        
+  vocabulary: VOCAB_HUB,
+  langcert_reading: LANGCERT_READING
 };
 
 /**
@@ -98,6 +101,7 @@ export const EXAM_CONFIG = {
     color: "#2563eb",
     modules: {
       speaking: LANGCERT_SPEAKING,
+      reading: LANGCERT_READING
     }
   },
   // This section powers the "Skill Building" logic

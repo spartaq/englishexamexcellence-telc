@@ -1,196 +1,216 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useMemo } from 'react';
 import { CheckCircle, XCircle } from 'lucide-react';
 import './GapFillBlock.css';
 
-const GapFillBlock = ({ 
-  data, 
-  showWordBankOnly = false,
-  selections = {},
-  activeGap = null,
-  onWordSelect,
-  onGapClick,
-  isReviewMode = false
-}) => {
-  const wordBankOptions = data.options || [];
+/**
+ * GapFillBlock - Traditional gap fill exercise
+ * 
+ * Shows a text with gap lines/spaces where users select words from a token bank below.
+ * Different from SentenceCompleteBlock which uses clickable gaps in text.
+ * 
+ * Data structure:
+ * {
+ *   id: 'gap-fill-1',
+ *   type: 'gap-fill',
+ *   title: 'Fill in the Blanks',
+ *   instruction: 'Complete the passage by selecting the correct words.',
+ *   xpReward: 50,
+ *   passage: 'The text with ____(1)____ gaps and ____(2)____ words to fill.',
+ *   tokens: ['word1', 'word2', 'word3', 'distractor1', 'distractor2'],
+ *   answers: ['word1', 'word2'], // correct answers in order
+ *   distractors: ['distractor1', 'distractor2'] // optional, for mixing
+ * }
+ */
 
-  // Find all gap markers and their positions
-  const gapMarkerRegex = /__+\((\d+)\)__+/g;
-  const content = data.content || '';
-  
-  // Split content by gap markers while keeping them in the result
-  const parts = content.split(gapMarkerRegex);
-  
-  // The split regex with capture groups results in:
-  // [text, gap1Index, text, gap2Index, text, ...]
-  // So odd indices are gap indices, even indices are text parts
+const GapFillBlock = ({ data, onComplete, isReviewMode = false }) => {
+  const {
+    title = 'Fill in the Blanks',
+    instruction,
+    passage = '',
+    tokens = [],
+    answers = [],
+    xpReward = 50
+  } = data;
 
-  // Render interactive text with gaps
-  const renderInteractiveText = () => {
-    const elements = [];
-    
-    for (let i = 0; i < parts.length; i++) {
-      // Add text part
-      if (parts[i]) {
-        elements.push(
-          <span key={`text-${i}`} className="passage-text-fragment">
-            {parts[i]}
-          </span>
-        );
-      }
-      
-      // Check if next part is a gap marker (odd indices after split with capture group)
-      
-      
-      
-      
-      
-      
-      
-      
-      const nextPart = parts[i + 1];
-      if (nextPart !== undefined) {
-        const gapIndex = nextPart;
-        const isFilled = selections[gapIndex];
-        
-        // FIX: Compare with the gapId property since activeGap is an object in App.jsx
-        const isActive = activeGap?.parentId === data.id && activeGap?.gapId === gapIndex;
-        
-        // Review Logic
-        const correctAnswer = data.answers?.[parseInt(gapIndex) - 1];
-        
-        // FIX: Use .trim().toLowerCase() for resilient checking
-        const isCorrect = isReviewMode && isFilled && 
-                          isFilled.trim().toLowerCase() === correctAnswer?.trim().toLowerCase();
-                          
-        const isIncorrect = isReviewMode && isFilled && 
-                            isFilled.trim().toLowerCase() !== correctAnswer?.trim().toLowerCase();
-                            
-        const isMissing = isReviewMode && !isFilled;
+  // Track user's selections: { gapIndex: selectedWord }
+  const [selections, setSelections] = useState({});
 
-        elements.push(
-          <motion.span
-            key={`gap-${gapIndex}`}
-            whileTap={!isReviewMode ? { scale: 0.95 } : {}}
-            className={`interactive-gap 
-              ${isFilled ? 'filled' : ''} 
-              ${isActive ? 'active' : ''} 
-              ${isCorrect ? 'correct' : ''}
-              ${isIncorrect ? 'incorrect' : ''}
-              ${isMissing ? 'missing' : ''}
-              ${isReviewMode ? 'review-mode' : ''}
-            `}
-            onClick={() => !isReviewMode && onGapClick && onGapClick(gapIndex)}
-            style={{ cursor: isReviewMode ? 'default' : 'pointer' }}
-          >
-            <span className="gap-index-badge">
-              {isCorrect ? <CheckCircle size={10} /> : isIncorrect ? <XCircle size={10} /> : gapIndex}
-            </span>
-            
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={(isReviewMode ? 'review-' : 'input-') + (isFilled || 'empty')}
-                initial={{ opacity: 0, y: 5 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="gap-text"
-              >
-                {isFilled || (isReviewMode ? "Empty" : "tap to fill")}
-              </motion.span>
-            </AnimatePresence>
-
-            {/* FIX: Ensure the correct answer shows up if the user was wrong */}
-            {isIncorrect && (
-              <span className="correct-answer-hint">
-                {correctAnswer}
-              </span>
-            )}
-            {isMissing && (
-               <span className="correct-answer-hint">
-                Ans: {correctAnswer}
-              </span>
-            )}
-          </motion.span>
-        );
-
-
-
-
-
-
-
-        
-        // Skip the gap index part in next iteration
-        i++;
-      }
-    }
-    
-    return <div className="gap-fill-text">{elements}</div>;
+  // Parse passage to find gap markers ____(n)____
+  const parsePassage = () => {
+    const regex = /____\((\d+)\)____/g;
+    const parts = passage.split(regex);
+    // parts: [text, gap1Index, text, gap2Index, text, ...]
+    return parts;
   };
 
-  // Handle word selection - automatically fills first empty gap
-  const handleWordClick = (word) => {
+  const parts = passage.split(/____\((\d+)\)____/g);
+
+  // Handle token selection - fills first empty gap
+  const handleTokenSelect = (token) => {
     if (isReviewMode) return;
     
     // Find first empty gap
-    const gapMarkerRegex = /__+\((\d+)\)__+/g;
-    const matches = [...content.matchAll(gapMarkerRegex)];
-    
-    for (const match of matches) {
-      const gapIndex = match[1];
-      if (!selections[gapIndex]) {
-        onGapClick(gapIndex);
-        setTimeout(() => onWordSelect(word), 0);
+    for (let i = 1; i <= answers.length; i++) {
+      if (!selections[i]) {
+        setSelections(prev => ({
+          ...prev,
+          [i]: token
+        }));
         return;
       }
     }
+  };
+
+  // Handle gap click to clear selection
+  const handleGapClick = (gapIndex) => {
+    if (isReviewMode) return;
     
-    if (onWordSelect) {
-      onWordSelect(word);
+    const newSelections = { ...selections };
+    delete newSelections[gapIndex];
+    setSelections(newSelections);
+  };
+
+  // Shuffle tokens for display (only once on mount)
+  const displayTokens = useMemo(() => {
+    return [...tokens].sort(() => Math.random() - 0.5);
+  }, [tokens]);
+
+  // Calculate results
+  const calculateResults = () => {
+    let correct = 0;
+    const gapResults = {};
+
+    answers.forEach((answer, index) => {
+      const gapIndex = index + 1;
+      const userAnswer = selections[gapIndex];
+      const isCorrect = userAnswer?.toLowerCase() === answer.toLowerCase();
+      
+      if (isCorrect) correct++;
+      
+      gapResults[gapIndex] = {
+        userAnswer: userAnswer || null,
+        correctAnswer: answer,
+        isCorrect
+      };
+    });
+
+    return {
+      correct,
+      total: answers.length,
+      accuracy: Math.round((correct / answers.length) * 100),
+      gapResults
+    };
+  };
+
+  const handleCheck = () => {
+    const results = calculateResults();
+    if (onComplete) {
+      onComplete(results);
     }
   };
 
-  // Render word bank
-  const renderWordBank = () => {
-    const usedWords = Object.values(selections);
-    return (
-      <div className="gap-fill-wordbank">
-        <p className="wordbank-label">Select the correct words:</p>
-        <div className="word-bank">
-          {wordBankOptions.map((word) => (
-            <button
-              key={word}
-              className={`word-pill ${usedWords.includes(word) ? 'used' : ''} ${isReviewMode ? 'review-disabled' : ''}`}
-              onClick={() => handleWordClick(word)}
-              disabled={usedWords.includes(word) || isReviewMode}
-            >
-              {word}
-            </button>
-          ))}
-        </div>
-        {isReviewMode && (
-          <div className="review-legend">
-            Review mode active. Changes are disabled.
-          </div>
-        )}
-      </div>
-    );
+  // Determine gap styling based on state
+  const getGapStyle = (gapIndex) => {
+    const userAnswer = selections[gapIndex];
+    const correctAnswer = answers[gapIndex - 1];
+    
+    if (!isReviewMode) {
+      return userAnswer ? 'filled' : 'empty';
+    }
+    
+    if (!userAnswer) return 'missing';
+    return userAnswer.toLowerCase() === correctAnswer.toLowerCase() ? 'correct' : 'incorrect';
   };
 
-  // Case 1: Show only word bank (for separate word bank pane)
-  if (showWordBankOnly) {
-    return renderWordBank();
-  }
-
-  // Case 2: Show container with text and word bank below
   return (
-    <div className="gap-fill-container">
-      {data.id && (
-        <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', fontWeight: 800, color: 'var(--lab-indigo)' }}>
-          {data.id}.
-        </h4>
+    <div className="gap-fill-block">
+      {/* Header */}
+      <div className="gap-fill-header">
+        <h3 className="gap-fill-title">{title}</h3>
+        {xpReward > 0 && (
+          <span className="gap-fill-xp">+{xpReward} XP</span>
+        )}
+      </div>
+
+      {/* Instruction */}
+      {instruction && (
+        <p className="gap-fill-instruction">{instruction}</p>
       )}
-      {renderInteractiveText()}
-      {wordBankOptions.length > 0 && renderWordBank()}
+
+      {/* Passage with gaps */}
+      <div className="gap-fill-passage">
+        {parts.map((part, index) => {
+          // Even indices are text, odd indices are gap numbers
+          if (index % 2 === 0) {
+            return <span key={index} className="passage-text">{part}</span>;
+          }
+          
+          const gapIndex = parseInt(part);
+          const gapStyle = getGapStyle(gapIndex);
+          const userAnswer = selections[gapIndex];
+          
+          return (
+            <span
+              key={index}
+              className={`gap-line ${gapStyle}`}
+              onClick={() => handleGapClick(gapIndex)}
+            >
+              {userAnswer || (isReviewMode ? '____' : '▼')}
+            </span>
+          );
+        })}
+      </div>
+
+      {/* Token bank */}
+      <div className="gap-fill-tokens">
+        <p className="tokens-label">Select words to fill the gaps:</p>
+        <div className="token-container">
+          {displayTokens.map((token, idx) => {
+            // Check if token is already used
+            const isUsed = Object.values(selections).includes(token);
+            
+            return (
+              <button
+                key={idx}
+                className={`token-button ${isUsed ? 'used' : ''}`}
+                onClick={() => handleTokenSelect(token)}
+                disabled={isUsed || isReviewMode}
+              >
+                {token}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Action button */}
+      {!isReviewMode ? (
+        <button className="check-button" onClick={handleCheck}>
+          Check Answers
+        </button>
+      ) : (
+        <div className="results-summary">
+          {(() => {
+            const results = calculateResults();
+            return (
+              <>
+                <div className={`score-display ${results.accuracy === 100 ? 'perfect' : ''}`}>
+                  {results.accuracy === 100 ? (
+                    <><CheckCircle size={20} /> Perfect!</>
+                  ) : (
+                    <>Score: {results.correct}/{results.total} ({results.accuracy}%)</>
+                  )}
+                </div>
+                <div className="results-legend">
+                  <span className="legend-item correct">✓ Correct</span>
+                  <span className="legend-item incorrect">✗ Incorrect</span>
+                  <span className="legend-item missing">○ Missing</span>
+                </div>
+              </>
+            );
+          })()}
+        </div>
+      )}
     </div>
   );
 };
