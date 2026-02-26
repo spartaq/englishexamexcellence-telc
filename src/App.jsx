@@ -362,12 +362,46 @@ function App({ initialView }) {
       };
     } 
     else if (activeLesson.type === 'token-select') {
-      const evaluation = evaluateDrill(activeLesson, drillAnswers?.selected || []);
+      const selected = userAnswers[activeLesson.id] || [];
+      const evaluation = evaluateDrill(activeLesson, selected);
       results = { accuracy: evaluation.accuracy, earnedXP: evaluation.earnedXP, isPerfect: evaluation.isPerfect };
     } 
     else if (activeLesson.type === 'gap-fill-tokens') {
-      // GapFillBlock returns { correct, total, accuracy, gapResults }
-      const accuracy = drillAnswers?.accuracy || 0;
+      // Calculate accuracy from stored gapFillSelections
+      const selections = gapFillSelections[activeLesson.id] || {};
+      const answers = activeLesson.answers || activeLesson.answer || [];
+      let correctCount = 0;
+      answers.forEach((answer, index) => {
+        const gapIndex = index + 1;
+        const userAnswer = selections[gapIndex];
+        if (userAnswer && userAnswer.toLowerCase() === answer.toLowerCase()) {
+          correctCount++;
+        }
+      });
+      const accuracy = answers.length > 0 ? Math.round((correctCount / answers.length) * 100) : 0;
+      results = { 
+        accuracy, 
+        earnedXP: Math.round((activeLesson.xpReward || 0) * (accuracy / 100)), 
+        isPerfect: accuracy >= 100 
+      };
+    } 
+    else if (activeLesson.type === 'punctuation-correction') {
+      // Calculate accuracy from stored punctuation placements
+      const placements = userAnswers[activeLesson.id] || {};
+      const sentences = activeLesson.sentences || [];
+      let totalCorrect = 0;
+      let totalExpected = 0;
+      
+      sentences.forEach(sentence => {
+        const userPositions = new Set(placements[sentence.id] || []);
+        const expectedPositions = new Set(sentence.correctPositions || []);
+        
+        const correct = [...userPositions].filter(pos => expectedPositions.has(pos));
+        totalCorrect += correct.length;
+        totalExpected += expectedPositions.size;
+      });
+      
+      const accuracy = totalExpected > 0 ? Math.round((totalCorrect / totalExpected) * 100) : 0;
       results = { 
         accuracy, 
         earnedXP: Math.round((activeLesson.xpReward || 0) * (accuracy / 100)), 
@@ -650,10 +684,10 @@ function App({ initialView }) {
 
     switch (taskData.type) {
       case 'token-select':
-        return <TokenSelectBlock data={taskData} isReviewMode={isReviewMode} onComplete={(results) => handleCheckAnswers(results)} />;
+        return <TokenSelectBlock data={taskData} isReviewMode={isReviewMode} onUpdate={(selected) => setUserAnswers({...userAnswers, [taskData.id]: selected})} />;
 
       case 'punctuation-correction':
-        return <PunctuationCorrectionBlock data={taskData} isReviewMode={isReviewMode} onComplete={(results) => handleCheckAnswers(results)} />;
+        return <PunctuationCorrectionBlock data={taskData} isReviewMode={isReviewMode} onUpdate={(placements) => setUserAnswers({...userAnswers, [taskData.id]: placements})} />;
 
       case 'ielts-complex':
         const subTasks = taskData.subTasks || taskData.questions || [];
@@ -710,7 +744,7 @@ function App({ initialView }) {
               xpReward: taskData.xpReward
             }}
             isReviewMode={isReviewMode}
-            onComplete={(results) => handleCheckAnswers(results)}
+            onUpdate={(selections) => setGapFillSelections({...gapFillSelections, [taskData.id]: selections})}
           />
         );
 

@@ -22,7 +22,7 @@ import './GapFillBlock.css';
  * }
  */
 
-const GapFillBlock = ({ data, onComplete, isReviewMode = false }) => {
+const GapFillBlock = ({ data, onUpdate, isReviewMode = false }) => {
   const {
     title = 'Fill in the Blanks',
     instruction,
@@ -52,10 +52,15 @@ const GapFillBlock = ({ data, onComplete, isReviewMode = false }) => {
     // Find first empty gap
     for (let i = 1; i <= answers.length; i++) {
       if (!selections[i]) {
-        setSelections(prev => ({
-          ...prev,
+        const newSelections = {
+          ...selections,
           [i]: token
-        }));
+        };
+        setSelections(newSelections);
+        // Sync with parent if onUpdate is provided
+        if (onUpdate) {
+          onUpdate(newSelections);
+        }
         return;
       }
     }
@@ -68,6 +73,10 @@ const GapFillBlock = ({ data, onComplete, isReviewMode = false }) => {
     const newSelections = { ...selections };
     delete newSelections[gapIndex];
     setSelections(newSelections);
+    // Sync with parent if onUpdate is provided
+    if (onUpdate) {
+      onUpdate(newSelections);
+    }
   };
 
   // Shuffle tokens for display (only once on mount)
@@ -183,12 +192,8 @@ const GapFillBlock = ({ data, onComplete, isReviewMode = false }) => {
         </div>
       </div>
 
-      {/* Action button */}
-      {!isReviewMode ? (
-        <button className="check-button" onClick={handleCheck}>
-          Check Answers
-        </button>
-      ) : (
+      {/* Results summary - shown in review mode */}
+      {isReviewMode && (
         <div className="results-summary">
           {(() => {
             const results = calculateResults();

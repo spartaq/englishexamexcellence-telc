@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Zap, Info } from 'lucide-react'; // Assuming lucide-react is available
 
-const TokenSelectBlock = ({ data, onComplete, isReviewMode = false }) => {
+const TokenSelectBlock = ({ data, onUpdate, isReviewMode = false }) => {
   const { content, correctTokens, instruction, xpReward, title } = data;
   const [selectedIndices, setSelectedIndices] = useState([]);
 
@@ -40,9 +40,17 @@ const TokenSelectBlock = ({ data, onComplete, isReviewMode = false }) => {
   const toggleToken = (index) => {
     if (isReviewMode) return;
     if (tokens[index].trim() === "" || /^[.,!\?;:]+$/.test(tokens[index])) return;
-    setSelectedIndices(prev => 
-      prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
-    );
+    
+    let newSelections;
+    setSelectedIndices(prev => {
+      newSelections = prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index];
+      return newSelections;
+    });
+    // Sync with parent if onUpdate is provided
+    if (onUpdate && newSelections) {
+      const selectedWords = newSelections.map(idx => clean(tokens[idx]));
+      onUpdate(selectedWords);
+    }
   };
 
   return (
@@ -136,19 +144,8 @@ const TokenSelectBlock = ({ data, onComplete, isReviewMode = false }) => {
         })}
       </div>
 
-      {/* FOOTER ACTIONS */}
-      {!isReviewMode ? (
-        <button 
-          className="btn-primary" 
-          style={{ width: '100%', padding: '16px', borderRadius: '14px', fontSize: '1rem', fontWeight: 700 }}
-          onClick={() => {
-            const selectedWords = selectedIndices.map(idx => clean(tokens[idx]));
-            onComplete({ selected: selectedWords });
-          }}
-        >
-          Check My Selection ({selectedIndices.length})
-        </button>
-      ) : (
+      {/* Results legend - shown in review mode */}
+      {isReviewMode && (
         <div style={{ 
           display: 'flex', 
           justifyContent: 'center', 

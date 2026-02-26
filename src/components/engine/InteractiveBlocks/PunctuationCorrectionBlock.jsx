@@ -25,7 +25,7 @@ import { Zap, Info, CheckCircle, XCircle } from 'lucide-react';
  *   ]
  * }
  */
-const PunctuationCorrectionBlock = ({ data, onComplete, isReviewMode = false }) => {
+const PunctuationCorrectionBlock = ({ data, onUpdate, isReviewMode = false }) => {
   const { 
     title = "Punctuation Drill", 
     instruction, 
@@ -52,7 +52,17 @@ const PunctuationCorrectionBlock = ({ data, onComplete, isReviewMode = false }) 
         newSet.add(position);
       }
       
-      return { ...prev, [sentenceId]: newSet };
+      const newPlacements = { ...prev, [sentenceId]: newSet };
+      // Sync with parent if onUpdate is provided
+      if (onUpdate) {
+        // Convert Sets to arrays for JSON serialization
+        const serializable = {};
+        Object.keys(newPlacements).forEach(key => {
+          serializable[key] = Array.from(newPlacements[key]);
+        });
+        onUpdate(serializable);
+      }
+      return newPlacements;
     });
   };
 
@@ -291,25 +301,8 @@ const PunctuationCorrectionBlock = ({ data, onComplete, isReviewMode = false }) 
         {sentences.map((sentence, index) => renderSentence(sentence, index))}
       </div>
 
-      {/* FOOTER ACTIONS */}
-      {!isReviewMode ? (
-        <button 
-          className="btn-primary" 
-          style={{ 
-            width: '100%', 
-            padding: '16px', 
-            borderRadius: '14px', 
-            fontSize: '1rem', 
-            fontWeight: 700 
-          }}
-          onClick={() => {
-            const results = calculateResults();
-            onComplete(results);
-          }}
-        >
-          Check My Answers
-        </button>
-      ) : (
+      {/* Results summary - shown in review mode */}
+      {isReviewMode && (
         <>
           {/* Results Summary */}
           <div style={{ 
