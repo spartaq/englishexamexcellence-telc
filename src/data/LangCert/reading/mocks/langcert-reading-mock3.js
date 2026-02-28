@@ -229,7 +229,7 @@ export const readingMock3 = {
             { id: '1', text: 'How long did it take Sanderson to decide what the objects were?', answer: 'a month' },
             { id: '2', text: 'What was the purpose of the objects?', answer: 'jewellery on neck chains' },
             { id: '3', text: 'What makes the objects look like a machine?', answer: 'the shape of the wings' },
-            { id: '4', text: 'In the fourth paragraph, what does "it" refer to?', answer: 'the gold model' },
+            { id: '4', text: 'In the fourth paragraph, what does "it" refer to?', answer: 'the symbol' },
             { id: '5', text: 'What was Belting\'s theory based on?', answer: 'historical evidence' },
             { id: '6', text: 'What extra equipment did Belting\'s second model have?', answer: 'landing gear' },
             { id: '7', text: 'Where can someone see the copies of the objects?', answer: 'in several museums worldwide' }

@@ -38,6 +38,16 @@ const PunctuationCorrectionBlock = ({ data, onUpdate, isReviewMode = false }) =>
   // Format: { sentenceId: Set<position> }
   const [placements, setPlacements] = useState({});
 
+  // keep onUpdate calls external via effect
+  React.useEffect(() => {
+    if (!onUpdate) return;
+    const serializable = {};
+    Object.keys(placements).forEach(k => {
+      serializable[k] = Array.from(placements[k]);
+    });
+    onUpdate(serializable);
+  }, [placements, onUpdate]);
+
   // Toggle comma at position for a specific sentence
   const togglePunctuation = (sentenceId, position) => {
     if (isReviewMode) return;
@@ -53,15 +63,6 @@ const PunctuationCorrectionBlock = ({ data, onUpdate, isReviewMode = false }) =>
       }
       
       const newPlacements = { ...prev, [sentenceId]: newSet };
-      // Sync with parent if onUpdate is provided
-      if (onUpdate) {
-        // Convert Sets to arrays for JSON serialization
-        const serializable = {};
-        Object.keys(newPlacements).forEach(key => {
-          serializable[key] = Array.from(newPlacements[key]);
-        });
-        onUpdate(serializable);
-      }
       return newPlacements;
     });
   };

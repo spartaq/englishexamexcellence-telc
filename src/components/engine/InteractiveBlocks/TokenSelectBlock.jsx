@@ -40,14 +40,15 @@ const TokenSelectBlock = ({ data, onUpdate, isReviewMode = false }) => {
   const toggleToken = (index) => {
     if (isReviewMode) return;
     if (tokens[index].trim() === "" || /^[.,!\?;:]+$/.test(tokens[index])) return;
-    
-    let newSelections;
-    setSelectedIndices(prev => {
-      newSelections = prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index];
-      return newSelections;
-    });
-    // Sync with parent if onUpdate is provided
-    if (onUpdate && newSelections) {
+
+    // determine new selection set based on current state
+    const newSelections = selectedIndices.includes(index)
+      ? selectedIndices.filter(i => i !== index)
+      : [...selectedIndices, index];
+
+    setSelectedIndices(newSelections);
+
+    if (onUpdate) {
       const selectedWords = newSelections.map(idx => clean(tokens[idx]));
       onUpdate(selectedWords);
     }
