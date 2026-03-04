@@ -478,8 +478,10 @@ function App({ initialView }) {
   const handleStartTask = (taskMetadata) => {
     if (taskMetadata.tier !== 'bronze' && !isPremium) { setShowPaywall(true); return; }
     
-    // Handle ATOM_HUB task types
-    if (taskMetadata.type === 'flow') {
+    // Handle VOCAB type - load directly from task metadata
+    if (taskMetadata.type === 'VOCAB') {
+      setActiveLesson(taskMetadata);
+    } else if (taskMetadata.type === 'flow') {
       // Mini-test flow: pick random exercises from each skill
       // Vocab comes from the reading passage in this test
       const readingExercise = pluckRandom('reading');

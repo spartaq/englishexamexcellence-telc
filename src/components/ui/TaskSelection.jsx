@@ -54,6 +54,12 @@ const TaskSelection = ({ section, onBack, onSelectTask }) => {
                   <span className={`tier-badge ${task.tier || 'bronze'}`}>
                     {task.tier || 'bronze'}
                   </span>
+                  {/* Level Badge (B2/C1) */}
+                  {task.level && (
+                    <span className={`level-badge ${task.level.toLowerCase()}`}>
+                      {task.level}
+                    </span>
+                  )}
                 </div>
 
                 <div className="task-meta">

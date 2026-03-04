@@ -38,6 +38,7 @@ export const getVocabById = (vocabId) => {
           title: task.title,
           type: 'VOCAB',
           xp: task.xp || 100,
+          level: task.level,
           words: task.words || []
         };
       }
@@ -206,6 +207,7 @@ export const pluckRandom = (skill) => {
         title: `Vocab: ${randomPassage?.title || 'Quick Drill'}`,
         type: 'VOCAB',
         xp: 100,
+        level: vocabData.level,
         vocabId: vocabData.id,
         sourceTitle: randomPassage?.sourceTitle,
         passageTitle: randomPassage?.title,

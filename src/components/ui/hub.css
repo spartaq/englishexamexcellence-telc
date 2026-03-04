@@ -153,6 +153,97 @@
   font-weight: 800;
 }
 
+/* Level filter for Vocab Hub */
+.level-filter {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  justify-content: center;
+}
+
+.level-filter-btn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 2px solid var(--border-color);
+  background: white;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.level-filter-btn:hover {
+  border-color: var(--lab-indigo);
+}
+
+.level-filter-btn.active {
+  background: var(--lab-indigo);
+  color: white;
+  border-color: var(--lab-indigo);
+}
+
+.level-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-left: 8px;
+}
+
+.level-badge.b2 {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.level-badge.c1 {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+/* Vocab level buttons on cards */
+.vocab-level-card {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.vocab-level-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.vocab-level-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vocab-level-btn.b2 {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.vocab-level-btn.b2:hover {
+  background: #1d4ed8;
+  color: white;
+}
+
+.vocab-level-btn.c1 {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.vocab-level-btn.c1:hover {
+  background: #7c3aed;
+  color: white;
+}
+
 /* ============================================
    DARK MODE STYLES (Must be at end of file)
    ============================================ */

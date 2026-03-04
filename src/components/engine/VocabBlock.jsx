@@ -12,6 +12,9 @@ const VocabBlock = ({ data, onComplete }) => {
   const words = data?.words || [];
   const currentWord = words[currentIndex];
   
+  // Get level from data (each task now has one level)
+  const level = data?.level;
+  
   // If no words available, show message and allow completion
   if (words.length === 0) {
     return (
@@ -60,6 +63,11 @@ const VocabBlock = ({ data, onComplete }) => {
         <span className="task-label">
           {currentIndex + 1} of {words.length} Terms
         </span>
+        {level && (
+          <span className="vocab-level-badge">
+            {level}
+          </span>
+        )}
       </div>
 
       {/* CARD SECTION */}
