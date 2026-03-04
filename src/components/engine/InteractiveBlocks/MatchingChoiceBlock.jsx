@@ -18,6 +18,7 @@ export default function MatchingChoiceBlock({
   onUpdate, 
   userAnswers = {}, 
   isReviewMode,
+  hideInstruction = false,
   // Enhanced props
   allowReuse = false, // Whether options can be used more than once
   showUsageCount = true // Show how many times each option is used
@@ -95,18 +96,8 @@ export default function MatchingChoiceBlock({
       )}
 
       {/* Instruction Box */}
-      {data.instruction && (
-        <div style={{
-          background: '#f1f5f9',
-          padding: '16px 20px',
-          borderRadius: '12px',
-          marginBottom: '16px',
-          fontSize: '14px',
-          color: '#334155',
-          whiteSpace: 'pre-wrap',
-          lineHeight: 1.6,
-          border: '1px solid #e2e8f0'
-        }}>
+      {!hideInstruction && data.instruction && (
+        <div className="question-instruction">
           {data.instruction}
         </div>
       )}
@@ -174,10 +165,11 @@ export default function MatchingChoiceBlock({
         return (
           <div 
             key={q.id} 
-            className={`matching-choice-row ${isReviewMode ? (isCorrect ? 'row-correct' : 'row-incorrect') : ''}`}
+            className={`question-card ${isReviewMode ? (isCorrect ? 'correct' : isWrong ? 'incorrect' : '') : ''}`}
           >
-            <div className="matching-choice-text">
-              <span className="q-number">{q.id}.</span> {q.text}
+            <div className="matching-choice-text" style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+              <span className="question-label">{q.id}.</span>
+              <p className="question-text" style={{ marginBottom: 0, flex: 1 }}>{q.text}</p>
               
               {isReviewMode && (
                 <span className="status-icon">
@@ -191,7 +183,7 @@ export default function MatchingChoiceBlock({
               )}
             </div>
             
-            <div className="choice-button-group">
+            <div className="choice-button-group" style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
               {options.map((opt) => {
                 const isSelected = userAnswer === opt;
                 const isTheRightAnswer = normalizeAnswer(correctAnswer) === opt;
@@ -200,26 +192,23 @@ export default function MatchingChoiceBlock({
 
                 let stateClass = "";
                 if (isReviewMode) {
-                  if (isSelected && isCorrect) stateClass = "btn-correct";
-                  else if (isSelected && !isCorrect) stateClass = "btn-wrong";
-                  else if (isTheRightAnswer) stateClass = "btn-should-have-been";
+                  if (isSelected && isCorrect) stateClass = "review-correct";
+                  else if (isSelected && !isCorrect) stateClass = "review-incorrect";
+                  else if (isTheRightAnswer) stateClass = "review-correct";
                 } else if (isSelected) {
-                  stateClass = "active";
+                  stateClass = "selected";
                 } else if (isUsed && !canReuse) {
-                  stateClass = "disabled";
+                  stateClass = "review-dimmed";
                 }
 
                 return (
                   <button
                     key={opt}
                     type="button"
-                    className={`choice-btn ${stateClass}`}
+                    className={`option-button ${stateClass}`}
                     onClick={() => handleSelect(q.id, opt)}
                     disabled={isReviewMode || (isUsed && !canReuse)}
                     title={isUsed && !canReuse ? 'Already used' : ''}
-                    style={{
-                      position: 'relative'
-                    }}
                   >
                     {opt}
                     {/* Usage indicator for reuse mode */}

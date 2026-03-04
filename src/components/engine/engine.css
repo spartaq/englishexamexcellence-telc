@@ -7,16 +7,51 @@
 
 .reading-passage {
   background: white;
-  padding: 20px;
+  padding: 20px 20px 8px 20px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
 }
 
 .passage-text {
   font-size: 17px;
-  line-height: 1.65;
+  line-height: 1.75;
   color: var(--deep-slate);
-  /* This ensures the text is comfortable for long-form reading */
+  margin-bottom: 24px;
+}
+
+.passage-text:last-child {
+  margin-bottom: 0;
+}
+
+.passage-text > p {
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+}
+
+.passage-text > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lesson Instructions Box */
+.lesson-instructions {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 2px solid #3b82f6;
+  border-radius: var(--radius-lg);
+  margin-bottom: 24px;
+}
+
+.lesson-instructions .instructions-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.lesson-instructions .instructions-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #1e40af;
 }
 
 /* Highlighting Style - as defined in our Style Guide */
@@ -893,9 +928,405 @@
 }
 
 /* ============================================
+   UNIFIED LAYOUT CLASSES (Phase 1-2)
+   Standardized container and component styles
+   ============================================ */
+
+/* --- Standard Block Container --- */
+.test-block-container {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+/* Block Header (title area) */
+.test-block-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  background: #f8fafc;
+}
+
+.test-block-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.test-block-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.test-block-description {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-top: 8px;
+}
+
+/* Block Content */
+.test-block-content {
+  padding: 24px;
+}
+
+/* Block Footer (actions) */
+.test-block-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border-color);
+  background: #f8fafc;
+}
+
+/* --- Standard Question Components --- */
+
+/* Question Row/Card */
+.question-card {
+  background: white;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+.question-card:last-child {
+  margin-bottom: 0;
+}
+
+.question-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.question-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.question-instruction {
+  font-size: 14px;
+  color: #475569;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  border-left: 3px solid var(--lab-indigo);
+}
+
+/* Review Mode Badge */
+.review-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--lab-indigo);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+/* Answer Options Container */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Option Button */
+.option-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid #e2e8f0;
+  background: white;
+  color: #475569;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  width: 100%;
+}
+
+.option-button:hover:not(:disabled) {
+  border-color: var(--lab-indigo);
+  background: #f8fafc;
+}
+
+.option-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.option-button.selected {
+  background: #f0f4ff;
+  border-color: var(--lab-indigo);
+  color: var(--lab-indigo);
+  font-weight: 600;
+}
+
+/* Option letter prefix */
+.option-letter {
+  font-weight: 700;
+  color: #94a3b8;
+  min-width: 20px;
+}
+
+.option-button.selected .option-letter {
+  color: var(--lab-indigo);
+}
+
+.option-text {
+  flex: 1;
+}
+
+/* Correct/Incorrect states in review */
+.option-button.review-correct {
+  background: #ecfdf5;
+  border-color: #10b981;
+  color: #059669;
+}
+
+.option-button.review-incorrect {
+  background: #fef2f2;
+  border-color: #ef4444;
+  color: #dc2626;
+}
+
+.option-button.review-dimmed {
+  opacity: 0.5;
+}
+
+/* Input Fields */
+.answer-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #f1f5f9;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.2s;
+  background: white;
+}
+
+.answer-input:focus {
+  border-color: var(--lab-indigo);
+}
+
+.answer-input::placeholder {
+  color: #94a3b8;
+}
+
+.answer-input.correct {
+  border-color: #10b981;
+  background: #ecfdf5;
+}
+
+.answer-input.incorrect {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+/* Word Counter */
+.word-counter {
+  font-size: 12px;
+  color: #94a3b8;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.word-counter.over-limit {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* --- Section Headers (for question groups) --- */
+.section-group-header {
+  margin: 24px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.section-group-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.section-group-instruction {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* --- Correct Answer Hints --- */
+.correct-answer-hint {
+  font-size: 13px;
+  color: #10b981;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #ecfdf5;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.correct-answer-hint strong {
+  margin-right: 4px;
+}
+
+/* --- Status Icons --- */
+.status-icon {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* --- Tip Box --- */
+.tip-box {
+  margin-top: 16px;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: #64748b;
+  border-left: 3px solid #f59e0b;
+}
+
+/* ============================================
    DARK MODE STYLES
    ============================================ */
 @media (prefers-color-scheme: dark) {
+  /* Unified Layout Classes - Dark Mode */
+  .test-block-container {
+    background: var(--surface-white);
+    border-color: var(--border-color);
+  }
+  
+  .test-block-header {
+    background: var(--bg-app);
+    border-color: var(--border-color);
+  }
+  
+  .test-block-title {
+    color: #F3F4F6;
+  }
+  
+  .test-block-subtitle {
+    color: #9CA3AF;
+  }
+  
+  .test-block-description {
+    color: #6B7280;
+  }
+  
+  .test-block-footer {
+    background: var(--bg-app);
+    border-color: var(--border-color);
+  }
+  
+  /* Question Components - Dark Mode */
+  .question-card {
+    background: var(--surface-white);
+    border-color: var(--border-color);
+  }
+  
+  .question-label {
+    color: #9CA3AF;
+  }
+  
+  .question-text {
+    color: #F3F4F6;
+  }
+  
+  .question-instruction {
+    background: rgba(30, 41, 59, 0.5);
+    color: #CBD5E1;
+    border-left-color: var(--lab-indigo);
+  }
+  
+  .option-button {
+    background: var(--surface-white);
+    border-color: var(--border-color);
+    color: #D1D5DB;
+  }
+  
+  .option-button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--lab-indigo);
+  }
+  
+  .option-letter {
+    color: #6B7280;
+  }
+  
+  .option-button.selected {
+    background: rgba(79, 70, 229, 0.2);
+    border-color: var(--lab-indigo);
+    color: #A5B4FC;
+  }
+  
+  .option-button.selected .option-letter {
+    color: #A5B4FC;
+  }
+  
+  .option-button.review-correct {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: #10b981;
+    color: #34d399;
+  }
+  
+  .option-button.review-incorrect {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: #ef4444;
+    color: #f87171;
+  }
+  
+  .answer-input {
+    background: var(--bg-app);
+    border-color: var(--border-color);
+    color: #F3F4F6;
+  }
+  
+  .answer-input::placeholder {
+    color: #6B7280;
+  }
+  
+  .word-counter {
+    color: #6B7280;
+  }
+  
+  .section-group-header {
+    border-color: var(--border-color);
+  }
+  
+  .section-group-title {
+    color: #F3F4F6;
+  }
+  
+  .section-group-instruction {
+    color: #9CA3AF;
+  }
+  
+  .correct-answer-hint {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+  }
+  
+  .tip-box {
+    background: rgba(30, 41, 59, 0.5);
+    color: #9CA3AF;
+  }
+
+  /* Existing dark mode styles below */
+  
   /* Reading Passage */
   .reading-passage {
     background: var(--surface-white);

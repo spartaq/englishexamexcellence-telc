@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useExamStore } from '../../store/useExamStore';
 import './engine.css';
 
-const WritingBlock = ({ data, onComplete }) => {
+const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
   const [text, setText] = useState("");
   const [wordCount, setWordCount] = useState(0);
   const [isChecking, setIsChecking] = useState(false);
@@ -47,6 +47,20 @@ const WritingBlock = ({ data, onComplete }) => {
 
   return (
     <div className="writing-container">
+      {/* Task Header - show only when NOT in mini-test flow (App.jsx will show section header) */}
+      {!isMiniTest && data.title && (
+        <div className="test-block-header">
+          <h2 className="test-block-title">{data.title}</h2>
+          {data.subtitle && <p className="test-block-subtitle">{data.subtitle}</p>}
+          {data.description && <p className="test-block-description">{data.description}</p>}
+        </div>
+      )}
+
+      {/* Skill Label - Section Header */}
+      <div className="vocab-top-section" style={{ marginBottom: '16px' }}>
+        <span className="task-label">✍️ Writing</span>
+      </div>
+      
       <div className="writing-header">
         <div className="header-meta">
           <span className="task-label">IELTS Writing Task {data.taskType}</span>

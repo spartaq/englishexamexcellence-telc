@@ -121,16 +121,16 @@ const MCQBlock = ({
   if (!questionText && options.length === 0) return null;
 
   return (
-    <div className="mcq-question-area">
+    <div className="question-card">
       {/* Instruction Box */}
       {data.instruction && (
-        <div className="mcq-instruction">
+        <div className="question-instruction">
           {data.instruction}
         </div>
       )}
       {/* Review Mode Badge */}
       {isReviewMode && (
-        <div className="mcq-review-badge">
+        <div className="review-badge">
           Review Mode
         </div>
       )}
@@ -144,24 +144,24 @@ const MCQBlock = ({
       )}
 
       {/* Question */}
-      <h3 className={`mcq-question ${isMultiSelect ? 'multiselect' : ''}`}>
-        <span className="mcq-question-label">{data.id}.</span>
+      <h3 className={`question-text ${isMultiSelect ? 'multiselect' : ''}`}>
+        <span className="question-label">{data.id}.</span>
         {data.question || data.text}
         {isMultiSelect && (
-          <span className="mcq-question-subtext">
+          <span className="mcq-question-subtext" style={{ display: 'block', fontSize: '13px', fontWeight: '400', color: '#64748b', marginTop: '4px' }}>
             {data.selectInstruction || `Choose ${minSelect > 1 ? `${minSelect} or more` : 'all that apply'}.`}
           </span>
         )}
       </h3>
 
       {/* Options */}
-      <div className="mcq-options">
+      <div className="options-list">
         {options.map((option, idx) => {
           const selected = isSelected(idx);
           const isCorrect = isCorrectOption(idx);
           
           // Build class names for the option button
-          let optionClasses = 'mcq-option';
+          let optionClasses = 'option-button';
           if (selected) {
             optionClasses += ' selected';
             if (isMultiSelect) optionClasses += ' multiselect';
@@ -185,7 +185,10 @@ const MCQBlock = ({
             >
               {/* Multi-select checkbox indicator */}
               {isMultiSelect && !isReviewMode && (
-                <span className={`mcq-checkbox ${selected ? 'selected' : ''}`}>
+                <span className={`mcq-checkbox ${selected ? 'selected' : ''}`} style={{ 
+                  width: '18px', height: '18px', borderRadius: '4px', border: '2px solid #e2e8f0',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
+                }}>
                   {selected && (
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path d="M2 6L5 9L10 3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -196,18 +199,18 @@ const MCQBlock = ({
               
               {/* Option letter for multi-select */}
               {isMultiSelect && (
-                <span className={`mcq-option-letter ${selected ? 'selected' : ''}`}>
+                <span className={`option-letter ${selected ? 'selected' : ''}`}>
                   {String.fromCharCode(65 + idx)}.
                 </span>
               )}
               
-              <span className="mcq-option-text">{option}</span>
+              <span className="option-text">{option}</span>
               
               {isReviewMode && (
-                <>
+                <span className="status-icon">
                   {isCorrect && <CheckCircle size={18} color="#10b981" />}
                   {selected && !isCorrect && <XCircle size={18} color="#ef4444" />}
-                </>
+                </span>
               )}
             </button>
           );
@@ -216,8 +219,8 @@ const MCQBlock = ({
 
       {/* Multi-select minimum warning */}
       {isMultiSelect && !isReviewMode && currentSelections.length < minSelect && (
-        <div className="mcq-warning">
-          <AlertCircle size={16} />
+        <div className="tip-box" style={{ marginTop: '12px' }}>
+          <AlertCircle size={16} style={{ marginRight: '6px', verticalAlign: 'middle' }} />
           Please select at least {minSelect} option{minSelect > 1 ? 's' : ''}.
         </div>
       )}
@@ -226,14 +229,14 @@ const MCQBlock = ({
       {isReviewMode && (
         <>
           {!isUserCorrect() && (
-            <p className="mcq-tip">
-              Tip: Read the passage section regarding this topic again to see why the green option{isMultiSelect ? 's are' : ' is'} correct.
+            <p className="tip-box">
+              <strong>Tip:</strong> Read the passage section regarding this topic again to see why the green option{isMultiSelect ? 's are' : ' is'} correct.
             </p>
           )}
           
           {/* Show correct answers for multi-select */}
           {isMultiSelect && correctAnswers && (
-            <div className="mcq-correct-answers">
+            <div className="correct-answer-hint" style={{ marginTop: '12px' }}>
               <strong>Correct Answers:</strong>{' '}
               {correctAnswers.map(idx => String.fromCharCode(65 + idx)).join(', ')}
             </div>

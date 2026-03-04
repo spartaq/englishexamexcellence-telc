@@ -1,7 +1,7 @@
 import React from 'react';
 import './engine.css';
 
-const ReadingBlock = ({ content }) => {
+const ReadingBlock = ({ content, isMiniTest = false }) => {
   const renderContent = () => {
     // CASE 1: Single String (Now supports HTML inside the string)
     if (typeof content === 'string') {

@@ -4,7 +4,7 @@ import { Mic, Square, Play, RefreshCw, Info, Sparkles } from 'lucide-react';
 import { useExamStore } from '../../store/useExamStore';
 import './engine.css';
 
-const SpeakingBlock = ({ data, onComplete }) => {
+const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
   // Log data for debugging
   console.log('SpeakingBlock received data:', typeof data, data);
   if (data && typeof data === 'object') {
@@ -146,6 +146,22 @@ const SpeakingBlock = ({ data, onComplete }) => {
   return (
     <div className="speaking-container speaking-block-wrapper">
       
+      {/* Task Header - show only when NOT in mini-test flow (App.jsx will show section header) */}
+      {!isMiniTest && data.title && (
+        <div className="test-block-header">
+          <h2 className="test-block-title">{data.title}</h2>
+          {data.subtitle && <p className="test-block-subtitle">{data.subtitle}</p>}
+          {data.description && <p className="test-block-description">{data.description}</p>}
+        </div>
+      )}
+
+      {/* Skill Label - Section Header - hide in mini-test flow */}
+      {!isMiniTest && (
+        <div className="vocab-top-section" style={{ marginBottom: '16px' }}>
+          <span className="task-label">🎤 Speaking</span>
+        </div>
+      )}
+
       <div className="speaking-content" style={{ padding: '30px', minHeight: '300px', display: 'flex', flexDirection: 'column' }}>
         
          {/* Show instruction for current part */}

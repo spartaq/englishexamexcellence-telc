@@ -11,7 +11,7 @@ export const speakingMock1 = {
     // Part 1: Introduction and Interview (4-5 minutes)
     {
       id: 'part1',
-      title: 'Part 1: Introduction and Interview',
+      title: 'Part 1',
       instruction: 'Answer the examiner\'s questions about familiar topics. Speak naturally and give full answers.',
       duration: '4-5 minutes',
       type: 'interview',
@@ -39,10 +39,10 @@ export const speakingMock1 = {
       ]
     },
 
-    // Part 2: Individual Long Turn (3-4 minutes)
+    // Part 2: Part 2 (3-4 minutes)
     {
       id: 'part2',
-      title: 'Part 2: Individual Long Turn',
+      title: 'Part 2',
       instruction: 'You will have 1 minute to prepare, then speak for 1-2 minutes on the topic.',
       duration: '3-4 minutes',
       type: 'long-turn',
@@ -63,10 +63,10 @@ export const speakingMock1 = {
       }
     },
 
-    // Part 3: Two-way Discussion (4-5 minutes)
+    // Part 3: Part 3 (4-5 minutes)
     {
       id: 'part3',
-      title: 'Part 3: Two-way Discussion',
+      title: 'Part 3',
       instruction: 'Discuss more abstract issues related to the topic in Part 2.',
       duration: '4-5 minutes',
       type: 'discussion',

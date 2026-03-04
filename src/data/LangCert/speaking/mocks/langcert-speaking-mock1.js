@@ -7,7 +7,7 @@ export const speakingMock1 = {
   parts: [
     {
       id: 'part1',
-      title: 'Part 1: Personal Information & Opinions',
+      title: 'Personal Information & Opinions',
       instruction: 'Answer the questions naturally. Express your opinions on these topics.',
       prompts: [
         "Can you tell me about a place in your country that you think everyone should visit?",
@@ -18,7 +18,7 @@ export const speakingMock1 = {
     },
     {
       id: 'part2',
-      title: 'Part 2: Situational Role-play',
+      title: 'Situational Role-play',
       instruction: 'Listen to the context and respond appropriately. You must initiate or respond as required.',
       scenarios: [
         {
@@ -35,7 +35,7 @@ export const speakingMock1 = {
     },
     {
       id: 'part3',
-      title: 'Part 3: Exchanging Information (Info Gap)',
+      title: 'Exchanging Information (Info Gap)',
       instruction: 'We want to organize a charity event. Let\'s discuss and agree on 2-3 specific plans.',
       candidateInfo: {
         theme: "Charity Fundraiser",
@@ -48,7 +48,7 @@ export const speakingMock1 = {
     },
     {
       id: 'part4',
-      title: 'Part 4: Long Turn',
+      title: 'Long Turn',
       instruction: 'You have 30 seconds to prepare. Speak for 2 minutes on the topic below.',
       topicCard: {
         topic: "The benefits and challenges of working from home.",

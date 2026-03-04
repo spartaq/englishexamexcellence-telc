@@ -10,8 +10,8 @@ export const academicReadingMock1 = {
     {
       id: 's1',
       section: 1,
-      title: 'Section 1: Electroreception',
-      description: 'Questions 1–13 based on Reading Passage 1',
+      title: 'Electroreception',
+      description: 'Questions 1–13 based on Part 1',
       passages: [
          {
           id: 'p1',
@@ -87,8 +87,8 @@ export const academicReadingMock1 = {
     {
       id: 's2',
       section: 2,
-      title: 'Section 2: Fair Games?',
-      description: 'Questions 14–27 based on Reading Passage 2',
+      title: 'Fair Games?',
+      description: 'Questions 14–27 based on Part 2',
       passages: [
          {
           id: 'p2',
@@ -176,8 +176,8 @@ export const academicReadingMock1 = {
     {
       id: 's3',
       section: 3,
-      title: 'Section 3: Time Travel',
-      description: 'Questions 28–40 based on Reading Passage 3',
+      title: 'Time Travel',
+      description: 'Questions 28–40 based on Part 3',
       passages: [
          {
           id: 'p3',

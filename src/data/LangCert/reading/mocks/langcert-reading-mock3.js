@@ -20,7 +20,7 @@ export const readingMock3 = {
     {
       id: 'p1',
       section: 1,
-      title: 'Part 1: Multiple Choice',
+      title: 'Multiple Choice',
       description: 'Read the text and the questions. Choose the correct answer for each question.',
       passages: [
         {
@@ -111,7 +111,7 @@ export const readingMock3 = {
     {
       id: 'p2',
       section: 2,
-      title: 'Part 2: Sentence Completion',
+      title: 'Sentence Completion',
       description: 'Read the text. Use the sentences to complete the text. Choose the correct sentence for each gap. There is one extra sentence you will not need.',
       passages: [
         {
@@ -156,7 +156,7 @@ export const readingMock3 = {
     {
       id: 'p3',
       section: 3,
-      title: 'Part 3: Matching Information',
+      title: 'Matching Information',
       description: 'Read the four texts. Which text gives you the answer to each question? Choose the correct text (A-D) for each question.',
       passages: [
         {
@@ -202,7 +202,7 @@ export const readingMock3 = {
     {
       id: 'p4',
       section: 4,
-      title: 'Part 4: Short Answer',
+      title: 'Short Answer',
       description: 'Read the text and answer the questions. Use a maximum of five words for each question.',
       passages: [
         {

@@ -635,14 +635,14 @@ function App({ initialView }) {
   const renderQuestionBlock = (taskData) => {
     if (!taskData) return null;
 
-    if (taskData.prompts || taskData.scenarios || taskData.candidateInfo || taskData.topicCard || taskData.type === 'SPEAKING' || taskData.skill === 'speaking') {
-        return <SpeakingBlock data={taskData} onComplete={handleCheckAnswers} />;
+    if (taskData.prompts || taskData.scenarios || taskData.candidateInfo || taskData.topicCard || taskData.type === 'SPEAKING' || taskData.type === 'ielts-speaking' || taskData.type === 'discussion' || taskData.type === 'interview' || taskData.type === 'long-turn' || taskData.skill === 'speaking') {
+        return <SpeakingBlock data={taskData} onComplete={handleCheckAnswers} isMiniTest={true} />;
     }
     if (taskData.type === 'WRITING' || taskData.prompt) {
-        return <WritingBlock data={taskData} onComplete={handleCheckAnswers} />;
+        return <WritingBlock data={taskData} onComplete={handleCheckAnswers} isMiniTest={true} />;
     }
 
-    if (taskData.type === 'LISTENING' || taskData.skill === 'listening') return <ListeningBlock data={taskData} onComplete={handleCheckAnswers} />;
+    if (taskData.type === 'LISTENING' || taskData.skill === 'listening') return <ListeningBlock data={taskData} onComplete={handleCheckAnswers} isMiniTest={true} />;
     if (taskData.type === 'VOCAB') return <VocabBlock data={taskData} onComplete={handleCheckAnswers} />;
 
     if (taskData.type === 'gap-fill' && taskData.label && !taskData.content) {
@@ -1089,9 +1089,12 @@ function App({ initialView }) {
                     }
                   }}
                 >
-                  <BookOpen size={24} />
+                  <div className="skill-icon-wrapper reading">
+                    <BookOpen size={24} color="#e11d48" />
+                  </div>
                   <h3>Reading</h3>
                   <p>Practice reading comprehension</p>
+                  <span className="skill-xp-badge">+300 XP</span>
                 </button>
                 
                 <button 
@@ -1105,9 +1108,12 @@ function App({ initialView }) {
                     }
                   }}
                 >
-                  <Headset size={24} />
+                  <div className="skill-icon-wrapper listening">
+                    <Headset size={24} color="#16a34a" />
+                  </div>
                   <h3>Listening</h3>
                   <p>Practice listening skills</p>
+                  <span className="skill-xp-badge">+250 XP</span>
                 </button>
                 
                 <button 
@@ -1121,9 +1127,12 @@ function App({ initialView }) {
                     }
                   }}
                 >
-                  <PenTool size={24} />
+                  <div className="skill-icon-wrapper writing">
+                    <PenTool size={24} color="#2563eb" />
+                  </div>
                   <h3>Writing</h3>
                   <p>Practice writing tasks</p>
+                  <span className="skill-xp-badge">+400 XP</span>
                 </button>
                 
                 <button 
@@ -1137,9 +1146,12 @@ function App({ initialView }) {
                     }
                   }}
                 >
-                  <Mic size={24} />
+                  <div className="skill-icon-wrapper speaking">
+                    <Mic size={24} color="#9333ea" />
+                  </div>
                   <h3>Speaking</h3>
                   <p>Practice speaking prompts</p>
+                  <span className="skill-xp-badge">+350 XP</span>
                 </button>
                 
                 <button 
@@ -1153,9 +1165,12 @@ function App({ initialView }) {
                     }
                   }}
                 >
-                  <Zap size={24} />
+                  <div className="skill-icon-wrapper vocab">
+                    <Zap size={24} color="#ea580c" />
+                  </div>
                   <h3>Vocabulary</h3>
                   <p>Learn new words</p>
+                  <span className="skill-xp-badge">+150 XP</span>
                 </button>
               </div>
             </div>
@@ -1236,24 +1251,25 @@ function App({ initialView }) {
                                   ))}
                                 </div>
                                 
-                                {/* Passage tabs for current skill */}
+                                {/* Part tabs for current skill - only show if more than 1 section */}
                                 {(() => {
                                   const currentSkill = availableSkills[activeSkillTab];
                                   const skillSections = sections.filter(s => s.skill === currentSkill);
                                   
-                                  // Show passage tabs if more than 1 section for this skill OR if it's speaking (to show parts)
-                                  if (skillSections.length > 1 || currentSkill === 'speaking') {
+                                  // Only show part tabs if more than 1 section exists
+                                  if (skillSections.length > 1) {
                                     return (
                                       <div className="passage-tabs">
                                         {skillSections.map((s, idx) => {
-                                          // For speaking, show parts; for others show sections
+                                          // Always show 'Part #' for consistent naming in mini-flows
+                                          const partTitle = `Part ${idx + 1}`;
                                           const sidx = sections.findIndex(sec => sec === s);
                                           return (
                                             <button 
                                               key={idx} 
                                               onClick={() => { setActiveSectionIndex(sidx); setActivePassageIndex(0); setIsReviewMode(false); }} 
                                               className={`tab ${activeSectionIndex === sidx ? 'active' : ''} ${getPassageStatus(s) || ''}`}>
-                                              {currentSkill === 'speaking' ? (s.title || `Part ${idx + 1}`) : (s.title || `Section ${idx + 1}`)}
+                                              {partTitle}
                                             </button>
                                           );
                                         })}
@@ -1271,34 +1287,58 @@ function App({ initialView }) {
                             <div className="section-tabs">
                               {sections.map((s, idx) => (
                                 <button key={idx} onClick={() => { setActiveSectionIndex(idx); setActivePassageIndex(0); setIsReviewMode(false); }} className={`section-tab ${activeSectionIndex === idx ? 'active' : ''}`}>
-                                  {s.skill === 'vocab' ? '📚 Vocab' : s.skill === 'reading' ? '📖 Reading' : s.skill === 'listening' ? '🎧 Listening' : s.skill === 'writing' ? '✍️ Writing' : s.skill === 'speaking' ? '🗣️ Speaking' : s.type === 'ielts-speaking' ? '🗣️ Speaking' : s.type === 'LISTENING' ? '🎧 Listening' : s.type === 'WRITING' ? '✍️ Writing' : s.type === 'VOCAB' ? '📚 Vocab' : (s.type && (s.type.includes('reading') || s.type === 'reading-practice' || s.type.includes('ielts'))) ? '📖 Reading' : `Part ${idx + 1}`}
+                                  {s.skill === 'vocab' ? '📚 Vocab' : s.skill === 'reading' ? '📖 Reading' : s.skill === 'listening' ? '🎧 Listening' : s.skill === 'writing' ? '✍️ Writing' : s.skill === 'speaking' ? '🗣️ Speaking' : s.type === 'ielts-speaking' ? '🗣️ Speaking' : s.type === 'discussion' ? '🗣️ Part 3' : s.type === 'interview' ? '🗣️ Part 1' : s.type === 'long-turn' ? '🗣️ Part 2' : s.type === 'LISTENING' ? '🎧 Listening' : s.type === 'WRITING' ? '✍️ Writing' : s.type === 'VOCAB' ? '📚 Vocab' : (s.type && (s.type.includes('reading') || s.type === 'reading-practice' || s.type.includes('ielts'))) ? '📖 Reading' : `Part ${idx + 1}`}
                                 </button>
                               ))}
                             </div>
                           );
                         })()}
 
-                        <div className="section-header">
-                          {/* Show title for all sections including listening */}
-                          <h2>{currentSection.title || currentSection.mockTitle || activeLesson.title || (currentSection.skill === 'listening' ? 'Listening Practice' : `Section ${activeSectionIndex + 1}`)}</h2>
-                          {currentSection.type !== 'LISTENING' && currentSection.subtitle && (
-                            <p className="subtitle">{currentSection.subtitle}</p>
-                          )}
-                          {currentSection.type !== 'LISTENING' && currentSection.description && (
-                            <p className="description">{currentSection.description}</p>
-                          )}
-                          {currentSection.instructions && (
-                            <div className="section-instructions">
-                              {currentSection.instructions}
+                        {/* Only show section header for non-self-contained blocks */}
+                        {(() => {
+                          // Skip header only for Vocab (they have their own internal headers)
+                          // Show section header for Reading, Listening, Speaking, Writing
+                          const skipHeader = currentSection.skill === 'vocab' || currentSection.type === 'VOCAB';
+                          
+                          if (skipHeader) {
+                            return null;
+                          }
+                          
+                          return (
+                            <div className="section-header">
+                              {/* Show title for all sections - use custom title, then partTitle, then "Part #" */}
+                              <h2>{currentSection.title || currentSection.mockTitle || currentSection.partTitle || activeLesson.title || `Part ${activeSectionIndex + 1}`}</h2>
+                              {currentSection.subtitle && (
+                                <p className="subtitle">{currentSection.subtitle}</p>
+                              )}
+                              {currentSection.description && (
+                                <p className="description">{currentSection.description}</p>
+                              )}
+                              {currentSection.instructions && (
+                                <div className="section-instructions">
+                                  {currentSection.instructions}
+                                </div>
+                              )}
                             </div>
-                          )}
-                        </div>
+                          );
+                        })()}
 
                         {subPassages.length > 1 && (
                           <div className="passage-tabs">
                             {subPassages.map((p, idx) => (
                               <button key={idx} onClick={() => { setActivePassageIndex(idx); setIsReviewMode(false); }} className={`tab ${activePassageIndex === idx ? 'active' : ''} ${getPassageStatus(p) || ''}`}>
-                                {p.title || `Passage ${idx + 1}`}
+                                {p.title || `Part ${idx + 1}`}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* Show speaking parts tabs when activeLesson has parts array - but NOT for mini tests */}
+                        {activeLesson.parts && activeLesson.parts.length > 1 && !activeLesson.type?.includes('mini') && (
+                          <div className="passage-tabs">
+                            {activeLesson.parts.map((p, idx) => (
+                              <button key={idx} onClick={() => { setActiveSectionIndex(idx); setActivePassageIndex(0); setIsReviewMode(false); }} className={`tab ${activeSectionIndex === idx ? 'active' : ''}`}>
+                                {p.title || `Part ${idx + 1}`}
                               </button>
                             ))}
                           </div>
@@ -1307,16 +1347,27 @@ function App({ initialView }) {
                         {/* Check if we should use single-column layout for self-contained blocks */}
                         {(() => {
                           // Check if this section type handles its own questions internally
-                          const handlesOwnQuestions = ['LISTENING', 'SPEAKING', 'WRITING', 'VOCAB'].includes(currentSection.type) || currentSection.skill === 'listening' || currentSection.skill === 'speaking' || currentSection.skill === 'writing' || currentSection.skill === 'vocab';
+                          const handlesOwnQuestions = ['LISTENING', 'SPEAKING', 'WRITING', 'VOCAB', 'ielts-speaking', 'discussion', 'interview', 'long-turn'].includes(currentSection.type) || currentSection.skill === 'listening' || currentSection.skill === 'speaking' || currentSection.skill === 'writing' || currentSection.skill === 'vocab';
                           
                           const subTasks = currentPassage?.subTasks || currentSection?.subTasks || [];
                           
                           // Render self-contained blocks directly
                           if (handlesOwnQuestions) {
+                            // Check if this is a mini-test flow (combined flow)
+                            const isMiniTest = activeLesson.type === 'mixed-flow';
+                            
+                            // For speaking tests with 'parts' array, extract the current part
+                            const hasSpeakingParts = activeLesson.parts && activeLesson.parts.length > 0;
+                            const currentPart = hasSpeakingParts ? activeLesson.parts[activeSectionIndex] : null;
+                            
+                            // Clone activeLesson and remove parts array to avoid circular reference, then merge with currentPart
+                            const { parts: _removedParts, ...activeLessonWithoutParts } = activeLesson;
+                            const taskData = currentPart ? {...activeLessonWithoutParts, ...currentPart, isMiniTest} : {...currentSection, isMiniTest};
+                            
                             return (
                               <div className="workspace-grid single-column">
                                 <div className="question-pane full-width">
-                                  {renderQuestionBlock(currentSection)}
+                                  {renderQuestionBlock(taskData)}
                                 </div>
                               </div>
                             );
@@ -1388,6 +1439,21 @@ function App({ initialView }) {
                 </div>
               ) : (
                 <div className="drill-flow">
+                  {/* Section header for reading skill tests */}
+                  {(activeLesson.title || activeLesson.sourceTitle) && (
+                    <div className="section-header" style={{ marginBottom: '20px' }}>
+                      <h2>{activeLesson.title || activeLesson.sourceTitle}</h2>
+                      {activeLesson.instructions && (
+                        <p className="description">{activeLesson.instructions}</p>
+                      )}
+                    </div>
+                  )}
+                  {activeLesson.instructions && !activeLesson.title && !activeLesson.sourceTitle && (
+                    <div className="lesson-instructions">
+                      <div className="instructions-icon">📋</div>
+                      <div className="instructions-text">{activeLesson.instructions}</div>
+                    </div>
+                  )}
                   {activeLesson.content && activeLesson.type !== 'token-select' && activeLesson.type !== 'heading-match' && (
                     <ReadingBlock content={activeLesson.content} />
                   )}
@@ -1408,10 +1474,14 @@ function App({ initialView }) {
               <button className="btn-primary" onClick={() => handleCheckAnswers()}>Check Answers</button>
             ) : (
               <div className="footer-buttons">
-                {(activeLesson.sections?.[activeSectionIndex]?.passages?.[activePassageIndex + 1]) ? (
-                  <button className="btn-secondary" onClick={() => { setActivePassageIndex(prev => prev + 1); setIsReviewMode(false); }}>Next Passage <ArrowRight size={18} /></button>
+                {/* For speaking tests with parts, check activeLesson.parts */}
+                {(activeLesson.parts && activeLesson.parts.length > activeSectionIndex + 1) ? (
+                  <button className="btn-secondary" onClick={() => { setActiveSectionIndex(prev => prev + 1); setActivePassageIndex(0); setIsReviewMode(false); }}>Next Part <ArrowRight size={18} /></button>
+                ) :
+                (activeLesson.sections?.[activeSectionIndex]?.passages?.[activePassageIndex + 1]) ? (
+                  <button className="btn-secondary" onClick={() => { setActivePassageIndex(prev => prev + 1); setIsReviewMode(false); }}>Next Part <ArrowRight size={18} /></button>
                  ) : 
-                 (activeLesson.sections || activeLesson.passages || activeLesson.parts)?.[activeSectionIndex + 1] ? (
+                  (activeLesson.sections || activeLesson.passages)?.[activeSectionIndex + 1] ? (
                    <button className="btn-secondary" onClick={() => { 
                      const nextSectionIndex = activeSectionIndex + 1;
                      setActiveSectionIndex(nextSectionIndex); 

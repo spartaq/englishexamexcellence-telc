@@ -60,9 +60,9 @@ const ShortAnswerBlock = ({
     <div className="short-answer-container">
       {/* 5. SINGLE INSTRUCTION BOX (Rendered once for the whole block) */}
       {!hideInstruction && (
-        <div className="sa-instruction-box">
-          <AlertTriangle size={16} className="sa-warning-icon" />
-          <span className="sa-instruction-text">{instructionText}</span>
+        <div className="question-instruction">
+          <AlertTriangle size={16} style={{ marginRight: '8px', flexShrink: 0 }} />
+          <span>{instructionText}</span>
         </div>
       )}
       
@@ -79,13 +79,13 @@ const ShortAnswerBlock = ({
           return (
             <div 
               key={q.id || index} 
-              className={`sa-row ${isReviewMode ? (isCorrect ? 'correct' : 'incorrect') : overLimit ? 'over-limit' : ''}`}
+              className={`question-card ${isReviewMode ? (isCorrect ? 'correct' : 'incorrect') : overLimit ? 'over-limit' : ''}`}
             >
-              <div className="sa-question-header">
-                <span className="sa-question-num">{q.id || index + 1}.</span>
-                <p className="sa-question-text">{q.text}</p>
+              <div className="sa-question-header" style={{ marginBottom: '12px' }}>
+                <span className="question-label">{q.id || index + 1}.</span>
+                <p className="question-text" style={{ marginBottom: 0 }}>{q.text}</p>
                 {isReviewMode && (
-                  <span className="sa-status-icon">
+                  <span className="status-icon">
                     {isCorrect ? <CheckCircle size={20} color="#10b981" /> : <XCircle size={20} color="#ef4444" />}
                   </span>
                 )}
@@ -96,31 +96,29 @@ const ShortAnswerBlock = ({
                   <input 
                     type="text"
                     disabled={isReviewMode}
-                    className={`sa-input ${isReviewMode ? (isCorrect ? 'correct' : 'incorrect') : ''}`}
+                    className={`answer-input ${isReviewMode ? (isCorrect ? 'correct' : 'incorrect') : ''}`}
                     placeholder={isReviewMode ? "" : "Type answer here..."}
                     value={currentAnswer}
                     onChange={(e) => onUpdate(q.id, e.target.value)}
                   />
                   
                   {limit && !isReviewMode && (
-                    <div className="sa-word-counter">
-                      <span className={overLimit ? 'text-danger' : ''}>
-                        {total}/{limit}
-                      </span>
+                    <div className={`word-counter ${overLimit ? 'over-limit' : ''}`}>
+                      {total}/{limit}
                     </div>
                   )}
                 </div>
 
                 {/* Validation Warnings */}
                 {overLimit && !isReviewMode && (
-                  <div className="sa-error-msg">
-                    <AlertTriangle size={12} /> Limit: {limit} words
+                  <div className="tip-box" style={{ marginTop: '8px' }}>
+                    <AlertTriangle size={12} style={{ marginRight: '6px' }} /> Limit: {limit} words
                   </div>
                 )}
 
                 {/* Review Mode Answer Key */}
                 {isReviewMode && !isCorrect && (
-                  <div className="sa-correct-answer">
+                  <div className="correct-answer-hint">
                     <strong>Correct:</strong> {q.answer}
                   </div>
                 )}
@@ -131,7 +129,7 @@ const ShortAnswerBlock = ({
       </div>
 
       {isReviewMode && (
-        <div className="sa-tip-box">
+        <div className="tip-box">
           <strong>Tip:</strong> Ensure spelling is correct and you stay within the word limit.
         </div>
       )}

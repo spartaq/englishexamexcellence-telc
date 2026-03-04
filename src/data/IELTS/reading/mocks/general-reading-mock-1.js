@@ -10,8 +10,8 @@ export const generalReadingMock1 = {
     {
       id: 's1',
       section: 1,
-      title: 'Section 1: The Earth',
-      description: 'Questions 1–13 based on Reading Passage 1',
+      title: 'The Earth',
+      description: 'Questions 1–13 based on Part 1',
       passages: [
          {
           id: 'p1',
@@ -73,8 +73,8 @@ export const generalReadingMock1 = {
     {
       id: 's2',
       section: 2,
-      title: 'Section 2: Job Advertisements',
-      description: 'Questions 14–28 based on Reading Passage 2',
+      title: 'Job Advertisements',
+      description: 'Questions 14–28 based on Part 2',
       passages: [
          {
           id: 'p2',
@@ -135,8 +135,8 @@ export const generalReadingMock1 = {
     {
       id: 's3',
       section: 3,
-      title: 'Section 3: What to do in a fire?',
-      description: 'Questions 29–40 based on Reading Passage 3',
+      title: 'What to do in a fire?',
+      description: 'Questions 29–40 based on Part 3',
       passages: [
          {
           id: 'p3',

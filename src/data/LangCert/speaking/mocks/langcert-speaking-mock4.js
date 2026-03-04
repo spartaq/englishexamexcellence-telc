@@ -7,7 +7,7 @@ export const speakingMock4 = {
   parts: [
     {
       id: 'part1',
-      title: 'Part 1: Personal Information & Opinions',
+      title: 'Personal Information & Opinions',
       instruction: 'Express your ideas clearly using a range of vocabulary.',
       prompts: [
         "How concerned are you about climate change in your local area?",
@@ -18,7 +18,7 @@ export const speakingMock4 = {
     },
     {
       id: 'part2',
-      title: 'Part 2: Situational Role-play',
+      title: 'Situational Role-play',
       instruction: 'Listen to the interlocutor and respond according to the role.',
       scenarios: [
         {
@@ -35,7 +35,7 @@ export const speakingMock4 = {
     },
     {
       id: 'part3',
-      title: 'Part 3: Exchanging Information (Decision Making)',
+      title: 'Exchanging Information (Decision Making)',
       instruction: 'Our company wants to go on a team-building weekend. We need to decide on the location and the duration.',
       candidateInfo: {
         theme: "Team Building Trip",
@@ -48,7 +48,7 @@ export const speakingMock4 = {
     },
     {
       id: 'part4',
-      title: 'Part 4: Long Turn',
+      title: 'Long Turn',
       instruction: 'You have 30 seconds to prepare. Speak for 2 minutes on the topic below.',
       topicCard: {
         topic: "The pros and cons of living in a big city versus a small village.",

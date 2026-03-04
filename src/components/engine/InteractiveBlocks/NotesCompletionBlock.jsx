@@ -11,7 +11,8 @@ const NotesCompletionBlock = ({
   data, 
   userAnswers = {}, 
   onUpdate, 
-  isReviewMode = false 
+  isReviewMode = false,
+  hideInstruction = false
 }) => {
   const { 
     title,
@@ -331,16 +332,11 @@ const NotesCompletionBlock = ({
       </div>
 
       {/* Instruction */}
-      <div style={{
-        background: '#fffbeb',
-        borderLeft: '4px solid #f59e0b',
-        padding: '12px 16px',
-        marginBottom: '20px',
-        fontSize: '14px',
-        color: '#92400e'
-      }}>
+      {!hideInstruction && (
+      <div className="question-instruction">
         {instruction}
       </div>
+      )}
 
       {/* Word List (if provided) */}
       {wordList && (

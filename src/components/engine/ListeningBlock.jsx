@@ -11,7 +11,7 @@ import DiagramLabelBlock from './InteractiveBlocks/DiagramLabelBlock';
 import MCQBlock from './InteractiveBlocks/MCQBlock';
 import MatchingChoiceBlock from './InteractiveBlocks/MatchingChoiceBlock';
 
-const ListeningBlock = ({ data, onComplete }) => {
+const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -28,16 +28,19 @@ const ListeningBlock = ({ data, onComplete }) => {
   }, [isActive]);
 
   const handlePlay = () => {
+    if (!audioRef.current) return;
     audioRef.current.play();
     setIsPlaying(true);
   };
 
   const handlePause = () => {
+    if (!audioRef.current) return;
     audioRef.current.pause();
     setIsPlaying(false);
   };
 
   const handleTimeUpdate = () => {
+    if (!audioRef.current?.duration) return;
     const p = (audioRef.current.currentTime / audioRef.current.duration) * 100;
     setProgress(p);
   };
@@ -57,6 +60,7 @@ const ListeningBlock = ({ data, onComplete }) => {
             userAnswers={answers}
             onUpdate={(id, value) => updateAnswer(id, value)}
             isReviewMode={false}
+            hideInstruction={true}
           />
         );
       
@@ -68,6 +72,7 @@ const ListeningBlock = ({ data, onComplete }) => {
             userAnswers={answers}
             onUpdate={(id, value) => updateAnswer(id, value)}
             isReviewMode={false}
+            hideInstruction={true}
           />
         );
       
@@ -81,6 +86,7 @@ const ListeningBlock = ({ data, onComplete }) => {
             isReviewMode={false}
             wordLimit={q.wordLimit}
             allowNumber={q.allowNumber}
+            hideInstruction={true}
           />
         );
       
@@ -92,6 +98,7 @@ const ListeningBlock = ({ data, onComplete }) => {
             userAnswers={answers}
             onUpdate={(id, value) => updateAnswer(id, value)}
             isReviewMode={false}
+            hideInstruction={true}
           />
         );
       
@@ -103,19 +110,20 @@ const ListeningBlock = ({ data, onComplete }) => {
             userAnswers={answers}
             onUpdate={(id, value) => updateAnswer(id, value)}
             isReviewMode={false}
+            hideInstruction={true}
           />
         );
       
       case 'mcq':
         return (
-          <div key={q.id} className="listening-q-card">
-            <p className="listening-q-question">{q.question}</p>
-            <div className="options-grid" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <div key={q.id} className="question-card">
+            <p className="question-text">{q.question}</p>
+            <div className="options-list">
               {q.options.map((opt, i) => (
                 <button
                   key={i}
                   onClick={() => updateAnswer(q.id, opt)}
-                  className={`listening-q-option ${answers[q.id] === opt ? 'selected' : ''}`}
+                  className={`option-button ${answers[q.id] === opt ? 'selected' : ''}`}
                 >
                   {opt}
                 </button>
@@ -126,21 +134,20 @@ const ListeningBlock = ({ data, onComplete }) => {
       
       case 'gap-fill':
         return (
-          <div key={q.id} className="listening-q-card">
-            <label className="listening-q-label">{q.label}</label>
+          <div key={q.id} className="question-card">
+            <label className="question-label">{q.label}</label>
             <input 
               type="text" 
-              className="standard-input"
+              className="answer-input"
               placeholder={q.placeholder || "Your answer..."}
               onChange={(e) => updateAnswer(q.id, e.target.value)}
-              style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '2px solid #f1f5f9', outline: 'none' }}
             />
           </div>
         );
       
       default:
         return (
-          <div key={q.id} className="listening-q-card" style={{ 
+          <div key={q.id} className="question-card" style={{ 
             background: '#fff7ed', 
             border: '1px solid #fed7aa'
           }}>
@@ -187,22 +194,24 @@ const ListeningBlock = ({ data, onComplete }) => {
         {/* Skill Label */}
         <div className="vocab-top-section" style={{ marginBottom: '16px' }}>
           <span className="task-label">
-            🎧 Listening Practice
+            🎧 Listening
           </span>
         </div>
 
-        {/* Part Title and Description */}
-        <div style={{ marginBottom: '24px' }}>
-          <h2 className="listening-title">
-            {data.title || data.mockTitle || `Part ${data.part}` || 'Listening Practice'}
-          </h2>
-          {data.subtitle && (
-            <p className="listening-subtitle">{data.subtitle}</p>
-          )}
-          {data.description && (
-            <p className="listening-description">{data.description}</p>
-          )}
-        </div>
+        {/* Part Title and Description - show in standalone tests, hide in mini-test flow (App.jsx shows header) */}
+        {!isMiniTest && (
+          <div className="test-block-header" style={{ marginBottom: '24px' }}>
+            <h2 className="test-block-title">
+              {data.title || data.mockTitle || `Part ${data.part || 1}`}
+            </h2>
+            {data.subtitle && (
+              <p className="test-block-subtitle">{data.subtitle}</p>
+            )}
+            {data.description && (
+              <p className="test-block-description">{data.description}</p>
+            )}
+          </div>
+        )}
 
         {/* Support for Map/Diagram Labelling */}
         {data.imageUrl && (

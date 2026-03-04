@@ -7,7 +7,7 @@ export const speakingMock3 = {
   parts: [
     {
       id: 'part1',
-      title: 'Part 1: Personal Information & Opinions',
+      title: 'Personal Information & Opinions',
       instruction: 'Answer the following questions. Provide reasons for your opinions.',
       prompts: [
         "How has the internet changed the way you study or work?",
@@ -18,7 +18,7 @@ export const speakingMock3 = {
     },
     {
       id: 'part2',
-      title: 'Part 2: Situational Role-play',
+      title: 'Situational Role-play',
       instruction: 'Respond to the situations. Pay attention to the level of formality.',
       scenarios: [
         {
@@ -35,7 +35,7 @@ export const speakingMock3 = {
     },
     {
       id: 'part3',
-      title: 'Part 3: Exchanging Information (Decision Making)',
+      title: 'Exchanging Information (Decision Making)',
       instruction: 'We are part of a committee deciding how to improve the local park. We need to choose two main additions.',
       candidateInfo: {
         theme: "Park Improvements",
@@ -48,7 +48,7 @@ export const speakingMock3 = {
     },
     {
       id: 'part4',
-      title: 'Part 4: Long Turn',
+      title: 'Long Turn',
       instruction: 'You have 30 seconds to prepare. Speak for 2 minutes on the topic below.',
       topicCard: {
         topic: "The impact of Artificial Intelligence on our daily lives.",

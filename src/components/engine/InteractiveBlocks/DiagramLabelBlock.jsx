@@ -12,7 +12,8 @@ const DiagramLabelBlock = ({
   data, 
   userAnswers = {}, 
   onUpdate, 
-  isReviewMode = false 
+  isReviewMode = false,
+  hideInstruction = false
 }) => {
   const { 
     diagram, 
@@ -149,9 +150,11 @@ const DiagramLabelBlock = ({
       </div>
 
       {/* Instruction */}
-      <div className="diagram-label-instruction">
+      {!hideInstruction && (
+      <div className="question-instruction">
         {instruction}
       </div>
+      )}
 
       {/* Diagram */}
       {renderDiagram()}

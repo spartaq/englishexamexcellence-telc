@@ -7,7 +7,7 @@ export const speakingMock5 = {
   parts: [
     {
       id: 'part1',
-      title: 'Part 1: Personal Information & Opinions',
+      title: 'Personal Information & Opinions',
       instruction: 'Answer the questions focusing on abstract and familiar topics.',
       prompts: [
         "What do you think is the most significant invention of the last 50 years?",
@@ -18,7 +18,7 @@ export const speakingMock5 = {
     },
     {
       id: 'part2',
-      title: 'Part 2: Situational Role-play',
+      title: 'Situational Role-play',
       instruction: 'Maintain the conversation and achieve the goal of the task.',
       scenarios: [
         {
@@ -35,7 +35,7 @@ export const speakingMock5 = {
     },
     {
       id: 'part3',
-      title: 'Part 3: Exchanging Information (Decision Making)',
+      title: 'Exchanging Information (Decision Making)',
       instruction: 'We want to start a local community project. We need to decide which project would be most beneficial.',
       candidateInfo: {
         theme: "Community Project",
@@ -48,7 +48,7 @@ export const speakingMock5 = {
     },
     {
       id: 'part4',
-      title: 'Part 4: Long Turn',
+      title: 'Long Turn',
       instruction: 'You have 30 seconds to prepare. Speak for 2 minutes on the topic below.',
       topicCard: {
         topic: "The influence of celebrity culture on young people today.",

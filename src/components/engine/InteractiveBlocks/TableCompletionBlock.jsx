@@ -12,7 +12,8 @@ const TableCompletionBlock = ({
   data, 
   userAnswers = {}, 
   onUpdate, 
-  isReviewMode = false 
+  isReviewMode = false,
+  hideInstruction = false
 }) => {
   const { 
     table, 
@@ -208,9 +209,11 @@ const TableCompletionBlock = ({
       </div>
 
       {/* Instruction */}
-      <div className="table-instruction">
+      {!hideInstruction && (
+      <div className="question-instruction">
         {instruction}
       </div>
+      )}
 
       {/* Word List (if provided) */}
       {wordList && (

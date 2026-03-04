@@ -22,7 +22,7 @@ export const listeningMock1 = {
     {
       id: "part1",
       part: 1,
-      title: "Part 1",
+      title: "",
       subtitle: "Booking a Holiday Cottage",
       description: "You will hear a conversation between a travel agent and a customer who wants to book a holiday cottage. First, you have some time to look at questions 1-10.",
       audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
@@ -70,7 +70,7 @@ export const listeningMock1 = {
     {
       id: "part2",
       part: 2,
-      title: "Part 2",
+      title: "",
       subtitle: "Tour of a Museum Complex",
       description: "You will hear a guide giving a tour of a museum complex. First, you have some time to look at questions 11-20.",
       audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
@@ -167,7 +167,7 @@ export const listeningMock1 = {
     {
       id: "part3",
       part: 3,
-      title: "Part 3",
+      title: "",
       subtitle: "University Assignment Discussion",
       description: "You will hear a discussion between two university students and their tutor about a group assignment. First, you have some time to look at questions 21-30.",
       audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
@@ -222,7 +222,7 @@ export const listeningMock1 = {
     {
       id: "part4",
       part: 4,
-      title: "Part 4",
+      title: "",
       subtitle: "Lecture on Sustainable Architecture",
       description: "You will hear a lecture on sustainable architecture given at a university. First, you have some time to look at questions 31-40.",
       audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",

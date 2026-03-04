@@ -7,7 +7,7 @@ export const speakingMock2 = {
   parts: [
     {
       id: 'part1',
-      title: 'Part 1: Personal Information & Opinions',
+      title: 'Personal Information & Opinions',
       instruction: 'Answer the following questions using abstract ideas and personal experience.',
       prompts: [
         "What do you think is the best way to stay healthy in a busy city?",
@@ -18,7 +18,7 @@ export const speakingMock2 = {
     },
     {
       id: 'part2',
-      title: 'Part 2: Situational Role-play',
+      title: 'Situational Role-play',
       instruction: 'Respond to the situation based on the level of formality described.',
       scenarios: [
         {
@@ -35,7 +35,7 @@ export const speakingMock2 = {
     },
     {
       id: 'part3',
-      title: 'Part 3: Exchanging Information (Decision Making)',
+      title: 'Exchanging Information (Decision Making)',
       instruction: 'We are planning a farewell party for a colleague. We need to decide on the venue and the gift.',
       candidateInfo: {
         theme: "Farewell Party",
@@ -48,7 +48,7 @@ export const speakingMock2 = {
     },
     {
       id: 'part4',
-      title: 'Part 4: Long Turn',
+      title: 'Long Turn',
       instruction: 'You have 30 seconds to prepare. Speak for 2 minutes on the topic below.',
       topicCard: {
         topic: "The importance of learning foreign languages in the modern world.",

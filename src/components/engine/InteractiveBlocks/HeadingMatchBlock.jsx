@@ -50,23 +50,22 @@ const HeadingMatchBlock = ({ data, selections = {}, onSelect, isReviewMode = fal
         return (
           <div 
             key={para.id} 
-            className={`match-row ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''} ${isReviewMode ? 'review' : ''}`}
+            className={`question-card ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''} ${isReviewMode ? 'review' : ''}`}
             style={{ 
-              position: 'relative',
               borderLeft: isCorrect ? '4px solid #10b981' : isIncorrect ? '4px solid #ef4444' : '4px solid transparent'
             }}
           >
-            <div className="para-label">
+            <div className="para-label" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
               {isCorrect ? <CheckCircle size={14} color="#10b981" /> : 
                isIncorrect ? <XCircle size={14} color="#ef4444" /> : 
-               para.id}
+               <span className="question-label">{para.id}.</span>}
             </div>
             
-            <div className="para-text">{para.text}</div>
+            <p className="question-text" style={{ marginBottom: '16px' }}>{para.text}</p>
             
             <div className="select-wrapper" style={{ minWidth: '180px' }}>
               <select 
-                className={`heading-select ${isCorrect ? 'success' : ''} ${isIncorrect ? 'error' : ''}`}
+                className={`answer-input ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''}`}
                 value={selections[para.id] || ""}
                 disabled={isReviewMode}
                 onChange={(e) => handleSelect(para.id, e.target.value)}
@@ -87,7 +86,7 @@ const HeadingMatchBlock = ({ data, selections = {}, onSelect, isReviewMode = fal
 
               {/* Show the correct answer if the user was wrong or skipped it */}
               {(isIncorrect || isMissing) && (
-                <div className="hm-correct-hint">
+                <div className="correct-answer-hint">
                   Correct: {parseInt(correctChoice) + 1}. {data.headings[correctChoice]}
                 </div>
               )}
