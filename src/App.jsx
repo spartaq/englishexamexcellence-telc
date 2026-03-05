@@ -277,7 +277,8 @@ function App({ initialView }) {
   }, [initialView]);     
 
   // Layout logic for specialized views
-  const isHighFocus = activeLesson && ['WRITING', 'SPEAKING', 'LISTENING', 'VOCAB', 'WRITING_MOCK', 'ielts-speaking'].includes(activeLesson.type);
+  // Note: All skill types removed from isHighFocus to show sidebar for all exercises
+  const isHighFocus = false;
   const showSidebar = !isHighFocus && view !== 'results' && view !== 'landing';
   const showHeader = view !== 'results' && view !== 'landing' && view !== 'dashboard';
 
