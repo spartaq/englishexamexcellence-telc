@@ -61,7 +61,7 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
           <Link 
             to="/dashboard/mini-test"
             className="btn-base btn-primary" 
-            style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none', color: 'inherit' }}
+            style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none' }}
           >
             <Shuffle size={18} style={{ marginRight: '8px' }} />
             Take General Mini Test
@@ -70,7 +70,7 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
           <Link 
             to="/dashboard/academic-flow"
             className="btn-base btn-primary" 
-            style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none', color: 'inherit' }}
+            style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none' }}
           >
             <BookOpen size={18} style={{ marginRight: '8px' }} />
             Take Academic Mini Test

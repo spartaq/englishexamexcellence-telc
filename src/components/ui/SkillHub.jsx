@@ -73,6 +73,8 @@ const SkillHub = ({ data, onBack, onSelectSection, backButtonText = 'Back' }) =>
       <div 
         key={cat.id} 
         className={`hub-section-card ${showLevels ? 'vocab-level-card' : ''}`}
+        onClick={() => onSelectSection && onSelectSection(cat)}
+        style={{ cursor: 'pointer' }}
       >
         <div className="section-icon-wrapper">
           <Icon size={24} color="var(--lab-indigo)" />

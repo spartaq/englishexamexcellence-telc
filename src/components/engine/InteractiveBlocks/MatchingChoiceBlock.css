@@ -42,7 +42,8 @@
 .choice-button-group {
   display: flex;
   gap: 8px;
-  flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap:wrap;
 }
 
 .choice-btn {
@@ -66,22 +67,13 @@
   background-color: #f8fafc;
 }
 
-/* Active State */
-.choice-btn.active {
-  background-color: #3b82f6;
-  border-color: #3b82f6;
-  color: white;
-  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.4);
-  transform: scale(1.05);
-}
-
 /* Review/Disabled State */
 .choice-btn:disabled {
   cursor: default;
   opacity: 0.6;
 }
 
-.choice-btn.active:disabled {
+.choice-btn.selected:disabled {
   opacity: 1;
 }
 
@@ -89,16 +81,20 @@
 @media (min-width: 768px) {
   .matching-choice-row {
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
   .matching-choice-text {
-    flex: 1;
+    flex: 1 1 100%;
+    min-width: 0;
   }
 
   .choice-button-group {
-    justify-content: flex-end;
+    justify-content: flex-start;
+    flex: 1 1 100%;
+    min-width: 0;
   }
 }
 
@@ -121,8 +117,17 @@
 
 /* Button Feedback States */
 
+/* Selected State */
+.choice-btn.selected {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.4);
+  transform: scale(1.05);
+}
+
 /* 1. Correct Choice: Solid Green */
-.choice-btn.btn-correct {
+.choice-btn.btn-correct, .choice-btn.review-correct {
   background-color: #10b981 !important;
   border-color: #10b981 !important;
   color: white !important;
@@ -130,7 +135,7 @@
 }
 
 /* 2. Wrong Choice: Solid Red */
-.choice-btn.btn-wrong {
+.choice-btn.btn-wrong, .choice-btn.review-incorrect {
   background-color: #ef4444 !important;
   border-color: #ef4444 !important;
   color: white !important;
@@ -144,6 +149,12 @@
   background-color: #ecfdf5 !important;
   opacity: 1 !important;
   animation: pulse-green 2s infinite;
+}
+
+/* 4. Dimmed (already used in non-reuse mode) */
+.choice-btn.review-dimmed {
+  opacity: 0.4;
+  border-color: #e2e8f0;
 }
 
 @keyframes pulse-green {
@@ -204,13 +215,13 @@
   }
   
   /* Button Feedback States - Dark mode adjustments */
-  .choice-btn.btn-correct {
+  .choice-btn.btn-correct, .choice-btn.review-correct {
     background-color: #10b981 !important;
     border-color: #10b981 !important;
     color: white !important;
   }
   
-  .choice-btn.btn-wrong {
+  .choice-btn.btn-wrong, .choice-btn.review-incorrect {
     background-color: #ef4444 !important;
     border-color: #ef4444 !important;
     color: white !important;
@@ -220,6 +231,11 @@
     border: 2px dashed #10b981 !important;
     color: #4ade80 !important;
     background-color: rgba(16, 185, 129, 0.15) !important;
+  }
+  
+  .choice-btn.review-dimmed {
+    opacity: 0.3;
+    border-color: var(--border-color);
   }
   
   /* Ensure disabled buttons aren't too faded during review */

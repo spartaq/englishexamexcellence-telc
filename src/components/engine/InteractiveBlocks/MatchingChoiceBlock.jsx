@@ -183,7 +183,7 @@ export default function MatchingChoiceBlock({
               )}
             </div>
             
-            <div className="choice-button-group" style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+            <div className="choice-button-group">
               {options.map((opt) => {
                 const isSelected = userAnswer === opt;
                 const isTheRightAnswer = normalizeAnswer(correctAnswer) === opt;
@@ -205,7 +205,7 @@ export default function MatchingChoiceBlock({
                   <button
                     key={opt}
                     type="button"
-                    className={`option-button ${stateClass}`}
+                    className={`choice-btn ${stateClass}`}
                     onClick={() => handleSelect(q.id, opt)}
                     disabled={isReviewMode || (isUsed && !canReuse)}
                     title={isUsed && !canReuse ? 'Already used' : ''}

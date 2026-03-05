@@ -220,7 +220,11 @@ function App({ initialView }) {
   
    // Effect to handle initial view (routing)
   useEffect(() => {
+    console.log('[Routing] initialView changed:', initialView);
     if (initialView && initialView !== 'dashboard') {
+      // Clear previous state before loading new hub
+      setActiveCategory(null);
+      setActiveSection(null);
       // Check if it's a strategy route (e.g., ielts-strategy)
       if (initialView.includes('-strategy')) {
         const testId = initialView.split('-')[0]; // Extract test id (e.g., ielts from ielts-strategy)
@@ -241,7 +245,8 @@ function App({ initialView }) {
         }
       } else {
         // Check if it's a hub route (HUBS object keys) - check this FIRST to prioritize hub/selection flow
-        const hubKey = initialView;
+        // Normalize hubKey: convert hyphens to underscores to match HUBS keys
+        const hubKey = initialView.replace(/-/g, '_');
         if (HUBS[hubKey]) {
           const hub = HUBS[hubKey];
           // Directly set the view and activeCategory instead of calling handleSelectModule
@@ -447,33 +452,59 @@ function App({ initialView }) {
 
   const handleSelectModule = (hubKey) => {
     console.log('handleSelectModule called with', hubKey);
-    const hubPath = `/dashboard/${hubKey.replace('_', '-')}`;
-    console.log('navigating to', hubPath);
-    navigate(hubPath);
+    
+    // Directly set state instead of relying on route change
+    const normalizedKey = hubKey.replace(/-/g, '_');
+    const hub = HUBS[normalizedKey];
+    
+    if (hub) {
+      console.log('Found hub, setting state:', hub.title);
+      setActiveCategory(hub);
+      
+      if (hub.categories && hub.categories.length === 1) {
+        setActiveSection(hub.categories[0]);
+        setViewHistory(['dashboard', 'selection']);
+        setView('selection');
+      } else {
+        setViewHistory(['dashboard', 'hub']);
+        setView('hub');
+      }
+      
+      // Also navigate for URL consistency
+      const hubPath = `/dashboard/${hubKey.replace('_', '-')}`;
+      console.log('navigating to', hubPath);
+      navigate(hubPath);
+    } else {
+      console.error('Hub not found for key:', hubKey);
+    }
   };
 
    const handleSelectSection = (section) => {
-  // Check if this is an ATOM_HUB category (has 'type' property indicating it's a task)
-  if (section.type) {
-    handleStartTask(section);
-    return;
-  }
-  
-  // If this is from the DRILLS_HUB, use standard behavior
-  if (activeCategory && activeCategory.title === "General Practice Drills") {
-    setActiveSection(section);
-  } 
-  // If this is an 'atom' section from ATOM_HUB, go pluck the tasks from the mocks
-  else if (section.id === 'reading-drills' || section.id === 'listening-drills') {
-    const hydratedSection = getAtomsFromMocks(section.id);
-    setActiveSection(hydratedSection);
-  } 
-  // Standard behavior for normal lessons
-  else {
-    setActiveSection(section);
-  }
-  navigateToView('selection');
-};
+     console.log('handleSelectSection called with:', section);
+     
+     // Check if this is an ATOM_HUB category (has 'type' property indicating it's a task)
+     if (section.type) {
+       handleStartTask(section);
+       return;
+     }
+     
+     // If this is from the DRILLS_HUB, use standard behavior
+     if (activeCategory && activeCategory.title === "General Practice Drills") {
+       setActiveSection(section);
+       setView('selection');
+     } 
+     // If this is an 'atom' section from ATOM_HUB, go pluck the tasks from the mocks
+     else if (section.id === 'reading-drills' || section.id === 'listening-drills') {
+       const hydratedSection = getAtomsFromMocks(section.id);
+       setActiveSection(hydratedSection);
+       setView('selection');
+     } 
+     // Standard behavior for normal lessons
+     else {
+       setActiveSection(section);
+       setView('selection');
+     }
+  };
 
   const handleStartTask = (taskMetadata) => {
     if (taskMetadata.tier !== 'bronze' && !isPremium) { setShowPaywall(true); return; }

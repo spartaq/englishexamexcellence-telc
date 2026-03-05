@@ -209,7 +209,6 @@
 .term-text {
   font-size: 32px;
   font-weight: 800;
-  color: var(--text-primary);
   margin: 0;
   text-align: center;
 }
@@ -295,10 +294,6 @@
     color: white;
   }
   
-  /* Term and definition text dark mode */
-  .term-text {
-    color: #F3F4F6;
-  }
   
   .translation-text {
     color: #a5b4fc;
