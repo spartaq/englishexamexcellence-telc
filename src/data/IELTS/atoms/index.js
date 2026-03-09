@@ -57,8 +57,8 @@ export const IELTS_ATOMS = {
       // Function to get the content dynamically
       getContent: () => pluckRandomFullMock()
     },
-    'mini-test': {
-      id: 'mini-test',
+    'ielts-general-mini-test': {
+      id: 'ielts-general-mini-test',
       title: 'Mini Test',
       description: 'A quick blast of all 4 skills plus vocab',
       type: 'flow',
@@ -132,8 +132,8 @@ export const IELTS_ATOMS = {
        tier: 'bronze',
        getContent: () => pluckRandom('speaking')
      },
-     'academic-flow': {
-       id: 'academic-flow',
+     'ielts-academic-mini-test': {
+       id: 'ielts-academic-mini-test',
        title: 'Academic Mini Flow',
        description: 'A quick academic-focused test with vocab, reading, listening, speaking, and writing',
        type: 'academic-flow',
@@ -157,7 +157,7 @@ export const IELTS_ATOMS = {
       getContent: () => generateMiniTest()
     },
     {
-      id: 'academic-flow',
+      id: 'ielts-academic-mini-test',
       title: 'Academic Mini Flow',
       description: 'Academic-focused test with vocab, reading, listening, speaking, and writing',
       type: 'academic-flow',

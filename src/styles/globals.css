@@ -26,6 +26,14 @@
   padding: 0;
 }
 
+button {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: var(--bg-app);
@@ -138,10 +146,20 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  outline: none;
+}
+
+.exit-btn:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .exit-btn:hover {
   background: #E5E7EB;
+}
+
+.exit-btn:active {
+  background: #D1D5DB;
 }
 
 /* Dark mode support */
@@ -300,6 +318,100 @@ body {
   .reading-pane,
   .question-pane {
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  /* Question carousel styles */
+  .question-carousel-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    min-height: 200px;
+    max-height: 50vh;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
+    overflow-x: hidden;
+    /*padding-left: 8px;*/
+    padding-right: 8px;
+    box-sizing: border-box;
+  }
+
+  .question-carousel {
+    flex: 1;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    height: auto;
+    min-height: 200px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .question-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .question-carousel > * {
+    min-width: 100%;
+    max-width: 100%;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+  }
+
+  .question-slide {
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow-x: hidden;
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 0;
+    flex-wrap: wrap;
+  }
+
+  .questions-list-mobile {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 200px;
+    max-height: 70vh;
+    overflow: auto;
+  }
+
+  .questions-list-mobile .question-carousel {
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    min-height: 200px;
+  }
+
+  .questions-list-mobile .question-carousel > * {
+    min-width: 100%;
+    max-width: 100%;
+    scroll-snap-align: start;
+  }
+
+  .questions-list-mobile .question-carousel::-webkit-scrollbar {
+    display: none;
   }
 
   /* Lesson Footer - Fixed at bottom on mobile */
@@ -319,6 +431,20 @@ body {
   .lesson-footer .btn-primary {
     width: 100%;
     max-width: 400px;
+  }
+
+  /* Reading Pane - Fixed height with internal scroll on mobile */
+  .reading-pane {
+    max-height: 35vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  /* Reading passage inside reading-pane - remove duplicate scroll */
+  .reading-pane .reading-passage {
+    max-height: none;
+    overflow-y: visible;
   }
 }
 

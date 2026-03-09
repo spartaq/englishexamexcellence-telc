@@ -16,15 +16,6 @@ export const speakingMock5 = {
       type: 'interview',
       prompts: [
         {
-          topic: 'Your Home Town or Village',
-          questions: [
-            { id: 'p1q1', text: 'What kind of place is it?' },
-            { id: 'p1q2', text: 'What\'s the most interesting part of your town/village?' },
-            { id: 'p1q3', text: 'What kind of jobs do the people in your town/village do?' },
-            { id: 'p1q4', text: 'Would you say it\'s a good place to live? (Why?)' }
-          ]
-        },
-        {
           topic: 'Shopping',
           questions: [
             { id: 'p1q5', text: 'What kind of shops are there in your area?' },

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, Info, Headphones } from 'lucide-react';
 import { useExamStore } from '../../store/useExamStore';
+import QuestionCarousel from './QuestionCarousel';
 import './engine.css';
 
 // Import the interactive blocks for different question types
@@ -15,7 +16,121 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const audioRef = useRef(null);
+  const carouselRef = useRef(null);
+
+  // Flatten all questions - expand blocks into individual questions
+  const getAllQs = () => {
+    if (data.sections) {
+      const qs = [];
+      data.sections.forEach(s => {
+        if (s.questions) {
+          s.questions.forEach(t => {
+            // Check if it's nested (has t.questions) or flat (t is directly a question)
+            if (t.questions && Array.isArray(t.questions)) {
+              // Nested structure: expand each question
+              t.questions.forEach(q => qs.push({...q, parentType: t.type}));
+            } else if (t.type === 'diagram-label' && t.labels && Array.isArray(t.labels)) {
+              // Expand diagram-label: each label becomes a separate question
+              t.labels.forEach(label => qs.push({
+                id: label.id,
+                type: 'diagram-label',
+                parentType: 'diagram-label',
+                text: label.text,
+                answer: label.answer,
+                instruction: t.instruction,
+                options: t.options,
+                diagram: t.diagram
+              }));
+            } else if (t.type === 'short-answer' && t.questions && Array.isArray(t.questions)) {
+              // Expand short-answer: each question becomes a separate slide
+              t.questions.forEach(q => qs.push({
+                ...q,
+                type: 'short-answer',
+                parentType: 'short-answer',
+                instruction: t.instruction,
+                wordLimit: t.wordLimit || q.wordLimit,
+                allowNumber: t.allowNumber !== undefined ? t.allowNumber : q.allowNumber
+              }));
+            } else if (t.type === 'notes-completion' && t.notes && Array.isArray(t.notes)) {
+              // Expand notes-completion: each note with type='gap' becomes a separate question
+              t.notes.forEach(note => {
+                if (note.type === 'gap') {
+                  qs.push({
+                    id: note.id,
+                    type: 'notes-completion',
+                    parentType: 'notes-completion',
+                    text: note.label, // Use 'label' not 'text'
+                    answer: note.answer,
+                    instruction: t.instruction || `Complete the notes. Write NO MORE THAN TWO WORDS AND/OR A NUMBER.`,
+                    wordLimit: t.wordLimit || 2
+                  });
+                }
+              });
+            } else if (t.type) {
+              // Flat structure: t is directly a question with its own type
+              qs.push({...t});
+            }
+          });
+        }
+      });
+      return qs;
+    } else if (data.questions) {
+      const qs = [];
+      data.questions.forEach(t => {
+        // Check if it's nested (has t.questions) or flat (t is directly a question)
+        if (t.questions && Array.isArray(t.questions)) {
+          // Nested structure: expand each question
+          t.questions.forEach(q => qs.push({...q, parentType: t.type}));
+        } else if (t.type === 'diagram-label' && t.labels && Array.isArray(t.labels)) {
+          // Expand diagram-label: each label becomes a separate question
+          t.labels.forEach(label => qs.push({
+            id: label.id,
+            type: 'diagram-label',
+            parentType: 'diagram-label',
+            text: label.text,
+            answer: label.answer,
+            instruction: t.instruction,
+            options: t.options,
+            diagram: t.diagram
+          }));
+        } else if (t.type === 'short-answer' && t.questions && Array.isArray(t.questions)) {
+          // Expand short-answer: each question becomes a separate slide
+          t.questions.forEach(q => qs.push({
+            ...q,
+            type: 'short-answer',
+            parentType: 'short-answer',
+            instruction: t.instruction,
+            wordLimit: t.wordLimit || q.wordLimit,
+            allowNumber: t.allowNumber !== undefined ? t.allowNumber : q.allowNumber
+          }));
+        } else if (t.type === 'notes-completion' && t.notes && Array.isArray(t.notes)) {
+          // Expand notes-completion: each note with type='gap' becomes a separate question
+          t.notes.forEach(note => {
+            if (note.type === 'gap') {
+              qs.push({
+                id: note.id,
+                type: 'notes-completion',
+                parentType: 'notes-completion',
+                text: note.label, // Use 'label' not 'text'
+                answer: note.answer,
+                instruction: t.instruction || `Complete the notes. Write NO MORE THAN TWO WORDS AND/OR A NUMBER.`,
+                wordLimit: t.wordLimit || 2
+              });
+            }
+          });
+        } else if (t.type) {
+          // Flat structure
+          qs.push({...t});
+        }
+      });
+      return qs;
+    }
+    return [];
+  };
+  const allQs = getAllQs();
+  const totalQs = allQs.length;
   
   // Anti-Gaming: Track focus state from global store
   const isActive = useExamStore(state => state.isActive);
@@ -51,8 +166,33 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
 
   // Render the appropriate block based on question type
   const renderQuestionBlock = (q) => {
-    switch (q.type) {
+    const qt = q.type || q.parentType;
+    switch (qt) {
       case 'notes-completion':
+        // Check if it's an expanded single question (has text but no notes array)
+        if (q.text && !q.notes) {
+          // Single note - render inline input
+          return (
+            <div key={q.id} className="question-card">
+              <div className="question-instruction" style={{ marginBottom: '10px', padding: '8px', background: '#f0f9ff', borderRadius: '6px', fontSize: '13px' }}>
+                {q.instruction || `Complete the notes. Write NO MORE THAN ${q.wordLimit || 2} WORDS AND/OR A NUMBER.`}
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                <span style={{ fontWeight: 700, minWidth: '30px' }}>{q.id}.</span>
+                <span>{q.text}</span>
+              </div>
+              <input
+                type="text"
+                className="answer-input"
+                placeholder={q.placeholder || "Type answer here..."}
+                value={answers[q.id] || ''}
+                onChange={(e) => updateAnswer(q.id, e.target.value)}
+                disabled={false}
+              />
+            </div>
+          );
+        }
+        // Original block with notes array
         return (
           <NotesCompletionBlock
             key={q.id}
@@ -65,6 +205,7 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
         );
       
       case 'table-completion':
+        // Keep table-completion as a single block (not expanded)
         return (
           <TableCompletionBlock
             key={q.id}
@@ -77,6 +218,30 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
         );
       
       case 'short-answer':
+        // Check if it's an expanded single question (has text but no questions array)
+        if (q.text && !q.questions) {
+          // Single question - render inline
+          return (
+            <div key={q.id} className="question-card">
+              <div className="question-instruction" style={{ marginBottom: '10px', padding: '8px', background: '#f0f9ff', borderRadius: '6px', fontSize: '13px' }}>
+                {q.instruction || (q.wordLimit ? `Write NO MORE THAN ${q.wordLimit} WORDS${q.allowNumber ? ' AND/OR A NUMBER' : ''}` : 'Answer the question.')}
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                <span style={{ fontWeight: 700, minWidth: '30px' }}>{q.id}.</span>
+                <span>{q.text}</span>
+              </div>
+              <input
+                type="text"
+                className="answer-input"
+                placeholder={q.placeholder || "Type answer here..."}
+                value={answers[q.id] || ''}
+                onChange={(e) => updateAnswer(q.id, e.target.value)}
+                disabled={false}
+              />
+            </div>
+          );
+        }
+        // Original block with questions array
         return (
           <ShortAnswerBlock
             key={q.id}
@@ -91,6 +256,34 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
         );
       
       case 'diagram-label':
+        // Check if it's an expanded single label (has text but no labels array)
+        if (q.text && !q.labels) {
+          // Single label - render inline
+          return (
+            <div key={q.id} className="question-card">
+              <div className="question-instruction" style={{ marginBottom: '10px', padding: '8px', background: '#f0f9ff', borderRadius: '6px', fontSize: '13px' }}>
+                {q.instruction || 'Label the diagram. Write NO MORE THAN TWO WORDS for each answer.'}
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+                <span style={{ fontWeight: 700, minWidth: '30px' }}>{q.id}.</span>
+                <span>{q.text}</span>
+              </div>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                {(q.options || []).map((opt) => (
+                  <button
+                    key={opt}
+                    onClick={() => updateAnswer(q.id, opt)}
+                    className={`option-button ${answers[q.id] === opt ? 'selected' : ''}`}
+                    style={{ padding: '8px 12px', fontSize: '13px' }}
+                  >
+                    {opt}
+                  </button>
+                ))}
+              </div>
+            </div>
+          );
+        }
+        // Original block with labels array
         return (
           <DiagramLabelBlock
             key={q.id}
@@ -220,20 +413,11 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
           </div>
         )}
 
-        {/* QUESTIONS LIST - Now renders appropriate blocks */}
-        <div className="questions-list">
-          {data.sections ? (
-            // Full listening mock with multiple sections
-            data.sections.map((section) => (
-              <div key={section.id} className="listening-section">
-                {section.questions?.map((q) => renderQuestionBlock(q))}
-              </div>
-            ))
-          ) : (
-            // Single listening section
-            data.questions?.map((q) => renderQuestionBlock(q))
-          )}
-        </div>
+        {/* QUESTIONS - always use carousel */}
+        <QuestionCarousel 
+          questions={allQs} 
+          renderQuestion={(q) => renderQuestionBlock(q)}
+        />
       </div>
 
       {/* 3. ACTION FOOTER */}

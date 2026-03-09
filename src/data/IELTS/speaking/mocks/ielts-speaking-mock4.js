@@ -23,15 +23,6 @@ export const speakingMock4 = {
             { id: 'p1q3', text: 'Who usually cooks in your family?' },
             { id: 'p1q4', text: 'Do you think eating out is expensive in your country?' }
           ]
-        },
-        {
-          topic: 'Holidays',
-          questions: [
-            { id: 'p1q5', text: 'What is your favourite holiday destination?' },
-            { id: 'p1q6', text: 'How often do you travel abroad?' },
-            { id: 'p1q7', text: 'What do you usually do during holidays?' },
-            { id: 'p1q8', text: 'Do you prefer relaxing holidays or active holidays?' }
-          ]
         }
       ]
     },

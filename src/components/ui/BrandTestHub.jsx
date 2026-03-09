@@ -1,7 +1,7 @@
 import React from 'react';
 import { Zap, Clock, BookOpen, Headset, PenTool, Mic, Info, List, Shuffle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import './ExamStrategy.css';
+import './BrandTestHub.css';
 
 /**
  * BrandTestHub - The main hub for a test brand (e.g., IELTS)
@@ -54,12 +54,11 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
           <Zap size={40} color="#2563eb" />
           <h3>Daily Skill Training</h3>
           <p>
-            <strong>The "Atom" Method.</strong> Quick, focused practice sessions. 
-            Take a random mini-test or practice specific skills.
+            <strong>The "Atom" Method.</strong> All parts of the test but only one part per skill for more manageable practice.
           </p>
           
           <Link 
-            to="/dashboard/mini-test"
+            to="/dashboard/ielts-general-mini-test"
             className="btn-base btn-primary" 
             style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none' }}
           >
@@ -68,7 +67,7 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
           </Link>
           
           <Link 
-            to="/dashboard/academic-flow"
+            to="/dashboard/ielts-academic-mini-test"
             className="btn-base btn-primary" 
             style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none' }}
           >
@@ -76,13 +75,13 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
             Take Academic Mini Test
           </Link>
           
-          <button 
+          <Link 
+            to="/dashboard/ielts-mini-individual"
             className="btn-base btn-outline"
-            onClick={() => onSelectPath('skill-tests')}
           >
             <List size={16} style={{ marginRight: '8px' }} />
-            View Skill Tests
-          </button>
+            Individual Skill Tests (Mini)
+          </Link>
         </div>
 
         {/* FULL MOCK CARD */}
@@ -97,23 +96,23 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
           {/* IELTS has General and Academic options */}
           {activeTest.id === 'ielts' ? (
             <>
-              <button 
+              <Link 
+                to="/dashboard/ielts-general-full-test"
                 className="btn-base btn-primary" 
-                onClick={() => onSelectPath('general-full-mock')}
-                style={{ marginBottom: '12px' }}
+                style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none' }}
               >
                 <Shuffle size={18} style={{ marginRight: '8px' }} />
                 Take General Mock
-              </button>
+              </Link>
               
-              <button 
+              <Link 
+                to="/dashboard/ielts-academic-full-test"
                 className="btn-base btn-primary" 
-                onClick={() => onSelectPath('academic-full-mock')}
-                style={{ marginBottom: '12px' }}
+                style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none' }}
               >
                 <BookOpen size={18} style={{ marginRight: '8px' }} />
                 Take Academic Mock
-              </button>
+              </Link>
             </>
           ) : (
             <button 
@@ -131,7 +130,7 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
             onClick={() => onSelectPath('mocks')}
           >
             <List size={16} style={{ marginRight: '8px' }} />
-            View All Mocks
+            Individual Skill Tests (Full)
           </button>
           
           {/* TODO: Premium feature - show completion status

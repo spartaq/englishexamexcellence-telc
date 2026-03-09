@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowLeft, BookOpen, Headset, PenTool, Mic, Info } from 'lucide-react';
-import './ExamStrategy.css';
+import './BrandTestHub.css';
 
 /**
  * ExamDescription - Shows detailed information about the exam format

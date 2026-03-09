@@ -103,57 +103,9 @@ export default function MatchingChoiceBlock({
       )}
       
       {/* Reuse indicator */}
-      {canReuse && (
-        <div style={{
-          background: '#eef2ff',
-          padding: '12px 16px',
-          borderRadius: '8px',
-          marginBottom: '16px',
-          fontSize: '13px',
-          color: 'var(--lab-indigo)',
-          fontWeight: 600,
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px'
-        }}>
-          <AlertCircle size={16} />
-          You may use any letter more than once.
-        </div>
-      )}
+      
 
-      {/* Option usage summary (optional) */}
-      {showUsageCount && !isReviewMode && (
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '8px',
-          marginBottom: '16px',
-          padding: '12px',
-          background: '#f8fafc',
-          borderRadius: '8px'
-        }}>
-          {options.map(opt => {
-            const count = getOptionUsageCount(opt);
-            return (
-              <span 
-                key={opt}
-                style={{
-                  padding: '4px 10px',
-                  borderRadius: '100px',
-                  fontSize: '12px',
-                  fontWeight: 600,
-                  background: count > 0 ? '#dcfce7' : '#f1f5f9',
-                  color: count > 0 ? '#166534' : '#64748b',
-                  border: '1px solid',
-                  borderColor: count > 0 ? '#22c55e' : '#e2e8f0'
-                }}
-              >
-                {opt} {count > 0 && `(${count})`}
-              </span>
-            );
-          })}
-        </div>
-      )}
+     
 
       {questions.map((q) => {
         const userAnswer = userAnswers[q.id];

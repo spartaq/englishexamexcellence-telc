@@ -10,6 +10,8 @@
   padding: 20px 20px 8px 20px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 .passage-text {
@@ -275,6 +277,7 @@
   height: 100%;
   background: #ffffff;
   font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-y: auto;
 }
 
 .speaking-block-wrapper {
@@ -291,6 +294,67 @@
   justify-content: center;
   padding: 40px 24px;
   text-align: center;
+}
+
+/* Mobile styles for SpeakingBlock */
+@media (max-width: 768px) {
+  .speaking-container {
+    height: calc(100vh - 180px) !important;
+    min-height: 400px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .speaking-hero {
+    padding: 20px 16px;
+  }
+
+  .speaking-instruction {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .speaking-prompt-item {
+    padding: 10px;
+    margin-bottom: 8px;
+  }
+
+  .speaking-topic-item {
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+
+  .speaking-topic-card {
+    padding: 16px;
+  }
+
+  .speaking-topic-card-title {
+    font-size: 16px;
+  }
+
+  .speaking-footer {
+    padding: 16px;
+    position: sticky;
+    bottom: 0;
+    background: white;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .mic-button {
+    width: 64px;
+    height: 64px;
+  }
+
+  .mic-button svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .mic-shell {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
 }
 
 .cue-card {
@@ -615,14 +679,20 @@
   top: 0;
   z-index: 50;
   background: white;
-  padding: 16px 24px;
+  padding: 16px 0;
   border-bottom: 1px solid #eef2f6;
   box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Listening Content */
 .listening-content {
   padding: 24px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .listening-title {
@@ -693,6 +763,53 @@
   background: white;
 }
 
+/* Mobile styles for ListeningBlock */
+@media (max-width: 768px) {
+  .listening-container {
+    max-width: 100vw;
+    margin: 0 auto;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .listening-content {
+    padding: 16px;
+    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .listening-footer {
+    padding: 16px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .audio-sticky-bar {
+    padding: 12px 0;
+    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .player-controls {
+    gap: 10px;
+    padding: 0 16px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  
+  .play-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
 /* Listening Diagram */
 .listening-diagram {
   margin-bottom: 24px;
@@ -709,6 +826,10 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  padding: 0 24px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .play-btn {
@@ -1198,6 +1319,71 @@
   font-size: 13px;
   color: #64748b;
   border-left: 3px solid #f59e0b;
+}
+
+/* ============================================
+   QUESTION CAROUSEL STYLES
+   ============================================ */
+.question-carousel-wrapper {
+  width: 100%;
+  max-width: 800px; /* Limit width on desktop */
+  margin: 0 auto; /* Center on desktop */
+}
+
+.question-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.question-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.question-carousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.question-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  scroll-snap-align: start;
+  padding: 16px;
+  box-sizing: border-box;
+  background: white;
+  border-radius: var(--radius-md);
+  min-height: 200px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 12px 0;
+}
+
+.carousel-dots button {
+  cursor: pointer;
+}
+
+.carousel-dots button:focus {
+  outline: 2px solid var(--lab-indigo);
+  outline-offset: 2px;
+}
+
+/* Mobile: full width */
+@media (max-width: 768px) {
+  .question-carousel-wrapper {
+    max-width: 100%;
+    margin: 0;
+  }
 }
 
 /* ============================================

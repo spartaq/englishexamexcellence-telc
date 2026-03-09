@@ -5,11 +5,6 @@ import { useExamStore } from '../../store/useExamStore';
 import './engine.css';
 
 const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
-  // Log data for debugging
-  console.log('SpeakingBlock received data:', typeof data, data);
-  if (data && typeof data === 'object') {
-    console.log('Data keys:', Object.keys(data));
-  }
   
   // --- NEW STATES FOR AI ANALYSIS ---
   const [audioBlob, setAudioBlob] = useState(null);
@@ -19,21 +14,6 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
   // Data is now a single section (part) - no internal tab management needed
   // App.jsx handles the passage tabs
   const currentPart = data;
-  
-  // Debug: Show current part details
-  console.log('Current part:', currentPart);
-  if (currentPart) {
-    console.log('Current part id:', currentPart.id);
-    console.log('Current part title:', currentPart.title);
-    console.log('Current part type:', currentPart.type);
-    console.log('Current part topics:', currentPart.topics);
-    console.log('Current part prompts:', currentPart.prompts);
-    console.log('Current part topicCard:', currentPart.topicCard);
-    if (currentPart.topics) {
-      console.log('Current part topics length:', currentPart.topics.length);
-      console.log('Current part topics:', JSON.stringify(currentPart.topics));
-    }
-  }
   
   // Determine if this is a topicCard exercise (Part 2 style) - check for topicCard or part4 ID
   const isTopicCardExercise = currentPart.topicCard || currentPart.id === 'part4' || currentPart.type === 'long-turn';
@@ -52,9 +32,7 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
 
   // Reset state when data changes (switching between parts via App.jsx)
   useEffect(() => {
-    console.log('useEffect triggered - currentPart.id:', currentPart.id);
     const isTopicCard = currentPart.topicCard || currentPart.id === 'part4' || currentPart.type === 'long-turn';
-    console.log('isTopicCard:', isTopicCard);
     setMode(isTopicCard ? 'prep' : 'recording');
     setTimeLeft(isTopicCard ? 60 : 120);
     setIsRecording(false);
@@ -171,9 +149,9 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
           </div>
         )}
 
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           {/* UI for PART 1: General Questions (IELTS format with topics) */}
-          {currentPart.prompts && console.log('RENDERING PROMPTS:', currentPart.prompts) || currentPart.prompts && mode !== 'review' && (
+          {currentPart.prompts && mode !== 'review' && (
             <motion.div key="prompts" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="prompts-list">
               {currentPart.prompts.map((p, i) => (
                 <div key={i} className="speaking-prompt-item">
@@ -195,7 +173,7 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
           {/* UI for IELTS Part 3: Discussion topics */}
           {currentPart.topics && mode !== 'review' && (
             <motion.div key="topics" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="topics-list">
-              {console.log('RENDERING TOPICS:', currentPart.topics) || currentPart.topics.map((t, i) => (
+              {currentPart.topics.map((t, i) => (
                 <div key={i} className="speaking-topic-item">
                   <span className="speaking-topic-label">TOPIC {i+1}</span>
                   <p className="speaking-topic-title">{t.topic}</p>
@@ -208,7 +186,6 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
               ))}
             </motion.div>
           )}
-          {currentPart.topics && console.log('Topics condition is TRUE, rendering')}
 
           {/* UI for PART 2: Situations/Scenarios */}
           {currentPart.scenarios && mode !== 'review' && (
@@ -252,7 +229,7 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
           )}
 
           {/* UI for PART 4: Topic Card */}
-          {currentPart.topicCard && console.log('RENDERING TOPIC CARD:', currentPart.topicCard) || currentPart.topicCard && mode !== 'review' && (
+          {currentPart.topicCard && mode !== 'review' && (
             <motion.div key="topicCard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="topic-card-display">
               <div className="speaking-topic-card">
                 <h4 className="speaking-topic-card-title">{currentPart.topicCard.topic}</h4>
@@ -281,7 +258,7 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
             <motion.div key="recording" initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ marginTop: 'auto', textAlign: 'center' }}>
                 <div className="mic-shell" style={{ margin: '20px auto' }}>
                     <button className={`mic-button ${isRecording ? 'recording' : ''}`} onClick={isRecording ? handleStopRecording : handleStartRecording}>
-                        {isRecording ? <Square fill="white" size={24} /> : <Mic size={32} />}
+                        {isRecording ? <Square fill="white" size={24} /> : <Mic fill="white" size={32} />}
                     </button>
                 </div>
                 <p className="speaking-recording-status">{isRecording ? "Recording Answer..." : "Click Mic to Begin"}</p>

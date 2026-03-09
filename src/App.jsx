@@ -156,9 +156,9 @@ function App({ initialView }) {
       
       // Update URL based on view type
       if (newView === 'testHub' && activeTest) {
-        navigate(`/dashboard/${activeTest.id}-test-hub`);
+        navigate(`/dashboard/${activeTest.id}-full-individual`);
       } else if (newView === 'strategy' && activeTest) {
-        navigate(`/dashboard/${activeTest.id}-strategy`);
+        navigate(`/dashboard/${activeTest.id}-hub`);
       }
     }
   };
@@ -177,15 +177,15 @@ function App({ initialView }) {
       if (previousView === 'dashboard' || previousView === 'landing') {
         navigate('/dashboard');
       } else if (previousView === 'strategy' && activeTest) {
-        navigate(`/dashboard/${activeTest.id}-strategy`);
+        navigate(`/dashboard/${activeTest.id}-hub`);
       } else if (previousView === 'testHub' && activeTest) {
-        navigate(`/dashboard/${activeTest.id}-test-hub`);
+        navigate(`/dashboard/${activeTest.id}-full-individual`);
       } else if (previousView === 'hub' && activeTest) {
         // Go back to test hub for hub views
-        navigate(`/dashboard/${activeTest.id}-test-hub`);
+        navigate(`/dashboard/${activeTest.id}-full-individual`);
       } else if (previousView === 'selection' && activeTest) {
         // If going back to selection from a hub, stay on test hub
-        navigate(`/dashboard/${activeTest.id}-test-hub`);
+        navigate(`/dashboard/${activeTest.id}-full-individual`);
       }
     } else {
       // If we're at the root view or directly accessed, go to dashboard
@@ -225,9 +225,27 @@ function App({ initialView }) {
       // Clear previous state before loading new hub
       setActiveCategory(null);
       setActiveSection(null);
-      // Check if it's a strategy route (e.g., ielts-strategy)
-      if (initialView.includes('-strategy')) {
-        const testId = initialView.split('-')[0]; // Extract test id (e.g., ielts from ielts-strategy)
+      // Check if it's a mini individual route (e.g., ielts-mini-individual) - must check FIRST
+      if (initialView.includes('-mini-individual')) {
+        const testId = initialView.split('-')[0]; // Extract test id (e.g., ielts from ielts-mini-individual)
+        if (TEST_PLATFORM_CONFIG[testId]) {
+          setActiveTest(TEST_PLATFORM_CONFIG[testId]);
+          // Initialize history with dashboard -> strategy -> skillTests
+          setViewHistory(['dashboard', 'strategy', 'skillTests']);
+          setView('skillTests');
+        }
+      } else if (initialView.includes('-full-individual')) {
+        // Check if it's a full individual route (e.g., ielts-full-individual)
+        const testId = initialView.split('-')[0]; // Extract test id (e.g., ielts from ielts-full-individual)
+        if (TEST_PLATFORM_CONFIG[testId]) {
+          setActiveTest(TEST_PLATFORM_CONFIG[testId]);
+          // Initialize history with dashboard -> strategy -> testHub
+          setViewHistory(['dashboard', 'strategy', 'testHub']);
+          setView('testHub');
+        }
+      } else if (initialView.includes('-hub')) {
+        // Check if it's a strategy route (e.g., ielts-hub)
+        const testId = initialView.split('-')[0]; // Extract test id (e.g., ielts from ielts-hub)
         if (TEST_PLATFORM_CONFIG[testId]) {
           setActiveTest(TEST_PLATFORM_CONFIG[testId]);
           // Initialize history with dashboard -> strategy
@@ -263,13 +281,31 @@ function App({ initialView }) {
             setView('hub');
           }
         } else {
-          // Check if it's a mini test route (skillCategories in ATOM_HUB)
-          const taskMetadata = ATOM_HUB.skillCategories[initialView];
-          if (taskMetadata) {
-            handleStartTask(taskMetadata);
+          // Check if it's a full test route
+          if (initialView === 'ielts-general-full-test' || initialView === 'ielts-academic-full-test') {
+            const testType = initialView === 'ielts-general-full-test' ? 'general-full-mock' : 'academic-full-mock';
+            const testId = 'ielts';
+            if (TEST_PLATFORM_CONFIG[testId]) {
+              setActiveTest(TEST_PLATFORM_CONFIG[testId]);
+              // Set view to strategy so the BrandTestHub renders, then trigger the test
+              setViewHistory(['dashboard', 'strategy']);
+              setView('strategy');
+              // Use setTimeout to ensure the view is set before triggering onSelectPath
+              setTimeout(() => {
+                // Find the BrandTestHub's onSelectPath through the component tree
+                // Since we can't directly call it, we'll set up the test manually
+                handleFullTestSelection(testType);
+              }, 100);
+            }
           } else {
-            // For any other route not matching known patterns, go to dashboard
-            setView('dashboard');
+            // Check if it's a mini test route (skillCategories in ATOM_HUB)
+            const taskMetadata = ATOM_HUB.skillCategories[initialView];
+            if (taskMetadata) {
+              handleStartTask(taskMetadata);
+            } else {
+              // For any other route not matching known patterns, go to dashboard
+              setView('dashboard');
+            }
           }
         }
       }
@@ -448,7 +484,7 @@ function App({ initialView }) {
   const handleSelectTest = (testId) => {
     setActiveTest(TEST_PLATFORM_CONFIG[testId]);
     navigateToView('strategy');
-    navigate(`/dashboard/${testId}-strategy`);
+    navigate(`/dashboard/${testId}-hub`);
   };
 
   const handleSelectModule = (hubKey) => {
@@ -477,6 +513,25 @@ function App({ initialView }) {
       navigate(hubPath);
     } else {
       console.error('Hub not found for key:', hubKey);
+    }
+  };
+
+  // Helper function to start a full test (used by routes and onSelectPath)
+  const handleFullTestSelection = (testType) => {
+    if (testType === 'general-full-mock') {
+      const generalMock = pluckRandomFullMock('general');
+      if (generalMock && generalMock.sections && generalMock.sections.length > 0) {
+        setActiveLesson(generalMock);
+        setActiveSectionIndex(0);
+        setView('lesson');
+      }
+    } else if (testType === 'academic-full-mock') {
+      const academicMock = pluckRandomFullMock('academic');
+      if (academicMock && academicMock.sections && academicMock.sections.length > 0) {
+        setActiveLesson(academicMock);
+        setActiveSectionIndex(0);
+        setView('lesson');
+      }
     }
   };
 
@@ -724,19 +779,16 @@ function App({ initialView }) {
         return <PunctuationCorrectionBlock data={taskData} isReviewMode={isReviewMode} onUpdate={(placements) => setUserAnswers({...userAnswers, [taskData.id]: placements})} />;
 
       case 'ielts-complex':
-        const subTasks = taskData.subTasks || taskData.questions || [];
+      case 'READING':
+      case 'reading':
+        const passageSubTasks = taskData.subTasks || taskData.questions || [];
+        // Use ReadingBlock with QuestionCarousel for ielts-complex passages
         return (
-          <>
-            {subTasks.map((sub, idx) => (
-              <React.Fragment key={sub.id || idx}>
-                {/* Pass parent content to blocks that need it */}
-                {renderQuestionBlock({
-                  ...sub,
-                  parentContent: (sub.type === 'matching-features' || sub.type === 'matching-choice') ? taskData.content : sub.parentContent
-                })}
-              </React.Fragment>
-            ))}
-          </>
+          <ReadingBlock 
+            content={taskData.content} 
+            questions={passageSubTasks}
+            isMiniTest={taskData.isMiniTest}
+          />
         );
 
       case 'mcq':
@@ -883,7 +935,7 @@ function App({ initialView }) {
               <LayoutDashboard size={18} /> Dashboard
             </button>
             {activeTest && (
-              <button onClick={() => navigate(`/dashboard/${activeTest.id}-test-hub`)} className={`nav-item ${view === 'testHub' ? 'active' : ''}`}>
+              <button onClick={() => navigate(`/dashboard/${activeTest.id}-full-individual`)} className={`nav-item ${view === 'testHub' ? 'active' : ''}`}>
                 <BookOpen size={18} /> {activeTest.title} Hub
               </button>
             )}
@@ -903,21 +955,40 @@ function App({ initialView }) {
             <div>
               {/* Only show header back button for views that don't have their own back button */}
                {view === 'testHub' && (
-                 <button onClick={() => navigate('/dashboard')} className="exit-btn">
-                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Dashboard
+                 <button onClick={() => navigateBack()} className="exit-btn">
+                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
                  </button>
                )}
               {view === 'lesson' && (
                 <button onClick={() => { 
                   setActiveLesson(null); 
-                  // If we have a history, go back; otherwise, go to dashboard
-                  if (viewHistory.length > 1) {
-                    navigateBack();
+                  console.log('[Back] activeCategory:', activeCategory);
+                  console.log('[Back] viewHistory:', viewHistory);
+                  console.log('[Back] initialView:', initialView);
+                  // If we have an activeCategory (we came from a hub), go back to that hub
+                  if (activeCategory) {
+                    // Check if the hub has only 1 category
+                    if (activeCategory.categories && activeCategory.categories.length === 1) {
+                      setActiveSection(activeCategory.categories[0]);
+                      setView('selection');
+                    } else {
+                      setView('hub');
+                    }
+                  } else if (viewHistory.length > 1) {
+                    // Check if we came from a full test route - go to strategy hub
+                    if (initialView && (initialView.includes('full-test'))) {
+                      setView('strategy');
+                      if (activeTest) {
+                        navigate(`/dashboard/${activeTest.id}-hub`);
+                      }
+                    } else {
+                      navigateBack();
+                    }
                   } else {
                     setView('dashboard');
                   }
                 }} className="exit-btn">
-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> {viewHistory.length > 1 ? 'Back' : 'Dashboard'}
+                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
                 </button>
               )}
               {view === 'results' && (
@@ -928,6 +999,16 @@ function App({ initialView }) {
               {view === 'strategy' && (
                 <button onClick={() => setView('dashboard')} className="exit-btn">
                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Dashboard
+                </button>
+              )}
+              {view === 'skillTests' && (
+                <button onClick={() => navigateBack()} className="exit-btn">
+                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
+                </button>
+              )}
+              {(view === 'hub' || view === 'selection') && activeTest && (
+                <button onClick={() => navigate(`/dashboard/${activeTest.id}-full-individual`)} className="exit-btn">
+                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
                 </button>
               )}
             </div>
@@ -953,7 +1034,7 @@ function App({ initialView }) {
             <BrandTestHub 
               activeTest={activeTest} 
               onSelectPath={(path, skill) => {
-                if (path === 'mini-test') {
+                if (path === 'ielts-general-mini-test') {
                   // Mini-test flow: pick random exercises from general reading/writing + shared listening/speaking
                   const readingExercise = pluckRandom('reading_general');
                   const vocabExercise = findVocabFromReading(readingExercise);
@@ -995,7 +1076,7 @@ function App({ initialView }) {
                     setActiveSectionIndex(0);
                     setView('lesson');
                   }
-                } else if (path === 'academic-flow') {
+                } else if (path === 'ielts-academic-mini-test') {
                   // Academic Mini Flow: pick academic-specific exercises
                   const readingExercise = pluckRandom('reading_academic');
                   const vocabExercise = findVocabFromReading(readingExercise);
@@ -1084,7 +1165,7 @@ function App({ initialView }) {
                    } else if (path === 'mocks') {
                     // Navigate to test hub with URL change
                     if (activeTest) {
-                      navigate(`/dashboard/${activeTest.id}-test-hub`);
+                      navigate(`/dashboard/${activeTest.id}-full-individual`);
                     }
                 }
               }}
@@ -1096,7 +1177,6 @@ function App({ initialView }) {
           {view === 'description' && (
             <ExamDescription 
               activeTest={activeTest}
-              onBack={navigateBack}
             />
           )}
 
@@ -1104,9 +1184,6 @@ function App({ initialView }) {
           {view === 'skillTests' && (
             <div className="strategy-container">
               <header className="strategy-header">
-                <button onClick={navigateBack} className="btn-back-link">
-                  ← Back
-                </button>
                 <h1>Skill Tests</h1>
                 <p>Choose a specific skill to practice with a random exercise.</p>
               </header>
@@ -1226,25 +1303,33 @@ function App({ initialView }) {
           )}
 
            {/* DYNAMIC HUB & SELECTION */}
-          {view === 'hub' && <SkillHub data={activeCategory} onBack={() => setView('dashboard')} onSelectSection={handleSelectSection} backButtonText={initialView && initialView !== 'dashboard' ? 'Dashboard' : 'Back'} />}
-          {view === 'selection' && <TaskSelection section={activeSection} onBack={() => {
-            if (viewHistory.length > 1) {
-              navigateBack();
-            } else {
-              setView('dashboard');
-            }
-          }} onSelectTask={handleStartTask} />}
+          {view === 'hub' && <SkillHub data={activeCategory} onSelectSection={handleSelectSection} />}
+          {view === 'selection' && <TaskSelection section={activeSection} onSelectTask={handleStartTask} />}
 
           {/* THE LESSON ENGINE */}
           {view === 'lesson' && activeLesson && (
             <div className="lesson-engine">
-              {activeLesson.sections || activeLesson.passages || activeLesson.parts ? (
+              {/* Use mock-flow for tests with sections/passages/parts OR mock-test types */}
+              {(activeLesson.sections || activeLesson.passages || activeLesson.parts || 
+               (activeLesson.type && activeLesson.type.includes('mock')) ||
+               activeLesson.type === 'LISTENING' ||
+               activeLesson.type === 'SPEAKING' ||
+               activeLesson.type === 'WRITING' ||
+               activeLesson.type === 'ielts-complex' ||
+               activeLesson.type === 'reading-practice' ||
+               activeLesson.type === 'full-test') ? (
                 <div className="mock-flow">
                   {(() => {
                     const sections = activeLesson.sections || activeLesson.passages || [];
                     // For speaking tests with 'parts' array (full mocks), use activeLesson directly
+                    // For 'ielts-complex' type reading exercises, activeLesson IS the passage
                     // Otherwise use the section at activeSectionIndex
-                    const currentSection = (activeLesson.parts && activeLesson.parts.length > 0) ? activeLesson : sections[activeSectionIndex];
+                    const isSinglePassage = activeLesson.type === 'ielts-complex' || activeLesson.type === 'READING' || activeLesson.type === 'reading' || activeLesson.type === 'reading-practice' || activeLesson.type === 'LISTENING' || activeLesson.type === 'listening' || activeLesson.type === 'WRITING' || activeLesson.type === 'writing';
+                    const currentSection = (activeLesson.parts && activeLesson.parts.length > 0) 
+                      ? activeLesson 
+                      : isSinglePassage 
+                        ? activeLesson 
+                        : sections[activeSectionIndex];
                     const subPassages = currentSection?.passages || [];
                     const currentPassage = subPassages[activePassageIndex];
                     const directQuestions = currentSection?.questions || [];
@@ -1381,7 +1466,10 @@ function App({ initialView }) {
                         {/* Check if we should use single-column layout for self-contained blocks */}
                         {(() => {
                           // Check if this section type handles its own questions internally
-                          const handlesOwnQuestions = ['LISTENING', 'SPEAKING', 'WRITING', 'VOCAB', 'ielts-speaking', 'discussion', 'interview', 'long-turn'].includes(currentSection.type) || currentSection.skill === 'listening' || currentSection.skill === 'speaking' || currentSection.skill === 'writing' || currentSection.skill === 'vocab';
+                          // Also check if currentSection or its passages have reading skill
+                          const sectionHasReading = currentSection?.skill === 'reading' || 
+                            (currentSection?.passages && currentSection.passages.some(p => p.type === 'ielts-complex'));
+                          const handlesOwnQuestions = ['LISTENING', 'SPEAKING', 'WRITING', 'VOCAB', 'ielts-speaking', 'discussion', 'interview', 'long-turn', 'READING', 'reading', 'reading-practice', 'ielts-complex'].includes(currentSection.type) || currentSection.skill === 'listening' || currentSection.skill === 'speaking' || currentSection.skill === 'writing' || currentSection.skill === 'vocab' || currentSection.skill === 'reading' || sectionHasReading;
                           
                           const subTasks = currentPassage?.subTasks || currentSection?.subTasks || [];
                           
@@ -1394,9 +1482,14 @@ function App({ initialView }) {
                             const hasSpeakingParts = activeLesson.parts && activeLesson.parts.length > 0;
                             const currentPart = hasSpeakingParts ? activeLesson.parts[activeSectionIndex] : null;
                             
-                            // Clone activeLesson and remove parts array to avoid circular reference, then merge with currentPart
-                            const { parts: _removedParts, ...activeLessonWithoutParts } = activeLesson;
-                            const taskData = currentPart ? {...activeLessonWithoutParts, ...currentPart, isMiniTest} : {...currentSection, isMiniTest};
+                            // For reading/writing/listening sections, include the passage data
+                            // For full mocks, passages are nested in currentSection.passages
+                            const currentPassage = subPassages.length > 0 ? subPassages[0] : null;
+                            const taskData = currentPart 
+                              ? {...activeLessonWithoutParts, ...currentPart, isMiniTest} 
+                              : currentPassage
+                                ? {...currentSection, ...currentPassage, isMiniTest}
+                                : {...currentSection, isMiniTest};
                             
                             return (
                               <div className="workspace-grid single-column">

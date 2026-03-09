@@ -48,13 +48,6 @@ const SkillHub = ({ data, onBack, onSelectSection, backButtonText = 'Back' }) =>
       <meta name="description" content={hub.description} />
       <div className="hub-container">
       <header className="hub-header">
-        <button 
-          onClick={onBack} 
-          className="btn-back-link" 
-          style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
-        >
-          <ArrowLeft size={20} /> {backButtonText}
-        </button>
         <div className="hub-badge" style={{textTransform: 'capitalize'}}>{hub.title}</div>
       </header>
 

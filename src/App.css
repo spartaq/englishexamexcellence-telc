@@ -188,6 +188,27 @@
   width: 100%;
 }
 
+/* Mobile styles for ielts-mock-container */
+@media (max-width: 768px) {
+  .ielts-mock-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  .lesson-engine {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  .mock-flow {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
 /* ============================================
    FOOTER BUTTONS
    ============================================ */

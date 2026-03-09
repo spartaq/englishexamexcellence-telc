@@ -124,8 +124,16 @@ export const loadFullLesson = (metadata) => {
     return metadata;
   }
 
-  // Ensure the type is preserved for the engine
-  return { ...metadata, ...content };
+  // Merge metadata first, then content, but preserve the type from metadata
+  // This ensures mock-test types from the hub are preserved while getting all content properties
+  const merged = { ...metadata, ...content };
+  
+  // Ensure metadata type is preserved
+  if (metadata.type) {
+    merged.type = metadata.type;
+  }
+  
+  return merged;
 };
 
 export const getHub = (testType, skill) => {

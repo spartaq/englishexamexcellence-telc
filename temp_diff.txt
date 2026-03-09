@@ -1,0 +1,600 @@
+diff --git a/src/App.jsx b/src/App.jsx
+index 35aa893..f613cf6 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -1,4 +1,5 @@
+-import React, { useState, useEffect } from 'react';
++import React, { useState, useEffect, useRef } from 'react';
++import QuestionCarousel from './components/engine/QuestionCarousel';
+ import { Routes, Route, useNavigate, useParams } from 'react-router-dom';
+ import './styles/globals.css';
+ import './App.css';
+@@ -9,7 +10,7 @@ import './App.css';
+ import { 
+   LayoutDashboard, BookOpen, LogOut, Award, 
+   CheckCircle, XCircle, ArrowRight, Book, Mic, Headset, PenTool,
+-  Zap, Library, Atom, RefreshCw
++  Zap, Library, Atom
+ } from 'lucide-react';
+ // Navigation & Structure Components
+ import LandingPage from './components/LandingPage/LandingPage';
+@@ -19,6 +20,7 @@ import ExamDescription from './components/ui/ExamDescription';
+ import SkillHub from './components/ui/SkillHub';
+ import TaskSelection from './components/ui/TaskSelection';
+ import PaywallModal from './components/ui/PaywallModal';
++import LoadingScreen from './components/ui/LoadingScreen';
+ 
+ // Experience & Feedback Components
+ import XPBadge from './components/gamified/XPBadge';
+@@ -128,8 +130,15 @@ function App({ initialView }) {
+   // ============================================================
+   
+   // Navigation State
++  // When accessed via direct URL route (e.g., /dashboard/mini-test), initialize viewHistory with dashboard as base
+   const [view, setView] = useState(initialView || 'dashboard');
+-  const [viewHistory, setViewHistory] = useState([initialView || 'dashboard']);
++  const [viewHistory, setViewHistory] = useState(() => {
++    // If initialView is provided and it's a route (not dashboard), add dashboard first
++    if (initialView && initialView !== 'dashboard') {
++      return ['dashboard', initialView];
++    }
++    return [initialView || 'dashboard'];
++  });
+   const [activeTest, setActiveTest] = useState(null);       
+   const [activeCategory, setActiveCategory] = useState(null); 
+   const [activeSection, setActiveSection] = useState(null);   
+@@ -140,11 +149,21 @@ function App({ initialView }) {
+   const [showPaywall, setShowPaywall] = useState(false);
+   const [isLoading, setIsLoading] = useState(true);
+ 
++  // Question carousel state
++  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
++  const carouselRef = useRef(null);
++
++  // Reset question index when section or passage changes
++  useEffect(() => {
++    setCurrentQuestionIndex(0);
++  }, [activeSectionIndex, activePassageIndex]);
++
+   // Loading effect - set loading to false after initial render
+   useEffect(() => {
++    // Show branded loading screen for at least 1.5 seconds for brand visibility
+     const timer = setTimeout(() => {
+       setIsLoading(false);
+-    }, 500);
++    }, 1500);
+     return () => clearTimeout(timer);
+   }, []);
+ 
+@@ -154,15 +173,61 @@ function App({ initialView }) {
+       setViewHistory(prev => [...prev, newView]);
+       setView(newView);
+       
+-      // Update URL based on view type
+-      if (newView === 'testHub' && activeTest) {
+-        navigate(`/dashboard/${activeTest.id}-test-hub`);
+-      } else if (newView === 'strategy' && activeTest) {
+-        navigate(`/dashboard/${activeTest.id}-strategy`);
++      // Update URL based on view type - for URL-based routing
++      switch (newView) {
++        case 'lesson':
++          navigate('/lesson');
++          break;
++        case 'results':
++          navigate('/results');
++          break;
++        case 'skillTests':
++          navigate('/skill-tests');
++          break;
++        case 'testHub':
++          if (activeTest) {
++            navigate(`/dashboard/${activeTest.id}-test-hub`);
++          } else {
++            navigate('/test-hub');
++          }
++          break;
++        case 'hub':
++          navigate('/hub');
++          break;
++        case 'selection':
++          navigate('/selection');
++          break;
++        case 'strategy':
++          if (activeTest) {
++            navigate(`/dashboard/${activeTest.id}-strategy`);
++          }
++          break;
++        case 'description':
++          navigate('/description');
++          break;
++        case 'dashboard':
++          navigate('/dashboard');
++          break;
++        default:
++          break;
+       }
+     }
+   };
+ 
++  // Helper to go back with referrer check - avoids going to external sites
++  const navigateBackSafe = () => {
++    const referrer = document.referrer;
++    // If there's a referrer from the same origin, use browser back
++    // Otherwise use the app's viewHistory or go to dashboard
++    if (referrer && referrer.includes(window.location.hostname)) {
++      navigate(-1);
++    } else if (viewHistory.length > 1) {
++      navigateBack();
++    } else {
++      navigate('/dashboard');
++    }
++  };
++
+   // Helper to go back to previous view
+   const navigateBack = () => {
+     // If we have history, go back
+@@ -186,6 +251,12 @@ function App({ initialView }) {
+       } else if (previousView === 'selection' && activeTest) {
+         // If going back to selection from a hub, stay on test hub
+         navigate(`/dashboard/${activeTest.id}-test-hub`);
++      } else if (previousView === 'mini-test' || previousView === 'academic-flow') {
++        // Go back to IELTS atoms hub for mini-test routes
++        navigate('/dashboard/ielts-atoms');
++      } else {
++        // For any other view, go to dashboard
++        navigate('/dashboard');
+       }
+     } else {
+       // If we're at the root view or directly accessed, go to dashboard
+@@ -202,7 +273,96 @@ function App({ initialView }) {
+ 
+   // Router Navigate
+   const navigate = useNavigate();
++  const { lessonId, sectionIndex, passageIndex } = useParams();
++  
++  // Effect to load lesson from URL params on page refresh
++  useEffect(() => {
++    if (lessonId && initialView === 'lesson') {
++      console.log('[URL Restore] Loading lesson from URL:', lessonId);
++      
++      let fullLesson = null;
++      
++      // Check if this is a known dynamic flow type that we need to regenerate
++      const isDynamicFlow = lessonId === 'dynamic-flow' || lessonId === 'academic-dynamic-flow';
++      
++      if (isDynamicFlow) {
++        // For dynamic flows, try to restore from sessionStorage first
++        const stored = sessionStorage.getItem('activeLesson');
++        if (stored) {
++          try {
++            fullLesson = JSON.parse(stored);
++            console.log('[URL Restore] Restored dynamic flow from sessionStorage');
++          } catch (e) {
++            console.error('[URL Restore] Failed to parse stored lesson:', e);
++          }
++        }
++        
++        // If not in sessionStorage, we can't restore dynamic flows - redirect to dashboard
++        if (!fullLesson) {
++          console.warn('[URL Restore] Dynamic flow not found in sessionStorage, redirecting to dashboard');
++          navigate('/dashboard');
++          return;
++        }
++      } else {
++        // For regular lessons, load from database
++        const taskMetadata = { id: lessonId, type: 'specific' };
++        fullLesson = loadFullLesson(taskMetadata);
++        
++        // Check if lesson was actually loaded (content exists)
++        if (!fullLesson.sections && !fullLesson.passages && !fullLesson.parts && !fullLesson.questions && !fullLesson.content) {
++          console.error('[URL Restore] Lesson not found in database:', lessonId);
++          navigate('/dashboard');
++          return;
++        }
++      }
++      
++      setActiveLesson(fullLesson);
++      
++      // Restore section and passage indices if provided
++      if (sectionIndex !== undefined) {
++        setActiveSectionIndex(parseInt(sectionIndex, 10));
++      }
++      if (passageIndex !== undefined) {
++        setActivePassageIndex(parseInt(passageIndex, 10));
++      }
++      
++      setView('lesson');
++    }
++  }, [lessonId, sectionIndex, passageIndex, initialView]);
+   
++  // Effect to update URL when lesson navigation changes (section/passage)
++  useEffect(() => {
++    if (activeLesson?.id && view === 'lesson') {
++      // Build the URL based on current position
++      let lessonUrl = `/lesson/${activeLesson.id}`;
++      
++      if (activeSectionIndex > 0) {
++        lessonUrl += `/section/${activeSectionIndex}`;
++        if (activePassageIndex > 0) {
++          lessonUrl += `/passage/${activePassageIndex}`;
++        }
++      }
++      
++      // Only update if URL is different to avoid unnecessary navigation
++      const currentPath = window.location.pathname;
++      if (currentPath !== lessonUrl) {
++        // Use replace: false to allow back button to work properly
++        navigate(lessonUrl);
++      }
++    }
++  }, [activeLesson?.id, activeSectionIndex, activePassageIndex, view, navigate]);
++
++  // Effect to persist activeLesson to sessionStorage for dynamic flow restoration
++  useEffect(() => {
++    if (activeLesson) {
++      try {
++        sessionStorage.setItem('activeLesson', JSON.stringify(activeLesson));
++      } catch (e) {
++        console.warn('[SessionStorage] Failed to save lesson:', e);
++      }
++    }
++  }, [activeLesson]);
++
+   // Complex Interaction State
+   const [gapFillSelections, setGapFillSelections] = useState({});
+   const [activeGap, setActiveGap] = useState(null);
+@@ -267,10 +427,9 @@ function App({ initialView }) {
+           const taskMetadata = ATOM_HUB.skillCategories[initialView];
+           if (taskMetadata) {
+             handleStartTask(taskMetadata);
+-          } else {
+-            // For any other route not matching known patterns, go to dashboard
+-            setView('dashboard');
+           }
++          // For any other route not matching known patterns, don't redirect to dashboard
++          // The view is already set from initialView via useState
+         }
+       }
+     }
+@@ -513,6 +672,7 @@ function App({ initialView }) {
+     // Handle VOCAB type - load directly from task metadata
+     if (taskMetadata.type === 'VOCAB') {
+       setActiveLesson(taskMetadata);
++      navigateToView('lesson');
+     } else if (taskMetadata.type === 'flow') {
+       // Mini-test flow: pick random exercises from each skill
+       // Vocab comes from the reading passage in this test
+@@ -544,6 +704,11 @@ function App({ initialView }) {
+         ].filter(Boolean)
+       };
+       setActiveLesson(flowLesson);
++      // Update view history for mini-test flow
++      if (!viewHistory.includes('lesson')) {
++        setViewHistory(prev => [...prev, 'lesson']);
++      }
++      navigateToView('lesson');
+     } else if (taskMetadata.type === 'academic-flow') {
+       // Academic Mini Flow: uses academic reading and writing
+       const readingExercise = pluckRandom('reading_academic');
+@@ -574,6 +739,11 @@ function App({ initialView }) {
+         ].filter(Boolean)
+       };
+       setActiveLesson(flowLesson);
++      // Update view history for academic-flow
++      if (!viewHistory.includes('lesson')) {
++        setViewHistory(prev => [...prev, 'lesson']);
++      }
++      setView('lesson');
+     } else if (taskMetadata.type === 'random-pick') {
+       // Random pick: get a random exercise from the specified skill
+       const randomExercise = pluckRandom(taskMetadata.skill);
+@@ -582,11 +752,21 @@ function App({ initialView }) {
+           ...randomExercise,
+           xpReward: taskMetadata.xp || 500
+         });
++        // Update view history
++        if (!viewHistory.includes('lesson')) {
++          setViewHistory(prev => [...prev, 'lesson']);
++        }
++        setView('lesson');
+       }
+     } else if (taskMetadata.type === 'specific' || taskMetadata.type === 'gap-fill-tokens') {
+       // Specific exercise: load by exerciseId
+       const fullLesson = loadFullLesson(taskMetadata);
+       setActiveLesson(fullLesson);
++      // Update view history
++      if (!viewHistory.includes('lesson')) {
++        setViewHistory(prev => [...prev, 'lesson']);
++      }
++      setView('lesson');
+     } else if (taskMetadata.type === 'full-flow') {
+       // Full test flow: combine all 4 skills with full mock content
+       const fullMock = pluckRandomFullMock();
+@@ -597,6 +777,11 @@ function App({ initialView }) {
+           type: 'full-test',
+           xpReward: taskMetadata.xp || 2000
+         });
++        // Update view history
++        if (!viewHistory.includes('lesson')) {
++          setViewHistory(prev => [...prev, 'lesson']);
++        }
++        setView('lesson');
+       }
+     } else if (taskMetadata.id === 'mini-test-flow') {
+       // Legacy flow handling - also use vocab from reading
+@@ -627,10 +812,20 @@ function App({ initialView }) {
+         ].filter(Boolean)
+       };
+       setActiveLesson(flowLesson);
++      // Update view history
++      if (!viewHistory.includes('lesson')) {
++        setViewHistory(prev => [...prev, 'lesson']);
++      }
++      setView('lesson');
+     } else {
+       // STANDARD: Load a single task
+       const fullLesson = loadFullLesson(taskMetadata);
+       setActiveLesson(fullLesson);
++      // Update view history
++      if (!viewHistory.includes('lesson')) {
++        setViewHistory(prev => [...prev, 'lesson']);
++      }
++      setView('lesson');
+     }
+     
+     setActiveSectionIndex(0);
+@@ -844,33 +1039,14 @@ function App({ initialView }) {
+   // CHAPTER 7: THE SCHOOL BUILDING (MAIN RENDER)
+   // ============================================================
+   
+-  // Loading spinner
++  // Loading spinner - show branded loading screen
+   if (isLoading) {
+-    return (
+-      <div style={{ 
+-        display: 'flex', 
+-        flexDirection: 'column',
+-        alignItems: 'center', 
+-        justifyContent: 'center', 
+-        height: '100vh',
+-        background: 'var(--bg-primary)',
+-        color: 'var(--text-primary)'
+-      }}>
+-        <RefreshCw className="spinner" size={48} style={{ marginBottom: '1rem', animation: 'spin 1s linear infinite' }} />
+-        <p style={{ fontSize: '1.2rem', opacity: 0.8 }}>Loading The Lab...</p>
+-        <style>{`
+-          @keyframes spin {
+-            from { transform: rotate(0deg); }
+-            to { transform: rotate(360deg); }
+-          }
+-        `}</style>
+-      </div>
+-    );
++    return <LoadingScreen />;
+   }
+ 
+   return (
+     <div className={`app-shell ${isHighFocus ? 'high-focus-layout' : ''}`}>
+-      <ScrollToTop /> 
++      <ScrollToTop view={view} /> 
+       {/* SIDEBAR NAVIGATION */}
+       {showSidebar && (
+         <aside className="desktop-sidebar">
+@@ -903,30 +1079,24 @@ function App({ initialView }) {
+             <div>
+               {/* Only show header back button for views that don't have their own back button */}
+                {view === 'testHub' && (
+-                 <button onClick={() => navigate('/dashboard')} className="exit-btn">
++                 <button onMouseDown={() => navigateBackSafe()} className="exit-btn">
+                    <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Dashboard
+                  </button>
+                )}
+               {view === 'lesson' && (
+-                <button onClick={() => { 
+-                  setActiveLesson(null); 
+-                  // If we have a history, go back; otherwise, go to dashboard
+-                  if (viewHistory.length > 1) {
+-                    navigateBack();
+-                  } else {
+-                    setView('dashboard');
+-                  }
+-                }} className="exit-btn">
+-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> {viewHistory.length > 1 ? 'Back' : 'Dashboard'}
++                <button 
++                  onClick={() => navigate('/dashboard/ielts-strategy')} 
++                  className="exit-btn">
++                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
+                 </button>
+               )}
+               {view === 'results' && (
+-                <button onClick={() => setView('dashboard')} className="exit-btn">
++                <button onMouseDown={() => navigateBackSafe()} className="exit-btn">
+                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Dashboard
+                 </button>
+               )}
+               {view === 'strategy' && (
+-                <button onClick={() => setView('dashboard')} className="exit-btn">
++                <button onMouseDown={() => navigateBackSafe()} className="exit-btn">
+                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Dashboard
+                 </button>
+               )}
+@@ -1063,7 +1233,7 @@ function App({ initialView }) {
+                    if (randomMock && randomMock.sections && randomMock.sections.length > 0) {
+                      setActiveLesson(randomMock);
+                      setActiveSectionIndex(0);
+-                     setView('lesson');
++                     navigateToView('lesson');
+                    }
+                  } else if (path === 'general-full-mock') {
+                    // Start a General Training full mock test
+@@ -1071,7 +1241,7 @@ function App({ initialView }) {
+                    if (generalMock && generalMock.sections && generalMock.sections.length > 0) {
+                      setActiveLesson(generalMock);
+                      setActiveSectionIndex(0);
+-                     setView('lesson');
++                     navigateToView('lesson');
+                    }
+                  } else if (path === 'academic-full-mock') {
+                    // Start an Academic full mock test
+@@ -1079,7 +1249,7 @@ function App({ initialView }) {
+                    if (academicMock && academicMock.sections && academicMock.sections.length > 0) {
+                      setActiveLesson(academicMock);
+                      setActiveSectionIndex(0);
+-                     setView('lesson');
++                     navigateToView('lesson');
+                    }
+                    } else if (path === 'mocks') {
+                     // Navigate to test hub with URL change
+@@ -1096,7 +1266,7 @@ function App({ initialView }) {
+           {view === 'description' && (
+             <ExamDescription 
+               activeTest={activeTest}
+-              onBack={navigateBack}
++              onBack={() => navigateBackSafe()}
+             />
+           )}
+ 
+@@ -1104,7 +1274,7 @@ function App({ initialView }) {
+           {view === 'skillTests' && (
+             <div className="strategy-container">
+               <header className="strategy-header">
+-                <button onClick={navigateBack} className="btn-back-link">
++                <button onClick={() => navigateBackSafe()} className="btn-back-link">
+                   ← Back
+                 </button>
+                 <h1>Skill Tests</h1>
+@@ -1136,7 +1306,13 @@ function App({ initialView }) {
+                   onClick={() => {
+                     const exercise = pluckRandom('listening');
+                     if (exercise) {
+-                      setActiveLesson(exercise);
++                      // Wrap in sections array to use mock-flow like mini-tests
++                      setActiveLesson({
++                        id: exercise.id || 'listening-skill-test',
++                        title: exercise.subtitle || exercise.title || 'Listening Skill Test',
++                        type: 'skill-test-flow',
++                        sections: [exercise]
++                      });
+                       setActiveSectionIndex(0);
+                       navigateToView('lesson');
+                     }
+@@ -1226,14 +1402,8 @@ function App({ initialView }) {
+           )}
+ 
+            {/* DYNAMIC HUB & SELECTION */}
+-          {view === 'hub' && <SkillHub data={activeCategory} onBack={() => setView('dashboard')} onSelectSection={handleSelectSection} backButtonText={initialView && initialView !== 'dashboard' ? 'Dashboard' : 'Back'} />}
+-          {view === 'selection' && <TaskSelection section={activeSection} onBack={() => {
+-            if (viewHistory.length > 1) {
+-              navigateBack();
+-            } else {
+-              setView('dashboard');
+-            }
+-          }} onSelectTask={handleStartTask} />}
++          {view === 'hub' && <SkillHub data={activeCategory} onBack={() => navigateBackSafe()} onSelectSection={handleSelectSection} backButtonText={initialView && initialView !== 'dashboard' ? 'Dashboard' : 'Back'} />}
++          {view === 'selection' && <TaskSelection section={activeSection} onBack={() => navigateBackSafe()} onSelectTask={handleStartTask} />}
+ 
+           {/* THE LESSON ENGINE */}
+           {view === 'lesson' && activeLesson && (
+@@ -1388,7 +1558,7 @@ function App({ initialView }) {
+                           // Render self-contained blocks directly
+                           if (handlesOwnQuestions) {
+                             // Check if this is a mini-test flow (combined flow)
+-                            const isMiniTest = activeLesson.type === 'mixed-flow';
++                            const isMiniTest = activeLesson.type === 'mixed-flow' || activeLesson.type === 'mini-test-flow' || activeLesson.type === 'academic-mini-flow' || activeLesson.type === 'skill-test-flow';
+                             
+                             // For speaking tests with 'parts' array, extract the current part
+                             const hasSpeakingParts = activeLesson.parts && activeLesson.parts.length > 0;
+@@ -1459,10 +1629,42 @@ function App({ initialView }) {
+                                  </div>
+                                )}
+                                <div className="question-pane">
+-                                 <>
+-                                   {renderQuestionBlock(subPassages.length > 0 ? currentPassage : currentSection)}
+-                                   {!handlesOwnQuestions && directQuestions.length > 0 && directQuestions.map(q => <div key={q.id} style={{marginBottom: '20px'}}>{renderQuestionBlock(q)}</div>)}
+-                                 </>
++                                 {(() => {
++                                   const passageSubTasks = currentPassage?.subTasks || [];
++                                   const sectionSubTasks = currentSection?.subTasks || [];
++                                   const allSubTasks = [...passageSubTasks, ...sectionSubTasks, ...directQuestions];
++                                   const allQs = [];
++                                   allSubTasks.forEach(task => {
++                                     if (task.questions && Array.isArray(task.questions)) {
++                                       task.questions.forEach(q => allQs.push({ ...q, type: task.type }));
++                                     } else if (task.id) {
++                                       allQs.push(task);
++                                     }
++                                   });
++                                   const total = allQs.length;
++                                   if (total === 0) return <>{renderQuestionBlock(subPassages.length > 0 ? currentPassage : currentSection)}{!handlesOwnQuestions && directQuestions.length > 0 && directQuestions.map(q => <div key={q.id} style={{marginBottom:'20px'}}>{renderQuestionBlock(q)}</div>)}</>;
++                                   return (
++                                     <div className="question-carousel-wrapper">
++                                       <div className="question-carousel" ref={carouselRef} onScroll={(e) => {
++                                         const sl = e.target.scrollLeft, sw = e.target.clientWidth;
++                                         const ni = Math.round(sl / sw);
++                                         if (ni !== currentQuestionIndex && ni >= 0 && ni < total) setCurrentQuestionIndex(ni);
++                                       }}>
++                                         {allQs.map((q, i) => (
++                                           <div key={q.id || i} className="question-slide">
++                                             <div style={{marginBottom:'10px',paddingBottom:'8px',borderBottom:'1px solid #e2e8f0',fontSize:'14px',color:'#64748b'}}>Question {i+1} of {total}</div>
++                                             {renderQuestionBlock(q)}
++                                           </div>
++                                         ))}
++                                       </div>
++                                       <div className="carousel-dots">
++                                         {allQs.map((_, i) => (
++                                           <button key={i} onClick={() => { carouselRef.current?.scrollTo({left: i*carouselRef.current.clientWidth, behavior:'smooth'}); setCurrentQuestionIndex(i); }} style={{width:'8px',height:'8px',borderRadius:'50%',border:'none',background: i===currentQuestionIndex ? '#5850ec':'#cbd5e1',cursor:'pointer',padding:0}} aria-label={`Go to question ${i+1}`} />
++                                         ))}
++                                       </div>
++                                     </div>
++                                   );
++                                 })()}
+                                </div>
+                              </div>
+                            );
+@@ -1489,9 +1691,37 @@ function App({ initialView }) {
+                     </div>
+                   )}
+                   {activeLesson.content && activeLesson.type !== 'token-select' && activeLesson.type !== 'heading-match' && (
+-                    <ReadingBlock content={activeLesson.content} />
++                    <div className="reading-pane">
++                      <ReadingBlock content={activeLesson.content} />
++                    </div>
+                   )}
+-                  {renderQuestionBlock(activeLesson)}
++                  
++                  {/* All questions in carousel */}
++                  {(() => {
++                    // For LISTENING type, use ListeningBlock which has the audio player
++                    if (activeLesson.type === 'LISTENING' || activeLesson.skill === 'listening') {
++                      return renderQuestionBlock(activeLesson);
++                    }
++
++                    const questions = [];
++                    activeLesson?.subTasks?.forEach(task => {
++                      if (task.questions && Array.isArray(task.questions)) {
++                        task.questions.forEach(q => questions.push({ ...q, parentType: task.type }));
++                      }
++                    });
++                    if (activeLesson?.questions) {
++                      activeLesson.questions.forEach(q => questions.push(q));
++                    }
++                    
++                    if (questions.length === 0) return renderQuestionBlock(activeLesson);
++                    
++                    return (
++                      <QuestionCarousel 
++                        questions={questions}
++                        renderQuestion={(q) => renderQuestionBlock({...q, type: q.parentType || q.type})}
++                      />
++                    );
++                  })()}
+                 </div>
+               )}
+             </div>
+@@ -1556,4 +1786,4 @@ function App({ initialView }) {
+   );
+ }
+ 
+-export default App;
+\ No newline at end of file
++export default App;

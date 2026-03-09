@@ -12,7 +12,7 @@ export const READING_HUB = {
   categories: [
     {
       id: 'academic-mocks',
-      title: 'Full Mock Exams',
+      title: 'Full Academic Reading Exams',
       tasks: [
         { id: 'academic-reading-mock-1', title: 'Academic Mock #1', xp: 2000, type: 'ielts-mock', tier: 'bronze' },
       ]

@@ -29,7 +29,7 @@ const LandingPage = () => {
 
       <header className="hero">
         <div className="hero-content">
-          <div className="hero-badge">IELTS • TOEFL • PTE • DET</div>
+          <div className="hero-badge">IELTS • TOEFL • LangCert</div>
           <h1>
             Stop practicing. <br />
             <span className="text-gradient">Start training.</span>
@@ -44,7 +44,7 @@ const LandingPage = () => {
               className="btn-primary"
               onClick={handleClick}
             >
-              TEST DASHBOARD LINK
+              GO TO TESTS
             </button>
             <p className="cta-hint">No credit cards. Just hard work.</p>
           </div>

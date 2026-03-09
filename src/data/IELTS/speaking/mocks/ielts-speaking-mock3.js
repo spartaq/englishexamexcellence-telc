@@ -16,15 +16,6 @@ export const speakingMock3 = {
       type: 'interview',
       prompts: [
         {
-          topic: 'Work or Studies',
-          questions: [
-            { id: 'p1q1', text: 'What work do you do?' },
-            { id: 'p1q2', text: 'Why did you choose that job?' },
-            { id: 'p1q3', text: 'What do you enjoy most about your job?' },
-            { id: 'p1q4', text: 'Do you plan to change your job in the future?' }
-          ]
-        },
-        {
           topic: 'Technology',
           questions: [
             { id: 'p1q5', text: 'What technology do you use most often?' },
