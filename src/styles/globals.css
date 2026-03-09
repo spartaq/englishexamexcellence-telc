@@ -27,11 +27,12 @@
 }
 
 button {
-  outline: none;
+  cursor: pointer;
 }
 
-button:focus {
-  outline: none;
+button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 body {
@@ -146,12 +147,11 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  outline: none;
 }
 
-.exit-btn:focus {
-  outline: none;
-  box-shadow: none;
+.exit-btn:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .exit-btn:hover {
@@ -327,9 +327,7 @@ body {
   .question-carousel-wrapper {
     display: flex;
     flex-direction: column;
-    height: 50vh;
-    min-height: 200px;
-    max-height: 50vh;
+    height: clamp(200px, 50vh, 100vh);
     width: 100%;
     max-width: 100vw;
     margin: 0 auto;

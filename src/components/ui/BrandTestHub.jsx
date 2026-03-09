@@ -78,6 +78,7 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
           <Link 
             to="/dashboard/ielts-mini-individual"
             className="btn-base btn-outline"
+            style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none' }}
           >
             <List size={16} style={{ marginRight: '8px' }} />
             Individual Skill Tests (Mini)

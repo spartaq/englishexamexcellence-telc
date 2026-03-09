@@ -1,6 +1,6 @@
 # English Exam Excellence
 
-A modern web application for preparing for IELTS, TOEFL, PTE, and other English language certification exams. Built with React, Vite, and Zustand.
+A modern web application for preparing for IELTS and other English language certification exams. Built with React, Vite, and Zustand.
 
 ![React](https://img.shields.io/badge/React-19.2.0-blue)
 ![Vite](https://img.shields.io/badge/Vite-7.2.5-646CFF)

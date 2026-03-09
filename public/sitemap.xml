@@ -102,7 +102,7 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- Hub Routes -->
+  <!-- Individual Test Routes -->
   <url>
     <loc>https://english-exam-excellence.com/dashboard/ielts-mini-individual</loc>
     <lastmod>2026-02-23</lastmod>

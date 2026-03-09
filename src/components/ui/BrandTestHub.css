@@ -94,6 +94,23 @@
   opacity: 0.9;
 }
 
+.btn-base:focus,
+.btn-base:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  opacity: 0.9;
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+.btn-outline:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
 /* Four Pillars Section */
 .intel-section {
   background: white;
@@ -232,6 +249,18 @@
   background: #1d4ed8;
 }
 
+.atom-skill-btn:focus,
+.atom-skill-btn:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.atom-skill-btn:first-child:focus,
+.atom-skill-btn:first-child:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
 /* --- SKILL TESTS GRID --- */
 .skill-tests-grid {
   display: grid;
@@ -256,6 +285,15 @@
 
 .skill-test-card:hover {
   border-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.1);
+}
+
+.skill-test-card:focus,
+.skill-test-card:focus-visible {
+  border-color: #2563eb;
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(37, 99, 235, 0.1);
 }
@@ -323,6 +361,10 @@
    DARK MODE STYLES (Must be at end of file)
    ============================================ */
 @media (prefers-color-scheme: dark) {
+  :root {
+    --surface-white: #1e293b;
+    --border-color: #334155;
+  }
   .strategy-container {
     color: #F3F4F6;
   }

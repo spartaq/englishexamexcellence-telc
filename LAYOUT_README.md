@@ -450,18 +450,6 @@ The individual questions (`q`) don't have a `type` field - only the parent task 
 }
 ```
 
-### Flattened for Carousel
-```javascript
-{
-  id: 1,
-  text: "Question text",
-  answer: "TRUE",
-  type: 'trinary',
-  mode: 'tfng',
-  parentType: 'trinary'
-}
-```
-
 ### Listening Notes Completion
 ```javascript
 {
