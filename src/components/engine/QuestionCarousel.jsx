@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const QuestionCarousel = ({ questions, renderQuestion, showInstruction = true }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,6 +17,18 @@ const QuestionCarousel = ({ questions, renderQuestion, showInstruction = true })
       });
     }
     setCurrentIndex(index);
+  };
+
+  const goToPrevious = () => {
+    if (currentIndex > 0) {
+      scrollToQuestion(currentIndex - 1);
+    }
+  };
+
+  const goToNext = () => {
+    if (currentIndex < questions.length - 1) {
+      scrollToQuestion(currentIndex + 1);
+    }
   };
 
   const handleScroll = (e) => {
@@ -52,25 +65,69 @@ const QuestionCarousel = ({ questions, renderQuestion, showInstruction = true })
         ))}
       </div>
       
-      {/* Navigation dots */}
-      <div className="carousel-dots">
-        {questions.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => scrollToQuestion(idx)}
-            style={{
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              border: 'none',
-              background: idx === currentIndex ? '#5850ec' : '#cbd5e1',
-              cursor: 'pointer',
-              padding: 0,
-              transition: 'background 0.2s'
-            }}
-            aria-label={`Go to question ${idx + 1}`}
-          />
-        ))}
+      {/* Navigation with arrows */}
+      <div className="carousel-dots" style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '16px',
+        marginTop: '16px'
+      }}>
+        {/* Left Arrow */}
+        <button
+          onClick={goToPrevious}
+          disabled={currentIndex === 0}
+          aria-label="Previous question"
+          style={{
+            width: '40px',
+            height: '40px',
+            borderRadius: '50%',
+            border: 'none',
+            background: currentIndex === 0 ? '#f1f5f9' : '#fff',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+            cursor: currentIndex === 0 ? 'not-allowed' : 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            opacity: currentIndex === 0 ? 0.5 : 1,
+            transition: 'all 0.2s ease'
+          }}
+        >
+          <ChevronLeft size={24} color={currentIndex === 0 ? '#94a3b8' : '#5850ec'} />
+        </button>
+
+        {/* Question counter */}
+        <span style={{
+          fontSize: '14px',
+          color: '#64748b',
+          minWidth: '80px',
+          textAlign: 'center'
+        }}>
+          {currentIndex + 1} / {questions.length}
+        </span>
+
+        {/* Right Arrow */}
+        <button
+          onClick={goToNext}
+          disabled={currentIndex === questions.length - 1}
+          aria-label="Next question"
+          style={{
+            width: '40px',
+            height: '40px',
+            borderRadius: '50%',
+            border: 'none',
+            background: currentIndex === questions.length - 1 ? '#f1f5f9' : '#fff',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+            cursor: currentIndex === questions.length - 1 ? 'not-allowed' : 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            opacity: currentIndex === questions.length - 1 ? 0.5 : 1,
+            transition: 'all 0.2s ease'
+          }}
+        >
+          <ChevronRight size={24} color={currentIndex === questions.length - 1 ? '#94a3b8' : '#5850ec'} />
+        </button>
       </div>
     </div>
   );

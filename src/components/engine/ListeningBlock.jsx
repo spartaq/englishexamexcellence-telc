@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, Info, Headphones } from 'lucide-react';
 import { useExamStore } from '../../store/useExamStore';
 import QuestionCarousel from './QuestionCarousel';
+import SplitPane from './SplitPane';
 import './engine.css';
 
 // Import the interactive blocks for different question types
@@ -354,7 +355,7 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
 
   return (
     <div className="listening-container">
-      {/* 1. STICKY AUDIO PLAYER */}
+      {/* 1. STICKY AUDIO PLAYER - Full width on both desktop and mobile */}
       <div className="audio-sticky-bar">
         <div className="player-controls" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
           <button 
@@ -382,43 +383,47 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
         />
       </div>
 
-      {/* 2. CONTENT AREA */}
-      <div className="listening-content">
-        {/* Skill Label */}
-        <div className="vocab-top-section" style={{ marginBottom: '16px' }}>
-          <span className="task-label">
-            🎧 Listening
-          </span>
-        </div>
+      {/* 2. SPLIT PANE CONTENT AREA */}
+      <SplitPane
+        content={
+          <div className="listening-content">
+            {/* Skill Label */}
+            <div className="vocab-top-section" style={{ marginBottom: '16px' }}>
+              <span className="task-label">
+                🎧 Listening
+              </span>
+            </div>
 
-        {/* Part Title and Description - show in standalone tests, hide in mini-test flow (App.jsx shows header) */}
-        {!isMiniTest && (
-          <div className="test-block-header" style={{ marginBottom: '24px' }}>
-            <h2 className="test-block-title">
-              {data.title || data.mockTitle || `Part ${data.part || 1}`}
-            </h2>
-            {data.subtitle && (
-              <p className="test-block-subtitle">{data.subtitle}</p>
+            {/* Part Title and Description */}
+            {!isMiniTest && (
+              <div className="test-block-header" style={{ marginBottom: '24px' }}>
+                <h2 className="test-block-title">
+                  {data.title || data.mockTitle || `Part ${data.part || 1}`}
+                </h2>
+                {data.subtitle && (
+                  <p className="test-block-subtitle">{data.subtitle}</p>
+                )}
+                {data.description && (
+                  <p className="test-block-description">{data.description}</p>
+                )}
+              </div>
             )}
-            {data.description && (
-              <p className="test-block-description">{data.description}</p>
+
+            {/* Support for Map/Diagram Labelling */}
+            {data.imageUrl && (
+              <div className="listening-diagram">
+                <img src={data.imageUrl} alt="Exam Visual" />
+              </div>
             )}
           </div>
-        )}
-
-        {/* Support for Map/Diagram Labelling */}
-        {data.imageUrl && (
-          <div className="listening-diagram">
-            <img src={data.imageUrl} alt="Exam Visual" />
-          </div>
-        )}
-
-        {/* QUESTIONS - always use carousel */}
-        <QuestionCarousel 
-          questions={allQs} 
-          renderQuestion={(q) => renderQuestionBlock(q)}
-        />
-      </div>
+        }
+        exercise={
+          <QuestionCarousel 
+            questions={allQs} 
+            renderQuestion={(q) => renderQuestionBlock(q)}
+          />
+        }
+      />
 
       {/* 3. ACTION FOOTER */}
       <div className="listening-footer">

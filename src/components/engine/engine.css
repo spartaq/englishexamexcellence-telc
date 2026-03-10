@@ -125,7 +125,7 @@
 .writing-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  /*height: 100%;*/
   background-color: #f8fafc;
   font-family: 'Plus Jakarta Sans', sans-serif;
   overflow: hidden;
@@ -274,7 +274,7 @@
 .speaking-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  /*height: 100%;*/
   background: #ffffff;
   font-family: 'Plus Jakarta Sans', sans-serif;
   overflow-y: auto;
@@ -669,8 +669,6 @@
 .listening-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background-color: #fcfcfd;
 }
 
 /* Audio Player Card */
@@ -1321,12 +1319,78 @@
   border-left: 3px solid #f59e0b;
 }
 
-/* ============================================
+/* ===========================================
    QUESTION CAROUSEL STYLES
    ============================================ */
+
+/* Split Pane Layout for Desktop */
+.desktop-split-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 100%;
+}
+
+/* Desktop: side-by-side layout */
+@media (min-width: 769px) {
+  .desktop-split-pane {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+  }
+  
+  .content-pane {
+    flex: 1;
+    min-width: 0;
+    max-height: 50vh;
+    height: 50vh;
+  }
+  
+  .exercise-pane {
+    flex: 1;
+    min-width: 0;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+  
+  /* Adjust reading passage for side-by-side - scroll INSIDE the box, hidden scrollbar */
+  .reading-passage {
+    max-height: calc(100vh - 450px);
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
+  }
+  
+  .reading-passage::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  
+  /* Make carousel centered and constrained on desktop */
+  .question-carousel-wrapper {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/* Mobile: stacked layout (default) */
+@media (max-width: 768px) {
+  .desktop-split-pane {
+    flex-direction: column;
+  }
+  
+  .content-pane,
+  .exercise-pane {
+    width: 100%;
+  }
+  
+  .exercise-pane {
+    max-width: 100%;
+  }
+}
 .question-carousel-wrapper {
-  width: 100%;
-  max-width: 800px; /* Limit width on desktop */
+  width: 90%;
+  max-width: 700px; /* Limit width on desktop */
   margin: 0 auto; /* Center on desktop */
 }
 
@@ -1356,10 +1420,10 @@
   scroll-snap-align: start;
   padding: 16px;
   box-sizing: border-box;
-  background: white;
   border-radius: var(--radius-md);
-  min-height: 200px;
+  min-height: 360px;
 }
+
 
 .carousel-dots {
   display: flex;

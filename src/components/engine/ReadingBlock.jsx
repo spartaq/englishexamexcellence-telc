@@ -1,5 +1,6 @@
 import React from 'react';
 import QuestionCarousel from './QuestionCarousel';
+import SplitPane from './SplitPane';
 import './engine.css';
 
 // Import the interactive blocks for different question types
@@ -310,25 +311,28 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
 
   return (
     <div className="reading-block">
-      {/* Passage Content */}
-      <div className="reading-passage" style={{ marginBottom: '24px' }}>
-        {renderContent()}
-      </div>
-
-      {/* Questions - with carousel if multiple questions */}
-      {flatQuestions.length > 0 && (
-        useCarousel ? (
-          <QuestionCarousel
-            questions={flatQuestions}
-            renderQuestion={(q, idx) => internalRenderQuestionBlock(q, idx)}
-            showInstruction={true}
-          />
-        ) : (
-          <div className="questions-list">
-            {questions.map((q, idx) => internalRenderQuestionBlock(q, idx))}
+      <SplitPane
+        content={
+          <div className="reading-passage">
+            {renderContent()}
           </div>
-        )
-      )}
+        }
+        exercise={
+          flatQuestions.length > 0 && (
+            useCarousel ? (
+              <QuestionCarousel
+                questions={flatQuestions}
+                renderQuestion={(q, idx) => internalRenderQuestionBlock(q, idx)}
+                showInstruction={true}
+              />
+            ) : (
+              <div className="questions-list">
+                {questions.map((q, idx) => internalRenderQuestionBlock(q, idx))}
+              </div>
+            )
+          )
+        }
+      />
     </div>
   );
 };

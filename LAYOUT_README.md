@@ -258,6 +258,32 @@ All content pages follow a **split-pane layout**:
 
 ---
 
+## SplitPane Component
+
+**File**: [`SplitPane.jsx`](src/components/engine/SplitPane.jsx)
+
+A reusable component that implements the split-pane layout pattern for all desktop exercises.
+
+### Props
+```javascript
+<SplitPane
+  content={ReactNode}  // Left pane content (reading text, prompts, etc.)
+  exercise={ReactNode} // Right pane content (questions, editor, recording)
+  className={string}   // Optional additional CSS classes
+/>
+```
+
+### Features
+- Desktop (>768px): Side-by-side layout with content on left, exercise on right
+- Mobile (≤768px): Stacked vertically
+- Automatically applies `.desktop-split-pane`, `.content-pane`, and `.exercise-pane` classes
+- Single source of truth for layout behavior across all exercise blocks
+
+### Usage
+All exercise blocks (ReadingBlock, ListeningBlock, WritingBlock, SpeakingBlock) now use this component instead of manually applying layout classes.
+
+---
+
 ## Question Carousel Component
 
 **File**: [`QuestionCarousel.jsx`](src/components/engine/QuestionCarousel.jsx)
@@ -477,6 +503,7 @@ Expands to:
 
 ### Layout Components
 - `src/components/engine/QuestionCarousel.jsx` - Universal carousel
+- `src/components/engine/SplitPane.jsx` - Unified split-pane layout (SINGLE SOURCE OF TRUTH)
 - `src/components/engine/ReadingBlock.jsx` - Reading tests
 - `src/components/engine/ListeningBlock.jsx` - Listening tests
 - `src/components/engine/WritingBlock.jsx` - Writing tasks

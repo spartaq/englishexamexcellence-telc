@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useExamStore } from '../../store/useExamStore';
+import SplitPane from './SplitPane';
 import './engine.css';
 
 const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
@@ -19,7 +20,7 @@ const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
   setIsChecking(true);
   try {
       const response = await fetch('https://examsuccess.englishexamexercises.com/api/writing-review.php', {
-     method: 'POST',
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
         essay: text,
@@ -47,7 +48,7 @@ const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
 
   return (
     <div className="writing-container">
-      {/* Task Header - show only when NOT in mini-test flow (App.jsx will show section header) */}
+      {/* Task Header - show only when NOT in mini-test flow */}
       {!isMiniTest && data.title && (
         <div className="test-block-header">
           <h2 className="test-block-title">{data.title}</h2>
@@ -61,102 +62,92 @@ const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
         <span className="task-label">✍️ Writing</span>
       </div>
       
-      <div className="writing-header">
-        <div className="header-meta">
-          <span className="task-label">IELTS Writing Task {data.taskType}</span>
-          <span className={`word-count ${wordCount >= data.targetWords ? 'goal-reached' : ''}`}>
-            {wordCount} / {data.targetWords} Words
-          </span>
-        </div>
-        <div className="momentum-track">
-			   
-									  
-          <div className="momentum-fill" style={{ width: `${progressPercentage}%` }} />
-			
-        </div>
-      </div>
+      <SplitPane
+        content={
+          <>
+            <div className="writing-header">
+              <div className="header-meta">
+                <span className="task-label">IELTS Writing Task {data.taskType}</span>
+                <span className={`word-count ${wordCount >= data.targetWords ? 'goal-reached' : ''}`}>
+                  {wordCount} / {data.targetWords} Words
+                </span>
+              </div>
+              <div className="momentum-track">
+                <div className="momentum-fill" style={{ width: `${progressPercentage}%` }} />
+              </div>
+            </div>
 
-      <div className="prompt-section">
-        <div className="prompt-text">{data.prompt}</div>
-		     {data.bullets && (
-          <ul className="prompt-bullets">
-            {data.bullets?.map((bullet, idx) => (
-              <li key={idx}>{bullet}</li>
-            ))}
-          </ul>
-        )}				  
-										 
-												 
-										 
-			   
-			   
-		  
-      </div>
+            <div className="prompt-section">
+              <div className="prompt-text">{data.prompt}</div>
+              {data.bullets && (
+                <ul className="prompt-bullets">
+                  {data.bullets?.map((bullet, idx) => (
+                    <li key={idx}>{bullet}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </>
+        }
+        exercise={
+          <div className="editor-wrap" style={{ height: '100%', minHeight: '300px' }}>
+            <textarea
+              className="writing-textarea"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              disabled={isChecking}
+              placeholder="Type your response here..."
+              spellCheck="false"
+            />
+            {isChecking && <div className="loading-spinner">Analyzing your writing...</div>}
+          </div>
+        }
+      />
 
-      <div className="editor-wrap">
-        <textarea
-          className="writing-textarea"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          disabled={isChecking}
-          placeholder="Type your response here..."
-          spellCheck="false"
-        />
-        {isChecking && <div className="loading-spinner">Analyzing your writing...</div>}
-												
-					   
-										 
-																			   
-				
-		  
-      </div>
+      {/* Feedback Display Area */}
+      {feedback && (
+        <div className="feedback-display">
+          <div className="feedback-header">
+            <h4>Examiner Review</h4>
+            <div className="band-score">Band Score: {feedback.score}</div>
+          </div>
+          
+          <div className="feedback-body">
+            <p><strong>Comments:</strong> {feedback.comments}</p>
+            
+            {feedback?.corrections && typeof feedback.corrections === 'string' && (
+              <div className="improvement-advice">
+                <strong>Advice:</strong>
+                <p>{feedback.corrections}</p>
+              </div>
+            )}
 
-{/* Feedback Display Area */}
-{feedback && (
-  <div className="feedback-display">
-    <div className="feedback-header">
-      <h4>Examiner Review</h4>
-      <div className="band-score">Band Score: {feedback.score}</div>
-    </div>
-    
-    <div className="feedback-body">
-      <p><strong>Comments:</strong> {feedback.comments}</p>
-      
-      {/* 1. Show corrections if they are a simple string */}
-      {feedback?.corrections && typeof feedback.corrections === 'string' && (
-        <div className="improvement-advice">
-          <strong>Advice:</strong>
-          <p>{feedback.corrections}</p>
-        </div>
-      )}
-
-      {/* 2. Show corrections if they are the detailed array (Table) */}
-      {feedback?.corrections && Array.isArray(feedback.corrections) && feedback.corrections.length > 0 && (
-        <div className="corrections-table-wrap">
-          <h4>Specific Improvements:</h4>
-          <table className="corrections-table">
-            <thead>
-              <tr>
-                <th>Original</th>
-                <th>Suggested</th>
-                <th>Reason</th>
-              </tr>
-            </thead>
-            <tbody>
-              {feedback.corrections.map((item, index) => (
-                <tr key={index}>
-                  <td className="text-red">"{item.original}"</td>
-                  <td className="text-green">"{item.suggested}"</td>
-                  <td>{item.explanation}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+            {feedback?.corrections && Array.isArray(feedback.corrections) && feedback.corrections.length > 0 && (
+              <div className="corrections-table-wrap">
+                <h4>Specific Improvements:</h4>
+                <table className="corrections-table">
+                  <thead>
+                    <tr>
+                      <th>Original</th>
+                      <th>Suggested</th>
+                      <th>Reason</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {feedback.corrections.map((item, index) => (
+                      <tr key={index}>
+                        <td className="text-red">"{item.original}"</td>
+                        <td className="text-green">"{item.suggested}"</td>
+                        <td>{item.explanation}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
         </div>
       )}
-    </div>
-  </div>
-)}
 
       <div className="writing-footer">
         {!feedback ? (
@@ -165,12 +156,11 @@ const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
             disabled={wordCount < 10 || isChecking}
             onClick={handleCheckWriting}
           >
-            {isChecking ? 'Checking...' : 'Check My Grammar'}
+            {isChecking ? 'Checking...' : 'Get AI to Check My Writing'}
           </button>
         ) : (
           <button className="submit-btn" onClick={() => onComplete(text)}>
             Finalize Submission
-							   
           </button>
         )}
       </div>

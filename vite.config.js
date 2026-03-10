@@ -24,9 +24,11 @@ export default defineConfig({
         navigateFallbackAllowlist: [/^\/dashboard\//, /^\/test\//]
       }
     })
-  ]
+  ],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/test/setup.js',
+    css: true
+  }
 })
-
-devOptions: {
-  enabled: true
-}
