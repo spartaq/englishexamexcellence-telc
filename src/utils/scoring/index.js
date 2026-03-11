@@ -21,7 +21,10 @@ export { calculateAccuracy, calculateXP } from './baseScorer';
  * @returns {object} - Platform scoring functions
  */
 export const getScorer = (platform) => {
-  switch (platform.toLowerCase()) {
+  // Defensively handle nullish inputs
+  const normalizedPlatform = (platform ?? '').toLowerCase();
+  
+  switch (normalizedPlatform) {
     case 'ielts':
       return {
         calculateReadingScore: (correctAnswers, testType) => 
@@ -35,43 +38,84 @@ export const getScorer = (platform) => {
       };
     
     case 'toefl':
-      // TODO: Implement TOEFL scorer
+      // TOEFL scorer not implemented
       return {
-        calculateReadingScore: null,
-        calculateListeningScore: null,
-        calculateOverall: null,
-        calculateFull: null
+        calculateReadingScore: () => {
+          throw new Error('TOEFL scorer not implemented: call calculateReadingScore');
+        },
+        calculateListeningScore: () => {
+          throw new Error('TOEFL scorer not implemented: call calculateListeningScore');
+        },
+        calculateOverall: () => {
+          throw new Error('TOEFL scorer not implemented: call calculateOverall');
+        },
+        calculateFull: () => {
+          throw new Error('TOEFL scorer not implemented: call calculateFull');
+        }
       };
     
     case 'langcert':
-      // TODO: Implement LangCert scorer
+      // LangCert scorer not implemented
       return {
-        calculateReadingScore: null,
-        calculateListeningScore: null,
-        calculateOverall: null,
-        calculateFull: null
+        calculateReadingScore: () => {
+          throw new Error('LangCert scorer not implemented: call calculateReadingScore');
+        },
+        calculateListeningScore: () => {
+          throw new Error('LangCert scorer not implemented: call calculateListeningScore');
+        },
+        calculateOverall: () => {
+          throw new Error('LangCert scorer not implemented: call calculateOverall');
+        },
+        calculateFull: () => {
+          throw new Error('LangCert scorer not implemented: call calculateFull');
+        }
       };
     
     default:
-      console.warn(`No scorer found for platform: ${platform}. Using base scorer.`);
+      console.warn(`No scorer found for platform: ${platform}. Using IELTS as fallback.`);
       return {
-        calculateReadingScore: null,
-        calculateListeningScore: null,
-        calculateOverall: null,
-        calculateFull: null
+        calculateReadingScore: () => {
+          throw new Error(`Unknown platform scorer: no implementation for "${normalizedPlatform}"`);
+        },
+        calculateListeningScore: () => {
+          throw new Error(`Unknown platform scorer: no implementation for "${normalizedPlatform}"`);
+        },
+        calculateOverall: () => {
+          throw new Error(`Unknown platform scorer: no implementation for "${normalizedPlatform}"`);
+        },
+        calculateFull: () => {
+          throw new Error(`Unknown platform scorer: no implementation for "${normalizedPlatform}"`);
+        }
       };
   }
 };
 
 /**
  * Detect platform from test/lesson type
- * @param {string|object} lessonType - Lesson type identifier
+ * @param {string|object} lessonType - Lesson type identifier or object with platform info
  * @returns {string} - Platform name
  */
 export const detectPlatform = (lessonType) => {
   if (!lessonType) return 'ielts';
   
-  const type = String(lessonType).toLowerCase();
+  let type = '';
+  
+  // Handle object inputs by extracting candidate string from common keys
+  if (typeof lessonType === 'object' && lessonType !== null) {
+    const candidateKeys = ['type', 'lessonType', 'platform', 'name'];
+    for (const key of candidateKeys) {
+      if (lessonType[key] && typeof lessonType[key] === 'string') {
+        type = lessonType[key].toLowerCase();
+        break;
+      }
+    }
+    // Fall back to trying String() if no keys matched
+    if (!type) {
+      type = String(lessonType).toLowerCase();
+    }
+  } else {
+    type = String(lessonType).toLowerCase();
+  }
   
   if (type.includes('ielts')) return 'ielts';
   if (type.includes('toefl')) return 'toefl';

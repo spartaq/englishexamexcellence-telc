@@ -245,9 +245,6 @@
 }
 
 /* Vocab topic actions - Browse and Quick Flash buttons */
-.vocab-topic-card {
-  /* inherits from hub-section-card */
-}
 
 .vocab-topic-actions {
   display: flex;
@@ -288,11 +285,6 @@
 .vocab-action-btn.flash-btn:hover {
   background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
   transform: translateY(-1px);
-}
-
-.vocab-level-btn.c1:hover {
-  background: #7c3aed;
-  color: white;
 }
 
 /* ============================================

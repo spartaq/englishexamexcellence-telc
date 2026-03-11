@@ -23,6 +23,9 @@ const TaskSelection = ({ section, onBack, onSelectTask }) => {
     );
   }
 
+  // Filter out quick flash tasks
+  const filteredTasks = section.tasks.filter(task => !task.isQuickFlash);
+
   return (
     <div className="task-selection-view">
       <header className="selection-header">
@@ -30,17 +33,20 @@ const TaskSelection = ({ section, onBack, onSelectTask }) => {
       </header>
       
       <div className="task-list">
-        {section.tasks.filter(task => !task.isQuickFlash).map(task => {
-          // 2. Calculate if this specific task is locked
-          // Task is locked if it's NOT bronze and user is NOT premium
-          const isLocked = task.tier !== 'bronze' && !isPremium;
+        {filteredTasks.length === 0 ? (
+          <p className="no-tasks-message">No tasks available for this section.</p>
+        ) : (
+          filteredTasks.map(task => {
+            // 2. Calculate if this specific task is locked
+            // Task is locked if it's NOT bronze and user is NOT premium
+            const isLocked = task.tier !== 'bronze' && !isPremium;
 
-          return (
-            <div 
-              key={task.id} 
-              className={`task-item-compact ${isLocked ? 'is-locked' : ''}`}
-              onClick={() => onSelectTask(task)}
-            >
+            return (
+              <div 
+                key={task.id} 
+                className={`task-item-compact ${isLocked ? 'is-locked' : ''}`}
+                onClick={() => onSelectTask(task)}
+              >
               <div className="task-info-main">
                 <div className="task-title-row">
                   <h4>{task.title}</h4>
@@ -84,7 +90,8 @@ const TaskSelection = ({ section, onBack, onSelectTask }) => {
               </div>
             </div>
           );
-        })}
+        })
+        )}
       </div>
     </div>
   );

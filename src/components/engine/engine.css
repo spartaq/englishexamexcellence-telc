@@ -1432,8 +1432,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid #6366f1;
-  background: #e0e7ff;
+  border: 2px solid var(--lab-indigo-light);
+  background: var(--lab-indigo-bg);
   box-shadow: 0 3px 10px rgba(99, 102, 241, 0.25);
   cursor: pointer;
   display: flex;
@@ -1445,7 +1445,15 @@
 }
 
 .carousel-nav-arrow:hover {
-  background: #c7d2fe;
+  background: var(--lab-indigo-hover);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-nav-arrow:focus,
+.carousel-nav-arrow:focus-visible {
+  outline: 2px solid var(--lab-indigo);
+  outline-offset: 2px;
+  background: var(--lab-indigo-hover);
   transform: translateY(-50%) scale(1.05);
 }
 

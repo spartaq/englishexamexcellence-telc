@@ -3,6 +3,9 @@
 
 :root {
   --lab-indigo: #5850EC;
+  --lab-indigo-bg: #e0e7ff;
+  --lab-indigo-hover: #c7d2fe;
+  --lab-indigo-light: #6366f1;
   --deep-slate: #1F2937;
   --surface-white: #FFFFFF;
   --xp-amethyst: #8B5CF6;

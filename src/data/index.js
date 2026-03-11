@@ -36,7 +36,9 @@ const extractVocabLessons = (hub) => {
     hub.categories.forEach(category => {
       if (category.tasks) {
         category.tasks.forEach(task => {
-          lessons[task.id] = task;
+          if (task && task.id) {
+            lessons[task.id] = task;
+          }
         });
       }
     });

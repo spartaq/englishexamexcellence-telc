@@ -18,23 +18,16 @@ const VocabBlock = ({ data, onComplete }) => {
   const [flipStage, setFlipStage] = useState(0);
   const updateVocabMastery = useExamStore(state => state.updateVocabMastery);
 
-  // Get words from data - shuffle if it's a random mix
-  const getWords = () => {
-    const rawWords = data?.words || [];
-    if (data?.isRandomMix) {
-      return shuffleArray(rawWords);
-    }
-    return rawWords;
-  };
-  
-  const [words, setWords] = useState(() => getWords());
+  const [words, setWords] = useState([]);
   
   // Reset words when data changes
   useEffect(() => {
-    setWords(getWords());
+    const rawWords = data?.words || [];
+    const shuffledWords = data?.isRandomMix ? shuffleArray(rawWords) : rawWords;
+    setWords(shuffledWords);
     setCurrentIndex(0);
     setFlipStage(0);
-  }, [data?.id, data?.isRandomMix]);
+  }, [data?.id, data?.isRandomMix, data?.words]);
   
   const currentWord = words[currentIndex];
   

@@ -51,15 +51,17 @@ const LISTENING_THRESHOLDS = [
  * @returns {object} - { band, rawMarks, totalMarks, isHalfBand }
  */
 const marksToBand = (marks, thresholds) => {
-  if (marks < 0) return { band: 0, rawMarks: 0, totalMarks: 40, isHalfBand: false };
-  if (marks > 40) marks = 40;
+  // Clamp marks to valid range without mutating parameter
+  const clampedMarks = Math.max(0, Math.min(marks, 40));
+  
+  if (marks < 0) return { band: 1, rawMarks: 0, totalMarks: 40, isHalfBand: false };
   
   let lowerBand = thresholds[0];
   let upperBand = thresholds[thresholds.length - 1];
   
   // Find the band range
   for (let i = 0; i < thresholds.length - 1; i++) {
-    if (marks >= thresholds[i].marks && marks < thresholds[i + 1].marks) {
+    if (clampedMarks >= thresholds[i].marks && clampedMarks < thresholds[i + 1].marks) {
       lowerBand = thresholds[i];
       upperBand = thresholds[i + 1];
       break;
@@ -67,18 +69,18 @@ const marksToBand = (marks, thresholds) => {
   }
   
   // If exactly at threshold, return that band
-  if (marks === upperBand.mark) {
+  if (clampedMarks === upperBand.marks) {
     return { 
       band: upperBand.band, 
-      rawMarks: marks, 
+      rawMarks: clampedMarks, 
       totalMarks: 40, 
       isHalfBand: false 
     };
   }
   
   // Calculate if it's a half band (between thresholds)
-  const rangeSize = upperBand.mark - lowerBand.mark;
-  const positionInRange = marks - lowerBand.mark;
+  const rangeSize = upperBand.marks - lowerBand.marks;
+  const positionInRange = clampedMarks - lowerBand.marks;
   const isHalfBand = rangeSize > 1 && positionInRange < rangeSize / 2;
   
   // Determine the band (could be half)
@@ -97,7 +99,7 @@ const marksToBand = (marks, thresholds) => {
   
   return { 
     band, 
-    rawMarks: marks, 
+    rawMarks: clampedMarks, 
     totalMarks: 40, 
     isHalfBand: band % 1 === 0.5 
   };

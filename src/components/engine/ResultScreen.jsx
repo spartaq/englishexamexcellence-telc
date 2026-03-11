@@ -1,6 +1,6 @@
 // src/components/engine/ResultScreen.jsx
 import React from 'react';
-import { Trophy, CheckCircle, XCircle, ArrowRight, Star, BarChart2 } from 'lucide-react';
+import { Trophy, CheckCircle, XCircle, ArrowRight, Star } from 'lucide-react';
 import './ResultScreen.css';
 
 const ResultScreen = ({ lesson, results, onClaim }) => {

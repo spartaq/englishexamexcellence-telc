@@ -395,8 +395,9 @@ function App({ initialView }) {
       activeTest?.id === 'ielts' || 
       activeLesson.type?.includes('ielts') ||
       activeLesson.id?.includes('ielts') ||
-      activeLesson.id?.includes('general') ||
-      activeLesson.id?.includes('academic');
+      activeLesson.type === 'general-reading-mock' ||
+      activeLesson.type === 'academic-reading-mock' ||
+      activeLesson.type === 'ielts-listening-mock';
     
     const isReading = activeLesson.skill === 'reading' || 
                      activeLesson.type === 'READING' ||
@@ -503,11 +504,6 @@ function App({ initialView }) {
 
     // Apply IELTS scoring if applicable
     if (isIELTS && isReading) {
-      const totalQuestions = results.isPerfect ? 
-        Object.keys(activeLesson.answers || {}).length || 
-        getFlattenedQuestions(activeLesson).length : 
-        results.accuracy > 0 ? results.accuracy : 0;
-      
       // For IELTS Reading, calculate band score
       // Note: In real IELTS, there are 40 questions. We'll scale if fewer questions.
       const scaledMarks = results.isPerfect ? 40 : Math.round((results.accuracy / 100) * 40);
@@ -600,8 +596,9 @@ function App({ initialView }) {
         return;
       }
       
-      // Check if this is an ATOM_HUB category (has 'type' property indicating it's a task)
-      if (section.type) {
+      // Check if this is an ATOM_HUB category (explicitly check for task types)
+      const allowedTaskTypes = ['TASK', 'VOCAB_FLASHCARDS'];
+      if (section.type && allowedTaskTypes.includes(section.type)) {
         handleStartTask(section);
         return;
       }

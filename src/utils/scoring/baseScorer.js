@@ -92,7 +92,7 @@ export const calculateMatchingScore = (userSelections, correctAnswers) => {
     const userAnswer = userSelections[questionId];
     const correctAnswer = correctAnswers[questionId];
     
-    if (userAnswer === undefined || userAnswer === null) {
+    if (userAnswer === undefined || userAnswer === null || userAnswer === '') {
       missed++;
     } else if (String(userAnswer) === String(correctAnswer)) {
       correct++;
@@ -124,6 +124,11 @@ export const calculatePartialCreditScore = (userAnswers, correctAnswers, partial
   
   userAnswers.forEach((userAnswer, index) => {
     const correctAnswer = correctAnswers[index];
+    
+    // Guard against missing correctAnswer
+    if (!correctAnswer) {
+      return; // Skip scoring if correctAnswer is undefined/null
+    }
     
     if (String(userAnswer).toLowerCase().trim() === String(correctAnswer).toLowerCase().trim()) {
       totalScore += 1;

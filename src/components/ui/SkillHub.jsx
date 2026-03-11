@@ -110,6 +110,11 @@ const SkillHub = ({ data, onBack, onSelectSection, backButtonText = 'Back' }) =>
     const wordCount = Math.min(15, allWords.length);
     const randomWords = getRandomItems(allWords, wordCount || allWords.length);
     
+    // Only start the task if there are words available
+    if (randomWords.length === 0) {
+      return; // Abort if no words available
+    }
+    
     // Create and start the task immediately
     onSelectSection({
       id: `quickflash_level_${level.toLowerCase()}`,

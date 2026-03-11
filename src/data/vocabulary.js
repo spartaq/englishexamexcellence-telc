@@ -554,6 +554,20 @@ export const VOCAB_HUB = {
 // Level-based organization for Vocab Lab
 // ==========================================
 
+// Helper to sanitize and validate word entries
+const sanitizeWordEntry = (word) => {
+  if (!word) return null;
+  
+  return {
+    ...word,
+    // Trim and normalize the term
+    term: word.term ? word.term.trim().replace(/\s+/g, ' ') : '',
+    // Trim and normalize the example
+    example: word.example ? word.example.trim().replace(/\s+/g, ' ') : word.example,
+    definition: word.definition ? word.definition.trim().replace(/\s+/g, ' ') : word.definition
+  };
+};
+
 // Helper to extract all words for a specific level from all categories
 const extractWordsByLevel = (categories, level) => {
   const words = [];
@@ -561,11 +575,14 @@ const extractWordsByLevel = (categories, level) => {
     category.tasks.forEach(task => {
       if (task.level === level && task.words) {
         task.words.forEach(word => {
-          words.push({
-            ...word,
-            _sourceTopic: category.title,
-            _sourceTask: task.title
-          });
+          const sanitized = sanitizeWordEntry(word);
+          if (sanitized && sanitized.term) {
+            words.push({
+              ...sanitized,
+              _sourceTopic: category.title,
+              _sourceTask: task.title
+            });
+          }
         });
       }
     });
