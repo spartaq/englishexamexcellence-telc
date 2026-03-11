@@ -57,6 +57,7 @@ import { useXP } from './hooks/useXP';
 import { useExamStore } from './store/useExamStore';
 import ScrollToTop from './scrollToTop';
 import { evaluateDrill } from './utils/evaluate';
+import { calculateIELTSReadingScore, calculateIELTSListeningScore, calculateIELTSScore, calculateAccuracy } from './utils/scoring/index';
 import { getAtomsFromMocks, pluckRandom, getVocabById, pluckRandomFullMock, findVocabFromReading, pluckSingleSpeakingPart } from './utils/mockPlucker';
 
 // ============================================================
@@ -387,6 +388,32 @@ function App({ initialView }) {
     }
 
     let results = { accuracy: 0, earnedXP: 0, isPerfect: false };
+    let ieltsScore = null;
+
+    // Detect if this is an IELTS test
+    const isIELTS = 
+      activeTest?.id === 'ielts' || 
+      activeLesson.type?.includes('ielts') ||
+      activeLesson.id?.includes('ielts') ||
+      activeLesson.id?.includes('general') ||
+      activeLesson.id?.includes('academic');
+    
+    const isReading = activeLesson.skill === 'reading' || 
+                     activeLesson.type === 'READING' ||
+                     activeLesson.type === 'reading' ||
+                     activeLesson.type === 'general-reading-mock' ||
+                     activeLesson.type === 'academic-reading-mock' ||
+                     currentSection?.type === 'READING' ||
+                     currentPassage?.type === 'READING';
+    const isListening = activeLesson.skill === 'listening' || 
+                        activeLesson.type === 'LISTENING' ||
+                        activeLesson.type === 'ielts-listening-mock' ||
+                        currentSection?.type === 'LISTENING' ||
+                        currentPassage?.type === 'LISTENING';
+
+    // Determine test type for IELTS (academic vs general)
+    const isGeneralTraining = activeLesson.type === 'general-training' || 
+                               activeLesson.id?.includes('general');
 
     if (activeLesson.type === 'heading-match') {
       const totalQuestions = Object.keys(activeLesson.answers).length;
@@ -473,6 +500,34 @@ function App({ initialView }) {
         isPerfect: accuracy >= 100 
       };
     }
+
+    // Apply IELTS scoring if applicable
+    if (isIELTS && isReading) {
+      const totalQuestions = results.isPerfect ? 
+        Object.keys(activeLesson.answers || {}).length || 
+        getFlattenedQuestions(activeLesson).length : 
+        results.accuracy > 0 ? results.accuracy : 0;
+      
+      // For IELTS Reading, calculate band score
+      // Note: In real IELTS, there are 40 questions. We'll scale if fewer questions.
+      const scaledMarks = results.isPerfect ? 40 : Math.round((results.accuracy / 100) * 40);
+      const testType = isGeneralTraining ? 'general' : 'academic';
+      
+      ieltsScore = calculateIELTSReadingScore(scaledMarks, testType);
+      console.log('IELTS Reading Score:', ieltsScore);
+    }
+    
+    if (isIELTS && isListening) {
+      const scaledMarks = results.isPerfect ? 40 : Math.round((results.accuracy / 100) * 40);
+      ieltsScore = calculateIELTSListeningScore(scaledMarks);
+      console.log('IELTS Listening Score:', ieltsScore);
+    }
+
+    // Include IELTS score in results if available
+    if (ieltsScore) {
+      results = { ...results, ieltsScore };
+    }
+
     setLessonResults(results);
     setIsReviewMode(true); 
   };
@@ -538,13 +593,20 @@ function App({ initialView }) {
    const handleSelectSection = (section) => {
      console.log('handleSelectSection called with:', section);
      
-     // Check if this is an ATOM_HUB category (has 'type' property indicating it's a task)
-     if (section.type) {
-       handleStartTask(section);
-       return;
-     }
-     
-     // If this is from the DRILLS_HUB, use standard behavior
+    // Check for VOCAB_FLASHCARDS type - start immediately
+      if (section.type === 'VOCAB_FLASHCARDS') {
+        console.log('VOCAB_FLASHCARDS detected, calling handleStartTask');
+        handleStartTask(section);
+        return;
+      }
+      
+      // Check if this is an ATOM_HUB category (has 'type' property indicating it's a task)
+      if (section.type) {
+        handleStartTask(section);
+        return;
+      }
+      
+      // If this is from the DRILLS_HUB, use standard behavior
      if (activeCategory && activeCategory.title === "General Practice Drills") {
        setActiveSection(section);
        setView('selection');
@@ -563,11 +625,13 @@ function App({ initialView }) {
   };
 
   const handleStartTask = (taskMetadata) => {
+    console.log('handleStartTask called!', taskMetadata.type);
     if (taskMetadata.tier !== 'bronze' && !isPremium) { setShowPaywall(true); return; }
     
     // Handle VOCAB type - load directly from task metadata
-    if (taskMetadata.type === 'VOCAB') {
+    if (taskMetadata.type === 'VOCAB' || taskMetadata.type === 'VOCAB_FLASHCARDS') {
       setActiveLesson(taskMetadata);
+      setView('lesson');
     } else if (taskMetadata.type === 'flow') {
       // Mini-test flow: pick random exercises from each skill
       // Vocab comes from the reading passage in this test
@@ -732,7 +796,7 @@ function App({ initialView }) {
     }
 
     if (taskData.type === 'LISTENING' || taskData.skill === 'listening') return <ListeningBlock data={taskData} onComplete={handleCheckAnswers} isMiniTest={true} />;
-    if (taskData.type === 'VOCAB') return <VocabBlock data={taskData} onComplete={handleCheckAnswers} />;
+    if (taskData.type === 'VOCAB' || taskData.type === 'VOCAB_FLASHCARDS') return <VocabBlock data={taskData} onComplete={handleCheckAnswers} />;
 
     if (taskData.type === 'gap-fill' && taskData.label && !taskData.content) {
         const isCorrect = isReviewMode && userAnswers[taskData.id]?.trim().toLowerCase() === taskData.answer?.toLowerCase();
@@ -788,6 +852,8 @@ function App({ initialView }) {
             content={taskData.content} 
             questions={passageSubTasks}
             isMiniTest={taskData.isMiniTest}
+            userAnswers={userAnswers}
+            onUpdate={(qId, val) => setUserAnswers({...userAnswers, [qId]: val})}
           />
         );
 
@@ -1006,9 +1072,15 @@ function App({ initialView }) {
                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
                 </button>
               )}
-              {(view === 'hub' || view === 'selection') && activeTest && (
+              {(view === 'hub' || view === 'selection') && activeTest && !(activeCategory && (activeCategory.title === 'Vocab Lab' || activeCategory.title === 'General Practice Drills')) && (
                 <button onClick={() => navigate(`/dashboard/${activeTest.id}-full-individual`)} className="exit-btn">
                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
+                </button>
+              )}
+              {/* Back button for non-test hubs like vocabulary and general-drills - go to hub from selection, dashboard from hub */}
+              {(view === 'hub' || view === 'selection') && activeCategory && (activeCategory.title === 'Vocab Lab' || activeCategory.title === 'General Practice Drills') && (
+                <button onClick={() => view === 'selection' ? setView('hub') : setView('dashboard')} className="exit-btn">
+                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> {view === 'selection' ? 'Back' : 'Dashboard'}
                 </button>
               )}
             </div>

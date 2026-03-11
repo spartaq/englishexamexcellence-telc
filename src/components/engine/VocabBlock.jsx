@@ -1,15 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useExamStore } from '../../store/useExamStore';
 import './VocabBlock.css';
+
+// Fisher-Yates shuffle algorithm
+const shuffleArray = (array) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
 
 const VocabBlock = ({ data, onComplete }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [flipStage, setFlipStage] = useState(0);
   const updateVocabMastery = useExamStore(state => state.updateVocabMastery);
 
-  // Safety check for missing words array
-  const words = data?.words || [];
+  // Get words from data - shuffle if it's a random mix
+  const getWords = () => {
+    const rawWords = data?.words || [];
+    if (data?.isRandomMix) {
+      return shuffleArray(rawWords);
+    }
+    return rawWords;
+  };
+  
+  const [words, setWords] = useState(() => getWords());
+  
+  // Reset words when data changes
+  useEffect(() => {
+    setWords(getWords());
+    setCurrentIndex(0);
+    setFlipStage(0);
+  }, [data?.id, data?.isRandomMix]);
+  
   const currentWord = words[currentIndex];
   
   // Get level from data (each task now has one level)
@@ -66,6 +92,11 @@ const VocabBlock = ({ data, onComplete }) => {
         {level && (
           <span className="vocab-level-badge">
             {level}
+          </span>
+        )}
+        {data?.isRandomMix && currentWord?._sourceTopic && (
+          <span className="vocab-topic-badge">
+            {currentWord._sourceTopic}
           </span>
         )}
       </div>

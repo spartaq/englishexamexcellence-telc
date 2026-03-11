@@ -19,7 +19,7 @@ import FlowChartCompletionBlock from './InteractiveBlocks/FlowChartCompletionBlo
 import NotesCompletionBlock from './InteractiveBlocks/NotesCompletionBlock';
 import PunctuationCorrectionBlock from './InteractiveBlocks/PunctuationCorrectionBlock';
 
-const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBlock: externalRenderBlock }) => {
+const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBlock: externalRenderBlock, userAnswers = {}, onUpdate = () => {} }) => {
   // If externalRenderBlock is provided (from App.jsx), use it
   // Otherwise, use internal rendering
   const internalRenderQuestionBlock = (q, idx) => {
@@ -30,8 +30,8 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           <ShortAnswerBlock
             key={q.id || idx}
             data={q}
-            userAnswers={{}}
-            onUpdate={() => {}}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
           />
@@ -99,8 +99,8 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           <TrinaryBlock
             key={q.id || idx}
             data={q}
-            userAnswers={{}}
-            onUpdate={() => {}}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
           />
         );
@@ -191,6 +191,8 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
                   </div>
                   <ShortAnswerBlock
                     data={{...sq, type: 'short-answer'}}
+                    userAnswers={userAnswers}
+                    onUpdate={onUpdate}
                     isReviewMode={false}
                     hideInstruction={true}
                   />

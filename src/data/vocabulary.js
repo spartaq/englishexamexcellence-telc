@@ -549,3 +549,88 @@ export const VOCAB_HUB = {
     }
   ]
 };
+
+// ==========================================
+// Level-based organization for Vocab Lab
+// ==========================================
+
+// Helper to extract all words for a specific level from all categories
+const extractWordsByLevel = (categories, level) => {
+  const words = [];
+  categories.forEach(category => {
+    category.tasks.forEach(task => {
+      if (task.level === level && task.words) {
+        task.words.forEach(word => {
+          words.push({
+            ...word,
+            _sourceTopic: category.title,
+            _sourceTask: task.title
+          });
+        });
+      }
+    });
+  });
+  return words;
+};
+
+// Create level-specific categories with all topics and a quick flash option
+const createLevelCategory = (categories, level) => {
+  // Get all words from all tasks at this level
+  const levelWords = extractWordsByLevel(categories, level);
+  
+  // Get all unique topics (categories) that have this level
+  const topicsAtLevel = categories.filter(cat => 
+    cat.tasks?.some(task => task.level === level)
+  ).map(cat => {
+    // Get tasks at this level only
+    const tasksAtLevel = cat.tasks?.filter(task => task.level === level) || [];
+    return {
+      id: cat.id,
+      title: cat.title,
+      description: cat.description,
+      tasks: tasksAtLevel
+    };
+  });
+  
+  return {
+    id: `level-${level.toLowerCase()}`,
+    title: `${level} Level`,
+    description: `${levelWords.length} words from ${topicsAtLevel.length} topics`,
+    wordCount: levelWords.length,
+    level: level,
+    tasks: [
+      // Quick Flash task - starts immediately
+      {
+        id: `vocab_${level.toLowerCase()}_quickflash`,
+        type: 'VOCAB_FLASHCARDS',
+        title: `Quick Flash - ${level}`,
+        tier: 'gold',
+        level: level,
+        isRandomMix: true,
+        isQuickFlash: true,
+        xp: 150,
+        words: levelWords
+      },
+      // Topic tasks for browsing
+      ...topicsAtLevel.flatMap(topic => 
+        topic.tasks.map(task => ({
+          ...task,
+          id: task.id,
+          title: topic.title, // Use topic title as task title
+          categoryTitle: topic.title
+        }))
+      )
+    ]
+  };
+};
+
+// Export VOCAB_LEVELS - organized by level instead of topic
+// This enables level-focused learning with mixed topics
+export const VOCAB_LEVELS = {
+  title: "Vocab Lab",
+  description: "Choose your level and practice with words from all topics.",
+  categories: [
+    createLevelCategory(VOCAB_HUB.categories, 'B2'),
+    createLevelCategory(VOCAB_HUB.categories, 'C1')
+  ]
+};

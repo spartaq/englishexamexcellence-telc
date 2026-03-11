@@ -244,6 +244,57 @@
   color: white;
 }
 
+/* Vocab topic actions - Browse and Quick Flash buttons */
+.vocab-topic-card {
+  /* inherits from hub-section-card */
+}
+
+.vocab-topic-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.vocab-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  justify-content: center;
+}
+
+.vocab-action-btn.browse-btn {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.vocab-action-btn.browse-btn:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.vocab-action-btn.flash-btn {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+}
+
+.vocab-action-btn.flash-btn:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  transform: translateY(-1px);
+}
+
+.vocab-level-btn.c1:hover {
+  background: #7c3aed;
+  color: white;
+}
+
 /* ============================================
    DARK MODE STYLES (Must be at end of file)
    ============================================ */

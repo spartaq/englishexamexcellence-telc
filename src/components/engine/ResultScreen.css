@@ -1,4 +1,60 @@
 /* src/components/engine/ResultScreen.css */
+
+/* IELTS Band Score Display */
+.ielts-band-display {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 2px solid #f59e0b;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.ielts-band-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #92400e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.ielts-band-value {
+  font-size: 56px;
+  font-weight: 800;
+  color: #92400e;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.ielts-band-value .half-band {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.ielts-band-description {
+  font-size: 13px;
+  color: #a16207;
+  font-weight: 500;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.ielts-marks {
+  font-size: 12px;
+  color: #b45309;
+  font-weight: 600;
+}
+
+.ielts-test-type {
+  color: #d97706;
+  margin-left: 8px;
+  font-weight: 500;
+}
+
 .results-container {
     position: fixed;
     inset: 0;
@@ -251,5 +307,31 @@
   .heading-select.error {
     color: #F87171;
     background-color: rgba(239, 68, 68, 0.15);
+  }
+
+  /* IELTS Band Display in dark mode */
+  .ielts-band-display {
+    background: linear-gradient(135deg, #422006 0%, #713f12 100%);
+    border-color: #f59e0b;
+  }
+
+  .ielts-band-header {
+    color: #fbbf24;
+  }
+
+  .ielts-band-value {
+    color: #fbbf24;
+  }
+
+  .ielts-band-description {
+    color: #fcd34d;
+  }
+
+  .ielts-marks {
+    color: #fbbf24;
+  }
+
+  .ielts-test-type {
+    color: #f59e0b;
   }
 }

@@ -27,20 +27,27 @@ import { READING_HUB as LANGCERT_READING, readingMocks as langcertReadingMocks }
 // ==========================================
 import { IELTS_ATOMS } from './IELTS/atoms/index';
 import { DRILLS_HUB, drillsData } from './DrillsHub/index';
-import { VOCAB_HUB } from './vocabulary'; // Your vocabulary.js file
+import { VOCAB_HUB, VOCAB_LEVELS } from './vocabulary'; // Your vocabulary.js file
 
 // Helper to extract the vocab tasks from your categories so the engine can load them
 const extractVocabLessons = (hub) => {
   const lessons = {};
-  hub.categories.forEach(category => {
-    category.tasks.forEach(task => {
-      lessons[task.id] = task;
+  if (hub && hub.categories) {
+    hub.categories.forEach(category => {
+      if (category.tasks) {
+        category.tasks.forEach(task => {
+          lessons[task.id] = task;
+        });
+      }
     });
-  });
+  }
   return lessons;
 };
 
-const vocabLessons = extractVocabLessons(VOCAB_HUB);
+// Extract from both VOCAB_HUB (topic-based) and VOCAB_LEVELS (level-based)
+const vocabLessonsFromHub = extractVocabLessons(VOCAB_HUB);
+const vocabLessonsFromLevels = extractVocabLessons(VOCAB_LEVELS);
+const vocabLessons = { ...vocabLessonsFromHub, ...vocabLessonsFromLevels };
 
 // ==========================================
 // 6. Master lookup table for the engine
@@ -71,7 +78,7 @@ export const HUBS = {
   listening: IELTS_LISTENING,
   ielts_atoms: IELTS_ATOMS, 
   general_drills: DRILLS_HUB, 
-  vocabulary: VOCAB_HUB,
+  vocabulary: VOCAB_LEVELS,
   langcert_reading: LANGCERT_READING
 };
 
@@ -109,7 +116,7 @@ export const EXAM_CONFIG = {
     id: 'extra',
     title: "Learning Tools",
     modules: {
-      vocabulary: VOCAB_HUB,
+      vocabulary: VOCAB_LEVELS,
       general_drills: DRILLS_HUB
     }
   }

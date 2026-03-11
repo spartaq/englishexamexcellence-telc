@@ -30,7 +30,7 @@ const TaskSelection = ({ section, onBack, onSelectTask }) => {
       </header>
       
       <div className="task-list">
-        {section.tasks.map(task => {
+        {section.tasks.filter(task => !task.isQuickFlash).map(task => {
           // 2. Calculate if this specific task is locked
           // Task is locked if it's NOT bronze and user is NOT premium
           const isLocked = task.tier !== 'bronze' && !isPremium;
@@ -59,11 +59,16 @@ const TaskSelection = ({ section, onBack, onSelectTask }) => {
                 <div className="task-meta">
                   <span className="meta-item">
                     <Zap size={12} fill="var(--xp-amethyst)" color="var(--xp-amethyst)" /> 
-                    {task.xpReward || task.xp} XP
+                    {task.xpReward || task.xp || (task.words ? task.words.length * 10 : 0)} XP
                   </span>
                   {task.time && (
                     <span className="meta-item">
                       <Clock size={12} /> {task.time}
+                    </span>
+                  )}
+                  {task.words && (
+                    <span className="meta-item">
+                      {task.words.length} words
                     </span>
                   )}
                 </div>

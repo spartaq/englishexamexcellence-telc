@@ -49,6 +49,25 @@ const QuestionCarousel = ({ questions, renderQuestion, showInstruction = true })
       >
         {questions.map((q, idx) => (
           <div key={q.id || idx} className="question-slide">
+            {/* Navigation arrows overlay on slide */}
+            {currentIndex > 0 && (
+              <button
+                onClick={goToPrevious}
+                aria-label="Previous question"
+                className="carousel-nav-arrow carousel-nav-prev"
+              >
+                <ChevronLeft size={32} color="#4338ca" />
+              </button>
+            )}
+            {currentIndex < questions.length - 1 && (
+              <button
+                onClick={goToNext}
+                aria-label="Next question"
+                className="carousel-nav-arrow carousel-nav-next"
+              >
+                <ChevronRight size={32} color="#4338ca" />
+              </button>
+            )}
             {showInstruction && (
               <div style={{ 
                 marginBottom: '10px',
@@ -65,69 +84,32 @@ const QuestionCarousel = ({ questions, renderQuestion, showInstruction = true })
         ))}
       </div>
       
-      {/* Navigation with arrows */}
-      <div className="carousel-dots" style={{
+      {/* Navigation dots - hidden on mobile */}
+      <div className="carousel-dots desktop-only" style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '16px',
-        marginTop: '16px'
+        gap: '8px',
+        marginTop: '8px',
+        padding: '4px 0'
       }}>
-        {/* Left Arrow */}
-        <button
-          onClick={goToPrevious}
-          disabled={currentIndex === 0}
-          aria-label="Previous question"
-          style={{
-            width: '40px',
-            height: '40px',
-            borderRadius: '50%',
-            border: 'none',
-            background: currentIndex === 0 ? '#f1f5f9' : '#fff',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-            cursor: currentIndex === 0 ? 'not-allowed' : 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            opacity: currentIndex === 0 ? 0.5 : 1,
-            transition: 'all 0.2s ease'
-          }}
-        >
-          <ChevronLeft size={24} color={currentIndex === 0 ? '#94a3b8' : '#5850ec'} />
-        </button>
-
-        {/* Question counter */}
-        <span style={{
-          fontSize: '14px',
-          color: '#64748b',
-          minWidth: '80px',
-          textAlign: 'center'
-        }}>
-          {currentIndex + 1} / {questions.length}
-        </span>
-
-        {/* Right Arrow */}
-        <button
-          onClick={goToNext}
-          disabled={currentIndex === questions.length - 1}
-          aria-label="Next question"
-          style={{
-            width: '40px',
-            height: '40px',
-            borderRadius: '50%',
-            border: 'none',
-            background: currentIndex === questions.length - 1 ? '#f1f5f9' : '#fff',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-            cursor: currentIndex === questions.length - 1 ? 'not-allowed' : 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            opacity: currentIndex === questions.length - 1 ? 0.5 : 1,
-            transition: 'all 0.2s ease'
-          }}
-        >
-          <ChevronRight size={24} color={currentIndex === questions.length - 1 ? '#94a3b8' : '#5850ec'} />
-        </button>
+        {questions.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => scrollToQuestion(idx)}
+            aria-label={`Go to question ${idx + 1}`}
+            style={{
+              width: '8px',
+              height: '8px',
+              borderRadius: '50%',
+              border: 'none',
+              background: idx === currentIndex ? '#6366f1' : '#cbd5e1',
+              cursor: 'pointer',
+              padding: 0,
+              transition: 'all 0.2s ease'
+            }}
+          />
+        ))}
       </div>
     </div>
   );
