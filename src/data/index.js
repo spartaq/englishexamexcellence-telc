@@ -1,33 +1,28 @@
 // ==========================================
-// 1. Import IELTS Academic Hubs & Mocks
+// 1. Import from JSON Mocks (Single Source of Truth)
 // ==========================================
-import { READING_HUB as IELTS_READING_AC, readingMocks as ieltsReadingAcMocks } from './IELTS/reading/academic/index';
-import { WRITING_HUB as IELTS_WRITING_AC, writingMocks as ieltsWritingAcMocks } from './IELTS/writing/academic/index'; 
+import { 
+  ieltsMocks,
+  academicMocks, 
+  generalMocks,
+  getAllReadingPassages,
+  getAllWritingTasks,
+  getAllListeningSections,
+  getAllSpeakingParts
+} from './IELTS/mocks';
 
 // ==========================================
-// 2. Import IELTS General Hubs & Mocks
-// ==========================================
-import { READING_HUB as IELTS_READING_GT, readingMocks as ieltsReadingGtMocks } from './IELTS/reading/general/index';
-import { WRITING_HUB as IELTS_WRITING_GT, writingMocks as ieltsWritingGtMocks } from './IELTS/writing/general/index'; 
-
-// ==========================================
-// 3. Import Shared IELTS Hubs
-// ==========================================
-import { SPEAKING_HUB as IELTS_SPEAKING, speakingMocks as ieltsSpeakingMocks } from './IELTS/speaking/index';
-import { LISTENING_HUB as IELTS_LISTENING, listeningMocks as ieltsListeningMocks } from './IELTS/listening/index';
-
-// ==========================================
-// 4. Import LangCert
+// 2. Import LangCert (still uses old structure)
 // ==========================================
 import { SPEAKING_HUB as LANGCERT_SPEAKING, speakingMocks as langcertSpeakingMocks } from './LangCert/speaking/index';
 import { READING_HUB as LANGCERT_READING, readingMocks as langcertReadingMocks } from './LangCert/reading/index';
 
 // ==========================================
-// 5. Import Practice Exercises & Vocabulary
+// 3. Import Practice Exercises & Vocabulary
 // ==========================================
 import { IELTS_ATOMS } from './IELTS/atoms/index';
 import { DRILLS_HUB, drillsData } from './DrillsHub/index';
-import { VOCAB_HUB, VOCAB_LEVELS } from './vocabulary'; // Your vocabulary.js file
+import { VOCAB_HUB, VOCAB_LEVELS } from './vocabulary';
 
 // Helper to extract the vocab tasks from your categories so the engine can load them
 const extractVocabLessons = (hub) => {
@@ -52,19 +47,117 @@ const vocabLessonsFromLevels = extractVocabLessons(VOCAB_LEVELS);
 const vocabLessons = { ...vocabLessonsFromHub, ...vocabLessonsFromLevels };
 
 // ==========================================
-// 6. Master lookup table for the engine
+// 4. Create Hub Structures from JSON Mocks
+// ==========================================
+
+// Create Reading Hub from JSON
+const createReadingHub = (type, title) => {
+  const passages = getAllReadingPassages().filter(p => p.testType === type);
+  return {
+    title: `${title} Reading`,
+    description: `Practice ${type} reading passages`,
+    categories: [
+      {
+        id: `${type}-reading-mocks`,
+        title: 'Full Reading Mocks',
+        description: `Complete ${type} reading tests`,
+        tasks: passages.map((passage, idx) => ({
+          id: passage.mockId || `passage-${idx}`,
+          title: passage.title || 'Reading Passage',
+          xp: 300,
+          type: 'reading-practice',
+          tier: 'bronze'
+        }))
+      }
+    ]
+  };
+};
+
+// Create Writing Hub from JSON
+const createWritingHub = (type, title) => {
+  const tasks = getAllWritingTasks().filter(t => t.testType === type);
+  return {
+    title: `${title} Writing`,
+    description: `Practice ${type} writing tasks`,
+    categories: [
+      {
+        id: `${type}-writing-mocks`,
+        title: 'Full Writing Mocks',
+        description: `Complete ${type} writing tasks`,
+        tasks: tasks.map((task, idx) => ({
+          id: task.mockId || `task-${idx}`,
+          title: task.title || 'Writing Task',
+          xp: task.xp || 300,
+          type: 'WRITING',
+          tier: 'bronze'
+        }))
+      }
+    ]
+  };
+};
+
+// Create Speaking Hub from JSON
+const createSpeakingHub = () => {
+  const parts = getAllSpeakingParts();
+  return {
+    title: 'IELTS Speaking',
+    description: 'Practice all three parts of the IELTS Speaking test',
+    categories: [
+      {
+        id: 'speaking-mocks',
+        title: 'Speaking Mocks',
+        description: 'Complete IELTS Speaking simulations',
+        tasks: Object.values(ieltsMocks).map(mock => ({
+          id: mock.id,
+          title: mock.title || 'Speaking Test',
+          xp: 1200,
+          type: 'speaking-mock',
+          tier: 'bronze'
+        }))
+      }
+    ]
+  };
+};
+
+// Create Listening Hub from JSON
+const createListeningHub = () => {
+  const sections = getAllListeningSections();
+  return {
+    title: 'IELTS Listening',
+    description: 'Practice IELTS Listening tests',
+    categories: [
+      {
+        id: 'listening-mocks',
+        title: 'Listening Mocks',
+        description: 'Complete IELTS Listening tests',
+        tasks: Object.values(ieltsMocks).map(mock => ({
+          id: mock.id,
+          title: mock.title || 'Listening Test',
+          xp: 300,
+          type: 'listening-practice',
+          tier: 'bronze'
+        }))
+      }
+    ]
+  };
+};
+
+const IELTS_READING_AC = createReadingHub('academic', 'Academic');
+const IELTS_READING_GT = createReadingHub('general', 'General Training');
+const IELTS_WRITING_AC = createWritingHub('academic', 'Academic');
+const IELTS_WRITING_GT = createWritingHub('general', 'General Training');
+const IELTS_SPEAKING = createSpeakingHub();
+const IELTS_LISTENING = createListeningHub();
+
+// ==========================================
+// 5. Master lookup table for the engine
 // ==========================================
 const lessonDatabase = {
-  ...ieltsReadingAcMocks,
-  ...ieltsReadingGtMocks,
-  ...ieltsWritingAcMocks,
-  ...ieltsWritingGtMocks,
-  ...ieltsListeningMocks,
-  ...ieltsSpeakingMocks,
+  ...ieltsMocks,
   ...langcertSpeakingMocks,
   ...langcertReadingMocks,
   ...drillsData,  
-  ...vocabLessons,    // Extracted from your vocabulary.js
+  ...vocabLessons,
 };
 
 /**

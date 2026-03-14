@@ -1104,41 +1104,41 @@ function App({ initialView }) {
               activeTest={activeTest} 
               onSelectPath={(path, skill) => {
                 if (path === 'ielts-general-mini-test') {
-                  // Mini-test flow: pick random exercises from general reading/writing + shared listening/speaking
-                  const readingExercise = pluckRandom('reading_general');
-                  const vocabExercise = findVocabFromReading(readingExercise);
-                  const writingExercise = pluckRandom('writing_general');
-                  const speakingExerciseWrapper = pluckSingleSpeakingPart(); // Returns { sections: [speakingPart] }
-                  const listeningExercise = pluckRandom('listening');
-                   
-                   // Extract the actual speaking part from the sections array
-                   const speakingPart = speakingExerciseWrapper?.sections?.[0] || {
-                     id: 'speaking-fallback',
-                     title: 'Speaking Practice',
-                     type: 'SPEAKING',
-                     xp: 200,
-                     prompts: [
-                       'Tell me about your hometown.',
-                       'What do you like to do in your free time?',
-                       'Describe your favorite food.',
-                       'What is your favorite season? Why?'
-                     ]
-                   };
-                   
-                   // Create a mini-test flow with all exercises as sections
-                   const miniTest = {
-                     id: 'mini-test-flow',
-                     title: 'General Mini Test',
-                     type: 'mini-test-flow',
-                     xp: 1000,
-                     sections: [
-                       { ...vocabExercise, skill: 'vocab' },
-                       { ...readingExercise, skill: 'reading' },
-                       { ...listeningExercise, skill: 'listening' },
-                       { ...writingExercise, skill: 'writing' },
-                       { ...speakingPart, skill: 'speaking' }
-                     ].filter(Boolean)
-                   };
+                  // Mini-test flow: pick ONE random exercise from General test
+                  // Randomly select a skill type
+                  const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
+                  const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
+                  
+                  let singleExercise = null;
+                  
+                  if (randomSkill === 'vocab') {
+                    const readingExercise = pluckRandom('reading_general');
+                    singleExercise = findVocabFromReading(readingExercise);
+                  } else if (randomSkill === 'reading') {
+                    singleExercise = pluckRandom('reading_general');
+                  } else if (randomSkill === 'writing') {
+                    singleExercise = pluckRandom('writing_general');
+                  } else if (randomSkill === 'speaking') {
+                    const speakingWrapper = pluckSingleSpeakingPart();
+                    singleExercise = speakingWrapper?.sections?.[0] || {
+                      id: 'speaking-fallback',
+                      title: 'Speaking Practice',
+                      type: 'SPEAKING',
+                      xp: 200,
+                      prompts: ['Tell me about your hometown.', 'What do you like to do in your free time?']
+                    };
+                  } else if (randomSkill === 'listening') {
+                    singleExercise = pluckRandom('listening');
+                  }
+                  
+                  // Create a mini-test flow with only ONE random exercise
+                  const miniTest = {
+                    id: 'mini-test-flow',
+                    title: 'General Mini Test',
+                    type: 'mini-test-flow',
+                    xp: singleExercise?.xp || 200,
+                    sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean)
+                  };
                   
                   if (miniTest.sections.length > 0) {
                     setActiveLesson(miniTest);
@@ -1146,48 +1146,129 @@ function App({ initialView }) {
                     setView('lesson');
                   }
                 } else if (path === 'ielts-academic-mini-test') {
-                  // Academic Mini Flow: pick academic-specific exercises
-                  const readingExercise = pluckRandom('reading_academic');
-                  const vocabExercise = findVocabFromReading(readingExercise);
-                  const writingExercise = pluckRandom('writing_academic');
-                  const speakingExerciseWrapper = pluckSingleSpeakingPart(); // Returns { sections: [speakingPart] }
-                  const listeningExercise = pluckRandom('listening');
-                   
-                   // Extract the actual speaking part from the sections array
-                   const speakingPart = speakingExerciseWrapper?.sections?.[0] || {
-                     id: 'speaking-fallback',
-                     title: 'Speaking Practice',
-                     type: 'SPEAKING',
-                     xp: 200,
-                     prompts: [
-                       'Tell me about your hometown.',
-                       'What do you like to do in your free time?',
-                       'Describe your favorite food.',
-                       'What is your favorite season? Why?'
-                     ]
-                   };
-                   
-                   // Create a mini-test flow with all exercises as sections
-                   const academicMiniTest = {
-                     id: 'academic-mini-flow',
-                     title: 'Academic Mini Test',
-                     type: 'academic-mini-flow',
-                     xp: 1500,
-                     sections: [
-                       { ...vocabExercise, skill: 'vocab' },
-                       { ...readingExercise, skill: 'reading' },
-                       { ...listeningExercise, skill: 'listening' },
-                       { ...writingExercise, skill: 'writing' },
-                       { ...speakingPart, skill: 'speaking' }
-                     ].filter(Boolean)
-                   };
+                  // Academic Mini Flow: pick ONE random exercise
+                  const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
+                  const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
+                  
+                  let singleExercise = null;
+                  
+                  if (randomSkill === 'vocab') {
+                    const readingExercise = pluckRandom('reading_academic');
+                    singleExercise = findVocabFromReading(readingExercise);
+                  } else if (randomSkill === 'reading') {
+                    singleExercise = pluckRandom('reading_academic');
+                  } else if (randomSkill === 'writing') {
+                    singleExercise = pluckRandom('writing_academic');
+                  } else if (randomSkill === 'speaking') {
+                    const speakingWrapper = pluckSingleSpeakingPart();
+                    singleExercise = speakingWrapper?.sections?.[0] || {
+                      id: 'speaking-fallback',
+                      title: 'Speaking Practice',
+                      type: 'SPEAKING',
+                      xp: 200,
+                      prompts: ['Tell me about your hometown.', 'What do you like to do in your free time?']
+                    };
+                  } else if (randomSkill === 'listening') {
+                    singleExercise = pluckRandom('listening');
+                  }
+                  
+                  // Create a mini-test flow with only ONE random exercise
+                  const academicMiniTest = {
+                    id: 'academic-mini-flow',
+                    title: 'Academic Mini Test',
+                    type: 'academic-mini-flow',
+                    xp: singleExercise?.xp || 200,
+                    sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean)
+                  };
                   
                   if (academicMiniTest.sections.length > 0) {
                     setActiveLesson(academicMiniTest);
                     setActiveSectionIndex(0);
                     setView('lesson');
                   }
-                  } else if (path === 'skill-tests') {
+                } else if (path === 'ielts-mini-random-general') {
+                  // Single random exercise - General Training (reading/writing are general)
+                  const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
+                  const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
+                  
+                  let singleExercise = null;
+                  
+                  if (randomSkill === 'vocab') {
+                    const readingExercise = pluckRandom('reading_general');
+                    singleExercise = findVocabFromReading(readingExercise);
+                  } else if (randomSkill === 'reading') {
+                    singleExercise = pluckRandom('reading_general');
+                  } else if (randomSkill === 'writing') {
+                    singleExercise = pluckRandom('writing_general');
+                  } else if (randomSkill === 'speaking') {
+                    const speakingWrapper = pluckSingleSpeakingPart();
+                    singleExercise = speakingWrapper?.sections?.[0] || {
+                      id: 'speaking-fallback',
+                      title: 'Speaking Practice',
+                      type: 'SPEAKING',
+                      xp: 200,
+                      prompts: ['Tell me about your hometown.', 'What do you like to do in your free time?']
+                    };
+                  } else if (randomSkill === 'listening') {
+                    singleExercise = pluckRandom('listening');
+                  }
+                  
+                  // Create a mini-test flow with only ONE random exercise
+                  const miniTest = {
+                    id: 'mini-random-general-flow',
+                    title: 'General Quick Practice',
+                    type: 'mini-random-flow',
+                    xp: singleExercise?.xp || 200,
+                    sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean)
+                  };
+                  
+                  if (miniTest.sections.length > 0) {
+                    setActiveLesson(miniTest);
+                    setActiveSectionIndex(0);
+                    setView('lesson');
+                  }
+                } else if (path === 'ielts-mini-random-academic') {
+                  // Single random exercise - Academic (reading/writing are academic)
+                  const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
+                  const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
+                  
+                  let singleExercise = null;
+                  
+                  if (randomSkill === 'vocab') {
+                    const readingExercise = pluckRandom('reading_academic');
+                    singleExercise = findVocabFromReading(readingExercise);
+                  } else if (randomSkill === 'reading') {
+                    singleExercise = pluckRandom('reading_academic');
+                  } else if (randomSkill === 'writing') {
+                    singleExercise = pluckRandom('writing_academic');
+                  } else if (randomSkill === 'speaking') {
+                    const speakingWrapper = pluckSingleSpeakingPart();
+                    singleExercise = speakingWrapper?.sections?.[0] || {
+                      id: 'speaking-fallback',
+                      title: 'Speaking Practice',
+                      type: 'SPEAKING',
+                      xp: 200,
+                      prompts: ['Tell me about your hometown.', 'What do you like to do in your free time?']
+                    };
+                  } else if (randomSkill === 'listening') {
+                    singleExercise = pluckRandom('listening');
+                  }
+                  
+                  // Create a mini-test flow with only ONE random exercise
+                  const miniTest = {
+                    id: 'mini-random-academic-flow',
+                    title: 'Academic Quick Practice',
+                    type: 'mini-random-flow',
+                    xp: singleExercise?.xp || 200,
+                    sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean)
+                  };
+                  
+                  if (miniTest.sections.length > 0) {
+                    setActiveLesson(miniTest);
+                    setActiveSectionIndex(0);
+                    setView('lesson');
+                  }
+                } else if (path === 'skill-tests') {
                    // Show the skill tests view with individual skill options
                    navigateToView('skillTests');
                 } else if (path === 'atom-skill') {

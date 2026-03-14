@@ -1,25 +1,17 @@
 // Mock Plucker - Dynamically pulls content from IELTS full mocks
 // This is the "source of truth" for generating atom tests
 
-// Import ALL reading mocks
-import { generalReadingMock1 } from '../data/IELTS/reading/mocks/general-reading-mock-1';
-import { academicReadingMock1 } from '../data/IELTS/reading/mocks/academic-reading-mock-1';
+// Import from JSON mocks (single source of truth)
+import { 
+  ieltsMocks,
+  getAllReadingPassages as jsonGetReading,
+  getAllWritingTasks as jsonGetWriting,
+  getAllListeningSections as jsonGetListening,
+  getAllSpeakingParts as jsonGetSpeaking,
+  getAllVocab as jsonGetVocab
+} from '../data/IELTS/mocks';
 
-// Import ALL speaking mocks
-import { speakingMock1 } from '../data/IELTS/speaking/mocks/ielts-speaking-mock1';
-import { speakingMock2 } from '../data/IELTS/speaking/mocks/ielts-speaking-mock2';
-import { speakingMock3 } from '../data/IELTS/speaking/mocks/ielts-speaking-mock3';
-import { speakingMock4 } from '../data/IELTS/speaking/mocks/ielts-speaking-mock4';
-import { speakingMock5 } from '../data/IELTS/speaking/mocks/ielts-speaking-mock5';
-
-// Import listening mocks
-import { listeningMock1 } from '../data/IELTS/listening/mocks/ielts-listening-mock1';
-
-// Import writing mocks
-import { writingMock1 } from '../data/IELTS/writing/mocks/writing-mock1';
-import { wMock2 } from '../data/IELTS/writing/mocks/writing-mock2';
-
-// Import vocab hub
+// Import vocab hub for fallback
 import { VOCAB_HUB } from '../data/vocabulary';
 
 // Helper to get a random item from an array
@@ -47,110 +39,44 @@ export const getVocabById = (vocabId) => {
   return null;
 };
 
-// All reading mocks combined
-const allReadingMocks = [
-  generalReadingMock1,
-  academicReadingMock1
-];
+// All reading mocks combined (from JSON)
+const allReadingMocks = ieltsMocks;
 
-// All speaking mocks combined
-const allSpeakingMocks = [
-  speakingMock1,
-  speakingMock2,
-  speakingMock3,
-  speakingMock4,
-  speakingMock5
-];
+// All speaking mocks combined (from JSON)
+const allSpeakingMocks = ieltsMocks;
 
-// All listening mocks combined
-const allListeningMocks = [
-  listeningMock1
-];
+// All listening mocks combined (from JSON)
+const allListeningMocks = ieltsMocks;
 
-// All writing mocks combined
-const allWritingMocks = [
-  writingMock1,
-  wMock2
-];
+// All writing mocks combined (from JSON)
+const allWritingMocks = ieltsMocks;
 
 /**
  * Extract all reading passages from all reading mocks
  */
 const getAllReadingPassages = () => {
-  return allReadingMocks.flatMap(mock => {
-    // Handle mocks with sections (e.g., generalReadingMock1, mock1, mock2)
-    if (mock.sections) {
-      return mock.sections.flatMap(section => 
-        (section.passages || []).map(p => ({
-          ...p,
-          mockId: mock.id,
-          skill: 'reading',
-          sourceTitle: mock.title
-        }))
-      );
-    }
-    // Handle mocks with passages directly at root (e.g., mock3-6, academicReadingMock1)
-    if (mock.passages) {
-      return mock.passages.map(p => ({
-        ...p,
-        mockId: mock.id,
-        skill: 'reading',
-        sourceTitle: mock.title
-      }));
-    }
-    return [];
-  });
+  return jsonGetReading();
 };
 
 /**
  * Extract all speaking parts from all speaking mocks
  */
 const getAllSpeakingParts = () => {
-  return allSpeakingMocks.flatMap(mock => {
-    if (mock.parts) {
-      return mock.parts.map(part => ({
-        ...part,
-        mockId: mock.id,
-        mockTitle: mock.title,
-        skill: 'speaking'
-      }));
-    }
-    return [];
-  });
+  return jsonGetSpeaking();
 };
 
 /**
  * Extract all listening sections from all listening mocks
  */
 const getAllListeningSections = () => {
-  return allListeningMocks.flatMap(mock => {
-    if (mock.sections) {
-      return mock.sections.map(section => ({
-        ...section,
-        mockId: mock.id,
-        mockTitle: mock.title,
-        skill: 'listening'
-      }));
-    }
-    return [];
-  });
+  return jsonGetListening();
 };
 
 /**
  * Extract all writing tasks from all writing mocks
  */
 const getAllWritingTasks = () => {
-  return allWritingMocks.flatMap(mock => {
-    if (mock.sections) {
-      return mock.sections.map(section => ({
-        ...section,
-        mockId: mock.id,
-        mockTitle: mock.title,
-        skill: 'writing'
-      }));
-    }
-    return [];
-  });
+  return jsonGetWriting();
 };
 
 /**
@@ -290,20 +216,16 @@ export const pluckRandom = (skill) => {
   }
   
   if (skill === 'speaking') {
-    // Pick a random speaking mock
-    const randomMock = getRandomItem(allSpeakingMocks);
+    // Pick a random speaking mock from the values of ieltsMocks
+    const mockValues = Object.values(allSpeakingMocks);
+    const randomMock = getRandomItem(mockValues);
     
-    if (randomMock && randomMock.parts && randomMock.parts.length > 0) {
+    // Access speaking parts from the new JSON structure
+    const speakingData = randomMock?.speaking;
+    
+    if (speakingData && speakingData.parts && speakingData.parts.length > 0) {
       console.log('Plucking speaking test:', randomMock.title);
-      console.log('Number of parts:', randomMock.parts.length);
-      randomMock.parts.forEach((part, index) => {
-        console.log(`Part ${index + 1}:`, part.title);
-        console.log('  Type:', part.type);
-        console.log('  Has topics:', !!part.topics);
-        if (part.topics) {
-          console.log('  Number of topics:', part.topics.length);
-        }
-      });
+      console.log('Number of parts:', speakingData.parts.length);
       
       // Return speaking test with parts as sections for App.jsx tab system
       return {
@@ -311,7 +233,7 @@ export const pluckRandom = (skill) => {
         title: randomMock.title,
         type: 'ielts-speaking',
         xp: 150,
-        sections: randomMock.parts.map(part => ({
+        sections: speakingData.parts.map(part => ({
           ...part,
           skill: 'speaking',
           type: 'SPEAKING'
@@ -343,7 +265,8 @@ export const pluckRandom = (skill) => {
   if (skill === 'reading_general') {
     // Pull only General Reading passages
     const generalReadingPassages = getAllReadingPassages().filter(p => {
-      return p.mockId === 'general-reading-mock-1' || p.sourceTitle?.includes('General');
+      // Check if passage is from general mock (new format uses 'ielts-general-mock-1')
+      return p.mockId === 'ielts-general-mock-1' || p.testType === 'general';
     });
     
     const passage = getRandomItem(generalReadingPassages);
@@ -358,8 +281,8 @@ export const pluckRandom = (skill) => {
   if (skill === 'reading_academic') {
     // Pull only Academic Reading passages
     const academicReadingPassages = getAllReadingPassages().filter(p => {
-      // Check if passage is from academicReadingMock1 or has academic indicator
-      return p.mockId === 'academic-reading-mock-1' || p.sourceTitle?.includes('Academic');
+      // Check if passage is from academic mock (new format uses 'ielts-academic-mock-1')
+      return p.mockId === 'ielts-academic-mock-1' || p.testType === 'academic';
     });
     
     const passage = getRandomItem(academicReadingPassages);
@@ -374,7 +297,8 @@ export const pluckRandom = (skill) => {
   if (skill === 'writing_general') {
     // Pull only General Writing tasks (letter writing, informal/semi-formal)
     const generalWritingTasks = getAllWritingTasks().filter(t => {
-      return t.mockId === 'writing-mock2' || t.title?.includes('Letter') || t.mockTitle?.includes('Letter');
+      // Check if task is from general mock (new format uses 'ielts-general-mock-1')
+      return t.mockId === 'ielts-general-mock-1' || t.testType === 'general';
     });
     
     const task = getRandomItem(generalWritingTasks);
@@ -400,8 +324,8 @@ export const pluckRandom = (skill) => {
   if (skill === 'writing_academic') {
     // Pull only Academic Writing tasks
     const academicWritingTasks = getAllWritingTasks().filter(t => {
-      // Check if task is from academic writing hub or has academic indicator
-      return t.mockId === 'writing-mock1' || t.title?.includes('Academic') || t.prompt?.includes('Academic');
+      // Check if task is from academic mock (new format uses 'ielts-academic-mock-1')
+      return t.mockId === 'ielts-academic-mock-1' || t.testType === 'academic';
     });
     
     const task = getRandomItem(academicWritingTasks);
@@ -515,11 +439,11 @@ export const findVocabFromReading = (readingExercise) => {
  * Returns just one part instead of all 3 parts
  */
 export const pluckSingleSpeakingPart = () => {
-  const randomMock = getRandomItem(allSpeakingMocks);
+  const randomMock = getRandomItem(Object.values(allSpeakingMocks));
   
-  if (randomMock && randomMock.parts && randomMock.parts.length > 0) {
+  if (randomMock && randomMock.speaking?.parts && randomMock.speaking.parts.length > 0) {
     // Pick a random part from the speaking mock
-    const randomPart = getRandomItem(randomMock.parts);
+    const randomPart = getRandomItem(randomMock.speaking.parts);
     
     return {
       id: `speaking-part-${randomPart.id || Date.now()}`,
@@ -608,38 +532,22 @@ export const getAtomsFromMocks = (type) => {
  * @param {string} testType - 'general' or 'academic' to filter mocks by type
  */
 export const pluckRandomFullMock = (testType = null) => {
-  // Filter reading mocks by type if specified
-  let readingMocks = allReadingMocks;
-  if (testType === 'general') {
-    readingMocks = allReadingMocks.filter(m => 
-      m.id === 'general-reading-mock-1' || m.title?.includes('General')
-    );
-  } else if (testType === 'academic') {
-    readingMocks = allReadingMocks.filter(m => 
-      m.id === 'academic-reading-mock-1' || m.title?.includes('Academic')
-    );
+  // Get all mocks
+  const mockValues = Object.values(ieltsMocks);
+  
+  // Filter by test type if specified
+  let filteredMocks = mockValues;
+  if (testType) {
+    filteredMocks = mockValues.filter(m => m.type === testType);
   }
   
-  // Filter writing mocks by type if specified
-  let writingMocks = allWritingMocks;
-  if (testType === 'general') {
-    writingMocks = allWritingMocks.filter(m => 
-      m.id === 'writing-mock2' || m.title?.includes('Letter') || m.mockTitle?.includes('Letter')
-    );
-  } else if (testType === 'academic') {
-    writingMocks = allWritingMocks.filter(m => 
-      m.id === 'writing-mock1' || m.title?.includes('Academic')
-    );
-  }
+  // Get a random mock
+  const mock = getRandomItem(filteredMocks.length > 0 ? filteredMocks : mockValues);
   
-  // Get a random reading mock (filtered or all)
-  const readingMock = getRandomItem(readingMocks.length > 0 ? readingMocks : allReadingMocks);
-  // Get a random listening mock (shared for both types)
-  const listeningMock = getRandomItem(allListeningMocks);
-  // Get a random speaking mock (shared for both types)
-  const speakingMock = getRandomItem(allSpeakingMocks);
-  // Get a random writing mock (filtered or all)
-  const writingMock = getRandomItem(writingMocks.length > 0 ? writingMocks : allWritingMocks);
+  if (!mock) {
+    console.error('No mock found for full test');
+    return null;
+  }
   
   // Determine title based on test type
   const mockTitle = testType === 'general' 
@@ -648,59 +556,75 @@ export const pluckRandomFullMock = (testType = null) => {
       ? 'IELTS Academic Full Mock' 
       : 'IELTS Full Mock Test';
   
+  // Build sections from the new JSON structure
+  const sections = [];
+  
+  // Add reading sections (from mock.reading.sections)
+  if (mock.reading?.sections) {
+    mock.reading.sections.forEach(section => {
+      if (section.passages) {
+        section.passages.forEach(passage => {
+          sections.push({
+            ...passage,
+            skill: 'reading',
+            type: passage.type || 'reading-practice'
+          });
+        });
+      }
+    });
+  }
+  
+  // Add writing sections (from mock.writing.sections)
+  if (mock.writing?.sections) {
+    mock.writing.sections.forEach(section => {
+      sections.push({
+        ...section,
+        skill: 'writing',
+        type: 'WRITING'
+      });
+    });
+  }
+  
+  // Add listening sections (from mock.listening.sections)
+  if (mock.listening?.sections) {
+    mock.listening.sections.forEach(section => {
+      sections.push({
+        ...section,
+        skill: 'listening',
+        type: 'LISTENING'
+      });
+    });
+  }
+  
+  // Add speaking parts (from mock.speaking.parts)
+  if (mock.speaking?.parts) {
+    mock.speaking.parts.forEach(part => {
+      sections.push({
+        ...part,
+        skill: 'speaking',
+        type: 'SPEAKING'
+      });
+    });
+  }
+  
+  // Add vocabulary
+  if (mock.vocabulary) {
+    sections.unshift({
+      ...mock.vocabulary,
+      skill: 'vocab',
+      type: 'VOCAB'
+    });
+  }
+  
   // Combine into a full mock test
   const fullMock = {
     id: `full-mock-${testType || 'random'}-${Date.now()}`,
     title: mockTitle,
     type: 'full-mock',
-    testType: testType, // Store the test type for reference
+    testType: testType,
     xp: 2000,
-    sections: []
+    sections: sections
   };
-  
-  // Add reading sections/passages
-  if (readingMock) {
-    if (readingMock.sections) {
-      fullMock.sections.push(...readingMock.sections.map(s => ({ ...s, skill: 'reading' })));
-    } else if (readingMock.passages) {
-      fullMock.sections.push({
-        id: `reading-${readingMock.id}`,
-        title: 'Reading Section',
-        skill: 'reading',
-        passages: readingMock.passages
-      });
-    }
-  }
-  
-  // Add writing sections (Task 1 and Task 2) - handle both 'sections' and 'tasks' formats
-  if (writingMock) {
-    const writingSections = writingMock.sections || writingMock.tasks || [];
-    if (writingSections.length > 0) {
-      fullMock.sections.push(...writingSections.map(s => ({ 
-        ...s, 
-        skill: 'writing',
-        type: 'WRITING'
-      })));
-    }
-  }
-  
-  // Add listening sections - ensure each section has type: 'LISTENING' for proper rendering
-  if (listeningMock && listeningMock.sections) {
-    fullMock.sections.push(...listeningMock.sections.map(s => ({ 
-      ...s, 
-      skill: 'listening',
-      type: 'LISTENING'
-    })));
-  }
-  
-  // Add speaking sections (expand parts into individual sections)
-  if (speakingMock && speakingMock.parts) {
-    fullMock.sections.push(...speakingMock.parts.map(part => ({
-      ...part,
-      skill: 'speaking',
-      type: 'SPEAKING'
-    })));
-  }
   
   return fullMock;
 };

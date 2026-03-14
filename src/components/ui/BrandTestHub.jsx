@@ -54,26 +54,26 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
           <Zap size={40} color="#2563eb" />
           <h3>Daily Skill Training</h3>
           <p>
-            <strong>The "Atom" Method.</strong> All parts of the test but only one part per skill for more manageable practice.
+            <strong>Quick Practice.</strong> A single random exercise at a time - reading, listening, speaking, writing, or vocab.
           </p>
           
-          <Link 
-            to="/dashboard/ielts-general-mini-test"
+          <button 
+            onClick={() => onSelectPath('ielts-mini-random-general')}
             className="btn-base btn-primary" 
-            style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none' }}
+            style={{ marginBottom: '12px' }}
           >
             <Shuffle size={18} style={{ marginRight: '8px' }} />
-            Take General Mini Test
-          </Link>
+            Start General Random Exercise
+          </button>
           
-          <Link 
-            to="/dashboard/ielts-academic-mini-test"
+          <button 
+            onClick={() => onSelectPath('ielts-mini-random-academic')}
             className="btn-base btn-primary" 
-            style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none' }}
+            style={{ marginBottom: '12px' }}
           >
             <BookOpen size={18} style={{ marginRight: '8px' }} />
-            Take Academic Mini Test
-          </Link>
+            Start Academic Random Exercise
+          </button>
           
           <Link 
             to="/dashboard/ielts-mini-individual"
@@ -81,7 +81,7 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
             style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none' }}
           >
             <List size={16} style={{ marginRight: '8px' }} />
-            Individual Skill Tests (Mini)
+            Individual Skill Tests
           </Link>
         </div>
 

@@ -1,0 +1,553 @@
+{
+  "id": "ielts-general-mock-1",
+  "title": "IELTS General Training Mock Test 1",
+  "type": "general",
+  "description": "Complete IELTS General Training test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+
+  "vocabulary": {
+    "id": "vocab-general-1",
+    "title": "Test Vocabulary",
+    "level": "B2",
+    "words": [
+      { "term": "approximately", "hu": "körülbelül", "definition": "About or roughly", "example": "The Earth formed approximately 4.5 billion years ago." },
+      { "term": "consist", "hu": "áll", "definition": "To be composed or made up of", "example": "The Solar System consists of eight planets." },
+      { "term": "surface", "hu": "felszín", "definition": "The outside or top layer", "example": "The Earth's surface is 71% water." },
+      { "term": "originates", "hu": "ered", "definition": "To come from a source", "example": "The idea of months originated from the moon." },
+      { "term": "habitat", "hu": "élöhely", "definition": "A natural home for organisms", "example": "The biosphere includes all habitats on Earth." },
+      { "term": "convert", "hu": "átalakít", "definition": "To change from one form to another", "example": "Cyanobacteria convert sunlight to oxygen." },
+      { "term": "diameter", "hu": "átmérö", "definition": "The distance across a circle", "example": "The Earth has a diameter of about 12,742 km." },
+      { "term": "rotate", "hu": "forog", "definition": "To spin on an axis", "example": "The Earth rotates on its axis once a day." },
+      { "term": "extensive", "hu": "kiterjedt", "definition": "Covering a large area", "example": "Advantage Sales & Marketing offers extensive services." },
+      { "term": "flexible", "hu": "rugalmas", "definition": "Able to adapt", "example": "Chipotle offers a flexible work schedule." },
+      { "term": "progressive", "hu": "progresszív", "definition": "Forward-thinking", "example": "The Vitamin Shoppe has progressive policies." },
+      { "term": "compassionate", "hu": "áldozatos", "definition": "Showing care and concern", "example": "PSA Healthcare provides compassionate care." },
+      { "term": "candidate", "hu": "jelölt", "definition": "A person being considered for a position", "example": "Candidates must have experience." },
+      { "term": "opportunity", "hu": "lehetöség", "definition": "A chance for progress", "example": "There are room for advancement opportunities." },
+      { "term": "comprehensive", "hu": "közérthetö", "definition": "Complete and thorough", "example": "PSA Healthcare provides comprehensive services." },
+      { "term": "emergency", "hu": "vész", "definition": "A serious, unexpected situation", "example": "Fire drills prepare you for emergencies." },
+      { "term": "evacuate", "hu": "elhagy", "definition": "To leave a dangerous place", "example": "You must evacuate during a fire." },
+      { "term": "hazard", "hu": "veszély", "definition": "A danger or risk", "example": "Fire is a major hazard." },
+      { "term": "respond", "hu": "válaszol", "definition": "To react to something", "example": "People must respond quickly to fire alarms." },
+      { "term": "precaution", "hu": "elözmély", "definition": "A measure taken to prevent something", "example": "Fire drills are an important precaution." },
+      { "term": "calm", "hu": "nyugodt", "definition": "Not showing nervousness", "example": "It is important to stay calm during a fire." },
+      { "term": "route", "hu": "útvonal", "definition": "A path to be taken", "example": "Families should have escape routes." },
+      { "term": "detector", "hu": "észlelö", "definition": "A device that senses something", "example": "Smoke detectors alert people to fires." }
+    ]
+  },
+
+  "reading": {
+    "title": "Reading",
+    "time": 60,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "The Earth",
+        "description": "Questions 1-13 based on Part 1",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "The Earth",
+            "type": "ielts-complex",
+            "vocabId": "v_env_bronze_1",
+            "vocabList": [
+              { "term": "approximately", "hu": "körülbelül", "definition": "About or roughly", "example": "The Earth formed approximately 4.5 billion years ago." },
+              { "term": "consist", "hu": "áll", "definition": "To be composed or made up of", "example": "The Solar System consists of eight planets." },
+              { "term": "surface", "hu": "felszín", "definition": "The outside or top layer", "example": "The Earth's surface is 71% water." },
+              { "term": "originates", "hu": "ered", "definition": "To come from a source", "example": "The idea of months originated from the moon." },
+              { "term": "habitat", "hu": "élöhely", "definition": "A natural home for organisms", "example": "The biosphere includes all habitats on Earth." },
+              { "term": "convert", "hu": "átalakít", "definition": "To change from one form to another", "example": "Cyanobacteria convert sunlight to oxygen." },
+              { "term": "diameter", "hu": "átmérö", "definition": "The distance across a circle", "example": "The Earth has a diameter of about 12,742 km." },
+              { "term": "rotate", "hu": "forog", "definition": "To spin on an axis", "example": "The Earth rotates on its axis once a day." }
+            ],
+            "content": [
+              "<p>(A) The Earth is the third planet from the Sun and it is the only planet known to have life on it. The Earth formed around 4.5 billion years ago. It is one of four rocky planets on the inside of the Solar System. The other three are Mercury, Venus, and Mars.</p>",
+              "<p>(B) The large mass of the Sun makes the Earth move around it, just as the mass of the Earth makes the Moon move around it. The Earth also turns round in space, so different parts face the Sun at different times. The Earth goes around the Sun once (one 'year') for every 365¼ times it turns all the way around (one 'day').</p>",
+              "<p>(C) The Moon goes around the Earth about every 27⅓ days, and reflects light from the Sun. As the Earth goes round the Sun at the same time, the changing light of the Moon takes about 29½ days to go from dark to bright to dark again. That is where the idea of 'month' came from. However, now most months have 30 or 31 days so they fit into one year.</p>",
+              "<p>(D) The Earth is the only planet in our Solar System that has a large amount of liquid water. About 71% of the surface of the Earth is covered by oceans. Because of this, it is sometimes called the 'Blue Planet'.</p>",
+              "<p>(E) Because of its water, the Earth is home to millions of species of plants and animals. The things that live on Earth have changed its surface greatly. For example, early cyanobacteria changed the air and gave it oxygen. The living part of the Earth's surface is called the 'biosphere'.</p>",
+              "<p>(F) The Earth is part of the eight planets and many thousands of small bodies that move around the Sun as its Solar System. The Solar System is moving through the Orion Arm of the Milky Way Galaxy now, and will be for about the next 10,000 years.</p>",
+              "<p>(G) The Earth is generally 150,000,000 kilometers or 93,000,000 miles away from the Sun (this distance is named an 'Astronomical Unit'). The Earth moves along its way at an average speed of about 30 km or 19 mi a second. The Earth turns all the way around about 365¼ times in the time it takes for the Earth to go all the way around the Sun. To make up this extra bit of a day every year, an additional day is used every four years. This is named a 'leap year'.</p>",
+              "<p>(H) The Moon goes around the Earth at an average distance of 400,000 kilometers (250,000 mi). It is locked to Earth, so that it always has the same half facing the Earth; the other half is called the 'dark side of the Moon'. It takes about 27⅓ days for the Moon to go all the way around the Earth but, because the Earth is moving around the Sun at the same time, it takes about 29½ days for the Moon to go from dark to bright to dark again. This is where the word 'month' came from, even though most months now have 30 or 31 days.</p>"
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph contains the following information? (1-8)",
+                "questions": [
+                  { "id": 1, "text": "Earth's natural satellite", "answer": "H" },
+                  { "id": 2, "text": "Distance between Earth and Sun", "answer": "G" },
+                  { "id": 3, "text": "General information about Earth", "answer": "A" },
+                  { "id": 4, "text": "The Solar System", "answer": "F" },
+                  { "id": 5, "text": "Length of most months", "answer": "C" },
+                  { "id": 6, "text": "Another name for Earth", "answer": "D" },
+                  { "id": 7, "text": "The living part of the Earth's surface", "answer": "E" },
+                  { "id": 8, "text": "The movements of Earth around the Sun", "answer": "B" }
+                ]
+              },
+              {
+                "type": "short-answer",
+                "instruction": "Complete the sentences below. Choose NO MORE THAN THREE WORDS from the text for each answer.",
+                "questions": [
+                  { "id": 9, "text": "Apart from Earth, other rocky planets in our Solar Systems are Venus, Mars and ___.", "answer": "Mercury" },
+                  { "id": 10, "text": "Moon ___ from the Sun on Earth.", "answer": "reflects light" },
+                  { "id": 11, "text": "There are millions of ___ of plants and animals that inhabit Earth.", "answer": "species" },
+                  { "id": 12, "text": "Now the Solar System is travelling through ___", "answer": "Orion Arm" },
+                  { "id": 13, "text": "The dark side of the Moon is the side, which ___ faces Earth.", "answer": "never" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Job Advertisements",
+        "description": "Questions 14-28 based on Part 2",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "Part-time Openings",
+            "type": "ielts-complex",
+            "vocabId": "v_employment_bronze_1",
+            "vocabList": [
+              { "term": "approximately", "hu": "körülbelül", "definition": "About or roughly", "example": "The Vitamin Shoppe has approximately 1,946 openings." },
+              { "term": "extensive", "hu": "kiterjedt", "definition": "Covering a large area", "example": "Advantage Sales & Marketing offers extensive services." },
+              { "term": "flexible", "hu": "rugalmas", "definition": "Able to adapt", "example": "Chipotle offers a flexible work schedule." },
+              { "term": "progressive", "hu": "progresszív", "definition": "Forward-thinking", "example": "The Vitamin Shoppe has progressive policies." },
+              { "term": "compassionate", "hu": "áldozatos", "definition": "Showing care and concern", "example": "PSA Healthcare provides compassionate care." },
+              { "term": "candidate", "hu": "jelölt", "definition": "A person being considered for a position", "example": "Candidates must have experience." },
+              { "term": "opportunity", "hu": "lehetöség", "definition": "A chance for progress", "example": "There are room for advancement opportunities." },
+              { "term": "comprehensive", "hu": "közérthetö", "definition": "Complete and thorough", "example": "PSA Healthcare provides comprehensive services." }
+            ],
+            "content": [
+              "<p><strong>1. The Vitamin Shoppe: 1,946 part-time openings.</strong><br/>The Vitamin Shoppe is a New Jersey-based retailer of nutritional supplements. They also operate stores in Canada under the name 'VitaPath'. The company provides approximately 8,000 different SKU's of supplements through its retail stores and over 20,000 different SKU's of supplements through its online retail websites.<br/><em>Employee Review:</em> 'Good growth opportunities and stores opening all over the US all year 'round. Company based out of NJ, so more progressive policies on employment and benefits. Good vacation, health, and dental benefits. Payment is above average. Good policies on customer service interaction as well. Focus on Customer service vs. pushing products.'</p>",
+              "<p><strong>2. Chipotle: 1,553 part-time openings.</strong><br/>Chipotle is known for its use of organic meats throughout its more than 1,500 restaurants, which are located in 45 states. Since having been founded in 1993, the chain has since exploded and now counts some 37,000 employees. It is a pioneer in the 'fast casual' dining movement.<br/><em>Employee Review:</em> 'The people I work with are awesome and the food is good. It pays my bills and makes me laugh. The schedule is super flexible but it's a lot of work. If you're looking for something easy and laid back, keep looking.'</p>",
+              "<p><strong>3. Advantage Sales & Marketing: 1,742 part-time openings.</strong><br/>Advantage Sales & Marketing provides outsourced sales, merchandising, and marketing services to consumer goods and food product manufacturers and suppliers. Owning more than 65 offices in the US and Canada, ASM does merchandising for 1,200 clients -- including Johnson & Johnson, Mars, Unilever, Energizer.<br/><em>Employee Review:</em> 'Long lasting business, able to adapt to changes in market. Well-thought out schedule, and flexible time off for both vacation and illness.'</p>",
+              "<p><strong>4. Universal Protection Service: 1,219 part-time openings.</strong><br/>Universal Protection Service is one of the largest providers of security services in the U.S. They offer an expansive range of security solutions for airports, healthcare facilities, office buildings, and more.<br/><em>Employee Review:</em> 'Good pay depending on where you work. Room for advancement based on availability. Better company than any other I have worked for in security.'</p>",
+              "<p><strong>5. PSA Healthcare: 1,295 part-time openings.</strong><br/>PSA Healthcare, also known as Pediatric Services of America, provides comprehensive home health services through a branch of office across the United States. The company is headquartered in Atlanta, Ga.<br/><em>Employee Review:</em> 'I love working one-on-one with the pediatric patient and their families. You have the time needed to give great compassionate care! Office staff and supervisors are very good with both employees and clients. There is a lot of flexibility with staffing. I never received grief for requesting a day off.'</p>"
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct letter, A, B, C or D.",
+                "questions": [
+                  { "id": 14, "text": "Which offer has the most part-time openings?", "options": ["Chipotle", "PSA Healthcare", "The Vitamin Shoppe", "Advantage Sales & Marketing"], "answer": 2 },
+                  { "id": 15, "text": "Which of these companies operate both in USA and Canada?", "options": ["The Vitamin Shoppe and Advantage Sales & Marketing", "PSA Healthcare and Advantage Sales & Marketing", "Chipotle and PSA Healthcare", "PSA Healthcare and The Vitamin Shoppe"], "answer": 0 },
+                  { "id": 16, "text": "Review of which company says that it is the best security company he/she worked for?", "options": ["Chipotle", "The Vitamin Shoppe", "Universal Protection Service", "PSA Healthcare"], "answer": 2 },
+                  { "id": 17, "text": "Which company was founded in 1993?", "options": ["The Vitamin Shoppe", "Universal Protection Service", "PSA Healthcare", "Chipotle"], "answer": 3 },
+                  { "id": 18, "text": "Main office of which company is situated in Atlanta?", "options": ["The Vitamin Shoppe", "PSA Healthcare", "Chipotle", "Advantage Sales & Marketing"], "answer": 1 },
+                  { "id": 19, "text": "VitaPath is the other name of which company?", "options": ["PSA Healthcare", "Universal Protection Service", "The Vitamin Shoppe", "Advantage Sales & Marketing"], "answer": 2 },
+                  { "id": 20, "text": "Which review doesn't mention a comfortable timetable?", "options": ["Chipotle", "Advantage Sales & Marketing", "The Vitamin Shoppe", "PSA Healthcare"], "answer": 2 },
+                  { "id": 21, "text": "Which company is described as a long lasting business?", "options": ["PSA Healthcare", "Advantage Sales & Marketing", "Universal Protection Service", "Chipotle"], "answer": 1 },
+                  { "id": 22, "text": "Organic meat is used by what company?", "options": ["Chipotle", "The Vitamin Shoppe", "Advantage Sales & Marketing", "None of them"], "answer": 0 }
+                ]
+              },
+              {
+                "type": "trinary",
+                "mode": "tfng",
+                "questions": [
+                  { "id": 23, "text": "The Vitamin Shoppe has an above average salary, according to the review.", "answer": "TRUE" },
+                  { "id": 24, "text": "Reviewer of the company Chipotle says that working there is both fun and earns enough money.", "answer": "TRUE" },
+                  { "id": 25, "text": "Advantage Sales & Marketing owns 65 offices all over the world.", "answer": "FALSE" },
+                  { "id": 26, "text": "Universal Protection Service offers various security services in the USA.", "answer": "TRUE" },
+                  { "id": 27, "text": "Reviewer of the PSA Healthcare praises its high wages.", "answer": "NOT GIVEN" },
+                  { "id": 28, "text": "None of the offers included an approximate salary in the description.", "answer": "TRUE" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "What to do in a fire?",
+        "description": "Questions 29-40 based on Part 3",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "What to do in a fire?",
+            "type": "ielts-complex",
+            "vocabId": "v_community_bronze_1",
+            "vocabList": [
+              { "term": "emergency", "hu": "vész", "definition": "A serious, unexpected situation", "example": "Fire drills prepare you for emergencies." },
+              { "term": "evacuate", "hu": "elhagy", "definition": "To leave a dangerous place", "example": "You must evacuate during a fire." },
+              { "term": "hazard", "hu": "veszély", "definition": "A danger or risk", "example": "Fire is a major hazard." },
+              { "term": "respond", "hu": "válaszol", "definition": "To react to something", "example": "People must respond quickly to fire alarms." },
+              { "term": "precaution", "hu": "elözmély", "definition": "A measure taken to prevent something", "example": "Fire drills are an important precaution." },
+              { "term": "calm", "hu": "nyugodt", "definition": "Not showing nervousness", "example": "It is important to stay calm during a fire." },
+              { "term": "route", "hu": "útvonal", "definition": "A path to be taken", "example": "Families should have escape routes." },
+              { "term": "detector", "hu": "észlelö", "definition": "A device that senses something", "example": "Smoke detectors alert people to fires." }
+            ],
+            "content": [
+              "<p>Fire drills are a big part of being safe in school: They prepare you for what you need to do in case of a fire. But what if there was a fire where you live? Would you know what to do? Talking about fires can be scary because no one likes to think about people getting hurt or their things getting burned. But you can feel less worried if you are prepared.</p>",
+              "<p>It's a good idea for families to talk about what they would do to escape a fire. Different families will have different strategies. Some kids live in one-story houses and other kids live in tall buildings. You'll want to talk about escape plans and escape routes, so let's start there.</p>",
+              "<p><strong>Know Your Way Out</strong><br/>An escape plan can help every member of a family get out of a burning house. The idea is to get outside quickly and safely. Smoke from a fire can make it hard to see where things are, so it's important to learn and remember the different ways out of your home. How many exits are there? How do you get to them from your room? It's a good idea to have your family draw a map of the escape plan. It's possible one way out could be blocked by fire or smoke, so you'll want to know where other ones are. And if you live in an apartment building, you'll want to know the best way to the stairwell or other emergency exits.</p>",
+              "<p><strong>Safety Steps</strong><br/>If you're in a room with the door closed when the fire breaks out, you need to take a few extra steps:</p>",
+              "<ul><li>Check to see if there's heat or smoke coming in the cracks around the door. (You're checking to see if there's fire on the other side.)</li><li>If you see smoke coming under the door — don't open the door!</li><li>If you don't see smoke — touch the door. If the door is hot or very warm — don't open the door!</li><li>If you don't see smoke — and the door is not hot — then use your fingers to lightly touch the doorknob. If the doorknob is hot or very warm — don't open the door!</li><li>If the doorknob feels cool, and you can't see any smoke around the door, you can open the door very carefully and slowly. When you open the door, if you feel a burst of heat or smoke pours into the room, quickly shut the door and make sure it is really closed. If there's no smoke or heat when you open the door, go toward your escape route exit.</li></ul>"
+            ],
+            "subTasks": [
+              {
+                "type": "short-answer",
+                "instruction": "Complete the sentences below. Choose NO MORE THAN TWO WORDS from the text for each answer.",
+                "questions": [
+                  { "id": 29, "text": "While some might live in a tall buildings, others might live in a ___.", "answer": "one-story house" },
+                  { "id": 30, "text": "Important thing is to talk with your kids about escape ___ and ___.", "answer": "plans, routes" },
+                  { "id": 31, "text": "Making a ___ is a good idea, it can help you escape.", "answer": "map" },
+                  { "id": 32, "text": "If you live in an apartment, you have to know the way to the staircase or other ___.", "answer": "emergency exits" },
+                  { "id": 33, "text": "You can only open the door if the ___ is not hot and you can't see smoke around the door.", "answer": "doorknob" },
+                  { "id": 34, "text": "You should immediately close the door, if smoke ___ into the room.", "answer": "pours" }
+                ]
+              },
+              {
+                "type": "trinary",
+                "mode": "tfng",
+                "questions": [
+                  { "id": 35, "text": "It is important to have a strategy before escaping the fire.", "answer": "TRUE" },
+                  { "id": 36, "text": "You should mark different ways out of your home on the map.", "answer": "TRUE" },
+                  { "id": 37, "text": "If you're stuck in a room, and see smoke coming from the other room, you should open the door and run to the exit.", "answer": "FALSE" },
+                  { "id": 38, "text": "Hot door means you shouldn't open it to escape.", "answer": "TRUE" },
+                  { "id": 39, "text": "If you open the door and everything seems fine, go straight to the exit.", "answer": "TRUE" }
+                ]
+              },
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct letter, A, B, C or D.",
+                "questions": [
+                  { 
+                    "id": 40, 
+                    "text": "This article is mainly aimed at helping:", 
+                    "options": ["Children", "Children and their parents", "Only parents", "Teachers at schools"], 
+                    "answer": 1 
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m1-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter",
+        "instruction": "You should spend about 20 minutes on this task. Write at least 150 words.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "You recently moved to a new city. Write a letter to a friend telling them about your new home and inviting them to visit.",
+        "bullets": [
+          "Describe your new home",
+          "Explain what you like about the area",
+          "Suggest when they could visit"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m1-t2",
+        "taskType": 2,
+        "title": "Task 2: Essay",
+        "instruction": "You should spend about 40 minutes on this task. Write at least 250 words.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Some people believe that unpaid community service should be a compulsory part of high school programs. To what extent do you agree or disagree?",
+        "bullets": [
+          "Give reasons for your answer",
+          "Include relevant examples from your knowledge or experience"
+        ],
+        "type": "essay"
+      }
+    ]
+  },
+
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 4 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "",
+        "subtitle": "Booking a Holiday Cottage",
+        "description": "You will hear a conversation between a travel agent and a customer who wants to book a holiday cottage. First, you have some time to look at questions 1-10.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "context": "Conversation between two speakers - social situation",
+        "type": "LISTENING",
+        "skill": "listening",
+        "questions": [
+          {
+            "type": "short-answer",
+            "instruction": "Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+            "questions": [
+              { "id": 1, "text": "Customer name:", "answer": "Sarah Mitchell", "wordLimit": 2, "allowNumber": true },
+              { "id": 2, "text": "Contact telephone:", "answer": "07788 456321", "wordLimit": 1, "allowNumber": true },
+              { "id": 3, "text": "Preferred location:", "answer": "Lake District", "wordLimit": 2, "allowNumber": false },
+              { "id": 4, "text": "Number of adults:", "answer": "4", "wordLimit": 1, "allowNumber": true },
+              { "id": 5, "text": "Number of children:", "answer": "2", "wordLimit": 1, "allowNumber": true }
+            ]
+          },
+          {
+            "type": "short-answer",
+            "instruction": "Answer the questions below. Write NO MORE THAN TWO WORDS for each answer.",
+            "questions": [
+              { "id": 6, "text": "What is the maximum budget per week?", "answer": "800 pounds", "wordLimit": 2, "allowNumber": true },
+              { "id": 7, "text": "Which facility must the cottage have?", "answer": "garden", "wordLimit": 2, "allowNumber": false },
+              { "id": 8, "text": "What date does the customer want to arrive?", "answer": "15th July", "wordLimit": 2, "allowNumber": true },
+              { "id": 9, "text": "What is the customer's main concern about the cottage?", "answer": "parking", "wordLimit": 2, "allowNumber": false },
+              { "id": 10, "text": "What does the customer ask to be sent?", "answer": "brochure", "wordLimit": 2, "allowNumber": false }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "",
+        "subtitle": "Tour of a Museum Complex",
+        "description": "You will hear a guide giving a tour of a museum complex. First, you have some time to look at questions 11-20.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+        "context": "Monologue - information about local facilities",
+        "type": "LISTENING",
+        "skill": "listening",
+        "questions": [
+          {
+            "id": 11,
+            "type": "diagram-label",
+            "instruction": "Label the map below. Write the correct letter, A-H, next to Questions 11-15.",
+            "labels": [
+              { "id": "11", "text": "Ticket Office", "answer": "A" },
+              { "id": "12", "text": "Café", "answer": "D" },
+              { "id": "13", "text": "Gift Shop", "answer": "F" },
+              { "id": "14", "text": "Main Exhibition Hall", "answer": "C" },
+              { "id": "15", "text": "Children's Activity Centre", "answer": "H" }
+            ],
+            "wordLimit": 1,
+            "options": ["A", "B", "C", "D", "E", "F", "G", "H"]
+          },
+          {
+            "id": 16,
+            "type": "mcq",
+            "instruction": "Choose the correct letter, A, B or C.",
+            "question": "The museum was originally built as a",
+            "options": ["a private residence", "a government building", "a factory"],
+            "answer": "A"
+          },
+          {
+            "id": 17,
+            "type": "mcq",
+            "question": "The museum's collection focuses mainly on",
+            "options": ["ancient artefacts", "local history", "modern art"],
+            "answer": "B"
+          },
+          {
+            "id": 18,
+            "type": "mcq",
+            "question": "The guided tours last approximately",
+            "options": ["45 minutes", "1 hour", "90 minutes"],
+            "answer": "B"
+          },
+          {
+            "id": 19,
+            "type": "mcq",
+            "question": "On Sundays, the museum opens at",
+            "options": ["9 am", "10 am", "11 am"],
+            "answer": "C"
+          },
+          {
+            "id": 20,
+            "type": "mcq",
+            "question": "The speaker recommends visiting the",
+            "options": ["special exhibition first", "café during peak hours", "gift shop before leaving"],
+            "answer": "A"
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "",
+        "subtitle": "University Assignment Discussion",
+        "description": "You will hear a discussion between two university students and their tutor about a group assignment. First, you have some time to look at questions 21-30.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        "context": "Conversation between two main speakers - educational situation",
+        "type": "LISTENING",
+        "skill": "listening",
+        "questions": [
+          {
+            "id": "matching-21-25",
+            "type": "matching-choice",
+            "instruction": "What does each student agree to research? Choose FIVE answers from the box and write the correct letter, A-G, next to Questions 21-25.",
+            "options": [
+              { "id": "A", "text": "historical background" },
+              { "id": "B", "text": "current legislation" },
+              { "id": "C", "text": "case studies" },
+              { "id": "D", "text": "statistical analysis" },
+              { "id": "E", "text": "international comparisons" },
+              { "id": "F", "text": "future predictions" },
+              { "id": "G", "text": "ethical considerations" }
+            ],
+            "items": [
+              { "id": "21", "text": "Maria will research", "answer": "A" },
+              { "id": "22", "text": "James will research", "answer": "D" },
+              { "id": "23", "text": "Emma will research", "answer": "E" },
+              { "id": "24", "text": "David will research", "answer": "C" },
+              { "id": "25", "text": "Sophie will research", "answer": "B" }
+            ]
+          },
+          {
+            "id": "short-answer-26-30",
+            "type": "short-answer",
+            "instruction": "Complete the sentences below. Write NO MORE THAN TWO WORDS for each answer.",
+            "questions": [
+              { "id": 26, "text": "The assignment must be submitted by the ___ of March.", "answer": "fifteenth", "wordLimit": 2, "allowNumber": true },
+              { "id": 27, "text": "Students should include at least ___ primary sources.", "answer": "five", "wordLimit": 2, "allowNumber": true },
+              { "id": 28, "text": "The tutor warned against using ___ from the internet.", "answer": "unreliable sources", "wordLimit": 2, "allowNumber": false },
+              { "id": 29, "text": "Each group member must write approximately ___ words.", "answer": "2000", "wordLimit": 1, "allowNumber": true },
+              { "id": 30, "text": "The final presentation should last no longer than ___ minutes.", "answer": "twenty", "wordLimit": 2, "allowNumber": true }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part4",
+        "part": 4,
+        "title": "",
+        "subtitle": "Lecture on Sustainable Architecture",
+        "description": "You will hear a lecture on sustainable architecture given at a university. First, you have some time to look at questions 31-40.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+        "context": "Monologue on an academic subject",
+        "type": "LISTENING",
+        "skill": "listening",
+        "questions": [
+          {
+            "id": "notes-31-35",
+            "type": "notes-completion",
+            "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
+            "title": "Sustainable Architecture Lecture Notes",
+            "notes": [
+              { "id": "31", "type": "gap", "label": "Buildings account for approximately ___ of global energy consumption.", "answer": "40%" },
+              { "id": "32", "type": "gap", "label": "The lecturer defines sustainable architecture as buildings that minimise ___ impact.", "answer": "environmental" },
+              { "id": "33", "type": "gap", "label": "Passive solar design uses ___ to heat buildings naturally.", "answer": "sunlight" },
+              { "id": "34", "type": "gap", "label": "Green roofs help reduce ___ in urban areas.", "answer": "temperatures" },
+              { "id": "35", "type": "gap", "label": "The lecturer mentions ___ as a renewable building material.", "answer": "bamboo" }
+            ],
+            "wordLimit": 2
+          },
+          {
+            "id": "table-36-40",
+            "type": "table-completion",
+            "instruction": "Complete the table below. Write NO MORE THAN TWO WORDS for each answer.",
+            "title": "Comparison of Building Materials",
+            "table": {
+              "headers": ["Material", "Advantage", "Disadvantage"],
+              "rows": [
+                ["Traditional concrete", "Strong and durable", "High ___ footprint"],
+                ["Recycled steel", "Requires ___ energy", "Limited availability"],
+                ["Timber", "From ___ forests", "Needs treatment"],
+                ["Hempcrete", "Excellent ___ insulation", "New technology"],
+                ["Bioplastics", "___ materials", "Currently expensive"]
+              ]
+            },
+            "gaps": [
+              { "id": "36", "rowIndex": 0, "colIndex": 2, "answer": "carbon" },
+              { "id": "37", "rowIndex": 1, "colIndex": 1, "answer": "less" },
+              { "id": "38", "rowIndex": 2, "colIndex": 1, "answer": "managed" },
+              { "id": "39", "rowIndex": 3, "colIndex": 1, "answer": "thermal" },
+              { "id": "40", "rowIndex": 4, "colIndex": 1, "answer": "Biodegradable" }
+            ],
+            "wordLimit": 2
+          }
+        ]
+      }
+    ]
+  },
+
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "parts": [
+      {
+        "id": "part1",
+        "title": "Part 1: Introduction and Interview",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "Answer the examiner's questions about familiar topics. Speak naturally and give full answers.",
+        "topics": [
+          {
+            "topic": "Your Home Town or Village",
+            "questions": [
+              { "id": "p1q1", "text": "What kind of place is it?" },
+              { "id": "p1q2", "text": "What's the most interesting part of your town/village?" },
+              { "id": "p1q3", "text": "What kind of jobs do the people in your town/village do?" },
+              { "id": "p1q4", "text": "Would you say it's a good place to live? (Why?)" }
+            ]
+          },
+          {
+            "topic": "Accommodation",
+            "questions": [
+              { "id": "p1q5", "text": "Tell me about the kind of accommodation you live in." },
+              { "id": "p1q6", "text": "How long have you lived there?" },
+              { "id": "p1q7", "text": "What do you like about living there?" },
+              { "id": "p1q8", "text": "What sort of accommodation would you most like to live in?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Part 2: Long Turn",
+        "type": "long-turn",
+        "duration": "3-4 minutes",
+        "instruction": "You will have 1 minute to prepare, then speak for 1-2 minutes on the topic.",
+        "topicCard": {
+          "id": "task1",
+          "topic": "Describe something valuable that you own.",
+          "description": "You should say:",
+          "bulletPoints": [
+            "what it is",
+            "how you got it",
+            "what you use it for",
+            "explain why it is valuable to you"
+          ],
+          "roundingQuestions": [
+            { "id": "r1", "text": "Is it valuable in terms of money?" },
+            { "id": "r2", "text": "Would it be easy to replace?" }
+          ]
+        }
+      },
+      {
+        "id": "part3",
+        "title": "Part 3: Discussion",
+        "type": "discussion",
+        "duration": "4-5 minutes",
+        "instruction": "Discuss more abstract issues related to the topic in Part 2.",
+        "topics": [
+          {
+            "topic": "How people's values have changed",
+            "questions": [
+              { "id": "p3q1", "text": "What kind of things give status to people in your country?" },
+              { "id": "p3q2", "text": "Have things changed since your parents' time?" }
+            ]
+          },
+          {
+            "topic": "The role of advertising",
+            "questions": [
+              { "id": "p3q3", "text": "Do you think advertising influences what people buy?" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
