@@ -114,11 +114,11 @@ const EXTRA_TOOLS = [
     color: '#8b5cf6' 
   },
   { 
-    id: 'skills', 
-    title: 'Skills Hub', 
+    id: 'drillshub', 
+    title: 'Drills Hub', 
     description: 'Grammar, punctuation, and core drills.', 
     icon: <Zap size={24} />, 
-    hubKey: 'general_drills',
+    hubKey: 'drillshub',
     color: '#f59e0b' 
   }
 ];
@@ -604,7 +604,7 @@ function App({ initialView }) {
       }
       
       // If this is from the DRILLS_HUB, use standard behavior
-     if (activeCategory && activeCategory.title === "General Practice Drills") {
+     if (activeCategory && activeCategory.title === "Drills Hub") {
        setActiveSection(section);
        setView('selection');
      } 
@@ -660,6 +660,7 @@ function App({ initialView }) {
         ].filter(Boolean)
       };
       setActiveLesson(flowLesson);
+      setView('lesson');
     } else if (taskMetadata.type === 'academic-flow') {
       // Academic Mini Flow: uses academic reading and writing
       const readingExercise = pluckRandom('reading_academic');
@@ -690,6 +691,7 @@ function App({ initialView }) {
         ].filter(Boolean)
       };
       setActiveLesson(flowLesson);
+      setView('lesson');
     } else if (taskMetadata.type === 'random-pick') {
       // Random pick: get a random exercise from the specified skill
       const randomExercise = pluckRandom(taskMetadata.skill);
@@ -698,11 +700,13 @@ function App({ initialView }) {
           ...randomExercise,
           xpReward: taskMetadata.xp || 500
         });
+        setView('lesson');
       }
     } else if (taskMetadata.type === 'specific' || taskMetadata.type === 'gap-fill-tokens') {
       // Specific exercise: load by exerciseId
       const fullLesson = loadFullLesson(taskMetadata);
       setActiveLesson(fullLesson);
+      setView('lesson');
     } else if (taskMetadata.type === 'full-flow') {
       // Full test flow: combine all 4 skills with full mock content
       const fullMock = pluckRandomFullMock();
@@ -713,6 +717,7 @@ function App({ initialView }) {
           type: 'full-test',
           xpReward: taskMetadata.xp || 2000
         });
+        setView('lesson');
       }
     } else if (taskMetadata.id === 'mini-test-flow') {
       // Legacy flow handling - also use vocab from reading
@@ -743,10 +748,12 @@ function App({ initialView }) {
         ].filter(Boolean)
       };
       setActiveLesson(flowLesson);
+      setView('lesson');
     } else {
       // STANDARD: Load a single task
       const fullLesson = loadFullLesson(taskMetadata);
       setActiveLesson(fullLesson);
+      setView('lesson');
     }
     
     setActiveSectionIndex(0);
@@ -834,10 +841,10 @@ function App({ initialView }) {
 
     switch (taskData.type) {
       case 'token-select':
-        return <TokenSelectBlock data={taskData} isReviewMode={isReviewMode} onUpdate={(selected) => setUserAnswers({...userAnswers, [taskData.id]: selected})} />;
+        return <TokenSelectBlock data={taskData} isReviewMode={isReviewMode} onUpdate={(selected) => setUserAnswers(prev => ({...prev, [taskData.id]: selected}))} />;
 
       case 'punctuation-correction':
-        return <PunctuationCorrectionBlock data={taskData} isReviewMode={isReviewMode} onUpdate={(placements) => setUserAnswers({...userAnswers, [taskData.id]: placements})} />;
+        return <PunctuationCorrectionBlock data={taskData} isReviewMode={isReviewMode} onUpdate={(placements) => setUserAnswers(prev => ({...prev, [taskData.id]: placements}))} />;
 
       case 'ielts-complex':
       case 'READING':
@@ -1069,13 +1076,13 @@ function App({ initialView }) {
                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
                 </button>
               )}
-              {(view === 'hub' || view === 'selection') && activeTest && !(activeCategory && (activeCategory.title === 'Vocab Lab' || activeCategory.title === 'General Practice Drills')) && (
+              {(view === 'hub' || view === 'selection') && activeTest && !(activeCategory && (activeCategory.title === 'Vocab Lab' || activeCategory.title === 'Drills Hub')) && (
                 <button onClick={() => navigate(`/dashboard/${activeTest.id}-full-individual`)} className="exit-btn">
                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
                 </button>
               )}
               {/* Back button for non-test hubs like vocabulary and general-drills - go to hub from selection, dashboard from hub */}
-              {(view === 'hub' || view === 'selection') && activeCategory && (activeCategory.title === 'Vocab Lab' || activeCategory.title === 'General Practice Drills') && (
+              {(view === 'hub' || view === 'selection') && activeCategory && (activeCategory.title === 'Vocab Lab' || activeCategory.title === 'Drills Hub') && (
                 <button onClick={() => view === 'selection' ? setView('hub') : setView('dashboard')} className="exit-btn">
                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> {view === 'selection' ? 'Back' : 'Dashboard'}
                 </button>
@@ -1225,7 +1232,7 @@ function App({ initialView }) {
                   if (miniTest.sections.length > 0) {
                     setActiveLesson(miniTest);
                     setActiveSectionIndex(0);
-                    setView('lesson');
+                    navigateToView('lesson');
                   }
                 } else if (path === 'ielts-mini-random-academic') {
                   // Single random exercise - Academic (reading/writing are academic)
@@ -1266,7 +1273,7 @@ function App({ initialView }) {
                   if (miniTest.sections.length > 0) {
                     setActiveLesson(miniTest);
                     setActiveSectionIndex(0);
-                    setView('lesson');
+                    navigateToView('lesson');
                   }
                 } else if (path === 'skill-tests') {
                    // Show the skill tests view with individual skill options
@@ -1503,6 +1510,25 @@ function App({ initialView }) {
                             return (
                               <>
                                 <div className="section-tabs">
+                                  {/* Mock identifier badge */}
+                                  {activeLesson.mockNumber && (
+                                    <span className="mock-badge" style={{
+                                      display: 'inline-flex',
+                                      alignItems: 'center',
+                                      gap: '6px',
+                                      padding: '4px 10px',
+                                      background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+                                      color: 'white',
+                                      borderRadius: '20px',
+                                      fontSize: '12px',
+                                      fontWeight: '600',
+                                      marginRight: '12px',
+                                      boxShadow: '0 2px 8px rgba(99, 102, 241, 0.3)'
+                                    }}>
+                                      <span>📋</span>
+                                      <span>Mock #{activeLesson.mockNumber}</span>
+                                    </span>
+                                  )}
                                   {availableSkills.map((skill, idx) => (
                                     <button 
                                       key={skill} 
@@ -1554,6 +1580,25 @@ function App({ initialView }) {
                           // Original section tabs for non-combined flows (single skill mocks)
                           return (
                             <div className="section-tabs">
+                              {/* Mock identifier badge */}
+                              {activeLesson.mockNumber && (
+                                <span className="mock-badge" style={{
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '6px',
+                                  padding: '4px 10px',
+                                  background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+                                  color: 'white',
+                                  borderRadius: '20px',
+                                  fontSize: '12px',
+                                  fontWeight: '600',
+                                  marginRight: '12px',
+                                  boxShadow: '0 2px 8px rgba(99, 102, 241, 0.3)'
+                                }}>
+                                  <span>📋</span>
+                                  <span>Mock #{activeLesson.mockNumber}</span>
+                                </span>
+                              )}
                               {sections.map((s, idx) => (
                                 <button key={idx} onClick={() => { setActiveSectionIndex(idx); setActivePassageIndex(0); setIsReviewMode(false); }} className={`section-tab ${activeSectionIndex === idx ? 'active' : ''}`}>
                                   {s.skill === 'vocab' ? '📚 Vocab' : s.skill === 'reading' ? '📖 Reading' : s.skill === 'listening' ? '🎧 Listening' : s.skill === 'writing' ? '✍️ Writing' : s.skill === 'speaking' ? '🗣️ Speaking' : s.type === 'ielts-speaking' ? '🗣️ Speaking' : s.type === 'discussion' ? '🗣️ Part 3' : s.type === 'interview' ? '🗣️ Part 1' : s.type === 'long-turn' ? '🗣️ Part 2' : s.type === 'LISTENING' ? '🎧 Listening' : s.type === 'WRITING' ? '✍️ Writing' : s.type === 'VOCAB' ? '📚 Vocab' : (s.type && (s.type.includes('reading') || s.type === 'reading-practice' || s.type.includes('ielts'))) ? '📖 Reading' : `Part ${idx + 1}`}

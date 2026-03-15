@@ -172,7 +172,7 @@ export const HUBS = {
   speaking: IELTS_SPEAKING,
   listening: IELTS_LISTENING,
   ielts_atoms: IELTS_ATOMS, 
-  general_drills: DRILLS_HUB, 
+  drillshub: DRILLS_HUB, 
   vocabulary: VOCAB_LEVELS,
   langcert_reading: LANGCERT_READING
 };
@@ -212,7 +212,7 @@ export const EXAM_CONFIG = {
     title: "Learning Tools",
     modules: {
       vocabulary: VOCAB_LEVELS,
-      general_drills: DRILLS_HUB
+      drillshub: DRILLS_HUB
     }
   }
 };
@@ -226,12 +226,12 @@ export const loadFullLesson = (metadata) => {
     return metadata;
   }
 
-  // Merge metadata first, then content, but preserve the type from metadata
-  // This ensures mock-test types from the hub are preserved while getting all content properties
+  // Merge metadata first, then content
   const merged = { ...metadata, ...content };
   
-  // Ensure metadata type is preserved
-  if (metadata.type) {
+  // Only preserve metadata type for non-drill tasks (drills should use content type)
+  // This ensures token-select and punctuation-correction drills work correctly
+  if (metadata.type && !metadata.id?.includes('drill') && !metadata.id?.includes('comma')) {
     merged.type = metadata.type;
   }
   

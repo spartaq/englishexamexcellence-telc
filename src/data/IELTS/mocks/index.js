@@ -4,17 +4,20 @@
 
 import academicMock1 from './ielts-academic-mock-1.json';
 import generalMock1 from './ielts-general-mock-1.json';
+import generalMock2 from './ielts-general-mock-2.json';
 
 // All mocks combined
 const allMocks = [
   academicMock1,
-  generalMock1
+  generalMock1,
+  generalMock2
 ];
 
 // Export as object for easy lookup by ID
 export const ieltsMocks = {
   'ielts-academic-mock-1': academicMock1,
-  'ielts-general-mock-1': generalMock1
+  'ielts-general-mock-1': generalMock1,
+  'ielts-general-mock-2': generalMock2
 };
 
 // Academic mocks
@@ -24,7 +27,8 @@ export const academicMocks = {
 
 // General Training mocks
 export const generalMocks = {
-  'ielts-general-mock-1': generalMock1
+  'ielts-general-mock-1': generalMock1,
+  'ielts-general-mock-2': generalMock2
 };
 
 // Helper to get all reading passages from all mocks
@@ -40,6 +44,7 @@ export const getAllReadingPassages = () => {
               ...passage,
               mockId: mock.id,
               mockTitle: mock.title,
+              mockNumber: mock.mockNumber,
               testType: mock.type,
               skill: 'reading'
             });
@@ -63,6 +68,7 @@ export const getAllWritingTasks = () => {
           ...section,
           mockId: mock.id,
           mockTitle: mock.title,
+          mockNumber: mock.mockNumber,
           testType: mock.type,
           skill: 'writing'
         });
@@ -84,6 +90,7 @@ export const getAllListeningSections = () => {
           ...section,
           mockId: mock.id,
           mockTitle: mock.title,
+          mockNumber: mock.mockNumber,
           testType: mock.type,
           skill: 'listening'
         });
@@ -105,6 +112,7 @@ export const getAllSpeakingParts = () => {
           ...part,
           mockId: mock.id,
           mockTitle: mock.title,
+          mockNumber: mock.mockNumber,
           testType: mock.type,
           skill: 'speaking'
         });
@@ -123,6 +131,7 @@ export const getAllVocab = () => {
         ...word,
         mockId: mock.id,
         mockTitle: mock.title,
+        mockNumber: mock.mockNumber,
         testType: mock.type,
         skill: 'vocabulary'
       }));

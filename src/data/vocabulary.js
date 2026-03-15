@@ -27,7 +27,9 @@ export const VOCAB_HUB = {
             { term: 'Extinction', hu: 'Kihalás', definition: 'When a plant or animal no longer exists.', example: 'Many species face extinction.' },
             { term: 'Fossil fuel', hu: 'Őskőolaj', definition: 'Natural fuel formed from ancient organisms.', example: 'Burning fossil fuels releases carbon dioxide.' },
             { term: 'Greenhouse gas', hu: 'Üvegházhatású gáz', definition: 'Gas that traps heat in the atmosphere.', example: 'Carbon dioxide is a greenhouse gas.' },
-            { term: 'Recycling', hu: 'Újrahasznosítás', definition: 'Processing waste materials for reuse.', example: 'Recycling reduces waste in landfills.' }
+            { term: 'Recycling', hu: 'Újrahasznosítás', definition: 'Processing waste materials for reuse.', example: 'Recycling reduces waste in landfills.' },
+            { term: 'Commute', hu: 'Ingázik', definition: 'To travel regularly to work.', example: 'Many people commute to the city center.' },
+            { term: 'Accommodation', hu: 'Szállás', definition: 'A place to live or stay.', example: 'Finding accommodation in big cities is expensive.' }
           ]
         },
         {
@@ -46,7 +48,11 @@ export const VOCAB_HUB = {
             { term: 'Habitat destruction', hu: 'Élőhely pusztítás', definition: 'The process of making an area less suitable for wildlife.', example: 'Habitat destruction leads to species extinction.' },
             { term: 'Renewable energy', hu: 'Megújuló energia', definition: 'Energy from sources that are naturally replenished.', example: 'Solar power is a form of renewable energy.' },
             { term: 'Climate change', hu: 'Klímaváltozás', definition: 'Long-term shifts in global temperatures and weather patterns.', example: 'Climate change is affecting weather patterns worldwide.' },
-            { term: 'Environmental impact', hu: 'Környezeti hatás', definition: 'The effect of human activity on the environment.', example: 'Factories have a significant environmental impact.' }
+            { term: 'Environmental impact', hu: 'Környezeti hatás', definition: 'The effect of human activity on the environment.', example: 'Factories have a significant environmental impact.' },
+            { term: 'Mitigation', hu: 'enyhítés', definition: 'The action of reducing severity.', example: 'Climate mitigation strategies are essential.' },
+            { term: 'Adaptation', hu: 'alkalmazkodás', definition: 'Adjusting to new conditions.', example: 'Farmers must adapt to changing weather.' },
+            { term: 'Vulnerable', hu: 'sebezhető', definition: 'Susceptible to harm.', example: 'Developing nations are most vulnerable.' },
+            { term: 'Devastating', hu: 'romboló', definition: 'Causing severe damage.', example: 'Floods can have devastating effects.' }
           ]
         }
       ]
@@ -73,7 +79,7 @@ export const VOCAB_HUB = {
             { term: 'Community', hu: 'Közösség', definition: 'A group of people living in the same place or sharing common interests.', example: 'The local community is very active.' },
             { term: 'Relationship', hu: 'Kapcsolat', definition: 'A connection between two or more people or things.', example: 'She has a good relationship with her colleagues.' },
             { term: 'Identity', hu: 'Személyazonosság', definition: 'The qualities that make someone who they are.', example: 'Social media affects young people\'s identity.' },
-            { term: ' stereotype', hu: 'Sztereotípia', definition: 'An oversimplified image or idea of a particular type of person.', example: 'Gender stereotypes are harmful.' },
+            { term: 'Stereotype', hu: 'Sztereotípia', definition: 'An oversimplified image or idea of a particular type of person.', example: 'Gender stereotypes are harmful.' },
             { term: 'Prejudice', hu: 'Előítélet', definition: 'Unfair judgment or opinion about a group of people.', example: 'Education can help reduce prejudice.' }
           ]
         },
@@ -123,7 +129,25 @@ export const VOCAB_HUB = {
             { term: 'Product', hu: 'Termék', definition: 'A thing produced or manufactured for sale.', example: 'The company launched a new product last month.' },
             { term: 'Customer', hu: 'Vásárló', definition: 'A person who buys goods or services from a business.', example: 'Our customers are very satisfied with the service.' },
             { term: 'Investment', hu: 'Befektetés', definition: 'The act of putting money into something for profit.', example: 'Foreign investment boosted the economy.' },
-            { term: 'Profit', hu: 'Nyereség', definition: 'Financial gain from business activity.', example: 'The company made a huge profit this year.' }
+            { term: 'Profit', hu: 'Nyereség', definition: 'Financial gain from business activity.', example: 'The company made a huge profit this year.' },
+            { term: 'Extensive', hu: 'kiterjedt', definition: 'Covering a large area.', example: 'Advantage Sales & Marketing offers extensive services.' },
+            { term: 'Flexible', hu: 'rugalmas', definition: 'Able to adapt.', example: 'Chipotle offers a flexible work schedule.' },
+            { term: 'Progressive', hu: 'progresszív', definition: 'Forward-thinking.', example: 'The Vitamin Shoppe has progressive policies.' },
+            { term: 'Compassionate', hu: 'áldozatos', definition: 'Showing care and concern.', example: 'PSA Healthcare provides compassionate care.' },
+            { term: 'Candidate', hu: 'jelölt', definition: 'A person being considered for a position.', example: 'Candidates must have experience.' },
+            { term: 'Opportunity', hu: 'lehetöség', definition: 'A chance for progress.', example: 'There are room for advancement opportunities.' },
+            { term: 'Comprehensive', hu: 'közérthetö', definition: 'Complete and thorough.', example: 'PSA Healthcare provides comprehensive services.' },
+            { term: 'Deadline', hu: 'határidő', definition: 'The latest time to complete something.', example: 'The deadline for the project is Friday.' },
+            { term: 'Colleague', hu: 'kolléga', definition: 'A work partner.', example: 'I discussed the issue with my colleague.' },
+            { term: 'Promotion', hu: 'elöléptetés', definition: 'Advancement in job position.', example: 'She received a promotion at work.' },
+            { term: 'Networking', hu: 'hálózatépítés', definition: 'Building professional contacts.', example: 'Networking is important for career growth.' },
+            { term: 'Franchise', hu: 'franchise', definition: 'A business license.', example: 'He bought a fast food franchise.' },
+            { term: 'Renovate', hu: 'felújít', definition: 'To repair and improve.', example: 'They plan to renovate the old building.' },
+            { term: 'Spacious', hu: 'tágas', definition: 'Having plenty of space.', example: 'The apartment has spacious rooms.' },
+            { term: 'Facilities', hu: 'létesítmények', definition: 'Equipment and buildings.', example: 'The sports facilities are excellent.' },
+            { term: 'Maintain', hu: 'fenntart', definition: 'To keep in good condition.', example: 'Regular maintenance is required.' },
+            { term: 'Diverse', hu: 'változatos', definition: 'Showing variety.', example: 'The city has a diverse population.' },
+            { term: 'Vibrant', hu: 'élénk', definition: 'Full of energy and life.', example: 'The downtown area is vibrant at night.' }
           ]
         },
         {
@@ -144,7 +168,13 @@ export const VOCAB_HUB = {
             { term: 'Economic growth', hu: 'Gazdasági növekedés', definition: 'An increase in the production of goods and services over time.', example: 'The country experienced rapid economic growth.' },
             { term: 'Trade deficit', hu: 'Kereskedelmi deficit', definition: 'When a country imports more than it exports.', example: 'The trade deficit has widened this year.' },
             { term: 'Capitalism', hu: 'Kapitalizmus', definition: 'An economic system based on private ownership and profit.', example: 'Capitalism encourages competition and innovation.' },
-            { term: 'Regulation', hu: 'Szabályozás', definition: 'Official rules controlling how businesses operate.', example: 'Government regulation protects consumers.' }
+            { term: 'Regulation', hu: 'Szabályozás', definition: 'Official rules controlling how businesses operate.', example: 'Government regulation protects consumers.' },
+            { term: 'Prerequisite', hu: 'előfeltétel', definition: 'Something required beforehand.', example: 'A degree is a prerequisite for many jobs.' },
+            { term: 'Cater', hu: 'kiszolgál', definition: 'To provide what is needed.', example: 'Universities must cater to diverse student needs.' },
+            { term: 'Autonomy', hu: 'autonómia', definition: 'Freedom to make decisions.', example: 'Academic autonomy allows universities to set their own curricula.' },
+            { term: 'Innovation', hu: 'innováció', definition: 'New ideas or methods.', example: 'Universities drive innovation through research.' },
+            { term: 'Scrutinize', hu: 'vizsgál', definition: 'To examine carefully.', example: 'Government bodies scrutinize university funding.' },
+            { term: 'Revenue', hu: 'bevétel', definition: 'Income generated.', example: 'Tuition fees are a major revenue source.' }
           ]
         }
       ]
@@ -216,12 +246,12 @@ export const VOCAB_HUB = {
             { term: 'Compulsory', hu: 'Kötelező', definition: 'Required by law or a rule; obligatory.', example: 'Primary education is compulsory in most countries.' },
             { term: 'Vocational', hu: 'Szakmai', definition: 'Relating to an occupation or employment.', example: 'He chose vocational training over university.' },
             { term: 'Evaluate', hu: 'Kiértékel', definition: 'To judge or determine the significance, worth, or quality of.', example: 'Students are asked to evaluate the course.' },
-            { term: 'Student', hu: 'Diák', definition: 'A person who is studying at a school or college.', example: 'The university has over 20,000 students.' },
-            { term: 'Teacher', hu: 'Tanár', definition: 'A person who teaches, especially in a school.', example: 'Good teachers inspire their students.' },
-            { term: 'School', hu: 'Iskola', definition: 'An institution for educating children.', example: 'She walks to school every morning.' },
-            { term: 'University', hu: 'Egyetem', definition: 'An institution of higher education.', example: 'He graduated from university last year.' },
-            { term: 'Degree', hu: 'Diploma / Fokozat', definition: 'A qualification awarded by a university or college.', example: 'She earned a degree in mathematics.' },
-            { term: 'Certificate', hu: 'Bizonyítvány', definition: 'An official document proving completion of a course.', example: 'He received a certificate in computer programming.' }
+            { term: 'Seminar', hu: 'Szeminárium', definition: 'A class for discussion and advanced study.', example: 'The seminar covers research methods.' },
+            { term: 'Dissertation', hu: 'Szakdolgozat', definition: 'A long essay on a subject.', example: 'She is writing her dissertation.' },
+            { term: 'Tutorial', hu: 'Konzultáció', definition: 'A session of individual instruction.', example: 'The tutorial is at 3pm.' },
+            { term: 'Deadline', hu: 'Határidő', definition: 'The latest time to complete something.', example: 'The deadline for submission is Friday.' },
+            { term: 'Plagiarism', hu: 'Plágium', definition: 'Using others work without attribution.', example: 'Plagiarism is a serious offense.' },
+            { term: 'Revision', hu: 'Felkészülés', definition: 'Reviewing material for an exam.', example: 'She does revision every evening.' }
           ]
         },
         {
@@ -259,26 +289,16 @@ export const VOCAB_HUB = {
           tier: 'bronze',
           level: 'B2',
           words: [
-            { term: 'Health', hu: 'Egészség', definition: 'The condition of body and mind.', example: 'Health is important.' },
-            { term: 'Illness', hu: 'Betegség', definition: 'A condition causing poor health.', example: 'He recovered from illness.' },
-            { term: 'Symptom', hu: 'Tünet', definition: 'A sign of illness.', example: 'Fever is a symptom.' },
-            { term: 'Doctor', hu: 'Orvos', definition: 'A medical professional.', example: 'Visit the doctor.' },
-            { term: 'Medicine', hu: 'Gyógyszer', definition: 'A substance used to treat illness.', example: 'Take the medicine.' },
-            { term: 'Exercise', hu: 'Testmozgás', definition: 'Physical activity for health.', example: 'Exercise keeps you fit.' },
-            { term: 'Diet', hu: 'Étrend', definition: 'The food you eat.', example: 'A healthy diet matters.' },
-            { term: 'Stress', hu: 'Stressz', definition: 'Mental pressure or worry.', example: 'Work causes stress.' },
-            { term: 'Sleep', hu: 'Alvás', definition: 'Resting state for the body.', example: 'Sleep improves health.' },
-            { term: 'Pain', hu: 'Fájdalom', definition: 'Physical discomfort.', example: 'The pain stopped.' },
-            { term: 'Treatment', hu: 'Kezelés', definition: 'Medical care for illness.', example: 'The treatment worked.' },
-            { term: 'Hospital', hu: 'Kórház', definition: 'A place for medical care.', example: 'He stayed in hospital.' },
-            { term: 'Injury', hu: 'Sérülés', definition: 'Physical harm to the body.', example: 'The injury healed.' },
-            { term: 'Recovery', hu: 'Felépülés', definition: 'Returning to good health.', example: 'Recovery takes time.' },
-            { term: 'Mental health', hu: 'Mentális egészség', definition: 'Emotional and psychological well-being.', example: 'Mental health matters.' },
-            { term: 'Healthy', hu: 'Egészséges', definition: 'In good physical condition.', example: 'She feels healthy.' },
-            { term: 'Unhealthy', hu: 'Egészségtelen', definition: 'Bad for health.', example: 'Smoking is unhealthy.' },
-            { term: 'Lifestyle', hu: 'Életmód', definition: 'The way someone lives.', example: 'Lifestyle affects health.' },
-            { term: 'Balance', hu: 'Egyensúly', definition: 'Keeping things in good proportion.', example: 'Work-life balance helps.' },
-            { term: 'Well-being', hu: 'Jóllét', definition: 'Feeling healthy and happy.', example: 'Well-being improves productivity.' }
+            { term: 'Hypertension', hu: 'Magas vérnyomás', definition: 'Abnormally high blood pressure.', example: 'Hypertension increases heart disease risk.' },
+            { term: 'Obesity', hu: 'Elhízás', definition: 'Excessive body fat accumulation.', example: 'Obesity is linked to many health problems.' },
+            { term: 'Cardiovascular', hu: 'Kardiovaszkuláris', definition: 'Relating to heart and blood vessels.', example: 'Exercise improves cardiovascular health.' },
+            { term: 'Respiratory', hu: 'Légzőszervi', definition: 'Relating to breathing.', example: 'Asthma is a respiratory condition.' },
+            { term: 'Chronic', hu: 'Krónikus', definition: 'Long-lasting or persistent.', example: 'Diabetes is a chronic condition.' },
+            { term: 'Contagious', hu: 'Fertőző', definition: 'Spreadable from person to person.', example: 'The flu is highly contagious.' },
+            { term: 'Immune system', hu: 'Immunrendszer', definition: 'The body defense mechanism.', example: 'A strong immune system prevents illness.' },
+            { term: 'Allergy', hu: 'Allergia', definition: 'Adverse reaction to substances.', example: 'Hay fever is a common allergy.' },
+            { term: 'Therapy', hu: 'Terápia', definition: 'Treatment for health improvement.', example: 'Physical therapy helps recovery.' },
+            { term: 'Rehabilitation', hu: 'Rehabilitáció', definition: 'Restoration to full health.', example: 'Rehabilitation after surgery takes time.' }
           ]
         },
         {
@@ -327,7 +347,16 @@ export const VOCAB_HUB = {
             { term: 'Cell', hu: 'Sejt', definition: 'The basic unit of all living things.', example: 'Human bodies are made up of billions of cells.' },
             { term: 'DNA', hu: 'DNS', definition: 'The molecule carrying genetic instructions.', example: 'DNA determines our physical characteristics.' },
             { term: 'Evolution', hu: 'Evolúció', definition: 'The process of gradual development of species.', example: 'Evolution takes place over millions of years.' },
-            { term: 'Climate', hu: 'Klíma', definition: 'The average weather conditions in an area.', example: 'The climate in this region is mild.' }
+            { term: 'Climate', hu: 'Klíma', definition: 'The average weather conditions in an area.', example: 'The climate in this region is mild.' },
+            { term: 'Approximately', hu: 'körülbelül', definition: 'About or roughly.', example: 'The Earth formed approximately 4.5 billion years ago.' },
+            { term: 'Consist', hu: 'áll', definition: 'To be composed or made up of.', example: 'The Solar System consists of eight planets.' },
+            { term: 'Surface', hu: 'felszín', definition: 'The outside or top layer.', example: "The Earth's surface is 71% water." },
+            { term: 'Originates', hu: 'ered', definition: 'To come from a source.', example: 'The idea of months originated from the moon.' },
+            { term: 'Habitat', hu: 'élöhely', definition: 'A natural home for organisms.', example: 'The biosphere includes all habitats on Earth.' },
+            { term: 'Convert', hu: 'átalakít', definition: 'To change from one form to another.', example: 'Cyanobacteria convert sunlight to oxygen.' },
+            { term: 'Diameter', hu: 'átmérö', definition: 'The distance across a circle.', example: 'The Earth has a diameter of about 12,742 km.' },
+            { term: 'Rotate', hu: 'forog', definition: 'To spin on an axis.', example: 'The Earth rotates on its axis once a day.' },
+            { term: 'Infrastructure', hu: 'infrastruktúra', definition: 'The basic systems and facilities.', example: 'Cities need good infrastructure.' }
           ]
         },
         {
@@ -348,7 +377,13 @@ export const VOCAB_HUB = {
             { term: 'Gravity', hu: 'Gravitáció', definition: 'The force that attracts objects to each other.', example: 'Gravity keeps planets in orbit around stars.' },
             { term: 'Molecule', hu: 'Molekula', definition: 'A group of atoms bonded together.', example: 'Water molecules consist of hydrogen and oxygen.' },
             { term: 'Electromagnetic', hu: 'Elektromágneses', definition: 'Relating to electricity and magnetism.', example: 'Light is an electromagnetic wave.' },
-            { term: 'Quantum physics', hu: 'Kvantumfizika', definition: 'The study of matter and energy at the smallest scale.', example: 'Quantum physics challenges our understanding of reality.' }
+            { term: 'Quantum physics', hu: 'Kvantumfizika', definition: 'The study of matter and energy at the smallest scale.', example: 'Quantum physics challenges our understanding of reality.' },
+            { term: 'Perceive', hu: 'érzékel', definition: 'To become aware of through the senses.', example: 'Fish perceive electrical signals in water.' },
+            { term: 'Stimuli', hu: 'ingerek', definition: 'Things that cause a response.', example: 'The fish responds to electrical stimuli.' },
+            { term: 'Conductor', hu: 'vezető', definition: 'A material that allows electricity to pass through.', example: 'Water is an efficient conductor of electricity.' },
+            { term: 'Predator', hu: 'ragadozó', definition: 'An animal that hunts other animals for food.', example: 'Sharks are top predators in the ocean.' },
+            { term: 'Mechanism', hu: 'mechanizmus', definition: 'A natural or man-made process.', example: 'The jamming avoidance response is a fascinating mechanism.' },
+            { term: 'Proximity', hu: 'közelség', definition: 'The state of being near.', example: 'As the shark reaches proximity to its prey, it attacks.' }
           ]
         }
       ]
@@ -374,9 +409,9 @@ export const VOCAB_HUB = {
             { term: 'Performance', hu: 'Teljesítmény', definition: 'How well someone or something does a task.', example: 'Athlete performance affects public enthusiasm.' },
             { term: 'Maintenance', hu: 'Karbantartás', definition: 'Keeping something in good condition.', example: 'Infrastructure maintenance costs are high.' },
             { term: 'Budget', hu: 'Költségvetés', definition: 'A plan for how money will be spent.', example: 'Olympic budgets often exceed initial estimates.' },
-            { term: 'Sport', hu: 'Sport', definition: 'Physical activity for exercise and competition.', example: 'Swimming is an Olympic sport.' },
-            { term: 'Athlete', hu: 'Atléta', definition: 'A person who competes in sports.', example: 'Professional athletes train for many hours.' },
-            { term: 'Competition', hu: 'Verseny', definition: 'An event in which people compete.', example: 'The competition was very intense.' }
+            { term: 'Championship', hu: 'Bajnokság', definition: 'A competition to find the best.', example: 'The championship final is next week.' },
+            { term: 'Tournament', hu: 'Torna', definition: 'A series of competitive events.', example: 'The tennis tournament lasts two weeks.' },
+            { term: 'Spectator', hu: 'Néző', definition: 'A person who watches an event.', example: 'The stadium holds 50,000 spectators.' }
           ]
         },
         {
@@ -430,6 +465,25 @@ export const VOCAB_HUB = {
             { term: 'Consistency', hu: 'Konzisztencia', definition: 'The quality of being consistent or logical.', example: 'The self-consistency principle prevents paradoxes.' },
             { term: 'Historical', hu: 'Történelmi', definition: 'Relating to history or the past.', example: 'Historical identity matters in time travel scenarios.' }
           ]
+        },
+        {
+          id: 'v_physics_c1',
+          type: 'VOCAB',
+          title: 'Physics Advanced C1',
+          tier: 'bronze',
+          level: 'C1',
+          words: [
+            { term: 'Quantum', hu: 'Kvantum', definition: 'Relating to discrete quantities of energy or matter.', example: 'Quantum mechanics revolutionized physics.' },
+            { term: 'Entanglement', hu: 'Összefonódás', definition: 'A quantum phenomenon where particles remain connected.', example: 'Quantum entanglement challenges classical physics.' },
+            { term: 'Cosmology', hu: 'Kozmológia', definition: 'The study of the origin and structure of the universe.', example: 'Cosmology explores the Big Bang theory.' },
+            { term: 'Thermodynamics', hu: 'Termodinamika', definition: 'The study of heat and energy transfer.', example: 'Thermodynamics explains how engines work.' },
+            { term: 'Astrophysics', hu: 'Asztrofizika', definition: 'The physics of astronomical phenomena.', example: 'Astrophysics studies black holes and galaxies.' },
+            { term: 'Electromagnetic', hu: 'Elektromágneses', definition: 'Relating to electricity and magnetism.', example: 'Light is an electromagnetic wave.' },
+            { term: 'Subatomic', hu: 'Szubatomi', definition: 'Smaller than an atom.', example: 'Electrons are subatomic particles.' },
+            { term: 'Wavefunction', hu: 'Hullámfüggvény', definition: 'A mathematical description of quantum state.', example: 'The wavefunction describes particle probability.' },
+            { term: 'Superposition', hu: 'Szuperpozíció', definition: 'The ability of a quantum system to be in multiple states.', example: 'Superposition allows quantum computers to process data.' },
+            { term: 'String theory', hu: 'Húrelmélet', definition: 'A theory unifying quantum mechanics and gravity.', example: 'String theory attempts to explain all forces.' }
+          ]
         }
       ]
     },
@@ -459,7 +513,36 @@ export const VOCAB_HUB = {
             { term: 'Integrated', hu: 'Integrált', definition: 'Combined into a unified whole.', example: 'The hall has an integrated sound system.' },
             { term: 'Dimmable', hu: 'Szabályozható', definition: 'Able to have brightness adjusted.', example: 'The studio has dimmable lighting.' },
             { term: 'Productivity', hu: 'Termelékenység', definition: 'Efficiency in producing results.', example: 'The software boosts productivity.' },
-            { term: 'Mirrored', hu: 'Tükrözött', definition: 'Having mirrors on the walls.', example: 'The wellness studio has mirrored walls.' }
+            { term: 'Mirrored', hu: 'Tükrözött', definition: 'Having mirrors on the walls.', example: 'The wellness studio has mirrored walls.' },
+            { term: 'Metropolitan', hu: 'nagyvárosi', definition: 'Relating to a large city.', example: 'Metropolitan areas have millions of residents.' },
+            { term: 'Tourism', hu: 'turizmus', definition: 'The business of travel and leisure.', example: 'Tourism is important for the local economy.' },
+            { term: 'Authentic', hu: 'autentikus', definition: 'Genuine and original.', example: 'The restaurant serves authentic Italian food.' },
+            { term: 'Cuisine', hu: 'konyha', definition: 'A style of cooking.', example: 'Thai cuisine is known for its bold flavors.' },
+            { term: 'Reservation', hu: 'foglalás', definition: 'An arrangement to hold something.', example: 'I made a reservation for dinner.' },
+            { term: 'Emergency', hu: 'vész', definition: 'A serious, unexpected situation.', example: 'Fire drills prepare you for emergencies.' },
+            { term: 'Evacuate', hu: 'elhagy', definition: 'To leave a dangerous place.', example: 'You must evacuate during a fire.' },
+            { term: 'Hazard', hu: 'veszély', definition: 'A danger or risk.', example: 'Fire is a major hazard.' },
+            { term: 'Respond', hu: 'válaszol', definition: 'To react to something.', example: 'People must respond quickly to fire alarms.' },
+            { term: 'Precaution', hu: 'elözmély', definition: 'A measure taken to prevent something.', example: 'Fire drills are an important precaution.' }
+          ]
+        },
+        {
+          id: 'v_community_c1',
+          type: 'VOCAB',
+          title: 'Community Advanced C1',
+          tier: 'bronze',
+          level: 'C1',
+          words: [
+            { term: 'Urbanization', hu: 'Urbanizáció', definition: 'The increase in the proportion of people living in cities.', example: 'Urbanization has accelerated in developing countries.' },
+            { term: 'Infrastructural', hu: 'Infrastrukturális', definition: 'Relating to the basic systems and services.', example: 'Infrastructural development requires significant investment.' },
+            { term: 'Demographics', hu: 'Demográfia', definition: 'Statistical data relating to population.', example: 'Demographics show an aging population.' },
+            { term: 'Gentrification', hu: 'Gentrifikáció', definition: 'The changing character of a neighborhood.', example: 'Gentrification can displace long-term residents.' },
+            { term: 'Sanitation', hu: 'Higiénia', definition: 'Conditions relating to public health.', example: 'Proper sanitation prevents disease spread.' },
+            { term: 'Municipal', hu: 'Önkormányzati', definition: 'Relating to local government.', example: 'Municipal services include waste collection.' },
+            { term: 'Civic', hu: 'Polgári', definition: 'Relating to citizenship or the city.', example: 'Civic engagement strengthens communities.' },
+            { term: 'Zoning', hu: 'Övezeti szabályozás', definition: 'Designating areas for specific uses.', example: 'Zoning laws regulate building development.' },
+            { term: 'Amenities', hu: 'Kényelmi szolgáltatások', definition: 'Desirable features of a place.', example: 'The neighborhood has good amenities.' },
+            { term: 'Sustainability', hu: 'Fenntarthatóság', definition: 'The ability to be maintained long-term.', example: 'Urban planning requires sustainability.' }
           ]
         }
       ]
@@ -491,6 +574,25 @@ export const VOCAB_HUB = {
             { term: 'Inquiry', hu: 'Megkeresés', definition: 'A question or request for information.', example: 'Handle customer inquiries professionally.' },
             { term: 'Fluency', hu: 'Folyékonyság', definition: 'Ability to speak or write easily and accurately.', example: 'Candidates must be entirely fluent in English.' },
             { term: 'Criteria', hu: 'Kritériumok', definition: 'Standards or requirements for judgment.', example: 'Review the job criteria before applying.' }
+          ]
+        },
+        {
+          id: 'v_employment_c1',
+          type: 'VOCAB',
+          title: 'Employment Advanced C1',
+          tier: 'bronze',
+          level: 'C1',
+          words: [
+            { term: 'Remuneration', hu: 'Juttatás', definition: 'Payment for work or service.', example: 'The remuneration package includes bonuses.' },
+            { term: 'Negotiation', hu: 'Tárgyalás', definition: 'Discussion to reach an agreement.', example: 'Salary negotiation is important.' },
+            { term: 'Statutory', hu: 'Törvényes', definition: 'Required by law.', example: 'Statutory benefits are mandatory.' },
+            { term: 'Arbitration', hu: 'Vitarendezés', definition: 'Settlement of dispute by third party.', example: 'Employment disputes may require arbitration.' },
+            { term: 'Collective bargaining', hu: 'Kollektív tárgyalás', definition: 'Negotiation between employer and workers.', example: 'Collective bargaining improves worker conditions.' },
+            { term: 'Redundancy', hu: 'Létszámleépítés', definition: 'Dismissal due to lack of work.', example: 'The company announced redundancies.' },
+            { term: 'Severance', hu: 'Végkielégítés', definition: 'Payment on leaving employment.', example: 'Severance pay helps during job transitions.' },
+            { term: 'Appraisal', hu: 'Teljesítményértékelés', definition: 'Formal assessment of performance.', example: 'Annual appraisals are conducted in December.' },
+            { term: 'Grievance', hu: 'Panasz', definition: 'Complaint about workplace issues.', example: 'Employees can file a grievance.' },
+            { term: 'Precedent', hu: 'Precedens', definition: 'A previous example as a guide.', example: 'This case sets a precedent.' }
           ]
         }
       ]

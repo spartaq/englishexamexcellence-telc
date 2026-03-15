@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react';
 import { useExamStore } from '../store/useExamStore';
 
 export const useXP = () => {
-  const { isActive, addSecond } = useExamStore();
+  const isActive = useExamStore(state => state.isActive);
+  const addSecond = useExamStore(state => state.addSecond);
   const timerRef = useRef(null);
 
   useEffect(() => {

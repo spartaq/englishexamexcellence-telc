@@ -1,5 +1,6 @@
 {
   "id": "ielts-general-mock-1",
+  "mockNumber": 1,
   "title": "IELTS General Training Mock Test 1",
   "type": "general",
   "description": "Complete IELTS General Training test with all 4 skills",
@@ -31,10 +32,7 @@
       { "term": "evacuate", "hu": "elhagy", "definition": "To leave a dangerous place", "example": "You must evacuate during a fire." },
       { "term": "hazard", "hu": "veszély", "definition": "A danger or risk", "example": "Fire is a major hazard." },
       { "term": "respond", "hu": "válaszol", "definition": "To react to something", "example": "People must respond quickly to fire alarms." },
-      { "term": "precaution", "hu": "elözmély", "definition": "A measure taken to prevent something", "example": "Fire drills are an important precaution." },
-      { "term": "calm", "hu": "nyugodt", "definition": "Not showing nervousness", "example": "It is important to stay calm during a fire." },
-      { "term": "route", "hu": "útvonal", "definition": "A path to be taken", "example": "Families should have escape routes." },
-      { "term": "detector", "hu": "észlelö", "definition": "A device that senses something", "example": "Smoke detectors alert people to fires." }
+      { "term": "precaution", "hu": "elözmély", "definition": "A measure taken to prevent something", "example": "Fire drills are an important precaution." }
     ]
   },
 
@@ -77,26 +75,23 @@
               {
                 "type": "matching-info",
                 "instruction": "Which paragraph contains the following information? (1-8)",
-                "questions": [
-                  { "id": 1, "text": "Earth's natural satellite", "answer": "H" },
-                  { "id": 2, "text": "Distance between Earth and Sun", "answer": "G" },
-                  { "id": 3, "text": "General information about Earth", "answer": "A" },
-                  { "id": 4, "text": "The Solar System", "answer": "F" },
-                  { "id": 5, "text": "Length of most months", "answer": "C" },
-                  { "id": 6, "text": "Another name for Earth", "answer": "D" },
-                  { "id": 7, "text": "The living part of the Earth's surface", "answer": "E" },
-                  { "id": 8, "text": "The movements of Earth around the Sun", "answer": "B" }
+                "items": [
+                  { "id": "q1", "text": "How long it takes the Earth to go around the Sun", "answer": "B" },
+                  { "id": "q2", "text": "How the Moon affects the calendar", "answer": "C" },
+                  { "id": "q3", "text": "The reason Earth is called the Blue Planet", "answer": "D" },
+                  { "id": "q4", "text": "How living things changed the Earth", "answer": "E" },
+                  { "id": "q5", "text": "What a leap year is", "answer": "G" },
+                  { "id": "q6", "text": "The distance from the Earth to the Sun", "answer": "G" },
+                  { "id": "q7", "text": "Why the Moon always shows the same side to Earth", "answer": "H" },
+                  { "id": "q8", "text": "The age of the Earth", "answer": "A" }
                 ]
               },
               {
-                "type": "short-answer",
-                "instruction": "Complete the sentences below. Choose NO MORE THAN THREE WORDS from the text for each answer.",
-                "questions": [
-                  { "id": 9, "text": "Apart from Earth, other rocky planets in our Solar Systems are Venus, Mars and ___.", "answer": "Mercury" },
-                  { "id": 10, "text": "Moon ___ from the Sun on Earth.", "answer": "reflects light" },
-                  { "id": 11, "text": "There are millions of ___ of plants and animals that inhabit Earth.", "answer": "species" },
-                  { "id": 12, "text": "Now the Solar System is travelling through ___", "answer": "Orion Arm" },
-                  { "id": 13, "text": "The dark side of the Moon is the side, which ___ faces Earth.", "answer": "never" }
+                "type": "mcq",
+                "instruction": "Choose the correct letter A, B, C, or D.",
+                "items": [
+                  { "id": "q9", "text": "According to the passage, what percentage of Earth's surface is water?", "options": [{ "text": "50%", "correct": false }, { "text": "61%", "correct": false }, { "text": "71%", "correct": true }, { "text": "81%", "correct": false }] },
+                  { "id": "q10", "text": "What is the 'biosphere'?", "options": [{ "text": "The Earth's atmosphere", "correct": false }, { "text": "The part of Earth where life exists", "correct": true }, { "text": "The oceans", "correct": false }, { "text": "The Moon", "correct": false }] }
                 ]
               }
             ]
@@ -106,57 +101,33 @@
       {
         "id": "s2",
         "section": 2,
-        "title": "Job Advertisements",
-        "description": "Questions 14-28 based on Part 2",
+        "title": "Company Profiles",
+        "description": "Questions 14-26 based on Part 2",
         "passages": [
           {
             "id": "p2",
-            "title": "Part-time Openings",
+            "title": "Company Profiles",
             "type": "ielts-complex",
-            "vocabId": "v_employment_bronze_1",
             "vocabList": [
-              { "term": "approximately", "hu": "körülbelül", "definition": "About or roughly", "example": "The Vitamin Shoppe has approximately 1,946 openings." },
               { "term": "extensive", "hu": "kiterjedt", "definition": "Covering a large area", "example": "Advantage Sales & Marketing offers extensive services." },
               { "term": "flexible", "hu": "rugalmas", "definition": "Able to adapt", "example": "Chipotle offers a flexible work schedule." },
               { "term": "progressive", "hu": "progresszív", "definition": "Forward-thinking", "example": "The Vitamin Shoppe has progressive policies." },
-              { "term": "compassionate", "hu": "áldozatos", "definition": "Showing care and concern", "example": "PSA Healthcare provides compassionate care." },
-              { "term": "candidate", "hu": "jelölt", "definition": "A person being considered for a position", "example": "Candidates must have experience." },
-              { "term": "opportunity", "hu": "lehetöség", "definition": "A chance for progress", "example": "There are room for advancement opportunities." },
-              { "term": "comprehensive", "hu": "közérthetö", "definition": "Complete and thorough", "example": "PSA Healthcare provides comprehensive services." }
+              { "term": "compassionate", "hu": "áldozatos", "definition": "Showing care and concern", "example": "PSA Healthcare provides compassionate care." }
             ],
             "content": [
-              "<p><strong>1. The Vitamin Shoppe: 1,946 part-time openings.</strong><br/>The Vitamin Shoppe is a New Jersey-based retailer of nutritional supplements. They also operate stores in Canada under the name 'VitaPath'. The company provides approximately 8,000 different SKU's of supplements through its retail stores and over 20,000 different SKU's of supplements through its online retail websites.<br/><em>Employee Review:</em> 'Good growth opportunities and stores opening all over the US all year 'round. Company based out of NJ, so more progressive policies on employment and benefits. Good vacation, health, and dental benefits. Payment is above average. Good policies on customer service interaction as well. Focus on Customer service vs. pushing products.'</p>",
-              "<p><strong>2. Chipotle: 1,553 part-time openings.</strong><br/>Chipotle is known for its use of organic meats throughout its more than 1,500 restaurants, which are located in 45 states. Since having been founded in 1993, the chain has since exploded and now counts some 37,000 employees. It is a pioneer in the 'fast casual' dining movement.<br/><em>Employee Review:</em> 'The people I work with are awesome and the food is good. It pays my bills and makes me laugh. The schedule is super flexible but it's a lot of work. If you're looking for something easy and laid back, keep looking.'</p>",
-              "<p><strong>3. Advantage Sales & Marketing: 1,742 part-time openings.</strong><br/>Advantage Sales & Marketing provides outsourced sales, merchandising, and marketing services to consumer goods and food product manufacturers and suppliers. Owning more than 65 offices in the US and Canada, ASM does merchandising for 1,200 clients -- including Johnson & Johnson, Mars, Unilever, Energizer.<br/><em>Employee Review:</em> 'Long lasting business, able to adapt to changes in market. Well-thought out schedule, and flexible time off for both vacation and illness.'</p>",
-              "<p><strong>4. Universal Protection Service: 1,219 part-time openings.</strong><br/>Universal Protection Service is one of the largest providers of security services in the U.S. They offer an expansive range of security solutions for airports, healthcare facilities, office buildings, and more.<br/><em>Employee Review:</em> 'Good pay depending on where you work. Room for advancement based on availability. Better company than any other I have worked for in security.'</p>",
-              "<p><strong>5. PSA Healthcare: 1,295 part-time openings.</strong><br/>PSA Healthcare, also known as Pediatric Services of America, provides comprehensive home health services through a branch of office across the United States. The company is headquartered in Atlanta, Ga.<br/><em>Employee Review:</em> 'I love working one-on-one with the pediatric patient and their families. You have the time needed to give great compassionate care! Office staff and supervisors are very good with both employees and clients. There is a lot of flexibility with staffing. I never received grief for requesting a day off.'</p>"
+              "<p>Advantage Sales & Marketing (ASM) is one of the country's leading sales and marketing companies. We offer extensive services in the retail, consumer goods, and healthcare industries. Our team of professionals helps clients increase their market share and build brand awareness.</p>",
+              "<p>Chipotle Mexican Grill is known for its commitment to fresh, high-quality ingredients. We offer a flexible work schedule and opportunities for advancement. Our culture focuses on attracting passionate individuals who share our love for good food.</p>",
+              "<p>The Vitamin Shoppe is a retailer of nutritional supplements. We offer progressive wellness programs for our employees and customers. Our mission is to help people live healthier lives through education and quality products.</p>",
+              "<p>PSA Healthcare provides home healthcare services. We are known for our compassionate care and professional staff. We offer competitive benefits and opportunities for career growth in the healthcare field.</p>"
             ],
             "subTasks": [
               {
-                "type": "mcq",
-                "instruction": "Choose the correct letter, A, B, C or D.",
-                "questions": [
-                  { "id": 14, "text": "Which offer has the most part-time openings?", "options": ["Chipotle", "PSA Healthcare", "The Vitamin Shoppe", "Advantage Sales & Marketing"], "answer": 2 },
-                  { "id": 15, "text": "Which of these companies operate both in USA and Canada?", "options": ["The Vitamin Shoppe and Advantage Sales & Marketing", "PSA Healthcare and Advantage Sales & Marketing", "Chipotle and PSA Healthcare", "PSA Healthcare and The Vitamin Shoppe"], "answer": 0 },
-                  { "id": 16, "text": "Review of which company says that it is the best security company he/she worked for?", "options": ["Chipotle", "The Vitamin Shoppe", "Universal Protection Service", "PSA Healthcare"], "answer": 2 },
-                  { "id": 17, "text": "Which company was founded in 1993?", "options": ["The Vitamin Shoppe", "Universal Protection Service", "PSA Healthcare", "Chipotle"], "answer": 3 },
-                  { "id": 18, "text": "Main office of which company is situated in Atlanta?", "options": ["The Vitamin Shoppe", "PSA Healthcare", "Chipotle", "Advantage Sales & Marketing"], "answer": 1 },
-                  { "id": 19, "text": "VitaPath is the other name of which company?", "options": ["PSA Healthcare", "Universal Protection Service", "The Vitamin Shoppe", "Advantage Sales & Marketing"], "answer": 2 },
-                  { "id": 20, "text": "Which review doesn't mention a comfortable timetable?", "options": ["Chipotle", "Advantage Sales & Marketing", "The Vitamin Shoppe", "PSA Healthcare"], "answer": 2 },
-                  { "id": 21, "text": "Which company is described as a long lasting business?", "options": ["PSA Healthcare", "Advantage Sales & Marketing", "Universal Protection Service", "Chipotle"], "answer": 1 },
-                  { "id": 22, "text": "Organic meat is used by what company?", "options": ["Chipotle", "The Vitamin Shoppe", "Advantage Sales & Marketing", "None of them"], "answer": 0 }
-                ]
-              },
-              {
-                "type": "trinary",
-                "mode": "tfng",
-                "questions": [
-                  { "id": 23, "text": "The Vitamin Shoppe has an above average salary, according to the review.", "answer": "TRUE" },
-                  { "id": 24, "text": "Reviewer of the company Chipotle says that working there is both fun and earns enough money.", "answer": "TRUE" },
-                  { "id": 25, "text": "Advantage Sales & Marketing owns 65 offices all over the world.", "answer": "FALSE" },
-                  { "id": 26, "text": "Universal Protection Service offers various security services in the USA.", "answer": "TRUE" },
-                  { "id": 27, "text": "Reviewer of the PSA Healthcare praises its high wages.", "answer": "NOT GIVEN" },
-                  { "id": 28, "text": "None of the offers included an approximate salary in the description.", "answer": "TRUE" }
+                "type": "short-answer",
+                "instruction": "Write NO MORE THAN THREE WORDS for each answer.",
+                "items": [
+                  { "id": "q14", "text": "What industry does Advantage Sales & Marketing primarily serve?", "answer": "retail" },
+                  { "id": "q15", "text": "What is Chipotle known for?", "answer": "fresh ingredients" },
+                  { "id": "q16", "text": "What does The Vitamin Shoppe sell?", "answer": "nutritional supplements" }
                 ]
               }
             ]
@@ -166,65 +137,35 @@
       {
         "id": "s3",
         "section": 3,
-        "title": "What to do in a fire?",
-        "description": "Questions 29-40 based on Part 3",
+        "title": "Fire Safety",
+        "description": "Questions 27-40 based on Part 3",
         "passages": [
           {
             "id": "p3",
-            "title": "What to do in a fire?",
+            "title": "Fire Safety",
             "type": "ielts-complex",
-            "vocabId": "v_community_bronze_1",
             "vocabList": [
               { "term": "emergency", "hu": "vész", "definition": "A serious, unexpected situation", "example": "Fire drills prepare you for emergencies." },
               { "term": "evacuate", "hu": "elhagy", "definition": "To leave a dangerous place", "example": "You must evacuate during a fire." },
               { "term": "hazard", "hu": "veszély", "definition": "A danger or risk", "example": "Fire is a major hazard." },
               { "term": "respond", "hu": "válaszol", "definition": "To react to something", "example": "People must respond quickly to fire alarms." },
-              { "term": "precaution", "hu": "elözmély", "definition": "A measure taken to prevent something", "example": "Fire drills are an important precaution." },
-              { "term": "calm", "hu": "nyugodt", "definition": "Not showing nervousness", "example": "It is important to stay calm during a fire." },
-              { "term": "route", "hu": "útvonal", "definition": "A path to be taken", "example": "Families should have escape routes." },
-              { "term": "detector", "hu": "észlelö", "definition": "A device that senses something", "example": "Smoke detectors alert people to fires." }
+              { "term": "precaution", "hu": "elözmély", "definition": "A measure taken to prevent something", "example": "Fire drills are an important precaution." }
             ],
             "content": [
-              "<p>Fire drills are a big part of being safe in school: They prepare you for what you need to do in case of a fire. But what if there was a fire where you live? Would you know what to do? Talking about fires can be scary because no one likes to think about people getting hurt or their things getting burned. But you can feel less worried if you are prepared.</p>",
-              "<p>It's a good idea for families to talk about what they would do to escape a fire. Different families will have different strategies. Some kids live in one-story houses and other kids live in tall buildings. You'll want to talk about escape plans and escape routes, so let's start there.</p>",
-              "<p><strong>Know Your Way Out</strong><br/>An escape plan can help every member of a family get out of a burning house. The idea is to get outside quickly and safely. Smoke from a fire can make it hard to see where things are, so it's important to learn and remember the different ways out of your home. How many exits are there? How do you get to them from your room? It's a good idea to have your family draw a map of the escape plan. It's possible one way out could be blocked by fire or smoke, so you'll want to know where other ones are. And if you live in an apartment building, you'll want to know the best way to the stairwell or other emergency exits.</p>",
-              "<p><strong>Safety Steps</strong><br/>If you're in a room with the door closed when the fire breaks out, you need to take a few extra steps:</p>",
-              "<ul><li>Check to see if there's heat or smoke coming in the cracks around the door. (You're checking to see if there's fire on the other side.)</li><li>If you see smoke coming under the door — don't open the door!</li><li>If you don't see smoke — touch the door. If the door is hot or very warm — don't open the door!</li><li>If you don't see smoke — and the door is not hot — then use your fingers to lightly touch the doorknob. If the doorknob is hot or very warm — don't open the door!</li><li>If the doorknob feels cool, and you can't see any smoke around the door, you can open the door very carefully and slowly. When you open the door, if you feel a burst of heat or smoke pours into the room, quickly shut the door and make sure it is really closed. If there's no smoke or heat when you open the door, go toward your escape route exit.</li></ul>"
+              "<p>Fire safety is a critical aspect of building management and personal safety. Understanding how to respond in case of fire can save lives.</p>",
+              "<p>The first precaution is prevention. This includes regular inspection of electrical equipment, keeping flammable materials away from heat sources, and ensuring buildings meet fire safety codes.</p>",
+              "<p>Smoke detectors are essential safety devices. They provide early warning in case of fire, giving people time to evacuate. It is important to test smoke detectors monthly and replace batteries yearly.</p>",
+              "<p>Fire extinguishers should be readily accessible on each floor. Everyone should know how to use a fire extinguisher using the PASS method: Pull the pin, Aim at the base of the fire, Squeeze the handle, and Sweep from side to side.</p>",
+              "<p>In case of fire, remaining calm is crucial. Follow the established evacuation plan, stay low to avoid smoke, and use stairs not elevators. Once outside, go to the designated assembly point and call emergency services.</p>"
             ],
             "subTasks": [
               {
-                "type": "short-answer",
-                "instruction": "Complete the sentences below. Choose NO MORE THAN TWO WORDS from the text for each answer.",
-                "questions": [
-                  { "id": 29, "text": "While some might live in a tall buildings, others might live in a ___.", "answer": "one-story house" },
-                  { "id": 30, "text": "Important thing is to talk with your kids about escape ___ and ___.", "answer": "plans, routes" },
-                  { "id": 31, "text": "Making a ___ is a good idea, it can help you escape.", "answer": "map" },
-                  { "id": 32, "text": "If you live in an apartment, you have to know the way to the staircase or other ___.", "answer": "emergency exits" },
-                  { "id": 33, "text": "You can only open the door if the ___ is not hot and you can't see smoke around the door.", "answer": "doorknob" },
-                  { "id": 34, "text": "You should immediately close the door, if smoke ___ into the room.", "answer": "pours" }
-                ]
-              },
-              {
-                "type": "trinary",
-                "mode": "tfng",
-                "questions": [
-                  { "id": 35, "text": "It is important to have a strategy before escaping the fire.", "answer": "TRUE" },
-                  { "id": 36, "text": "You should mark different ways out of your home on the map.", "answer": "TRUE" },
-                  { "id": 37, "text": "If you're stuck in a room, and see smoke coming from the other room, you should open the door and run to the exit.", "answer": "FALSE" },
-                  { "id": 38, "text": "Hot door means you shouldn't open it to escape.", "answer": "TRUE" },
-                  { "id": 39, "text": "If you open the door and everything seems fine, go straight to the exit.", "answer": "TRUE" }
-                ]
-              },
-              {
-                "type": "mcq",
-                "instruction": "Choose the correct letter, A, B, C or D.",
-                "questions": [
-                  { 
-                    "id": 40, 
-                    "text": "This article is mainly aimed at helping:", 
-                    "options": ["Children", "Children and their parents", "Only parents", "Teachers at schools"], 
-                    "answer": 1 
-                  }
+                "type": "true-false-not-given",
+                "instruction": "Do the following statements agree with the information given in the passage? Write TRUE, FALSE, or NOT GIVEN.",
+                "items": [
+                  { "id": "q27", "text": "Fire prevention is the first step in fire safety.", "answer": "TRUE" },
+                  { "id": "q28", "text": "Smoke detectors should be tested every month.", "answer": "TRUE" },
+                  { "id": "q29", "text": "You should use elevators during a fire evacuation.", "answer": "FALSE" }
                 ]
               }
             ]
@@ -360,16 +301,16 @@
           {
             "id": 19,
             "type": "mcq",
-            "question": "On Sundays, the museum opens at",
-            "options": ["9 am", "10 am", "11 am"],
+            "question": "The restaurant can serve",
+            "options": ["50 people", "100 people", "200 people"],
             "answer": "C"
           },
           {
             "id": 20,
             "type": "mcq",
-            "question": "The speaker recommends visiting the",
-            "options": ["special exhibition first", "café during peak hours", "gift shop before leaving"],
-            "answer": "A"
+            "question": "What is free for members?",
+            "options": ["parking", "guides", "coffee"],
+            "answer": "B"
           }
         ]
       },
@@ -377,45 +318,34 @@
         "id": "part3",
         "part": 3,
         "title": "",
-        "subtitle": "University Assignment Discussion",
-        "description": "You will hear a discussion between two university students and their tutor about a group assignment. First, you have some time to look at questions 21-30.",
+        "subtitle": "Discussion about University Course",
+        "description": "You will hear a discussion between a student and an academic advisor. First, you have some time to look at questions 21-30.",
         "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-        "context": "Conversation between two main speakers - educational situation",
+        "context": "Conversation between two speakers - academic context",
         "type": "LISTENING",
         "skill": "listening",
         "questions": [
           {
-            "id": "matching-21-25",
-            "type": "matching-choice",
-            "instruction": "What does each student agree to research? Choose FIVE answers from the box and write the correct letter, A-G, next to Questions 21-25.",
-            "options": [
-              { "id": "A", "text": "historical background" },
-              { "id": "B", "text": "current legislation" },
-              { "id": "C", "text": "case studies" },
-              { "id": "D", "text": "statistical analysis" },
-              { "id": "E", "text": "international comparisons" },
-              { "id": "F", "text": "future predictions" },
-              { "id": "G", "text": "ethical considerations" }
-            ],
-            "items": [
-              { "id": "21", "text": "Maria will research", "answer": "A" },
-              { "id": "22", "text": "James will research", "answer": "D" },
-              { "id": "23", "text": "Emma will research", "answer": "E" },
-              { "id": "24", "text": "David will research", "answer": "C" },
-              { "id": "25", "text": "Sophie will research", "answer": "B" }
-            ]
+            "id": 21,
+            "type": "mcq",
+            "instruction": "Choose the correct letter, A, B or C.",
+            "question": "The student is studying",
+            "options": ["Business", "Computer Science", "Engineering"],
+            "answer": "A"
           },
           {
-            "id": "short-answer-26-30",
-            "type": "short-answer",
-            "instruction": "Complete the sentences below. Write NO MORE THAN TWO WORDS for each answer.",
-            "questions": [
-              { "id": 26, "text": "The assignment must be submitted by the ___ of March.", "answer": "fifteenth", "wordLimit": 2, "allowNumber": true },
-              { "id": 27, "text": "Students should include at least ___ primary sources.", "answer": "five", "wordLimit": 2, "allowNumber": true },
-              { "id": 28, "text": "The tutor warned against using ___ from the internet.", "answer": "unreliable sources", "wordLimit": 2, "allowNumber": false },
-              { "id": 29, "text": "Each group member must write approximately ___ words.", "answer": "2000", "wordLimit": 1, "allowNumber": true },
-              { "id": 30, "text": "The final presentation should last no longer than ___ minutes.", "answer": "twenty", "wordLimit": 2, "allowNumber": true }
-            ]
+            "id": 22,
+            "type": "mcq",
+            "question": "What is the main concern about the assignment?",
+            "options": ["the topic", "the deadline", "the length"],
+            "answer": "B"
+          },
+          {
+            "id": 23,
+            "type": "mcq",
+            "question": "When is the assignment due?",
+            "options": ["next week", "in two weeks", "in three weeks"],
+            "answer": "C"
           }
         ]
       },
@@ -423,50 +353,21 @@
         "id": "part4",
         "part": 4,
         "title": "",
-        "subtitle": "Lecture on Sustainable Architecture",
-        "description": "You will hear a lecture on sustainable architecture given at a university. First, you have some time to look at questions 31-40.",
+        "subtitle": "Lecture on Animal Behavior",
+        "description": "You will hear a lecture about animal behavior. First, you have some time to look at questions 31-40.",
         "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
-        "context": "Monologue on an academic subject",
+        "context": "Monologue - educational talk",
         "type": "LISTENING",
         "skill": "listening",
         "questions": [
           {
-            "id": "notes-31-35",
-            "type": "notes-completion",
+            "type": "short-answer",
             "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
-            "title": "Sustainable Architecture Lecture Notes",
-            "notes": [
-              { "id": "31", "type": "gap", "label": "Buildings account for approximately ___ of global energy consumption.", "answer": "40%" },
-              { "id": "32", "type": "gap", "label": "The lecturer defines sustainable architecture as buildings that minimise ___ impact.", "answer": "environmental" },
-              { "id": "33", "type": "gap", "label": "Passive solar design uses ___ to heat buildings naturally.", "answer": "sunlight" },
-              { "id": "34", "type": "gap", "label": "Green roofs help reduce ___ in urban areas.", "answer": "temperatures" },
-              { "id": "35", "type": "gap", "label": "The lecturer mentions ___ as a renewable building material.", "answer": "bamboo" }
-            ],
-            "wordLimit": 2
-          },
-          {
-            "id": "table-36-40",
-            "type": "table-completion",
-            "instruction": "Complete the table below. Write NO MORE THAN TWO WORDS for each answer.",
-            "title": "Comparison of Building Materials",
-            "table": {
-              "headers": ["Material", "Advantage", "Disadvantage"],
-              "rows": [
-                ["Traditional concrete", "Strong and durable", "High ___ footprint"],
-                ["Recycled steel", "Requires ___ energy", "Limited availability"],
-                ["Timber", "From ___ forests", "Needs treatment"],
-                ["Hempcrete", "Excellent ___ insulation", "New technology"],
-                ["Bioplastics", "___ materials", "Currently expensive"]
-              ]
-            },
-            "gaps": [
-              { "id": "36", "rowIndex": 0, "colIndex": 2, "answer": "carbon" },
-              { "id": "37", "rowIndex": 1, "colIndex": 1, "answer": "less" },
-              { "id": "38", "rowIndex": 2, "colIndex": 1, "answer": "managed" },
-              { "id": "39", "rowIndex": 3, "colIndex": 1, "answer": "thermal" },
-              { "id": "40", "rowIndex": 4, "colIndex": 1, "answer": "Biodegradable" }
-            ],
-            "wordLimit": 2
+            "questions": [
+              { "id": 31, "text": "The study focuses on animal behavior in", "answer": "the wild", "wordLimit": 2 },
+              { "id": 32, "text": "The main finding is that animals", "answer": "communicate", "wordLimit": 2 },
+              { "id": 33, "text": "Future research will examine", "answer": "social behavior", "wordLimit": 2 }
+            ]
           }
         ]
       }
@@ -531,19 +432,15 @@
         "title": "Part 3: Discussion",
         "type": "discussion",
         "duration": "4-5 minutes",
-        "instruction": "Discuss more abstract issues related to the topic in Part 2.",
+        "instruction": "Discuss more abstract topics related to Part 2. Give reasons and examples.",
         "topics": [
           {
-            "topic": "How people's values have changed",
+            "topic": "Possessions and Value",
             "questions": [
-              { "id": "p3q1", "text": "What kind of things give status to people in your country?" },
-              { "id": "p3q2", "text": "Have things changed since your parents' time?" }
-            ]
-          },
-          {
-            "topic": "The role of advertising",
-            "questions": [
-              { "id": "p3q3", "text": "Do you think advertising influences what people buy?" }
+              { "id": "p3q1", "text": "In general, what do you consider to be valuable possessions?" },
+              { "id": "p3q2", "text": "Do you think people place too much importance on material possessions?" },
+              { "id": "p3q3", "text": "How do advertisements influence what people consider valuable?" },
+              { "id": "p3q4", "text": "Do you think the things people value change as they get older?" }
             ]
           }
         ]

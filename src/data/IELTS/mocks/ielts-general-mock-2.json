@@ -1,0 +1,435 @@
+{
+  "id": "ielts-general-mock-2",
+  "mockNumber": 2,
+  "title": "IELTS General Training Mock Test 2",
+  "type": "general",
+  "description": "Complete IELTS General Training test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+
+  "vocabulary": {
+    "id": "vocab-general-2",
+    "title": "Test Vocabulary",
+    "level": "B2",
+    "words": [
+      { "term": "metropolitan", "hu": "nagyvárosi", "definition": "Relating to a large city", "example": "Metropolitan areas have millions of residents." },
+      { "term": "infrastructure", "hu": "infrastruktúra", "definition": "The basic systems and facilities", "example": "Cities need good infrastructure." },
+      { "term": "commute", "hu": "ingázik", "definition": "To travel regularly to work", "example": "Many people commute to the city center." },
+      { "term": "accommodation", "hu": "szállás", "definition": "A place to live or stay", "example": "Finding accommodation in big cities is expensive." },
+      { "term": "tourism", "hu": "turizmus", "definition": "The business of travel and leisure", "example": "Tourism is important for the local economy." },
+      { "term": "authentic", "hu": "autentikus", "definition": "Genuine and original", "example": "The restaurant serves authentic Italian food." },
+      { "term": "cuisine", "hu": "konyha", "definition": "A style of cooking", "example": "Thai cuisine is known for its bold flavors." },
+      { "term": "reservation", "hu": "foglalás", "definition": "An arrangement to hold something", "example": "I made a reservation for dinner." },
+      { "term": "deadline", "hu": "határidő", "definition": "The latest time to complete something", "example": "The deadline for the project is Friday." },
+      { "term": "colleague", "hu": "kolléga", "definition": "A work partner", "example": "I discussed the issue with my colleague." },
+      { "term": "promotion", "hu": "elöléptetés", "definition": "Advancement in job position", "example": "She received a promotion at work." },
+      { "term": "networking", "hu": "hálózatépítés", "definition": "Building professional contacts", "example": "Networking is important for career growth." },
+      { "term": "franchise", "hu": "franchise", "definition": "A business license", "example": "He bought a fast food franchise." },
+      { "term": "renovate", "hu": "felújít", "definition": "To repair and improve", "example": "They plan to renovate the old building." },
+      { "term": "spacious", "hu": "tágas", "definition": "Having plenty of space", "example": "The apartment has spacious rooms." },
+      { "term": "facilities", "hu": "létesítmények", "definition": "Equipment and buildings", "example": "The sports facilities are excellent." },
+      { "term": "maintain", "hu": "fenntart", "definition": "To keep in good condition", "example": "Regular maintenance is required." },
+      { "term": "sustainable", "hu": "fenntartható", "definition": "Able to continue long term", "example": "We need sustainable solutions." },
+      { "term": "diverse", "hu": "változatos", "definition": "Showing variety", "example": "The city has a diverse population." },
+      { "term": "vibrant", "hu": "élénk", "definition": "Full of energy and life", "example": "The downtown area is vibrant at night." }
+    ]
+  },
+
+  "reading": {
+    "title": "Reading",
+    "time": 60,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Modern Cities",
+        "description": "Questions 1-13 based on Part 1",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "Modern Cities",
+            "type": "ielts-complex",
+            "vocabId": "v_env_bronze_1",
+            "vocabList": [
+              { "term": "metropolitan", "hu": "nagyvárosi", "definition": "Relating to a large city", "example": "Metropolitan areas have millions of residents." },
+              { "term": "infrastructure", "hu": "infrastruktúra", "definition": "The basic systems and facilities", "example": "Cities need good infrastructure." },
+              { "term": "commute", "hu": "ingázik", "definition": "To travel regularly to work", "example": "Many people commute to the city center." },
+              { "term": "accommodation", "hu": "szállás", "definition": "A place to live or stay", "example": "Finding accommodation in big cities is expensive." },
+              { "term": "tourism", "hu": "turizmus", "definition": "The business of travel and leisure", "example": "Tourism is important for the local economy." },
+              { "term": "authentic", "hu": "autentikus", "definition": "Genuine and original", "example": "The restaurant serves authentic Italian food." },
+              { "term": "cuisine", "hu": "konyha", "definition": "A style of cooking", "example": "Thai cuisine is known for its bold flavors." },
+              { "term": "reservation", "hu": "foglalás", "definition": "An arrangement to hold something", "example": "I made a reservation for dinner." }
+            ],
+            "content": [
+              "<p>(A) Cities around the world are growing rapidly. By 2050, it is estimated that nearly 70% of the world's population will live in urban areas. This rapid urbanization brings both opportunities and challenges. Metropolitan areas offer better employment prospects, healthcare, and education, but they also face problems like traffic congestion and housing shortages.</p>",
+              "<p>(B) One of the biggest challenges for modern cities is transportation. Many people commute long distances to work every day. Public transport systems like buses, trains, and metros help reduce the number of cars on the road. However, building and maintaining these systems requires significant investment. Some cities have introduced bike-sharing programs and pedestrian zones to encourage greener forms of transport.</p>",
+              "<p>(C) Housing is another major concern. As more people move to cities, the demand for accommodation increases. This drives up rental and property prices. Some cities are responding by building more affordable housing and renovating old buildings. The concept of 'mixed-use' development, where residential and commercial spaces are combined, is becoming more popular.</p>",
+              "<p>(D) Tourism is a double-edged sword for cities. On one hand, it brings money and creates jobs. On the other hand, it can lead to overcrowding and damage to historic buildings. Many popular destinations are now implementing strategies to manage tourist numbers and protect their cultural heritage.</p>",
+              "<p>(E) Technology is transforming how cities function. Smart cities use data and sensors to manage traffic, energy use, and public services. For example, smart traffic lights can adjust their timing based on traffic flow, reducing congestion. Energy-efficient buildings are becoming standard in new construction projects.</p>",
+              "<p>(F) Despite the challenges, cities continue to attract people from rural areas and other countries. This migration brings cultural diversity and economic dynamism. Cities that successfully manage their growth while maintaining quality of life will thrive in the coming decades.</p>",
+              "<p>(G) Community involvement is crucial for urban development. Local residents should have a voice in planning decisions that affect their neighborhoods. Many cities now hold public consultations and use online platforms to gather feedback from citizens before implementing major projects.</p>",
+              "<p>(H) The future of cities depends on sustainable planning. This means balancing economic growth with environmental protection and social equity. Cities that invest in green spaces, renewable energy, and inclusive development will be better prepared for the challenges of the 21st century.</p>"
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph contains the following information? (1-8)",
+                "items": [
+                  { "id": "q1", "text": "How cities are using technology to improve services", "answer": "E" },
+                  { "id": "q2", "text": "The impact of tourism on historic sites", "answer": "D" },
+                  { "id": "q3", "text": "Problems with finding affordable housing", "answer": "C" },
+                  { "id": "q4", "text": "Community participation in city planning", "answer": "G" },
+                  { "id": "q5", "text": "Environmental considerations for future development", "answer": "H" },
+                  { "id": "q6", "text": "Transportation challenges in urban areas", "answer": "B" },
+                  { "id": "q7", "text": "Population growth predictions", "answer": "A" },
+                  { "id": "q8", "text": "Benefits of cultural diversity in cities", "answer": "F" }
+                ]
+              },
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct letter A, B, C, or D.",
+                "items": [
+                  { "id": "q9", "text": "According to the passage, what percentage of people will live in cities by 2050?", "options": [{ "text": "50%", "correct": false }, { "text": "60%", "correct": false }, { "text": "70%", "correct": true }, { "text": "80%", "correct": false }] },
+                  { "id": "q10", "text": "What is 'mixed-use' development?", "options": [{ "text": "Building houses only", "correct": false }, { "text": "Combining residential and commercial spaces", "correct": true }, { "text": "Using land for farming", "correct": false }, { "text": "Creating protected areas", "correct": false }] }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Workplace Communication",
+        "description": "Questions 14-26 based on Part 2",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "Workplace Communication",
+            "type": "ielts-complex",
+            "vocabList": [
+              { "term": "deadline", "hu": "határidő", "definition": "The latest time to complete something", "example": "The deadline for the project is Friday." },
+              { "term": "colleague", "hu": "kolléga", "definition": "A work partner", "example": "I discussed the issue with my colleague." },
+              { "term": "promotion", "hu": "elöléptetés", "definition": "Advancement in job position", "example": "She received a promotion at work." },
+              { "term": "networking", "hu": "hálózatépítés", "definition": "Building professional contacts", "example": "Networking is important for career growth." }
+            ],
+            "content": [
+              "<p>Effective communication in the workplace is essential for success. Whether you are speaking with colleagues, managers, or clients, clear communication helps prevent misunderstandings and builds professional relationships.</p>",
+              "<p>One of the most important skills is active listening. This means fully concentrating on what is being said rather than just passively hearing the message. When you actively listen, you ask clarifying questions and summarize what you heard to ensure understanding.</p>",
+              "<p>Written communication is equally important. Emails should be clear, concise, and professional. Always check your spelling and grammar before sending. Use a professional tone, especially when corresponding with senior colleagues or external contacts.</p>",
+              "<p>Meetings are a common part of workplace life. To make meetings productive, come prepared with an agenda and any necessary materials. During the meeting, stay focused on the topics being discussed and contribute constructively.</p>",
+              "<p>Networking involves building relationships with people in your industry. This can lead to new opportunities, collaborations, and career advancement. Attend industry events, join professional organizations, and maintain contact with former colleagues.</p>",
+              "<p>Handling conflict professionally is another crucial skill. When disagreements arise, address them directly but respectfully. Focus on finding solutions rather than assigning blame.</p>"
+            ],
+            "subTasks": [
+              {
+                "type": "short-answer",
+                "instruction": "Write NO MORE THAN THREE WORDS for each answer.",
+                "items": [
+                  { "id": "q14", "text": "What does active listening involve besides hearing the message?", "answer": "asking clarifying questions" },
+                  { "id": "q15", "text": "What should you check before sending an email?", "answer": "spelling and grammar" },
+                  { "id": "q16", "text": "What should you bring to a meeting?", "answer": "an agenda" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Food and Culture",
+        "description": "Questions 27-40 based on Part 3",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Food and Culture",
+            "type": "ielts-complex",
+            "vocabList": [
+              { "term": "authentic", "hu": "autentikus", "definition": "Genuine and original", "example": "The restaurant serves authentic Italian food." },
+              { "term": "cuisine", "hu": "konyha", "definition": "A style of cooking", "example": "Thai cuisine is known for its bold flavors." },
+              { "term": "reservation", "hu": "foglalás", "definition": "An arrangement to hold something", "example": "I made a reservation for dinner." }
+            ],
+            "content": [
+              "<p>Food is an important part of culture and identity. Different countries and regions have their own unique cuisines, which reflect their history, climate, and available ingredients.</p>",
+              "<p>Italian cuisine, for example, varies by region. Northern Italy is known for rice dishes and rich sauces, while southern Italy is famous for its pasta and olive oil. The Mediterranean diet, which includes olive oil, vegetables, and fish, is considered one of the healthiest in the world.</p>",
+              "<p>Asian cuisines offer incredible diversity. Chinese food varies from region to region, with Sichuan cuisine known for its spicy dishes and Cantonese food for its dim sum. Japanese cuisine emphasizes fresh ingredients and artistic presentation, while Thai food is famous for balancing sweet, sour, salty, and spicy flavors.</p>",
+              "<p>Street food is an essential part of food culture in many countries. It offers authentic, affordable meals and provides income for millions of people worldwide. From tacos in Mexico to pad thai in Thailand, street food reflects local tastes and traditions.</p>",
+              "<p>Food also brings people together. Family meals, celebrations, and festivals often center around food. Sharing a meal is a universal way to build relationships and strengthen community bonds.</p>"
+            ],
+            "subTasks": [
+              {
+                "type": "true-false-not-given",
+                "instruction": "Do the following statements agree with the information given in the passage? Write TRUE, FALSE, or NOT GIVEN.",
+                "items": [
+                  { "id": "q27", "text": "Italian cuisine is the same throughout Italy.", "answer": "FALSE" },
+                  { "id": "q28", "text": "The Mediterranean diet is considered healthy.", "answer": "TRUE" },
+                  { "id": "q29", "text": "Street food is only found in Asian countries.", "answer": "FALSE" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m2-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter",
+        "instruction": "You should spend about 20 minutes on this task. Write at least 150 words.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "You have lost something in a taxi and want to find it. Write a letter to the taxi company. In your letter: explain what you lost, describe where you were sitting in the taxi, suggest how the item can be returned to you.",
+        "bullets": [
+          "Explain what you lost",
+          "Describe where you were sitting in the taxi",
+          "Suggest how the item can be returned to you"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m2-t2",
+        "taskType": 2,
+        "title": "Task 2: Essay",
+        "instruction": "You should spend about 40 minutes on this task. Write at least 250 words.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Some people believe that unpaid community service should be a compulsory part of high school programs. To what extent do you agree or disagree?",
+        "bullets": [
+          "Give reasons for your answer",
+          "Include relevant examples from your knowledge or experience"
+        ],
+        "type": "essay"
+      }
+    ]
+  },
+
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 4 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "",
+        "subtitle": "Hotel Reservation",
+        "description": "You will hear a conversation between a customer and a hotel receptionist. First, you have some time to look at questions 1-10.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        "context": "Conversation between two speakers - social situation",
+        "type": "LISTENING",
+        "skill": "listening",
+        "questions": [
+          {
+            "type": "short-answer",
+            "instruction": "Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+            "questions": [
+              { "id": 1, "text": "Guest name:", "answer": "Michael Johnson", "wordLimit": 2, "allowNumber": true },
+              { "id": 2, "text": "Number of nights:", "answer": "3", "wordLimit": 1, "allowNumber": true },
+              { "id": 3, "text": "Room type:", "answer": "double room", "wordLimit": 2, "allowNumber": false },
+              { "id": 4, "text": "Arrival date:", "answer": "22nd March", "wordLimit": 2, "allowNumber": true },
+              { "id": 5, "text": "Special request:", "answer": "quiet room", "wordLimit": 2, "allowNumber": false }
+            ]
+          },
+          {
+            "type": "short-answer",
+            "instruction": "Answer the questions below. Write NO MORE THAN TWO WORDS for each answer.",
+            "questions": [
+              { "id": 6, "text": "What is included in the price?", "answer": "breakfast", "wordLimit": 2, "allowNumber": false },
+              { "id": 7, "text": "What time is check-in?", "answer": "2 pm", "wordLimit": 2, "allowNumber": true },
+              { "id": 8, "text": "Is parking available?", "answer": "yes", "wordLimit": 1, "allowNumber": false },
+              { "id": 9, "text": "What is the hotel's phone number?", "answer": "0171 555 8922", "wordLimit": 2, "allowNumber": true },
+              { "id": 10, "text": "How will the guest pay?", "answer": "credit card", "wordLimit": 2, "allowNumber": false }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "",
+        "subtitle": "City Tour Introduction",
+        "description": "You will hear a guide giving information about a city tour. First, you have some time to look at questions 11-20.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+        "context": "Monologue - information about local facilities",
+        "type": "LISTENING",
+        "skill": "listening",
+        "questions": [
+          {
+            "id": 11,
+            "type": "mcq",
+            "instruction": "Choose the correct letter, A, B or C.",
+            "question": "The tour starts from",
+            "options": ["the main station", "the tourist office", "the museum"],
+            "answer": "B"
+          },
+          {
+            "id": 12,
+            "type": "mcq",
+            "question": "How long does the walking tour last?",
+            "options": ["one hour", "two hours", "three hours"],
+            "answer": "B"
+          },
+          {
+            "id": 13,
+            "type": "mcq",
+            "question": "What is included in the tour price?",
+            "options": ["lunch", "entrance fees", "drinks"],
+            "answer": "B"
+          },
+          {
+            "id": 14,
+            "type": "mcq",
+            "question": "What should visitors bring?",
+            "options": ["a camera", "comfortable shoes", "a map"],
+            "answer": "B"
+          },
+          {
+            "id": 15,
+            "type": "mcq",
+            "question": "When does the tour run?",
+            "options": ["daily", "weekends only", "certain days"],
+            "answer": "C"
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "",
+        "subtitle": "Discussion about Project",
+        "description": "You will hear a discussion between a student and supervisor about a research project. First, you have some time to look at questions 21-30.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+        "context": "Conversation between two speakers - academic context",
+        "type": "LISTENING",
+        "skill": "listening",
+        "questions": [
+          {
+            "id": 21,
+            "type": "mcq",
+            "instruction": "Choose the correct letter, A, B or C.",
+            "question": "What is the main topic of the project?",
+            "options": ["climate change", "urban planning", "water conservation"],
+            "answer": "C"
+          },
+          {
+            "id": 22,
+            "type": "mcq",
+            "question": "What does the supervisor suggest adding?",
+            "options": ["more interviews", "statistical data", "photographs"],
+            "answer": "B"
+          },
+          {
+            "id": 23,
+            "type": "mcq",
+            "question": "When is the first draft due?",
+            "options": "next Friday"
+          }
+        ]
+      },
+      {
+        "id": "part4",
+        "part": 4,
+        "title": "",
+        "subtitle": "Lecture on Renewable Energy",
+        "description": "You will hear a lecture about renewable energy sources. First, you have some time to look at questions 31-40.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
+        "context": "Monologue - educational talk",
+        "type": "LISTENING",
+        "skill": "listening",
+        "questions": [
+          {
+            "type": "short-answer",
+            "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
+            "questions": [
+              { "id": 31, "text": "Solar energy comes from the:", "answer": "sun", "wordLimit": 2 },
+              { "id": 32, "text": "Wind turbines convert wind energy into:", "answer": "electricity", "wordLimit": 2 },
+              { "id": 33, "text": "Hydroelectric power uses flowing:", "answer": "water", "wordLimit": 2 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "parts": [
+      {
+        "id": "part1",
+        "title": "Part 1: Introduction and Interview",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "Answer the examiner's questions about familiar topics. Speak naturally and give full answers.",
+        "topics": [
+          {
+            "topic": "Your City",
+            "questions": [
+              { "id": "p1q1", "text": "What kind of city do you live in?" },
+              { "id": "p1q2", "text": "What is the most interesting part of your city?" },
+              { "id": "p1q3", "text": "Has your city changed much since you were a child?" },
+              { "id": "p1q4", "text": "Do you think your city is a good place to live? (Why?)" }
+            ]
+          },
+          {
+            "topic": "Transport",
+            "questions": [
+              { "id": "p1q5", "text": "What form of transport do you most often use?" },
+              { "id": "p1q6", "text": "Do you prefer public or private transport? (Why?)" },
+              { "id": "p1q7", "text": "How could transport be improved in your city?" },
+              { "id": "p1q8", "text": "Did you learn to ride a bike as a child?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Part 2: Long Turn",
+        "type": "long-turn",
+        "duration": "3-4 minutes",
+        "instruction": "You will have 1 minute to prepare, then speak for 1-2 minutes on the topic.",
+        "topicCard": {
+          "id": "task1",
+          "topic": "Describe a skill you learned when you were a child.",
+          "description": "You should say:",
+          "bulletPoints": [
+            "what the skill was",
+            "how you learned it",
+            "who taught you",
+            "explain why this skill was useful"
+          ],
+          "roundingQuestions": [
+            { "id": "r1", "text": "Do you think children should learn practical skills at school?" },
+            { "id": "r2", "text": "What other skills are important for children to learn?" }
+          ]
+        }
+      },
+      {
+        "id": "part3",
+        "title": "Part 3: Discussion",
+        "type": "discussion",
+        "duration": "4-5 minutes",
+        "instruction": "Discuss more abstract topics related to Part 2. Give reasons and examples.",
+        "topics": [
+          {
+            "topic": "Learning Skills",
+            "questions": [
+              { "id": "p3q1", "text": "What skills are important for success in the modern workplace?" },
+              { "id": "p3q2", "text": "Should companies train their employees or hire experienced workers?" },
+              { "id": "p3q3", "text": "How has technology changed the way we learn new skills?" },
+              { "id": "p3q4", "text": "Do you think traditional skills are still valuable in today's world?" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

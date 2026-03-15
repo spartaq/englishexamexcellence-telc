@@ -13,7 +13,7 @@ export const drillsData = {
 
 // 2. The Hub Configuration
 export const DRILLS_HUB = {
-  title: "General Practice Drills",
+  title: "Drills Hub",
   description: "Targeted exercises to improve core English skills.",
   categories: [
     {

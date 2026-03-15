@@ -549,12 +549,12 @@ export const pluckRandomFullMock = (testType = null) => {
     return null;
   }
   
-  // Determine title based on test type
+  // Determine title based on test type - include Mock number
   const mockTitle = testType === 'general' 
-    ? 'IELTS General Training Full Mock' 
+    ? `IELTS General Training Full Mock - Mock ${mock.mockNumber || 1}` 
     : testType === 'academic' 
-      ? 'IELTS Academic Full Mock' 
-      : 'IELTS Full Mock Test';
+      ? `IELTS Academic Full Mock - Mock ${mock.mockNumber || 1}` 
+      : `IELTS Full Mock Test - Mock ${mock.mockNumber || 1}`;
   
   // Build sections from the new JSON structure
   const sections = [];
@@ -622,6 +622,111 @@ export const pluckRandomFullMock = (testType = null) => {
     title: mockTitle,
     type: 'full-mock',
     testType: testType,
+    mockNumber: mock.mockNumber,
+    xp: 2000,
+    sections: sections
+  };
+  
+  return fullMock;
+};
+
+/**
+ * Get Mock 1 specifically for full test (not random)
+ * This ensures users start with Mock 1 and can refresh to retry
+ * @param {string} testType - 'general' or 'academic' to filter mocks by type
+ */
+export const pluckFullMock1 = (testType = null) => {
+  // Get all mocks
+  const mockValues = Object.values(ieltsMocks);
+  
+  // Filter by test type if specified
+  let filteredMocks = mockValues;
+  if (testType) {
+    filteredMocks = mockValues.filter(m => m.type === testType);
+  }
+  
+  // Always get the first mock (mock 1)
+  const mock = filteredMocks.length > 0 ? filteredMocks[0] : mockValues[0];
+  
+  if (!mock) {
+    console.error('No mock found for full test');
+    return null;
+  }
+  
+  // Determine title based on test type - include Mock number
+  const mockTitle = testType === 'general' 
+    ? 'IELTS General Training Full Mock - Mock 1' 
+    : testType === 'academic' 
+      ? 'IELTS Academic Full Mock - Mock 1' 
+      : 'IELTS Full Mock Test - Mock 1';
+
+  // Build sections from the new JSON structure
+  const sections = [];
+  
+  // Add reading sections (from mock.reading.sections)
+  if (mock.reading?.sections) {
+    mock.reading.sections.forEach(section => {
+      if (section.passages) {
+        section.passages.forEach(passage => {
+          sections.push({
+            ...passage,
+            skill: 'reading',
+            type: passage.type || 'reading-practice'
+          });
+        });
+      }
+    });
+  }
+
+  // Add writing sections (from mock.writing.sections)
+  if (mock.writing?.sections) {
+    mock.writing.sections.forEach(section => {
+      sections.push({
+        ...section,
+        skill: 'writing',
+        type: 'WRITING'
+      });
+    });
+  }
+
+  // Add listening sections (from mock.listening.sections)
+  if (mock.listening?.sections) {
+    mock.listening.sections.forEach(section => {
+      sections.push({
+        ...section,
+        skill: 'listening',
+        type: 'LISTENING'
+      });
+    });
+  }
+
+  // Add speaking parts (from mock.speaking.parts)
+  if (mock.speaking?.parts) {
+    mock.speaking.parts.forEach(part => {
+      sections.push({
+        ...part,
+        skill: 'speaking',
+        type: 'SPEAKING'
+      });
+    });
+  }
+  
+  // Add vocabulary
+  if (mock.vocabulary) {
+    sections.unshift({
+      ...mock.vocabulary,
+      skill: 'vocab',
+      type: 'VOCAB'
+    });
+  }
+  
+  // Combine into a full mock test
+  const fullMock = {
+    id: `full-mock-${testType || 'random'}-1`,
+    title: mockTitle,
+    type: 'full-mock',
+    testType: testType,
+    mockNumber: 1,
     xp: 2000,
     sections: sections
   };
