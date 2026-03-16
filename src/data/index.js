@@ -53,6 +53,8 @@ const vocabLessons = { ...vocabLessonsFromHub, ...vocabLessonsFromLevels };
 // Create Reading Hub from JSON
 const createReadingHub = (type, title) => {
   const passages = getAllReadingPassages().filter(p => p.testType === type);
+  // Get unique mocks for this type
+  const uniqueMocks = [...new Set(passages.map(p => p.mockId))];
   return {
     title: `${title} Reading`,
     description: `Practice ${type} reading passages`,
@@ -61,13 +63,18 @@ const createReadingHub = (type, title) => {
         id: `${type}-reading-mocks`,
         title: 'Full Reading Mocks',
         description: `Complete ${type} reading tests`,
-        tasks: passages.map((passage, idx) => ({
-          id: passage.mockId || `passage-${idx}`,
-          title: passage.title || 'Reading Passage',
-          xp: 300,
-          type: 'reading-practice',
-          tier: 'bronze'
-        }))
+        tasks: uniqueMocks.map(mockId => {
+          const mock = ieltsMocks[mockId];
+          return {
+            id: mockId,
+            mockId: mockId,
+            title: mock?.title || `${type} Reading Test`,
+            xp: 300,
+            type: 'READING',
+            skill: 'reading',
+            tier: 'bronze'
+          };
+        })
       }
     ]
   };
@@ -76,6 +83,8 @@ const createReadingHub = (type, title) => {
 // Create Writing Hub from JSON
 const createWritingHub = (type, title) => {
   const tasks = getAllWritingTasks().filter(t => t.testType === type);
+  // Get unique mocks for this type
+  const uniqueMocks = [...new Set(tasks.map(t => t.mockId))];
   return {
     title: `${title} Writing`,
     description: `Practice ${type} writing tasks`,
@@ -84,13 +93,18 @@ const createWritingHub = (type, title) => {
         id: `${type}-writing-mocks`,
         title: 'Full Writing Mocks',
         description: `Complete ${type} writing tasks`,
-        tasks: tasks.map((task, idx) => ({
-          id: task.mockId || `task-${idx}`,
-          title: task.title || 'Writing Task',
-          xp: task.xp || 300,
-          type: 'WRITING',
-          tier: 'bronze'
-        }))
+        tasks: uniqueMocks.map(mockId => {
+          const mock = ieltsMocks[mockId];
+          return {
+            id: mockId,
+            mockId: mockId,
+            title: mock?.title || `${type} Writing Test`,
+            xp: 500,
+            type: 'WRITING',
+            skill: 'writing',
+            tier: 'bronze'
+          };
+        })
       }
     ]
   };
@@ -109,9 +123,11 @@ const createSpeakingHub = () => {
         description: 'Complete IELTS Speaking simulations',
         tasks: Object.values(ieltsMocks).map(mock => ({
           id: mock.id,
+          mockId: mock.id,
           title: mock.title || 'Speaking Test',
           xp: 1200,
-          type: 'speaking-mock',
+          type: 'speaking',
+          skill: 'speaking',
           tier: 'bronze'
         }))
       }
@@ -132,9 +148,11 @@ const createListeningHub = () => {
         description: 'Complete IELTS Listening tests',
         tasks: Object.values(ieltsMocks).map(mock => ({
           id: mock.id,
+          mockId: mock.id,
           title: mock.title || 'Listening Test',
           xp: 300,
-          type: 'listening-practice',
+          type: 'LISTENING',
+          skill: 'listening',
           tier: 'bronze'
         }))
       }
@@ -169,6 +187,11 @@ export const HUBS = {
   reading_general: IELTS_READING_GT,
   writing_academic: IELTS_WRITING_AC,
   writing_general: IELTS_WRITING_GT,
+  // Aliases for short URLs
+  reading_ac: IELTS_READING_AC,
+  reading_gt: IELTS_READING_GT,
+  writing_ac: IELTS_WRITING_AC,
+  writing_gt: IELTS_WRITING_GT,
   speaking: IELTS_SPEAKING,
   listening: IELTS_LISTENING,
   ielts_atoms: IELTS_ATOMS, 
@@ -241,3 +264,6 @@ export const loadFullLesson = (metadata) => {
 export const getHub = (testType, skill) => {
   return EXAM_CONFIG[testType]?.modules[skill] || null;
 };
+
+// Re-export ieltsMocks for direct access in App.jsx
+export { ieltsMocks };

@@ -50,7 +50,7 @@ import NotesCompletionBlock from './components/engine/InteractiveBlocks/NotesCom
 import PunctuationCorrectionBlock from './components/engine/InteractiveBlocks/PunctuationCorrectionBlock';
 
 // Behind-the-Scenes (Data, Hooks & Utilities)
-import { HUBS, loadFullLesson } from './data/index';
+import { HUBS, loadFullLesson, ieltsMocks } from './data/index';
 import { ATOM_HUB } from './data/IELTS/atoms';
 import { useActive } from './hooks/useActive';
 import { useXP } from './hooks/useXP';
@@ -749,6 +749,121 @@ function App({ initialView }) {
       };
       setActiveLesson(flowLesson);
       setView('lesson');
+    } else if (taskMetadata.type === 'ielts-complex' || taskMetadata.type === 'READING' || taskMetadata.skill === 'reading') {
+      console.log('[DEBUG] Reading task triggered, metadata:', JSON.stringify(taskMetadata));
+      // Reading task from hub - load reading section from mock
+      if (taskMetadata.mockId) {
+        const mock = ieltsMocks[taskMetadata.mockId];
+        if (mock?.reading) {
+          // Flatten all passages from all sections into a single array for the lesson
+          const allPassages = [];
+          if (mock.reading.sections) {
+            mock.reading.sections.forEach(section => {
+              if (section.passages) {
+                section.passages.forEach(passage => {
+                  allPassages.push({
+                    ...passage,
+                    sectionTitle: section.title,
+                    sectionDescription: section.description
+                  });
+                });
+              }
+            });
+          }
+          
+          setActiveLesson({
+            ...mock.reading,
+            passages: allPassages,
+            type: 'READING',
+            skill: 'reading',
+            xpReward: taskMetadata.xp || 300
+          });
+          setView('lesson');
+          return;
+        }
+      }
+      // Fallback: try standard loading
+      const fullLesson = loadFullLesson(taskMetadata);
+      setActiveLesson(fullLesson);
+      setView('lesson');
+    } else if (taskMetadata.type === 'WRITING' || taskMetadata.skill === 'writing') {
+      console.log('[DEBUG] Writing task triggered, metadata:', JSON.stringify(taskMetadata));
+      // Writing task from hub - load writing section from mock
+      console.log('[DEBUG] Checking mockId:', taskMetadata.mockId, 'ieltsMocks:', Object.keys(ieltsMocks));
+      if (taskMetadata.mockId) {
+        const mock = ieltsMocks[taskMetadata.mockId];
+        console.log('[DEBUG] Found mock:', mock, 'writing:', mock?.writing);
+        if (mock?.writing) {
+          // Flatten all tasks from all sections
+          const allTasks = [];
+          if (mock.writing.sections) {
+            mock.writing.sections.forEach(section => {
+              allTasks.push(section);
+            });
+          }
+          console.log('[DEBUG] Writing sections:', allTasks.length);
+          
+          setActiveLesson({
+            ...mock.writing,
+            sections: allTasks,
+            type: 'WRITING',
+            skill: 'writing',
+            xpReward: taskMetadata.xp || 500
+          });
+          console.log('[DEBUG] Setting view to lesson, activeLesson sections:', allTasks.length);
+          setView('lesson');
+          console.log('[DEBUG] Done, returning');
+          return;
+        } else {
+          console.log('[DEBUG] No mock.writing found');
+        }
+      } else {
+        console.log('[DEBUG] No mockId in task');
+      }
+      // Fallback: try standard loading
+      console.log('[DEBUG] Falling back to loadFullLesson');
+      const fullLesson = loadFullLesson(taskMetadata);
+      console.log('[DEBUG] Fallback result:', fullLesson);
+      setActiveLesson(fullLesson);
+      setView('lesson');
+    } else if (taskMetadata.type === 'LISTENING' || taskMetadata.skill === 'listening') {
+      // Listening task from hub - load listening section from mock
+      if (taskMetadata.mockId) {
+        const mock = ieltsMocks[taskMetadata.mockId];
+        if (mock?.listening) {
+          setActiveLesson({
+            ...mock.listening,
+            type: 'LISTENING',
+            skill: 'listening',
+            xpReward: taskMetadata.xp || 300
+          });
+          setView('lesson');
+          return;
+        }
+      }
+      // Fallback: try standard loading
+      const fullLesson = loadFullLesson(taskMetadata);
+      setActiveLesson(fullLesson);
+      setView('lesson');
+    } else if (taskMetadata.type === 'speaking' || taskMetadata.skill === 'speaking') {
+      // Speaking task from hub - load speaking section from mock
+      if (taskMetadata.mockId) {
+        const mock = ieltsMocks[taskMetadata.mockId];
+        if (mock?.speaking) {
+          setActiveLesson({
+            ...mock.speaking,
+            type: 'speaking',
+            skill: 'speaking',
+            xpReward: taskMetadata.xp || 300
+          });
+          setView('lesson');
+          return;
+        }
+      }
+      // Fallback: try standard loading
+      const fullLesson = loadFullLesson(taskMetadata);
+      setActiveLesson(fullLesson);
+      setView('lesson');
     } else {
       // STANDARD: Load a single task
       const fullLesson = loadFullLesson(taskMetadata);
@@ -791,12 +906,19 @@ function App({ initialView }) {
   // ============================================================
   const renderQuestionBlock = (taskData) => {
     if (!taskData) return null;
+    
+    console.log('[renderQuestionBlock] Called with type:', taskData.type, 'skill:', taskData.skill, 'prompt:', !!taskData.prompt, 'id:', taskData.id);
 
     if (taskData.prompts || taskData.scenarios || taskData.candidateInfo || taskData.topicCard || taskData.type === 'SPEAKING' || taskData.type === 'ielts-speaking' || taskData.type === 'discussion' || taskData.type === 'interview' || taskData.type === 'long-turn' || taskData.skill === 'speaking') {
         return <SpeakingBlock data={taskData} onComplete={handleCheckAnswers} isMiniTest={true} />;
     }
     if (taskData.type === 'WRITING' || taskData.prompt) {
-        return <WritingBlock data={taskData} onComplete={handleCheckAnswers} isMiniTest={true} />;
+        // Extract the task based on activeSectionIndex if sections exist
+        const writingTask = taskData.sections && taskData.sections.length > 0 
+          ? { ...taskData, ...taskData.sections[activeSectionIndex] || taskData.sections[0] }  // Merge parent with current task
+          : taskData;
+        console.log('[renderQuestionBlock] Rendering WritingBlock with task index:', activeSectionIndex, 'task:', JSON.stringify(writingTask).slice(0, 300));
+        return <WritingBlock data={writingTask} onComplete={handleCheckAnswers} isMiniTest={true} />;
     }
 
     if (taskData.type === 'LISTENING' || taskData.skill === 'listening') return <ListeningBlock data={taskData} onComplete={handleCheckAnswers} isMiniTest={true} />;
@@ -1465,6 +1587,7 @@ function App({ initialView }) {
 
           {/* THE LESSON ENGINE */}
           {view === 'lesson' && activeLesson && (
+            console.log('[RENDER] Rendering lesson, activeLesson.type:', activeLesson.type, 'sections:', activeLesson.sections?.length) ||
             <div className="lesson-engine">
               {/* Use mock-flow for tests with sections/passages/parts OR mock-test types */}
               {(activeLesson.sections || activeLesson.passages || activeLesson.parts || 
@@ -1481,7 +1604,9 @@ function App({ initialView }) {
                     // For speaking tests with 'parts' array (full mocks), use activeLesson directly
                     // For 'ielts-complex' type reading exercises, activeLesson IS the passage
                     // Otherwise use the section at activeSectionIndex
-                    const isSinglePassage = activeLesson.type === 'ielts-complex' || activeLesson.type === 'READING' || activeLesson.type === 'reading' || activeLesson.type === 'reading-practice' || activeLesson.type === 'LISTENING' || activeLesson.type === 'listening' || activeLesson.type === 'WRITING' || activeLesson.type === 'writing';
+                    // Check if we have multiple passages - if so, don't treat as single passage
+                    const hasMultiplePassages = activeLesson.passages && activeLesson.passages.length > 1;
+                    const isSinglePassage = !hasMultiplePassages && (activeLesson.type === 'ielts-complex' || activeLesson.type === 'READING' || activeLesson.type === 'reading' || activeLesson.type === 'reading-practice' || activeLesson.type === 'LISTENING' || activeLesson.type === 'listening' || activeLesson.type === 'WRITING' || activeLesson.type === 'writing');
                     const currentSection = (activeLesson.parts && activeLesson.parts.length > 0) 
                       ? activeLesson 
                       : isSinglePassage 
@@ -1665,6 +1790,8 @@ function App({ initialView }) {
                           const sectionHasReading = currentSection?.skill === 'reading' || 
                             (currentSection?.passages && currentSection.passages.some(p => p.type === 'ielts-complex'));
                           const handlesOwnQuestions = ['LISTENING', 'SPEAKING', 'WRITING', 'VOCAB', 'ielts-speaking', 'discussion', 'interview', 'long-turn', 'READING', 'reading', 'reading-practice', 'ielts-complex'].includes(currentSection.type) || currentSection.skill === 'listening' || currentSection.skill === 'speaking' || currentSection.skill === 'writing' || currentSection.skill === 'vocab' || currentSection.skill === 'reading' || sectionHasReading;
+                          
+                          console.log('[RENDER] currentSection.type:', currentSection.type, 'currentSection.skill:', currentSection.skill, 'handlesOwnQuestions:', handlesOwnQuestions);
                           
                           const subTasks = currentPassage?.subTasks || currentSection?.subTasks || [];
                           

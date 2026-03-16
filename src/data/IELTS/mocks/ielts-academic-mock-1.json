@@ -94,17 +94,35 @@
             ],
             "subTasks": [
               {
-                "type": "matching-headings",
+                "type": "heading-match",
                 "instruction": "Choose the correct heading for each paragraph.",
+                "headings": [
+                  "Traditional functions of universities",
+                  "Expansion of university roles",
+                  "Funding challenges",
+                  "Global enrollment trends",
+                  "Teaching versus research",
+                  "Student enrollment statistics",
+                  "International partnerships",
+                  "Campus facilities",
+                  "Quality control measures",
+                  "Access to higher education",
+                  "Faculty responsibilities",
+                  "Career services",
+                  "Government regulations",
+                  "Sources of university funding",
+                  "Student support programs",
+                  "Alumni relations"
+                ],
                 "questions": [
-                  { "id": "r2q1", "text": "Paragraph A", "options": ["Traditional functions of universities", "Expansion of university roles", "Funding challenges", "Global enrollment trends"], "answer": 0 },
-                  { "id": "r2q2", "text": "Paragraph B", "options": ["Teaching versus research", "Student enrollment statistics", "International partnerships", "Campus facilities"], "answer": 0 },
-                  { "id": "r2q3", "text": "Paragraph C", "options": ["Quality control measures", "Access to higher education", "Faculty responsibilities", "Career services"], "answer": 1 },
-                  { "id": "r2q4", "text": "Paragraph D", "options": ["Government regulations", "Sources of university funding", "Student support programs", "Alumni relations"], "answer": 1 }
+                  { "id": "r2q1", "text": "Paragraph A", "answer": 0 },
+                  { "id": "r2q2", "text": "Paragraph B", "answer": 1 },
+                  { "id": "r2q3", "text": "Paragraph C", "answer": 9 },
+                  { "id": "r2q4", "text": "Paragraph D", "answer": 13 }
                 ]
               },
               {
-                "type": "true-false-not-given",
+                "type": "trinary",
                 "instruction": "Do the following statements agree with the views of the writer?",
                 "questions": [
                   { "id": "r2q5", "text": "Universities only need to focus on teaching nowadays.", "answer": "False" },
@@ -169,12 +187,18 @@
     "time": 60,
     "sections": [
       {
-        "id": "writing-task-1",
-        "type": "task-1",
+        "id": "w-m1-t1",
+        "taskType": 1,
         "title": "Task 1: Data Description",
-        "instruction": "Summarize the information by selecting and reporting the main features, and make comparisons where relevant.",
-        "wordLimit": 150,
+        "instruction": "You should spend about 20 minutes on this task. Write at least 150 words.",
+        "targetWords": 150,
         "xp": 250,
+        "prompt": "Summarize the information by selecting and reporting the main features, and make comparisons where relevant.",
+        "bullets": [
+          "Select and describe the main features",
+          "Make comparisons where relevant",
+          "Write at least 150 words"
+        ],
         "data": {
           "type": "bar-chart",
           "title": "Population growth in three countries (1950-2000)",
@@ -182,32 +206,247 @@
             { "label": "1950", "USA": 150, "China": 550, "India": 370 },
             { "label": "2000", "USA": 280, "China": 1250, "India": 1050 }
           ]
-        }
+        },
+        "type": "report"
       },
       {
-        "id": "writing-task-2",
-        "type": "task-2",
+        "id": "w-m1-t2",
+        "taskType": 2,
         "title": "Task 2: Essay",
-        "instruction": "Write about the following topic. Give reasons for your answer and include any relevant examples from your knowledge or experience.",
-        "wordLimit": 250,
+        "instruction": "You should spend about 40 minutes on this task. Write at least 250 words.",
+        "targetWords": 250,
         "xp": 500,
-        "prompt": "Some people believe that unpaid community service should be a compulsory part of high school programs. To what extent do you agree or disagree?"
+        "prompt": "Some people believe that unpaid community service should be a compulsory part of high school programs. To what extent do you agree or disagree?",
+        "bullets": [
+          "Give reasons for your answer",
+          "Include relevant examples from your knowledge or experience"
+        ],
+        "type": "essay"
       }
     ]
   },
   "listening": {
     "title": "Listening",
     "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 4 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
     "sections": [
       {
-        "id": "listening-section-1",
-        "type": "conversation",
-        "title": "Section 1: Conversation",
-        "audioUrl": "/audio/ielts/academic/mock1/section1.mp3",
-        "transcript": "Man: Hello, I'm looking for information about the university library...\nWoman: Of course, I'd be happy to help. What would you like to know?",
+        "id": "part1",
+        "part": 1,
+        "title": "",
+        "subtitle": "Booking a Holiday Cottage",
+        "description": "You will hear a conversation between a travel agent and a customer who wants to book a holiday cottage. First, you have some time to look at questions 1-10.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "context": "Conversation between two speakers - social situation",
+        "type": "LISTENING",
+        "skill": "listening",
         "questions": [
-          { "id": "l1q1", "type": "multiple-choice", "text": "What time does the library open?", "options": ["8:00 AM", "8:30 AM", "9:00 AM", "9:30 AM"], "answer": "8:30 AM" },
-          { "id": "l1q2", "type": "fill-blank", "text": "The library is closed on ____", "answer": "Sundays" }
+          {
+            "type": "short-answer",
+            "instruction": "Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+            "questions": [
+              { "id": 1, "text": "Customer name:", "answer": "Sarah Mitchell", "wordLimit": 2, "allowNumber": true },
+              { "id": 2, "text": "Contact telephone:", "answer": "07788 456321", "wordLimit": 1, "allowNumber": true },
+              { "id": 3, "text": "Preferred location:", "answer": "Lake District", "wordLimit": 2, "allowNumber": false },
+              { "id": 4, "text": "Number of adults:", "answer": "4", "wordLimit": 1, "allowNumber": true },
+              { "id": 5, "text": "Number of children:", "answer": "2", "wordLimit": 1, "allowNumber": true }
+            ]
+          },
+          {
+            "type": "short-answer",
+            "instruction": "Answer the questions below. Write NO MORE THAN TWO WORDS for each answer.",
+            "questions": [
+              { "id": 6, "text": "What is the maximum budget per week?", "answer": "800 pounds", "wordLimit": 2, "allowNumber": true },
+              { "id": 7, "text": "Which facility must the cottage have?", "answer": "garden", "wordLimit": 2, "allowNumber": false },
+              { "id": 8, "text": "What date does the customer want to arrive?", "answer": "15th July", "wordLimit": 2, "allowNumber": true },
+              { "id": 9, "text": "What is the customer's main concern about the cottage?", "answer": "parking", "wordLimit": 2, "allowNumber": false },
+              { "id": 10, "text": "What does the customer ask to be sent?", "answer": "brochure", "wordLimit": 2, "allowNumber": false }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "",
+        "subtitle": "Tour of a Museum Complex",
+        "description": "You will hear a guide giving a tour of a museum complex. First, you have some time to look at questions 11-20.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+        "context": "Monologue - information about local facilities",
+        "type": "LISTENING",
+        "skill": "listening",
+        "questions": [
+          {
+            "id": 11,
+            "type": "diagram-label",
+            "instruction": "Label the map below. Write the correct letter, A-H, next to Questions 11-15.",
+            "labels": [
+              { "id": "11", "text": "Ticket Office", "answer": "A" },
+              { "id": "12", "text": "Café", "answer": "D" },
+              { "id": "13", "text": "Gift Shop", "answer": "F" },
+              { "id": "14", "text": "Main Exhibition Hall", "answer": "C" },
+              { "id": "15", "text": "Children's Activity Centre", "answer": "H" }
+            ],
+            "wordLimit": 1,
+            "options": ["A", "B", "C", "D", "E", "F", "G", "H"]
+          },
+          {
+            "id": 16,
+            "type": "mcq",
+            "instruction": "Choose the correct letter, A, B or C.",
+            "question": "The museum was originally built as a",
+            "options": ["a private residence", "a government building", "a factory"],
+            "answer": "A"
+          },
+          {
+            "id": 17,
+            "type": "mcq",
+            "question": "The museum's collection focuses mainly on",
+            "options": ["ancient artefacts", "local history", "modern art"],
+            "answer": "B"
+          },
+          {
+            "id": 18,
+            "type": "mcq",
+            "question": "The guided tours last approximately",
+            "options": ["45 minutes", "1 hour", "90 minutes"],
+            "answer": "B"
+          },
+          {
+            "id": 19,
+            "type": "mcq",
+            "question": "The restaurant can serve",
+            "options": ["50 people", "100 people", "200 people"],
+            "answer": "C"
+          },
+          {
+            "id": 20,
+            "type": "mcq",
+            "question": "What is free for members?",
+            "options": ["parking", "guides", "coffee"],
+            "answer": "B"
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "",
+        "subtitle": "Discussion about University Course",
+        "description": "You will hear a discussion between a student and an academic advisor. First, you have some time to look at questions 21-30.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        "context": "Conversation between two speakers - academic context",
+        "type": "LISTENING",
+        "skill": "listening",
+        "questions": [
+          {
+            "type": "mcq",
+            "instruction": "Choose the correct letter, A, B or C.",
+            "question": "The student is studying",
+            "options": ["Business", "Computer Science", "Engineering"],
+            "answer": "A"
+          },
+          {
+            "type": "mcq",
+            "question": "What is the main concern about the assignment?",
+            "options": ["the topic", "the deadline", "the length"],
+            "answer": "B"
+          },
+          {
+            "type": "mcq",
+            "question": "When is the assignment due?",
+            "options": ["next week", "in two weeks", "in three weeks"],
+            "answer": "C"
+          },
+          {
+            "type": "mcq",
+            "question": "What does the advisor suggest about the research?",
+            "options": ["visit the library", "use online databases", "interview professors"],
+            "answer": "B"
+          },
+          {
+            "type": "mcq",
+            "question": "How many sources are required for the bibliography?",
+            "options": ["5", "10", "15"],
+            "answer": "B"
+          },
+          {
+            "type": "mcq",
+            "question": "What format should the essay follow?",
+            "options": ["APA", "MLA", "Harvard"],
+            "answer": "C"
+          },
+          {
+            "type": "mcq",
+            "question": "Who will review the first draft?",
+            "options": ["the advisor", "peer students", "external examiner"],
+            "answer": "A"
+          },
+          {
+            "type": "short-answer",
+            "instruction": "Answer the questions below. Write NO MORE THAN TWO WORDS for each answer.",
+            "questions": [
+              { "id": 28, "text": "What is the minimum word count for the essay?", "answer": "3000 words", "wordLimit": 2, "allowNumber": true },
+              { "id": 29, "text": "What software is recommended for formatting?", "answer": "Word", "wordLimit": 1, "allowNumber": false },
+              { "id": 30, "text": "When are the office hours for the advisor?", "answer": "Tuesday afternoon", "wordLimit": 2, "allowNumber": false }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part4",
+        "part": 4,
+        "title": "",
+        "subtitle": "Lecture on Animal Behavior",
+        "description": "You will hear a lecture about animal behavior. First, you have some time to look at questions 31-40.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+        "context": "Monologue - educational talk",
+        "type": "LISTENING",
+        "skill": "listening",
+        "questions": [
+          {
+            "type": "short-answer",
+            "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
+            "questions": [
+              { "id": 31, "text": "The study focuses on animal behavior in", "answer": "the wild", "wordLimit": 2, "allowNumber": false },
+              { "id": 32, "text": "The main finding is that animals", "answer": "communicate", "wordLimit": 2, "allowNumber": false },
+              { "id": 33, "text": "Future research will examine", "answer": "social behavior", "wordLimit": 2, "allowNumber": false },
+              { "id": 34, "text": "The research was conducted over a period of", "answer": "five years", "wordLimit": 2, "allowNumber": true },
+              { "id": 35, "text": "The main method used was", "answer": "observation", "wordLimit": 2, "allowNumber": false }
+            ]
+          },
+          {
+            "type": "mcq",
+            "instruction": "Choose the correct letter, A, B or C.",
+            "question": "According to the lecture, what triggers the warning behavior?",
+            "options": ["food availability", "predator presence", "weather changes"],
+            "answer": "B"
+          },
+          {
+            "type": "mcq",
+            "question": "How many species were studied in total?",
+            "options": ["12", "25", "30"],
+            "answer": "C"
+          },
+          {
+            "type": "mcq",
+            "question": "What was surprising about the results?",
+            "options": ["the complexity of communication", "the speed of adaptation", "the memory capacity"],
+            "answer": "A"
+          },
+          {
+            "type": "mcq",
+            "question": "The funding for the research came from",
+            "options": ["government grants", "private donations", "university funds"],
+            "answer": "A"
+          },
+          {
+            "type": "matching",
+            "instruction": "Match the animal species with their communication method. Write the correct letter, A, B, C or D.",
+            "questions": [
+              { "id": 40, "text": "Dolphins -", "options": ["vocal calls", "body movements", "chemical signals", "electrical signals"], "answer": "A" }
+            ]
+          }
         ]
       }
     ]
@@ -240,23 +479,32 @@
           }
         ]
       },
-      {
-        "id": "speaking-part-2",
+      
+
+ {
+        "id": "part2",
         "title": "Part 2: Long Turn",
         "type": "long-turn",
         "duration": "3-4 minutes",
         "instruction": "You will have 1 minute to prepare, then speak for 1-2 minutes on the topic.",
         "topicCard": {
-          "id": "task-1",
-          "title": "Describe a skill you learned when you were a child.",
-          "cueCards": [
+          "id": "task1",
+          "topic": "Describe a skill you learned when you were a child.",
+          "description": "You should say:",
+          "bulletPoints": [            
             "What the skill was",
             "Who taught you this skill",
             "How you learned it",
             "And explain why this skill was useful to you"
+          ],
+          "roundingQuestions": [
+            { "id": "r1", "text": "Is it valuable to you now?" },
+            { "id": "r2", "text": "Would it be easy to learn this skill now if you didn't already know it?" }
           ]
         }
       },
+
+
       {
         "id": "speaking-part-3",
         "title": "Part 3: Discussion",

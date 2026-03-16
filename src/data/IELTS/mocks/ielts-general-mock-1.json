@@ -35,9 +35,9 @@
       { "term": "precaution", "hu": "elözmély", "definition": "A measure taken to prevent something", "example": "Fire drills are an important precaution." }
     ]
   },
-
+  
   "reading": {
-    "title": "Reading",
+    "title": "General Training Reading Mock 1",
     "time": 60,
     "sections": [
       {
@@ -50,16 +50,11 @@
             "id": "p1",
             "title": "The Earth",
             "type": "ielts-complex",
-            "vocabId": "v_env_bronze_1",
             "vocabList": [
-              { "term": "approximately", "hu": "körülbelül", "definition": "About or roughly", "example": "The Earth formed approximately 4.5 billion years ago." },
-              { "term": "consist", "hu": "áll", "definition": "To be composed or made up of", "example": "The Solar System consists of eight planets." },
-              { "term": "surface", "hu": "felszín", "definition": "The outside or top layer", "example": "The Earth's surface is 71% water." },
-              { "term": "originates", "hu": "ered", "definition": "To come from a source", "example": "The idea of months originated from the moon." },
-              { "term": "habitat", "hu": "élöhely", "definition": "A natural home for organisms", "example": "The biosphere includes all habitats on Earth." },
-              { "term": "convert", "hu": "átalakít", "definition": "To change from one form to another", "example": "Cyanobacteria convert sunlight to oxygen." },
-              { "term": "diameter", "hu": "átmérö", "definition": "The distance across a circle", "example": "The Earth has a diameter of about 12,742 km." },
-              { "term": "rotate", "hu": "forog", "definition": "To spin on an axis", "example": "The Earth rotates on its axis once a day." }
+              { "term": "approximately", "hu": "körülbelül", "definition": "About or roughly" },
+              { "term": "surface", "hu": "felszín", "definition": "The outside or top layer" },
+              { "term": "habitat", "hu": "élöhely", "definition": "A natural home for organisms" },
+              { "term": "rotate", "hu": "forog", "definition": "To spin on an axis" }
             ],
             "content": [
               "<p>(A) The Earth is the third planet from the Sun and it is the only planet known to have life on it. The Earth formed around 4.5 billion years ago. It is one of four rocky planets on the inside of the Solar System. The other three are Mercury, Venus, and Mars.</p>",
@@ -69,29 +64,48 @@
               "<p>(E) Because of its water, the Earth is home to millions of species of plants and animals. The things that live on Earth have changed its surface greatly. For example, early cyanobacteria changed the air and gave it oxygen. The living part of the Earth's surface is called the 'biosphere'.</p>",
               "<p>(F) The Earth is part of the eight planets and many thousands of small bodies that move around the Sun as its Solar System. The Solar System is moving through the Orion Arm of the Milky Way Galaxy now, and will be for about the next 10,000 years.</p>",
               "<p>(G) The Earth is generally 150,000,000 kilometers or 93,000,000 miles away from the Sun (this distance is named an 'Astronomical Unit'). The Earth moves along its way at an average speed of about 30 km or 19 mi a second. The Earth turns all the way around about 365¼ times in the time it takes for the Earth to go all the way around the Sun. To make up this extra bit of a day every year, an additional day is used every four years. This is named a 'leap year'.</p>",
-              "<p>(H) The Moon goes around the Earth at an average distance of 400,000 kilometers (250,000 mi). It is locked to Earth, so that it always has the same half facing the Earth; the other half is called the 'dark side of the Moon'. It takes about 27⅓ days for the Moon to go all the way around the Earth but, because the Earth is moving around the Sun at the same time, it takes about 29½ days for the Moon to go from dark to bright to dark again. This is where the word 'month' came from, even though most months now have 30 or 31 days.</p>"
+              "<p>(H) The Moon goes around the Earth at an average distance of 400,000 kilometers (250,000 mi). It is locked to Earth, so that it always has the same half facing the Earth; the other half is called the 'dark side of the Moon'.</p>"
             ],
             "subTasks": [
               {
                 "type": "matching-info",
-                "instruction": "Which paragraph contains the following information? (1-8)",
-                "items": [
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
                   { "id": "q1", "text": "How long it takes the Earth to go around the Sun", "answer": "B" },
                   { "id": "q2", "text": "How the Moon affects the calendar", "answer": "C" },
                   { "id": "q3", "text": "The reason Earth is called the Blue Planet", "answer": "D" },
                   { "id": "q4", "text": "How living things changed the Earth", "answer": "E" },
                   { "id": "q5", "text": "What a leap year is", "answer": "G" },
                   { "id": "q6", "text": "The distance from the Earth to the Sun", "answer": "G" },
-                  { "id": "q7", "text": "Why the Moon always shows the same side to Earth", "answer": "H" },
-                  { "id": "q8", "text": "The age of the Earth", "answer": "A" }
+                  { "id": "q7", "text": "The age of the Earth", "answer": "A" }
                 ]
               },
               {
                 "type": "mcq",
                 "instruction": "Choose the correct letter A, B, C, or D.",
-                "items": [
-                  { "id": "q9", "text": "According to the passage, what percentage of Earth's surface is water?", "options": [{ "text": "50%", "correct": false }, { "text": "61%", "correct": false }, { "text": "71%", "correct": true }, { "text": "81%", "correct": false }] },
-                  { "id": "q10", "text": "What is the 'biosphere'?", "options": [{ "text": "The Earth's atmosphere", "correct": false }, { "text": "The part of Earth where life exists", "correct": true }, { "text": "The oceans", "correct": false }, { "text": "The Moon", "correct": false }] }
+                "questions": [
+                  { 
+                    "id": "q8", 
+                    "text": "What percentage of Earth's surface is water?", 
+                    "options": ["51%", "61%", "71%", "81%"], 
+                    "answer": "71%" 
+                  },
+                  { 
+                    "id": "q9", 
+                    "text": "What is the 'biosphere'?", 
+                    "options": ["The atmosphere", "The part where life exists", "The oceans", "The core"], 
+                    "answer": "The part where life exists" 
+                  }
+                ]
+              },
+              {
+                "type": "trinary",
+                "instruction": "Write TRUE, FALSE or NOT GIVEN.",
+                "questions": [
+                  { "id": "q10", "text": "Venus is a rocky planet.", "answer": "TRUE" },
+                  { "id": "q11", "text": "The Sun moves around the Earth.", "answer": "FALSE" },
+                  { "id": "q12", "text": "Cyanobacteria produced oxygen.", "answer": "TRUE" },
+                  { "id": "q13", "text": "The Milky Way is the largest galaxy.", "answer": "NOT GIVEN" }
                 ]
               }
             ]
@@ -108,26 +122,49 @@
             "id": "p2",
             "title": "Company Profiles",
             "type": "ielts-complex",
-            "vocabList": [
-              { "term": "extensive", "hu": "kiterjedt", "definition": "Covering a large area", "example": "Advantage Sales & Marketing offers extensive services." },
-              { "term": "flexible", "hu": "rugalmas", "definition": "Able to adapt", "example": "Chipotle offers a flexible work schedule." },
-              { "term": "progressive", "hu": "progresszív", "definition": "Forward-thinking", "example": "The Vitamin Shoppe has progressive policies." },
-              { "term": "compassionate", "hu": "áldozatos", "definition": "Showing care and concern", "example": "PSA Healthcare provides compassionate care." }
-            ],
             "content": [
-              "<p>Advantage Sales & Marketing (ASM) is one of the country's leading sales and marketing companies. We offer extensive services in the retail, consumer goods, and healthcare industries. Our team of professionals helps clients increase their market share and build brand awareness.</p>",
-              "<p>Chipotle Mexican Grill is known for its commitment to fresh, high-quality ingredients. We offer a flexible work schedule and opportunities for advancement. Our culture focuses on attracting passionate individuals who share our love for good food.</p>",
-              "<p>The Vitamin Shoppe is a retailer of nutritional supplements. We offer progressive wellness programs for our employees and customers. Our mission is to help people live healthier lives through education and quality products.</p>",
-              "<p>PSA Healthcare provides home healthcare services. We are known for our compassionate care and professional staff. We offer competitive benefits and opportunities for career growth in the healthcare field.</p>"
+              "<p>The Vitamin Shoppe has 1,946 part-time openings. This New Jersey-based retailer of nutritional supplements also operates stores in Canada under the name 'VitaPath'. The company provides approximately 8,000 different products through its retail stores and over 20,000 through its online websites. Employees have noted good growth opportunities, progressive policies, and above-average pay.</p>",
+"<p>Chipotle currently offers 1,553 part-time openings. Known for using organic meats throughout its more than 1,500 restaurants, the chain has grown to 37,000 employees since its founding in 1993. While the schedule is described as super flexible, employees mention that the work is fast-paced and requires a lot of effort.</p>",
+"<p>Advantage Sales & Marketing has 1,742 part-time openings. They provide outsourced sales and marketing services to major manufacturers like Johnson & Johnson and Unilever. With more than 65 offices in the US and Canada, the company is recognized for its ability to adapt to market changes and offering a well-thought-out, flexible schedule.</p>",
+"<p>Universal Protection Service is one of the largest providers of security services in the U.S., with 1,219 part-time openings. They offer security solutions for a variety of sectors, including airports and healthcare facilities. Many employees highlight the room for advancement and competitive pay compared to other security firms.</p>",
+"<p>PSA Healthcare, also known as Pediatric Services of America, has 1,295 part-time openings. Headquartered in Atlanta, they provide comprehensive home health services. Employees appreciate the ability to provide compassionate one-on-one care and the flexibility offered by supervisors regarding time-off requests.</p>"
             ],
             "subTasks": [
               {
                 "type": "short-answer",
-                "instruction": "Write NO MORE THAN THREE WORDS for each answer.",
-                "items": [
-                  { "id": "q14", "text": "What industry does Advantage Sales & Marketing primarily serve?", "answer": "retail" },
+                "instruction": "Write NO MORE THAN THREE WORDS.",
+                "questions": [
+                  { "id": "q14", "text": "What industry does ASM serve?", "answer": "retail" },
                   { "id": "q15", "text": "What is Chipotle known for?", "answer": "fresh ingredients" },
-                  { "id": "q16", "text": "What does The Vitamin Shoppe sell?", "answer": "nutritional supplements" }
+                  { "id": "q16", "text": "What does Vitamin Shoppe sell?", "answer": "nutritional supplements" }
+                ]
+              },
+              {
+                "type": "matching-features",
+                "instruction": "Match the company to the statement. Write the correct letter, A, B, C or D.",
+                "questions": [
+                  { "id": "q17", "text": "Provides medical care at home.", "answer": "D" },
+                  { "id": "q18", "text": "Focuses on building brand awareness.", "answer": "A" },
+                  { "id": "q19", "text": "Provides options for promotion within the company.", "answer": "B" },
+                  { "id": "q20", "text": "Educates people on healthy living.", "answer": "C" }
+                ],
+                "features": [
+                  { "id": "A", "name": "Advantage Sales & Marketing" },
+                  { "id": "B", "name": "Chipotle Mexican Grill" },
+                  { "id": "C", "name": "The Vitamin Shoppe" },
+                  { "id": "D", "name": "PSA Healthcare" }
+                ]
+              },
+              {
+                "type": "short-answer",
+                "instruction": "Answer the questions using NO MORE THAN THREE WORDS.",
+                "questions": [
+                  { "id": "q21", "text": "What does ASM help clients increase?", "answer": "market share", "wordLimit": 3 },
+                  { "id": "q22", "text": "What type of work schedule does Chipotle offer?", "answer": "flexible", "wordLimit": 3 },
+                  { "id": "q23", "text": "What kind of benefits does PSA Healthcare offer?", "answer": "competitive benefits", "wordLimit": 3 },
+                  { "id": "q24", "text": "What programs does The Vitamin Shoppe have?", "answer": "wellness programs", "wordLimit": 3 },
+                  { "id": "q25", "text": "What type of care is PSA Healthcare known for?", "answer": "compassionate care", "wordLimit": 3 },
+                  { "id": "q26", "text": "What type of people does ASM employ?", "answer": "professionals", "wordLimit": 3 }
                 ]
               }
             ]
@@ -144,28 +181,44 @@
             "id": "p3",
             "title": "Fire Safety",
             "type": "ielts-complex",
-            "vocabList": [
-              { "term": "emergency", "hu": "vész", "definition": "A serious, unexpected situation", "example": "Fire drills prepare you for emergencies." },
-              { "term": "evacuate", "hu": "elhagy", "definition": "To leave a dangerous place", "example": "You must evacuate during a fire." },
-              { "term": "hazard", "hu": "veszély", "definition": "A danger or risk", "example": "Fire is a major hazard." },
-              { "term": "respond", "hu": "válaszol", "definition": "To react to something", "example": "People must respond quickly to fire alarms." },
-              { "term": "precaution", "hu": "elözmély", "definition": "A measure taken to prevent something", "example": "Fire drills are an important precaution." }
-            ],
             "content": [
-              "<p>Fire safety is a critical aspect of building management and personal safety. Understanding how to respond in case of fire can save lives.</p>",
-              "<p>The first precaution is prevention. This includes regular inspection of electrical equipment, keeping flammable materials away from heat sources, and ensuring buildings meet fire safety codes.</p>",
-              "<p>Smoke detectors are essential safety devices. They provide early warning in case of fire, giving people time to evacuate. It is important to test smoke detectors monthly and replace batteries yearly.</p>",
-              "<p>Fire extinguishers should be readily accessible on each floor. Everyone should know how to use a fire extinguisher using the PASS method: Pull the pin, Aim at the base of the fire, Squeeze the handle, and Sweep from side to side.</p>",
-              "<p>In case of fire, remaining calm is crucial. Follow the established evacuation plan, stay low to avoid smoke, and use stairs not elevators. Once outside, go to the designated assembly point and call emergency services.</p>"
+              "<p>Fire drills are a big part of being safe in school: They prepare you for what you need to do in case of a fire. But what if there was a fire where you live? Would you know what to do? Talking about fires can be scary because no one likes to think about people getting hurt or their things getting burned. But you can feel less worried if you are prepared.</p>",
+            "<p>It's a good idea for families to talk about what they would do to escape a fire. Different families will have different strategies. Some kids live in one-story houses and other kids live in tall buildings. You'll want to talk about escape plans and escape routes, so let's start there.</p>",
+            "<p><strong>Know Your Way Out</strong><br/>An escape plan can help every member of a family get out of a burning house. The idea is to get outside quickly and safely. Smoke from a fire can make it hard to see where things are, so it's important to learn and remember the different ways out of your home. How many exits are there? How do you get to them from your room? It's a good idea to have your family draw a map of the escape plan. It's possible one way out could be blocked by fire or smoke, so you'll want to know where other ones are. And if you live in an apartment building, you'll want to know the best way to the stairwell or other emergency exits.</p>",
+            "<p><strong>Safety Steps</strong><br/>If you're in a room with the door closed when the fire breaks out, you need to take a few extra steps:</p>",
+            "<ul><li>Check to see if there's heat or smoke coming in the cracks around the door. (You're checking to see if there's fire on the other side.)</li><li>If you see smoke coming under the door — don't open the door!</li><li>If you don't see smoke — touch the door. If the door is hot or very warm — don't open the door!</li><li>If you don't see smoke — and the door is not hot — then use your fingers to lightly touch the doorknob. If the doorknob is hot or very warm — don't open the door!</li><li>If the doorknob feels cool, and you can't see any smoke around the door, you can open the door very carefully and slowly. When you open the door, if you feel a burst of heat or smoke pours into the room, quickly shut the door and make sure it is really closed. If there's no smoke or heat when you open the door, go toward your escape route exit.</li></ul>"
             ],
             "subTasks": [
               {
-                "type": "true-false-not-given",
-                "instruction": "Do the following statements agree with the information given in the passage? Write TRUE, FALSE, or NOT GIVEN.",
-                "items": [
-                  { "id": "q27", "text": "Fire prevention is the first step in fire safety.", "answer": "TRUE" },
-                  { "id": "q28", "text": "Smoke detectors should be tested every month.", "answer": "TRUE" },
-                  { "id": "q29", "text": "You should use elevators during a fire evacuation.", "answer": "FALSE" }
+                "type": "trinary",
+                "instruction": "Write TRUE, FALSE or NOT GIVEN.",
+                "questions": [
+                  { "id": "q27", "text": "Prevention is the first precaution.", "answer": "TRUE" },
+                  { "id": "q28", "text": "Test smoke detectors every week.", "answer": "FALSE" },
+                  { "id": "q29", "text": "Stay low to avoid smoke.", "answer": "TRUE" },
+                  { "id": "q30", "text": "Fire safety codes are updated annually.", "answer": "NOT GIVEN" }
+                ]
+              },
+              {
+                "type": "flow-chart",
+                "instruction": "Complete the PASS method. Write ONE WORD ONLY.",
+                "questions": [
+                  { "id": "q31", "text": "Step 1: ______ the pin.", "answer": "Pull" },
+                  { "id": "q32", "text": "Step 2: ______ at the base.", "answer": "Aim" },
+                  { "id": "q33", "text": "Step 3: ______ the handle.", "answer": "Squeeze" },
+                  { "id": "q34", "text": "Step 4: ______ from side to side.", "answer": "Sweep" }
+                ]
+              },
+              {
+                "type": "short-answer",
+                "instruction": "Answer the questions using NO MORE THAN THREE WORDS.",
+                "questions": [
+                  { "id": "q35", "text": "What type of equipment should be regularly inspected?", "answer": "electrical equipment", "wordLimit": 3 },
+                  { "id": "q36", "text": "What materials should be kept away from heat sources?", "answer": "flammable materials", "wordLimit": 3 },
+                  { "id": "q37", "text": "How often should smoke detector batteries be changed?", "answer": "once a year", "wordLimit": 3 },
+                  { "id": "q38", "text": "What should never be used during a fire?", "answer": "elevators", "wordLimit": 3 },
+                  { "id": "q39", "text": "Where should people meet after evacuating?", "answer": "assembly point", "wordLimit": 3 },
+                  { "id": "q40", "text": "What should people remain during an emergency?", "answer": "calm", "wordLimit": 3 }
                 ]
               }
             ]
@@ -326,7 +379,6 @@
         "skill": "listening",
         "questions": [
           {
-            "id": 21,
             "type": "mcq",
             "instruction": "Choose the correct letter, A, B or C.",
             "question": "The student is studying",
@@ -334,18 +386,49 @@
             "answer": "A"
           },
           {
-            "id": 22,
             "type": "mcq",
             "question": "What is the main concern about the assignment?",
             "options": ["the topic", "the deadline", "the length"],
             "answer": "B"
           },
           {
-            "id": 23,
             "type": "mcq",
             "question": "When is the assignment due?",
             "options": ["next week", "in two weeks", "in three weeks"],
             "answer": "C"
+          },
+          {
+            "type": "mcq",
+            "question": "What does the advisor suggest about the research?",
+            "options": ["visit the library", "use online databases", "interview professors"],
+            "answer": "B"
+          },
+          {
+            "type": "mcq",
+            "question": "How many sources are required for the bibliography?",
+            "options": ["5", "10", "15"],
+            "answer": "B"
+          },
+          {
+            "type": "mcq",
+            "question": "What format should the essay follow?",
+            "options": ["APA", "MLA", "Harvard"],
+            "answer": "C"
+          },
+          {
+            "type": "mcq",
+            "question": "Who will review the first draft?",
+            "options": ["the advisor", "peer students", "external examiner"],
+            "answer": "A"
+          },
+          {
+            "type": "short-answer",
+            "instruction": "Answer the questions below. Write NO MORE THAN TWO WORDS for each answer.",
+            "questions": [
+              { "id": 28, "text": "What is the minimum word count for the essay?", "answer": "3000 words", "wordLimit": 2, "allowNumber": true },
+              { "id": 29, "text": "What software is recommended for formatting?", "answer": "Word", "wordLimit": 1, "allowNumber": false },
+              { "id": 30, "text": "When are the office hours for the advisor?", "answer": "Tuesday afternoon", "wordLimit": 2, "allowNumber": false }
+            ]
           }
         ]
       },
@@ -364,9 +447,43 @@
             "type": "short-answer",
             "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
             "questions": [
-              { "id": 31, "text": "The study focuses on animal behavior in", "answer": "the wild", "wordLimit": 2 },
-              { "id": 32, "text": "The main finding is that animals", "answer": "communicate", "wordLimit": 2 },
-              { "id": 33, "text": "Future research will examine", "answer": "social behavior", "wordLimit": 2 }
+              { "id": 31, "text": "The study focuses on animal behavior in", "answer": "the wild", "wordLimit": 2, "allowNumber": false },
+              { "id": 32, "text": "The main finding is that animals", "answer": "communicate", "wordLimit": 2, "allowNumber": false },
+              { "id": 33, "text": "Future research will examine", "answer": "social behavior", "wordLimit": 2, "allowNumber": false },
+              { "id": 34, "text": "The research was conducted over a period of", "answer": "five years", "wordLimit": 2, "allowNumber": true },
+              { "id": 35, "text": "The main method used was", "answer": "observation", "wordLimit": 2, "allowNumber": false }
+            ]
+          },
+          {
+            "type": "mcq",
+            "instruction": "Choose the correct letter, A, B or C.",
+            "question": "According to the lecture, what triggers the warning behavior?",
+            "options": ["food availability", "predator presence", "weather changes"],
+            "answer": "B"
+          },
+          {
+            "type": "mcq",
+            "question": "How many species were studied in total?",
+            "options": ["12", "25", "30"],
+            "answer": "C"
+          },
+          {
+            "type": "mcq",
+            "question": "What was surprising about the results?",
+            "options": ["the complexity of communication", "the speed of adaptation", "the memory capacity"],
+            "answer": "A"
+          },
+          {
+            "type": "mcq",
+            "question": "The funding for the research came from",
+            "options": ["government grants", "private donations", "university funds"],
+            "answer": "A"
+          },
+          {
+            "type": "matching",
+            "instruction": "Match the animal species with their communication method. Write the correct letter, A, B, C or D.",
+            "questions": [
+              { "id": 40, "text": "Dolphins -", "options": ["vocal calls", "body movements", "chemical signals", "electrical signals"], "answer": "A" }
             ]
           }
         ]

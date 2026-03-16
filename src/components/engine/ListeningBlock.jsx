@@ -356,7 +356,19 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
   return (
     <div className="listening-container">
       {/* 1. STICKY AUDIO PLAYER - Full width on both desktop and mobile */}
-      <div className="audio-sticky-bar">
+     
+
+      {/* 2. SPLIT PANE CONTENT AREA */}
+      <SplitPane
+        content={
+          <div className="listening-content">
+            {/* Skill Label */}
+            <div className="listening-top-section" style={{ marginBottom: '16px' }}>
+              <span className="task-label">
+                🎧 Listening
+              </span>
+
+ <div className="audio-sticky-bar">
         <div className="player-controls" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
           <button 
             className="play-btn" 
@@ -383,15 +395,6 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
         />
       </div>
 
-      {/* 2. SPLIT PANE CONTENT AREA */}
-      <SplitPane
-        content={
-          <div className="listening-content">
-            {/* Skill Label */}
-            <div className="vocab-top-section" style={{ marginBottom: '16px' }}>
-              <span className="task-label">
-                🎧 Listening
-              </span>
             </div>
 
             {/* Part Title and Description */}
@@ -419,6 +422,7 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
         }
         exercise={
           <QuestionCarousel 
+            key={allQs.map(q => q.id).join('-')}
             questions={allQs} 
             renderQuestion={(q) => renderQuestionBlock(q)}
           />

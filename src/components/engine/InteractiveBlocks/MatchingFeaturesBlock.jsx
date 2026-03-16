@@ -21,6 +21,17 @@ const MatchingFeaturesBlock = ({
   isReviewMode = false,
   allowReuse = false // Whether options can be used more than once
 }) => {
+  // Debug: Log entire props
+  console.log('=== MatchingFeaturesBlock Props ===');
+  console.log('data:', data);
+  console.log('data.type:', data?.type);
+  console.log('userAnswers:', userAnswers);
+  // Debug: Log the data structure
+  console.log('MatchingFeaturesBlock - Received data:', JSON.stringify(data, null, 2));
+  
+  // Handle both 'features' and 'allFeatures' (from ReadingBlock)
+  const allFeatures = data.allFeatures || data.features || [];
+  
   const { 
     parentContent = '',
     features = [], 
@@ -28,6 +39,21 @@ const MatchingFeaturesBlock = ({
     instruction = 'Match each statement to the correct feature.',
     allowReuse: dataAllowReuse = false
   } = data;
+  
+  // Use allFeatures if features is empty
+  const finalFeatures = features.length > 0 ? features : allFeatures;
+  
+  // Handle case where individual question is passed (from ReadingBlock flattening)
+  // In this case, data itself is the question with id, text, answer at top level
+  const finalQuestions = questions.length > 0 ? questions : [{
+    id: data.id,
+    text: data.text,
+    answer: data.answer
+  }];
+  
+  // Debug: Log extracted values
+  console.log('MatchingFeaturesBlock - features:', features);
+  console.log('MatchingFeaturesBlock - questions:', questions);
 
   // For backwards compatibility, also check content field
   // Handle array content by joining, or use string content directly
@@ -85,7 +111,7 @@ const MatchingFeaturesBlock = ({
         </div>
         
         <div className="features-list">
-          {features.map(feature => {
+          {finalFeatures.map(feature => {
             const usageCount = getFeatureUsageCount(feature.id);
             const isUsed = usageCount > 0;
             
@@ -117,7 +143,7 @@ const MatchingFeaturesBlock = ({
   const renderQuestions = () => {
     return (
       <>
-        {questions.map((q, index) => {
+        {finalQuestions.map((q, index) => {
           const userAnswer = userAnswers[q.id];
           const correctAnswer = q.answer;
           const isCorrect = normalizeAnswer(userAnswer) === normalizeAnswer(correctAnswer);
@@ -161,7 +187,7 @@ const MatchingFeaturesBlock = ({
                     className="feature-select"
                   >
                     <option value="">Select...</option>
-                    {features.map(feature => {
+                    {finalFeatures.map(feature => {
                       const isUsed = isFeatureUsed(feature.id, q.id);
                       return (
                         <option 
@@ -185,7 +211,7 @@ const MatchingFeaturesBlock = ({
                     {correctAnswer}
                   </span>
                   <span className="correct-feature-name">
-                    - {features.find(f => f.id === correctAnswer)?.name || ''}
+                    - {finalFeatures.find(f => f.id === correctAnswer)?.name || ''}
                   </span>
                 </div>
               )}
@@ -214,13 +240,13 @@ const MatchingFeaturesBlock = ({
           <div className="score-display">
             <span className="score-label">
               Score: {
-                questions.filter(q => 
+                finalQuestions.filter(q => 
                   normalizeAnswer(userAnswers[q.id]) === normalizeAnswer(q.answer)
                 ).length
               } / {questions.length}
             </span>
             <span className="score-percent">
-              {Math.round((questions.filter(q => 
+              {Math.round((finalQuestions.filter(q => 
                 normalizeAnswer(userAnswers[q.id]) === normalizeAnswer(q.answer)
               ).length / questions.length) * 100)}%
             </span>

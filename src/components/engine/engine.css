@@ -671,6 +671,15 @@
   flex-direction: column;
 }
 
+.listening-top-section {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-direction: column;
+}
+
 /* Audio Player Card */
 .audio-sticky-bar {
   position: sticky;
@@ -1335,7 +1344,7 @@
 @media (min-width: 769px) {
   .desktop-split-pane {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;  /* Changed from flex-start to stretch both panes */
     gap: 24px;
     width: 100%;
   }
@@ -1345,18 +1354,21 @@
     min-width: 0;
     max-height: 50vh;
     height: 50vh;
+    overflow-y: auto;
   }
   
   .exercise-pane {
     flex: 1;
     min-width: 0;
-    max-height: calc(100vh - 200px);
-    overflow-y: auto;
+    max-height: 50vh;  /* Changed to match content-pane height */
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
   }
   
   /* Adjust reading passage for side-by-side - scroll INSIDE the box, hidden scrollbar */
   .reading-passage {
-    max-height: calc(100vh - 450px);
+    max-height: 100%;
     overflow-y: auto;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* IE/Edge */
@@ -1369,8 +1381,33 @@
   /* Make carousel centered and constrained on desktop */
   .question-carousel-wrapper {
     max-width: 700px;
-    margin: 0 auto;
+    margin: 0;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  /* Question carousel should fill the exercise pane */
+  .question-carousel {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  /* Navigation footer should stay at bottom */
+  .carousel-nav-footer {
+    flex-shrink: 0;
+  }
+  
+  /* Questions list (non-carousel) should fill the exercise pane */
+  .questions-list {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  /* Reading block should fill the split pane */
+  .reading-block {
+    height: 100%;
   }
 }
 
@@ -1416,7 +1453,7 @@
   flex: 0 0 100%;
   width: 100%;
   scroll-snap-align: start;
-  padding: 16px;
+  padding: 0px 0px 0px 16px;
   box-sizing: border-box;
   border-radius: var(--radius-md);
   overflow-x: hidden;

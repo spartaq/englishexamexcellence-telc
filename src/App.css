@@ -169,6 +169,18 @@
   gap: 30px;
 }
 
+/* Desktop: Ensure question-pane aligns with reading-pane headers */
+@media (min-width: 769px) {
+  .workspace-grid {
+    align-items: start;  /* Align both columns to start */
+  }
+  
+  .reading-pane,
+  .question-pane {
+    align-self: stretch;  /* Make both columns same height */
+  }
+}
+
 .workspace-grid.single-column {
   grid-template-columns: 1fr;
 }

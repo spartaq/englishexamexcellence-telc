@@ -1,9 +1,17 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const QuestionCarousel = ({ questions, renderQuestion, showInstruction = true }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
+
+  // Reset to first question when questions change (e.g., moving to a new section)
+  useEffect(() => {
+    setCurrentIndex(0);
+    if (carouselRef.current) {
+      carouselRef.current.scrollTo({ left: 0, behavior: 'auto' });
+    }
+  }, [questions]);
 
   if (!questions || questions.length === 0) {
     return null;
@@ -49,25 +57,6 @@ const QuestionCarousel = ({ questions, renderQuestion, showInstruction = true })
       >
         {questions.map((q, idx) => (
           <div key={q.id || idx} className="question-slide">
-            {/* Navigation arrows overlay on slide */}
-            {currentIndex > 0 && (
-              <button
-                onClick={goToPrevious}
-                aria-label="Previous question"
-                className="carousel-nav-arrow carousel-nav-prev"
-              >
-                <ChevronLeft size={32} color="#4338ca" />
-              </button>
-            )}
-            {currentIndex < questions.length - 1 && (
-              <button
-                onClick={goToNext}
-                aria-label="Next question"
-                className="carousel-nav-arrow carousel-nav-next"
-              >
-                <ChevronRight size={32} color="#4338ca" />
-              </button>
-            )}
             {showInstruction && (
               <div style={{ 
                 marginBottom: '10px',
@@ -84,32 +73,58 @@ const QuestionCarousel = ({ questions, renderQuestion, showInstruction = true })
         ))}
       </div>
       
-      {/* Navigation dots - hidden on mobile */}
-      <div className="carousel-dots desktop-only" style={{
+      {/* Navigation arrows below the question */}
+      <div className="carousel-nav-footer" style={{
         display: 'flex',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px',
-        marginTop: '8px',
-        padding: '4px 0'
+        padding: '12px 0 0 12px',
+        flexShrink: 0
       }}>
-        {questions.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => scrollToQuestion(idx)}
-            aria-label={`Go to question ${idx + 1}`}
-            style={{
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              border: 'none',
-              background: idx === currentIndex ? '#6366f1' : '#cbd5e1',
-              cursor: 'pointer',
-              padding: 0,
-              transition: 'all 0.2s ease'
-            }}
-          />
-        ))}
+        <button
+          onClick={goToPrevious}
+          disabled={currentIndex === 0}
+          aria-label="Previous question"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            padding: '8px 16px',
+            border: 'none',
+            borderRadius: '6px',
+            background: currentIndex === 0 ? '#f1f5f9' : '#e0e7ff',
+            color: currentIndex === 0 ? '#94a3b8' : '#4338ca',
+            cursor: currentIndex === 0 ? 'not-allowed' : 'pointer',
+            fontSize: '14px',
+            fontWeight: '500',
+            transition: 'all 0.2s ease'
+          }}
+        >
+          <ChevronLeft size={20} />
+          Previous
+        </button>
+        <button
+          onClick={goToNext}
+          disabled={currentIndex === questions.length - 1}
+          aria-label="Next question"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            padding: '8px 16px',
+            border: 'none',
+            borderRadius: '6px',
+            background: currentIndex === questions.length - 1 ? '#f1f5f9' : '#e0e7ff',
+            color: currentIndex === questions.length - 1 ? '#94a3b8' : '#4338ca',
+            cursor: currentIndex === questions.length - 1 ? 'not-allowed' : 'pointer',
+            fontSize: '14px',
+            fontWeight: '500',
+            transition: 'all 0.2s ease'
+          }}
+        >
+          Next
+          <ChevronRight size={20} />
+        </button>
       </div>
     </div>
   );

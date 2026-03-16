@@ -175,6 +175,80 @@ Create in: `src/data/IELTS/mocks/ielts-[general|academic]-mock-[NUMBER].json`
 - Choose from options or write word
 - Tests: Understanding visual information
 
+### Question Type `type` Values
+
+> ⚠️ **IMPORTANT**: Use these exact `type` values in your JSON. Do NOT use descriptive names!
+
+| Question Type | JSON `type` Value | Component |
+|---------------|-------------------|-----------|
+| Matching Information (Paragraph Matching) | `matching-info` | MatchingChoiceBlock |
+| Multiple Choice | `mcq` | MCQBlock |
+| Short Answer | `short-answer` | ShortAnswerBlock |
+| True/False/Not Given | `trinary` | TrinaryBlock |
+| Yes/No/Not Given | `trinary` (with `"mode": "ynng"`) | TrinaryBlock |
+| Sentence Completion | `sentence-complete` | SentenceCompleteBlock |
+| Diagram Labeling | `diagram-label` | DiagramLabelBlock |
+| Summary/Gap Fill | `gap-fill` | GapFillBlock |
+| Table Completion | `table-completion` | TableCompletionBlock |
+| Flow Chart Completion | `flow-chart` | FlowChartCompletionBlock |
+| Notes Completion | `notes-completion` | NotesCompletionBlock |
+| Heading Match | `heading-match` | HeadingMatchBlock |
+| Matching Features | `matching-features` | MatchingFeaturesBlock |
+| Token Select | `token-select` | TokenSelectBlock |
+| Punctuation Correction | `punctuation` | PunctuationCorrectionBlock |
+
+#### Example: True/False/Not Given Question
+```json
+{
+  "id": 1,
+  "type": "trinary",
+  "mode": "tfng",
+  "instruction": "Do the following statements agree with the views of the writer?",
+  "questions": [
+    { "id": 1, "text": "The writer claims...", "answer": "TRUE" },
+    { "id": 2, "text": "According to the author...", "answer": "FALSE" },
+    { "id": 3, "text": "It is mentioned that...", "answer": "NOT GIVEN" }
+  ]
+}
+```
+
+#### Example: Yes/No/Not Given Question
+```json
+{
+  "id": 1,
+  "type": "trinary",
+  "mode": "ynng",
+  "instruction": "Do the following statements agree with the information given in the passage?",
+  "questions": [
+    { "id": 1, "text": "The main concern is...", "answer": "YES" },
+    { "id": 2, "text": "The solution is effective...", "answer": "NO" },
+    { "id": 3, "text": "Further research is needed...", "answer": "NOT GIVEN" }
+  ]
+}
+```
+
+#### Example: Heading Match Question
+```json
+{
+  "id": 1,
+  "type": "heading-match",
+  "instruction": "Choose the correct heading for each paragraph.",
+  "headings": [
+    "The history of the institution",
+    "Funding sources",
+    "Student life",
+    "Academic programs"
+  ],
+  "questions": [
+    { "id": "q1", "text": "Paragraph A", "answer": 0 },
+    { "id": "q2", "text": "Paragraph B", "answer": 1 },
+    { "id": "q3", "text": "Paragraph C", "answer": 2 },
+    { "id": "q4", "text": "Paragraph D", "answer": 3 }
+  ]
+}
+```
+> Note: The `answer` value is the index (0-based) of the correct heading in the `headings` array.
+
 ---
 
 ## 4. Writing Section

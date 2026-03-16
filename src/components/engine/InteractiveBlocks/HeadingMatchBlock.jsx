@@ -2,11 +2,13 @@ import React from 'react';
 import { CheckCircle, XCircle } from 'lucide-react';
 import './HeadingMatchBlock.css';
 
-const HeadingMatchBlock = ({ data, selections = {}, onSelect, isReviewMode = false }) => {
-  const handleSelect = (paraId, headingIndex) => {
-    // Prevent selection if review mode is active
+const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = false }) => {
+  const questions = data.questions || [];
+  const headings = data.headings || [];
+
+  const handleSelect = (qId, value) => {
     if (isReviewMode) return;
-    if (onSelect) onSelect(paraId, headingIndex);
+    if (onUpdate) onUpdate(qId, value);
   };
 
   return (
@@ -19,15 +21,15 @@ const HeadingMatchBlock = ({ data, selections = {}, onSelect, isReviewMode = fal
       )}
       
       {/* Headings List */}
-      {data.headings && (
+      {headings.length > 0 && (
         <div className="hm-headings-list">
           <h4 className="hm-headings-title">
             List of Headings
           </h4>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            {data.headings.map((heading, idx) => (
+            {headings.map((heading, idx) => (
               <div key={idx} className="hm-heading-item">
-                {heading}
+                {idx + 1}. {heading}
               </div>
             ))}
           </div>
@@ -39,17 +41,16 @@ const HeadingMatchBlock = ({ data, selections = {}, onSelect, isReviewMode = fal
         {isReviewMode && <span style={{ color: 'var(--lab-indigo)' }}>Review Mode</span>}
       </div>
       
-      {data.content.map((para) => {
-        // Logic for Review Mode
-        const userChoice = selections[para.id];
-        const correctChoice = data.answers[para.id];
-        const isCorrect = isReviewMode && userChoice == correctChoice; // use == to handle string/num mix
-        const isIncorrect = isReviewMode && userChoice != undefined && userChoice != correctChoice;
-        const isMissing = isReviewMode && userChoice == undefined;
+      {questions.map((q) => {
+        const userChoice = userAnswers[q.id];
+        const correctChoice = q.answer;
+        const isCorrect = isReviewMode && userChoice == correctChoice;
+        const isIncorrect = isReviewMode && userChoice !== undefined && userChoice != correctChoice;
+        const isMissing = isReviewMode && userChoice === undefined;
 
         return (
           <div 
-            key={para.id} 
+            key={q.id} 
             className={`question-card ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''} ${isReviewMode ? 'review' : ''}`}
             style={{ 
               borderLeft: isCorrect ? '4px solid #10b981' : isIncorrect ? '4px solid #ef4444' : '4px solid transparent'
@@ -58,17 +59,17 @@ const HeadingMatchBlock = ({ data, selections = {}, onSelect, isReviewMode = fal
             <div className="para-label" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
               {isCorrect ? <CheckCircle size={14} color="#10b981" /> : 
                isIncorrect ? <XCircle size={14} color="#ef4444" /> : 
-               <span className="question-label">{para.id}.</span>}
+               <span className="question-label">{q.id}.</span>}
             </div>
             
-            <p className="question-text" style={{ marginBottom: '16px' }}>{para.text}</p>
+            <p className="question-text" style={{ marginBottom: '16px' }}>{q.text}</p>
             
             <div className="select-wrapper" style={{ minWidth: '180px' }}>
               <select 
                 className={`answer-input ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''}`}
-                value={selections[para.id] || ""}
+                value={userAnswers[q.id] || ""}
                 disabled={isReviewMode}
-                onChange={(e) => handleSelect(para.id, e.target.value)}
+                onChange={(e) => handleSelect(q.id, e.target.value)}
                 style={{ 
                   width: '100%',
                   opacity: isReviewMode ? 0.8 : 1,
@@ -77,17 +78,16 @@ const HeadingMatchBlock = ({ data, selections = {}, onSelect, isReviewMode = fal
                 }}
               >
                 <option value="" disabled>Select Heading...</option>
-                {data.headings.map((heading, idx) => (
+                {headings.map((heading, idx) => (
                   <option key={idx} value={idx}>
-                    {heading}
+                    {idx + 1}. {heading}
                   </option>
                 ))}
               </select>
 
-              {/* Show the correct answer if the user was wrong or skipped it */}
-              {(isIncorrect || isMissing) && (
+              {(isIncorrect || isMissing) && correctChoice !== undefined && (
                 <div className="correct-answer-hint">
-                  Correct: {parseInt(correctChoice) + 1}. {data.headings[correctChoice]}
+                  Correct: {parseInt(correctChoice) + 1}. {headings[correctChoice]}
                 </div>
               )}
             </div>

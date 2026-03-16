@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, XCircle, ArrowRight, ArrowDown } from 'lucide-react';
+import { CheckCircle, XCircle, ArrowDown } from 'lucide-react';
 import './FlowChartCompletionBlock.css';
 
 /**
@@ -12,16 +12,30 @@ const FlowChartCompletionBlock = ({
   data, 
   userAnswers = {}, 
   onUpdate, 
-  isReviewMode = false 
+  isReviewMode = false,
+  hideInstruction = false
 }) => {
-  const { 
+  // Support both 'steps' (native) and 'questions' (from mock data) formats
+  // Convert questions to steps if needed
+  let { 
     title,
     steps = [], 
+    questions = [],
     wordLimit = 2,
-    wordList = null, // If provided, uses dropdown instead of text input
+    wordList = null,
     instruction = `Complete the flow-chart. Write NO MORE THAN ${wordLimit} WORDS AND/OR A NUMBER for each answer.`,
-    direction = 'horizontal' // 'horizontal' or 'vertical'
+    direction = 'vertical' // 'horizontal' or 'vertical'
   } = data;
+
+  // If questions array is provided but steps is empty, transform questions to steps
+  if (questions.length > 0 && steps.length === 0) {
+    steps = questions.map((q, idx) => ({
+      id: q.id || `step-${idx + 1}`,
+      type: 'gap',
+      text: q.text || `Step ${idx + 1}`,
+      answer: q.answer || ''
+    }));
+  }
 
   // Word count validation
   const countWords = (text) => {
@@ -60,7 +74,6 @@ const FlowChartCompletionBlock = ({
     if (isGap) stepClassName += ' is-gap';
     if (overLimit) stepClassName += ' over-limit';
     if (isReviewMode) stepClassName += isCorrect ? ' row-correct' : ' row-incorrect';
-    if (direction === 'vertical') stepClassName += ' vertical';
 
     return (
       <React.Fragment key={step.id}>
@@ -154,12 +167,8 @@ const FlowChartCompletionBlock = ({
 
         {/* Arrow connector */}
         {!isLast && (
-          <div className={`flow-arrow ${direction === 'vertical' ? 'vertical' : ''}`}>
-            {direction === 'horizontal' ? (
-              <ArrowRight size={24} color="#94a3b8" />
-            ) : (
-              <ArrowDown size={24} color="#94a3b8" />
-            )}
+          <div className="flow-arrow">
+            <ArrowDown size={24} color="#94a3b8" />
           </div>
         )}
       </React.Fragment>
@@ -180,10 +189,12 @@ const FlowChartCompletionBlock = ({
         )}
       </div>
 
-      {/* Instruction */}
-      <div className="flowchart-instruction">
-        {instruction}
-      </div>
+      {/* Instruction - hide if hideInstruction prop is true */}
+      {!hideInstruction && (
+        <div className="flowchart-instruction">
+          {instruction}
+        </div>
+      )}
 
       {/* Word List (if provided) */}
       {wordList && (
@@ -204,8 +215,8 @@ const FlowChartCompletionBlock = ({
         </div>
       )}
 
-      {/* Flow Chart */}
-      <div className={`flow-chart ${direction === 'vertical' ? 'vertical' : ''}`}>
+      {/* Flow Chart - vertical layout by default */}
+      <div className="flow-chart">
         {steps.map((step, index) => 
           renderStep(step, index, index === steps.length - 1)
         )}

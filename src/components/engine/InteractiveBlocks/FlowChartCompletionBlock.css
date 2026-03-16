@@ -6,6 +6,9 @@
   border-radius: 16px;
   padding: 24px;
   border: 1px solid #e2e8f0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* Header */
@@ -79,13 +82,14 @@
 /* Flow Chart Container */
 .flow-chart {
   display: flex;
-  align-items: stretch;
-  overflow-x: auto;
-  padding-bottom: 8px;
-}
-
-.flow-chart.vertical {
   flex-direction: column;
+  align-items: stretch;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  max-height: 300px;
 }
 
 /* Flow Step Box */
@@ -94,14 +98,11 @@
   border-radius: 12px;
   border: 2px solid #e2e8f0;
   background: #f8fafc;
-  min-width: 180px;
-  flex: none;
-  position: relative;
-}
-
-.flow-step.vertical {
   min-width: auto;
   flex: 1;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Gap type styling */
@@ -243,10 +244,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 8px;
-}
-
-.flow-arrow.vertical {
   padding: 8px 0;
 }
 

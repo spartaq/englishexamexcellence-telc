@@ -72,6 +72,8 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           <HeadingMatchBlock
             key={q.id || idx}
             data={q}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
           />
@@ -258,8 +260,37 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
     
     const flatQs = [];
     questions.forEach((task) => {
+      // heading-match needs special handling - keep the whole task with headings
+      if (task.type === 'heading-match') {
+        if (task.headings && Array.isArray(task.headings) && task.questions && Array.isArray(task.questions)) {
+          flatQs.push({
+            ...task,
+            type: 'heading-match'
+          });
+        }
+      // flow-chart needs special handling - keep all steps together instead of flattening
+      } else if (task.type === 'flow-chart') {
+        // Keep the flow-chart as a single unit with all its questions/steps
+        flatQs.push({
+          ...task,
+          type: 'flow-chart'
+        });
+      // matching-features needs special handling - preserve features for each question
+      } else if (task.type === 'matching-features' && task.features && Array.isArray(task.features)) {
+        // For matching-features - MUST come before general questions check
+        if (task.questions && Array.isArray(task.questions)) {
+          task.questions.forEach((q) => {
+            flatQs.push({
+              ...q,
+              type: 'matching-features',
+              parentType: 'matching-features',
+              allFeatures: task.features,
+              instruction: task.instruction
+            });
+          });
+        }
       // If task has nested questions array (like matching-info), expand them
-      if (task.questions && Array.isArray(task.questions)) {
+      } else if (task.questions && Array.isArray(task.questions)) {
         // matching-info uses short-answer style questions
         const isMatchingInfo = task.type === 'matching-info';
         // trinary questions also have nested questions - preserve the type
@@ -274,32 +305,6 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
             parentId: task.id
           });
         });
-      } else if (task.type === 'heading-match' && task.headings && Array.isArray(task.headings)) {
-        // For heading-match: each question is a separate slide
-        if (task.questions && Array.isArray(task.questions)) {
-          task.questions.forEach((q) => {
-            flatQs.push({
-              ...q,
-              type: 'heading-match',
-              parentType: 'heading-match',
-              allHeadings: task.headings,
-              instruction: task.instruction
-            });
-          });
-        }
-      } else if (task.type === 'matching-features' && task.features && Array.isArray(task.features)) {
-        // For matching-features
-        if (task.questions && Array.isArray(task.questions)) {
-          task.questions.forEach((q) => {
-            flatQs.push({
-              ...q,
-              type: 'matching-features',
-              parentType: 'matching-features',
-              allFeatures: task.features,
-              instruction: task.instruction
-            });
-          });
-        }
       } else {
         // Flat structure - add directly
         flatQs.push({...task});
@@ -323,13 +328,14 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           flatQuestions.length > 0 && (
             useCarousel ? (
               <QuestionCarousel
+                key={flatQuestions.map(q => q.id).join('-')}
                 questions={flatQuestions}
                 renderQuestion={(q, idx) => internalRenderQuestionBlock(q, idx)}
                 showInstruction={true}
               />
             ) : (
               <div className="questions-list">
-                {questions.map((q, idx) => internalRenderQuestionBlock(q, idx))}
+                {flatQuestions.map((q, idx) => internalRenderQuestionBlock(q, idx))}
               </div>
             )
           )

@@ -36,30 +36,30 @@
     ]
   },
 
+
   "reading": {
-    "title": "Reading",
+    "title": "General Training Reading Mock 1 - Expanded",
     "time": 60,
     "sections": [
       {
         "id": "s1",
         "section": 1,
         "title": "Modern Cities",
-        "description": "Questions 1-13 based on Part 1",
+        "description": "Questions 1-13 based on Section 1",
         "passages": [
           {
             "id": "p1",
             "title": "Modern Cities",
             "type": "ielts-complex",
-            "vocabId": "v_env_bronze_1",
             "vocabList": [
-              { "term": "metropolitan", "hu": "nagyvárosi", "definition": "Relating to a large city", "example": "Metropolitan areas have millions of residents." },
-              { "term": "infrastructure", "hu": "infrastruktúra", "definition": "The basic systems and facilities", "example": "Cities need good infrastructure." },
-              { "term": "commute", "hu": "ingázik", "definition": "To travel regularly to work", "example": "Many people commute to the city center." },
-              { "term": "accommodation", "hu": "szállás", "definition": "A place to live or stay", "example": "Finding accommodation in big cities is expensive." },
-              { "term": "tourism", "hu": "turizmus", "definition": "The business of travel and leisure", "example": "Tourism is important for the local economy." },
-              { "term": "authentic", "hu": "autentikus", "definition": "Genuine and original", "example": "The restaurant serves authentic Italian food." },
-              { "term": "cuisine", "hu": "konyha", "definition": "A style of cooking", "example": "Thai cuisine is known for its bold flavors." },
-              { "term": "reservation", "hu": "foglalás", "definition": "An arrangement to hold something", "example": "I made a reservation for dinner." }
+              { "term": "metropolitan", "hu": "nagyvárosi", "definition": "Relating to a large city" },
+              { "term": "infrastructure", "hu": "infrastruktúra", "definition": "The basic systems and facilities" },
+              { "term": "commute", "hu": "ingázik", "definition": "To travel regularly to work" },
+              { "term": "accommodation", "hu": "szállás", "definition": "A place to live or stay" },
+              { "term": "tourism", "hu": "turizmus", "definition": "The business of travel and leisure" },
+              { "term": "authentic", "hu": "autentikus", "definition": "Genuine and original" },
+              { "term": "cuisine", "hu": "konyha", "definition": "A style of cooking" },
+              { "term": "reservation", "hu": "foglalás", "definition": "An arrangement to hold something" }
             ],
             "content": [
               "<p>(A) Cities around the world are growing rapidly. By 2050, it is estimated that nearly 70% of the world's population will live in urban areas. This rapid urbanization brings both opportunities and challenges. Metropolitan areas offer better employment prospects, healthcare, and education, but they also face problems like traffic congestion and housing shortages.</p>",
@@ -74,8 +74,8 @@
             "subTasks": [
               {
                 "type": "matching-info",
-                "instruction": "Which paragraph contains the following information? (1-8)",
-                "items": [
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
                   { "id": "q1", "text": "How cities are using technology to improve services", "answer": "E" },
                   { "id": "q2", "text": "The impact of tourism on historic sites", "answer": "D" },
                   { "id": "q3", "text": "Problems with finding affordable housing", "answer": "C" },
@@ -88,10 +88,29 @@
               },
               {
                 "type": "mcq",
-                "instruction": "Choose the correct letter A, B, C, or D.",
-                "items": [
-                  { "id": "q9", "text": "According to the passage, what percentage of people will live in cities by 2050?", "options": [{ "text": "50%", "correct": false }, { "text": "60%", "correct": false }, { "text": "70%", "correct": true }, { "text": "80%", "correct": false }] },
-                  { "id": "q10", "text": "What is 'mixed-use' development?", "options": [{ "text": "Building houses only", "correct": false }, { "text": "Combining residential and commercial spaces", "correct": true }, { "text": "Using land for farming", "correct": false }, { "text": "Creating protected areas", "correct": false }] }
+                "instruction": "Choose the correct letter.",
+                "questions": [
+                  { 
+                    "id": "q9", 
+                    "text": "What percentage of people will live in cities by 2050?", 
+                    "options": ["50%", "60%", "70%", "80%"], 
+                    "answer": "70%" 
+                  },
+                  { 
+                    "id": "q10", 
+                    "text": "What is 'mixed-use' development?", 
+                    "options": ["Building houses only", "Combining residential and commercial spaces", "Using land for farming", "Creating protected areas"], 
+                    "answer": "Combining residential and commercial spaces" 
+                  }
+                ]
+              },
+              {
+                "type": "trinary",
+                "instruction": "Write TRUE, FALSE or NOT GIVEN.",
+                "questions": [
+                  { "id": "q11", "text": "Public transport systems are cheap to build and maintain.", "answer": "FALSE" },
+                  { "id": "q12", "text": "Smart traffic lights can help reduce traffic jams.", "answer": "TRUE" },
+                  { "id": "q13", "text": "Rental prices are the highest in European cities.", "answer": "NOT GIVEN" }
                 ]
               }
             ]
@@ -102,18 +121,12 @@
         "id": "s2",
         "section": 2,
         "title": "Workplace Communication",
-        "description": "Questions 14-26 based on Part 2",
+        "description": "Questions 14-26 based on Section 2",
         "passages": [
           {
             "id": "p2",
             "title": "Workplace Communication",
             "type": "ielts-complex",
-            "vocabList": [
-              { "term": "deadline", "hu": "határidő", "definition": "The latest time to complete something", "example": "The deadline for the project is Friday." },
-              { "term": "colleague", "hu": "kolléga", "definition": "A work partner", "example": "I discussed the issue with my colleague." },
-              { "term": "promotion", "hu": "elöléptetés", "definition": "Advancement in job position", "example": "She received a promotion at work." },
-              { "term": "networking", "hu": "hálózatépítés", "definition": "Building professional contacts", "example": "Networking is important for career growth." }
-            ],
             "content": [
               "<p>Effective communication in the workplace is essential for success. Whether you are speaking with colleagues, managers, or clients, clear communication helps prevent misunderstandings and builds professional relationships.</p>",
               "<p>One of the most important skills is active listening. This means fully concentrating on what is being said rather than just passively hearing the message. When you actively listen, you ask clarifying questions and summarize what you heard to ensure understanding.</p>",
@@ -125,11 +138,33 @@
             "subTasks": [
               {
                 "type": "short-answer",
-                "instruction": "Write NO MORE THAN THREE WORDS for each answer.",
-                "items": [
-                  { "id": "q14", "text": "What does active listening involve besides hearing the message?", "answer": "asking clarifying questions" },
-                  { "id": "q15", "text": "What should you check before sending an email?", "answer": "spelling and grammar" },
-                  { "id": "q16", "text": "What should you bring to a meeting?", "answer": "an agenda" }
+                "instruction": "Write NO MORE THAN THREE WORDS.",
+                "questions": [
+                  { "id": "q14", "text": "What does active listening involve besides hearing?", "answer": "asking clarifying questions" },
+                  { "id": "q15", "text": "What must you check before you send an email?", "answer": "spelling and grammar" },
+                  { "id": "q16", "text": "What should be prepared before a meeting starts?", "answer": "an agenda" }
+                ]
+              },
+              {
+                "type": "short-answer",
+                "instruction": "Answer the questions using NO MORE THAN THREE WORDS.",
+                "questions": [
+                  { "id": "q17", "text": "What does clear communication help prevent at work?", "answer": "misunderstandings", "wordLimit": 3 },
+                  { "id": "q18", "text": "What does active listening require a person to be on the speaker?", "answer": "concentrating", "wordLimit": 3 },
+                  { "id": "q19", "text": "What two qualities should emails have?", "answer": "professional and concise", "wordLimit": 3 },
+                  { "id": "q20", "text": "What can networking help an employee achieve?", "answer": "career advancement", "wordLimit": 3 },
+                  { "id": "q21", "text": "What should be avoided when handling conflict?", "answer": "assigning blame", "wordLimit": 3 }
+                ]
+              },
+              {
+                "type": "trinary",
+                "instruction": "Write TRUE, FALSE or NOT GIVEN.",
+                "questions": [
+                  { "id": "q22", "text": "Summarizing helps ensure you understood the speaker.", "answer": "TRUE" },
+                  { "id": "q23", "text": "You should use a casual tone when emailing external contacts.", "answer": "FALSE" },
+                  { "id": "q24", "text": "Productive meetings require staying focused on the agenda.", "answer": "TRUE" },
+                  { "id": "q25", "text": "Most professional organizations have high membership fees.", "answer": "NOT GIVEN" },
+                  { "id": "q26", "text": "Conflict should only be handled by managers.", "answer": "FALSE" }
                 ]
               }
             ]
@@ -140,17 +175,12 @@
         "id": "s3",
         "section": 3,
         "title": "Food and Culture",
-        "description": "Questions 27-40 based on Part 3",
+        "description": "Questions 27-40 based on Section 3",
         "passages": [
           {
             "id": "p3",
             "title": "Food and Culture",
             "type": "ielts-complex",
-            "vocabList": [
-              { "term": "authentic", "hu": "autentikus", "definition": "Genuine and original", "example": "The restaurant serves authentic Italian food." },
-              { "term": "cuisine", "hu": "konyha", "definition": "A style of cooking", "example": "Thai cuisine is known for its bold flavors." },
-              { "term": "reservation", "hu": "foglalás", "definition": "An arrangement to hold something", "example": "I made a reservation for dinner." }
-            ],
             "content": [
               "<p>Food is an important part of culture and identity. Different countries and regions have their own unique cuisines, which reflect their history, climate, and available ingredients.</p>",
               "<p>Italian cuisine, for example, varies by region. Northern Italy is known for rice dishes and rich sauces, while southern Italy is famous for its pasta and olive oil. The Mediterranean diet, which includes olive oil, vegetables, and fish, is considered one of the healthiest in the world.</p>",
@@ -160,12 +190,36 @@
             ],
             "subTasks": [
               {
-                "type": "true-false-not-given",
-                "instruction": "Do the following statements agree with the information given in the passage? Write TRUE, FALSE, or NOT GIVEN.",
-                "items": [
-                  { "id": "q27", "text": "Italian cuisine is the same throughout Italy.", "answer": "FALSE" },
-                  { "id": "q28", "text": "The Mediterranean diet is considered healthy.", "answer": "TRUE" },
-                  { "id": "q29", "text": "Street food is only found in Asian countries.", "answer": "FALSE" }
+                "type": "trinary",
+                "instruction": "Write TRUE, FALSE or NOT GIVEN.",
+                "questions": [
+                  { "id": "q27", "text": "Cuisine is influenced by the weather of a region.", "answer": "TRUE" },
+                  { "id": "q28", "text": "The Mediterranean diet prohibits the consumption of meat.", "answer": "NOT GIVEN" },
+                  { "id": "q29", "text": "Street food is generally very expensive.", "answer": "FALSE" },
+                  { "id": "q30", "text": "Japanese food focuses on how the dish looks.", "answer": "TRUE" }
+                ]
+              },
+              {
+                "type": "matching-features",
+                "instruction": "Match the cuisine to the characteristic.",
+                "questions": [
+                  { "id": "q31", "text": "Known for balancing four distinct flavors.", "answer": "Thai" },
+                  { "id": "q32", "text": "Famous for dim sum.", "answer": "Cantonese" },
+                  { "id": "q33", "text": "Associated with rice and rich sauces in the north.", "answer": "Italian" },
+                  { "id": "q34", "text": "Known for highly spicy dishes.", "answer": "Sichuan" }
+                ],
+                "options": ["Thai", "Cantonese", "Italian", "Sichuan"]
+              },
+              {
+                "type": "summary-completion",
+                "instruction": "Complete the summary. Choose NO MORE THAN TWO WORDS from the text.",
+                "questions": [
+                  { "id": "q35", "text": "A region's cuisine is a reflection of its history and ______.", "answer": "available ingredients" },
+                  { "id": "q36", "text": "Southern Italy is specifically known for its use of ______.", "answer": "olive oil" },
+                  { "id": "q37", "text": "Japanese cooking places high importance on using ______.", "answer": "fresh ingredients" },
+                  { "id": "q38", "text": "Street food provides a source of ______ for many people.", "answer": "income" },
+                  { "id": "q39", "text": "Street food in Mexico is represented by ______.", "answer": "tacos" },
+                  { "id": "q40", "text": "Sharing food is a method used worldwide to build ______.", "answer": "relationships" }
                 ]
               }
             ]
@@ -297,6 +351,41 @@
             "question": "When does the tour run?",
             "options": ["daily", "weekends only", "certain days"],
             "answer": "C"
+          },
+          {
+            "id": 16,
+            "type": "mcq",
+            "question": "How much does the tour cost per person?",
+            "options": ["£15", "£20", "£25"],
+            "answer": "C"
+          },
+          {
+            "id": 17,
+            "type": "mcq",
+            "question": "What is the maximum group size?",
+            "options": ["10 people", "15 people", "20 people"],
+            "answer": "B"
+          },
+          {
+            "id": 18,
+            "type": "mcq",
+            "question": "Which landmark is not included in the tour?",
+            "options": ["the cathedral", "the castle", "the stadium"],
+            "answer": "C"
+          },
+          {
+            "id": 19,
+            "type": "mcq",
+            "question": "What language options are available?",
+            "options": ["English only", "English and French", "multiple languages"],
+            "answer": "C"
+          },
+          {
+            "id": 20,
+            "type": "mcq",
+            "question": "How far in advance should visitors book?",
+            "options": ["same day", "24 hours", "48 hours"],
+            "answer": "B"
           }
         ]
       },
@@ -330,7 +419,45 @@
             "id": 23,
             "type": "mcq",
             "question": "When is the first draft due?",
-            "options": "next Friday"
+            "options": ["next Friday", "in two weeks", "end of month"],
+            "answer": "A"
+          },
+          {
+            "id": 24,
+            "type": "mcq",
+            "question": "What is the minimum word count required?",
+            "options": ["2000 words", "3000 words", "4000 words"],
+            "answer": "B"
+          },
+          {
+            "id": 25,
+            "type": "mcq",
+            "question": "Where should the student conduct the survey?",
+            "options": ["the library", "the local community", "online"],
+            "answer": "B"
+          },
+          {
+            "id": 26,
+            "type": "mcq",
+            "question": "What software is recommended for analysis?",
+            "options": ["Excel", "SPSS", "Python"],
+            "answer": "B"
+          },
+          {
+            "id": 27,
+            "type": "mcq",
+            "question": "How many interviews are required?",
+            "options": ["5-10", "10-15", "15-20"],
+            "answer": "C"
+          },
+          {
+            "type": "short-answer",
+            "instruction": "Answer the questions below. Write NO MORE THAN TWO WORDS for each answer.",
+            "questions": [
+              { "id": 28, "text": "What is the title of the project?", "answer": "Water Conservation", "wordLimit": 2, "allowNumber": false },
+              { "id": 29, "text": "Who will approve the final report?", "answer": "the supervisor", "wordLimit": 2, "allowNumber": false },
+              { "id": 30, "text": "When is the final presentation?", "answer": "next month", "wordLimit": 2, "allowNumber": false }
+            ]
           }
         ]
       },
@@ -349,9 +476,43 @@
             "type": "short-answer",
             "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
             "questions": [
-              { "id": 31, "text": "Solar energy comes from the:", "answer": "sun", "wordLimit": 2 },
-              { "id": 32, "text": "Wind turbines convert wind energy into:", "answer": "electricity", "wordLimit": 2 },
-              { "id": 33, "text": "Hydroelectric power uses flowing:", "answer": "water", "wordLimit": 2 }
+              { "id": 31, "text": "Solar energy comes from the:", "answer": "sun", "wordLimit": 2, "allowNumber": false },
+              { "id": 32, "text": "Wind turbines convert wind energy into:", "answer": "electricity", "wordLimit": 2, "allowNumber": false },
+              { "id": 33, "text": "Hydroelectric power uses flowing:", "answer": "water", "wordLimit": 2, "allowNumber": false },
+              { "id": 34, "text": "Geothermal energy comes from:", "answer": "the earth", "wordLimit": 2, "allowNumber": false },
+              { "id": 35, "text": "Biomass energy is derived from:", "answer": "organic materials", "wordLimit": 2, "allowNumber": false }
+            ]
+          },
+          {
+            "type": "mcq",
+            "instruction": "Choose the correct letter, A, B or C.",
+            "question": "Which renewable source has the highest efficiency?",
+            "options": ["solar", "wind", "hydroelectric"],
+            "answer": "C"
+          },
+          {
+            "type": "mcq",
+            "question": "What is the main advantage of wind energy?",
+            "options": ["low cost", "no pollution", "reliable"],
+            "answer": "B"
+          },
+          {
+            "type": "mcq",
+            "question": "Which country is a leader in solar energy?",
+            "options": ["Germany", "China", "Japan"],
+            "answer": "A"
+          },
+          {
+            "type": "mcq",
+            "question": "What is the main challenge for renewable energy?",
+            "options": ["cost", "storage", "availability"],
+            "answer": "B"
+          },
+          {
+            "type": "matching",
+            "instruction": "Match the energy source with its primary use. Write the correct letter, A, B, C or D.",
+            "questions": [
+              { "id": 40, "text": "Solar panels -", "options": ["electricity generation", "heating", "transportation", "industrial use"], "answer": "A" }
             ]
           }
         ]
