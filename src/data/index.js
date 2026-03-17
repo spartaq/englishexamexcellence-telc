@@ -254,7 +254,11 @@ export const loadFullLesson = (metadata) => {
   
   // Only preserve metadata type for non-drill tasks (drills should use content type)
   // This ensures token-select and punctuation-correction drills work correctly
-  if (metadata.type && !metadata.id?.includes('drill') && !metadata.id?.includes('comma')) {
+  // Check for various drill naming patterns: 'drill', 'comma', 'find-'
+  const isDrill = metadata.id?.includes('drill') || 
+                  metadata.id?.includes('comma') || 
+                  metadata.id?.includes('find-');
+  if (metadata.type && !isDrill) {
     merged.type = metadata.type;
   }
   

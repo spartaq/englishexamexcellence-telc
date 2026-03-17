@@ -1,11 +1,11 @@
-import { drill1Data } from './find/find-drill-1';
-import { drill2Data } from './find/find-drill-2'; 
+import { findPassive1Data } from './find/find-passive-1';
+import { findPresentPerfect1Data } from './find/find-presperf-1'; 
 import { commaDrill1Data, commaDrill2Data, commaDrill3Data } from './grammar/comma-drill-1';
 
 // 1. Lookup Table for Exercises
 export const drillsData = {
-  'drill-1': drill1Data,
-  'drill-2': drill2Data,
+  'find-passive-1': findPassive1Data,
+  'find-presperf-1': findPresentPerfect1Data,
   'comma-drill-1': commaDrill1Data,
   'comma-drill-2': commaDrill2Data,
   'comma-drill-3': commaDrill3Data,
@@ -20,8 +20,8 @@ export const DRILLS_HUB = {
       id: 'reading-drills',
       title: 'Reading Skills',
       tasks: [
-        { id: 'drill-1', title: 'Find the past tense', xp: 500, type: 'reading-drill', tier: 'bronze' },
-        { id: 'drill-2', title: 'Find the present perfect', xp: 500, type: 'reading-drill', tier: 'bronze' },
+        { id: 'find-passive-1', title: 'Find the passsive voice', xp: 500, type: 'reading-drill', tier: 'bronze' },
+        { id: 'find-presperf-1', title: 'Find the present perfect', xp: 500, type: 'reading-drill', tier: 'bronze' },
       ]
     },
     {
