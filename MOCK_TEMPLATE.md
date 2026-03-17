@@ -572,6 +572,86 @@ generalMock[N],
 
 ---
 
+## 9. Hub Routes and Type Fields
+
+### Important: The `type` and `skill` Fields
+
+For hub routes to work correctly (Reading Academic, Reading General, Writing Academic, Writing General, Listening, Speaking), the mock data must include proper `type` or `skill` fields:
+
+#### In Mock Root Header:
+```json
+{
+  "id": "ielts-general-mock-1",
+  "mockNumber": 1,
+  "type": "general",  // or "academic"
+  ...
+}
+```
+
+#### In Reading Sections:
+```json
+"reading": {
+  "title": "Reading",
+  "time": 60,
+  "type": "READING",  // Required for hub routes
+  "skill": "reading", // Alternative to type
+  "sections": [ ... ]
+}
+```
+
+#### In Writing Sections:
+```json
+"writing": {
+  "title": "Writing",
+  "time": 60,
+  "type": "WRITING",  // Required for hub routes
+  "skill": "writing", // Alternative to type
+  "sections": [ ... ]
+}
+```
+
+#### In Listening Sections:
+```json
+"listening": {
+  "title": "Listening",
+  "time": 30,
+  "type": "LISTENING",  // Required for hub routes
+  "skill": "listening", // Alternative to type
+  "sections": [ ... ]
+}
+```
+
+#### In Speaking Sections:
+```json
+"speaking": {
+  "title": "Speaking",
+  "time": 15,
+  "type": "SPEAKING",  // Required for hub routes
+  "skill": "speaking", // Alternative to type
+  "parts": [ ... ]
+}
+```
+
+### Hub Routes Mapping
+
+| Route | initialView | Loads Section |
+|-------|-------------|---------------|
+| `/dashboard/reading-academic` | `reading_academic` | Academic reading section |
+| `/dashboard/reading-general` | `reading_general` | General reading section |
+| `/dashboard/writing-academic` | `writing_academic` | Academic writing section |
+| `/dashboard/writing-general` | `writing_general` | General writing section |
+| `/dashboard/listening` | `listening` | Listening section |
+| `/dashboard/speaking` | `speaking` | Speaking section |
+
+### How Hub Tasks Work
+
+1. Hub links pass `mockId` to identify which mock to load
+2. App loads the mock and finds the section by matching `type` or `skill`
+3. For Writing with multiple tasks, the app uses `activeSectionIndex` to render the correct task
+4. Each writing task needs: `id`, `taskType`, `title`, `instruction`, `targetWords`, `prompt`, `bullets`
+
+---
+
 ## Quick Reference: Question Types Summary
 
 ### Reading
@@ -599,6 +679,10 @@ generalMock[N],
 
 - [ ] Create mock JSON file in `src/data/IELTS/mocks/`
 - [ ] Add mockNumber field
+- [ ] Add `type` field to reading section (e.g., `"type": "READING"`)
+- [ ] Add `type` field to writing section (e.g., `"type": "WRITING"`)
+- [ ] Add `type` field to listening section (e.g., `"type": "LISTENING"`)
+- [ ] Add `type` field to speaking section (e.g., `"type": "SPEAKING"`)
 - [ ] Create 3 reading sections with passages (6-8 paragraphs each)
 - [ ] Add vocabulary words (15-20 words from readings)
 - [ ] Add vocabulary to appropriate category in `vocabulary.js`
@@ -607,3 +691,4 @@ generalMock[N],
 - [ ] Create 3 speaking parts (interview, long turn, discussion)
 - [ ] Register mock in `src/data/IELTS/mocks/index.js`
 - [ ] Test the mock loads correctly
+- [ ] Test hub routes work (Reading Academic, Reading General, Writing Academic, Writing General, Listening, Speaking)

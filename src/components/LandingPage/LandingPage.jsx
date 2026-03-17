@@ -35,9 +35,8 @@ const LandingPage = () => {
             <span className="text-gradient">Start training.</span>
           </h1>
           <p className="hero-subtext">
-            If you can speak English fluently, you will pass. Doing mock tests 
-            just measures your level—it doesn't improve it. I’ve broken the exams 
-            down into 15-minute "atoms" so you can build real skills, every single day.
+            You can find mock tests everywhere and you can do them. But just doing mock tests 
+            just measures your level — it doesn't improve it. What we have here are exercises to help you practice the key skills you need to be successful on the exam. There are full mocks here, but we also give you short "Atom" exercises which break down into 15-minute practice sessions so you can build real skills, every single day.
           </p>
           <div className="hero-ctas">
             <button 
@@ -60,27 +59,21 @@ const LandingPage = () => {
           <div className="feature-icon">⏱️</div>
           <h3>Focus That Counts</h3>
           <p>
-            In my lab, we don't track "study time"—we track <strong>effort</strong>. 
-            The timer stops if you get distracted. You earn your rank through 
-            pure, focused work.
+            Not just mock exams, but exercises to expand your vocabulary and practice the skills you need to get successful results on the exam.
           </p>
         </div>
         <div className="feature-card">
           <div className="feature-icon">🧠</div>
           <h3>The "Secret Sauce"</h3>
           <p>
-            You won't just see a score. You'll compare your work against 
-            Gold-standard answers. If you can spot your own mistakes, 
-            you're already halfway to a Band 9.
+            You won't just see a score. For speaking and writing, you can assess yourself with AI.
           </p>
         </div>
         <div className="feature-card">
           <div className="feature-icon">⚛️</div>
           <h3>Exam Atoms</h3>
           <p>
-            Don't sit through a 3-hour mock test. Master the "First Sentence Rule" 
-            in reading or rhetorical logic in writing through bite-sized 
-            daily exercises.
+            You're probably not going to do a 3-hour exam everyday to practice. That's why we've got "Atoms", bite-sized exam exercises. 
           </p>
         </div>
       </section>

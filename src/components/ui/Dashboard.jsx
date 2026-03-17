@@ -25,7 +25,7 @@ const Dashboard = ({
           <p>
             {isPremium 
               ? "Your training plan is ready. Remember: 15 minutes of focused work is better than 3 hours of aimless practice." 
-              : "Welcome to the Lab. Pick your exam and start training for the test."}
+              : "Welcome to the Lab. Pick your exam and take some practice tests. Or hone your voacb and grammar skills with one of our drills."}
           </p>
           
           {/* Quick Effort Summary */}
@@ -38,8 +38,8 @@ const Dashboard = ({
 
       {/* CHAPTER 2: THE QUALIFICATIONS (Exam Hubs) */}
       <div className="dashboard-section-header">
-        <h2>Choose Your Target</h2>
-        <p>Select to take a full mock exam.</p>
+        <h2>Choose Your Test</h2>
+        <p>Take a full mock exam or select parts to work on.</p>
       </div>
 
       <div className="exam-selection-grid">
@@ -63,7 +63,7 @@ const Dashboard = ({
 
       {/* CHAPTER 3: DAILY MUSCLE BUILDING (Skills) */}
       <div className="dashboard-section-header">
-        <h2>Build Your Muscles</h2>
+        <h2>Practice Skills</h2>
         <p>Focus on a specific skill atom today.</p>
       </div>
 
