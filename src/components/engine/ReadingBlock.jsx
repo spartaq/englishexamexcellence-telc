@@ -1,7 +1,8 @@
+
 import React from 'react';
 import QuestionCarousel from './QuestionCarousel';
 import SplitPane from './SplitPane';
-import './engine.css';
+import './ReadingBlock.css';
 
 // Import the interactive blocks for different question types
 import ShortAnswerBlock from './InteractiveBlocks/ShortAnswerBlock';
@@ -19,9 +20,16 @@ import FlowChartCompletionBlock from './InteractiveBlocks/FlowChartCompletionBlo
 import NotesCompletionBlock from './InteractiveBlocks/NotesCompletionBlock';
 import PunctuationCorrectionBlock from './InteractiveBlocks/PunctuationCorrectionBlock';
 
-const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBlock: externalRenderBlock, userAnswers = {}, onUpdate = () => {} }) => {
-  // If externalRenderBlock is provided (from App.jsx), use it
-  // Otherwise, use internal rendering
+const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalRenderBlock, userAnswers = {}, onUpdate = () => {}, onQuestionIndexChange, navigationProps, showCheckAnswers = false, onCheckAnswers }) => {
+  // Data is always an object from the mock
+  const content = data?.content || data?.passage;
+  console.log('[ReadingBlock] content:', content ? (Array.isArray(content) ? 'array len: ' + content.length : 'string') : 'undefined');
+  // Check both data.questions and data.subTasks for questions
+  // IMPORTANT: Preserve the subTask type on each question so internalRenderQuestionBlock can route correctly
+  const questions = data?.questions || (data?.subTasks ? data.subTasks.flatMap(st => (st.questions || []).map(q => ({...q, type: st.type}))) : []);
+  const title = data?.title;
+  const subtitle = data?.subtitle;
+  
   const internalRenderQuestionBlock = (q, idx) => {
     const qt = q.type;
     switch (qt) {
@@ -34,18 +42,28 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
             onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
+            className="invictus-interactive-block"
           />
         );
-      case 'matching-info':
-        // matching-info: Which paragraph contains the following information
+      case 'matching-choice':
+        // For matching-choice, we need to pass the passage content from the parent
+        // Also pass the passage id so answers can be checked against it
+        console.log('[ReadingBlock] matching-choice: content type:', typeof content, Array.isArray(content) ? 'array length: ' + content.length : '', 'data.id:', data?.id);
         return (
           <MatchingChoiceBlock
             key={q.id || idx}
-            data={{...q, type: 'matching-info'}}
-            userAnswers={{}}
-            onUpdate={() => {}}
+            data={{
+              ...q, 
+              type: 'matching-choice', 
+              content: content, 
+              parentContent: content,
+              passageId: data.id
+            }}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
+            className="invictus-interactive-block"
           />
         );
       case 'mcq':
@@ -54,8 +72,11 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           <MCQBlock
             key={q.id || idx}
             data={q}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
+            className="invictus-interactive-block"
           />
         );
       case 'matching-choice':
@@ -63,8 +84,11 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           <MatchingChoiceBlock
             key={q.id || idx}
             data={q}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
+            className="invictus-interactive-block"
           />
         );
       case 'heading-match':
@@ -76,6 +100,7 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
             onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
+            className="invictus-interactive-block"
           />
         );
       case 'sentence-complete':
@@ -83,8 +108,11 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           <SentenceCompleteBlock
             key={q.id || idx}
             data={q}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
+            className="invictus-interactive-block"
           />
         );
       case 'gap-fill':
@@ -92,8 +120,11 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           <GapFillBlock
             key={q.id || idx}
             data={q}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
+            className="invictus-interactive-block"
           />
         );
       case 'trinary':
@@ -104,6 +135,7 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
             userAnswers={userAnswers}
             onUpdate={onUpdate}
             isReviewMode={false}
+            className="invictus-interactive-block"
           />
         );
       case 'matching-features':
@@ -111,8 +143,11 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           <MatchingFeaturesBlock
             key={q.id || idx}
             data={q}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
+            className="invictus-interactive-block"
           />
         );
       case 'token-select':
@@ -120,8 +155,11 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           <TokenSelectBlock
             key={q.id || idx}
             data={q}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
+            className="invictus-interactive-block"
           />
         );
       case 'diagram-label':
@@ -129,8 +167,11 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           <DiagramLabelBlock
             key={q.id || idx}
             data={q}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
+            className="invictus-interactive-block"
           />
         );
       case 'table-completion':
@@ -138,8 +179,11 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           <TableCompletionBlock
             key={q.id || idx}
             data={q}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
+            className="invictus-interactive-block"
           />
         );
       case 'flow-chart':
@@ -147,8 +191,11 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           <FlowChartCompletionBlock
             key={q.id || idx}
             data={q}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
+            className="invictus-interactive-block"
           />
         );
       case 'notes-completion':
@@ -156,8 +203,11 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           <NotesCompletionBlock
             key={q.id || idx}
             data={q}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
+            className="invictus-interactive-block"
           />
         );
       case 'punctuation':
@@ -165,30 +215,25 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           <PunctuationCorrectionBlock
             key={q.id || idx}
             data={q}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
             isReviewMode={false}
             hideInstruction={true}
+            className="invictus-interactive-block"
           />
         );
       default:
-        // For matching-info type (IELTS reading)
         if (q.questions && Array.isArray(q.questions)) {
           return (
-            <div key={q.id || idx}>
+            <div key={q.id || idx} className="invictus-question-group">
               {q.instruction && (
-                <div className="question-instruction" style={{ 
-                  marginBottom: '12px', 
-                  padding: '10px', 
-                  backgroundColor: '#f8fafc', 
-                  borderRadius: '6px',
-                  fontSize: '14px',
-                  color: '#475569'
-                }}>
+                <div className="invictus-instruction-box">
                   {q.instruction}
                 </div>
               )}
               {q.questions.map((sq, sqIdx) => (
-                <div key={sq.id || sqIdx} style={{ marginBottom: '16px' }}>
-                  <div style={{ fontWeight: '500', marginBottom: '8px' }}>
+                <div key={sq.id || sqIdx} className="invictus-sub-question">
+                  <div className="invictus-question-number">
                     {sq.id || sqIdx + 1}. {sq.text}
                   </div>
                   <ShortAnswerBlock
@@ -204,141 +249,81 @@ const ReadingBlock = ({ content, questions, isMiniTest = false, renderQuestionBl
           );
         }
         return (
-          <div key={q.id || idx} style={{ padding: '10px', backgroundColor: '#fef3c7', borderRadius: '6px' }}>
+          <div key={q.id || idx} className="invictus-error-fallback">
             Unknown question type: {qt}
           </div>
         );
     }
   };
 
-  const renderContent = () => {
-    // CASE 1: Single String (Now supports HTML inside the string)
-    if (typeof content === 'string') {
-      return (
-        <div 
-          className="passage-text" 
-          dangerouslySetInnerHTML={{ __html: content }} 
-          style={{ whiteSpace: 'pre-line' }} // Honors \n if HTML isn't used
-        />
-      );
-    }
-
-    if (Array.isArray(content)) {
-      // Check if the array contains Objects (Matching Info format) or Strings (HTML format)
-      const isObjectFormat = typeof content[0] === 'object' && content[0] !== null;
-
-      if (isObjectFormat) {
-        // CASE 2: Matching Info format (Objects with id and text)
-        return content.map((paragraph) => (
-          <div key={paragraph.id} style={{ marginBottom: '20px', display: 'flex', gap: '15px' }}>
-            <span style={{ fontWeight: 800, color: 'var(--lab-indigo)', fontSize: '14px' }}>
-              {paragraph.id}
-            </span>
-            <p className="passage-text" style={{ margin: 0 }}>
-              {paragraph.text}
-            </p>
-          </div>
-        ));
-      } else {
-        // CASE 3: New HTML Array format (Array of strings like the Enron/Theranos example)
-        return content.map((htmlSnippet, index) => (
-          <div 
-            key={index} 
-            className="passage-text"
-            style={{ marginBottom: '20px' }}
-            dangerouslySetInnerHTML={{ __html: htmlSnippet }} 
-          />
-        ));
-      }
-    }
-    return null;
-  };
-
-  // Flatten questions from subTasks - expand nested question structures
-  const flattenQuestions = () => {
-    if (!questions || !Array.isArray(questions)) return [];
-    
-    const flatQs = [];
-    questions.forEach((task) => {
-      // heading-match needs special handling - keep the whole task with headings
-      if (task.type === 'heading-match') {
-        if (task.headings && Array.isArray(task.headings) && task.questions && Array.isArray(task.questions)) {
-          flatQs.push({
-            ...task,
-            type: 'heading-match'
-          });
-        }
-      // flow-chart needs special handling - keep all steps together instead of flattening
-      } else if (task.type === 'flow-chart') {
-        // Keep the flow-chart as a single unit with all its questions/steps
-        flatQs.push({
-          ...task,
-          type: 'flow-chart'
-        });
-      // matching-features needs special handling - preserve features for each question
-      } else if (task.type === 'matching-features' && task.features && Array.isArray(task.features)) {
-        // For matching-features - MUST come before general questions check
-        if (task.questions && Array.isArray(task.questions)) {
-          task.questions.forEach((q) => {
-            flatQs.push({
-              ...q,
-              type: 'matching-features',
-              parentType: 'matching-features',
-              allFeatures: task.features,
-              instruction: task.instruction
-            });
-          });
-        }
-      // If task has nested questions array (like matching-info), expand them
-      } else if (task.questions && Array.isArray(task.questions)) {
-        // matching-info uses short-answer style questions
-        const isMatchingInfo = task.type === 'matching-info';
-        // trinary questions also have nested questions - preserve the type
-        const isTrinary = task.type === 'trinary';
-        task.questions.forEach((q) => {
-          flatQs.push({
-            ...q,
-            type: isMatchingInfo ? 'matching-info' : (isTrinary ? 'trinary' : task.type), // Use task.type as fallback
-            mode: task.mode, // Preserve mode (tfng or yesno) for trinary
-            parentType: task.type,
-            parentInstruction: task.instruction,
-            parentId: task.id
-          });
-        });
-      } else {
-        // Flat structure - add directly
-        flatQs.push({...task});
-      }
-    });
-    return flatQs;
-  };
-
-  const flatQuestions = flattenQuestions();
+  // Use the already-flattened questions (line 28 preserves type from subTasks)
+  const flatQuestions = questions;
   const useCarousel = flatQuestions.length > 1;
 
   return (
-    <div className="reading-block">
+    <div className="invictus-reading-layout">
       <SplitPane
         content={
-          <div className="reading-passage">
-            {renderContent()}
+          <div className="invictus-passage-column">
+            {/* Task Header - Inside SplitPane */}
+            {(title || subtitle) && (
+              <div className="invictus-passage-header">
+                {subtitle && <p className="invictus-passage-subtitle">{subtitle}</p>}
+                {title && <h2 className="invictus-passage-title">{title}</h2>}
+              </div>
+            )}
+
+            {/* Passage Content */}
+            {typeof content === 'string' ? (
+              <div 
+                className="invictus-passage-text" 
+                dangerouslySetInnerHTML={{ __html: content }} 
+              />
+            ) : Array.isArray(content) ? (
+              content.map((item, index) => {
+                // Handle both object format {id: "A", text: "..."} and string format "<p>...</p>"
+                const paragraphId = (typeof item === 'object' && item !== null) ? item.id : null;
+                const paragraphText = (typeof item === 'object' && item !== null) ? item.text : item;
+                
+                return (
+                  <div key={index} className="invictus-paragraph-wrapper">
+                    {paragraphId && (
+                      <span className="invictus-paragraph-letter">{paragraphId}</span>
+                    )}
+                    <div 
+                      className="invictus-passage-text"
+                      dangerouslySetInnerHTML={{ __html: paragraphText }} 
+                    />
+                  </div>
+                );
+              })
+            ) : null}
           </div>
         }
         exercise={
-          flatQuestions.length > 0 && (
-            useCarousel ? (
-              <QuestionCarousel
-                key={flatQuestions.map(q => q.id).join('-')}
-                questions={flatQuestions}
-                renderQuestion={(q, idx) => internalRenderQuestionBlock(q, idx)}
-                showInstruction={true}
-              />
-            ) : (
-              <div className="questions-list">
-                {flatQuestions.map((q, idx) => internalRenderQuestionBlock(q, idx))}
-              </div>
-            )
-          )
+          <div className="invictus-question-column">
+            <h2 className="invictus-total-range">Questions 1–15</h2>
+            {flatQuestions.length > 0 && (
+              useCarousel ? (
+                <QuestionCarousel
+                  key={flatQuestions.map(q => q.id).join('-')}
+                  questions={flatQuestions}
+                  renderQuestion={(q, idx) => internalRenderQuestionBlock(q, idx)}
+                  showInstruction={true}
+                  onIndexChange={onQuestionIndexChange}
+                  hasNextPassage={navigationProps?.hasNextPassage}
+                  hasNextSection={navigationProps?.hasNextSection}
+                  onNextPart={navigationProps?.onNextPart}
+                  showCheckAnswers={showCheckAnswers}
+                  onCheckAnswers={onCheckAnswers}
+                />
+              ) : (
+                <div className="invictus-static-list">
+                  {flatQuestions.map((q, idx) => internalRenderQuestionBlock(q, idx))}
+                </div>
+              )
+            )}
+          </div>
         }
       />
     </div>

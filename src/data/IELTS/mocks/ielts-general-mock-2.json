@@ -50,6 +50,7 @@
           {
             "id": "p1",
             "title": "Modern Cities",
+            "subtitle": "Reading Passage 1",
             "type": "ielts-complex",
             "vocabList": [
               { "term": "metropolitan", "hu": "nagyvárosi", "definition": "Relating to a large city" },
@@ -73,7 +74,7 @@
             ],
             "subTasks": [
               {
-                "type": "matching-info",
+                "type": "matching-choice",
                 "instruction": "Which paragraph (A-H) contains the following information?",
                 "questions": [
                   { "id": "q1", "text": "How cities are using technology to improve services", "answer": "E" },
@@ -237,6 +238,7 @@
         "id": "w-m2-t1",
         "taskType": 1,
         "title": "Task 1: Letter",
+        "subtitle": "Part 1: Writing",
         "instruction": "You should spend about 20 minutes on this task. Write at least 150 words.",
         "targetWords": 150,
         "xp": 250,

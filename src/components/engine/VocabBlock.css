@@ -3,8 +3,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  background: #f8fafc;
+  padding: var(--space-lg);
+  background: var(--bg-elevated);
   /* Changed from center to space-between to push label up and buttons down */
   justify-content: space-between; 
   height: 100%;
@@ -46,22 +46,22 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: white;
-  border-radius: 24px;
-  padding: 30px 24px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: 30px var(--space-xl);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-light);
   box-sizing: border-box;
 }
 
 .card-face-back {
   transform: rotateY(180deg);
-  background: #f0f4ff;
-  border-color: #dbeafe;
+  background: var(--instruction-info-bg);
+  border-color: var(--instruction-info-border);
 }
 
 /* Ensure the buttons have a consistent height so the layout doesn't jump */

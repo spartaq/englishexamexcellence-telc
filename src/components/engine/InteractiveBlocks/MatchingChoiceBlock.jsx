@@ -25,10 +25,17 @@ export default function MatchingChoiceBlock({
 }) {
   // Logic to determine available options (A, B, C, D...)
   const getOptions = () => {
-    // 1. If content is provided in the data (as HTML strings)
+    // 1. If content is provided as array of objects with id and text
     if (data.content && Array.isArray(data.content)) {
+      const ids = data.content
+        .filter(item => typeof item === 'object' && item !== null && item.id)
+        .map(item => item.id);
+      if (ids.length > 0) return ids;
+      
+      // Fallback: try to extract from strings
       return data.content.map((item, index) => {
-        const match = String(item).match(/\[([A-Z])\]/);
+        // Match parentheses like (A), (B), etc. in the content
+        const match = String(item).match(/\(([A-Z])\)/);
         return match ? match[1] : String.fromCharCode(65 + index); // Fallback to A, B, C...
       });
     }
@@ -41,11 +48,25 @@ export default function MatchingChoiceBlock({
 
   const options = getOptions();
   
-  // Get passage content (handle array or string)
+  // Get passage content (handle array, objects with text, or string)
   const getContentHtml = () => {
     const content = data.parentContent || data.content;
-    if (!content) return '';
-    if (Array.isArray(content)) return content.join('');
+    console.log('[MatchingChoiceBlock] getContentHtml content:', content);
+    if (!content) {
+      console.log('[MatchingChoiceBlock] No content found - data keys:', Object.keys(data || {}));
+      return '';
+    }
+    if (Array.isArray(content)) {
+      // Handle array of objects {id, text} or strings
+      const result = content.map(item => {
+        if (typeof item === 'object' && item !== null && item.text) {
+          return item.text;
+        }
+        return item;
+      }).join('');
+      console.log('[MatchingChoiceBlock] getContentHtml result:', result?.slice(0, 200));
+      return result;
+    }
     return content;
   };
   
@@ -71,7 +92,13 @@ export default function MatchingChoiceBlock({
   };
 
   const handleSelect = (qId, value) => {
+    console.log('[MatchingChoiceBlock] handleSelect called:', { qId, value, isReviewMode });
     if (isReviewMode) return;
+    if (!onUpdate) {
+      console.log('[MatchingChoiceBlock] WARNING: onUpdate is not defined!');
+      return;
+    }
+    console.log('[MatchingChoiceBlock] Calling onUpdate with:', qId, value);
     onUpdate(qId, value);
   };
 
@@ -85,15 +112,7 @@ export default function MatchingChoiceBlock({
 
   return (
     <div className="matching-choice-container">
-      {/* Reading Passage */}
-      {getContentHtml() && (
-        <div style={{ marginBottom: '20px', padding: '16px', background: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-          <div 
-            className="reading-passage"
-            dangerouslySetInnerHTML={{ __html: `<style>.reading-passage p { margin-bottom: 12px; }</style>` + getContentHtml() }} 
-          />
-        </div>
-      )}
+      {/* Note: Reading Passage is shown in ReadingBlock (left panel), not here */}
 
       {/* Instruction Box */}
       {!hideInstruction && data.instruction && (

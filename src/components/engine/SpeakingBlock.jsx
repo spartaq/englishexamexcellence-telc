@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mic, Square, Play, RefreshCw, Info, Sparkles } from 'lucide-react';
 import { useExamStore } from '../../store/useExamStore';
 import SplitPane from './SplitPane';
+import './SpeakingBlock.css';
 import './engine.css';
 
 const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
@@ -124,26 +125,18 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
 
   return (
     <div className="speaking-container speaking-block-wrapper">
-       
-      {/* Task Header - show only when NOT in mini-test flow */}
-      {!isMiniTest && data.title && (
-        <div className="test-block-header">
-          <h2 className="test-block-title">{data.title}</h2>
-          {data.subtitle && <p className="test-block-subtitle">{data.subtitle}</p>}
-          {data.description && <p className="test-block-description">{data.description}</p>}
-        </div>
-      )}
-
-      {/* Skill Label - Section Header - hide in mini-test flow */}
-      {!isMiniTest && (
-        <div className="vocab-top-section" style={{ marginBottom: '16px' }}>
-          <span className="task-label">🎤 Speaking</span>
-        </div>
-      )}
-
       <SplitPane
         content={
-          <>
+          <div className="invictus-passage-column">
+            {/* Task Header - Inside SplitPane like ReadingBlock */}
+             {data.title && (
+              <div className="invictus-passage-header">
+                <p className="invictus-passage-subtitle">{data.subtitle}</p>
+                <h2 className="invictus-passage-title">{data.title}</h2>
+                <p className="invictus-passage-description">{data.description}</p>
+              </div>
+            )}
+
             {/* Show instruction for current part */}
             {currentPart.instruction && mode !== 'review' && (
               <div className="speaking-instruction">
@@ -196,7 +189,7 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
                     <div key={i} className="speaking-scenario-item">
                       <span className="speaking-scenario-label">SITUATION {i+1}</span>
                       <p style={{ margin: '5px 0', fontSize: '14px' }}><strong>Context:</strong> {s.context}</p>
-                      <p style={{ margin: '5px 0', color: '#4f46e5' }}><strong>They say:</strong> "{s.interlocutorLine}"</p>
+                      <p style={{ margin: '5px 0', color: 'var(--primary)' }}><strong>They say:</strong> "{s.interlocutorLine}"</p>
                     </div>
                   ))}
                 </motion.div>
@@ -262,10 +255,10 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
                 {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}
               </div>
             )}
-          </>
+          </div>
         }
         exercise={
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+          <div className="invictus-question-column speaking-exercise-panel">
             <AnimatePresence>
               {/* Common Recording UI */}
               {mode === 'recording' && (

@@ -26,8 +26,6 @@ import ReflectionGate from './components/engine/ReflectionGate';
 import ResultScreen from './components/engine/ResultScreen'; 
 
 // The Training Blocks (Engine Components)
-import Engine from './components/engine/Engine';
-import useCheckAnswers from './components/engine/useCheckAnswers';
 import ReadingBlock from './components/engine/ReadingBlock';
 import WritingBlock from './components/engine/WritingBlock';
 import SpeakingBlock from './components/engine/SpeakingBlock'; 
@@ -371,31 +369,160 @@ function App({ initialView }) {
     return correct === questions.length ? 'correct' : 'incorrect';
   };
 
-  // Use the checkAnswers hook instead of inline function
-  const { checkAnswers } = useCheckAnswers({
-    activeLesson,
-    activeSectionIndex,
-    activePassageIndex,
-    userAnswers,
-    gapFillSelections,
-    headingSelections,
-    activeTest,
-  });
-
   const handleCheckAnswers = (drillAnswers = null) => {
-    console.log('[App] handleCheckAnswers called', { drillAnswers, userAnswersKeys: Object.keys(userAnswers || {}) });
-    // Use the hook's checkAnswers function - it handles all the logic
-    const result = checkAnswers(drillAnswers);
-    console.log('[App] checkAnswers result:', result);
-    
-    // Handle the result
-    if (result.needsReflection) {
+    const currentSection = activeLesson.sections?.[activeSectionIndex];
+    const currentPassage = currentSection?.passages?.[activePassageIndex];
+
+    const isWritingTask = 
+      activeLesson.type?.includes('WRITING') || 
+      currentSection?.type === 'WRITING' || 
+      currentPassage?.type === 'WRITING' ||
+      activeLesson.type === 'writing-mock';
+
+    const isSpeakingTask = 
+      activeLesson.type?.includes('SPEAKING') || 
+      currentSection?.type === 'SPEAKING' || 
+      currentPassage?.type === 'SPEAKING' ||
+      activeLesson.type === 'ielts-speaking';
+
+    if (isWritingTask || isSpeakingTask) {
       setShowReflection(true);
       return;
     }
+
+    let results = { accuracy: 0, earnedXP: 0, isPerfect: false };
+    let ieltsScore = null;
+
+    // Detect if this is an IELTS test
+    const isIELTS = 
+      activeTest?.id === 'ielts' || 
+      activeLesson.type?.includes('ielts') ||
+      activeLesson.id?.includes('ielts') ||
+      activeLesson.type === 'general-reading-mock' ||
+      activeLesson.type === 'academic-reading-mock' ||
+      activeLesson.type === 'ielts-listening-mock';
     
-    const { results: rawResults, ieltsScore, isIELTS, isReading, isListening, isGeneralTraining } = result;
-    let results = rawResults;
+    const isReading = activeLesson.skill === 'reading' || 
+                     activeLesson.type === 'READING' ||
+                     activeLesson.type === 'reading' ||
+                     activeLesson.type === 'general-reading-mock' ||
+                     activeLesson.type === 'academic-reading-mock' ||
+                     currentSection?.type === 'READING' ||
+                     currentPassage?.type === 'READING';
+    const isListening = activeLesson.skill === 'listening' || 
+                        activeLesson.type === 'LISTENING' ||
+                        activeLesson.type === 'ielts-listening-mock' ||
+                        currentSection?.type === 'LISTENING' ||
+                        currentPassage?.type === 'LISTENING';
+
+    // Determine test type for IELTS (academic vs general)
+    const isGeneralTraining = activeLesson.type === 'general-training' || 
+                               activeLesson.id?.includes('general');
+
+    if (activeLesson.type === 'heading-match') {
+      const totalQuestions = Object.keys(activeLesson.answers).length;
+      let correctCount = 0;
+      Object.keys(activeLesson.answers).forEach(paraId => {
+        if (String(headingSelections[paraId]) === String(activeLesson.answers[paraId])) {
+          correctCount++;
+        }
+      });
+      const accuracy = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
+      results = { 
+        accuracy, 
+        earnedXP: Math.round((activeLesson.xpReward || 0) * (accuracy / 100)), 
+        isPerfect: accuracy >= 100 
+      };
+    } 
+    else if (activeLesson.type === 'token-select') {
+      const selected = userAnswers[activeLesson.id] || [];
+      const evaluation = evaluateDrill(activeLesson, selected);
+      results = { accuracy: evaluation.accuracy, earnedXP: evaluation.earnedXP, isPerfect: evaluation.isPerfect };
+    } 
+    else if (activeLesson.type === 'gap-fill-tokens') {
+      // Calculate accuracy from stored gapFillSelections
+      const selections = gapFillSelections[activeLesson.id] || {};
+      const answers = activeLesson.answers || activeLesson.answer || [];
+      let correctCount = 0;
+      answers.forEach((answer, index) => {
+        const gapIndex = index + 1;
+        const userAnswer = selections[gapIndex];
+        if (userAnswer && userAnswer.toLowerCase() === answer.toLowerCase()) {
+          correctCount++;
+        }
+      });
+      const accuracy = answers.length > 0 ? Math.round((correctCount / answers.length) * 100) : 0;
+      results = { 
+        accuracy, 
+        earnedXP: Math.round((activeLesson.xpReward || 0) * (accuracy / 100)), 
+        isPerfect: accuracy >= 100 
+      };
+    } 
+    else if (activeLesson.type === 'punctuation-correction') {
+      // Calculate accuracy from stored punctuation placements
+      const placements = userAnswers[activeLesson.id] || {};
+      const sentences = activeLesson.sentences || [];
+      let totalCorrect = 0;
+      let totalExpected = 0;
+      
+      sentences.forEach(sentence => {
+        const userPositions = new Set(placements[sentence.id] || []);
+        const expectedPositions = new Set(sentence.correctPositions || []);
+        
+        const correct = [...userPositions].filter(pos => expectedPositions.has(pos));
+        totalCorrect += correct.length;
+        totalExpected += expectedPositions.size;
+      });
+      
+      const accuracy = totalExpected > 0 ? Math.round((totalCorrect / totalExpected) * 100) : 0;
+      results = { 
+        accuracy, 
+        earnedXP: Math.round((activeLesson.xpReward || 0) * (accuracy / 100)), 
+        isPerfect: accuracy >= 100 
+      };
+    } 
+    else {
+      const allQuestions = getFlattenedQuestions(activeLesson);
+      console.log('[handleCheckAnswers] Total questions found:', allQuestions.length);
+      console.log('[handleCheckAnswers] Question IDs:', allQuestions.map(q => q.id));
+      let correctCount = 0;
+      allQuestions.forEach(q => {
+        const userVal = getAnyStoredAnswer(q.id);
+        const correctVal = q.answer;
+        if (Array.isArray(correctVal)) {
+          const isCorrect = Array.isArray(userVal) && 
+            correctVal.every((val, idx) => String(val).trim().toLowerCase() === String(userVal[idx] || "").trim().toLowerCase());
+          if (isCorrect) correctCount++;
+        } else {
+          if (String(userVal || "").trim().toLowerCase() === String(correctVal).trim().toLowerCase()) {
+            correctCount++;
+          }
+        }
+      });
+      const accuracy = allQuestions.length > 0 ? Math.round((correctCount / allQuestions.length) * 100) : 0;
+      results = { 
+        accuracy, 
+        earnedXP: Math.round((activeLesson.xpReward || 0) * (accuracy / 100)), 
+        isPerfect: accuracy >= 100 
+      };
+    }
+
+    // Apply IELTS scoring if applicable
+    if (isIELTS && isReading) {
+      // For IELTS Reading, calculate band score
+      // Note: In real IELTS, there are 40 questions. We'll scale if fewer questions.
+      const scaledMarks = results.isPerfect ? 40 : Math.round((results.accuracy / 100) * 40);
+      const testType = isGeneralTraining ? 'general' : 'academic';
+      
+      ieltsScore = calculateIELTSReadingScore(scaledMarks, testType);
+      console.log('IELTS Reading Score:', ieltsScore);
+    }
+    
+    if (isIELTS && isListening) {
+      const scaledMarks = results.isPerfect ? 40 : Math.round((results.accuracy / 100) * 40);
+      ieltsScore = calculateIELTSListeningScore(scaledMarks);
+      console.log('IELTS Listening Score:', ieltsScore);
+    }
 
     // Include IELTS score in results if available
     if (ieltsScore) {
@@ -643,8 +770,7 @@ function App({ initialView }) {
                   allPassages.push({
                     ...passage,
                     sectionTitle: section.title,
-                    sectionDescription: section.description,
-                    sectionSubtitle: section.subtitle
+                    sectionDescription: section.description
                   });
                 });
               }
@@ -805,7 +931,7 @@ function App({ initialView }) {
       // Calculate if this is the last section for listening
       const listeningSections = activeLesson.listening?.sections?.length || (activeLesson.sections?.filter(s => s.type === 'LISTENING' || s.skill === 'listening').length) || 1;
       const isLastListeningSection = activeSectionIndex >= listeningSections - 1;
-      return <ListeningBlock data={taskData} userAnswers={userAnswers} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} showCheckAnswers={isLastListeningSection} onCheckAnswers={handleCheckAnswers} isMiniTest={true} />;
+      return <ListeningBlock data={taskData} showCheckAnswers={isLastListeningSection} onCheckAnswers={handleCheckAnswers} isMiniTest={true} />;
     }
     if (taskData.type === 'VOCAB' || taskData.type === 'VOCAB_FLASHCARDS') return <VocabBlock data={taskData} onComplete={handleCheckAnswers} />;
 
@@ -819,7 +945,7 @@ function App({ initialView }) {
                         type="text" 
                         className={`listening-text-input ${isReviewMode ? (isCorrect ? 'correct' : 'incorrect') : ''}`}
                         value={userAnswers[taskData.id] || ''}
-                        onChange={(e) => setUserAnswers(prev => ({...prev, [taskData.id]: e.target.value}))}
+                        onChange={(e) => setUserAnswers({...userAnswers, [taskData.id]: e.target.value})}
                         disabled={isReviewMode}
                         placeholder={taskData.placeholder || "Type answer..."}
                     />
@@ -856,17 +982,24 @@ function App({ initialView }) {
       case 'ielts-complex':
       case 'READING':
       case 'reading':
-        // Use Engine for ielts-complex reading passages
+        const passageSubTasks = taskData.subTasks || taskData.questions || [];
+        // Calculate if this is the last passage and last section
+        const currentSection = activeLesson.sections?.[activeSectionIndex];
+        const passagesInSection = currentSection?.passages?.length || 1;
+        const hasNextPassage = activePassageIndex < passagesInSection - 1;
+        const hasNextSection = activeSectionIndex < (activeLesson.sections?.length || 1) - 1;
+        
+        // Use ReadingBlock with QuestionCarousel for ielts-complex passages
         return (
-          <Engine
-            activeLesson={activeLesson}
-            activeSectionIndex={activeSectionIndex}
-            activePassageIndex={activePassageIndex}
+          <ReadingBlock 
+            content={taskData.content} 
+            questions={passageSubTasks}
+            isMiniTest={taskData.isMiniTest}
             userAnswers={userAnswers}
-            onUpdateAnswers={(qId, val) => { console.log('[App] onUpdateAnswers called:', qId, val); setUserAnswers(prev => ({...prev, [qId]: val})); }}
+            onUpdate={(qId, val) => setUserAnswers({...userAnswers, [qId]: val})}
+            navigationProps={{ hasNextPassage, hasNextSection }}
+            showCheckAnswers={!hasNextPassage && !hasNextSection}
             onCheckAnswers={handleCheckAnswers}
-            isReviewMode={isReviewMode}
-            showCheckAnswers={true}
           />
         );
 
@@ -926,11 +1059,11 @@ function App({ initialView }) {
         );
 
       case 'sentence-matching':
-        return <SentenceMatchingBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
+        return <SentenceMatchingBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers({...userAnswers, [qId]: val})} />;
 
       case 'trinary':
         if (taskData.questions) return taskData.questions.map(q => <div key={q.id}>{renderQuestionBlock({ ...q, type: 'trinary' })}</div>);
-        return <TrinaryBlock data={taskData} userAnswers={userAnswers} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} isReviewMode={isReviewMode} />;
+        return <TrinaryBlock data={taskData} userAnswers={userAnswers} onUpdate={(qId, val) => setUserAnswers({...userAnswers, [qId]: val})} isReviewMode={isReviewMode} />;
       
       case 'short-answer':
         return  <ShortAnswerBlock 
@@ -938,7 +1071,7 @@ function App({ initialView }) {
       userAnswers={userAnswers} 
       isReviewMode={isReviewMode} 
       wordLimit={taskData.wordLimit} 
-      onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} 
+      onUpdate={(qId, val) => setUserAnswers({...userAnswers, [qId]: val})} 
     />;
       
       case 'matching-info':
@@ -946,26 +1079,26 @@ function App({ initialView }) {
         return <MatchingChoiceBlock data={{
           ...taskData,
           parentContent: taskData.parentContent || taskData.content
-        }} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
+        }} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers({...userAnswers, [qId]: val})} />;
       
       case 'matching-features':
-        return <MatchingFeaturesBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
+        return <MatchingFeaturesBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers({...userAnswers, [qId]: val})} />;
       
       case 'diagram-label':
-        return <DiagramLabelBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
+        return <DiagramLabelBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers({...userAnswers, [qId]: val})} />;
       
       case 'table':
-        return <TableCompletionBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
+        return <TableCompletionBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers({...userAnswers, [qId]: val})} />;
       
       case 'flowchart':
-        return <FlowChartCompletionBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
+        return <FlowChartCompletionBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers({...userAnswers, [qId]: val})} />;
       
       case 'notes':
       case 'notes-completion':
-        return <NotesCompletionBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
+        return <NotesCompletionBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers({...userAnswers, [qId]: val})} />;
       
       case 'table-completion':
-        return <TableCompletionBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
+        return <TableCompletionBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers({...userAnswers, [qId]: val})} />;
       
       default: return null;
     }
@@ -1000,25 +1133,25 @@ function App({ initialView }) {
   }
 
   return (
-    <div className={`invictus-app-shell ${isHighFocus ? 'high-focus-layout' : ''}`}>
+    <div className={`app-shell ${isHighFocus ? 'high-focus-layout' : ''}`}>
       <ScrollToTop /> 
       {/* SIDEBAR NAVIGATION */}
       {showSidebar && (
-        <aside className="invictus-sidebar">
-          <div className="invictus-brand" style={{ marginBottom: '2rem' }}>
-            <h2 className="invictus-brand-title" style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--invictus-red)' }}>Invictus</h2>
-            <p className="invictus-brand-subtext" style={{ fontSize: '0.7rem', opacity: 0.5 }}>{activeTest ? activeTest.title.toUpperCase() : 'SELECT EXAM'}</p>
+        <aside className="desktop-sidebar">
+          <div className="brand" style={{ marginBottom: '2rem' }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--success-mint)' }}>The Lab</h2>
+            <p style={{ fontSize: '0.7rem', opacity: 0.5 }}>{activeTest ? activeTest.title.toUpperCase() : 'SELECT EXAM'}</p>
           </div>
-          <nav className="invictus-nav" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <button onClick={() => { navigateToView('dashboard'); setActiveTest(null); }} className={`invictus-nav-item ${view === 'dashboard' ? 'active' : ''}`}>
+          <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <button onClick={() => { navigateToView('dashboard'); setActiveTest(null); }} className={`nav-item ${view === 'dashboard' ? 'active' : ''}`}>
               <LayoutDashboard size={18} /> Dashboard
             </button>
             {activeTest && (
-              <button onClick={() => navigate(`/dashboard/${activeTest.id}-full-individual`)} className={`invictus-nav-item ${view === 'testHub' ? 'active' : ''}`}>
+              <button onClick={() => navigate(`/dashboard/${activeTest.id}-full-individual`)} className={`nav-item ${view === 'testHub' ? 'active' : ''}`}>
                 <BookOpen size={18} /> {activeTest.title} Hub
               </button>
             )}
-            <button className="invictus-nav-item" onClick={() => navigateToView('landing')} style={{ marginTop: 'auto', opacity: 0.5 }}>
+            <button className="nav-item" onClick={() => navigateToView('landing')} style={{ marginTop: 'auto', opacity: 0.5 }}>
               <LogOut size={18} /> Exit Lab
             </button>
           </nav>
@@ -1026,12 +1159,12 @@ function App({ initialView }) {
         </aside>
       )}
 
-      <main className="invictus-main-content">
+      <main className="main-content">
         
          {/* HEADER & GLOBAL TOOLS */}
         {showHeader && (
-          <header className="invictus-header">
-            <div className="invictus-header-left">
+          <header className="app-header">
+            <div>
               {/* Only show header back button for views that don't have their own back button */}
                {view === 'testHub' && (
                  <button onClick={() => navigateBack()} className="exit-btn">
@@ -1097,95 +1230,11 @@ function App({ initialView }) {
                 </button>
               )}
             </div>
-            <div className="invictus-header-center">
-              {/* SECTION TABS - Always visible in header during lesson */}
-              {view === 'lesson' && activeLesson && (() => {
-                const sections = activeLesson.sections || activeLesson.passages || [];
-                const hasMultipleSkills = sections.some(s => s.skill);
-                
-                // Combined flow: Vocab, Reading, Writing, Speaking, Listening
-                if (hasMultipleSkills) {
-                  const skillOrder = ['vocab', 'reading', 'writing', 'speaking', 'listening'];
-                  const availableSkills = skillOrder.filter(skill => 
-                    sections.some(s => s.skill === skill)
-                  );
-                  
-                  return (
-                    <>
-                      <div className="header-tabs">
-                        {availableSkills.map((skill, idx) => (
-                          <button 
-                            key={skill} 
-                            onClick={() => { 
-                              const skillSectionIdx = sections.findIndex(s => s.skill === skill);
-                              setActiveSkillTab(idx);
-                              setActiveSectionIndex(skillSectionIdx >= 0 ? skillSectionIdx : 0); 
-                              setActivePassageIndex(0); 
-                              setIsReviewMode(false); 
-                            }} 
-                            className={`header-tab ${activeSkillTab === idx ? 'active' : ''}`}>
-                            {skill === 'vocab' ? '📚 Vocab' : skill === 'reading' ? '📖 Reading' : skill === 'listening' ? '🎧 Listening' : skill === 'writing' ? '✍️ Writing' : skill === 'speaking' ? '🗣️ Speaking' : skill}
-                          </button>
-                        ))}
-                      </div>
-                      
-                      {/* Passage/Part tabs for current skill */}
-                      {(() => {
-                        const currentSkill = availableSkills[activeSkillTab];
-                        const skillSections = sections.filter(s => s.skill === currentSkill);
-                        
-                        if (skillSections.length > 1) {
-                          return (
-                            <div className="header-subtabs">
-                              {skillSections.map((s, idx) => {
-                                const partTitle = `Part ${idx + 1}`;
-                                const sidx = sections.findIndex(sec => sec === s);
-                                return (
-                                  <button 
-                                    key={idx} 
-                                    onClick={() => { setActiveSectionIndex(sidx); setActivePassageIndex(0); setIsReviewMode(false); }} 
-                                    className={`header-subtab ${activeSectionIndex === sidx ? 'active' : ''}`}>
-                                    {partTitle}
-                                  </button>
-                                );
-                              })}
-                            </div>
-                          );
-                        }
-                        return null;
-                      })()}
-                    </>
-                  );
-                }
-                
-                // Single skill flow: show section tabs and passage tabs
-                if (sections.length > 1) {
-                  return (
-                    <>
-                      <div className="header-tabs">
-                        {sections.map((s, idx) => (
-                          <button 
-                            key={idx} 
-                            onClick={() => { setActiveSectionIndex(idx); setActivePassageIndex(0); setIsReviewMode(false); }} 
-                            className={`header-tab ${activeSectionIndex === idx ? 'active' : ''}`}>
-                            {s.skill === 'vocab' ? '📚 Vocab' : s.skill === 'reading' ? '📖 Reading' : s.skill === 'listening' ? '🎧 Listening' : s.skill === 'writing' ? '✍️ Writing' : s.skill === 'speaking' ? '🗣️ Speaking' : s.type === 'ielts-speaking' ? '🗣️ Speaking' : s.type === 'discussion' ? '🗣️ Part 3' : s.type === 'interview' ? '🗣️ Part 1' : s.type === 'long-turn' ? '🗣️ Part 2' : s.type === 'LISTENING' ? '🎧 Listening' : s.type === 'WRITING' ? '✍️ Writing' : s.type === 'VOCAB' ? '📚 Vocab' : (s.type && (s.type.includes('reading') || s.type === 'reading-practice' || s.type.includes('ielts'))) ? '📖 Reading' : `Part ${idx + 1}`}
-                          </button>
-                        ))}
-                      </div>
-                    </>
-                  );
-                }
-                
-                return null;
-              })()}
-            </div>
-            <div className="invictus-header-right">
-              {view === 'lesson' && <XPBadge mode="time" />}
-            </div>
+            {view === 'lesson' && <XPBadge mode="time" />}
           </header>
         )}
 
-        <div className="invictus-engine-container workspace-container">
+        <div className="workspace-container">
 
           {/* DASHBOARD VIEW */}
           {view === 'dashboard' && (
@@ -1589,13 +1638,170 @@ function App({ initialView }) {
 
                     return (
                       <div className="ielts-mock-container">
-                        {/* UNIFIED SKILL TABS - moved to header */}
+                        {/* UNIFIED SKILL TABS - for combined flows (mini test or full test) */}
                         {(() => {
-                          // Section tabs are now in the header - return null to remove from content
-                          return null;
+                          // Check if this is a combined flow (sections have 'skill' property)
+                          const isCombinedFlow = sections.some(s => s.skill);
+                          
+                          if (isCombinedFlow) {
+                            // Define skill order: Vocab (mini only), Reading, Writing, Speaking, Listening
+                            const skillOrder = ['vocab', 'reading', 'writing', 'speaking', 'listening'];
+                            
+                            // Filter to only include skills that exist in this lesson
+                            const availableSkills = skillOrder.filter(skill => 
+                              sections.some(s => s.skill === skill)
+                            );
+                            
+                            return (
+                              <>
+                                <div className="section-tabs">
+                                  {/* Mock identifier badge */}
+                                  {activeLesson.mockNumber && (
+                                    <span className="mock-badge" style={{
+                                      display: 'inline-flex',
+                                      alignItems: 'center',
+                                      gap: '6px',
+                                      padding: '4px 10px',
+                                      background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+                                      color: 'white',
+                                      borderRadius: '20px',
+                                      fontSize: '12px',
+                                      fontWeight: '600',
+                                      marginRight: '12px',
+                                      boxShadow: '0 2px 8px rgba(99, 102, 241, 0.3)'
+                                    }}>
+                                      <span>📋</span>
+                                      <span>Mock #{activeLesson.mockNumber}</span>
+                                    </span>
+                                  )}
+                                  {availableSkills.map((skill, idx) => (
+                                    <button 
+                                      key={skill} 
+                                      onClick={() => { 
+                                        // Find the first section index for this skill
+                                        const skillSectionIdx = sections.findIndex(s => s.skill === skill);
+                                        setActiveSkillTab(idx);
+                                        setActiveSectionIndex(skillSectionIdx >= 0 ? skillSectionIdx : 0); 
+                                        setActivePassageIndex(0); 
+                                        setIsReviewMode(false); 
+                                      }} 
+                                      className={`section-tab ${activeSkillTab === idx ? 'active' : ''}`}>
+                                      {skill === 'vocab' ? '📚 Vocab' : skill === 'reading' ? '📖 Reading' : skill === 'listening' ? '🎧 Listening' : skill === 'writing' ? '✍️ Writing' : skill === 'speaking' ? '🗣️ Speaking' : skill}
+                                    </button>
+                                  ))}
+                                </div>
+                                
+                                {/* Part tabs for current skill - only show if more than 1 section */}
+                                {(() => {
+                                  const currentSkill = availableSkills[activeSkillTab];
+                                  const skillSections = sections.filter(s => s.skill === currentSkill);
+                                  
+                                  // Only show part tabs if more than 1 section exists
+                                  if (skillSections.length > 1) {
+                                    return (
+                                      <div className="passage-tabs">
+                                        {skillSections.map((s, idx) => {
+                                          // Always show 'Part #' for consistent naming in mini-flows
+                                          const partTitle = `Part ${idx + 1}`;
+                                          const sidx = sections.findIndex(sec => sec === s);
+                                          return (
+                                            <button 
+                                              key={idx} 
+                                              onClick={() => { setActiveSectionIndex(sidx); setActivePassageIndex(0); setIsReviewMode(false); }} 
+                                              className={`tab ${activeSectionIndex === sidx ? 'active' : ''} ${getPassageStatus(s) || ''}`}>
+                                              {partTitle}
+                                            </button>
+                                          );
+                                        })}
+                                      </div>
+                                    );
+                                  }
+                                  return null;
+                                })()}
+                              </>
+                            );
+                          }
+                          
+                          // Original section tabs for non-combined flows (single skill mocks)
+                          return (
+                            <div className="section-tabs">
+                              {/* Mock identifier badge */}
+                              {activeLesson.mockNumber && (
+                                <span className="mock-badge" style={{
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '6px',
+                                  padding: '4px 10px',
+                                  background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+                                  color: 'white',
+                                  borderRadius: '20px',
+                                  fontSize: '12px',
+                                  fontWeight: '600',
+                                  marginRight: '12px',
+                                  boxShadow: '0 2px 8px rgba(99, 102, 241, 0.3)'
+                                }}>
+                                  <span>📋</span>
+                                  <span>Mock #{activeLesson.mockNumber}</span>
+                                </span>
+                              )}
+                              {sections.map((s, idx) => (
+                                <button key={idx} onClick={() => { setActiveSectionIndex(idx); setActivePassageIndex(0); setIsReviewMode(false); }} className={`section-tab ${activeSectionIndex === idx ? 'active' : ''}`}>
+                                  {s.skill === 'vocab' ? '📚 Vocab' : s.skill === 'reading' ? '📖 Reading' : s.skill === 'listening' ? '🎧 Listening' : s.skill === 'writing' ? '✍️ Writing' : s.skill === 'speaking' ? '🗣️ Speaking' : s.type === 'ielts-speaking' ? '🗣️ Speaking' : s.type === 'discussion' ? '🗣️ Part 3' : s.type === 'interview' ? '🗣️ Part 1' : s.type === 'long-turn' ? '🗣️ Part 2' : s.type === 'LISTENING' ? '🎧 Listening' : s.type === 'WRITING' ? '✍️ Writing' : s.type === 'VOCAB' ? '📚 Vocab' : (s.type && (s.type.includes('reading') || s.type === 'reading-practice' || s.type.includes('ielts'))) ? '📖 Reading' : `Part ${idx + 1}`}
+                                </button>
+                              ))}
+                            </div>
+                          );
                         })()}
 
-                        {/* Section header - now handled in renderContent within blocks */}
+                        {/* Only show section header for non-self-contained blocks */}
+                        {(() => {
+                          // Skip header only for Vocab (they have their own internal headers)
+                          // Show section header for Reading, Listening, Speaking, Writing
+                          const skipHeader = currentSection.skill === 'vocab' || currentSection.type === 'VOCAB';
+                          
+                          if (skipHeader) {
+                            return null;
+                          }
+                          
+                          return (
+                            <div className="section-header">
+                              {/* Show title for all sections - use custom title, then partTitle, then "Part #" */}
+                              <h2>{currentSection.title || currentSection.mockTitle || currentSection.partTitle || activeLesson.title || `Part ${activeSectionIndex + 1}`}</h2>
+                              {currentSection.subtitle && (
+                                <p className="subtitle">{currentSection.subtitle}</p>
+                              )}
+                              {currentSection.description && (
+                                <p className="description">{currentSection.description}</p>
+                              )}
+                              {currentSection.instructions && (
+                                <div className="section-instructions">
+                                  {currentSection.instructions}
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })()}
+
+                        {subPassages.length > 1 && (
+                          <div className="passage-tabs">
+                            {subPassages.map((p, idx) => (
+                              <button key={idx} onClick={() => { setActivePassageIndex(idx); setIsReviewMode(false); }} className={`tab ${activePassageIndex === idx ? 'active' : ''} ${getPassageStatus(p) || ''}`}>
+                                {p.title || `Part ${idx + 1}`}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* Show speaking parts tabs when activeLesson has parts array - but NOT for mini tests */}
+                        {activeLesson.parts && activeLesson.parts.length > 1 && !activeLesson.type?.includes('mini') && (
+                          <div className="passage-tabs">
+                            {activeLesson.parts.map((p, idx) => (
+                              <button key={idx} onClick={() => { setActiveSectionIndex(idx); setActivePassageIndex(0); setIsReviewMode(false); }} className={`tab ${activeSectionIndex === idx ? 'active' : ''}`}>
+                                {p.title || `Part ${idx + 1}`}
+                              </button>
+                            ))}
+                          </div>
+                        )}
 
                         {/* Check if we should use single-column layout for self-contained blocks */}
                         {(() => {
@@ -1631,8 +1837,6 @@ function App({ initialView }) {
                               <div className="workspace-grid single-column">
                                 <div className="question-pane full-width">
                                   {renderQuestionBlock(taskData)}
-                                  
-
                                 </div>
                               </div>
                             );
@@ -1686,28 +1890,19 @@ function App({ initialView }) {
                              <div className={`workspace-grid ${(subPassages.length > 0 || currentSection.content) ? '' : 'single-column'}`}>
                                {(subPassages.length > 0 || currentSection.content) && (
                                  <div className="reading-pane">
-                                   <ReadingBlock 
-                                      data={currentPassage || currentSection} 
-                                      userAnswers={userAnswers}
-                                      onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))}
-                                      showCheckAnswers={true}
-                                      onCheckAnswers={handleCheckAnswers}
-                                    />
+                                   <ReadingBlock content={currentPassage?.content || currentSection.content} />
                                  </div>
                                )}
                                <div className="question-pane">
                                  <>
                                    {renderQuestionBlock(subPassages.length > 0 ? currentPassage : currentSection)}
                                    {!handlesOwnQuestions && directQuestions.length > 0 && directQuestions.map(q => <div key={q.id} style={{marginBottom: '20px'}}>{renderQuestionBlock(q)}</div>)}
-                                   
-                                   {/*  in IELTS complex tests */}
                                  </>
                                </div>
                              </div>
                            );
                         })()}
                       </div>
-                      
                     );
                   })()}
                 </div>
@@ -1729,24 +1924,16 @@ function App({ initialView }) {
                     </div>
                   )}
                   {activeLesson.content && activeLesson.type !== 'token-select' && activeLesson.type !== 'heading-match' && (
-                    <ReadingBlock 
-                      data={activeLesson} 
-                      userAnswers={userAnswers}
-                      onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))}
-                      showCheckAnswers={true}
-                      onCheckAnswers={handleCheckAnswers}
-                    />
+                    <ReadingBlock content={activeLesson.content} />
                   )}
                   {renderQuestionBlock(activeLesson)}
-                  
-
                 </div>
               )}
             </div>
           )}
 
           {/* RESULTS SCREEN */}
-          {view === 'results' && <ResultScreen lesson={activeLesson} results={lessonResults} userAnswers={userAnswers} onClaim={handleFinalClaim} activeSectionIndex={activeSectionIndex} activePassageIndex={activePassageIndex} />}
+          {view === 'results' && <ResultScreen lesson={activeLesson} results={lessonResults} userAnswers={userAnswers} onClaim={handleFinalClaim} />}
         </div>
 
        

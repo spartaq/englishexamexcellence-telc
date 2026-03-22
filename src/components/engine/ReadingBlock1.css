@@ -1,0 +1,101 @@
+/* Reading Block - Main container */
+.reading-block {
+  height: 100%;
+}
+
+/* Reading Passage - Main container for reading content */
+.reading-passage {
+  background: var(--bg-surface);
+  padding: var(--space-lg) var(--space-lg) 8px var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Passage Text - Text styling */
+.passage-text {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--deep-slate);
+  margin-bottom: var(--space-xl);
+}
+
+.passage-text:last-child {
+  margin-bottom: 0;
+}
+
+.passage-text > p {
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-xs);
+}
+
+.passage-text > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Highlighting Style */
+.passage-text ::selection {
+  background: rgba(88, 80, 236, 0.2);
+  text-decoration: underline 2px var(--lab-indigo);
+}
+
+/* Question Instruction */
+.question-instruction {
+  font-size: 14px;
+  color: #475569;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: var(--radius-md);
+}
+
+/* Questions List (non-carousel) */
+.questions-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Desktop: side-by-side layout */
+@media (min-width: 769px) {
+  /* Adjust reading passage for side-by-side - scroll INSIDE the box, hidden scrollbar */
+  .reading-passage {
+    max-height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
+  }
+  
+  .reading-passage::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  
+  /* Questions list (non-carousel) should fill the exercise pane */
+  .questions-list {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  /* Reading block should fill the split pane */
+  .reading-block {
+    height: 100%;
+  }
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  .question-instruction {
+    background: rgba(30, 41, 59, 0.5);
+    color: #CBD5E1;
+    border-left-color: var(--lab-indigo);
+  }
+  
+  /* Reading Passage - Dark mode */
+  .reading-passage {
+    background: var(--surface-white);
+    border-color: var(--border-color);
+  }
+  
+  .passage-text {
+    color: #F3F4F6;
+  }
+}

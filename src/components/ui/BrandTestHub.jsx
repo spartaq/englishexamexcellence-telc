@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Clock, BookOpen, Headset, PenTool, Mic, Info, List, Shuffle } from 'lucide-react';
+import { Zap, Clock, BookOpen, Headset, PenTool, Mic, Info, List, Shuffle, Timer, Library, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './BrandTestHub.css';
 
@@ -32,61 +32,19 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
             </p>
           </div>
           <button 
-            className="btn-icon-only" 
+            className="invictus-info-btn" 
             onClick={onShowDescription}
             title="Learn about the exam format"
-            style={{ 
-              background: 'var(--lab-indigo)', 
-              border: 'none', 
-              borderRadius: '50%',
-              padding: '12px',
-              cursor: 'pointer'
-            }}
           >
             <Info size={24} color="white" />
           </button>
         </div>
       </header>
 
+      {/* MAIN PATH GRID: Full Mock Exams + Daily Skill Training */}
       <div className="path-grid">
-        {/* ATOMS CARD */}
-        <div className="strategy-card highlight">
-          <Zap size={40} color="#2563eb" />
-          <h3>Daily Skill Training</h3>
-          <p>
-            <strong>Quick Practice.</strong> A single random exercise at a time - reading, listening, speaking, writing, or vocab.
-          </p>
-          
-          <button 
-            onClick={() => onSelectPath('ielts-mini-random-general')}
-            className="btn-base btn-primary" 
-            style={{ marginBottom: '12px' }}
-          >
-            <Shuffle size={18} style={{ marginRight: '8px' }} />
-            Start General Random Exercise
-          </button>
-          
-          <button 
-            onClick={() => onSelectPath('ielts-mini-random-academic')}
-            className="btn-base btn-primary" 
-            style={{ marginBottom: '12px' }}
-          >
-            <BookOpen size={18} style={{ marginRight: '8px' }} />
-            Start Academic Random Exercise
-          </button>
-          
-          <Link 
-            to="/dashboard/ielts-mini-individual"
-            className="btn-base btn-outline"
-            style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none' }}
-          >
-            <List size={16} style={{ marginRight: '8px' }} />
-            Individual Skill Tests
-          </Link>
-        </div>
-
         {/* FULL MOCK CARD */}
-        <div className="strategy-card standard">
+        <div className="strategy-card highlight">
           <Clock size={40} color="#64748b" />
           <h3>Full Mock Exams</h3>
           <p>
@@ -141,6 +99,101 @@ const BrandTestHub = ({ activeTest, onSelectPath, onShowDescription }) => {
             </div>
           )}
           */}
+        </div>
+
+        {/* ATOMS CARD */}
+        <div className="strategy-card highlight">
+          <Zap size={40} color="var(--invictus-red)" />
+          <h3>Daily Skill Training</h3>
+          <p>
+            <strong>Quick Practice.</strong> A single random exercise at a time - reading, listening, speaking, writing, or vocab.
+          </p>
+          
+          <button 
+            onClick={() => onSelectPath('ielts-mini-random-general')}
+            className="btn-base btn-primary" 
+            style={{ marginBottom: '12px' }}
+          >
+            <Shuffle size={18} style={{ marginRight: '8px' }} />
+            Start General Random Exercise
+          </button>
+          
+          <button 
+            onClick={() => onSelectPath('ielts-mini-random-academic')}
+            className="btn-base btn-primary" 
+            style={{ marginBottom: '12px' }}
+          >
+            <BookOpen size={18} style={{ marginRight: '8px' }} />
+            Start Academic Random Exercise
+          </button>
+          
+          <Link 
+            to="/dashboard/ielts-mini-individual"
+            className="btn-base btn-outline"
+            style={{ marginBottom: '12px', display: 'inline-block', textDecoration: 'none' }}
+          >
+            <List size={16} style={{ marginRight: '8px' }} />
+            Individual Skill Tests
+          </Link>
+        </div>
+      </div>
+
+      {/* DAILY MUSCLE BUILDING SECTION */}
+      <div className="brandtest-section-header">
+        <h2>Daily Muscle Building</h2>
+        <p>Build your skills with quick daily practice.</p>
+      </div>
+
+      <div className="extra-tools-grid">
+        {/* Quick Test Part Card */}
+        <div 
+          className="strategy-card standard" 
+          onClick={() => onSelectPath('ielts-mini-random-general')}
+          style={{ cursor: 'pointer' }}
+        >
+          <Timer size={40} color="var(--invictus-red)" />
+          <h3>Quick Test Part</h3>
+          <p>
+            <strong>5-10 Minutes.</strong> Practice a random part of the exam - reading, listening, speaking, or writing.
+          </p>
+          <button className="btn-base btn-primary">
+            <Zap size={18} style={{ marginRight: '8px' }} />
+            Start Quick Test
+          </button>
+        </div>
+
+        {/* 5 Min Vocab Card */}
+        <div 
+          className="strategy-card standard" 
+          onClick={() => onSelectPath('vocabulary')}
+          style={{ cursor: 'pointer' }}
+        >
+          <Library size={40} color="#8b5cf6" />
+          <h3>5 Min Vocab</h3>
+          <p>
+            <strong>Build Word Power.</strong> Master academic and topical vocabulary in just 5 minutes a day.
+          </p>
+          <button className="btn-base btn-primary" style={{ background: '#8b5cf6' }}>
+            <BookOpen size={18} style={{ marginRight: '8px' }} />
+            Start Vocab
+          </button>
+        </div>
+
+        {/* Daily Grammar Drill Card */}
+        <div 
+          className="strategy-card standard" 
+          onClick={() => onSelectPath('drillshub')}
+          style={{ cursor: 'pointer' }}
+        >
+          <GraduationCap size={40} color="#f59e0b" />
+          <h3>Daily Grammar Drill</h3>
+          <p>
+            <strong>Sharpen Your Grammar.</strong> Practice punctuation, sentence structure, and core grammar rules.
+          </p>
+          <button className="btn-base btn-primary" style={{ background: '#f59e0b' }}>
+            <Zap size={18} style={{ marginRight: '8px' }} />
+            Start Drill
+          </button>
         </div>
       </div>
      </div>

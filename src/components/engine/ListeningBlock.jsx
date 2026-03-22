@@ -3,6 +3,7 @@ import { Play, Pause, Volume2, Info, Headphones } from 'lucide-react';
 import { useExamStore } from '../../store/useExamStore';
 import QuestionCarousel from './QuestionCarousel';
 import SplitPane from './SplitPane';
+import './ListeningBlock.css';
 import './engine.css';
 
 // Import the interactive blocks for different question types
@@ -13,13 +14,18 @@ import DiagramLabelBlock from './InteractiveBlocks/DiagramLabelBlock';
 import MCQBlock from './InteractiveBlocks/MCQBlock';
 import MatchingChoiceBlock from './InteractiveBlocks/MatchingChoiceBlock';
 
-const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
+const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showCheckAnswers = false, onCheckAnswers, userAnswers = {}, onUpdate = () => {} }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [answers, setAnswers] = useState({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const audioRef = useRef(null);
   const carouselRef = useRef(null);
+
+  // Helper to get answer from either parent state (userAnswers) or local state (answers)
+  const getAnswer = (qId) => {
+    return userAnswers[qId] !== undefined ? userAnswers[qId] : answers[qId];
+  };
 
   // Flatten all questions - expand blocks into individual questions
   const getAllQs = () => {
@@ -28,12 +34,9 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
       data.sections.forEach(s => {
         if (s.questions) {
           s.questions.forEach(t => {
-            // Check if it's nested (has t.questions) or flat (t is directly a question)
             if (t.questions && Array.isArray(t.questions)) {
-              // Nested structure: expand each question
               t.questions.forEach(q => qs.push({...q, parentType: t.type}));
             } else if (t.type === 'diagram-label' && t.labels && Array.isArray(t.labels)) {
-              // Expand diagram-label: each label becomes a separate question
               t.labels.forEach(label => qs.push({
                 id: label.id,
                 type: 'diagram-label',
@@ -45,7 +48,6 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
                 diagram: t.diagram
               }));
             } else if (t.type === 'short-answer' && t.questions && Array.isArray(t.questions)) {
-              // Expand short-answer: each question becomes a separate slide
               t.questions.forEach(q => qs.push({
                 ...q,
                 type: 'short-answer',
@@ -55,14 +57,13 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
                 allowNumber: t.allowNumber !== undefined ? t.allowNumber : q.allowNumber
               }));
             } else if (t.type === 'notes-completion' && t.notes && Array.isArray(t.notes)) {
-              // Expand notes-completion: each note with type='gap' becomes a separate question
               t.notes.forEach(note => {
                 if (note.type === 'gap') {
                   qs.push({
                     id: note.id,
                     type: 'notes-completion',
                     parentType: 'notes-completion',
-                    text: note.label, // Use 'label' not 'text'
+                    text: note.label,
                     answer: note.answer,
                     instruction: t.instruction || `Complete the notes. Write NO MORE THAN TWO WORDS AND/OR A NUMBER.`,
                     wordLimit: t.wordLimit || 2
@@ -70,7 +71,6 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
                 }
               });
             } else if (t.type) {
-              // Flat structure: t is directly a question with its own type
               qs.push({...t});
             }
           });
@@ -80,12 +80,9 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
     } else if (data.questions) {
       const qs = [];
       data.questions.forEach(t => {
-        // Check if it's nested (has t.questions) or flat (t is directly a question)
         if (t.questions && Array.isArray(t.questions)) {
-          // Nested structure: expand each question
           t.questions.forEach(q => qs.push({...q, parentType: t.type}));
         } else if (t.type === 'diagram-label' && t.labels && Array.isArray(t.labels)) {
-          // Expand diagram-label: each label becomes a separate question
           t.labels.forEach(label => qs.push({
             id: label.id,
             type: 'diagram-label',
@@ -97,7 +94,6 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
             diagram: t.diagram
           }));
         } else if (t.type === 'short-answer' && t.questions && Array.isArray(t.questions)) {
-          // Expand short-answer: each question becomes a separate slide
           t.questions.forEach(q => qs.push({
             ...q,
             type: 'short-answer',
@@ -107,14 +103,13 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
             allowNumber: t.allowNumber !== undefined ? t.allowNumber : q.allowNumber
           }));
         } else if (t.type === 'notes-completion' && t.notes && Array.isArray(t.notes)) {
-          // Expand notes-completion: each note with type='gap' becomes a separate question
           t.notes.forEach(note => {
             if (note.type === 'gap') {
               qs.push({
                 id: note.id,
                 type: 'notes-completion',
                 parentType: 'notes-completion',
-                text: note.label, // Use 'label' not 'text'
+                text: note.label,
                 answer: note.answer,
                 instruction: t.instruction || `Complete the notes. Write NO MORE THAN TWO WORDS AND/OR A NUMBER.`,
                 wordLimit: t.wordLimit || 2
@@ -122,7 +117,6 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
             }
           });
         } else if (t.type) {
-          // Flat structure
           qs.push({...t});
         }
       });
@@ -133,10 +127,8 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
   const allQs = getAllQs();
   const totalQs = allQs.length;
   
-  // Anti-Gaming: Track focus state from global store
   const isActive = useExamStore(state => state.isActive);
 
-  // Auto-pause if the user leaves the tab
   useEffect(() => {
     if (!isActive && isPlaying) {
       handlePause();
@@ -162,38 +154,39 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
   };
 
   const updateAnswer = (qId, value) => {
+    // Update local state
     setAnswers({ ...answers, [qId]: value });
+    // Also sync with parent state
+    if (onUpdate) {
+      onUpdate(qId, value);
+    }
   };
 
-  // Render the appropriate block based on question type
   const renderQuestionBlock = (q) => {
     const qt = q.type || q.parentType;
     switch (qt) {
       case 'notes-completion':
-        // Check if it's an expanded single question (has text but no notes array)
         if (q.text && !q.notes) {
-          // Single note - render inline input
           return (
             <div key={q.id} className="question-card">
-              <div className="question-instruction" style={{ marginBottom: '10px', padding: '8px', background: '#f0f9ff', borderRadius: '6px', fontSize: '13px' }}>
+              <div className="question-instruction listening-instruction">
                 {q.instruction || `Complete the notes. Write NO MORE THAN ${q.wordLimit || 2} WORDS AND/OR A NUMBER.`}
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-                <span style={{ fontWeight: 700, minWidth: '30px' }}>{q.id}.</span>
+              <div className="question-row">
+                <span className="question-number">{q.id}.</span>
                 <span>{q.text}</span>
               </div>
               <input
                 type="text"
                 className="answer-input"
                 placeholder={q.placeholder || "Type answer here..."}
-                value={answers[q.id] || ''}
+                value={getAnswer(q.id) || ''}
                 onChange={(e) => updateAnswer(q.id, e.target.value)}
                 disabled={false}
               />
             </div>
           );
         }
-        // Original block with notes array
         return (
           <NotesCompletionBlock
             key={q.id}
@@ -206,7 +199,6 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
         );
       
       case 'table-completion':
-        // Keep table-completion as a single block (not expanded)
         return (
           <TableCompletionBlock
             key={q.id}
@@ -219,35 +211,32 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
         );
       
       case 'short-answer':
-        // Check if it's an expanded single question (has text but no questions array)
         if (q.text && !q.questions) {
-          // Single question - render inline
           return (
             <div key={q.id} className="question-card">
-              <div className="question-instruction" style={{ marginBottom: '10px', padding: '8px', background: '#f0f9ff', borderRadius: '6px', fontSize: '13px' }}>
+              <div className="question-instruction listening-instruction">
                 {q.instruction || (q.wordLimit ? `Write NO MORE THAN ${q.wordLimit} WORDS${q.allowNumber ? ' AND/OR A NUMBER' : ''}` : 'Answer the question.')}
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-                <span style={{ fontWeight: 700, minWidth: '30px' }}>{q.id}.</span>
+              <div className="question-row">
+                <span className="question-number">{q.id}.</span>
                 <span>{q.text}</span>
               </div>
               <input
                 type="text"
                 className="answer-input"
                 placeholder={q.placeholder || "Type answer here..."}
-                value={answers[q.id] || ''}
+                value={getAnswer(q.id) || ''}
                 onChange={(e) => updateAnswer(q.id, e.target.value)}
                 disabled={false}
               />
             </div>
           );
         }
-        // Original block with questions array
         return (
           <ShortAnswerBlock
             key={q.id}
             data={q}
-            userAnswers={answers}
+            userAnswers={userAnswers}
             onUpdate={(id, value) => updateAnswer(id, value)}
             isReviewMode={false}
             wordLimit={q.wordLimit}
@@ -257,25 +246,22 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
         );
       
       case 'diagram-label':
-        // Check if it's an expanded single label (has text but no labels array)
         if (q.text && !q.labels) {
-          // Single label - render inline
           return (
             <div key={q.id} className="question-card">
-              <div className="question-instruction" style={{ marginBottom: '10px', padding: '8px', background: '#f0f9ff', borderRadius: '6px', fontSize: '13px' }}>
+              <div className="question-instruction listening-instruction">
                 {q.instruction || 'Label the diagram. Write NO MORE THAN TWO WORDS for each answer.'}
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-                <span style={{ fontWeight: 700, minWidth: '30px' }}>{q.id}.</span>
+              <div className="question-row">
+                <span className="question-number">{q.id}.</span>
                 <span>{q.text}</span>
               </div>
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              <div className="options-flex">
                 {(q.options || []).map((opt) => (
                   <button
                     key={opt}
                     onClick={() => updateAnswer(q.id, opt)}
-                    className={`option-button ${answers[q.id] === opt ? 'selected' : ''}`}
-                    style={{ padding: '8px 12px', fontSize: '13px' }}
+                    className={`option-button ${getAnswer(q.id) === opt ? 'selected' : ''}`}
                   >
                     {opt}
                   </button>
@@ -284,7 +270,6 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
             </div>
           );
         }
-        // Original block with labels array
         return (
           <DiagramLabelBlock
             key={q.id}
@@ -317,7 +302,7 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
                 <button
                   key={i}
                   onClick={() => updateAnswer(q.id, opt)}
-                  className={`option-button ${answers[q.id] === opt ? 'selected' : ''}`}
+                  className={`option-button ${getAnswer(q.id) === opt ? 'selected' : ''}`}
                 >
                   {opt}
                 </button>
@@ -341,13 +326,8 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
       
       default:
         return (
-          <div key={q.id} className="question-card" style={{ 
-            background: '#fff7ed', 
-            border: '1px solid #fed7aa'
-          }}>
-            <p style={{ fontSize: '14px', color: '#9a3412' }}>
-              Unknown question type: {q.type}
-            </p>
+          <div key={q.id} className="question-card unknown-type">
+            <p>Unknown question type: {q.type}</p>
           </div>
         );
     }
@@ -355,62 +335,50 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
 
   return (
     <div className="listening-container">
-      {/* 1. STICKY AUDIO PLAYER - Full width on both desktop and mobile */}
-     
-
-      {/* 2. SPLIT PANE CONTENT AREA */}
       <SplitPane
         content={
-          <div className="listening-content">
-            {/* Skill Label */}
-            <div className="listening-top-section" style={{ marginBottom: '16px' }}>
-              <span className="task-label">
-                🎧 Listening
-              </span>
-
- <div className="audio-sticky-bar">
-        <div className="player-controls" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-          <button 
-            className="play-btn" 
-            onClick={isPlaying ? handlePause : handlePlay}
-            style={{ 
-              width: '40px', height: '40px', borderRadius: '50%', border: 'none', 
-              background: '#4f46e5', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center' 
-            }}
-          >
-            {isPlaying ? <Pause size={20} fill="white" /> : <Play size={20} fill="white" style={{marginLeft: '2px'}} />}
-          </button>
-          
-          <div className="progress-container" style={{ flex: 1, height: '6px', background: '#f1f5f9', borderRadius: '10px', overflow: 'hidden' }}>
-            <div className="progress-fill" style={{ width: `${progress}%`, height: '100%', background: '#4f46e5', transition: 'width 0.1s linear' }} />
-          </div>
-          
-          <Headphones size={18} color="#94a3b8" />
-        </div>
-        <audio 
-          ref={audioRef} 
-          src={data.audioUrl} 
-          onTimeUpdate={handleTimeUpdate} 
-          onEnded={() => setIsPlaying(false)}
-        />
-      </div>
-
-            </div>
-
-            {/* Part Title and Description */}
-            {!isMiniTest && (
-              <div className="test-block-header" style={{ marginBottom: '24px' }}>
-                <h2 className="test-block-title">
-                  {data.title || data.mockTitle || `Part ${data.part || 1}`}
-                </h2>
+          <div className="invictus-passage-column">
+            {/* Part Title and Description - First */}
+            {data.title && (
+               <div className="invictus-passage-header">
                 {data.subtitle && (
-                  <p className="test-block-subtitle">{data.subtitle}</p>
+                  <p className="invictus-passage-subtitle">{data.subtitle}</p>
                 )}
+                <h2 className="invictus-passage-title">{data.title}</h2>
+                
                 {data.description && (
-                  <p className="test-block-description">{data.description}</p>
+                  <p className="listening-description">{data.description}</p>
                 )}
               </div>
             )}
+
+
+                
+
+
+            {/* Audio Player Sticky Bar - After title */}
+            <div className="audio-sticky-bar">
+              <div className="player-controls">
+                <button 
+                  className="play-btn"
+                  onClick={isPlaying ? handlePause : handlePlay}
+                >
+                  {isPlaying ? <Pause size={20} fill="white" /> : <Play size={20} fill="white" style={{marginLeft: '2px'}} />}
+                </button>
+                
+                <div className="progress-track">
+                  <div className="progress-fill" style={{ width: `${progress}%` }} />
+                </div>
+                
+                <Headphones size={18} className="headphones-icon" />
+                <audio 
+                  ref={audioRef} 
+                  src={data.audioUrl} 
+                  onTimeUpdate={handleTimeUpdate} 
+                  onEnded={() => setIsPlaying(false)}
+                />
+              </div>
+            </div>
 
             {/* Support for Map/Diagram Labelling */}
             {data.imageUrl && (
@@ -418,27 +386,52 @@ const ListeningBlock = ({ data, onComplete, isMiniTest = false }) => {
                 <img src={data.imageUrl} alt="Exam Visual" />
               </div>
             )}
+
+            {/* Pro-tip Box */}
+            <div className="protip-box">
+              <div className="protip-icon">
+                <span className="material-symbols-outlined">lightbulb</span>
+              </div>
+              <div className="protip-content">
+                <h4 className="protip-title">Pro-tip for Listening</h4>
+                <p className="protip-text">
+                  Listen carefully to the entire recording. Answers often come in the order of questions.
+                </p>
+              </div>
+            </div>
           </div>
         }
         exercise={
-          <QuestionCarousel 
-            key={allQs.map(q => q.id).join('-')}
-            questions={allQs} 
-            renderQuestion={(q) => renderQuestionBlock(q)}
-          />
+          <div className="listening-exercise-panel">
+            <div className="exercise-header">
+              <h2 className="exercise-title">Questions {data.questionStart || 1}–{data.questionStart ? data.questionStart + totalQs - 1 : totalQs}</h2>
+            </div>
+
+            {/* Pink Instruction Box */}
+            <div className="instruction-box">
+              <div className="instruction-icon">
+                <span className="material-symbols-outlined">info</span>
+              </div>
+              <div className="instruction-content">
+                <h3 className="instruction-title">Instructions</h3>
+                <p className="instruction-text">
+                  Listen to the audio and answer the questions. Write your answers as you listen.
+                </p>
+              </div>
+            </div>
+
+            {/* Question Carousel */}
+            <QuestionCarousel 
+              key={allQs.map(q => q.id).join('-')}
+              questions={allQs} 
+              renderQuestion={(q) => renderQuestionBlock(q)}
+              onIndexChange={onQuestionIndexChange}
+              showCheckAnswers={showCheckAnswers}
+              onCheckAnswers={onCheckAnswers}
+            />
+          </div>
         }
       />
-
-      {/* 3. ACTION FOOTER */}
-      <div className="listening-footer">
-        <button 
-          className="btn-primary" 
-          onClick={() => onComplete(answers)}
-          style={{ width: '100%' }}
-        >
-          Submit All Answers
-        </button>
-      </div>
     </div>
   );
 };

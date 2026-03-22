@@ -17,6 +17,9 @@ const MCQBlock = ({
   onSelect, 
   selectedAnswer, 
   isReviewMode = false,
+  // Support userAnswers and onUpdate for integration with parent state
+  userAnswers = {},
+  onUpdate = () => {},
   // Enhanced props
   multiSelect = false, // Enable multi-select mode
   selectedAnswers = [], // Array for multi-select mode
@@ -39,10 +42,12 @@ const MCQBlock = ({
   // Determine if we're in multi-select mode
   const isMultiSelect = multiSelect || data.multiSelect || Array.isArray(correctAnswers);
   
-  // Get current selections
+  // Get current selections - check userAnswers first (from parent state), then fall back to props
+  const questionId = data.id;
+  const userAnswerFromState = userAnswers[questionId];
   const currentSelections = isMultiSelect 
-    ? (selectedAnswers || internalSelected) 
-    : (selectedAnswer !== undefined ? [selectedAnswer] : []);
+    ? (selectedAnswers || (userAnswerFromState !== undefined ? userAnswerFromState : internalSelected))
+    : (selectedAnswer !== undefined ? [selectedAnswer] : (userAnswerFromState !== undefined ? [userAnswerFromState] : []));
   
   // Maximum selections allowed
   const maxSelections = maxSelect ?? data.maxSelect ?? options.length;
@@ -50,6 +55,10 @@ const MCQBlock = ({
   // Handle single selection
   const handleSingleSelect = (idx) => {
     if (isReviewMode) return;
+    // Call onUpdate to sync with parent state
+    if (onUpdate && questionId) {
+      onUpdate(questionId, idx);
+    }
     if (onSelect) onSelect(idx);
   };
 
@@ -77,6 +86,11 @@ const MCQBlock = ({
       setInternalSelected(newSelections);
     }
     
+    // Call onUpdate to sync with parent state
+    if (onUpdate && questionId) {
+      onUpdate(questionId, newSelections);
+    }
+    
     // Also call onSelect for compatibility
     if (onSelect) {
       onSelect(newSelections);
@@ -87,7 +101,7 @@ const MCQBlock = ({
   const isSelected = (idx) => {
     return isMultiSelect 
       ? currentSelections.includes(idx)
-      : selectedAnswer === idx;
+      : (currentSelections.length > 0 ? currentSelections[0] === idx : selectedAnswer === idx);
   };
 
   // Check if an option is correct

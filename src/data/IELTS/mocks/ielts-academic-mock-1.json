@@ -49,7 +49,7 @@
             ],
             "subTasks": [
               {
-                "type": "matching-info",
+                "type": "matching-choice",
                 "instruction": "Which paragraph contains the following information?",
                 "questions": [
                   { "id": "r1q1", "text": "how electroreception can be used to help fish reproduce", "answer": "C" },

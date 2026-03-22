@@ -1,21 +1,55 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const QuestionCarousel = ({ questions, renderQuestion, showInstruction = true }) => {
+const QuestionCarousel = ({ 
+  questions, 
+  renderQuestion, 
+  showInstruction = true, 
+  onIndexChange,
+  hasNextPassage = false,
+  hasNextSection = false,
+  onNextPart,
+  showCheckAnswers = false,
+  onCheckAnswers
+}) => {
+  console.log('QuestionCarousel props:', { questionsLength: questions?.length, showCheckAnswers, hasNextPassage, hasNextSection, hasOnCheckAnswers: !!onCheckAnswers });
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
+  const prevQuestionsRef = useRef(null);
 
-  // Reset to first question when questions change (e.g., moving to a new section)
+  // Reset to first question when questions actually change (not on every render)
   useEffect(() => {
-    setCurrentIndex(0);
-    if (carouselRef.current) {
-      carouselRef.current.scrollTo({ left: 0, behavior: 'auto' });
+    // Check if questions array has actually changed
+    const questionsChanged = prevQuestionsRef.current !== questions &&
+      JSON.stringify(prevQuestionsRef.current) !== JSON.stringify(questions);
+    
+    if (questionsChanged || (prevQuestionsRef.current === null && questions)) {
+      setCurrentIndex(0);
+      if (carouselRef.current) {
+        carouselRef.current.scrollTo({ left: 0, behavior: 'auto' });
+      }
+      // Notify parent of index change
+      if (onIndexChange) onIndexChange(0);
     }
+    
+    prevQuestionsRef.current = questions;
   }, [questions]);
+
+  // Notify parent when index changes
+  useEffect(() => {
+    if (onIndexChange) {
+      onIndexChange(currentIndex, questions.length);
+    }
+  }, [currentIndex, onIndexChange, questions.length]);
 
   if (!questions || questions.length === 0) {
     return null;
   }
+
+  const isLastQuestion = currentIndex === questions.length - 1;
+  const showNextPart = isLastQuestion && (hasNextPassage || hasNextSection);
+  
+
 
   const scrollToQuestion = (index) => {
     if (carouselRef.current) {
@@ -36,6 +70,12 @@ const QuestionCarousel = ({ questions, renderQuestion, showInstruction = true })
   const goToNext = () => {
     if (currentIndex < questions.length - 1) {
       scrollToQuestion(currentIndex + 1);
+    }
+  };
+
+  const handleNextPart = () => {
+    if (onNextPart) {
+      onNextPart();
     }
   };
 
@@ -65,7 +105,7 @@ const QuestionCarousel = ({ questions, renderQuestion, showInstruction = true })
                 fontSize: '14px',
                 color: '#64748b'
               }}>
-                Question {idx + 1} of {questions.length}
+                
               </div>
             )}
             {renderQuestion(q, idx)}
@@ -79,7 +119,8 @@ const QuestionCarousel = ({ questions, renderQuestion, showInstruction = true })
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '12px 0 0 12px',
-        flexShrink: 0
+        flexShrink: 0,
+        gap: '8px'
       }}>
         <button
           onClick={goToPrevious}
@@ -103,9 +144,34 @@ const QuestionCarousel = ({ questions, renderQuestion, showInstruction = true })
           <ChevronLeft size={20} />
           Previous
         </button>
+        
+        {/* Check Answers button - always show when available */}
+        {onCheckAnswers && (
+          <button
+            onClick={() => { console.log('[QuestionCarousel] Check Answers button clicked'); onCheckAnswers(); }}
+            aria-label="Check Answers"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px',
+              padding: '8px 16px',
+              border: 'none',
+              borderRadius: '6px',
+              background: '#22c55e',
+              color: '#ffffff',
+              cursor: 'pointer',
+              fontSize: '14px',
+              fontWeight: '600',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            Check Answers
+          </button>
+        )}
+        
         <button
           onClick={goToNext}
-          disabled={currentIndex === questions.length - 1}
+          disabled={isLastQuestion}
           aria-label="Next question"
           style={{
             display: 'flex',
@@ -114,16 +180,16 @@ const QuestionCarousel = ({ questions, renderQuestion, showInstruction = true })
             padding: '8px 16px',
             border: 'none',
             borderRadius: '6px',
-            background: currentIndex === questions.length - 1 ? '#f1f5f9' : '#e0e7ff',
-            color: currentIndex === questions.length - 1 ? '#94a3b8' : '#4338ca',
-            cursor: currentIndex === questions.length - 1 ? 'not-allowed' : 'pointer',
+            background: isLastQuestion ? '#f1f5f9' : '#e0e7ff',
+            color: isLastQuestion ? '#94a3b8' : '#4338ca',
+            cursor: isLastQuestion ? 'not-allowed' : 'pointer',
             fontSize: '14px',
             fontWeight: '500',
             transition: 'all 0.2s ease'
           }}
         >
           Next
-          <ChevronRight size={20} />
+          {!isLastQuestion && <ChevronRight size={20} />}
         </button>
       </div>
     </div>

@@ -43,11 +43,12 @@
       {
         "id": "s1",
         "section": 1,
-        "title": "The Earth",
+        "title": "Reading Passage 1 ",
         "description": "Questions 1-13 based on Part 1",
         "passages": [
           {
             "id": "p1",
+            "subtitle": "Reading Passage 1",
             "title": "The Earth",
             "type": "ielts-complex",
             "vocabList": [
@@ -57,18 +58,18 @@
               { "term": "rotate", "hu": "forog", "definition": "To spin on an axis" }
             ],
             "content": [
-              "<p>(A) The Earth is the third planet from the Sun and it is the only planet known to have life on it. The Earth formed around 4.5 billion years ago. It is one of four rocky planets on the inside of the Solar System. The other three are Mercury, Venus, and Mars.</p>",
-              "<p>(B) The large mass of the Sun makes the Earth move around it, just as the mass of the Earth makes the Moon move around it. The Earth also turns round in space, so different parts face the Sun at different times. The Earth goes around the Sun once (one 'year') for every 365¼ times it turns all the way around (one 'day').</p>",
-              "<p>(C) The Moon goes around the Earth about every 27⅓ days, and reflects light from the Sun. As the Earth goes round the Sun at the same time, the changing light of the Moon takes about 29½ days to go from dark to bright to dark again. That is where the idea of 'month' came from. However, now most months have 30 or 31 days so they fit into one year.</p>",
-              "<p>(D) The Earth is the only planet in our Solar System that has a large amount of liquid water. About 71% of the surface of the Earth is covered by oceans. Because of this, it is sometimes called the 'Blue Planet'.</p>",
-              "<p>(E) Because of its water, the Earth is home to millions of species of plants and animals. The things that live on Earth have changed its surface greatly. For example, early cyanobacteria changed the air and gave it oxygen. The living part of the Earth's surface is called the 'biosphere'.</p>",
-              "<p>(F) The Earth is part of the eight planets and many thousands of small bodies that move around the Sun as its Solar System. The Solar System is moving through the Orion Arm of the Milky Way Galaxy now, and will be for about the next 10,000 years.</p>",
-              "<p>(G) The Earth is generally 150,000,000 kilometers or 93,000,000 miles away from the Sun (this distance is named an 'Astronomical Unit'). The Earth moves along its way at an average speed of about 30 km or 19 mi a second. The Earth turns all the way around about 365¼ times in the time it takes for the Earth to go all the way around the Sun. To make up this extra bit of a day every year, an additional day is used every four years. This is named a 'leap year'.</p>",
-              "<p>(H) The Moon goes around the Earth at an average distance of 400,000 kilometers (250,000 mi). It is locked to Earth, so that it always has the same half facing the Earth; the other half is called the 'dark side of the Moon'.</p>"
+              { "id": "A", "text": "<p>The Earth is the third planet from the Sun and it is the only planet known to have life on it. The Earth formed around 4.5 billion years ago. It is one of four rocky planets on the inside of the Solar System. The other three are Mercury, Venus, and Mars.</p>" },
+              { "id": "B", "text": "<p>The large mass of the Sun makes the Earth move around it, just as the mass of the Earth makes the Moon move around it. The Earth also turns round in space, so different parts face the Sun at different times. The Earth goes around the Sun once (one 'year') for every 365¼ times it turns all the way around (one 'day').</p>" },
+              { "id": "C", "text": "<p>The Moon goes around the Earth about every 27⅓ days, and reflects light from the Sun. As the Earth goes round the Sun at the same time, the changing light of the Moon takes about 29½ days to go from dark to bright to dark again. That is where the idea of 'month' came from. However, now most months have 30 or 31 days so they fit into one year.</p>" },
+              { "id": "D", "text": "<p>The Earth is the only planet in our Solar System that has a large amount of liquid water. About 71% of the surface of the Earth is covered by oceans. Because of this, it is sometimes called the 'Blue Planet'.</p>" },
+              { "id": "E", "text": "<p>Because of its water, the Earth is home to millions of species of plants and animals. The things that live on Earth have changed its surface greatly. For example, early cyanobacteria changed the air and gave it oxygen. The living part of the Earth's surface is called the 'biosphere'.</p>" },
+              { "id": "F", "text": "<p>The Earth is part of the eight planets and many thousands of small bodies that move around the Sun as its Solar System. The Solar System is moving through the Orion Arm of the Milky Way Galaxy now, and will be for about the next 10,000 years.</p>" },
+              { "id": "G", "text": "<p>The Earth is generally 150,000,000 kilometers or 93,000,000 miles away from the Sun (this distance is named an 'Astronomical Unit'). The Earth moves along its way at an average speed of about 30 km or 19 mi a second. The Earth turns all the way around about 365¼ times in the time it takes for the Earth to go all the way around the Sun. To make up this extra bit of a day every year, an additional day is used every four years. This is named a 'leap year'.</p>" },
+              { "id": "H", "text": "<p>The Moon goes around the Earth at an average distance of 400,000 kilometers (250,000 mi). It is locked to Earth, so that it always has the same half facing the Earth; the other half is called the 'dark side of the Moon'.</p>" }
             ],
             "subTasks": [
               {
-                "type": "matching-info",
+                "type": "matching-choice",
                 "instruction": "Which paragraph (A-H) contains the following information?",
                 "questions": [
                   { "id": "q1", "text": "How long it takes the Earth to go around the Sun", "answer": "B" },
@@ -175,6 +176,7 @@
         "id": "s3",
         "section": 3,
         "title": "Fire Safety",
+        "subtitle": "Reading Passage 3",
         "description": "Questions 27-40 based on Part 3",
         "passages": [
           {
@@ -236,6 +238,7 @@
         "id": "w-m1-t1",
         "taskType": 1,
         "title": "Task 1: Letter",
+        "subtitle": "Part 1: Writing",
         "instruction": "You should spend about 20 minutes on this task. Write at least 150 words.",
         "targetWords": 150,
         "xp": 250,
@@ -251,6 +254,7 @@
         "id": "w-m1-t2",
         "taskType": 2,
         "title": "Task 2: Essay",
+        "subtitle": "Part 2: Writing",
         "instruction": "You should spend about 40 minutes on this task. Write at least 250 words.",
         "targetWords": 250,
         "xp": 500,
@@ -272,8 +276,8 @@
       {
         "id": "part1",
         "part": 1,
-        "title": "",
-        "subtitle": "Booking a Holiday Cottage",
+        "title": "Booking a Holiday Cottage",
+        "subtitle": "Part 1: Listening",
         "description": "You will hear a conversation between a travel agent and a customer who wants to book a holiday cottage. First, you have some time to look at questions 1-10.",
         "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
         "context": "Conversation between two speakers - social situation",
@@ -307,7 +311,7 @@
       {
         "id": "part2",
         "part": 2,
-        "title": "",
+        "title": "Part 2: Listening",
         "subtitle": "Tour of a Museum Complex",
         "description": "You will hear a guide giving a tour of a museum complex. First, you have some time to look at questions 11-20.",
         "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
@@ -498,6 +502,7 @@
       {
         "id": "part1",
         "title": "Part 1: Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
         "type": "interview",
         "duration": "4-5 minutes",
         "instruction": "Answer the examiner's questions about familiar topics. Speak naturally and give full answers.",
@@ -525,6 +530,7 @@
       {
         "id": "part2",
         "title": "Part 2: Long Turn",
+        "subtitle": "Part 2: Speaking",
         "type": "long-turn",
         "duration": "3-4 minutes",
         "instruction": "You will have 1 minute to prepare, then speak for 1-2 minutes on the topic.",
@@ -547,6 +553,7 @@
       {
         "id": "part3",
         "title": "Part 3: Discussion",
+        "subtitle": "Part 3: Speaking",
         "type": "discussion",
         "duration": "4-5 minutes",
         "instruction": "Discuss more abstract topics related to Part 2. Give reasons and examples.",

@@ -1,28 +1,72 @@
-/* --- 1. RESET & VARIABLES --- */
+
+/* =============================================================================
+   GLOBAL STYLES - Invictus Academic Refactor
+   ============================================================================= */
+
+/* --- 1. FONTS --- */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
+/* --- 2. CSS CUSTOM PROPERTIES --- */
 :root {
-  --lab-indigo: #5850EC;
-  --lab-indigo-bg: #e0e7ff;
-  --lab-indigo-hover: #c7d2fe;
-  --lab-indigo-light: #6366f1;
-  --deep-slate: #1F2937;
+  /* --- Primary Colors (Invictus Academic Red) --- */
+  --invictus-red: #D32F2F;
+  --invictus-red-dark: #B71C1C;
+  --invictus-red-pale: #fbf9f9;
+  --invictus-slate: #1F2937;
   --surface-white: #FFFFFF;
+  
+  /* --- Gamification Tokens --- */
   --xp-amethyst: #8B5CF6;
+  --xp-amethyst-pale: rgba(139, 92, 246, 0.1);
+  
+  /* --- Status Colors --- */
   --success-mint: #10B981;
   --warning-amber: #F59E0B;
   --bg-app: #F9FAFB;
   --neutral-gray: #6B7280;
-  --border-color: #E5E7EB;
-  --text-primary: #1F2937;
-  --text-secondary: #6B7280;
 
+  /* --- Border Colors --- */
+  --border-color: #E5E7EB;
+  --border-light: #F3F4F6;
+  --border-focus: var(--invictus-red);
+
+  /* --- Background Colors --- */
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #F8FAFC;
+  --bg-subtle: #F1F5F9;
+  --bg-red-subtle: rgba(211, 47, 47, 0.03);
+
+  /* --- Text Colors --- */
+  --text-primary: #1F2937;
+  --text-secondary: #4B5563;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  /* --- Spacing Scale --- */
+  --space-xs: 4px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+
+  /* --- Border Radius --- */
   --radius-lg: 16px;
   --radius-md: 10px;
+  --radius-sm: 8px;
+  --radius-full: 100px;
+
+  /* --- Layout --- */
   --sidebar-width: 260px;
   --max-content-width: 1400px;
+
+  /* --- Instruction Box Variants (Invictus Refined) --- */
+  --instruction-bg: var(--invictus-red-pale);
+  --instruction-border: var(--invictus-red);
+  --instruction-text: var(--invictus-red-dark);
 }
 
+/* --- 3. RESET & BASE --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -31,207 +75,44 @@
 
 button {
   cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.2s ease;
 }
 
 button:focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid var(--invictus-red);
   outline-offset: 2px;
 }
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--bg-app);
-  color: var(--deep-slate);
+  background:   #fffafa;
+  color: var(--invictus-slate);
   min-height: 100vh;
-  /* Removed the Flex centering that was breaking the layout */
+  -webkit-font-smoothing: antialiased;
 }
 
-/* --- 2. THE APP SHELL (GRID) --- */
-.app-shell {
-  display: grid;
-  grid-template-columns: var(--sidebar-width) 1fr;
-  min-height: 100vh;
-  width: 100vw;
-  overflow: hidden; /* Prevent horizontal overflow */
-}
+/* --- 4. UTILITY CLASSES --- */
 
-/* High Focus Mode: Collapse Sidebar column */
-.app-shell.high-focus-layout {
-  grid-template-columns: 1fr;
-}
-
-/* --- 3. SIDEBAR --- */
-.desktop-sidebar {
-  background: var(--deep-slate);
-  color: white;
-  padding: 32px 20px;
-  display: flex;
-  flex-direction: column;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  border-right: 1px solid rgba(255,255,255,0.1);
-}
-
-.nav-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  border-radius: var(--radius-md);
-  color: #94a3b8;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-  font-weight: 600;
-  margin-bottom: 8px;
-  transition: all 0.2s ease;
-  width: 100%;
-  text-align: left;
-}
-
-.nav-item:hover {
-  background: rgba(255,255,255,0.05);
-  color: white;
-}
-
-.nav-item.active {
-  background: var(--lab-indigo);
-  color: white;
-}
-
-/* --- 4. MAIN CANVAS & WORKSPACE --- */
-.main-content {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-width: 0; /* Prevents flex items from overflowing */
-  min-height: 100vh; /* Ensure full viewport height */
-}
-
-.workspace-container {
-  flex: 1;
-  width: 100%;
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-  padding: 40px;
-  overflow-y: auto; /* Allow vertical scrolling */
-}
-
-/* Focus mode: Make text easier to read by narrowing the container */
-.high-focus-layout .workspace-container {
-  max-width: 850px;
-}
-
-/* --- 5. COMPONENT STYLES --- */
-.app-header {
-  height: 72px;
+/* Card Utility */
+.card {
   background: white;
-  border-bottom: 1px solid var(--border-color);
-  padding: 0 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.exit-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #F3F4F6;
-  color: var(--deep-slate);
-  border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.card:hover {
+  box-shadow: 0 8px 24px rgba(211, 47, 47, 0.08);
 }
 
-.exit-btn:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-}
-
-.exit-btn:hover {
-  background: #E5E7EB;
-}
-
-.exit-btn:active {
-  background: #D1D5DB;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-app: #111827;
-    --surface-white: #1F2937;
-    --border-color: #374151;
-    --neutral-gray: #9CA3AF;
-    --text-primary: #F3F4F6;
-    --text-secondary: #9CA3AF;
-  }
-
-  body {
-    background-color: var(--bg-app);
-    color: #F3F4F6;
-  }
-
-  .app-header {
-    background: var(--surface-white);
-    border-bottom-color: var(--border-color);
-  }
-
-  .exit-btn {
-    background: #374151;
-    color: #F3F4F6;
-  }
-
-  .exit-btn:hover {
-    background: #4B5563;
-  }
-
-  /* Card backgrounds in dark mode */
-  .card,
-  .reading-passage,
-  .reorder-item {
-    background: var(--surface-white);
-    border-color: var(--border-color);
-  }
-
-  .passage-text {
-    color: #F3F4F6;
-  }
-
-  /* Mobile nav in dark mode */
-  .mobile-nav {
-    background: var(--surface-white);
-    border-top-color: var(--border-color);
-  }
-
-  .mobile-nav-item {
-    color: var(--neutral-gray);
-  }
-
-  .mobile-nav-item.active {
-    color: var(--lab-indigo);
-  }
-
-  /* Lesson footer in dark mode */
-  .lesson-footer {
-    background: var(--surface-white);
-    border-top-color: var(--border-color);
-  }
-}
-
+/* XP Badge (Invictus Style) */
 .xp-badge {
-  background: rgba(139, 92, 246, 0.1);
+  background: var(--xp-amethyst-pale);
   padding: 6px 14px;
-  border-radius: 20px;
+  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -242,222 +123,34 @@ body {
   color: var(--xp-amethyst);
   font-weight: 800;
   font-size: 14px;
+  letter-spacing: -0.01em;
 }
 
-/* Utility Cards */
-.card {
-  background: white;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+/* --- 5. DARK MODE (Invictus Dark Obsidian) --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-app: #0F172A;
+    --surface-white: #1E293B;
+    --border-color: #334155;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --invictus-slate: #F8FAFC;
+  }
+
+  body {
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+  }
+
+  .card {
+    background: var(--surface-white);
+    border-color: var(--border-color);
+  }
 }
 
-/* --- 6. MOBILE RESPONSIVENESS --- */
+/* --- 6. RESPONSIVE --- */
 @media (max-width: 768px) {
-  .app-shell {
-    grid-template-columns: 1fr;
+  :root {
+    --space-2xl: 24px;
   }
-  .desktop-sidebar {
-    display: none;
-  }
-  .workspace-container {
-    padding: 20px;
-  }
-  .app-header {
-    padding: 0 20px;
-  }
-}
-
-/* --- MOBILE BOTTOM NAV --- */
-.mobile-nav {
-  display: none; /* Hidden by default (Desktop) */
-}
-
-@media (max-width: 768px) {
-  .mobile-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 70px;
-    background: white;
-    border-top: 1px solid var(--border-color);
-    padding-bottom: env(safe-area-inset-bottom); /* For iPhone notches */
-    z-index: 100;
-  }
-
-  .mobile-nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    background: none;
-    border: none;
-    color: var(--neutral-gray);
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-
-  .mobile-nav-item.active {
-    color: var(--lab-indigo);
-  }
-
-  
-
-  /* Stack workspace grid on mobile for reading exercises */
-  .workspace-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .reading-pane,
-  .question-pane {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    overflow-x: hidden;
-  }
-
-  /* Question carousel styles */
-  .question-carousel-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    min-height: auto;
-    width: 100%;
-    max-width: 100vw;
-    margin: 0 auto;
-    overflow-x: hidden;
-    /*padding-left: 8px;*/
-    padding-right: 8px;
-    box-sizing: border-box;
-  }
-
-  .question-carousel {
-    flex: 1;
-    display: flex;
-    overflow-x: auto;
-    overflow-y: visible;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    height: auto;
-    min-height: auto;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .question-carousel::-webkit-scrollbar {
-    display: none;
-  }
-
-  .question-carousel > * {
-    min-width: 100%;
-    max-width: 100%;
-    scroll-snap-align: start;
-    box-sizing: border-box;
-  }
-
-  .question-slide {
-    min-width: 100%;
-    max-width: 100%;
-    width: 100%;
-    scroll-snap-align: start;
-    box-sizing: border-box;
-    padding: 0px;
-    overflow-x: hidden;
-    overflow-y: visible;
-  }
-
-  .carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    padding: 10px 0;
-    flex-wrap: wrap;
-  }
-
-  .questions-list-mobile {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    min-height: auto;
-    max-height: none;
-    overflow: visible;
-  }
-
-  .questions-list-mobile .question-carousel {
-    flex: 1;
-    overflow-x: auto;
-    overflow-y: visible;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    min-height: auto;
-  }
-
-  .questions-list-mobile .question-carousel > * {
-    min-width: 100%;
-    max-width: 100%;
-    scroll-snap-align: start;
-  }
-
-  .questions-list-mobile .question-carousel::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Lesson Footer - Fixed at bottom on mobile */
-  .lesson-footer {
-    /*position: fixed;*/
-    bottom: 70px; /* Above mobile nav */
-    left: 0;
-    right: 0;
-    background: white;
-    padding: 16px 20px;
-    border-top: 1px solid var(--border-color);
-    z-index: 99;
-    display: flex;
-    justify-content: center;
-  }
-
-  .lesson-footer .btn-primary {
-    width: 100%;
-    max-width: 400px;
-  }
-
-  /* Reading Pane - Fixed height with internal scroll on mobile */
-  .reading-pane {
-    max-height: 35vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-  }
-
-  /* Reading passage inside reading-pane - remove duplicate scroll */
-  .reading-pane .reading-passage {
-    max-height: none;
-    overflow-y: visible;
-  }
-}
-
-/* Desktop footer styles */
-.lesson-footer {
-  background: white;
-  padding: 20px;
-  border-top: 1px solid var(--border-color);
-  display: flex;
-  justify-content: center;
-}
-
-.lesson-footer .btn-primary {
-  max-width: var(--max-content-width);
-  width: 100%;
 }

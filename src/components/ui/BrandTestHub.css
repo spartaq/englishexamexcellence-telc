@@ -1,16 +1,59 @@
+/* ============================================
+   BRAND TEST HUB - Invictus Academic Styles
+   ============================================ */
+
+/* Section Header - matches Dashboard style */
+.brandtest-section-header {
+  text-align: left;
+  margin: 48px 0 32px;
+}
+
+.brandtest-section-header h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--invictus-slate);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.brandtest-section-header p {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+/* Extra Tools Grid - matches Dashboard style */
+.extra-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 1024px) {
+  .extra-tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .extra-tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Container & Layout */
 .strategy-container {
-  padding: 40px 20px;
-  max-width: 1000px;
+  padding: var(--space-2xl) 20px;
+  /*max-width: var(--max-content-width);*/
   margin: 0 auto;
-  font-family: system-ui, -apple-system, sans-serif;
-  color: #1e293b;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--invictus-slate);
 }
 
 /* Header Section */
 .strategy-header {
-  text-align: center;
-  margin-bottom: 40px;
+  text-align: left;
+  margin-bottom: var(--space-2xl);
 }
 
 .strategy-header h1 {
@@ -18,11 +61,12 @@
   font-weight: 800;
   margin-bottom: 10px;
   line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 .strategy-header p {
   font-size: 1.2rem;
-  color: #64748b;
+  color: var(--text-muted);
   max-width: 700px;
   margin: 0 auto;
 }
@@ -30,33 +74,43 @@
 /* Path Selection Grid */
 .path-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 0.5fr;
   gap: 30px;
   margin-bottom: 60px;
 }
 
+/* Strategy Cards - Using Invictus Card Styles */
 .strategy-card {
   padding: 30px;
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .strategy-card.highlight {
-  border: 2px solid #2563eb;
-  background: #f0f7ff;
-  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1);
+  /*border: 2px solid var(--invictus-red);*/
+  background: var(--invictus-red-pale);
+  /*box-shadow: 0 4px 12px rgba(211, 47, 47, 0.08);*/
+}
+
+.strategy-card.highlight:hover {
+  box-shadow: 0 8px 24px rgba(211, 47, 47, 0.12);
 }
 
 .strategy-card.standard {
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
   background: white;
+}
+
+.strategy-card.standard:hover {
+  border-color: var(--invictus-red);
 }
 
 .strategy-card h3 {
   margin-top: 20px;
   font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .strategy-card p {
@@ -64,50 +118,57 @@
   flex-grow: 1;
 }
 
-.strategy-card.highlight p { color: #1e40af; }
-.strategy-card.standard p { color: #64748b; }
+.strategy-card.highlight p { 
+  color: var(--invictus-red-dark); 
+}
 
-/* Buttons */
+.strategy-card.standard p { 
+  color: var(--text-muted); 
+}
+
+/* Buttons - Invictus Style */
 .btn-base {
-  width: 100%;
+  width: 50%;
   margin-top: 20px;
   padding: 15px;
   font-weight: 700;
-  border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: all 0.2s ease;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .btn-primary {
-  background: #2563eb;
+  background: var(--invictus-red);
   color: white;
 }
 
+.btn-primary:hover {
+  background: var(--invictus-red-dark);
+}
+
 .btn-outline {
-  background: white;
-  border: 1px solid #e2e8f0;
-  color: #1e293b;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--invictus-slate);
+}
+
+.btn-outline:hover {
+  border-color: var(--invictus-red);
+  color: var(--invictus-red);
 }
 
 .btn-base:hover {
-  opacity: 0.9;
+  transform: translateY(-1px);
 }
 
-.btn-base:focus,
 .btn-base:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-  opacity: 0.9;
-}
-
-.btn-primary:focus-visible {
-  outline: 2px solid #60a5fa;
-  outline-offset: 2px;
-}
-
-.btn-outline:focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid var(--invictus-red);
   outline-offset: 2px;
 }
 
@@ -116,7 +177,7 @@
   background: white;
   padding: 40px;
   border-radius: 32px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
 }
 
 .intel-header {
@@ -145,7 +206,7 @@
 
 .icon-wrapper {
   padding: 12px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   height: fit-content;
   display: flex;
   align-items: center;
@@ -155,11 +216,12 @@
 .pillar-content h4 {
   margin: 0 0 8px 0;
   font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .pillar-content p {
   font-size: 0.95rem;
-  color: #64748b;
+  color: var(--text-muted);
   line-height: 1.5;
   margin: 0;
 }
@@ -168,7 +230,7 @@
 .teacher-note {
   margin-top: 40px;
   padding: 24px;
-  background: #1e293b;
+  background: var(--invictus-slate);
   border-radius: 20px;
   color: white;
 }
@@ -185,6 +247,29 @@
   opacity: 0.9;
 }
 
+/* Info Button - Invictus Style */
+.invictus-info-btn {
+  background: var(--invictus-red);
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.invictus-info-btn:hover {
+  background: var(--invictus-red-dark);
+  transform: scale(1.05);
+}
+
+.invictus-info-btn:focus-visible {
+  outline: 2px solid var(--invictus-red);
+  outline-offset: 2px;
+}
+
 /* --- MOBILE RESPONSIVENESS --- */
 
 @media (max-width: 768px) {
@@ -194,7 +279,7 @@
 
   .path-grid, 
   .pillar-grid {
-    grid-template-columns: 1fr; /* Stack columns */
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
@@ -203,7 +288,7 @@
   }
 
   .pillar-item {
-    flex-direction: column; /* Stack icons on top of text for very small screens */
+    flex-direction: column;
     gap: 12px;
   }
 }
@@ -222,42 +307,36 @@
   gap: 10px;
   padding: 12px 16px;
   background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #1e293b;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--invictus-slate);
   transition: all 0.2s ease;
   text-align: left;
 }
 
 .atom-skill-btn:hover {
-  background: #f8fafc;
-  border-color: #2563eb;
-  color: #2563eb;
+  background: var(--invictus-red-pale);
+  border-color: var(--invictus-red);
+  color: var(--invictus-red);
 }
 
 .atom-skill-btn:first-child {
-  background: #2563eb;
+  background: var(--invictus-red);
   color: white;
-  border-color: #2563eb;
+  border-color: var(--invictus-red);
   font-weight: 600;
 }
 
 .atom-skill-btn:first-child:hover {
-  background: #1d4ed8;
+  background: var(--invictus-red-dark);
 }
 
-.atom-skill-btn:focus,
 .atom-skill-btn:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-}
-
-.atom-skill-btn:first-child:focus,
-.atom-skill-btn:first-child:focus-visible {
-  outline: 2px solid #60a5fa;
+  outline: 2px solid var(--invictus-red);
   outline-offset: 2px;
 }
 
@@ -275,8 +354,8 @@
   align-items: center;
   padding: 30px 20px;
   background: white;
-  border: 2px solid #e2e8f0;
-  border-radius: 16px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: center;
@@ -284,18 +363,17 @@
 }
 
 .skill-test-card:hover {
-  border-color: #2563eb;
+  border-color: var(--invictus-red);
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 8px 16px rgba(211, 47, 47, 0.1);
 }
 
-.skill-test-card:focus,
 .skill-test-card:focus-visible {
-  border-color: #2563eb;
-  outline: 2px solid #2563eb;
+  border-color: var(--invictus-red);
+  outline: 2px solid var(--invictus-red);
   outline-offset: 2px;
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 8px 16px rgba(211, 47, 47, 0.1);
 }
 
 .skill-icon-wrapper {
@@ -304,28 +382,48 @@
   justify-content: center;
   width: 56px;
   height: 56px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   margin-bottom: 16px;
 }
 
 .skill-icon-wrapper.reading {
-  background: #fef2f2;
+  background: var(--invictus-red-pale);
+}
+
+.skill-icon-wrapper.reading svg {
+  color: var(--invictus-red);
 }
 
 .skill-icon-wrapper.listening {
   background: #f0fdf4;
 }
 
+.skill-icon-wrapper.listening svg {
+  color: #10B981;
+}
+
 .skill-icon-wrapper.writing {
   background: #eff6ff;
+}
+
+.skill-icon-wrapper.writing svg {
+  color: #3B82F6;
 }
 
 .skill-icon-wrapper.speaking {
   background: #faf5ff;
 }
 
+.skill-icon-wrapper.speaking svg {
+  color: #8B5CF6;
+}
+
 .skill-icon-wrapper.vocab {
   background: #fff7ed;
+}
+
+.skill-icon-wrapper.vocab svg {
+  color: #F59E0B;
 }
 
 .skill-test-card svg {
@@ -335,13 +433,13 @@
 .skill-test-card h3 {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--invictus-slate);
   margin: 0 0 8px 0;
 }
 
 .skill-test-card p {
   font-size: 0.9rem;
-  color: #64748b;
+  color: var(--text-muted);
   margin: 0 0 16px 0;
 }
 
@@ -352,21 +450,17 @@
   color: #78350f;
   font-size: 0.75rem;
   font-weight: 700;
-  border-radius: 20px;
+  border-radius: var(--radius-full);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 /* ============================================
-   DARK MODE STYLES (Must be at end of file)
+   DARK MODE STYLES
    ============================================ */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --surface-white: #1e293b;
-    --border-color: #334155;
-  }
   .strategy-container {
-    color: #F3F4F6;
+    color: var(--text-primary);
   }
   
   .strategy-header h1 {
@@ -374,16 +468,16 @@
   }
   
   .strategy-header p {
-    color: #94a3b8;
+    color: var(--text-secondary);
   }
   
   .strategy-card.highlight {
-    background: rgba(37, 99, 235, 0.15);
-    border-color: #3b82f6;
+    background: rgba(211, 47, 47, 0.15);
+    border-color: var(--invictus-red);
   }
   
   .strategy-card.highlight p {
-    color: #93c5fd;
+    color: #fca5a5;
   }
   
   .strategy-card.standard {
@@ -392,7 +486,7 @@
   }
   
   .strategy-card.standard p {
-    color: #94a3b8;
+    color: var(--text-secondary);
   }
   
   .strategy-card h3 {
@@ -402,7 +496,7 @@
   .btn-outline {
     background: var(--surface-white);
     border-color: var(--border-color);
-    color: #F3F4F6;
+    color: var(--text-primary);
   }
   
   .intel-section {
@@ -419,7 +513,7 @@
   }
   
   .pillar-content p {
-    color: #94a3b8;
+    color: var(--text-secondary);
   }
   
   .teacher-note {
@@ -432,16 +526,16 @@
   }
   
   .skill-test-card:hover {
-    border-color: #3b82f6;
-    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
+    border-color: var(--invictus-red);
+    box-shadow: 0 8px 16px rgba(211, 47, 47, 0.2);
   }
   
   .skill-test-card h3 {
-    color: #F3F4F6;
+    color: var(--text-primary);
   }
   
   .skill-test-card p {
-    color: #94a3b8;
+    color: var(--text-secondary);
   }
   
   .skill-xp-badge {
