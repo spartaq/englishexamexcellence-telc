@@ -247,8 +247,7 @@
     =========================================== */
 @media (max-width: 768px) {
   .dashboard-hero {
-    margin-bottom: 20px;
-    padding: 24px 20px;
+    margin-bottom: 16px;
   }
   
   .dashboard-hero h1 {
