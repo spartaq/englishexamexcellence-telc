@@ -13,7 +13,10 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
-const VocabBlock = ({ data, onComplete }) => {
+const VocabBlock = ({ 
+  data, 
+  onComplete 
+ }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [flipStage, setFlipStage] = useState(0);
   const updateVocabMastery = useExamStore(state => state.updateVocabMastery);
@@ -77,98 +80,114 @@ const VocabBlock = ({ data, onComplete }) => {
   return (
     <div className="vocab-container">
        
-      {/* TOP SECTION */}
-      <div className="vocab-top-section">
-        <span className="task-label">
-          {currentIndex + 1} of {words.length} Terms
+ {/* TOP SECTION - Clinical Metadata */}
+  <div className="invictus-vocab-header">
+    <div className="invictus-metadata-left">
+      <span className="invictus-task-label">
+        TERM {currentIndex + 1} OF {words.length}
+      </span>
+      {level && (
+        <span className="invictus-level-badge">
+          {level.toUpperCase()}
         </span>
-        {level && (
-          <span className="vocab-level-badge">
-            {level}
-          </span>
-        )}
-        {data?.isRandomMix && currentWord?._sourceTopic && (
-          <span className="vocab-topic-badge">
-            {currentWord._sourceTopic}
-          </span>
-        )}
+      )}
+    </div>
+    {data?.isRandomMix && currentWord?._sourceTopic && (
+      <div className="invictus-topic-container">
+        <span className="invictus-topic-label">DOMAIN</span>
+        <span className="invictus-topic-value">{currentWord._sourceTopic.toUpperCase()}</span>
       </div>
+    )}
+  </div>
 
-      {/* CARD SECTION */}
-      <div className="card-scene" onClick={handleCardClick}>
-        <div className={`vocab-card ${flipStage > 0 ? 'is-flipped' : ''}`}>
+  {/* CARD SECTION - High-Focus Centerpiece */}
+  <div className="invictus-card-stage" onClick={handleCardClick}>
+    <div className={`invictus-flashcard ${flipStage > 0 ? 'is-flipped' : ''}`}>
 
-          {/* FRONT — English term */}
-          {flipStage === 0 && (
-            <div className="card-face">
-              <h2 className="term-text">{currentWord.term}</h2>
-              <p className="hint-text">
-                Tap to reveal meaning
-              </p>
-            </div>
-          )}
-
-          {/* BACK 1 — Hungarian translation */}
-          {flipStage === 1 && (
-            <div className="card-face card-face-back">
-              <h3 className="translation-text">
-                {currentWord.hu}
-              </h3>
-              <p className="hint-text">
-                Tap to see definition
-              </p>
-            </div>
-          )}
-
-          {/* BACK 2 — Definition + example */}
-          {flipStage === 2 && (
-            <div className="card-face card-face-back">
-              <p className="definition-text">
-                {currentWord.definition}
-              </p>
-              <div className="example-box">
-                "{currentWord.example}"
-              </div>
-            </div>
-          )}
-
+      {/* FRONT — Primary Term (Inquiry Phase) */}
+      {flipStage === 0 && (
+        <div className="invictus-card-face">
+          <span className="invictus-phase-indicator">DEFINITION INQUIRY</span>
+          <h2 className="invictus-term-display">{currentWord.term}</h2>
+          <div className="invictus-interaction-hint">
+            <span className="material-icons">ICON Touch</span>
+            CLICK TO REVEAL PHONETIC & MEANING
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* SRS CONTROLS - Now always visible */}
-      <div className="srs-controls-wrapper">
-        <div className="srs-controls">
-          <button
-            className="srs-btn btn-hard"
-            onClick={(e) => {
-              e.stopPropagation(); // Prevent card from flipping when clicking button
-              handleDifficulty('hard');
-            }}
-          >
-            Don't know it
-          </button>
-          <button
-            className="srs-btn btn-good"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleDifficulty('good');
-            }}
-          >
-            Not Sure
-          </button>
-          <button
-            className="srs-btn btn-easy"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleDifficulty('easy');
-            }}
-          >
-            Know it
-          </button>
+      {/* BACK 1 — Translation (Recognition Phase) */}
+      {flipStage === 1 && (
+        <div className="invictus-card-face invictus-face-back">
+          <span className="invictus-phase-indicator">LINGUISTIC CONVERSION</span>
+          <h3 className="invictus-translation-display">
+            {currentWord.hu}
+          </h3>
+          <div className="invictus-interaction-hint">
+            CLICK TO VIEW FULL DEFINITION
+          </div>
         </div>
-      </div>
+      )}
+
+      {/* BACK 2 — Detailed Definition (Verification Phase) */}
+      {flipStage === 2 && (
+        <div className="invictus-card-face invictus-face-back">
+          <span className="invictus-phase-indicator">SEMANTIC VERIFICATION</span>
+          <div className="invictus-definition-scroller">
+            <p className="invictus-definition-text">
+              {currentWord.definition}
+            </p>
+            <div className="invictus-example-container">
+              <span className="invictus-example-label">CONTEXTUAL USAGE</span>
+              <p className="invictus-example-text">"{currentWord.example}"</p>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
+  </div>
+
+  {/* SRS CONTROLS - Assessment Input */}
+  <div className="invictus-srs-panel">
+    <div className="invictus-srs-grid">
+      <button
+        className="invictus-srs-btn invictus-btn-hard"
+        onClick={(e) => {
+          e.stopPropagation();
+          handleDifficulty('hard');
+        }}
+      >
+        <span className="invictus-btn-icon">😫</span>
+        <span className="invictus-btn-label">RECALL FAILURE</span>
+      </button>
+      
+      <button
+        className="invictus-srs-btn invictus-btn-good"
+        onClick={(e) => {
+          e.stopPropagation();
+          handleDifficulty('good');
+        }}
+      >
+        <span className="invictus-btn-icon">🤔</span>
+        <span className="invictus-btn-label">UNCERTAIN</span>
+      </button>
+      
+      <button
+        className="invictus-srs-btn invictus-btn-easy"
+        onClick={(e) => {
+          e.stopPropagation();
+          handleDifficulty('easy');
+        }}
+      >
+        <span className="invictus-btn-icon">🧠</span>
+        <span className="invictus-btn-label">MASTERED</span>
+      </button>
+    </div>
+  </div>
+
+</div>
+
   );
 };
 

@@ -139,7 +139,7 @@ export default function MatchingChoiceBlock({
             className={`question-card ${isReviewMode ? (isCorrect ? 'correct' : isWrong ? 'incorrect' : '') : ''}`}
           >
             <div className="matching-choice-text" style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-              <span className="question-label">{q.id}.</span>
+              <span className="question-label">{String(q.id).replace(/^q/, '')}.</span>
               <p className="question-text" style={{ marginBottom: 0, flex: 1 }}>{q.text}</p>
               
               {isReviewMode && (

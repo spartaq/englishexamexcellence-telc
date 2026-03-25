@@ -2,6 +2,7 @@
   "id": "ielts-general-mock-1",
   "mockNumber": 1,
   "title": "IELTS General Training Mock Test 1",
+  "testBrand": "ielts",
   "type": "general",
   "description": "Complete IELTS General Training test with all 4 skills",
   "xpReward": 5000,
@@ -37,14 +38,14 @@
   },
   
   "reading": {
-    "title": "General Training Reading Mock 1",
+    "title": "General Training Reading Mock 1 - All Question Types",
     "time": 60,
     "sections": [
       {
         "id": "s1",
         "section": 1,
-        "title": "Reading Passage 1 ",
-        "description": "Questions 1-13 based on Part 1",
+        "title": "Reading Passage 1: The Earth",
+        "description": "Questions 1-14 - Types: Matching Choice, MCQ, Trinary (True/False), Headings Match",
         "passages": [
           {
             "id": "p1",
@@ -58,41 +59,37 @@
               { "term": "rotate", "hu": "forog", "definition": "To spin on an axis" }
             ],
             "content": [
-              { "id": "A", "text": "<p>The Earth is the third planet from the Sun and it is the only planet known to have life on it. The Earth formed around 4.5 billion years ago. It is one of four rocky planets on the inside of the Solar System. The other three are Mercury, Venus, and Mars.</p>" },
-              { "id": "B", "text": "<p>The large mass of the Sun makes the Earth move around it, just as the mass of the Earth makes the Moon move around it. The Earth also turns round in space, so different parts face the Sun at different times. The Earth goes around the Sun once (one 'year') for every 365¼ times it turns all the way around (one 'day').</p>" },
-              { "id": "C", "text": "<p>The Moon goes around the Earth about every 27⅓ days, and reflects light from the Sun. As the Earth goes round the Sun at the same time, the changing light of the Moon takes about 29½ days to go from dark to bright to dark again. That is where the idea of 'month' came from. However, now most months have 30 or 31 days so they fit into one year.</p>" },
-              { "id": "D", "text": "<p>The Earth is the only planet in our Solar System that has a large amount of liquid water. About 71% of the surface of the Earth is covered by oceans. Because of this, it is sometimes called the 'Blue Planet'.</p>" },
-              { "id": "E", "text": "<p>Because of its water, the Earth is home to millions of species of plants and animals. The things that live on Earth have changed its surface greatly. For example, early cyanobacteria changed the air and gave it oxygen. The living part of the Earth's surface is called the 'biosphere'.</p>" },
-              { "id": "F", "text": "<p>The Earth is part of the eight planets and many thousands of small bodies that move around the Sun as its Solar System. The Solar System is moving through the Orion Arm of the Milky Way Galaxy now, and will be for about the next 10,000 years.</p>" },
-              { "id": "G", "text": "<p>The Earth is generally 150,000,000 kilometers or 93,000,000 miles away from the Sun (this distance is named an 'Astronomical Unit'). The Earth moves along its way at an average speed of about 30 km or 19 mi a second. The Earth turns all the way around about 365¼ times in the time it takes for the Earth to go all the way around the Sun. To make up this extra bit of a day every year, an additional day is used every four years. This is named a 'leap year'.</p>" },
-              { "id": "H", "text": "<p>The Moon goes around the Earth at an average distance of 400,000 kilometers (250,000 mi). It is locked to Earth, so that it always has the same half facing the Earth; the other half is called the 'dark side of the Moon'.</p>" }
+              { "id": "A", "text": "The Earth is the third planet from the Sun and it is the only planet known to have life on it. The Earth formed around 4.5 billion years ago. It is one of four rocky planets on the inside of the Solar System. The other three are Mercury, Venus, and Mars." },
+              { "id": "B", "text": "The large mass of the Sun makes the Earth move around it, just as the mass of the Earth makes the Moon move around it. The Earth also turns round in space, so different parts face the Sun at different times. The Earth goes around the Sun once (one 'year') for every 365¼ times it turns all the way around (one 'day')." },
+              { "id": "C", "text": "The Moon goes around the Earth about every 27⅓ days, and reflects light from the Sun. As the Earth goes round the Sun at the same time, the changing light of the Moon takes about 29½ days to go from dark to bright to dark again. That is where the idea of 'month' came from. However, now most months have 30 or 31 days so they fit into one year." },
+              { "id": "D", "text": "The Earth is the only planet in our Solar System that has a large amount of liquid water. About 71% of the surface of the Earth is covered by oceans. Because of this, it is sometimes called the 'Blue Planet'." },
+              { "id": "E", "text": "Because of its water, the Earth is home to millions of species of plants and animals. The things that live on Earth have changed its surface greatly. For example, early cyanobacteria changed the air and gave it oxygen. The living part of the Earth's surface is called the 'biosphere'." },
+              { "id": "F", "text": "The Earth is part of the eight planets and many thousands of small bodies that move around the Sun as its Solar System. The Solar System is moving through the Orion Arm of the Milky Way Galaxy now, and will be for about the next 10,000 years." },
+              { "id": "G", "text": "The Earth is generally 150,000,000 kilometers or 93,000,000 miles away from the Sun (this distance is named an 'Astronomical Unit'). The Earth moves along its way at an average speed of about 30 km or 19 mi a second. The Earth turns all the way around about 365¼ times in the time it takes for the Earth to go all the way around the Sun. To make up this extra bit of a day every year, an additional day is used every four years. This is named a 'leap year'." },
+              { "id": "H", "text": "The Moon goes around the Earth at an average distance of 400,000 kilometers (250,000 mi). It is locked to Earth, so that it always has the same half facing the Earth; the other half is called the 'dark side of the Moon'." }
             ],
             "subTasks": [
               {
-                "type": "matching-choice",
-                "instruction": "Which paragraph (A-H) contains the following information?",
+                "type": "matching-info",
+                "instruction": "Type 4 - Matching Information: Which paragraph (A-H) contains the following information?",
                 "questions": [
                   { "id": "q1", "text": "How long it takes the Earth to go around the Sun", "answer": "B" },
                   { "id": "q2", "text": "How the Moon affects the calendar", "answer": "C" },
-                  { "id": "q3", "text": "The reason Earth is called the Blue Planet", "answer": "D" },
-                  { "id": "q4", "text": "How living things changed the Earth", "answer": "E" },
-                  { "id": "q5", "text": "What a leap year is", "answer": "G" },
-                  { "id": "q6", "text": "The distance from the Earth to the Sun", "answer": "G" },
-                  { "id": "q7", "text": "The age of the Earth", "answer": "A" }
+                  { "id": "q3", "text": "The reason Earth is called the Blue Planet", "answer": "D" }
                 ]
               },
               {
                 "type": "mcq",
-                "instruction": "Choose the correct letter A, B, C, or D.",
+                "instruction": "Type 1 - Multiple Choice: Choose the correct letter A, B, C, or D.",
                 "questions": [
                   { 
-                    "id": "q8", 
+                    "id": "q4", 
                     "text": "What percentage of Earth's surface is water?", 
                     "options": ["51%", "61%", "71%", "81%"], 
                     "answer": "71%" 
                   },
                   { 
-                    "id": "q9", 
+                    "id": "q5", 
                     "text": "What is the 'biosphere'?", 
                     "options": ["The atmosphere", "The part where life exists", "The oceans", "The core"], 
                     "answer": "The part where life exists" 
@@ -101,12 +98,31 @@
               },
               {
                 "type": "trinary",
-                "instruction": "Write TRUE, FALSE or NOT GIVEN.",
+                "instruction": "Type 2 - Identifying Information (True/False/Not Given): Write TRUE, FALSE or NOT GIVEN.",
                 "questions": [
-                  { "id": "q10", "text": "Venus is a rocky planet.", "answer": "TRUE" },
-                  { "id": "q11", "text": "The Sun moves around the Earth.", "answer": "FALSE" },
-                  { "id": "q12", "text": "Cyanobacteria produced oxygen.", "answer": "TRUE" },
-                  { "id": "q13", "text": "The Milky Way is the largest galaxy.", "answer": "NOT GIVEN" }
+                  { "id": "q6", "text": "Venus is a rocky planet.", "answer": "TRUE" },
+                  { "id": "q7", "text": "The Sun moves around the Earth.", "answer": "FALSE" },
+                  { "id": "q8", "text": "Cyanobacteria produced oxygen.", "answer": "TRUE" }
+                ]
+              },
+              {
+                "type": "heading-match",
+                "instruction": "Type 5 - Matching Headings: Choose the correct heading (i-ix) for each paragraph.",
+                "questions": [
+                  { "id": "q9", "text": "Paragraph A", "answer": 3 },
+                  { "id": "q10", "text": "Paragraph B", "answer": 4 },
+                  { "id": "q11", "text": "Paragraph C", "answer": 5 }
+                ],
+                "headings": [
+                  "The Earth's position in the Solar System",
+                  "The Moon's orbit and phases",
+                  "Water and the Blue Planet",
+                  "Formation and age of the Earth",
+                  "Earth's movement and the calendar",
+                  "Origin of the concept of months",
+                  "The biosphere and life on Earth",
+                  "Distance from the Sun",
+                  "The Moon's characteristics"
                 ]
               }
             ]
@@ -116,8 +132,8 @@
       {
         "id": "s2",
         "section": 2,
-        "title": "Company Profiles",
-        "description": "Questions 14-26 based on Part 2",
+        "title": "Reading Passage 2: Company Profiles",
+        "description": "Questions 15-28 - Types: Short Answer, Matching Features, Sentence Completion, Yes/No/Not Given",
         "passages": [
           {
             "id": "p2",
@@ -133,39 +149,47 @@
             "subTasks": [
               {
                 "type": "short-answer",
-                "instruction": "Write NO MORE THAN THREE WORDS.",
+                "instruction": "Type 11 - Short Answer Questions: Write NO MORE THAN THREE WORDS.",
                 "questions": [
-                  { "id": "q14", "text": "What industry does ASM serve?", "answer": "retail" },
-                  { "id": "q15", "text": "What is Chipotle known for?", "answer": "fresh ingredients" },
-                  { "id": "q16", "text": "What does Vitamin Shoppe sell?", "answer": "nutritional supplements" }
+                  { "id": "q15", "text": "What industry does ASM serve?", "answer": "retail" },
+                  { "id": "q16", "text": "What is Chipotle known for?", "answer": "fresh ingredients" },
+                  { "id": "q17", "text": "What does Vitamin Shoppe sell?", "answer": "nutritional supplements" }
                 ]
               },
               {
                 "type": "matching-features",
-                "instruction": "Match the company to the statement. Write the correct letter, A, B, C or D.",
+                "instruction": "Type 6 - Matching Features: Match the company to the statement. Write the correct letter, A-E.",
                 "questions": [
-                  { "id": "q17", "text": "Provides medical care at home.", "answer": "D" },
-                  { "id": "q18", "text": "Focuses on building brand awareness.", "answer": "A" },
-                  { "id": "q19", "text": "Provides options for promotion within the company.", "answer": "B" },
-                  { "id": "q20", "text": "Educates people on healthy living.", "answer": "C" }
+                  { "id": "q18", "text": "Provides medical care at home.", "answer": "E" },
+                  { "id": "q19", "text": "Focuses on building brand awareness.", "answer": "C" },
+                  { "id": "q20", "text": "Provides options for promotion within the company.", "answer": "B" },
+                  { "id": "q21", "text": "Educates people on healthy living.", "answer": "A" }
                 ],
                 "features": [
-                  { "id": "A", "name": "Advantage Sales & Marketing" },
+                  { "id": "A", "name": "The Vitamin Shoppe" },
                   { "id": "B", "name": "Chipotle Mexican Grill" },
-                  { "id": "C", "name": "The Vitamin Shoppe" },
-                  { "id": "D", "name": "PSA Healthcare" }
+                  { "id": "C", "name": "Advantage Sales & Marketing" },
+                  { "id": "D", "name": "Universal Protection Service" },
+                  { "id": "E", "name": "PSA Healthcare" }
                 ]
               },
               {
-                "type": "short-answer",
-                "instruction": "Answer the questions using NO MORE THAN THREE WORDS.",
+                "type": "sentence-complete",
+                "instruction": "Type 8 - Sentence Completion: Complete each sentence with NO MORE THAN TWO WORDS from the passage.",
                 "questions": [
-                  { "id": "q21", "text": "What does ASM help clients increase?", "answer": "market share", "wordLimit": 3 },
-                  { "id": "q22", "text": "What type of work schedule does Chipotle offer?", "answer": "flexible", "wordLimit": 3 },
-                  { "id": "q23", "text": "What kind of benefits does PSA Healthcare offer?", "answer": "competitive benefits", "wordLimit": 3 },
-                  { "id": "q24", "text": "What programs does The Vitamin Shoppe have?", "answer": "wellness programs", "wordLimit": 3 },
-                  { "id": "q25", "text": "What type of care is PSA Healthcare known for?", "answer": "compassionate care", "wordLimit": 3 },
-                  { "id": "q26", "text": "What type of people does ASM employ?", "answer": "professionals", "wordLimit": 3 }
+                  { "id": "q22", "text": "The Vitamin Shoppe offers approximately ______ different products.", "answer": "8000" },
+                  { "id": "q23", "text": "Chipotle was founded in ______.", "answer": "1993" },
+                  { "id": "q24", "text": "ASM has more than ______ offices in the US and Canada.", "answer": "65" },
+                  { "id": "q25", "text": "PSA Healthcare is headquartered in ______.", "answer": "Atlanta" }
+                ]
+              },
+              {
+                "type": "trinary",
+                "instruction": "Type 3 - Identifying Writer's Views (Yes/No/Not Given): Write YES, NO or NOT GIVEN.",
+                "questions": [
+                  { "id": "q26", "text": "The Vitamin Shoppe pays above-average wages.", "answer": "YES" },
+                  { "id": "q27", "text": "Chipotle employees find the work relaxing.", "answer": "NO" },
+                  { "id": "q28", "text": "All companies offer flexible schedules.", "answer": "NOT GIVEN" }
                 ]
               }
             ]
@@ -175,9 +199,8 @@
       {
         "id": "s3",
         "section": 3,
-        "title": "Fire Safety",
-        "subtitle": "Reading Passage 3",
-        "description": "Questions 27-40 based on Part 3",
+        "title": "Reading Passage 3: Fire Safety",
+        "description": "Questions 29-40 - Types: Flow-chart, Sentence Matching, Diagram Label, Short Answer",
         "passages": [
           {
             "id": "p3",
@@ -192,35 +215,68 @@
             ],
             "subTasks": [
               {
-                "type": "trinary",
-                "instruction": "Write TRUE, FALSE or NOT GIVEN.",
+                "type": "flow-chart",
+                "instruction": "Type 9 - Flow-chart Completion: Complete the PASS method. Write ONE WORD ONLY.",
                 "questions": [
-                  { "id": "q27", "text": "Prevention is the first precaution.", "answer": "TRUE" },
-                  { "id": "q28", "text": "Test smoke detectors every week.", "answer": "FALSE" },
-                  { "id": "q29", "text": "Stay low to avoid smoke.", "answer": "TRUE" },
-                  { "id": "q30", "text": "Fire safety codes are updated annually.", "answer": "NOT GIVEN" }
+                  { "id": "q29", "text": "Step 1: ______ the pin.", "answer": "Pull" },
+                  { "id": "q30", "text": "Step 2: ______ at the base.", "answer": "Aim" },
+                  { "id": "q31", "text": "Step 3: ______ the handle.", "answer": "Squeeze" },
+                  { "id": "q32", "text": "Step 4: ______ from side to side.", "answer": "Sweep" }
                 ]
               },
               {
-                "type": "flow-chart",
-                "instruction": "Complete the PASS method. Write ONE WORD ONLY.",
+                "type": "sentence-matching",
+                "instruction": "Type 7 - Matching Sentence Endings: Match the sentence beginnings (A-F) with the correct endings (i-vi).",
                 "questions": [
-                  { "id": "q31", "text": "Step 1: ______ the pin.", "answer": "Pull" },
-                  { "id": "q32", "text": "Step 2: ______ at the base.", "answer": "Aim" },
-                  { "id": "q33", "text": "Step 3: ______ the handle.", "answer": "Squeeze" },
-                  { "id": "q34", "text": "Step 4: ______ from side to side.", "answer": "Sweep" }
+                  { "id": "q33", "text": "Fire drills are important because", "answer": "ii" },
+                  { "id": "q34", "text": "Families should discuss", "answer": "iii" },
+                  { "id": "q35", "text": "An escape plan helps", "answer": "v" }
+                ],
+                "beginnings": [
+                  { "id": "A", "text": "Fire drills are important because" },
+                  { "id": "B", "text": "Families should discuss" },
+                  { "id": "C", "text": "An escape plan helps" },
+                  { "id": "D", "text": "Smoke can make it difficult" },
+                  { "id": "E", "text": "If you live in an apartment" },
+                  { "id": "F", "text": "You should check for smoke" }
+                ],
+                "endings": [
+                  { "id": "i", "text": "to see if there's fire on the other side of the door" },
+                  { "id": "ii", "text": "they prepare you for what to do in case of fire" },
+                  { "id": "iii", "text": "their escape plans and routes" },
+                  { "id": "iv", "text": "you should know the best way to the stairwell" },
+                  { "id": "v", "text": "every family member get out safely" },
+                  { "id": "vi", "text": "to see where things are" }
+                ]
+              },
+              {
+                "type": "diagram-label",
+                "instruction": "Type 10 - Diagram Label Completion: Label the fire escape plan. Write the correct letter, A-F.",
+                "questions": [
+                  { "id": "q36", "text": "Bedroom", "answer": "A" },
+                  { "id": "q37", "text": "Door", "answer": "B" },
+                  { "id": "q38", "text": "Hallway", "answer": "C" },
+                  { "id": "q39", "text": "Stairwell", "answer": "D" }
+                ],
+                "diagramImage": "placeholder-fire-escape-diagram.png",
+                "labels": [
+                  { "id": "A", "text": "[Bedroom]" },
+                  { "id": "B", "text": "[Door]" },
+                  { "id": "C", "text": "[Hallway]" },
+                  { "id": "D", "text": "[Stairwell]" },
+                  { "id": "E", "text": "[Window]" },
+                  { "id": "F", "text": "[Exit]" }
                 ]
               },
               {
                 "type": "short-answer",
-                "instruction": "Answer the questions using NO MORE THAN THREE WORDS.",
+                "instruction": "Type 11 - Short Answer Questions: Answer the questions using NO MORE THAN THREE WORDS.",
                 "questions": [
-                  { "id": "q35", "text": "What type of equipment should be regularly inspected?", "answer": "electrical equipment", "wordLimit": 3 },
-                  { "id": "q36", "text": "What materials should be kept away from heat sources?", "answer": "flammable materials", "wordLimit": 3 },
-                  { "id": "q37", "text": "How often should smoke detector batteries be changed?", "answer": "once a year", "wordLimit": 3 },
-                  { "id": "q38", "text": "What should never be used during a fire?", "answer": "elevators", "wordLimit": 3 },
-                  { "id": "q39", "text": "Where should people meet after evacuating?", "answer": "assembly point", "wordLimit": 3 },
-                  { "id": "q40", "text": "What should people remain during an emergency?", "answer": "calm", "wordLimit": 3 }
+                  { "id": "q40", "text": "What type of equipment should be regularly inspected?", "answer": "electrical equipment", "wordLimit": 3 },
+                  { "id": "q41", "text": "What materials should be kept away from heat sources?", "answer": "flammable materials", "wordLimit": 3 },
+                  { "id": "q42", "text": "How often should smoke detector batteries be changed?", "answer": "once a year", "wordLimit": 3 },
+                  { "id": "q43", "text": "What should never be used during a fire?", "answer": "elevators", "wordLimit": 3 },
+                  { "id": "q44", "text": "Where should people meet after evacuating?", "answer": "assembly point", "wordLimit": 3 }
                 ]
               }
             ]

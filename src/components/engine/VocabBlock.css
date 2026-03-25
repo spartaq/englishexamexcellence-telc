@@ -1,266 +1,270 @@
-/* VocabBlock.css */
+
+/* =============================================================================
+   VOCAB FLASHCARDS - Invictus Assessment "Clinical Scholar" Styling
+   ============================================================================= */
+
 .vocab-container {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  padding: var(--space-lg);
-  background: var(--bg-elevated);
-  /* Changed from center to space-between to push label up and buttons down */
-  justify-content: space-between; 
-  height: 100%;
-  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+  padding: 40px 20px;
+  /*background: var(--invictus-red-pale);*/
+  font-family: var(--invictus-font);
 }
 
-.card-scene {
-  width: 100%;
-  max-width: 540px;
-  height: 340px; 
-  perspective: 1000px;
-  cursor: pointer;
-  margin: auto; 
-}
-@media (max-width: 900px) {
-  .card-scene {
-  max-width: 400px;
-  height: 225px; 
-  perspective: 1000px;
-  cursor: pointer;
-  margin: auto; 
-}
+:root {
+  --invictus-slate: #1C1B1B;
+  --invictus-gray-light: #F6F3F2;
+  --invictus-gray-med: #E4BEBA;
+  --invictus-text-muted: #5B403D;
+  --invictus-font: 'Inter', sans-serif;
+  --invictus-shadow-subtle: 0 4px 12px rgba(28, 27, 27, 0.04);
+  --invictus-shadow-elevated: 0 32px 32px rgba(28, 27, 27, 0.06);
 }
 
-.vocab-card {
+.invictus-vocab-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: calc(100vh - 120px);
+  padding: 40px 20px;
+  /*background: var(--invictus-red-pale);*/
+  font-family: var(--invictus-font);
+}
+
+/* --- 1. HEADER & METADATA --- */
+.invictus-vocab-header {
   width: 100%;
-  height: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.invictus-metadata-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.invictus-task-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--invictus-text-muted);
+  letter-spacing: 0.1em;
+}
+
+.invictus-level-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: white;
+  border: 1px solid var(--invictus-gray-med);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--invictus-red);
+}
+
+.invictus-topic-container {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.invictus-topic-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--invictus-red);
+  letter-spacing: 0.2em;
+}
+
+.invictus-topic-value {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--invictus-slate);
+  letter-spacing: -0.02em;
+}
+
+/* --- 2. THE FLASHCARD STAGE --- */
+.invictus-card-stage {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 800px;
+  height: 480px;
+  cursor: pointer;
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invictus-flashcard {
   position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.vocab-card.is-flipped {
-  transform: rotateY(180deg);
-}
-
-.card-face {
+/* Base Card Face */
+.invictus-card-face {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: var(--bg-surface);
-  border-radius: var(--radius-lg);
-  padding: 30px var(--space-xl);
+  background: white;
+  border: 1px solid var(--invictus-gray-light);
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  border: 1px solid var(--border-light);
-  box-sizing: border-box;
+  padding: 60px;
+  box-shadow: var(--invictus-shadow-elevated);
 }
 
-.card-face-back {
-  transform: rotateY(180deg);
-  background: var(--instruction-info-bg);
-  border-color: var(--instruction-info-border);
-}
-
-/* Ensure the buttons have a consistent height so the layout doesn't jump */
-.srs-controls {
-  display: flex;
-  gap: 12px;
-  width: 100%;
-  padding-bottom: 10px;
-  height: 60px; /* Fixed height for the button container area */
-  align-items: center;
-  margin-top: 30px;
-}
-
-.srs-btn {
-  flex: 1;
-  padding: 16px 5px;
-  border-radius: 14px;
-  border: none;
-  font-weight: 700;
-  font-size: 13px;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.btn-hard { background: #fee2e2; color: #ef4444; border: 1px solid #fecaca; }
-.btn-good { background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; }
-.btn-easy { background: #dcfce7; color: #10b981; border: 1px solid #bbf7d0; }
-
-/* Empty state */
-.vocab-empty {
-  text-align: center;
-  padding: 40px;
-}
-
-.vocab-empty h3 {
-  color: var(--text-primary);
-  margin-bottom: 8px;
-}
-
-.vocab-empty p {
-  color: var(--neutral-gray);
-}
-
-.vocab-empty button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  cursor: pointer;
-  background: var(--lab-indigo);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: 700;
-}
-
-/* Top section */
-.vocab-top-section {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
-.vocab-level-badge {
-  background: var(--lab-indigo);
-  color: white;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.vocab-topic-badge {
-  background: var(--lab-amber);
-  color: #1e293b;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 600;
-}
-
-/* Level filter pills */
-.vocab-level-filter {
-  display: flex;
-  gap: 8px;
-  margin-top: 8px;
-  justify-content: center;
-}
-
-.level-filter-pill {
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 2px solid var(--border-color);
-  background: white;
-  font-weight: 700;
-  font-size: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.level-filter-pill:hover {
-  border-color: var(--lab-indigo);
-}
-
-.level-filter-pill.active {
-  background: var(--lab-indigo);
-  color: white;
-  border-color: var(--lab-indigo);
-}
-
-.level-filter-pill.b2.active {
-  background: #1d4ed8;
-  border-color: #1d4ed8;
-}
-
-.level-filter-pill.c1.active {
-  background: #7c3aed;
-  border-color: #7c3aed;
-}
-
-/* Card level badge */
-.card-header-row {
+.invictus-phase-indicator {
   position: absolute;
-  top: 16px;
-  right: 16px;
-}
-
-.card-level-badge {
-  padding: 4px 10px;
-  border-radius: 12px;
+  top: 40px;
   font-size: 11px;
   font-weight: 800;
+  color: var(--invictus-red);
+  letter-spacing: 0.15em;
+  opacity: 0.6;
+}
+
+/* Phase 1: Inquiry */
+.invictus-term-display {
+  font-size: 84px;
+  font-weight: 900;
+  color: var(--invictus-slate);
+  letter-spacing: -0.04em;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Phase 2: Translation */
+.invictus-translation-display {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--invictus-slate);
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+/* Phase 3: Detailed Definition */
+.invictus-definition-scroller {
+  text-align: center;
+  width: 100%;
+}
+
+.invictus-definition-text {
+  font-size: 24px;
+  line-height: 1.5;
+  color: var(--invictus-slate);
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.invictus-example-container {
+  padding: 24px;
+  background: var(--invictus-gray-light);
+  border-radius: 4px;
+}
+
+.invictus-example-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--invictus-red);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.invictus-example-text {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--invictus-text-muted);
+  line-height: 1.6;
+}
+
+/* Interaction Hint */
+.invictus-interaction-hint {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--invictus-text-muted);
+  opacity: 0.5;
+}
+
+/* --- 3. SRS ASSESSMENT PANEL --- */
+.invictus-srs-panel {
+  width: 100%;
+  max-width: 800px;
+}
+
+.invictus-srs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.invictus-srs-btn {
+  background: white;
+  border: 1px solid var(--invictus-gray-med);
+  border-radius: 4px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--invictus-shadow-subtle);
+}
+
+.invictus-srs-btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--invictus-red);
+  box-shadow: 0 12px 24px rgba(175, 16, 26, 0.08);
+}
+
+.invictus-btn-icon {
+  font-size: 32px;
+}
+
+.invictus-btn-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--invictus-slate);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-.card-level-badge.b2 {
-  background: #dbeafe;
-  color: #1d4ed8;
-}
+/* Custom button states */
+.invictus-btn-hard:hover { background-color: #FFF5F5; }
+.invictus-btn-good:hover { background-color: #FFFBF0; }
+.invictus-btn-easy:hover { background-color: #F0FFF4; }
 
-.card-level-badge.c1 {
-  background: #ede9fe;
-  color: #7c3aed;
-}
-
-/* SRS Controls wrapper */
-.srs-controls-wrapper {
-  height: 70px;
-}
-
-/* Term and definition text */
-.term-text {
-  font-size: 32px;
-  font-weight: 800;
-  margin: 0;
-  text-align: center;
-}
-
-.translation-text {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--lab-indigo);
-  margin: 0;
-  text-align: center;
-}
-
-.definition-text {
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--text-primary);
-  text-align: center;
-  margin: 0 0 16px 0;
-}
-
-.hint-text {
-  font-size: 14px;
-  color: var(--neutral-gray);
-  margin-top: 12px;
-}
-
-.example-box {
-  background: rgba(88, 80, 236, 0.08);
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-style: italic;
-  color: var(--text-primary);
-  font-size: 15px;
-  text-align: center;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .invictus-term-display { font-size: 56px; }
+  .invictus-card-face { padding: 32px; }
+  .invictus-srs-grid { grid-template-columns: 1fr; }
 }
 
 /* ============================================
    DARK MODE STYLES
    ============================================ */
 @media (prefers-color-scheme: dark) {
-  .vocab-container {
-    background: var(--bg-app);
-  }
   
   .card-face {
     background: var(--surface-white);

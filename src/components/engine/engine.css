@@ -3,18 +3,16 @@
    ENGINE CORE LAYOUT - Invictus Academic "Source of Truth" Refactor
    ============================================ */
 
-:root {
-  /* --- Primary Colors (Invictus Academic Red) --- */
-  --invictus-red: #D32F2F;
-  --invictus-red-dark: #B71C1C;
-  --invictus-red-pale: #FFF0F0;
-  --invictus-slate: #1F2937;
-  --invictus-gray-100: #F3F4F6;
-  --invictus-gray-200: #E5E7EB;
-  --invictus-font: 'Plus Jakarta Sans', sans-serif;
-}
-
 /* --- THE SPLIT PANE SYSTEM --- */
+
+.engine-exercise-panel {
+  background: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
 .invictus-split-pane-layout {
   display: flex;
@@ -79,6 +77,26 @@
 
 /* --- INTERACTIVE BLOCKS --- */
 
+/* Question Card - shared across Listening and InteractiveBlocks */
+.question-card {
+  background: var(--invictus-red-pale);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--outline-variant);
+  margin-bottom: 16px;
+}
+
+/* Unknown Type */
+.question-card.unknown-type {
+  background: var(--error-container);
+  border-color: var(--error);
+}
+
+.question-card.unknown-type p {
+  color: var(--on-error-container);
+  font-size: 14px;
+}
+
 .invictus-question-group {
   margin-bottom: 40px;
 }
@@ -101,6 +119,18 @@
 .invictus-question-number::before {
   content: counter(q-counter);
   color: var(--invictus-red);
+}
+
+/* Question label for interactive blocks - Invictus red */
+.question-label {
+  color: var(--invictus-red);
+  font-weight: 700;
+}
+
+/* Question number - Invictus red */
+.question-number {
+  color: var(--invictus-red);
+  font-weight: 700;
 }
 
 /* --- PASSAGE HEADER (Title & Subtitle) --- */
@@ -136,19 +166,6 @@
 
 /* --- GLOBAL ENGINE COMPONENTS --- */
 
-.invictus-header {
-  height: 64px;
-  background: var(--invictus-red-pale); /* Match the panel for a unified top feel */
-  border-bottom: 1px solid rgba(211, 47, 47, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
 .invictus-finish-btn {
   background: var(--invictus-red);
   color: white;
@@ -180,5 +197,87 @@
 
   .invictus-question-column {
     padding: 24px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    max-height: 60vh;
+  }
+}
+
+/* --- MOBILE (400px target) --- */
+@media (max-width: 480px) {
+  .invictus-split-pane-layout {
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - 56px);
+  }
+
+  .invictus-passage-column {
+    max-height: 40vh;
+    padding: 16px;
+    border-right: none;
+    border-bottom: 1px solid rgba(211, 47, 47, 0.1);
+  }
+
+  .invictus-passage-column h2 {
+    font-size: 18px !important;
+  }
+
+  .invictus-passage-column p,
+  .invictus-passage-column li {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  .invictus-question-column {
+    padding: 16px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    max-height: 60vh;
+    min-width: 0;
+  }
+
+  .invictus-total-range {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .invictus-instruction-box {
+    padding: 16px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  /* Reduce spacing for question blocks */
+  .invictus-question-block {
+    margin-bottom: 16px;
+    padding: 16px;
+  }
+
+  .invictus-question-block h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  /* Button adjustments */
+  .invictus-btn-primary,
+  .invictus-btn-secondary {
+    padding: 12px 16px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  /* Answer options */
+  .invictus-answer-option {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* Input fields */
+  .invictus-input,
+  .invictus-textarea {
+    padding: 12px;
+    font-size: 14px;
   }
 }

@@ -59,7 +59,7 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
             <div className="para-label" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
               {isCorrect ? <CheckCircle size={14} color="#10b981" /> : 
                isIncorrect ? <XCircle size={14} color="#ef4444" /> : 
-               <span className="question-label">{q.id}.</span>}
+               <span className="question-label">{String(q.id).replace(/^q/, '')}.</span>}
             </div>
             
             <p className="question-text" style={{ marginBottom: '16px' }}>{q.text}</p>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen, Headset, PenTool, Mic, Info } from 'lucide-react';
 import './BrandTestHub.css';
 
@@ -6,24 +7,34 @@ import './BrandTestHub.css';
  * ExamDescription - Shows detailed information about the exam format
  * 
  * Contains the "Four Pillars" content previously in ExamStrategy
- * Accessible from the BrandTestHub via info button
+ * Accessible from the BrandTestHub via info button, or directly via /ielts-info route
  */
 const ExamDescription = ({ activeTest, onBack }) => {
-  // TODO: Make this content dynamic based on activeTest.id
-  // For now, hardcoded for IELTS
+  // Determine if we have a back handler (internal app navigation) or need to use Link
+  const hasBackHandler = typeof onBack === 'function';
   
   return (
     <div className="strategy-container">
       
       <header className="strategy-header">
-        <button 
-          onClick={onBack} 
-          className="btn-back-link" 
-          style={{ marginBottom: '16px', cursor: 'pointer' }}
-        >
-          <ArrowLeft size={24} /> Back
-        </button>
-        <h1>About the {activeTest.title}</h1>
+        {hasBackHandler ? (
+          <button 
+            onClick={onBack} 
+            className="btn-back-link" 
+            style={{ marginBottom: '16px', cursor: 'pointer' }}
+          >
+            <ArrowLeft size={24} /> Back
+          </button>
+        ) : (
+          <Link 
+            to="/ielts-hub" 
+            className="btn-back-link" 
+            style={{ marginBottom: '16px', cursor: 'pointer', textDecoration: 'none', color: '#2563eb' }}
+          >
+            <ArrowLeft size={24} /> Back to IELTS Hub
+          </Link>
+        )}
+        <h1>About the {activeTest?.title || 'IELTS'}</h1>
         <p>
           Understanding the exam structure is the first step to mastering it.
           Here's what you need to know about each section.

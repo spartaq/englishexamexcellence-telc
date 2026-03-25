@@ -88,7 +88,8 @@
 }
 
 /* Option Button */
-.mcq-option {
+.mcq-option,
+.option-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -102,6 +103,7 @@
   transition: all 0.2s;
   cursor: pointer;
   position: relative;
+  pointer-events: auto;
 }
 
 .mcq-option:disabled {
@@ -324,5 +326,159 @@
     background: rgba(88, 80, 236, 0.2);
     border-color: var(--lab-indigo);
     color: var(--lab-indigo);
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .mcq-question-area {
+    padding: var(--space-md);
+  }
+  
+  .mcq-instruction {
+    padding: var(--space-md);
+    font-size: 13px;
+  }
+  
+  .mcq-review-badge {
+    top: 8px;
+    right: 10px;
+    font-size: 9px;
+  }
+  
+  .mcq-multi-indicator {
+    top: 8px;
+    right: 10px;
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+  
+  .mcq-question {
+    font-size: 14px;
+    padding-right: 50px;
+  }
+  
+  .mcq-question.multiselect {
+    padding-right: 90px;
+  }
+  
+  .mcq-question-subtext {
+    font-size: 12px;
+  }
+  
+  .mcq-options {
+    gap: 8px;
+  }
+  
+  .mcq-option {
+    padding: 12px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+  
+  .mcq-option-letter {
+    font-size: 13px;
+    min-width: 18px;
+  }
+  
+  .mcq-checkbox {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .mcq-warning {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  
+  .mcq-tip {
+    font-size: 12px;
+  }
+  
+  .mcq-correct-answers {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+  
+  .listening-mcq-option {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile (400px target) */
+@media (max-width: 480px) {
+  .mcq-question-area {
+    padding: 12px;
+  }
+
+  .mcq-instruction {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .mcq-review-badge {
+    top: 6px;
+    right: 8px;
+    font-size: 8px;
+  }
+
+  .mcq-multi-indicator {
+    top: 6px;
+    right: 8px;
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .mcq-question {
+    font-size: 13px;
+    padding-right: 40px;
+  }
+
+  .mcq-question.multiselect {
+    padding-right: 70px;
+  }
+
+  .mcq-question-subtext {
+    font-size: 11px;
+  }
+
+  .mcq-options {
+    gap: 6px;
+  }
+
+  .mcq-option {
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  .mcq-option-letter {
+    font-size: 11px;
+    min-width: 16px;
+  }
+
+  .mcq-checkbox {
+    width: 16px;
+    height: 16px;
+  }
+
+  .mcq-warning {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .mcq-tip {
+    font-size: 11px;
+  }
+
+  .mcq-correct-answers {
+    font-size: 11px;
+    padding: 8px 10px;
+  }
+
+  .listening-mcq-option {
+    padding: 10px;
+    font-size: 13px;
   }
 }

@@ -74,7 +74,7 @@
             ],
             "subTasks": [
               {
-                "type": "matching-choice",
+                "type": "matching-info",
                 "instruction": "Which paragraph (A-H) contains the following information?",
                 "questions": [
                   { "id": "q1", "text": "How cities are using technology to improve services", "answer": "E" },
@@ -533,15 +533,6 @@
         "duration": "4-5 minutes",
         "instruction": "Answer the examiner's questions about familiar topics. Speak naturally and give full answers.",
         "topics": [
-          {
-            "topic": "Your City",
-            "questions": [
-              { "id": "p1q1", "text": "What kind of city do you live in?" },
-              { "id": "p1q2", "text": "What is the most interesting part of your city?" },
-              { "id": "p1q3", "text": "Has your city changed much since you were a child?" },
-              { "id": "p1q4", "text": "Do you think your city is a good place to live? (Why?)" }
-            ]
-          },
           {
             "topic": "Transport",
             "questions": [

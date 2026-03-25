@@ -234,7 +234,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
               {q.questions.map((sq, sqIdx) => (
                 <div key={sq.id || sqIdx} className="invictus-sub-question">
                   <div className="invictus-question-number">
-                    {sq.id || sqIdx + 1}. {sq.text}
+                    {String(sq.id || sqIdx + 1).replace(/^q/, '')}. {sq.text}
                   </div>
                   <ShortAnswerBlock
                     data={{...sq, type: 'short-answer'}}
@@ -301,6 +301,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
           </div>
         }
         exercise={
+          <div className="reading-exercise-panel">
           <div className="invictus-question-column">
             <h2 className="invictus-total-range">Questions 1–15</h2>
             {flatQuestions.length > 0 && (
@@ -323,7 +324,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
                 </div>
               )
             )}
-          </div>
+          </div></div>
         }
       />
     </div>

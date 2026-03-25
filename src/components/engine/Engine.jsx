@@ -135,6 +135,8 @@ const Engine = ({
           <MCQBlock
             key={q.id || idx}
             data={q}
+            userAnswers={userAnswers || {}}
+            onUpdate={onUpdateAnswers || (() => {})}
             isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
@@ -279,7 +281,7 @@ const Engine = ({
               {q.questions.map((sq, sqIdx) => (
                 <div key={sq.id || sqIdx} className="invictus-sub-question">
                   <div className="invictus-question-number">
-                    {sq.id || sqIdx + 1}. {sq.text}
+                    {String(sq.id || sqIdx + 1).replace(/^q/, '')}. {sq.text}
                   </div>
                   <ShortAnswerBlock
                     data={{...sq, type: 'short-answer'}}
@@ -391,17 +393,12 @@ const Engine = ({
         <SplitPane
           content={
             <div className="invictus-passage-column">
-              {/* Passage Header */}
-              {(passageTitle || passageSubtitle) && (
-                <div className="invictus-passage-header">
-                  {passageSubtitle && <p className="invictus-passage-subtitle">{passageSubtitle}</p>}
-                  {passageTitle && <h2 className="invictus-passage-title">{passageTitle}</h2>}
-                </div>
-              )}
+            
               {renderContent()}
             </div>
           }
           exercise={
+            <div className="engine-exercise-panel">
             <div className="invictus-question-column">
               <h2 className="invictus-total-range">
                 Questions {currentPassage?.questionStart || 1}–{currentPassage?.questionEnd || flatQuestions.length}
@@ -424,7 +421,7 @@ const Engine = ({
                   </div>
                 )
               )}
-            </div>
+            </div></div>
           }
         />
       );

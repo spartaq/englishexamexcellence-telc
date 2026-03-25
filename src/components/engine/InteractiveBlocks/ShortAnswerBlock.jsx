@@ -82,7 +82,7 @@ const ShortAnswerBlock = ({
               className={`question-card ${isReviewMode ? (isCorrect ? 'correct' : 'incorrect') : overLimit ? 'over-limit' : ''}`}
             >
               <div className="sa-question-header" style={{ marginBottom: '12px' }}>
-                <span className="question-label">{q.id || index + 1}.</span>
+                <span className="question-label">{String(q.id || index + 1).replace(/^q/, '')}.</span>
                 <p className="question-text" style={{ marginBottom: 0 }}>{q.text}</p>
                 {isReviewMode && (
                   <span className="status-icon">

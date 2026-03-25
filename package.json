@@ -13,6 +13,7 @@
     "test:run": "vitest run"
   },
   "dependencies": {
+    "@clerk/react": "^6.1.2",
     "autoprefixer": "^10.4.24",
     "dompurify": "^3.3.2",
     "framer-motion": "^12.29.2",

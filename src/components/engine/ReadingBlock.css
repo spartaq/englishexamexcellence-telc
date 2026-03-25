@@ -1,71 +1,10 @@
 /* ReadingBlock Styles - Material Design 3 Rose Theme */
 
-/* CSS Variables */
-:root {
-  /* Surface Colors */
-  --surface-container-lowest: #ffffff;
-  --surface-container-low: #fff0f0;
-  --surface-container: #ffe9e9;
-  --surface-container-high: #ffe1e1;
-  --surface-container-highest: #fbdbdb;
-  --surface-bright: #fff8f7;
-  --surface-dim: #f2d3d3;
-  
-  /* Primary Colors */
-  --primary: #b80035;
-  --primary-container: #e11d48;
-  --on-primary: #ffffff;
-  --on-primary-container: #fffaf9;
-  --primary-fixed: #ffdada;
-  --primary-fixed-dim: #ffb3b6;
-  
-  /* Secondary Colors */
-  --secondary: #a83544;
-  --secondary-container: #fd7681;
-  --on-secondary: #ffffff;
-  --on-secondary-container: #710920;
-  --secondary-fixed: #ffdada;
-  
-  /* Tertiary Colors */
-  --tertiary: #006855;
-  --tertiary-container: #00836c;
-  --tertiary-fixed: #90f5d9;
-  --on-tertiary: #ffffff;
-  --on-tertiary-container: #eefff7;
-  
-  /* Error Colors */
-  --error: #ba1a1a;
-  --error-container: #ffdad6;
-  --on-error: #ffffff;
-  --on-error-container: #93000a;
-  
-  /* Surface Variant Colors */
-  --surface-variant: #fbdbdb;
-  --on-surface-variant: #5c3f40;
-  --outline: #906f70;
-  --outline-variant: #e5bdbe;
-  
-  /* On Surface */
-  --on-surface: #281718;
-  --on-background: #281718;
-  --background: #fff8f7;
-  
-  /* Legacy support */
-  --invictus-font: 'Plus Jakarta Sans', sans-serif;
-  --invictus-red: #b80035;
-  --invictus-red-pale: #fff0f0;
-  --invictus-red-dark: #8a0025;
-  --invictus-slate: #281718;
-  --invictus-gray-100: #f2d3d3;
-  --invictus-gray-200: #e5bdbe;
-  --invictus-radius: 8px;
-}
-
 /* Reading Layout */
 .invictus-reading-layout {
   font-family: var(--invictus-font);
   background: var(--surface-container-lowest);
-  height: 100vh;
+  /*height: 100vh;*/
   display: flex;
   flex-direction: column;
 }
@@ -252,6 +191,15 @@
   padding-bottom: 24px;
 }
 
+.reading-exercise-panel {
+  background: var(--surface-container-lowest);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -334,5 +282,94 @@
   
   .invictus-question-number {
     color: var(--on-surface);
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .invictus-reading-layout {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .invictus-passage-column {
+    max-height: 40vh;
+    padding: 16px;
+    border-right: none;
+    border-bottom: 1px solid var(--outline-variant);
+  }
+  
+  .invictus-passage-text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  
+  
+  .invictus-question-number {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  
+  .invictus-instruction-box {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .invictus-instruction-text {
+    font-size: 14px;
+  }
+  
+  .invictus-sub-question {
+    padding: 12px 16px;
+    margin-bottom: 12px;
+  }
+  
+  .invictus-paragraph-id {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+/* Mobile (400px target) */
+@media (max-width: 480px) {
+  .invictus-reading-layout {
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - 56px);
+  }
+
+  .invictus-passage-column {
+    max-height: 35vh;
+    padding: 12px;
+  }
+
+  .invictus-passage-text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+
+  .invictus-question-number {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .invictus-instruction-box {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .invictus-instruction-text {
+    font-size: 13px;
+  }
+
+  .invictus-sub-question {
+    padding: 10px 12px;
+    margin-bottom: 10px;
+  }
+
+  .invictus-paragraph-id {
+    font-size: 10px;
+    padding: 3px 6px;
   }
 }

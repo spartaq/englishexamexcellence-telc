@@ -13,16 +13,15 @@ import {
 } from 'lucide-react';
 // Navigation & Structure Components
 import LandingPage from './components/LandingPage/LandingPage';
-import Dashboard from './components/ui/Dashboard';
 import BrandTestHub from './components/ui/BrandTestHub';
 import ExamDescription from './components/ui/ExamDescription';
-import SkillHub from './components/ui/SkillHub';
+import VocabHub from './components/ui/VocabHub';
 import TaskSelection from './components/ui/TaskSelection';
 import PaywallModal from './components/ui/PaywallModal';
 
 // Experience & Feedback Components
 import XPBadge from './components/gamified/XPBadge';
-import ReflectionGate from './components/engine/ReflectionGate'; 
+
 import ResultScreen from './components/engine/ResultScreen'; 
 
 // The Training Blocks (Engine Components)
@@ -52,7 +51,8 @@ import NotesCompletionBlock from './components/engine/InteractiveBlocks/NotesCom
 import PunctuationCorrectionBlock from './components/engine/InteractiveBlocks/PunctuationCorrectionBlock';
 
 // Behind-the-Scenes (Data, Hooks & Utilities)
-import { HUBS, loadFullLesson, ieltsMocks } from './data/index';
+import { HUBS, ieltsMocks, lessonDatabase } from './data/index';
+import { loadFullLesson } from './utils/lessonLoader';
 import { ATOM_HUB } from './data/IELTS/atoms';
 import { useActive } from './hooks/useActive';
 import { useXP } from './hooks/useXP';
@@ -131,8 +131,8 @@ function App({ initialView }) {
   // ============================================================
   
   // Navigation State
-  const [view, setView] = useState(initialView || 'dashboard');
-  const [viewHistory, setViewHistory] = useState([initialView || 'dashboard']);
+  const [view, setView] = useState(initialView || 'ieltsHub');
+  const [viewHistory, setViewHistory] = useState([initialView || 'ieltsHub']);
   const [activeTest, setActiveTest] = useState(null);       
   const [activeCategory, setActiveCategory] = useState(null); 
   const [activeSection, setActiveSection] = useState(null);   
@@ -159,9 +159,9 @@ function App({ initialView }) {
       
       // Update URL based on view type
       if (newView === 'testHub' && activeTest) {
-        navigate(`/dashboard/${activeTest.id}-full-individual`);
-      } else if (newView === 'strategy' && activeTest) {
-        navigate(`/dashboard/${activeTest.id}-hub`);
+        navigate(`/ielts-hub/${activeTest.id}-full-individual`);
+      } else if (newView === 'ieltsHub' && activeTest) {
+        navigate(`/ielts-hub/${activeTest.id}-hub`);
       }
     }
   };
@@ -178,28 +178,27 @@ function App({ initialView }) {
       
       // Update URL based on previous view
       if (previousView === 'dashboard' || previousView === 'landing') {
-        navigate('/dashboard');
-      } else if (previousView === 'strategy' && activeTest) {
-        navigate(`/dashboard/${activeTest.id}-hub`);
+        navigate('/ielts-hub');
+      } else if (previousView === 'ieltsHub' && activeTest) {
+        navigate(`/ielts-hub/${activeTest.id}-hub`);
       } else if (previousView === 'testHub' && activeTest) {
-        navigate(`/dashboard/${activeTest.id}-full-individual`);
+        navigate(`/ielts-hub/${activeTest.id}-full-individual`);
       } else if (previousView === 'hub' && activeTest) {
         // Go back to test hub for hub views
-        navigate(`/dashboard/${activeTest.id}-full-individual`);
+        navigate(`/ielts-hub/${activeTest.id}-full-individual`);
       } else if (previousView === 'selection' && activeTest) {
         // If going back to selection from a hub, stay on test hub
-        navigate(`/dashboard/${activeTest.id}-full-individual`);
+        navigate(`/ielts-hub/${activeTest.id}-full-individual`);
       }
     } else {
-      // If we're at the root view or directly accessed, go to dashboard
-      setView('dashboard');
-      navigate('/dashboard');
+      // If we're at the root view or directly accessed, go to ieltsHub
+      setView('ieltsHub');
+      navigate('/ielts-hub');
     }
   };      
 
   // Learning & Result State
   const [userAnswers, setUserAnswers] = useState({});
-  const [showReflection, setShowReflection] = useState(false);
   const [lessonResults, setLessonResults] = useState({ accuracy: 0, earnedXP: 0, isPerfect: false });
   const [isReviewMode, setIsReviewMode] = useState(false);    
 
@@ -224,7 +223,7 @@ function App({ initialView }) {
    // Effect to handle initial view (routing)
   useEffect(() => {
     console.log('[Routing] initialView changed:', initialView);
-    if (initialView && initialView !== 'dashboard') {
+    if (initialView && initialView !== 'ieltsHub') {
       // Clear previous state before loading new hub
       setActiveCategory(null);
       setActiveSection(null);
@@ -234,7 +233,7 @@ function App({ initialView }) {
         if (TEST_PLATFORM_CONFIG[testId]) {
           setActiveTest(TEST_PLATFORM_CONFIG[testId]);
           // Initialize history with dashboard -> strategy -> skillTests
-          setViewHistory(['dashboard', 'strategy', 'skillTests']);
+          setViewHistory(['dashboard', 'ieltsHub', 'skillTests']);
           setView('skillTests');
         }
       } else if (initialView.includes('-full-individual')) {
@@ -243,7 +242,7 @@ function App({ initialView }) {
         if (TEST_PLATFORM_CONFIG[testId]) {
           setActiveTest(TEST_PLATFORM_CONFIG[testId]);
           // Initialize history with dashboard -> strategy -> testHub
-          setViewHistory(['dashboard', 'strategy', 'testHub']);
+          setViewHistory(['dashboard', 'ieltsHub', 'testHub']);
           setView('testHub');
         }
       } else if (initialView.includes('-hub')) {
@@ -251,9 +250,9 @@ function App({ initialView }) {
         const testId = initialView.split('-')[0]; // Extract test id (e.g., ielts from ielts-hub)
         if (TEST_PLATFORM_CONFIG[testId]) {
           setActiveTest(TEST_PLATFORM_CONFIG[testId]);
-          // Initialize history with dashboard -> strategy
-          setViewHistory(['dashboard', 'strategy']);
-          setView('strategy');
+          // Initialize history with dashboard -> ieltsHub
+          setViewHistory(['dashboard', 'ieltsHub']);
+          setView('ieltsHub');
         }
       } else if (initialView.includes('-test-hub')) {
         // Check if it's a test hub route (e.g., ielts-test-hub)
@@ -290,9 +289,9 @@ function App({ initialView }) {
             const testId = 'ielts';
             if (TEST_PLATFORM_CONFIG[testId]) {
               setActiveTest(TEST_PLATFORM_CONFIG[testId]);
-              // Set view to strategy so the BrandTestHub renders, then trigger the test
-              setViewHistory(['dashboard', 'strategy']);
-              setView('strategy');
+              // Set view to ieltsHub so the BrandTestHub renders, then trigger the test
+              setViewHistory(['dashboard', 'ieltsHub']);
+              setView('ieltsHub');
               // Use setTimeout to ensure the view is set before triggering onSelectPath
               setTimeout(() => {
                 // Find the BrandTestHub's onSelectPath through the component tree
@@ -306,8 +305,8 @@ function App({ initialView }) {
             if (taskMetadata) {
               handleStartTask(taskMetadata);
             } else {
-              // For any other route not matching known patterns, go to dashboard
-              setView('dashboard');
+              // For any other route not matching known patterns, go to ieltsHub
+              setView('ieltsHub');
             }
           }
         }
@@ -319,7 +318,7 @@ function App({ initialView }) {
   // Note: All skill types removed from isHighFocus to show sidebar for all exercises
   const isHighFocus = false;
   const showSidebar = !isHighFocus && view !== 'results' && view !== 'landing';
-  const showHeader = view !== 'results' && view !== 'landing' && view !== 'dashboard';
+  const showHeader = view !== 'results' && view !== 'landing';
 
   // ============================================================
   // CHAPTER 4: THE GRADING MACHINE (CORE LOGIC)
@@ -388,12 +387,6 @@ function App({ initialView }) {
     const result = checkAnswers(drillAnswers);
     console.log('[App] checkAnswers result:', result);
     
-    // Handle the result
-    if (result.needsReflection) {
-      setShowReflection(true);
-      return;
-    }
-    
     const { results: rawResults, ieltsScore, isIELTS, isReading, isListening, isGeneralTraining } = result;
     let results = rawResults;
 
@@ -413,8 +406,8 @@ function App({ initialView }) {
   const handleGetStarted = () => navigateToView('landing'); 
   const handleSelectTest = (testId) => {
     setActiveTest(TEST_PLATFORM_CONFIG[testId]);
-    navigateToView('strategy');
-    navigate(`/dashboard/${testId}-hub`);
+    navigateToView('ieltsHub');
+    navigate(`/ielts-hub/${testId}-hub`);
   };
 
   const handleSelectModule = (hubKey) => {
@@ -437,8 +430,8 @@ function App({ initialView }) {
         setView('hub');
       }
       
-      // Also navigate for URL consistency
-      const hubPath = `/dashboard/${hubKey.replace('_', '-')}`;
+      // Navigate to /ielts-hub/{hubKey} for all hubs
+      const hubPath = `/ielts-hub/${hubKey.replace('_', '-')}`;
       console.log('navigating to', hubPath);
       navigate(hubPath);
     } else {
@@ -475,8 +468,8 @@ function App({ initialView }) {
         return;
       }
       
-      // Check if this is an ATOM_HUB category (explicitly check for task types)
-      const allowedTaskTypes = ['TASK', 'VOCAB_FLASHCARDS'];
+      // Check if this is an ATOM_HUB category or VOCAB task (explicitly check for task types)
+      const allowedTaskTypes = ['TASK', 'VOCAB_FLASHCARDS', 'VOCAB'];
       if (section.type && allowedTaskTypes.includes(section.type)) {
         handleStartTask(section);
         return;
@@ -583,7 +576,7 @@ function App({ initialView }) {
       }
     } else if (taskMetadata.type === 'specific' || taskMetadata.type === 'gap-fill-tokens') {
       // Specific exercise: load by exerciseId
-      const fullLesson = loadFullLesson(taskMetadata);
+      const fullLesson = loadFullLesson(taskMetadata, lessonDatabase);
       setActiveLesson(fullLesson);
       setView('lesson');
     } else if (taskMetadata.type === 'full-flow') {
@@ -663,7 +656,7 @@ function App({ initialView }) {
         }
       }
       // Fallback: try standard loading
-      const fullLesson = loadFullLesson(taskMetadata);
+      const fullLesson = loadFullLesson(taskMetadata, lessonDatabase);
       setActiveLesson(fullLesson);
       setView('lesson');
     } else if (taskMetadata.type === 'WRITING' || taskMetadata.skill === 'writing') {
@@ -702,7 +695,7 @@ function App({ initialView }) {
       }
       // Fallback: try standard loading
       console.log('[DEBUG] Falling back to loadFullLesson');
-      const fullLesson = loadFullLesson(taskMetadata);
+      const fullLesson = loadFullLesson(taskMetadata, lessonDatabase);
       console.log('[DEBUG] Fallback result:', fullLesson);
       setActiveLesson(fullLesson);
       setView('lesson');
@@ -722,7 +715,7 @@ function App({ initialView }) {
         }
       }
       // Fallback: try standard loading
-      const fullLesson = loadFullLesson(taskMetadata);
+      const fullLesson = loadFullLesson(taskMetadata, lessonDatabase);
       setActiveLesson(fullLesson);
       setView('lesson');
     } else if (taskMetadata.type === 'speaking' || taskMetadata.skill === 'speaking') {
@@ -741,12 +734,12 @@ function App({ initialView }) {
         }
       }
       // Fallback: try standard loading
-      const fullLesson = loadFullLesson(taskMetadata);
+      const fullLesson = loadFullLesson(taskMetadata, lessonDatabase);
       setActiveLesson(fullLesson);
       setView('lesson');
     } else {
       // STANDARD: Load a single task
-      const fullLesson = loadFullLesson(taskMetadata);
+      const fullLesson = loadFullLesson(taskMetadata, lessonDatabase);
       setActiveLesson(fullLesson);
       setView('lesson');
     }
@@ -767,8 +760,7 @@ function App({ initialView }) {
 
   const handleFinalClaim = () => {
     claimXp(lessonResults.earnedXP || activeLesson.xpReward || activeLesson.xp || 0);
-    setShowReflection(false);
-    navigateToView('dashboard');
+    navigateToView('ieltsHub');
     setActiveLesson(null);
   };
 
@@ -1010,11 +1002,11 @@ function App({ initialView }) {
             <p className="invictus-brand-subtext" style={{ fontSize: '0.7rem', opacity: 0.5 }}>{activeTest ? activeTest.title.toUpperCase() : 'SELECT EXAM'}</p>
           </div>
           <nav className="invictus-nav" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <button onClick={() => { navigateToView('dashboard'); setActiveTest(null); }} className={`invictus-nav-item ${view === 'dashboard' ? 'active' : ''}`}>
-              <LayoutDashboard size={18} /> Dashboard
+            <button onClick={() => { navigateToView('ieltsHub'); setActiveTest(null); }} className={`invictus-nav-item ${view === 'ieltsHub' ? 'active' : ''}`}>
+              <LayoutDashboard size={18} /> IELTSHub
             </button>
             {activeTest && (
-              <button onClick={() => navigate(`/dashboard/${activeTest.id}-full-individual`)} className={`invictus-nav-item ${view === 'testHub' ? 'active' : ''}`}>
+              <button onClick={() => navigate(`/ielts-hub/${activeTest.id}-full-individual`)} className={`invictus-nav-item ${view === 'testHub' ? 'active' : ''}`}>
                 <BookOpen size={18} /> {activeTest.title} Hub
               </button>
             )}
@@ -1026,12 +1018,10 @@ function App({ initialView }) {
         </aside>
       )}
 
-      <main className="invictus-main-content">
-        
-         {/* HEADER & GLOBAL TOOLS */}
-        {showHeader && (
-          <header className="invictus-header">
-            <div className="invictus-header-left">
+      {/* HEADER - Full width, above sidebar and content */}
+      {showHeader && (
+        <header className="invictus-header">
+          <div className="invictus-header-left">
               {/* Only show header back button for views that don't have their own back button */}
                {view === 'testHub' && (
                  <button onClick={() => navigateBack()} className="exit-btn">
@@ -1056,28 +1046,28 @@ function App({ initialView }) {
                   } else if (viewHistory.length > 1) {
                     // Check if we came from a full test route - go to strategy hub
                     if (initialView && (initialView.includes('full-test'))) {
-                      setView('strategy');
+                      setView('ieltsHub');
                       if (activeTest) {
-                        navigate(`/dashboard/${activeTest.id}-hub`);
+                        navigate(`/ielts-hub/${activeTest.id}-hub`);
                       }
                     } else {
                       navigateBack();
                     }
                   } else {
-                    setView('dashboard');
+                    setView('ieltsHub');
                   }
                 }} className="exit-btn">
                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
                 </button>
               )}
               {view === 'results' && (
-                <button onClick={() => setView('dashboard')} className="exit-btn">
-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Dashboard
+                <button onClick={() => setView('ieltsHub')} className="exit-btn">
+                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> IELTSHub
                 </button>
               )}
-              {view === 'strategy' && (
-                <button onClick={() => setView('dashboard')} className="exit-btn">
-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Dashboard
+              {view === 'ieltsHub' && (
+                <button onClick={() => setView('ieltsHub')} className="exit-btn">
+                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> IELTSHub
                 </button>
               )}
               {view === 'skillTests' && (
@@ -1086,14 +1076,14 @@ function App({ initialView }) {
                 </button>
               )}
               {(view === 'hub' || view === 'selection') && activeTest && !(activeCategory && (activeCategory.title === 'Vocab Lab' || activeCategory.title === 'Drills Hub')) && (
-                <button onClick={() => navigate(`/dashboard/${activeTest.id}-full-individual`)} className="exit-btn">
+                <button onClick={() => navigate(`/ielts-hub/${activeTest.id}-full-individual`)} className="exit-btn">
                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
                 </button>
               )}
-              {/* Back button for non-test hubs like vocabulary and general-drills - go to hub from selection, dashboard from hub */}
+              {/* Back button for non-test hubs like vocabulary and general-drills - go to hub from selection, strategy from hub */}
               {(view === 'hub' || view === 'selection') && activeCategory && (activeCategory.title === 'Vocab Lab' || activeCategory.title === 'Drills Hub') && (
-                <button onClick={() => view === 'selection' ? setView('hub') : setView('dashboard')} className="exit-btn">
-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> {view === 'selection' ? 'Back' : 'Dashboard'}
+                <button onClick={() => view === 'selection' ? setView('hub') : setView('ieltsHub')} className="exit-btn">
+                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> {view === 'selection' ? 'Back' : 'IELTSHub'}
                 </button>
               )}
             </div>
@@ -1185,23 +1175,78 @@ function App({ initialView }) {
           </header>
         )}
 
+        <main className="invictus-main-content">
         <div className="invictus-engine-container workspace-container">
 
-          {/* DASHBOARD VIEW */}
+          {/* DASHBOARD VIEW - Now redirects to ieltsHub (BrandTestHub) */}
           {view === 'dashboard' && (
-            <Dashboard 
-              isPremium={isPremium}
-              onSelectTest={handleSelectTest}
-              onSelectModule={handleSelectModule}
-              TEST_PLATFORM_CONFIG={TEST_PLATFORM_CONFIG}
+            <BrandTestHub 
+              activeTest={activeTest}
               EXTRA_TOOLS={EXTRA_TOOLS}
+              onSelectModule={handleSelectModule}
+              onOpenPaywall={() => setShowPaywall(true)}
+              onSelectPath={(path) => {
+                if (path === 'ielts-general-mini-test') {
+                  const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
+                  const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
+                  let singleExercise = null;
+                  if (randomSkill === 'vocab') {
+                    const readingExercise = pluckRandom('reading_general');
+                    singleExercise = findVocabFromReading(readingExercise);
+                  } else if (randomSkill === 'reading') {
+                    singleExercise = pluckRandom('reading_general');
+                  } else if (randomSkill === 'writing') {
+                    singleExercise = pluckRandom('writing_general');
+                  } else if (randomSkill === 'speaking') {
+                    const speakingWrapper = pluckSingleSpeakingPart();
+                    singleExercise = speakingWrapper?.sections?.[0] || { id: 'speaking-fallback', title: 'Speaking Practice', type: 'SPEAKING', xp: 200, prompts: ['Tell me about your hometown.'] };
+                  } else if (randomSkill === 'listening') {
+                    singleExercise = pluckRandom('listening');
+                  }
+                  const miniTest = { id: 'mini-test-flow', title: 'General Mini Test', type: 'mini-test-flow', xp: singleExercise?.xp || 200, sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean) };
+                  if (miniTest.sections.length > 0) { setActiveLesson(miniTest); setActiveSectionIndex(0); setView('lesson'); }
+                } else if (path === 'ielts-academic-mini-test') {
+                  const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
+                  const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
+                  let singleExercise = null;
+                  if (randomSkill === 'vocab') {
+                    const readingExercise = pluckRandom('reading_academic');
+                    singleExercise = findVocabFromReading(readingExercise);
+                  } else if (randomSkill === 'reading') {
+                    singleExercise = pluckRandom('reading_academic');
+                  } else if (randomSkill === 'writing') {
+                    singleExercise = pluckRandom('writing_academic');
+                  } else if (randomSkill === 'speaking') {
+                    const speakingWrapper = pluckSingleSpeakingPart();
+                    singleExercise = speakingWrapper?.sections?.[0] || { id: 'speaking-fallback', title: 'Speaking Practice', type: 'SPEAKING', xp: 200, prompts: ['Tell me about your hometown.'] };
+                  } else if (randomSkill === 'listening') {
+                    singleExercise = pluckRandom('listening');
+                  }
+                  const academicMiniTest = { id: 'academic-mini-flow', title: 'Academic Mini Test', type: 'academic-mini-flow', xp: singleExercise?.xp || 200, sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean) };
+                  if (academicMiniTest.sections.length > 0) { setActiveLesson(academicMiniTest); setActiveSectionIndex(0); setView('lesson'); }
+                } else if (path === 'ielts-general-full-test') {
+                  const generalMock = pluckRandomFullMock('general');
+                  if (generalMock && generalMock.sections && generalMock.sections.length > 0) { setActiveLesson(generalMock); setActiveSectionIndex(0); setView('lesson'); }
+                } else if (path === 'ielts-academic-full-test') {
+                  const academicMock = pluckRandomFullMock('academic');
+                  if (academicMock && academicMock.sections && academicMock.sections.length > 0) { setActiveLesson(academicMock); setActiveSectionIndex(0); setView('lesson'); }
+                } else if (path === 'random-mock') {
+                  const randomMock = pluckRandomFullMock();
+                  if (randomMock && randomMock.sections && randomMock.sections.length > 0) { setActiveLesson(randomMock); setActiveSectionIndex(0); setView('lesson'); }
+                } else if (path === 'skill-tests') {
+                  setView('skillTests');
+                }
+              }}
             />
           )}
 
-          {/* STRATEGY VIEW - Now uses BrandTestHub */}
-          {view === 'strategy' && (
+          {/* IELTSHUB VIEW - Uses BrandTestHub */}
+          {view === 'ieltsHub' && (
             <BrandTestHub 
-              activeTest={activeTest} 
+              activeTest={activeTest}
+              EXTRA_TOOLS={EXTRA_TOOLS}
+              onSelectModule={handleSelectModule}
+              onOpenPaywall={() => setShowPaywall(true)}
               onSelectPath={(path, skill) => {
                 if (path === 'ielts-general-mini-test') {
                   // Mini-test flow: pick ONE random exercise from General test
@@ -1412,10 +1457,26 @@ function App({ initialView }) {
                      setActiveSectionIndex(0);
                      setView('lesson');
                    }
-                   } else if (path === 'mocks') {
+                   } else if (path === 'ielts-general-full-test') {
+                    // Start a General Training full test (from BrandTestHub)
+                    const generalMock = pluckRandomFullMock('general');
+                    if (generalMock && generalMock.sections && generalMock.sections.length > 0) {
+                      setActiveLesson(generalMock);
+                      setActiveSectionIndex(0);
+                      setView('lesson');
+                    }
+                  } else if (path === 'ielts-academic-full-test') {
+                    // Start an Academic full test (from BrandTestHub)
+                    const academicMock = pluckRandomFullMock('academic');
+                    if (academicMock && academicMock.sections && academicMock.sections.length > 0) {
+                      setActiveLesson(academicMock);
+                      setActiveSectionIndex(0);
+                      setView('lesson');
+                    }
+                  } else if (path === 'mocks') {
                     // Navigate to test hub with URL change
                     if (activeTest) {
-                      navigate(`/dashboard/${activeTest.id}-full-individual`);
+                      navigate(`/ielts-hub/${activeTest.id}-full-individual`);
                     }
                 }
               }}
@@ -1553,7 +1614,7 @@ function App({ initialView }) {
           )}
 
            {/* DYNAMIC HUB & SELECTION */}
-          {view === 'hub' && <SkillHub data={activeCategory} onSelectSection={handleSelectSection} />}
+          {view === 'hub' && <VocabHub data={activeCategory} onSelectSection={handleSelectSection} />}
           {view === 'selection' && <TaskSelection section={activeSection} onSelectTask={handleStartTask} />}
 
           {/* THE LESSON ENGINE */}
@@ -1752,14 +1813,7 @@ function App({ initialView }) {
        
       </main>
 
-      {/* OVERLAY MODALS */}
-      <ReflectionGate 
-        isOpen={showReflection} 
-        type={ (activeLesson?.type?.includes('SPEAKING') || activeLesson?.sections?.[activeSectionIndex]?.type === 'SPEAKING' || activeLesson?.sections?.[activeSectionIndex]?.passages?.[activePassageIndex]?.type === 'SPEAKING') ? 'SPEAKING' : 'WRITING'} 
-        xpAmount={activeLesson?.xpReward || activeLesson?.xp || 0} 
-        onClaim={handleFinalClaim} 
-      />
-      <PaywallModal isOpen={showPaywall} onClose={() => setShowPaywall(false)} />
+
     </div>
   );
 }

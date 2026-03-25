@@ -743,6 +743,23 @@ const createLevelCategory = (categories, level) => {
   };
 };
 
+// Helper to extract vocab tasks from categories so the engine can load them
+export const extractVocabLessons = (hub) => {
+  const lessons = {};
+  if (hub && hub.categories) {
+    hub.categories.forEach(category => {
+      if (category.tasks) {
+        category.tasks.forEach(task => {
+          if (task && task.id) {
+            lessons[task.id] = task;
+          }
+        });
+      }
+    });
+  }
+  return lessons;
+};
+
 // Export VOCAB_LEVELS - organized by level instead of topic
 // This enables level-focused learning with mixed topics
 export const VOCAB_LEVELS = {
@@ -753,3 +770,8 @@ export const VOCAB_LEVELS = {
     createLevelCategory(VOCAB_HUB.categories, 'C1')
   ]
 };
+
+// Pre-combined vocab lessons for the lesson database (computed at module load)
+const vocabLessonsFromHub = extractVocabLessons(VOCAB_HUB);
+const vocabLessonsFromLevels = extractVocabLessons(VOCAB_LEVELS);
+export const VOCAB_LESSONS = { ...vocabLessonsFromHub, ...vocabLessonsFromLevels };

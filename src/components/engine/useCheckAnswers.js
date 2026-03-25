@@ -124,10 +124,8 @@ const useCheckAnswers = ({
       currentPassage?.type === 'SPEAKING' ||
       activeLesson.type === 'ielts-speaking';
 
-    // Return early for writing/speaking (handled differently)
-    if (isWritingTask || isSpeakingTask) {
-      return { needsReflection: true };
-    }
+    // Writing and speaking tasks are processed normally
+    // (they are handled differently via AI check answers)
 
     let results = { accuracy: 0, earnedXP: 0, isPerfect: false };
     let ieltsScore = null;

@@ -1,579 +1,584 @@
-/* ============================================
-   BRAND TEST HUB - Invictus Academic Styles
-   ============================================ */
+/* =============================================================================
+   IELTS HUB REFACTOR - Hero & Catalog Layout
+   ============================================================================= */
 
-/* Section Header - matches Dashboard style */
-.brandtest-section-header {
-  text-align: left;
-  margin: 48px 0 32px;
+.ielts-hub-container {
+  /*background-color: var(--invictus-red-pale);*/
+  min-height: 100vh;
+  padding: 20px 0px 80px 0px;
 }
 
-.brandtest-section-header h2 {
-  font-size: 1.75rem;
+/* --- 1. WELCOME HERO SECTION --- */
+.ielts-hero-banner {
+  background: darkred;
+  padding: 80px 60px;
+  border-radius: 24px;
+  margin: 40px;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(211, 47, 47, 0.15);
+}
+
+/* Subtle "IELTS" Background Text */
+.ielts-hero-banner::after {
+  content: "IELTS";
+  position: absolute;
+  right: -20px;
+  bottom: -40px;
+  font-size: 240px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.hero-content {
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  /*background: rgba(255, 255, 255, 0.1);*/
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  opacity: 0.9;
+  line-height: 1.6;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.btn-white {
+  background: white;
+  color: var(--invictus-red);
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+/* Level Indicator Card */
+.level-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 32px;
+  border-radius: 20px;
+  width: 280px;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- 2. QUICK START SECTION --- */
+.ielts-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  margin-bottom: 24px;
+}
+
+.ielts-section-title {
+  font-size: 24px;
   font-weight: 800;
   color: var(--invictus-slate);
-  margin-bottom: 8px;
   letter-spacing: -0.02em;
 }
 
-.brandtest-section-header p {
-  font-size: 1rem;
-  color: var(--text-muted);
-}
-
-/* Extra Tools Grid - matches Dashboard style */
-.extra-tools-grid {
+.quick-start-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin-bottom: 48px;
-}
-
-@media (max-width: 1024px) {
-  .extra-tools-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .extra-tools-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Container & Layout */
-.strategy-container {
-  padding: var(--space-2xl) 20px;
-  /*max-width: var(--max-content-width);*/
-  margin: 0 auto;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: var(--invictus-slate);
-}
-
-/* Header Section */
-.strategy-header {
-  text-align: left;
-  margin-bottom: var(--space-2xl);
-}
-
-.strategy-header h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-}
-
-.strategy-header p {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* Path Selection Grid */
-.path-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 0.5fr;
-  gap: 30px;
+  padding: 0 40px;
   margin-bottom: 60px;
 }
 
-/* Strategy Cards - Using Invictus Card Styles */
-.strategy-card {
-  padding: 30px;
-  border-radius: var(--radius-lg);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.strategy-card.highlight {
-  /*border: 2px solid var(--invictus-red);*/
-  background: var(--invictus-red-pale);
-  /*box-shadow: 0 4px 12px rgba(211, 47, 47, 0.08);*/
-}
-
-.strategy-card.highlight:hover {
-  box-shadow: 0 8px 24px rgba(211, 47, 47, 0.12);
-}
-
-.strategy-card.standard {
-  border: 1px solid var(--border-color);
-  background: white;
-}
-
-.strategy-card.standard:hover {
-  border-color: var(--invictus-red);
-}
-
-.strategy-card h3 {
-  margin-top: 20px;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.strategy-card p {
-  line-height: 1.6;
-  flex-grow: 1;
-}
-
-.strategy-card.highlight p { 
-  color: var(--invictus-red-dark); 
-}
-
-.strategy-card.standard p { 
-  color: var(--text-muted); 
-}
-
-/* Buttons - Invictus Style */
-.btn-base {
-  width: 50%;
-  margin-top: 20px;
-  padding: 15px;
-  font-weight: 700;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.btn-primary {
-  background: var(--invictus-red);
-  color: white;
-}
-
-.btn-primary:hover {
-  background: var(--invictus-red-dark);
-}
-
-.btn-outline {
-  background: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--invictus-slate);
-}
-
-.btn-outline:hover {
-  border-color: var(--invictus-red);
-  color: var(--invictus-red);
-}
-
-.btn-base:hover {
-  transform: translateY(-1px);
-}
-
-.btn-base:focus-visible {
-  outline: 2px solid var(--invictus-red);
-  outline-offset: 2px;
-}
-
-/* Four Pillars Section */
-.intel-section {
+.quick-card {
   background: white;
   padding: 40px;
-  border-radius: 32px;
-  border: 1px solid var(--border-color);
-}
-
-.intel-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 30px;
-}
-
-.intel-header h2 {
-  font-size: 1.8rem;
-  font-weight: 800;
-  margin: 0;
-}
-
-.pillar-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.pillar-item {
-  display: flex;
-  gap: 20px;
-}
-
-.icon-wrapper {
-  padding: 12px;
-  border-radius: var(--radius-md);
-  height: fit-content;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pillar-content h4 {
-  margin: 0 0 8px 0;
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.pillar-content p {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* Teacher Note */
-.teacher-note {
-  margin-top: 40px;
-  padding: 24px;
-  background: var(--invictus-slate);
   border-radius: 20px;
-  color: white;
-}
-
-.teacher-note h4 {
-  margin: 0 0 8px 0;
-  color: #38bdf8;
-}
-
-.teacher-note p {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-/* Info Button - Invictus Style */
-.invictus-info-btn {
-  background: var(--invictus-red);
-  border: none;
-  border-radius: 50%;
-  padding: 12px;
+  border: 1px solid var(--invictus-gray-200);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
+}
+
+.quick-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(211, 47, 47, 0.06);
+  border-color: var(--invictus-red);
+}
+
+.quick-icon-box {
+  width: 48px;
+  height: 48px;
+  background: var(--invictus-red-pale);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
-}
-
-.invictus-info-btn:hover {
-  background: var(--invictus-red-dark);
-  transform: scale(1.05);
-}
-
-.invictus-info-btn:focus-visible {
-  outline: 2px solid var(--invictus-red);
-  outline-offset: 2px;
-}
-
-/* --- MOBILE RESPONSIVENESS --- */
-
-@media (max-width: 768px) {
-  .strategy-header h1 {
-    font-size: 2rem;
-  }
-
-  .path-grid, 
-  .pillar-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .intel-section {
-    padding: 24px;
-  }
-
-  .pillar-item {
-    flex-direction: column;
-    gap: 12px;
-  }
-}
-
-/* --- ATOM SKILL BUTTONS GRID --- */
-.atom-buttons-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.atom-skill-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
-  background: white;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 500;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: var(--invictus-slate);
-  transition: all 0.2s ease;
-  text-align: left;
-}
-
-.atom-skill-btn:hover {
-  background: var(--invictus-red-pale);
-  border-color: var(--invictus-red);
   color: var(--invictus-red);
+  margin-bottom: 24px;
 }
 
-.atom-skill-btn:first-child {
-  background: var(--invictus-red);
-  color: white;
-  border-color: var(--invictus-red);
-  font-weight: 600;
-}
-
-.atom-skill-btn:first-child:hover {
-  background: var(--invictus-red-dark);
-}
-
-.atom-skill-btn:focus-visible {
-  outline: 2px solid var(--invictus-red);
-  outline-offset: 2px;
-}
-
-/* --- SKILL TESTS GRID --- */
-.skill-tests-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.skill-test-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px 20px;
+/* --- 3. THE EXAM ARCHIVE (LIST VIEW) --- */
+.exam-archive-container {
   background: white;
-  border: 2px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
+  border-radius: 16px;
+  margin: 0 40px 40px;
+  padding: 24px;
+  border: 1px solid var(--invictus-gray-200);
+}
+
+.archive-controls {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.search-input-wrapper {
+  flex: 1;
   position: relative;
 }
 
-.skill-test-card:hover {
-  border-color: var(--invictus-red);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(211, 47, 47, 0.1);
+.search-input-wrapper input {
+  width: 100%;
+  padding: 12px 16px 12px 40px;
+  background: var(--invictus-gray-100);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-family: var(--invictus-font);
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
 }
 
-.skill-test-card:focus-visible {
+.search-input-wrapper input:focus {
+  background: white;
   border-color: var(--invictus-red);
-  outline: 2px solid var(--invictus-red);
-  outline-offset: 2px;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(211, 47, 47, 0.1);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.05);
 }
 
-.skill-icon-wrapper {
+/* Filter Chips */
+.filter-tabs {
+  display: flex;
+  background: var(--invictus-gray-100);
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.filter-tab {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--invictus-slate);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-tab.active {
+  background: white;
+  color: var(--invictus-red);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Exam List Row */
+.exam-list-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-md);
-  margin-bottom: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--invictus-gray-100);
+  transition: background 0.2s;
 }
 
-.skill-icon-wrapper.reading {
+.exam-list-item:last-child {
+  border-bottom: none;
+}
+
+.exam-list-item:hover {
   background: var(--invictus-red-pale);
 }
 
-.skill-icon-wrapper.reading svg {
+.exam-id {
+  font-weight: 800;
+  color: var(--invictus-red);
+  width: 60px;
+  font-size: 16px;
+}
+
+.exam-info {
+  flex: 1;
+}
+
+.exam-title {
+  font-weight: 800;
+  color: var(--invictus-slate);
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.exam-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-start-exam {
+  background: var(--invictus-red);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-start-exam:hover {
+  background: var(--invictus-red-dark);
+  transform: translateY(-1px);
+}
+
+/* --- 4. PRECISION TRAINING (BOTTOM HUBS) --- */
+.precision-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 0 40px;
+}
+
+.hub-card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid var(--invictus-gray-200);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.hub-header {
+  padding: 32px;
+  border-bottom: 1px solid var(--invictus-gray-100);
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.hub-body {
+  padding: 32px;
+  flex: 1;
+}
+
+.hub-footer {
+  padding: 24px 32px;
+  background: var(--invictus-gray-100);
+}
+
+.btn-hub {
+  width: 100%;
+  padding: 14px;
+  background: white;
+  border: 1px solid var(--invictus-gray-200);
+  border-radius: 10px;
+  font-weight: 700;
+  color: var(--invictus-slate);
+  transition: all 0.2s;
+}
+
+.btn-hub:hover {
+  border-color: var(--invictus-red);
   color: var(--invictus-red);
 }
 
-.skill-icon-wrapper.listening {
-  background: #f0fdf4;
-}
-
-.skill-icon-wrapper.listening svg {
-  color: #10B981;
-}
-
-.skill-icon-wrapper.writing {
-  background: #eff6ff;
-}
-
-.skill-icon-wrapper.writing svg {
-  color: #3B82F6;
-}
-
-.skill-icon-wrapper.speaking {
-  background: #faf5ff;
-}
-
-.skill-icon-wrapper.speaking svg {
-  color: #8B5CF6;
-}
-
-.skill-icon-wrapper.vocab {
-  background: #fff7ed;
-}
-
-.skill-icon-wrapper.vocab svg {
-  color: #F59E0B;
-}
-
-.skill-test-card svg {
-  margin-bottom: 0;
-}
-
-.skill-test-card h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--invictus-slate);
-  margin: 0 0 8px 0;
-}
-
-.skill-test-card p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin: 0 0 16px 0;
-}
-
-.skill-xp-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-  color: #78350f;
-  font-size: 0.75rem;
-  font-weight: 700;
-  border-radius: var(--radius-full);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* ============================================
-   DARK MODE STYLES
-   ============================================ */
-@media (prefers-color-scheme: dark) {
-  .strategy-container {
-    color: var(--text-primary);
-  }
-  
-  .strategy-header h1 {
-    color: white;
-  }
-  
-  .strategy-header p {
-    color: var(--text-secondary);
-  }
-  
-  .strategy-card.highlight {
-    background: rgba(211, 47, 47, 0.15);
-    border-color: var(--invictus-red);
-  }
-  
-  .strategy-card.highlight p {
-    color: #fca5a5;
-  }
-  
-  .strategy-card.standard {
-    background: var(--surface-white);
-    border-color: var(--border-color);
-  }
-  
-  .strategy-card.standard p {
-    color: var(--text-secondary);
-  }
-  
-  .strategy-card h3 {
-    color: white;
-  }
-  
-  .btn-outline {
-    background: var(--surface-white);
-    border-color: var(--border-color);
-    color: var(--text-primary);
-  }
-  
-  .intel-section {
-    background: var(--surface-white);
-    border-color: var(--border-color);
-  }
-  
-  .intel-header h2 {
-    color: white;
-  }
-  
-  .pillar-content h4 {
-    color: white;
-  }
-  
-  .pillar-content p {
-    color: var(--text-secondary);
-  }
-  
-  .teacher-note {
-    background: #0f172a;
-  }
-  
-  .skill-test-card {
-    background: var(--surface-white);
-    border-color: var(--border-color);
-  }
-  
-  .skill-test-card:hover {
-    border-color: var(--invictus-red);
-    box-shadow: 0 8px 16px rgba(211, 47, 47, 0.2);
-  }
-  
-  .skill-test-card h3 {
-    color: var(--text-primary);
-  }
-  
-  .skill-test-card p {
-    color: var(--text-secondary);
-  }
-  
-  .skill-xp-badge {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    color: #fff;
-  }
-}
-
-/* Responsive breakpoints for skill tests grid */
+/* Responsive */
 @media (max-width: 1200px) {
-  .skill-tests-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .quick-start-grid, .precision-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 768px) {
-  .skill-tests-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* Mobile (400px target) */
+@media (max-width: 480px) {
+  .ielts-hub-container {
+    padding-bottom: 40px;
+  }
+
+  /* Hero Section */
+  .ielts-hero-banner {
+    padding: 24px 16px;
+    margin: 16px;
+    border-radius: 16px;
+  }
+
+  .ielts-hero-banner::after {
+    font-size: 80px;
+    right: -10px;
+    bottom: -20px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .hero-badge {
+    font-size: 10px;
+    padding: 4px 8px;
+    margin-bottom: 12px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-white, .btn-outline-white {
+    padding: 12px 20px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .level-card {
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 12px;
+  }
+
+  /* Section Headers */
+  .ielts-section-header {
+    padding: 0 16px;
+    margin-bottom: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .ielts-section-title {
+    font-size: 18px;
+  }
+
+  /* Quick Start Grid */
+  .quick-start-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 16px;
+    margin-bottom: 40px;
+  }
+
+  .quick-card {
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     gap: 16px;
   }
-  
-  .skill-test-card {
-    padding: 20px 16px;
-  }
-  
-  .skill-icon-wrapper {
-    width: 48px;
-    height: 48px;
-  }
-  
-  .skill-icon-wrapper svg {
-    width: 20px;
-    height: 20px;
-  }
-}
 
-@media (max-width: 480px) {
-  .skill-tests-grid {
+  .quick-icon-box {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .quick-card h3 {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .quick-card p {
+    font-size: 12px;
+    margin: 4px 0 0 0;
+    display: none;
+  }
+
+  /* Exam Archive */
+  .exam-archive-container {
+    margin: 0 16px 40px;
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .archive-controls {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .search-input-wrapper input {
+    padding: 12px 16px 12px 40px;
+    font-size: 14px;
+  }
+
+  .archive-filters {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .filter-chip {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  /* Exam List */
+  .exam-list {
+    gap: 12px;
+  }
+
+  .exam-card {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .exam-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .exam-title {
+    font-size: 14px;
+  }
+
+  .exam-meta {
+    font-size: 12px;
+  }
+
+  .exam-card-body {
+    margin-top: 12px;
+  }
+
+  .exam-stats {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    font-size: 12px;
+  }
+
+  .exam-tags {
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .exam-tag {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  .exam-card-footer {
+    margin-top: 16px;
+    padding-top: 12px;
+  }
+
+  .btn-start-exam {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  /* Precision Grid (Extra Tools) */
+  .precision-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 16px;
+    margin-bottom: 40px;
+  }
+
+  .hub-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .hub-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .hub-card .quick-icon-box {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hub-card .exam-title {
+    font-size: 24px;
+    margin-bottom: 0;
+  }
+
+  .hub-body {
+    font-size: 12px;
+  }
+
+  .hub-footer {
+    margin-top: 12px;
+  }
+
+  .btn-hub {
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  /* Mobile nav */
+  .ielts-hero-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
   }
 }

@@ -83,6 +83,7 @@ const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
           </div>
         }
         exercise={
+          <div className="writing-exercise-panel">
           <div className="invictus-question-column">
             {/* Rich Text Editor Toolbar */}
             <div className="editor-toolbar">
@@ -129,6 +130,19 @@ const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
                 <span className="word-count-label">Word Count: {wordCount}</span>
               </div>
               <span className="minimum-label">Minimum {data.targetWords || 150} Words</span>
+              {!feedback ? (
+          <button 
+            className="submit-btn"
+            disabled={wordCount < 10 || isChecking}
+            onClick={handleCheckWriting}
+          >
+            {isChecking ? 'Checking...' : 'Get AI to Check My Writing'}
+          </button>
+        ) : (
+          <button className="submit-btn primary" onClick={() => onComplete(text)}>
+            Submit Response
+          </button>
+        )}
             </div>
 
             {isChecking && (
@@ -139,7 +153,9 @@ const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
                 </div>
               </div>
             )}
-          </div>
+          </div></div>
+
+          
         }
       />
 
@@ -188,24 +204,8 @@ const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
         </div>
       )}
 
-      <div className="writing-footer">
-        <p className="auto-save-notice">
-          Your response is automatically saved every 30 seconds to the secure IELTS testing cloud.
-        </p>
-        {!feedback ? (
-          <button 
-            className="submit-btn"
-            disabled={wordCount < 10 || isChecking}
-            onClick={handleCheckWriting}
-          >
-            {isChecking ? 'Checking...' : 'Get AI to Check My Writing'}
-          </button>
-        ) : (
-          <button className="submit-btn primary" onClick={() => onComplete(text)}>
-            Submit Response
-          </button>
-        )}
-      </div>
+      
+
     </div>
   );
 };

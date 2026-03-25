@@ -6,6 +6,7 @@
    ============================================ */
 .invictus-app-shell {
   display: grid;
+  grid-template-rows: auto 1fr;
   grid-template-columns: var(--sidebar-width) 1fr;
   min-height: 100vh;
   width: 100vw;
@@ -22,7 +23,7 @@
 .invictus-sidebar {
   background: transparent;
   color: white;
-  padding: 80px 24px 40px; /* Increased top padding to move content down below header */
+  padding: 80px 24px 40px;
   display: flex;
   flex-direction: column;
   position: sticky;
@@ -30,6 +31,8 @@
   height: 100vh;
   border-right: 1px solid rgba(255,255,255,0.05);
   z-index: 50;
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .invictus-brand-title {
@@ -103,6 +106,8 @@
   min-width: 0;
   min-height: 100vh;
   background: transparent;
+  grid-column: 2;
+  grid-row: 2;
 }
 
 .invictus-workspace {
@@ -123,7 +128,8 @@
 .invictus-header {
   height: 64px;
   width: 100%;
-  max-width: calc(100vw - var(--sidebar-width));
+  grid-column: 1 / -1;
+  grid-row: 1;
   background: var(--invictus-red-pale);
   border-bottom: 2px solid var(--invictus-red-pale);
   padding: 0 40px;
@@ -176,6 +182,80 @@
 .header-tab:hover {
   background: var(--invictus-red-pale);
   color: var(--invictus-red);
+}
+
+/* Logo styles */
+.invictus-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--invictus-slate);
+  letter-spacing: -0.01em;
+}
+
+.invictus-logo svg {
+  color: var(--invictus-red);
+}
+
+/* Finish button */
+.invictus-finish-btn {
+  background: var(--invictus-red);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.15);
+}
+
+.invictus-finish-btn:hover {
+  background: var(--invictus-red-dark);
+  transform: translateY(-1px);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .invictus-header {
+    padding: 0 16px;
+    flex-wrap: wrap;
+    min-height: 56px;
+    gap: 8px;
+    height: auto;
+  }
+  
+  .invictus-header-left {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .invictus-header-right {
+    flex: 1;
+    justify-content: flex-end;
+    min-width: 0;
+  }
+  
+  .invictus-header-center {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .header-tabs {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .header-tab {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .invictus-logo {
+    font-size: 0.95rem;
+  }
 }
 
 .header-tab.active {
@@ -355,7 +435,38 @@
   }
   
   .invictus-header {
-    padding: 0 24px;
+    padding: 0 16px;
+    flex-wrap: wrap;
+    min-height: 56px;
+    gap: 8px;
+    max-width: 100%;
+  }
+  
+  .invictus-header-left {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .invictus-header-right {
+    flex: 1;
+    justify-content: flex-end;
+    min-width: 0;
+  }
+  
+  .invictus-header-center {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .header-tabs {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .header-tab {
+    padding: 6px 12px;
+    font-size: 12px;
   }
   
   .mobile-nav {
@@ -394,6 +505,97 @@
   }
 }
 
+/* Mobile (400px target) */
+@media (max-width: 480px) {
+  .invictus-app-shell {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+  }
+
+  .invictus-app-shell > * {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .invictus-header {
+    position: relative;
+    height: auto;
+    min-height: 48px;
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    gap: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .invictus-header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: auto;
+  }
+
+  .invictus-header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    justify-content: flex-end;
+    min-width: auto;
+  }
+
+  .invictus-header-center {
+    order: 3;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 4px;
+  }
+
+  .invictus-logo {
+    font-size: 14px;
+  }
+
+  .header-tabs {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .header-tab {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .invictus-sidebar {
+    display: none;
+  }
+
+  .invictus-workspace {
+    padding: 8px;
+    padding-bottom: 80px;
+    width: 100%;
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .mobile-nav {
+    height: 56px;
+  }
+
+  .mobile-nav-item {
+    font-size: 9px;
+  }
+
+}
+
 /* ============================================
    ENGINE SPECIFIC OVERRIDES
    ============================================ */
@@ -401,20 +603,4 @@
 .invictus-engine-container {
   width: 100%;
   height: 100%;
-}
-
-.invictus-split-pane-layout {
-  display: flex;
-  flex-direction: row;
-  height: calc(100vh - 128px); /* Adjusting for header and padding */
-  overflow: hidden;
-  gap: 24px;
-}
-
-@media (max-width: 1024px) {
-  .invictus-split-pane-layout {
-    flex-direction: column;
-    height: auto;
-    overflow: visible;
-  }
 }
