@@ -149,7 +149,6 @@ const TableCompletionBlock = ({
         {/* Correct answer hint */}
         {isReviewMode && (isWrong || isMissing) && (
           <div className="correct-hint">
-            Correct: {correctAnswer}
           </div>
         )}
       </td>
@@ -241,3 +240,4 @@ const TableCompletionBlock = ({
 };
 
 export default TableCompletionBlock;
+

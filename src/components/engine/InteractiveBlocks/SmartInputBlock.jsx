@@ -25,3 +25,4 @@ export default function SmartInputBlock({ data, userAnswers, onUpdate }) {
     </div>
   );
 }
+

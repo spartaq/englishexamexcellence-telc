@@ -97,16 +97,12 @@ const ShortAnswerBlock = ({
                     type="text"
                     disabled={isReviewMode}
                     className={`answer-input ${isReviewMode ? (isCorrect ? 'correct' : 'incorrect') : ''}`}
-                    placeholder={isReviewMode ? "" : "Type answer here..."}
+                    placeholder={isReviewMode ? "" : "Type answer here... (Limit 3 words)"}
                     value={currentAnswer}
                     onChange={(e) => onUpdate(q.id, e.target.value)}
                   />
                   
-                  {limit && !isReviewMode && (
-                    <div className={`word-counter ${overLimit ? 'over-limit' : ''}`}>
-                      {total}/{limit}
-                    </div>
-                  )}
+                  
                 </div>
 
                 {/* Validation Warnings */}
@@ -119,7 +115,6 @@ const ShortAnswerBlock = ({
                 {/* Review Mode Answer Key */}
                 {isReviewMode && !isCorrect && (
                   <div className="correct-answer-hint">
-                    <strong>Correct:</strong> {q.answer}
                   </div>
                 )}
               </div>

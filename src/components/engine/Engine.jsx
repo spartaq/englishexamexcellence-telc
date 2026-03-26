@@ -392,7 +392,7 @@ const Engine = ({
       return (
         <SplitPane
           content={
-            <div className="invictus-passage-column">
+            <div className="invictus-content-column">
             
               {renderContent()}
             </div>
@@ -414,6 +414,7 @@ const Engine = ({
                     hasNextSection={hasNextSection}
                     showCheckAnswers={showCheckAnswers}
                     onCheckAnswers={onCheckAnswers}
+                    isReviewMode={isReviewMode}
                   />
                 ) : (
                   <div className="invictus-static-list">
@@ -434,6 +435,7 @@ const Engine = ({
           data={currentSection} 
           showCheckAnswers={showCheckAnswers}
           onCheckAnswers={onCheckAnswers}
+          isReviewMode={isReviewMode}
         />
       );
     }
@@ -475,7 +477,7 @@ const Engine = ({
     return (
       <SplitPane
         content={
-          <div className="invictus-passage-column">
+          <div className="invictus-content-column">
             {renderContent()}
           </div>
         }

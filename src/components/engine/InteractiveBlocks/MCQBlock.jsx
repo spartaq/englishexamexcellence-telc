@@ -142,12 +142,7 @@ const MCQBlock = ({
           {data.instruction}
         </div>
       )}
-      {/* Review Mode Badge */}
-      {isReviewMode && (
-        <div className="review-badge">
-          Review Mode
-        </div>
-      )}
+      
 
       {/* Multi-select indicator */}
       {isMultiSelect && !isReviewMode && (
@@ -239,26 +234,10 @@ const MCQBlock = ({
         </div>
       )}
 
-      {/* Review Mode Feedback */}
-      {isReviewMode && (
-        <>
-          {!isUserCorrect() && (
-            <p className="tip-box">
-              <strong>Tip:</strong> Read the passage section regarding this topic again to see why the green option{isMultiSelect ? 's are' : ' is'} correct.
-            </p>
-          )}
-          
-          {/* Show correct answers for multi-select */}
-          {isMultiSelect && correctAnswers && (
-            <div className="correct-answer-hint" style={{ marginTop: '12px' }}>
-              <strong>Correct Answers:</strong>{' '}
-              {correctAnswers.map(idx => String.fromCharCode(65 + idx)).join(', ')}
-            </div>
-          )}
-        </>
-      )}
+      
     </div>
   );
 };
 
 export default MCQBlock;
+

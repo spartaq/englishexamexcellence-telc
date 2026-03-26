@@ -14,7 +14,7 @@ import DiagramLabelBlock from './InteractiveBlocks/DiagramLabelBlock';
 import MCQBlock from './InteractiveBlocks/MCQBlock';
 import MatchingChoiceBlock from './InteractiveBlocks/MatchingChoiceBlock';
 
-const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showCheckAnswers = false, onCheckAnswers, userAnswers = {}, onUpdate = () => {} }) => {
+const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showCheckAnswers = false, onCheckAnswers, userAnswers = {}, onUpdate = () => {}, isReviewMode = false }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -193,7 +193,7 @@ const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showC
             data={q}
             userAnswers={answers}
             onUpdate={(id, value) => updateAnswer(id, value)}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
           />
         );
@@ -205,7 +205,7 @@ const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showC
             data={q}
             userAnswers={answers}
             onUpdate={(id, value) => updateAnswer(id, value)}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
           />
         );
@@ -238,7 +238,7 @@ const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showC
             data={q}
             userAnswers={userAnswers}
             onUpdate={(id, value) => updateAnswer(id, value)}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             wordLimit={q.wordLimit}
             allowNumber={q.allowNumber}
             hideInstruction={true}
@@ -276,7 +276,7 @@ const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showC
             data={q}
             userAnswers={answers}
             onUpdate={(id, value) => updateAnswer(id, value)}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
           />
         );
@@ -288,7 +288,7 @@ const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showC
             data={q}
             userAnswers={answers}
             onUpdate={(id, value) => updateAnswer(id, value)}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
           />
         );
@@ -337,7 +337,7 @@ const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showC
     <div className="listening-container">
       <SplitPane
         content={
-          <div className="invictus-passage-column">
+          <div className="invictus-content-column">
             {/* Part Title and Description - First */}
             {data.title && (
                <div className="invictus-passage-header">
@@ -428,6 +428,7 @@ const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showC
               onIndexChange={onQuestionIndexChange}
               showCheckAnswers={showCheckAnswers}
               onCheckAnswers={onCheckAnswers}
+              isReviewMode={isReviewMode}
             />
           </div>
         }
@@ -437,3 +438,4 @@ const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showC
 };
 
 export default ListeningBlock;
+

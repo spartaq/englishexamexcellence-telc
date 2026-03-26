@@ -206,54 +206,13 @@ export default function MatchingChoiceBlock({
               })}
             </div>
 
-            {/* Correct answer hint in review mode */}
-            {isReviewMode && (isWrong || isMissing) && (
-              <div style={{
-                gridColumn: '1 / -1',
-                marginTop: '8px',
-                padding: '8px 12px',
-                background: '#ecfdf5',
-                borderRadius: '6px',
-                fontSize: '12px',
-                color: '#059669',
-                fontWeight: 600
-              }}>
-                Correct answer: {correctAnswer}
-              </div>
-            )}
+            
           </div>
         );
       })}
 
-      {/* Review Mode Summary */}
-      {isReviewMode && (
-        <div style={{
-          marginTop: '20px',
-          padding: '16px',
-          background: '#f8fafc',
-          borderRadius: '10px',
-          border: '1px solid #e2e8f0'
-        }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center'
-          }}>
-            <span style={{ fontSize: '13px', color: '#64748b' }}>
-              Score: {
-                questions.filter(q => 
-                  normalizeAnswer(userAnswers[q.id]) === normalizeAnswer(q.answer)
-                ).length
-              } / {questions.length}
-            </span>
-            <span style={{ fontSize: '12px', color: '#94a3b8' }}>
-              {Math.round((questions.filter(q => 
-                normalizeAnswer(userAnswers[q.id]) === normalizeAnswer(q.answer)
-              ).length / questions.length) * 100)}%
-            </span>
-          </div>
-        </div>
-      )}
+     
+      
     </div>
   );
 }

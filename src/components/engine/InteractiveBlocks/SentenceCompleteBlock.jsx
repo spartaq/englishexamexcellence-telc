@@ -101,12 +101,11 @@ const SentenceCompleteBlock = ({
             {/* FIX: Ensure the correct answer shows up if the user was wrong */}
             {isIncorrect && (
               <span className="correct-answer-hint">
-                {correctAnswer}
               </span>
             )}
             {isMissing && (
                <span className="correct-answer-hint">
-                Ans: {correctAnswer}
+                
               </span>
             )}
           </motion.span>
@@ -194,3 +193,4 @@ const SentenceCompleteBlock = ({
 };
 
 export default SentenceCompleteBlock;
+

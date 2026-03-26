@@ -15,7 +15,7 @@ import './engine.css';
 const SplitPane = ({ content, exercise, className = '' }) => {
   return (
     <div className={`invictus-split-pane-layout ${className}`}>
-      <div className="invictus-passage-column">
+      <div className="invictus-content-column">
         {content}
       </div>
       <div className="invictus-question-column">
@@ -26,3 +26,4 @@ const SplitPane = ({ content, exercise, className = '' }) => {
 };
 
 export default SplitPane;
+

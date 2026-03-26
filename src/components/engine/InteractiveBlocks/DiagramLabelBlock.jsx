@@ -122,12 +122,7 @@ const DiagramLabelBlock = ({
                 </span>
               )}
 
-              {/* Correct Answer (shown in review for wrong/missing) */}
-              {isReviewMode && (isWrong || isMissing) && (
-                <div className="correct-answer-hint">
-                  Correct: {correctAnswer}
-                </div>
-              )}
+
             </div>
           );
         })}
@@ -166,3 +161,4 @@ const DiagramLabelBlock = ({
 };
 
 export default DiagramLabelBlock;
+

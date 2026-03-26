@@ -190,13 +190,13 @@ body {
 /* --- 5. DARK MODE (Invictus Dark Obsidian) --- */
 @media (prefers-color-scheme: dark) {
   :root {
+    --invictus-red-pale: #1E293B;
     --bg-app: #0F172A;
     --surface-white: #1E293B;
     --border-color: #334155;
     --text-primary: #F8FAFC;
     --text-secondary: #94A3B8;
     --invictus-slate: #F8FAFC;
-  --invictus-red-pale: #1E293B;
     
   }
 

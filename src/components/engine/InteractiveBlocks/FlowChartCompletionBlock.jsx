@@ -148,13 +148,6 @@ const FlowChartCompletionBlock = ({
                     )}
                   </div>
                 )}
-
-                {/* Correct answer hint */}
-                {isReviewMode && (isWrong || isMissing) && (
-                  <div className="flowchart-hint">
-                    Correct: {correctAnswer}
-                  </div>
-                )}
               </div>
             ) : (
               /* Static text */
@@ -226,3 +219,4 @@ const FlowChartCompletionBlock = ({
 };
 
 export default FlowChartCompletionBlock;
+

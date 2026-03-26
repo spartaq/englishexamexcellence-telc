@@ -283,3 +283,4 @@ const ResultScreen = ({ lesson, results, userAnswers = {}, onClaim, activeSectio
 };
 
 export default ResultScreen;
+

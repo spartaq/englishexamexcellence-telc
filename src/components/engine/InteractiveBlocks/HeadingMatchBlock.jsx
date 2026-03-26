@@ -87,7 +87,6 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
 
               {(isIncorrect || isMissing) && correctChoice !== undefined && (
                 <div className="correct-answer-hint">
-                  Correct: {parseInt(correctChoice) + 1}. {headings[correctChoice]}
                 </div>
               )}
             </div>
@@ -99,3 +98,4 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
 };
 
 export default HeadingMatchBlock;
+

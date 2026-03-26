@@ -127,7 +127,7 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
     <div className="speaking-container speaking-block-wrapper">
       <SplitPane
         content={
-          <div className="invictus-passage-column">
+          <div className="invictus-content-column">
             {/* Task Header - Inside SplitPane like ReadingBlock */}
              {data.title && (
               <div className="invictus-passage-header">
@@ -330,3 +330,4 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
 };
 
 export default SpeakingBlock;
+

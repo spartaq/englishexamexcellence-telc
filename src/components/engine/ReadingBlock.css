@@ -9,15 +9,6 @@
   flex-direction: column;
 }
 
-/* Passage Column Styles */
-.invictus-passage-column {
-  padding: 40px;
-  background: var(--surface-container-lowest);
-  overflow-y: auto;
-  line-height: 1.8;
-  color: var(--on-surface);
-}
-
 /* Passage Header */
 .invictus-passage-header {
   margin-bottom: 24px;
@@ -253,11 +244,6 @@
     background: var(--surface-container-lowest);
   }
   
-  .invictus-passage-column {
-    background: var(--surface-container-lowest);
-    color: var(--on-surface);
-  }
-  
   .invictus-passage-text {
     color: var(--on-surface);
   }
@@ -290,13 +276,6 @@
   .invictus-reading-layout {
     flex-direction: column;
     height: auto;
-  }
-  
-  .invictus-passage-column {
-    max-height: 40vh;
-    padding: 16px;
-    border-right: none;
-    border-bottom: 1px solid var(--outline-variant);
   }
   
   .invictus-passage-text {
@@ -336,11 +315,6 @@
     flex-direction: column;
     height: auto;
     min-height: calc(100vh - 56px);
-  }
-
-  .invictus-passage-column {
-    max-height: 35vh;
-    padding: 12px;
   }
 
   .invictus-passage-text {

@@ -206,13 +206,6 @@ const MatchingFeaturesBlock = ({
               {/* Correct answer hint in review mode */}
               {isReviewMode && (isWrong || isMissing) && (
                 <div className="answer-hint">
-                  <span>Correct answer:</span>
-                  <span className="correct-feature-id">
-                    {correctAnswer}
-                  </span>
-                  <span className="correct-feature-name">
-                    - {finalFeatures.find(f => f.id === correctAnswer)?.name || ''}
-                  </span>
                 </div>
               )}
             </div>
@@ -258,3 +251,4 @@ const MatchingFeaturesBlock = ({
 };
 
 export default MatchingFeaturesBlock;
+

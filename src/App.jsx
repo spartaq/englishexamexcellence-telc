@@ -396,8 +396,8 @@ function App({ initialView }) {
     }
 
     setLessonResults(results);
-    setIsReviewMode(true); 
-    setView('results');
+    // Toggle review mode to show answers inline (instead of navigating to results screen)
+    setIsReviewMode(prev => !prev); 
   };
 
   // ============================================================
@@ -797,7 +797,7 @@ function App({ initialView }) {
       // Calculate if this is the last section for listening
       const listeningSections = activeLesson.listening?.sections?.length || (activeLesson.sections?.filter(s => s.type === 'LISTENING' || s.skill === 'listening').length) || 1;
       const isLastListeningSection = activeSectionIndex >= listeningSections - 1;
-      return <ListeningBlock data={taskData} userAnswers={userAnswers} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} showCheckAnswers={isLastListeningSection} onCheckAnswers={handleCheckAnswers} isMiniTest={true} />;
+      return <ListeningBlock data={taskData} userAnswers={userAnswers} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} showCheckAnswers={isLastListeningSection} onCheckAnswers={handleCheckAnswers} isMiniTest={true} isReviewMode={isReviewMode} />;
     }
     if (taskData.type === 'VOCAB' || taskData.type === 'VOCAB_FLASHCARDS') return <VocabBlock data={taskData} onComplete={handleCheckAnswers} />;
 
@@ -1753,6 +1753,7 @@ function App({ initialView }) {
                                       onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))}
                                       showCheckAnswers={true}
                                       onCheckAnswers={handleCheckAnswers}
+                                      isReviewMode={isReviewMode}
                                     />
                                  </div>
                                )}
@@ -1796,6 +1797,7 @@ function App({ initialView }) {
                       onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))}
                       showCheckAnswers={true}
                       onCheckAnswers={handleCheckAnswers}
+                      isReviewMode={isReviewMode}
                     />
                   )}
                   {renderQuestionBlock(activeLesson)}

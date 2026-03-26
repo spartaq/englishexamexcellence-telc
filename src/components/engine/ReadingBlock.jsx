@@ -20,7 +20,7 @@ import FlowChartCompletionBlock from './InteractiveBlocks/FlowChartCompletionBlo
 import NotesCompletionBlock from './InteractiveBlocks/NotesCompletionBlock';
 import PunctuationCorrectionBlock from './InteractiveBlocks/PunctuationCorrectionBlock';
 
-const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalRenderBlock, userAnswers = {}, onUpdate = () => {}, onQuestionIndexChange, navigationProps, showCheckAnswers = false, onCheckAnswers }) => {
+const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalRenderBlock, userAnswers = {}, onUpdate = () => {}, onQuestionIndexChange, navigationProps, showCheckAnswers = false, onCheckAnswers, isReviewMode = false }) => {
   // Data is always an object from the mock
   const content = data?.content || data?.passage;
   console.log('[ReadingBlock] content:', content ? (Array.isArray(content) ? 'array len: ' + content.length : 'string') : 'undefined');
@@ -40,7 +40,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             data={q}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
           />
@@ -61,7 +61,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             }}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
           />
@@ -74,7 +74,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             data={q}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
           />
@@ -86,7 +86,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             data={q}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
           />
@@ -98,7 +98,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             data={q}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
           />
@@ -110,7 +110,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             data={q}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
           />
@@ -122,7 +122,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             data={q}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
           />
@@ -134,7 +134,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             data={q}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             className="invictus-interactive-block"
           />
         );
@@ -145,7 +145,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             data={q}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
           />
@@ -157,7 +157,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             data={q}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
           />
@@ -169,7 +169,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             data={q}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
           />
@@ -181,7 +181,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             data={q}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
           />
@@ -193,7 +193,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             data={q}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
           />
@@ -205,7 +205,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             data={q}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
           />
@@ -217,7 +217,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             data={q}
             userAnswers={userAnswers}
             onUpdate={onUpdate}
-            isReviewMode={false}
+            isReviewMode={isReviewMode}
             hideInstruction={true}
             className="invictus-interactive-block"
           />
@@ -240,7 +240,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
                     data={{...sq, type: 'short-answer'}}
                     userAnswers={userAnswers}
                     onUpdate={onUpdate}
-                    isReviewMode={false}
+                    isReviewMode={isReviewMode}
                     hideInstruction={true}
                   />
                 </div>
@@ -264,7 +264,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
     <div className="invictus-reading-layout">
       <SplitPane
         content={
-          <div className="invictus-passage-column">
+          <div className="invictus-content-column">
             {/* Task Header - Inside SplitPane */}
             {(title || subtitle) && (
               <div className="invictus-passage-header">
@@ -317,6 +317,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
                   onNextPart={navigationProps?.onNextPart}
                   showCheckAnswers={showCheckAnswers}
                   onCheckAnswers={onCheckAnswers}
+                  isReviewMode={isReviewMode}
                 />
               ) : (
                 <div className="invictus-static-list">

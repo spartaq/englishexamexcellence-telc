@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import './QuestionCarousel.css';
 
 const QuestionCarousel = ({ 
   questions, 
@@ -10,7 +11,8 @@ const QuestionCarousel = ({
   hasNextSection = false,
   onNextPart,
   showCheckAnswers = false,
-  onCheckAnswers
+  onCheckAnswers,
+  isReviewMode = false
 }) => {
   console.log('QuestionCarousel props:', { questionsLength: questions?.length, showCheckAnswers, hasNextPassage, hasNextSection, hasOnCheckAnswers: !!onCheckAnswers });
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -98,13 +100,7 @@ const QuestionCarousel = ({
         {questions.map((q, idx) => (
           <div key={q.id || idx} className="question-slide">
             {showInstruction && (
-              <div style={{ 
-                marginBottom: '10px',
-                paddingBottom: '8px',
-                borderBottom: '1px solid #e2e8f0',
-                fontSize: '14px',
-                color: '#64748b'
-              }}>
+              <div className="question-instruction-div">
                 
               </div>
             )}
@@ -114,32 +110,12 @@ const QuestionCarousel = ({
       </div>
       
       {/* Navigation arrows below the question */}
-      <div className="carousel-nav-footer" style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '12px 0 0 12px',
-        flexShrink: 0,
-        gap: '8px'
-      }}>
+      <div className="carousel-nav-footer">
         <button
           onClick={goToPrevious}
           disabled={currentIndex === 0}
           aria-label="Previous question"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '4px',
-            padding: '8px 16px',
-            border: 'none',
-            borderRadius: '6px',
-            background: currentIndex === 0 ? '#f1f5f9' : '#e0e7ff',
-            color: currentIndex === 0 ? '#94a3b8' : '#4338ca',
-            cursor: currentIndex === 0 ? 'not-allowed' : 'pointer',
-            fontSize: '14px',
-            fontWeight: '500',
-            transition: 'all 0.2s ease'
-          }}
+          className={`carousel-nav-btn prev`}
         >
           <ChevronLeft size={20} />
           Previous
@@ -149,23 +125,10 @@ const QuestionCarousel = ({
         {onCheckAnswers && (
           <button
             onClick={() => { console.log('[QuestionCarousel] Check Answers button clicked'); onCheckAnswers(); }}
-            aria-label="Check Answers"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px',
-              padding: '8px 16px',
-              border: 'none',
-              borderRadius: '6px',
-              background: '#22c55e',
-              color: '#ffffff',
-              cursor: 'pointer',
-              fontSize: '14px',
-              fontWeight: '600',
-              transition: 'all 0.2s ease'
-            }}
+            aria-label={isReviewMode ? "Hide Answers" : "Check Answers"}
+            className="carousel-check-btn"
           >
-            Check Answers
+            {isReviewMode ? "Hide Answers" : "Check Answers"}
           </button>
         )}
         
@@ -173,20 +136,7 @@ const QuestionCarousel = ({
           onClick={goToNext}
           disabled={isLastQuestion}
           aria-label="Next question"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '4px',
-            padding: '8px 16px',
-            border: 'none',
-            borderRadius: '6px',
-            background: isLastQuestion ? '#f1f5f9' : '#e0e7ff',
-            color: isLastQuestion ? '#94a3b8' : '#4338ca',
-            cursor: isLastQuestion ? 'not-allowed' : 'pointer',
-            fontSize: '14px',
-            fontWeight: '500',
-            transition: 'all 0.2s ease'
-          }}
+          className={`carousel-nav-btn next`}
         >
           Next
           {!isLastQuestion && <ChevronRight size={20} />}
@@ -197,3 +147,4 @@ const QuestionCarousel = ({
 };
 
 export default QuestionCarousel;
+

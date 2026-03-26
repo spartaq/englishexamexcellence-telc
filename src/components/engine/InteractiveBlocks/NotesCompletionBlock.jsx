@@ -218,7 +218,6 @@ const NotesCompletionBlock = ({
                     borderRadius: '6px',
                     display: 'inline-block'
                   }}>
-                    Correct: {correctAnswer}
                   </div>
                 )}
               </div>
@@ -389,3 +388,4 @@ const NotesCompletionBlock = ({
 };
 
 export default NotesCompletionBlock;
+
