@@ -61,6 +61,7 @@ import ScrollToTop from './scrollToTop';
 import { evaluateDrill } from './utils/evaluate';
 import { calculateIELTSReadingScore, calculateIELTSListeningScore, calculateIELTSScore, calculateAccuracy } from './utils/scoring/index';
 import { getAtomsFromMocks, pluckRandom, getVocabById, pluckRandomFullMock, findVocabFromReading, pluckSingleSpeakingPart } from './utils/mockPlucker';
+import { getMockById } from './data/IELTS/mocks';
 
 // ============================================================
 // CHAPTER 2: THE SYLLABUS (EXAM CONFIGURATIONS)
@@ -283,9 +284,9 @@ function App({ initialView }) {
             setView('hub');
           }
         } else {
-          // Check if it's a full test route
-          if (initialView === 'ielts-general-full-test' || initialView === 'ielts-academic-full-test') {
-            const testType = initialView === 'ielts-general-full-test' ? 'general-full-mock' : 'academic-full-mock';
+          // Check if it's a full test route (with or without mock ID)
+          if (initialView.startsWith('ielts-general-full-test') || initialView.startsWith('ielts-academic-full-test') || initialView.startsWith('ielts-general-mock-') || initialView.startsWith('ielts-academic-mock-')) {
+            const testType = (initialView.startsWith('ielts-general-full-test') || initialView.startsWith('ielts-general-mock-')) ? 'general-full-mock' : 'academic-full-mock';
             const testId = 'ielts';
             if (TEST_PLATFORM_CONFIG[testId]) {
               setActiveTest(TEST_PLATFORM_CONFIG[testId]);
@@ -296,7 +297,7 @@ function App({ initialView }) {
               setTimeout(() => {
                 // Find the BrandTestHub's onSelectPath through the component tree
                 // Since we can't directly call it, we'll set up the test manually
-                handleFullTestSelection(testType);
+                handleFullTestSelection(testType, initialView);
               }, 100);
             }
           } else {
@@ -439,17 +440,130 @@ function App({ initialView }) {
     }
   };
 
+  // Helper function to create a full mock from a specific mock object
+  const createFullMockFromMock = (mock, testType) => {
+    if (!mock) return null;
+    
+    const sections = [];
+    
+    // Add reading sections
+    if (mock.reading?.sections) {
+      mock.reading.sections.forEach(section => {
+        if (section.passages) {
+          section.passages.forEach(passage => {
+            sections.push({
+              ...passage,
+              skill: 'reading',
+              type: passage.type || 'reading-practice'
+            });
+          });
+        }
+      });
+    }
+    
+    // Add writing sections
+    if (mock.writing?.sections) {
+      mock.writing.sections.forEach(section => {
+        sections.push({
+          ...section,
+          skill: 'writing',
+          type: 'WRITING'
+        });
+      });
+    }
+    
+    // Add listening sections
+    if (mock.listening?.sections) {
+      mock.listening.sections.forEach(section => {
+        sections.push({
+          ...section,
+          skill: 'listening',
+          type: 'LISTENING'
+        });
+      });
+    }
+    
+    // Add speaking parts
+    if (mock.speaking?.parts) {
+      mock.speaking.parts.forEach(part => {
+        sections.push({
+          ...part,
+          skill: 'speaking',
+          type: 'SPEAKING'
+        });
+      });
+    }
+    
+    // Add vocabulary
+    if (mock.vocabulary) {
+      sections.unshift({
+        ...mock.vocabulary,
+        skill: 'vocab',
+        type: 'VOCAB'
+      });
+    }
+    
+    return {
+      id: `full-mock-${mock.id}`,
+      title: mock.title,
+      type: 'full-mock',
+      testType: testType,
+      mockNumber: mock.mockNumber,
+      xp: 2000,
+      sections: sections
+    };
+  };
+
   // Helper function to start a full test (used by routes and onSelectPath)
-  const handleFullTestSelection = (testType) => {
+  const handleFullTestSelection = (testType, path = null) => {
+    console.log('[handleFullTestSelection] Called with:', { testType, path });
     if (testType === 'general-full-mock') {
-      const generalMock = pluckRandomFullMock('general');
+      // Check if path contains a specific mock ID
+      let specificMock = null;
+      if (path && path.startsWith('ielts-general-mock-')) {
+        // Path is directly the mock ID (e.g., 'ielts-general-mock-1')
+        console.log('[handleFullTestSelection] Using path as mockId:', path);
+        specificMock = getMockById(path);
+        console.log('[handleFullTestSelection] Found specificMock:', specificMock);
+      } else if (path && path.startsWith('ielts-general-full-test-')) {
+        // Legacy path format (e.g., 'ielts-general-full-test-ielts-general-mock-1')
+        const mockId = path.replace('ielts-general-full-test-', '');
+        console.log('[handleFullTestSelection] Extracted mockId:', mockId);
+        specificMock = getMockById(mockId);
+        console.log('[handleFullTestSelection] Found specificMock:', specificMock);
+      }
+      
+      // Use specific mock if found, otherwise fallback to random
+      const generalMock = specificMock
+        ? createFullMockFromMock(specificMock, 'general')
+        : pluckRandomFullMock('general');
+      console.log('[handleFullTestSelection] Using mock:', generalMock);
       if (generalMock && generalMock.sections && generalMock.sections.length > 0) {
         setActiveLesson(generalMock);
         setActiveSectionIndex(0);
         setView('lesson');
       }
     } else if (testType === 'academic-full-mock') {
-      const academicMock = pluckRandomFullMock('academic');
+      // Check if path contains a specific mock ID
+      let specificMock = null;
+      if (path && path.startsWith('ielts-academic-mock-')) {
+        // Path is directly the mock ID (e.g., 'ielts-academic-mock-1')
+        console.log('[handleFullTestSelection] Using path as mockId:', path);
+        specificMock = getMockById(path);
+        console.log('[handleFullTestSelection] Found specificMock:', specificMock);
+      } else if (path && path.startsWith('ielts-academic-full-test-')) {
+        // Legacy path format (e.g., 'ielts-academic-full-test-ielts-academic-mock-1')
+        const mockId = path.replace('ielts-academic-full-test-', '');
+        console.log('[handleFullTestSelection] Extracted mockId:', mockId);
+        specificMock = getMockById(mockId);
+        console.log('[handleFullTestSelection] Found specificMock:', specificMock);
+      }
+      
+      // Use specific mock if found, otherwise fallback to random
+      const academicMock = specificMock
+        ? createFullMockFromMock(specificMock, 'academic')
+        : pluckRandomFullMock('academic');
+      console.log('[handleFullTestSelection] Using mock:', academicMock);
       if (academicMock && academicMock.sections && academicMock.sections.length > 0) {
         setActiveLesson(academicMock);
         setActiveSectionIndex(0);
@@ -1114,7 +1228,7 @@ function App({ initialView }) {
                               setIsReviewMode(false); 
                             }} 
                             className={`header-tab ${activeSkillTab === idx ? 'active' : ''}`}>
-                            {skill === 'vocab' ? '📚 Vocab' : skill === 'reading' ? '📖 Reading' : skill === 'listening' ? '🎧 Listening' : skill === 'writing' ? '✍️ Writing' : skill === 'speaking' ? '🗣️ Speaking' : skill}
+                            {skill === 'vocab' ? <><Zap size={14} /> Vocab</> : skill === 'reading' ? <><BookOpen size={14} /> Reading</> : skill === 'listening' ? <><Headset size={14} /> Listening</> : skill === 'writing' ? <><PenTool size={14} /> Writing</> : skill === 'speaking' ? <><Mic size={14} /> Speaking</> : skill}
                           </button>
                         ))}
                       </div>
@@ -1158,7 +1272,7 @@ function App({ initialView }) {
                             key={idx} 
                             onClick={() => { setActiveSectionIndex(idx); setActivePassageIndex(0); setIsReviewMode(false); }} 
                             className={`header-tab ${activeSectionIndex === idx ? 'active' : ''}`}>
-                            {s.skill === 'vocab' ? '📚 Vocab' : s.skill === 'reading' ? '📖 Reading' : s.skill === 'listening' ? '🎧 Listening' : s.skill === 'writing' ? '✍️ Writing' : s.skill === 'speaking' ? '🗣️ Speaking' : s.type === 'ielts-speaking' ? '🗣️ Speaking' : s.type === 'discussion' ? '🗣️ Part 3' : s.type === 'interview' ? '🗣️ Part 1' : s.type === 'long-turn' ? '🗣️ Part 2' : s.type === 'LISTENING' ? '🎧 Listening' : s.type === 'WRITING' ? '✍️ Writing' : s.type === 'VOCAB' ? '📚 Vocab' : (s.type && (s.type.includes('reading') || s.type === 'reading-practice' || s.type.includes('ielts'))) ? '📖 Reading' : `Part ${idx + 1}`}
+                            {s.skill === 'vocab' ? <><Zap size={14} /> Vocab</> : s.skill === 'reading' ? <><BookOpen size={14} /> Reading</> : s.skill === 'listening' ? <><Headset size={14} /> Listening</> : s.skill === 'writing' ? <><PenTool size={14} /> Writing</> : s.skill === 'speaking' ? <><Mic size={14} /> Speaking</> : s.type === 'ielts-speaking' ? <><Mic size={14} /> Speaking</> : s.type === 'discussion' ? <><Mic size={14} /> Part 3</> : s.type === 'interview' ? <><Mic size={14} /> Part 1</> : s.type === 'long-turn' ? <><Mic size={14} /> Part 2</> : s.type === 'LISTENING' ? <><Headset size={14} /> Listening</> : s.type === 'WRITING' ? <><PenTool size={14} /> Writing</> : s.type === 'VOCAB' ? <><Zap size={14} /> Vocab</> : (s.type && (s.type.includes('reading') || s.type === 'reading-practice' || s.type.includes('ielts'))) ? <><BookOpen size={14} /> Reading</> : `Part ${idx + 1}`}
                           </button>
                         ))}
                       </div>
@@ -1186,7 +1300,15 @@ function App({ initialView }) {
               onSelectModule={handleSelectModule}
               onOpenPaywall={() => setShowPaywall(true)}
               onSelectPath={(path) => {
-                if (path === 'ielts-general-mini-test') {
+                console.log('[onSelectPath] Received path:', path);
+                // Check if path is a mock ID (e.g., 'ielts-general-mock-1' or 'ielts-academic-mock-1')
+                if (path && path.startsWith('ielts-general-mock-')) {
+                  console.log('[onSelectPath] Detected general mock ID, calling handleFullTestSelection');
+                  handleFullTestSelection('general-full-mock', path);
+                } else if (path && path.startsWith('ielts-academic-mock-')) {
+                  console.log('[onSelectPath] Detected academic mock ID, calling handleFullTestSelection');
+                  handleFullTestSelection('academic-full-mock', path);
+                } else if (path === 'ielts-general-mini-test') {
                   const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
                   const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
                   let singleExercise = null;
@@ -1224,12 +1346,32 @@ function App({ initialView }) {
                   }
                   const academicMiniTest = { id: 'academic-mini-flow', title: 'Academic Mini Test', type: 'academic-mini-flow', xp: singleExercise?.xp || 200, sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean) };
                   if (academicMiniTest.sections.length > 0) { setActiveLesson(academicMiniTest); setActiveSectionIndex(0); setView('lesson'); }
-                } else if (path === 'ielts-general-full-test') {
-                  const generalMock = pluckRandomFullMock('general');
-                  if (generalMock && generalMock.sections && generalMock.sections.length > 0) { setActiveLesson(generalMock); setActiveSectionIndex(0); setView('lesson'); }
-                } else if (path === 'ielts-academic-full-test') {
-                  const academicMock = pluckRandomFullMock('academic');
-                  if (academicMock && academicMock.sections && academicMock.sections.length > 0) { setActiveLesson(academicMock); setActiveSectionIndex(0); setView('lesson'); }
+                } else if (path.startsWith('ielts-general-full-test-')) {
+                  // Extract mock ID from path (e.g., 'ielts-general-full-test-ielts-general-mock-1')
+                  const mockId = path.replace('ielts-general-full-test-', '');
+                  const specificMock = getMockById(mockId);
+                  // Create full mock from specific mock or fall back to random
+                  const generalMock = specificMock
+                    ? createFullMockFromMock(specificMock, 'general')
+                    : pluckRandomFullMock('general');
+                  if (generalMock && generalMock.sections && generalMock.sections.length > 0) {
+                    setActiveLesson(generalMock);
+                    setActiveSectionIndex(0);
+                    setView('lesson');
+                  }
+                } else if (path.startsWith('ielts-academic-full-test-')) {
+                  // Extract mock ID from path (e.g., 'ielts-academic-full-test-ielts-academic-mock-1')
+                  const mockId = path.replace('ielts-academic-full-test-', '');
+                  const specificMock = getMockById(mockId);
+                  // Create full mock from specific mock or fall back to random
+                  const academicMock = specificMock
+                    ? createFullMockFromMock(specificMock, 'academic')
+                    : pluckRandomFullMock('academic');
+                  if (academicMock && academicMock.sections && academicMock.sections.length > 0) {
+                    setActiveLesson(academicMock);
+                    setActiveSectionIndex(0);
+                    setView('lesson');
+                  }
                 } else if (path === 'random-mock') {
                   const randomMock = pluckRandomFullMock();
                   if (randomMock && randomMock.sections && randomMock.sections.length > 0) { setActiveLesson(randomMock); setActiveSectionIndex(0); setView('lesson'); }
@@ -1248,7 +1390,15 @@ function App({ initialView }) {
               onSelectModule={handleSelectModule}
               onOpenPaywall={() => setShowPaywall(true)}
               onSelectPath={(path, skill) => {
-                if (path === 'ielts-general-mini-test') {
+                console.log('[onSelectPath - ieltsHub] Received path:', path, 'skill:', skill);
+                // Check if path is a mock ID (e.g., 'ielts-general-mock-1' or 'ielts-academic-mock-1')
+                if (path && path.startsWith('ielts-general-mock-')) {
+                  console.log('[onSelectPath - ieltsHub] Detected general mock ID, calling handleFullTestSelection');
+                  handleFullTestSelection('general-full-mock', path);
+                } else if (path && path.startsWith('ielts-academic-mock-')) {
+                  console.log('[onSelectPath - ieltsHub] Detected academic mock ID, calling handleFullTestSelection');
+                  handleFullTestSelection('academic-full-mock', path);
+                } else if (path === 'ielts-general-mini-test') {
                   // Mini-test flow: pick ONE random exercise from General test
                   // Randomly select a skill type
                   const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
@@ -1457,22 +1607,26 @@ function App({ initialView }) {
                      setActiveSectionIndex(0);
                      setView('lesson');
                    }
-                   } else if (path === 'ielts-general-full-test') {
-                    // Start a General Training full test (from BrandTestHub)
-                    const generalMock = pluckRandomFullMock('general');
-                    if (generalMock && generalMock.sections && generalMock.sections.length > 0) {
-                      setActiveLesson(generalMock);
-                      setActiveSectionIndex(0);
-                      setView('lesson');
-                    }
-                  } else if (path === 'ielts-academic-full-test') {
-                    // Start an Academic full test (from BrandTestHub)
-                    const academicMock = pluckRandomFullMock('academic');
-                    if (academicMock && academicMock.sections && academicMock.sections.length > 0) {
-                      setActiveLesson(academicMock);
-                      setActiveSectionIndex(0);
-                      setView('lesson');
-                    }
+                   } else if (path.startsWith('ielts-general-full-test-')) {
+                     // Start a General Training full test (from BrandTestHub) with specific mock ID
+                     const mockId = path.replace('ielts-general-full-test-', '');
+                     const specificMock = getMockById(mockId);
+                     const generalMock = specificMock || pluckRandomFullMock('general');
+                     if (generalMock && generalMock.sections && generalMock.sections.length > 0) {
+                       setActiveLesson(generalMock);
+                       setActiveSectionIndex(0);
+                       setView('lesson');
+                     }
+                   } else if (path.startsWith('ielts-academic-full-test-')) {
+                     // Start an Academic full test (from BrandTestHub) with specific mock ID
+                     const mockId = path.replace('ielts-academic-full-test-', '');
+                     const specificMock = getMockById(mockId);
+                     const academicMock = specificMock || pluckRandomFullMock('academic');
+                     if (academicMock && academicMock.sections && academicMock.sections.length > 0) {
+                       setActiveLesson(academicMock);
+                       setActiveSectionIndex(0);
+                       setView('lesson');
+                     }
                   } else if (path === 'mocks') {
                     // Navigate to test hub with URL change
                     if (activeTest) {

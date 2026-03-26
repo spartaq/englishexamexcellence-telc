@@ -138,9 +138,19 @@ const BrandTestHub = ({
                     </div>
                   </div>
                   
-                  <button 
+                  <button
                     className={hasAccess ? "btn-start-exam" : "btn-hub"}
-                    onClick={() => hasAccess ? onSelectPath(mock.type === 'general' ? 'ielts-general-full-test' : 'ielts-academic-full-test') : onOpenPaywall()}
+                    onClick={() => {
+                      console.log('[BrandTestHub] Start Mock button clicked', { mockId: mock.id, mockType: mock.type, hasAccess });
+                      if (hasAccess) {
+                        // Pass the mock ID directly - it already contains the full identifier
+                        const path = mock.id;
+                        console.log('[BrandTestHub] Calling onSelectPath with path:', path);
+                        onSelectPath(path);
+                      } else {
+                        onOpenPaywall();
+                      }
+                    }}
                   >
                     {hasAccess ? "Start Mock" : "Unlock Gold"}
                   </button>

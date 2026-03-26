@@ -73,9 +73,9 @@
                 "type": "matching-info",
                 "instruction": "Type 4 - Matching Information: Which paragraph (A-H) contains the following information?",
                 "questions": [
-                  { "id": "q1", "text": "How long it takes the Earth to go around the Sun", "answer": "B" },
-                  { "id": "q2", "text": "How the Moon affects the calendar", "answer": "C" },
-                  { "id": "q3", "text": "The reason Earth is called the Blue Planet", "answer": "D" }
+                  { "id": "1", "text": "How long it takes the Earth to go around the Sun", "answer": "B" },
+                  { "id": "2", "text": "How the Moon affects the calendar", "answer": "C" },
+                  { "id": "3", "text": "The reason Earth is called the Blue Planet", "answer": "D" }
                 ]
               },
               {
@@ -83,13 +83,13 @@
                 "instruction": "Type 1 - Multiple Choice: Choose the correct letter A, B, C, or D.",
                 "questions": [
                   { 
-                    "id": "q4", 
+                    "id": "4", 
                     "text": "What percentage of Earth's surface is water?", 
                     "options": ["51%", "61%", "71%", "81%"], 
                     "answer": "71%" 
                   },
                   { 
-                    "id": "q5", 
+                    "id": "5", 
                     "text": "What is the 'biosphere'?", 
                     "options": ["The atmosphere", "The part where life exists", "The oceans", "The core"], 
                     "answer": "The part where life exists" 
@@ -100,18 +100,18 @@
                 "type": "trinary",
                 "instruction": "Type 2 - Identifying Information (True/False/Not Given): Write TRUE, FALSE or NOT GIVEN.",
                 "questions": [
-                  { "id": "q6", "text": "Venus is a rocky planet.", "answer": "TRUE" },
-                  { "id": "q7", "text": "The Sun moves around the Earth.", "answer": "FALSE" },
-                  { "id": "q8", "text": "Cyanobacteria produced oxygen.", "answer": "TRUE" }
+                  { "id": "6", "text": "Venus is a rocky planet.", "answer": "TRUE" },
+                  { "id": "7", "text": "The Sun moves around the Earth.", "answer": "FALSE" },
+                  { "id": "8", "text": "Cyanobacteria produced oxygen.", "answer": "TRUE" }
                 ]
               },
               {
                 "type": "heading-match",
                 "instruction": "Type 5 - Matching Headings: Choose the correct heading (i-ix) for each paragraph.",
                 "questions": [
-                  { "id": "q9", "text": "Paragraph A", "answer": 3 },
-                  { "id": "q10", "text": "Paragraph B", "answer": 4 },
-                  { "id": "q11", "text": "Paragraph C", "answer": 5 }
+                  { "id": "9", "text": "Paragraph A", "answer": 3 },
+                  { "id": "10", "text": "Paragraph B", "answer": 4 },
+                  { "id": "11", "text": "Paragraph C", "answer": 5 }
                 ],
                 "headings": [
                   "The Earth's position in the Solar System",
@@ -151,19 +151,19 @@
                 "type": "short-answer",
                 "instruction": "Type 11 - Short Answer Questions: Write NO MORE THAN THREE WORDS.",
                 "questions": [
-                  { "id": "q15", "text": "What industry does ASM serve?", "answer": "retail" },
-                  { "id": "q16", "text": "What is Chipotle known for?", "answer": "fresh ingredients" },
-                  { "id": "q17", "text": "What does Vitamin Shoppe sell?", "answer": "nutritional supplements" }
+                  { "id": "15", "text": "What industry does ASM serve?", "answer": "retail" },
+                  { "id": "16", "text": "What is Chipotle known for?", "answer": "fresh ingredients" },
+                  { "id": "17", "text": "What does Vitamin Shoppe sell?", "answer": "nutritional supplements" }
                 ]
               },
               {
                 "type": "matching-features",
                 "instruction": "Type 6 - Matching Features: Match the company to the statement. Write the correct letter, A-E.",
                 "questions": [
-                  { "id": "q18", "text": "Provides medical care at home.", "answer": "E" },
-                  { "id": "q19", "text": "Focuses on building brand awareness.", "answer": "C" },
-                  { "id": "q20", "text": "Provides options for promotion within the company.", "answer": "B" },
-                  { "id": "q21", "text": "Educates people on healthy living.", "answer": "A" }
+                  { "id": "18", "text": "Provides medical care at home.", "answer": "E" },
+                  { "id": "19", "text": "Focuses on building brand awareness.", "answer": "C" },
+                  { "id": "20", "text": "Provides options for promotion within the company.", "answer": "B" },
+                  { "id": "21", "text": "Educates people on healthy living.", "answer": "A" }
                 ],
                 "features": [
                   { "id": "A", "name": "The Vitamin Shoppe" },
@@ -176,20 +176,17 @@
               {
                 "type": "sentence-complete",
                 "instruction": "Type 8 - Sentence Completion: Complete each sentence with NO MORE THAN TWO WORDS from the passage.",
-                "questions": [
-                  { "id": "q22", "text": "The Vitamin Shoppe offers approximately ______ different products.", "answer": "8000" },
-                  { "id": "q23", "text": "Chipotle was founded in ______.", "answer": "1993" },
-                  { "id": "q24", "text": "ASM has more than ______ offices in the US and Canada.", "answer": "65" },
-                  { "id": "q25", "text": "PSA Healthcare is headquartered in ______.", "answer": "Atlanta" }
-                ]
+                "content": "The Vitamin Shoppe offers approximately __(1)__ different products. Chipotle was founded in __(2)__. ASM has more than __(3)__ offices in the US and Canada. PSA Healthcare is headquartered in __(4)__.",
+                "options": ["8000", "1993", "65", "Atlanta"],
+                "answers": ["8000", "1993", "65", "Atlanta"]
               },
               {
                 "type": "trinary",
                 "instruction": "Type 3 - Identifying Writer's Views (Yes/No/Not Given): Write YES, NO or NOT GIVEN.",
                 "questions": [
-                  { "id": "q26", "text": "The Vitamin Shoppe pays above-average wages.", "answer": "YES" },
-                  { "id": "q27", "text": "Chipotle employees find the work relaxing.", "answer": "NO" },
-                  { "id": "q28", "text": "All companies offer flexible schedules.", "answer": "NOT GIVEN" }
+                  { "id": "26", "text": "The Vitamin Shoppe pays above-average wages.", "answer": "YES" },
+                  { "id": "27", "text": "Chipotle employees find the work relaxing.", "answer": "NO" },
+                  { "id": "28", "text": "All companies offer flexible schedules.", "answer": "NOT GIVEN" }
                 ]
               }
             ]
@@ -218,19 +215,19 @@
                 "type": "flow-chart",
                 "instruction": "Type 9 - Flow-chart Completion: Complete the PASS method. Write ONE WORD ONLY.",
                 "questions": [
-                  { "id": "q29", "text": "Step 1: ______ the pin.", "answer": "Pull" },
-                  { "id": "q30", "text": "Step 2: ______ at the base.", "answer": "Aim" },
-                  { "id": "q31", "text": "Step 3: ______ the handle.", "answer": "Squeeze" },
-                  { "id": "q32", "text": "Step 4: ______ from side to side.", "answer": "Sweep" }
+                  { "id": "29", "text": "Step 1: ______ the pin.", "answer": "Pull" },
+                  { "id": "30", "text": "Step 2: ______ at the base.", "answer": "Aim" },
+                  { "id": "31", "text": "Step 3: ______ the handle.", "answer": "Squeeze" },
+                  { "id": "32", "text": "Step 4: ______ from side to side.", "answer": "Sweep" }
                 ]
               },
               {
                 "type": "sentence-matching",
                 "instruction": "Type 7 - Matching Sentence Endings: Match the sentence beginnings (A-F) with the correct endings (i-vi).",
                 "questions": [
-                  { "id": "q33", "text": "Fire drills are important because", "answer": "ii" },
-                  { "id": "q34", "text": "Families should discuss", "answer": "iii" },
-                  { "id": "q35", "text": "An escape plan helps", "answer": "v" }
+                  { "id": "33", "text": "Fire drills are important because", "answer": "ii" },
+                  { "id": "34", "text": "Families should discuss", "answer": "iii" },
+                  { "id": "35", "text": "An escape plan helps", "answer": "v" }
                 ],
                 "beginnings": [
                   { "id": "A", "text": "Fire drills are important because" },
@@ -240,7 +237,7 @@
                   { "id": "E", "text": "If you live in an apartment" },
                   { "id": "F", "text": "You should check for smoke" }
                 ],
-                "endings": [
+                "options": [
                   { "id": "i", "text": "to see if there's fire on the other side of the door" },
                   { "id": "ii", "text": "they prepare you for what to do in case of fire" },
                   { "id": "iii", "text": "their escape plans and routes" },
@@ -253,10 +250,10 @@
                 "type": "diagram-label",
                 "instruction": "Type 10 - Diagram Label Completion: Label the fire escape plan. Write the correct letter, A-F.",
                 "questions": [
-                  { "id": "q36", "text": "Bedroom", "answer": "A" },
-                  { "id": "q37", "text": "Door", "answer": "B" },
-                  { "id": "q38", "text": "Hallway", "answer": "C" },
-                  { "id": "q39", "text": "Stairwell", "answer": "D" }
+                  { "id": "36", "text": "Bedroom", "answer": "A" },
+                  { "id": "37", "text": "Door", "answer": "B" },
+                  { "id": "38", "text": "Hallway", "answer": "C" },
+                  { "id": "39", "text": "Stairwell", "answer": "D" }
                 ],
                 "diagramImage": "placeholder-fire-escape-diagram.png",
                 "labels": [
@@ -272,11 +269,11 @@
                 "type": "short-answer",
                 "instruction": "Type 11 - Short Answer Questions: Answer the questions using NO MORE THAN THREE WORDS.",
                 "questions": [
-                  { "id": "q40", "text": "What type of equipment should be regularly inspected?", "answer": "electrical equipment", "wordLimit": 3 },
-                  { "id": "q41", "text": "What materials should be kept away from heat sources?", "answer": "flammable materials", "wordLimit": 3 },
-                  { "id": "q42", "text": "How often should smoke detector batteries be changed?", "answer": "once a year", "wordLimit": 3 },
-                  { "id": "q43", "text": "What should never be used during a fire?", "answer": "elevators", "wordLimit": 3 },
-                  { "id": "q44", "text": "Where should people meet after evacuating?", "answer": "assembly point", "wordLimit": 3 }
+                  { "id": "40", "text": "What type of equipment should be regularly inspected?", "answer": "electrical equipment", "wordLimit": 3 },
+                  { "id": "41", "text": "What materials should be kept away from heat sources?", "answer": "flammable materials", "wordLimit": 3 },
+                  { "id": "42", "text": "How often should smoke detector batteries be changed?", "answer": "once a year", "wordLimit": 3 },
+                  { "id": "43", "text": "What should never be used during a fire?", "answer": "elevators", "wordLimit": 3 },
+                  { "id": "44", "text": "Where should people meet after evacuating?", "answer": "assembly point", "wordLimit": 3 }
                 ]
               }
             ]

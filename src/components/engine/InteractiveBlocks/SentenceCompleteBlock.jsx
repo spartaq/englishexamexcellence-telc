@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, XCircle } from 'lucide-react';
 import './SentenceCompleteBlock.css';
@@ -6,13 +6,14 @@ import './SentenceCompleteBlock.css';
 const SentenceCompleteBlock = ({ 
   data, 
   showWordBankOnly = false,
-  selections = {},
-  activeGap = null,
-  onWordSelect,
-  onGapClick,
   isReviewMode = false
 }) => {
   const wordBankOptions = data.options || [];
+  const answers = data.answers || [];
+
+  // Internal state management
+  const [selections, setSelections] = useState({});
+  const [activeGap, setActiveGap] = useState(null);
 
   // Find all gap markers and their positions
   const gapMarkerRegex = /__+\((\d+)\)__+/g;
@@ -24,6 +25,42 @@ const SentenceCompleteBlock = ({
   // The split regex with capture groups results in:
   // [text, gap1Index, text, gap2Index, text, ...]
   // So odd indices are gap indices, even indices are text parts
+
+  // Handle gap click - set active gap
+  const handleGapClick = (gapIndex) => {
+    if (isReviewMode) return;
+    setActiveGap(gapIndex);
+  };
+
+  // Handle word selection - fills the active gap
+  const handleWordSelect = (word) => {
+    if (isReviewMode) return;
+    
+    // If there's an active gap, fill it
+    if (activeGap) {
+      setSelections(prev => ({
+        ...prev,
+        [activeGap]: word
+      }));
+      setActiveGap(null);
+      return;
+    }
+    
+    // Otherwise, find first empty gap
+    const gapMarkerRegex = /__+\((\d+)\)__+/g;
+    const matches = [...content.matchAll(gapMarkerRegex)];
+    
+    for (const match of matches) {
+      const gapIndex = match[1];
+      if (!selections[gapIndex]) {
+        setSelections(prev => ({
+          ...prev,
+          [gapIndex]: word
+        }));
+        return;
+      }
+    }
+  };
 
   // Render interactive text with gaps
   const renderInteractiveText = () => {
@@ -40,26 +77,16 @@ const SentenceCompleteBlock = ({
       }
       
       // Check if next part is a gap marker (odd indices after split with capture group)
-      
-      
-      
-      
-      
-      
-      
-      
       const nextPart = parts[i + 1];
       if (nextPart !== undefined) {
         const gapIndex = nextPart;
         const isFilled = selections[gapIndex];
-        
-        // FIX: Compare with the gapId property since activeGap is an object in App.jsx
-        const isActive = activeGap?.parentId === data.id && activeGap?.gapId === gapIndex;
+        const isActive = activeGap === gapIndex;
         
         // Review Logic
-        const correctAnswer = data.answers?.[parseInt(gapIndex) - 1];
+        const correctAnswer = answers[parseInt(gapIndex) - 1];
         
-        // FIX: Use .trim().toLowerCase() for resilient checking
+        // Use .trim().toLowerCase() for resilient checking
         const isCorrect = isReviewMode && isFilled && 
                           isFilled.trim().toLowerCase() === correctAnswer?.trim().toLowerCase();
                            
@@ -80,7 +107,7 @@ const SentenceCompleteBlock = ({
               ${isMissing ? 'missing' : ''}
               ${isReviewMode ? 'review-mode' : ''}
             `}
-            onClick={() => !isReviewMode && onGapClick && onGapClick(gapIndex)}
+            onClick={() => handleGapClick(gapIndex)}
             style={{ cursor: isReviewMode ? 'default' : 'pointer' }}
           >
             <span className="gap-index-badge">
@@ -98,52 +125,26 @@ const SentenceCompleteBlock = ({
               </motion.span>
             </AnimatePresence>
 
-            {/* FIX: Ensure the correct answer shows up if the user was wrong */}
+            {/* Ensure the correct answer shows up if the user was wrong */}
             {isIncorrect && (
               <span className="correct-answer-hint">
+                {correctAnswer}
               </span>
             )}
             {isMissing && (
                <span className="correct-answer-hint">
-                
+                {correctAnswer}
               </span>
             )}
           </motion.span>
         );
 
-
-
-        
-
-        
         // Skip the gap index part in next iteration
         i++;
       }
     }
     
     return <div className="sentence-complete-text">{elements}</div>;
-  };
-
-  // Handle word selection - automatically fills first empty gap
-  const handleWordClick = (word) => {
-    if (isReviewMode) return;
-    
-    // Find first empty gap
-    const gapMarkerRegex = /__+\((\d+)\)__+/g;
-    const matches = [...content.matchAll(gapMarkerRegex)];
-    
-    for (const match of matches) {
-      const gapIndex = match[1];
-      if (!selections[gapIndex]) {
-        onGapClick(gapIndex);
-        setTimeout(() => onWordSelect(word), 0);
-        return;
-      }
-    }
-    
-    if (onWordSelect) {
-      onWordSelect(word);
-    }
   };
 
   // Render word bank
@@ -157,7 +158,7 @@ const SentenceCompleteBlock = ({
             <button
               key={word}
               className={`word-pill ${usedWords.includes(word) ? 'used' : ''} ${isReviewMode ? 'review-disabled' : ''}`}
-              onClick={() => handleWordClick(word)}
+              onClick={() => handleWordSelect(word)}
               disabled={usedWords.includes(word) || isReviewMode}
             >
               {word}
@@ -193,4 +194,3 @@ const SentenceCompleteBlock = ({
 };
 
 export default SentenceCompleteBlock;
-
