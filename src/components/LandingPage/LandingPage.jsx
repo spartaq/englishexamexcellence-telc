@@ -10,7 +10,18 @@ const LandingPage = () => {
   
   // Navigate to brand hub
   const handleStartTraining = (testType) => {
-    navigate(`/ielts-hub`);
+    if (testType === 'toefl') {
+      // TOEFL hub requires authentication, redirect to sign in first
+      navigate('/dashboard/toefl-hub');
+    } else {
+      // IELTS hub requires authentication, redirect to sign in first
+      navigate('/ielts-hub');
+    }
+  };
+
+  // Navigate to free mock (no authentication required)
+  const handleStartFreeMock = () => {
+    navigate('/free-mock');
   };
 
   return (
@@ -56,7 +67,7 @@ const LandingPage = () => {
                 <p>General & Academic</p>
                 <button 
                   className="btn-primary full-width"
-                  onClick={() => handleStartTraining('ielts')}
+                  onClick={() => handleStartFreeMock()}
                 >
                   START IELTS MOCK
                 </button>
@@ -67,7 +78,7 @@ const LandingPage = () => {
                 <p>iBT Preparation</p>
                 <button 
                   className="btn-secondary full-width"
-                  onClick={() => handleStartTraining('toefl')}
+                  onClick={() => handleStartFreeMock()}
                 >
                   START TOEFL MOCK
                 </button>
