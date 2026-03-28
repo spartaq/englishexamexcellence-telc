@@ -48,7 +48,7 @@ const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
     <div className="writing-container">
       <SplitPane
         content={
-          <div className="invictus-content-column">
+          <>
             {/* Task Header - Inside SplitPane like ReadingBlock */}
            {data.title && (
               <div className="invictus-passage-header">
@@ -80,7 +80,7 @@ const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
                 </ul>
               )}
             </div>
-          </div>
+          </>
         }
         exercise={
           <div className="writing-exercise-panel">

@@ -40,15 +40,17 @@ const VocabBlock = ({
   // If no words available, show message and allow completion
   if (words.length === 0) {
     return (
-      <div className="vocab-container">
-        <div className="vocab-empty">
-          <h3>No vocabulary words available</h3>
-          <p>This exercise needs a words array to display.</p>
-          <button 
-            onClick={onComplete}
-          >
-            Continue
-          </button>
+      <div className="invictus-vocab-session-layout">
+        <div className="vocab-container">
+          <div className="vocab-empty">
+            <h3>No vocabulary words available</h3>
+            <p>This exercise needs a words array to display.</p>
+            <button 
+              onClick={onComplete} className="invictus-finish-btn"
+            >
+              Continue
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -78,116 +80,170 @@ const VocabBlock = ({
   };
 
   return (
-    <div className="vocab-container">
-       
- {/* TOP SECTION - Clinical Metadata */}
-  <div className="invictus-vocab-header">
-    <div className="invictus-metadata-left">
-      <span className="invictus-task-label">
-        TERM {currentIndex + 1} OF {words.length}
-      </span>
-      {level && (
-        <span className="invictus-level-badge">
-          {level.toUpperCase()}
-        </span>
-      )}
-    </div>
-    {data?.isRandomMix && currentWord?._sourceTopic && (
-      <div className="invictus-topic-container">
-        <span className="invictus-topic-label">DOMAIN</span>
-        <span className="invictus-topic-value">{currentWord._sourceTopic.toUpperCase()}</span>
-      </div>
-    )}
-  </div>
+    <div className="invictus-vocab-session-layout">
+      {/* MAIN CONTENT AREA */}
+      <main className="vocab-main-content">
+        <div className="vocab-main-content-inner">
+          <div className="content-grid">
+            {/* LEFT PANEL: SESSION CONFIGURATION */}
+            <section className="session-config">
+              <div>
+                <h2 className="config-section-title">Session Configuration</h2>
+                <div className="config-group">
+                  {/* Level Selector */}
+                  <div className="config-item">
+                    <label className="config-label">Target Proficiency</label>
+                    <div className="level-selector">
+                      <button className={`level-btn ${level === 'B2' ? 'active' : ''}`}>
+                        B2 UPPER
+                      </button>
+                      <button className={`level-btn ${level === 'C1' ? 'active' : ''}`}>
+                        C1 ADVANCED
+                      </button>
+                    </div>
+                  </div>
 
-  {/* CARD SECTION - High-Focus Centerpiece */}
-  <div className="invictus-card-stage" onClick={handleCardClick}>
-    <div className={`invictus-flashcard ${flipStage > 0 ? 'is-flipped' : ''}`}>
+                  {/* Topic Dropdown */}
+                  <div className="config-item">
+                    <label className="config-label">Subject Domain</label>
+                    <select className="topic-select">
+                      <option>Environment</option>
+                      <option>Technology</option>
+                      <option>Society</option>
+                      <option>Medicine</option>
+                    </select>
+                  </div>
 
-      {/* FRONT — Primary Term (Inquiry Phase) */}
-      {flipStage === 0 && (
-        <div className="invictus-card-face">
-          <span className="invictus-phase-indicator">DEFINITION INQUIRY</span>
-          <h2 className="invictus-term-display">{currentWord.term}</h2>
-          <div className="invictus-interaction-hint">
-            <span className="material-icons">ICON Touch</span>
-            CLICK TO REVEAL PHONETIC & MEANING
+                  {/* Word Count Slider */}
+                  <div className="config-item">
+                    <div className="slider-header">
+                      <label className="config-label">Lexical Volume</label>
+                      <span className="slider-value">{words.length} Words</span>
+                    </div>
+                    <input 
+                      type="range" 
+                      className="word-slider"
+                      min="15" 
+                      max="100" 
+                      value={words.length}
+                      readOnly
+                    />
+                    <div className="slider-labels">
+                      <span>15</span>
+                      <span>50</span>
+                      <span>100</span>
+                    </div>
+                  </div>
+
+                  <button className="start-session-btn">
+                    Start Session
+                  </button>
+                </div>
+              </div>
+
+              <div className="protocol-section">
+                <div className="protocol-header">
+                  <span className="protocol-dot"></span>
+                  <span className="protocol-label">Active Protocol</span>
+                </div>
+                <p className="protocol-text">
+                  Spaced Repetition System (SRS) enabled. Your feedback directly influences the algorithmic latency of future word presentations.
+                </p>
+              </div>
+            </section>
+
+            {/* CENTER PANEL: FLASHCARD ENVIRONMENT */}
+            <section className="flashcard-section">
+              {/* Metadata Header */}
+              <div className="flashcard-header">
+                <div className="header-left">
+                  <span className="header-label">Current Item</span>
+                  <span className="header-value">
+                    WORD {currentIndex + 1} <span className="light">OF</span> {words.length}
+                  </span>
+                </div>
+                <div className="header-right">
+                  <span className="header-label">Session Timer</span>
+                  <span className="timer-display">12:44.02</span>
+                </div>
+              </div>
+
+              {/* The Flashcard */}
+              <div className="flashcard-container" onClick={handleCardClick}>
+                {/* Clinical Grid Sub-texture */}
+                <div className="grid-texture"></div>
+                
+                <div className="flashcard-content">
+                  <h1 className="flashcard-term">{currentWord.term}</h1>
+                  <div className="flashcard-divider"></div>
+                  <p className="flashcard-hint">
+                    Click to reveal clinical definition and usage examples.
+                  </p>
+                </div>
+
+                {/* Card Accents */}
+                <div className="card-accent-top">ID: INV-294-B</div>
+                <div className="card-accent-bottom">
+                  <div className="accent-dot"></div>
+                  <div className="accent-dot"></div>
+                  <div className="accent-dot"></div>
+                </div>
+              </div>
+
+              {/* SRS Controls */}
+              <div className="srs-controls">
+                <button
+                  className="srs-btn recall-failure"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDifficulty('hard');
+                  }}
+                >
+                  <span className="material-symbols-outlined srs-icon">cancel</span>
+                  <span className="srs-label">Recall Failure</span>
+                  <span className="srs-review-time">Review in 1m</span>
+                </button>
+                
+                <button
+                  className="srs-btn uncertain"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDifficulty('good');
+                  }}
+                >
+                  <span className="material-symbols-outlined srs-icon">question_mark</span>
+                  <span className="srs-label">Uncertain</span>
+                  <span className="srs-review-time">Review in 10m</span>
+                </button>
+                
+                <button
+                  className="srs-btn mastered"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDifficulty('easy');
+                  }}
+                >
+                  <span className="material-symbols-outlined srs-icon">verified</span>
+                  <span className="srs-label">Mastered</span>
+                  <span className="srs-review-time">Review in 4d</span>
+                </button>
+              </div>
+
+              {/* Keyboard Shortcuts Footer */}
+              <div className="keyboard-shortcuts">
+                <kbd className="kbd">SPACE</kbd>
+                <span className="shortcut-label">to reveal answer</span>
+                <span className="shortcut-divider">|</span>
+                <kbd className="kbd">1 - 3</kbd>
+                <span className="shortcut-label">to log results</span>
+              </div>
+            </section>
           </div>
         </div>
-      )}
+      </main>
 
-      {/* BACK 1 — Translation (Recognition Phase) */}
-      {flipStage === 1 && (
-        <div className="invictus-card-face invictus-face-back">
-          <span className="invictus-phase-indicator">LINGUISTIC CONVERSION</span>
-          <h3 className="invictus-translation-display">
-            {currentWord.hu}
-          </h3>
-          <div className="invictus-interaction-hint">
-            CLICK TO VIEW FULL DEFINITION
-          </div>
-        </div>
-      )}
-
-      {/* BACK 2 — Detailed Definition (Verification Phase) */}
-      {flipStage === 2 && (
-        <div className="invictus-card-face invictus-face-back">
-          <span className="invictus-phase-indicator">SEMANTIC VERIFICATION</span>
-          <div className="invictus-definition-scroller">
-            <p className="invictus-definition-text">
-              {currentWord.definition}
-            </p>
-            <div className="invictus-example-container">
-              <span className="invictus-example-label">CONTEXTUAL USAGE</span>
-              <p className="invictus-example-text">"{currentWord.example}"</p>
-            </div>
-          </div>
-        </div>
-      )}
-
-    </div>
-  </div>
-
-  {/* SRS CONTROLS - Assessment Input */}
-  <div className="invictus-srs-panel">
-    <div className="invictus-srs-grid">
-      <button
-        className="invictus-srs-btn invictus-btn-hard"
-        onClick={(e) => {
-          e.stopPropagation();
-          handleDifficulty('hard');
-        }}
-      >
-        <span className="invictus-btn-icon">😫</span>
-        <span className="invictus-btn-label">RECALL FAILURE</span>
-      </button>
       
-      <button
-        className="invictus-srs-btn invictus-btn-good"
-        onClick={(e) => {
-          e.stopPropagation();
-          handleDifficulty('good');
-        }}
-      >
-        <span className="invictus-btn-icon">🤔</span>
-        <span className="invictus-btn-label">UNCERTAIN</span>
-      </button>
-      
-      <button
-        className="invictus-srs-btn invictus-btn-easy"
-        onClick={(e) => {
-          e.stopPropagation();
-          handleDifficulty('easy');
-        }}
-      >
-        <span className="invictus-btn-icon">🧠</span>
-        <span className="invictus-btn-label">MASTERED</span>
-      </button>
     </div>
-  </div>
-
-</div>
-
   );
 };
 

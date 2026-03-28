@@ -568,15 +568,6 @@
               { "id": "p1q3", "text": "What kind of jobs do the people in your town/village do?" },
               { "id": "p1q4", "text": "Would you say it's a good place to live? (Why?)" }
             ]
-          },
-          {
-            "topic": "Accommodation",
-            "questions": [
-              { "id": "p1q5", "text": "Tell me about the kind of accommodation you live in." },
-              { "id": "p1q6", "text": "How long have you lived there?" },
-              { "id": "p1q7", "text": "What do you like about living there?" },
-              { "id": "p1q8", "text": "What sort of accommodation would you most like to live in?" }
-            ]
           }
         ]
       },

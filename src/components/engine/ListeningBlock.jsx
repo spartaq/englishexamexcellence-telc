@@ -337,7 +337,7 @@ const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showC
     <div className="listening-container">
       <SplitPane
         content={
-          <div className="invictus-content-column">
+          <>
             {/* Part Title and Description - First */}
             {data.title && (
                <div className="invictus-passage-header">
@@ -399,7 +399,7 @@ const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showC
                 </p>
               </div>
             </div>
-          </div>
+          </>
         }
         exercise={
           <div className="listening-exercise-panel">

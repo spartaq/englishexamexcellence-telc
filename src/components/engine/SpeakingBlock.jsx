@@ -127,7 +127,7 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
     <div className="speaking-container speaking-block-wrapper">
       <SplitPane
         content={
-          <div className="invictus-content-column">
+          <>
             {/* Task Header - Inside SplitPane like ReadingBlock */}
              {data.title && (
               <div className="invictus-passage-header">
@@ -255,7 +255,7 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
                 {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}
               </div>
             )}
-          </div>
+          </>
         }
         exercise={
           <div className="invictus-question-column speaking-exercise-panel">

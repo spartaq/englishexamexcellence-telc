@@ -1200,8 +1200,13 @@ function App({ initialView }) {
                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> {view === 'selection' ? 'Back' : 'IELTSHub'}
                 </button>
               )}
+
+
             </div>
+
             <div className="invictus-header-center">
+             
+             
               {/* SECTION TABS - Always visible in header during lesson */}
               {view === 'lesson' && activeLesson && (() => {
                 const sections = activeLesson.sections || activeLesson.passages || [];
@@ -1228,7 +1233,7 @@ function App({ initialView }) {
                               setIsReviewMode(false); 
                             }} 
                             className={`header-tab ${activeSkillTab === idx ? 'active' : ''}`}>
-                            {skill === 'vocab' ? <><Zap size={14} /> Vocab</> : skill === 'reading' ? <><BookOpen size={14} /> Reading</> : skill === 'listening' ? <><Headset size={14} /> Listening</> : skill === 'writing' ? <><PenTool size={14} /> Writing</> : skill === 'speaking' ? <><Mic size={14} /> Speaking</> : skill}
+                            {skill === 'vocab' ? <><Zap size={14} /></> : skill === 'reading' ? <><BookOpen size={14} /> </> : skill === 'listening' ? <><Headset size={14} /> </> : skill === 'writing' ? <><PenTool size={14} /> </> : skill === 'speaking' ? <><Mic size={14} /> </> : skill}
                           </button>
                         ))}
                       </div>
@@ -1282,6 +1287,8 @@ function App({ initialView }) {
                 
                 return null;
               })()}
+
+              
             </div>
             <div className="invictus-header-right">
               {view === 'lesson' && <XPBadge mode="time" />}

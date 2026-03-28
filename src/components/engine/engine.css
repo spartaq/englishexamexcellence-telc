@@ -17,7 +17,7 @@
 .invictus-split-pane-layout {
   display: flex;
   flex-direction: row;
-  height: calc(100vh - 64px);
+  height: calc(100vh - 164px);
   overflow: hidden;
   background: var(--invictus-red-pale); /* The "Source of Truth" background */
 }
@@ -184,41 +184,21 @@
   transform: translateY(-1px);
 }
 
-/* --- MOBILE RESPONSIVE --- */
-@media (max-width: 768px) {
-  .invictus-split-pane-layout {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .invictus-content-column {
-    max-height: 45vh;
-    padding: 24px;
-    border-right: none;
-  }
-
-  .invictus-question-column {
-    padding: 24px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    max-height: 60vh;
-  }
-}
 
 /* --- MOBILE (400px target) --- */
-@media (max-width: 480px) {/* this is the problem layout for less than 768 */
+@media (max-width: 768px) {/* this is the problem layout for less than 768 */
   .invictus-split-pane-layout {
     flex-direction: column;
     height: auto;
-    min-height: calc(100vh - 56px);
+    min-height: calc(100vh - 165px);
   }
 
   .invictus-content-column {
-    /*max-height: 40vh;*/
-    padding: 16px;
+    max-height: 40vh;
+    padding: 12px;
     border-right: none;
     border-bottom: 1px solid rgba(211, 47, 47, 0.1);
+    margin-bottom: 20px;
   }
 
   .invictus-content-column h2 {
@@ -236,7 +216,7 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
-    max-height: 60vh;
+    max-height: 48vh;
     min-width: 0;
   }
 

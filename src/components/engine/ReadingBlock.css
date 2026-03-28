@@ -314,7 +314,7 @@
   .invictus-reading-layout {
     flex-direction: column;
     height: auto;
-    min-height: calc(100vh - 56px);
+    max-height: 87vh;
   }
 
   .invictus-passage-text {

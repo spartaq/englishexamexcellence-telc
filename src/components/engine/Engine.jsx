@@ -392,14 +392,12 @@ const Engine = ({
       return (
         <SplitPane
           content={
-            <div className="invictus-content-column">
-            
+            <>
               {renderContent()}
-            </div>
+            </>
           }
           exercise={
             <div className="engine-exercise-panel">
-            <div className="invictus-question-column">
               <h2 className="invictus-total-range">
                 Questions {currentPassage?.questionStart || 1}–{currentPassage?.questionEnd || flatQuestions.length}
               </h2>
@@ -422,7 +420,7 @@ const Engine = ({
                   </div>
                 )
               )}
-            </div></div>
+            </div>
           }
         />
       );
@@ -473,25 +471,7 @@ const Engine = ({
       );
     }
 
-    // Default: render as reading block
-    return (
-      <SplitPane
-        content={
-          <div className="invictus-content-column">
-            {renderContent()}
-          </div>
-        }
-        exercise={
-          <div className="invictus-question-column">
-            {flatQuestions.length > 0 && (
-              <div className="invictus-static-list">
-                {flatQuestions.map((q, idx) => renderQuestionBlock(q, idx))}
-              </div>
-            )}
-          </div>
-        }
-      />
-    );
+
   };
 
   return (
