@@ -27,7 +27,7 @@ const ExamDescription = ({ activeTest, onBack }) => {
           </button>
         ) : (
           <Link 
-            to="/ielts-hub" 
+            to="/ielts" 
             className="btn-back-link" 
             style={{ marginBottom: '16px', cursor: 'pointer', textDecoration: 'none', color: '#2563eb' }}
           >

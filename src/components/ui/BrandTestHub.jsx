@@ -38,13 +38,12 @@ const BrandTestHub = ({
 
   return (
     <div className="ielts-hub-container">
-      <title>{activeTest.title} Hub - Training & Practice</title>
 
       {/* --- 1. WELCOME HERO SECTION --- */}
       <header className="ielts-hero-banner">
         <div className="hero-content">
           <span className="hero-badge">Exam Training System</span>
-          <h1 className="hero-title">{activeTest.title}</h1>
+          <h1 className="hero-title">{activeTest?.title || 'Exam Hub'}</h1>
           <p className="hero-subtitle">
             Stop practicing. Start training. Build skills daily with Atoms, 
             or test your stamina with our full mock exam archive.
@@ -119,7 +118,12 @@ const BrandTestHub = ({
 
         <div className="exam-list">
           {Object.values(ieltsMocks)
-            .filter(mock => mock.type === activeTest.id || (activeTest.id === 'ielts' && (mock.type === 'general' || mock.type === 'academic')))
+            .filter(mock => {
+              // If activeTest is null, show all mocks
+              if (!activeTest?.id) return true;
+              // Otherwise filter by test type
+              return mock.type === activeTest.id || (activeTest.id === 'ielts' && (mock.type === 'general' || mock.type === 'academic'));
+            })
             .map(mock => {
               const hasAccess = canAccess(mock.tier);
               

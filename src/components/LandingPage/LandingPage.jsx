@@ -15,7 +15,7 @@ const LandingPage = () => {
       navigate('/dashboard/toefl-hub');
     } else {
       // IELTS hub requires authentication, redirect to sign in first
-      navigate('/ielts-hub');
+      navigate('/ielts');
     }
   };
 

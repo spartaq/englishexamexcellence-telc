@@ -22,7 +22,7 @@ export const DRILLS_HUB = {
       id: 'reading-drills',
       title: 'Reading Skills',
       tasks: [
-        { id: 'find-passive-1', title: 'Find the passsive voice', xp: 500, type: 'reading-drill', tier: 'bronze' },
+        { id: 'find-passive-1', title: 'Find the passive voice', xp: 500, type: 'reading-drill', tier: 'bronze' },
         { id: 'find-presperf-1', title: 'Find the present perfect', xp: 500, type: 'reading-drill', tier: 'bronze' },
         { id: 'find-noun-1', title: 'Find the noun phrase', xp: 500, type: 'reading-drill', tier: 'bronze' },
       ]

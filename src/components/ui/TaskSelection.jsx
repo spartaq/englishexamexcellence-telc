@@ -9,8 +9,12 @@ const TaskSelection = ({ section, onBack, onSelectTask }) => {
 
   if (!section) return null;
 
+  // Check if a specific task was selected (from DrillsHub)
+  const selectedTask = section.selectedTask;
+  const tasksToShow = selectedTask ? [selectedTask] : (section.tasks || []);
+
   // Safety check for tasks array
-  if (!section.tasks || !Array.isArray(section.tasks)) {
+  if (!tasksToShow || !Array.isArray(tasksToShow) || tasksToShow.length === 0) {
     return (
       <div className="task-selection-view">
         <header className="selection-header">
@@ -24,7 +28,7 @@ const TaskSelection = ({ section, onBack, onSelectTask }) => {
   }
 
   // Filter out quick flash tasks
-  const filteredTasks = section.tasks.filter(task => !task.isQuickFlash);
+  const filteredTasks = tasksToShow.filter(task => !task.isQuickFlash);
 
   return (
     <div className="task-selection-view">

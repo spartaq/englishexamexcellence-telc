@@ -14,7 +14,7 @@ import {
 // Navigation & Structure Components
 import LandingPage from './components/LandingPage/LandingPage';
 import BrandTestHub from './components/ui/BrandTestHub';
-import ExamDescription from './components/ui/ExamDescription';
+import ExamDescription from './components/ui/IELTSExamDescription';
 import VocabHub from './components/ui/VocabHub';
 import DrillsHub from './components/ui/DrillsHub';
 import TaskSelection from './components/ui/TaskSelection';
@@ -161,9 +161,9 @@ function App({ initialView }) {
       
       // Update URL based on view type
       if (newView === 'testHub' && activeTest) {
-        navigate(`/ielts-hub/${activeTest.id}-full-individual`);
+        navigate(`/ielts/${activeTest.id}-full-individual`);
       } else if (newView === 'ieltsHub' && activeTest) {
-        navigate(`/ielts-hub/${activeTest.id}-hub`);
+        navigate(`/ielts/${activeTest.id}-hub`);
       }
     }
   };
@@ -180,22 +180,22 @@ function App({ initialView }) {
       
       // Update URL based on previous view
       if (previousView === 'dashboard' || previousView === 'landing') {
-        navigate('/ielts-hub');
+        navigate('/ielts');
       } else if (previousView === 'ieltsHub' && activeTest) {
-        navigate(`/ielts-hub/${activeTest.id}-hub`);
+        navigate(`/ielts/${activeTest.id}-hub`);
       } else if (previousView === 'testHub' && activeTest) {
-        navigate(`/ielts-hub/${activeTest.id}-full-individual`);
+        navigate(`/ielts/${activeTest.id}-full-individual`);
       } else if (previousView === 'hub' && activeTest) {
         // Go back to test hub for hub views
-        navigate(`/ielts-hub/${activeTest.id}-full-individual`);
+        navigate(`/ielts/${activeTest.id}-full-individual`);
       } else if (previousView === 'selection' && activeTest) {
         // If going back to selection from a hub, stay on test hub
-        navigate(`/ielts-hub/${activeTest.id}-full-individual`);
+        navigate(`/ielts/${activeTest.id}-full-individual`);
       }
     } else {
       // If we're at the root view or directly accessed, go to ieltsHub
       setView('ieltsHub');
-      navigate('/ielts-hub');
+      navigate('/ielts');
     }
   };      
 
@@ -409,7 +409,7 @@ function App({ initialView }) {
   const handleSelectTest = (testId) => {
     setActiveTest(TEST_PLATFORM_CONFIG[testId]);
     navigateToView('ieltsHub');
-    navigate(`/ielts-hub/${testId}-hub`);
+    navigate(`/ielts/${testId}-hub`);
   };
 
   const handleSelectModule = (hubKey) => {
@@ -432,8 +432,8 @@ function App({ initialView }) {
         setView('hub');
       }
       
-      // Navigate to /ielts-hub/{hubKey} for all hubs
-      const hubPath = `/ielts-hub/${hubKey.replace('_', '-')}`;
+      // Navigate to /ielts/{hubKey} for all hubs
+      const hubPath = `/ielts/${hubKey.replace('_', '-')}`;
       console.log('navigating to', hubPath);
       navigate(hubPath);
     } else {
@@ -586,7 +586,7 @@ function App({ initialView }) {
       }
       
       // Check if this is an ATOM_HUB category or VOCAB task (explicitly check for task types)
-      const allowedTaskTypes = ['TASK', 'VOCAB_FLASHCARDS', 'VOCAB'];
+      const allowedTaskTypes = ['TASK', 'VOCAB_FLASHCARDS', 'VOCAB', 'reading-drill', 'punctuation-correction'];
       if (section.type && allowedTaskTypes.includes(section.type)) {
         handleStartTask(section);
         return;
@@ -1129,7 +1129,7 @@ function App({ initialView }) {
               <LayoutDashboard size={18} /> IELTSHub
             </button>
             {activeTest && (
-              <button onClick={() => navigate(`/ielts-hub/${activeTest.id}-full-individual`)} className={`invictus-nav-item ${view === 'testHub' ? 'active' : ''}`}>
+              <button onClick={() => navigate(`/ielts/${activeTest.id}-full-individual`)} className={`invictus-nav-item ${view === 'testHub' ? 'active' : ''}`}>
                 <BookOpen size={18} /> {activeTest.title} Hub
               </button>
             )}
@@ -1171,7 +1171,7 @@ function App({ initialView }) {
                     if (initialView && (initialView.includes('full-test'))) {
                       setView('ieltsHub');
                       if (activeTest) {
-                        navigate(`/ielts-hub/${activeTest.id}-hub`);
+                        navigate(`/ielts/${activeTest.id}-hub`);
                       }
                     } else {
                       navigateBack();
@@ -1199,7 +1199,7 @@ function App({ initialView }) {
                 </button>
               )}
               {(view === 'hub' || view === 'selection') && activeTest && !(activeCategory && (activeCategory.title === 'Vocab Lab' || activeCategory.title === 'Drills Hub')) && (
-                <button onClick={() => navigate(`/ielts-hub/${activeTest.id}-full-individual`)} className="exit-btn">
+                <button onClick={() => navigate(`/ielts/${activeTest.id}-full-individual`)} className="exit-btn">
                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
                 </button>
               )}
@@ -1620,7 +1620,7 @@ function App({ initialView }) {
                   } else if (path === 'mocks') {
                     // Navigate to test hub with URL change
                     if (activeTest) {
-                      navigate(`/ielts-hub/${activeTest.id}-full-individual`);
+                      navigate(`/ielts/${activeTest.id}-full-individual`);
                     }
                 }
               }}
@@ -1758,7 +1758,7 @@ function App({ initialView }) {
           )}
 
            {/* DYNAMIC HUB & SELECTION */}
-          {view === 'hub' && activeCategory?.title === 'Drills Hub' && <DrillsHub data={activeCategory} onSelectSection={handleSelectSection} />}
+          {view === 'hub' && activeCategory?.title === 'Drills Hub' && <DrillsHub data={activeCategory} onSelectSection={handleSelectSection} onStartTask={handleStartTask} />}
           {view === 'hub' && activeCategory?.title !== 'Drills Hub' && <VocabHub data={activeCategory} onSelectSection={handleSelectSection} />}
           {view === 'selection' && <TaskSelection section={activeSection} onSelectTask={handleStartTask} />}
 

@@ -7,7 +7,7 @@ const categoryIcons = {
   'grammar-drills': <PenTool size={20} />,
 };
 
-const DrillsHub = ({ data, onSelectSection }) => {
+const DrillsHub = ({ data, onSelectSection, onStartTask }) => {
   const hub = data;
   if (!hub) return <div className="drills-loading">Initializing Drill Engine...</div>;
 
@@ -73,7 +73,7 @@ const DrillsHub = ({ data, onSelectSection }) => {
                 <div 
                   key={task.id} 
                   className={`drill-card ${index === 0 ? 'active' : ''}`}
-                  onClick={() => onSelectSection(task)}
+                  onClick={() => onStartTask ? onStartTask(task) : onSelectSection({ ...category, selectedTask: task })}
                 >
                   <div className="drill-card-top">
                     <div className="drill-info">

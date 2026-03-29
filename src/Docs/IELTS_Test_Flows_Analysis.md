@@ -36,8 +36,8 @@ This document analyzes all the different test flows in the IELTS section of the 
 ## 2. MINI TEST FLOWS
 
 ### 2.1 General Mini Test
-- **Route:** `/dashboard/mini-test` or via Strategy path
-- **Trigger:** `path === 'mini-test'`
+- **Route:** `/ielts/general-mini-test`
+- **Trigger:** `path === 'general-mini-test'`
 - **Type:** `'mini-test-flow'`
 - **Content:**
   - Reading: `pluckRandom('reading_general')` - General Reading passage
@@ -50,8 +50,8 @@ This document analyzes all the different test flows in the IELTS section of the 
 - **XP Reward:** 1000
 
 ### 2.2 Academic Mini Test
-- **Route:** `/dashboard/academic-flow` or via Strategy path
-- **Trigger:** `path === 'academic-flow'`
+- **Route:** `/ielts/academic-mini-test`
+- **Trigger:** `path === 'academic-mini-test'`
 - **Type:** `'academic-mini-flow'`
 - **Content:**
   - Reading: `pluckRandom('reading_academic')` - Academic Reading passage
@@ -68,34 +68,34 @@ This document analyzes all the different test flows in the IELTS section of the 
 ## 3. FULL MOCK FLOWS (via Hubs)
 
 ### 3.1 IELTS Test Hub - Reading Academic
-- **Route:** `/dashboard/reading-academic`
+- **Route:** `/ielts/reading-academic`
 - **Hub Key:** `reading_academic`
 - **Data Source:** IELTS_READING_AC (Academic Reading Hub)
 - **Content:** Academic reading passages with subTasks
 
 ### 3.2 IELTS Test Hub - Reading General
-- **Route:** `/dashboard/reading-general`
+- **Route:** `/ielts/reading-general`
 - **Hub Key:** `reading_general`
 - **Data Source:** IELTS_READING_GT (General Reading Hub)
 - **Content:** General reading passages with subTasks
 
 ### 3.3 IELTS Test Hub - Writing Academic
-- **Route:** `/dashboard/writing-academic`
+- **Route:** `/ielts/writing-academic`
 - **Hub Key:** `writing_academic`
 - **Data Source:** IELTS_WRITING_AC (Academic Writing Hub)
 
 ### 3.4 IELTS Test Hub - Writing General
-- **Route:** `/dashboard/writing-general`
+- **Route:** `/ielts/writing-general`
 - **Hub Key:** `writing_general`
 - **Data Source:** IELTS_WRITING_GT (General Writing Hub)
 
 ### 3.5 IELTS Test Hub - Listening
-- **Route:** `/dashboard/listening`
+- **Route:** `/ielts/listening`
 - **Hub Key:** `listening`
 - **Data Source:** IELTS_LISTENING (Listening Hub)
 
 ### 3.6 IELTS Test Hub - Speaking
-- **Route:** `/dashboard/speaking`
+- **Route:** `/ielts/speaking`
 - **Hub Key:** `speaking`
 - **Data Source:** IELTS_SPEAKING (Speaking Hub)
 - **Content:**
@@ -110,7 +110,7 @@ This document analyzes all the different test flows in the IELTS section of the 
 
 ### 4.1 General Full Mock Test
 - **Button:** "Take General Mock"
-- **Route:** Via Hub or `path === 'general-full-mock'`
+- **Route:** `/ielts/general-full-test`
 - **Trigger:** `pluckRandomFullMock('general')`
 - **Type:** `'general-reading-mock'` or similar
 - **Content:** All 4 skills in sequence
@@ -118,7 +118,7 @@ This document analyzes all the different test flows in the IELTS section of the 
 
 ### 4.2 Academic Full Mock Test
 - **Button:** "Take Academic Mock"
-- **Route:** Via Hub or `path === 'academic-full-mock'`
+- **Route:** `/ielts/academic-full-test`
 - **Trigger:** `pluckRandomFullMock('academic')`
 - **Type:** `'academic-reading-mock'` or similar
 - **Content:** All 4 skills in sequence
@@ -199,27 +199,51 @@ This document analyzes all the different test flows in the IELTS section of the 
 
 ## 9. ROUTING SUMMARY
 
+### Public Routes
+- `/` → Landing Page
+- `/ielts-info` → IELTS Info page (SEO, public)
+- `/free-mock` → Free mock without login (redirects to general mini test)
+
+### IELTS Routes (Exam-Based Routing)
+- `/ielts` → IELTS Hub (main entry)
+- `/ielts/general-mini-test` → General Mini Test
+- `/ielts/academic-mini-test` → Academic Mini Test
+- `/ielts/general-full-test` → General Full Mock Test
+- `/ielts/academic-full-test` → Academic Full Mock Test
+- `/ielts/general-full-individual` → General Full Mock Individual Skills
+- `/ielts/academic-full-individual` → Academic Full Mock Individual Skills
+- `/ielts/reading-academic` → Academic Reading Hub
+- `/ielts/reading-general` → General Reading Hub
+- `/ielts/writing-academic` → Academic Writing Hub
+- `/ielts/writing-general` → General Writing Hub
+- `/ielts/listening` → Listening Hub
+- `/ielts/speaking` → Speaking Hub
+- `/ielts/vocabulary` → Vocabulary Hub
+- `/ielts/drillshub` → Drills Hub
+- `/ielts/mini-individual` → Mini Individual Hub
+- `/ielts/full-individual` → Full Individual Test Hub
+
+### LangCert Routes (Exam-Based Routing)
+- `/langcert` → LangCert Hub
+- `/langcert/test-hub` → LangCert Test Hub
+- `/langcert/reading` → LangCert Reading
+
+### TOEFL Routes (Exam-Based Routing)
+- `/toefl` → TOEFL Hub
+- `/toefl/test-hub` → TOEFL Test Hub
+
+### Navigation Flow
 ```
-/dashboard/ielts-test-hub → IELTS Test Hub (module selection)
-  ├── /dashboard/reading-academic → Academic Reading Hub
-  ├── /dashboard/reading-general → General Reading Hub
-  ├── /dashboard/writing-academic → Academic Writing Hub
-  ├── /dashboard/writing-general → General Writing Hub
-  ├── /dashboard/listening → Listening Hub
-  └── /dashboard/speaking → Speaking Hub
-
-/dashboard/strategy → Exam Strategy Screen
-  ├── "Train Atoms" → Daily Flow (mixed-flow)
-  └── "Take Full Mock" → General Full Mock
-
-/dashboard/mini-test → General Mini Test (5 skills, single speaking part)
-/dashboard/academic-flow → Academic Mini Test (5 skills, single speaking part)
-
-/dashboard/skill-tests → Skill Tests View (individual skills)
-  ├── "Reading" → Single reading exercise (+300 XP)
-  ├── "Listening" → Single listening exercise (+250 XP)
-  ├── "Writing" → Single writing exercise (+400 XP)
-  └── "Speaking" → Single speaking part (+300 XP)
+Landing Page → IELTS Hub
+  ├── Mini Tests (General/Academic)
+  ├── Full Mock Tests (General/Academic)
+  ├── Individual Skill Hubs
+  │   ├── Reading (AC/GT)
+  │   ├── Writing (AC/GT)
+  │   ├── Listening
+  │   └── Speaking
+  ├── Vocabulary Hub
+  └── Drills Hub
 ```
 
 ---
