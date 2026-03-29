@@ -387,7 +387,7 @@ const Engine = ({
     if (typeof content === 'string') {
       return (
         <div 
-          className="invictus-passage-text" 
+          className="invictus-content-text" 
           dangerouslySetInnerHTML={{ __html: content }} 
         />
       );
@@ -404,7 +404,7 @@ const Engine = ({
                 <span className="invictus-paragraph-id">
                   {paragraph.id}
                 </span>
-                <p className="invictus-passage-text">
+                <p className="invictus-content-text">
                   {paragraph.text}
                 </p>
               </div>
@@ -417,7 +417,7 @@ const Engine = ({
             {content.map((htmlSnippet, index) => (
               <div 
                 key={index} 
-                className="invictus-passage-text"
+                className="invictus-content-text"
                 dangerouslySetInnerHTML={{ __html: htmlSnippet }} 
               />
             ))}

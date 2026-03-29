@@ -461,6 +461,133 @@ html, body {
   background-size: 30px 30px;
 }
 
+/* Dark mode styles for FlashcardBlock */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #af101a;
+    --primary-container: #d32f2f;
+    --on-primary: #ffffff;
+    --secondary: #546067;
+    --background: #1a1415;
+    --on-background: #f2d3d3;
+    --surface-container-low: #2d1a1b;
+    --surface-container-lowest: #1a1415;
+    --outline-variant: #5e393b;
+  }
+  
+  .session-config {
+    background: var(--surface-container-low);
+    border-color: var(--outline-variant);
+  }
+  
+  .config-item {
+    background: var(--surface-container);
+    border-color: var(--outline-variant);
+  }
+  
+  .level-btn {
+    background: var(--surface-container);
+    border-color: var(--outline-variant);
+    color: var(--on-surface-variant);
+  }
+  
+  .level-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+  
+  .level-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+  }
+  
+  .topic-select {
+    background: var(--surface-container);
+    border-color: var(--outline-variant);
+    color: var(--on-surface);
+  }
+  
+  .topic-select:hover {
+    border-color: var(--primary);
+  }
+  
+  .topic-select:focus {
+    border-color: var(--primary);
+  }
+  
+  .start-session-btn {
+    background: var(--primary);
+    color: white;
+  }
+  
+  .start-session-btn:hover:not(:disabled) {
+    box-shadow: 0 4px 12px rgba(175, 16, 26, 0.3);
+  }
+  
+  .start-session-btn:disabled {
+    background: var(--outline-variant);
+  }
+  
+  .flashcard-container {
+    background: var(--surface-container);
+    border-color: var(--outline-variant);
+  }
+  
+  .flashcard-term {
+    color: var(--on-surface);
+  }
+  
+  .flashcard-divider {
+    background: var(--primary);
+  }
+  
+  .flashcard-hint {
+    color: var(--secondary);
+  }
+  
+  .definition-label,
+  .example-label,
+  .translation-label {
+    color: var(--primary);
+  }
+  
+  .definition-text,
+  .example-text {
+    color: var(--on-surface);
+  }
+  
+  .translation-text {
+    color: var(--on-surface);
+  }
+  
+  .srs-btn {
+    background: var(--surface-container-low);
+  }
+  
+  .srs-btn:hover {
+    background: var(--outline-variant);
+  }
+  
+  .srs-label {
+    color: var(--on-surface-variant);
+  }
+  
+  .keyboard-shortcuts {
+    color: var(--secondary);
+  }
+  
+  .kbd {
+    background: var(--surface-container);
+    border-color: var(--outline-variant);
+    color: var(--on-surface);
+  }
+  
+  .grid-texture {
+    opacity: 0.02;
+  }
+}
+
 /* --- MOBILE NAV --- */
 @media (max-width: 768px) {
 .content-grid {

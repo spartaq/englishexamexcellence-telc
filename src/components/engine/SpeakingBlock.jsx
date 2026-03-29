@@ -147,10 +147,10 @@ const SpeakingBlock = ({
           <>
             {/* Task Header - Inside SplitPane like ReadingBlock */}
              {data.title && (
-              <div className="invictus-passage-header">
-                <p className="invictus-passage-subtitle">{data.subtitle}</p>
-                <h2 className="invictus-passage-title">{data.title}</h2>
-                <p className="invictus-passage-description">{data.description}</p>
+              <div className="invictus-content-header">
+                <p className="invictus-content-subtitle">{data.subtitle}</p>
+                <h2 className="invictus-content-title">{data.title}</h2>
+                <p className="invictus-content-description">{data.description}</p>
               </div>
             )}
 

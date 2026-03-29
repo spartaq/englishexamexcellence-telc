@@ -10,9 +10,7 @@
 }
 
 .speaking-block-wrapper {
-  border-radius: 16px;
   overflow: hidden;
-  border: 1px solid var(--outline-variant);
 }
 
 /* Speaking Hero */
@@ -459,6 +457,107 @@
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+/* Dark mode styles for SpeakingBlock */
+@media (prefers-color-scheme: dark) {
+  .speaking-container {
+    background: var(--surface-container-lowest);
+  }
+  
+  .speaking-instruction {
+    background: var(--surface-container-low);
+    color: var(--on-surface-variant);
+  }
+  
+  .speaking-prompt-item {
+    background: var(--surface-container);
+    border-color: var(--outline-variant);
+  }
+  
+  .speaking-topic-item {
+    background: var(--surface-container);
+    border-color: var(--outline-variant);
+  }
+  
+  .speaking-scenario-item {
+    background: var(--surface-container);
+    border-color: var(--outline-variant);
+  }
+  
+  .speaking-candidate-info {
+    background: var(--tertiary-container);
+    border-color: var(--tertiary);
+  }
+  
+  .speaking-candidate-option {
+    background: var(--surface-container);
+  }
+  
+  .speaking-candidate-point {
+    background: var(--surface-container);
+  }
+  
+  .speaking-topic-card {
+    background: var(--primary-fixed);
+    border-color: var(--primary);
+  }
+  
+  .speaking-topic-card-followup-q {
+    background: var(--surface-container);
+  }
+  
+  .speaking-exercise-panel {
+    background: var(--surface-container-lowest);
+  }
+  
+  .mic-button {
+    background: var(--primary);
+  }
+  
+  .mic-button:hover {
+    background: var(--primary-container);
+  }
+  
+  .mic-button.recording {
+    background: var(--error);
+  }
+  
+  .btn-primary {
+    background: var(--primary);
+    color: var(--on-primary);
+  }
+  
+  .btn-primary:hover:not(:disabled) {
+    background: var(--primary-container);
+  }
+  
+  .btn-secondary {
+    background: var(--surface-container);
+    color: var(--on-surface-variant);
+    border-color: var(--outline-variant);
+  }
+  
+  .btn-secondary:hover {
+    background: var(--surface-container-high);
+  }
+  
+  .btn-ai-analyze {
+    background: var(--tertiary);
+    color: var(--on-tertiary);
+  }
+  
+  .btn-ai-analyze:hover {
+    background: var(--tertiary-container);
+  }
+  
+  .review-circle {
+    background: var(--primary);
+  }
+  
+  .review-circle:hover {
+    background: var(--primary-container);
+  }
 }
 
 /* Mobile styles for SpeakingBlock */

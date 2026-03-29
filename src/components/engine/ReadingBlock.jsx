@@ -366,16 +366,16 @@ const ReadingBlock = ({
           <div className="invictus-content-column">
             {/* Task Header - Inside SplitPane */}
             {(title || subtitle) && (
-              <div className="invictus-passage-header">
-                {subtitle && <p className="invictus-passage-subtitle">{subtitle}</p>}
-                {title && <h2 className="invictus-passage-title">{title}</h2>}
+              <div className="invictus-content-header">
+                {subtitle && <p className="invictus-content-subtitle">{subtitle}</p>}
+                {title && <h2 className="invictus-content-title">{title}</h2>}
               </div>
             )}
 
             {/* Passage Content */}
             {typeof content === 'string' ? (
               <div 
-                className="invictus-passage-text" 
+                className="invictus-content-text" 
                 dangerouslySetInnerHTML={{ __html: content }} 
               />
             ) : Array.isArray(content) ? (
@@ -390,7 +390,7 @@ const ReadingBlock = ({
                       <span className="invictus-paragraph-letter">{paragraphId}</span>
                     )}
                     <div 
-                      className="invictus-passage-text"
+                      className="invictus-content-text"
                       dangerouslySetInnerHTML={{ __html: paragraphText }} 
                     />
                   </div>

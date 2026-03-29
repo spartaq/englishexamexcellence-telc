@@ -181,16 +181,18 @@ function App({ initialView }) {
       // Update URL based on previous view
       if (previousView === 'dashboard' || previousView === 'landing') {
         navigate('/ielts');
-      } else if (previousView === 'ieltsHub' && activeTest) {
-        navigate(`/ielts/${activeTest.id}-hub`);
-      } else if (previousView === 'testHub' && activeTest) {
-        navigate(`/ielts/${activeTest.id}-full-individual`);
-      } else if (previousView === 'hub' && activeTest) {
-        // Go back to test hub for hub views
-        navigate(`/ielts/${activeTest.id}-full-individual`);
-      } else if (previousView === 'selection' && activeTest) {
-        // If going back to selection from a hub, stay on test hub
-        navigate(`/ielts/${activeTest.id}-full-individual`);
+      } else if (previousView === 'ieltsHub') {
+        // Navigate to ieltsHub URL - use activeTest if available, otherwise default
+        navigate(activeTest ? `/ielts/${activeTest.id}-hub` : '/ielts');
+      } else if (previousView === 'testHub') {
+        // Navigate to testHub URL - use activeTest if available, otherwise default
+        navigate(activeTest ? `/ielts/${activeTest.id}-full-individual` : '/ielts');
+      } else if (previousView === 'hub') {
+        // Go back to test hub for hub views - use activeTest if available, otherwise default
+        navigate(activeTest ? `/ielts/${activeTest.id}-full-individual` : '/ielts');
+      } else if (previousView === 'selection') {
+        // If going back to selection from a hub, stay on test hub - use activeTest if available, otherwise default
+        navigate(activeTest ? `/ielts/${activeTest.id}-full-individual` : '/ielts');
       }
     } else {
       // If we're at the root view or directly accessed, go to ieltsHub
@@ -1154,59 +1156,25 @@ function App({ initialView }) {
               {view === 'lesson' && (
                 <button onClick={() => { 
                   setActiveLesson(null); 
-                  console.log('[Back] activeCategory:', activeCategory);
-                  console.log('[Back] viewHistory:', viewHistory);
-                  console.log('[Back] initialView:', initialView);
-                  // If we have an activeCategory (we came from a hub), go back to that hub
-                  if (activeCategory) {
-                    // Check if the hub has only 1 category
-                    if (activeCategory.categories && activeCategory.categories.length === 1) {
-                      setActiveSection(activeCategory.categories[0]);
-                      setView('selection');
-                    } else {
-                      setView('hub');
-                    }
-                  } else if (viewHistory.length > 1) {
-                    // Check if we came from a full test route - go to strategy hub
-                    if (initialView && (initialView.includes('full-test'))) {
-                      setView('ieltsHub');
-                      if (activeTest) {
-                        navigate(`/ielts/${activeTest.id}-hub`);
-                      }
-                    } else {
-                      navigateBack();
-                    }
-                  } else {
-                    setView('ieltsHub');
-                  }
+                  navigateBack();
                 }} className="exit-btn">
                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
                 </button>
               )}
               {view === 'results' && (
-                <button onClick={() => setView('ieltsHub')} className="exit-btn">
-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> IELTSHub
+                <button onClick={() => navigateBack()} className="exit-btn">
+                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
                 </button>
               )}
-              {view === 'ieltsHub' && (
-                <button onClick={() => setView('ieltsHub')} className="exit-btn">
-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> IELTSHub
-                </button>
-              )}
+
               {view === 'skillTests' && (
                 <button onClick={() => navigateBack()} className="exit-btn">
                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
                 </button>
               )}
-              {(view === 'hub' || view === 'selection') && activeTest && !(activeCategory && (activeCategory.title === 'Vocab Lab' || activeCategory.title === 'Drills Hub')) && (
-                <button onClick={() => navigate(`/ielts/${activeTest.id}-full-individual`)} className="exit-btn">
+              {(view === 'hub' || view === 'selection') && (
+                <button onClick={() => navigateBack()} className="exit-btn">
                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
-                </button>
-              )}
-              {/* Back button for non-test hubs like vocabulary and general-drills - go to hub from selection, strategy from hub */}
-              {(view === 'hub' || view === 'selection') && activeCategory && (activeCategory.title === 'Vocab Lab' || activeCategory.title === 'Drills Hub') && (
-                <button onClick={() => view === 'selection' ? setView('hub') : setView('ieltsHub')} className="exit-btn">
-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> {view === 'selection' ? 'Back' : 'IELTSHub'}
                 </button>
               )}
 

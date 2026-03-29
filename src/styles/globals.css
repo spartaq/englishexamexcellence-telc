@@ -190,6 +190,7 @@ body {
 /* --- 5. DARK MODE (Invictus Dark Obsidian) --- */
 @media (prefers-color-scheme: dark) {
   :root {
+    /* Invictus Dark Mode Variables */
     --invictus-red-pale: #1E293B;
     --bg-app: #0F172A;
     --surface-white: #1E293B;
@@ -198,6 +199,49 @@ body {
     --text-secondary: #94A3B8;
     --invictus-slate: #F8FAFC;
     
+    /* Material Design 3 Rose Theme - Dark Mode */
+    --surface-container-lowest: #1a1415;
+    --surface-container-low: #2d1a1b;
+    --surface-container: #3d2527;
+    --surface-container-high: #4d2f31;
+    --surface-container-highest: #5e393b;
+    --surface-dim: #1a1415;
+    
+    --primary: #ffb3b6;
+    --primary-container: #b80035;
+    --on-primary: #690011;
+    --on-primary-container: #ffdada;
+    --primary-fixed: #930028;
+    --primary-fixed-dim: #ffb3b6;
+    
+    --secondary: #ffb3b6;
+    --secondary-container: #a83544;
+    --on-secondary: #680011;
+    --on-secondary-container: #ffdada;
+    
+    --tertiary: #74d8bd;
+    --tertiary-container: #005142;
+    --on-tertiary: #003722;
+    --on-tertiary-container: #90f5d9;
+    
+    --error: #ffb4ab;
+    --error-container: #93000a;
+    --on-error: #690005;
+    --on-error-container: #ffdad6;
+    
+    --surface-variant: #5e393b;
+    --on-surface-variant: #e5bdbe;
+    --outline: #8f5254;
+    --outline-variant: #5e393b;
+    
+    --on-surface: #f2d3d3;
+    --on-background: #f2d3d3;
+    --background: #1a1415;
+    
+    --invictus-red: #ffb3b6;
+    --invictus-red-dark: #ffb3b6;
+    --invictus-gray-100: #3d2527;
+    --invictus-gray-200: #4d2f31;
   }
 
   body {

@@ -357,11 +357,11 @@ const ListeningBlock = ({
           <>
             {/* Part Title and Description - First */}
             {data.title && (
-               <div className="invictus-passage-header">
+               <div className="invictus-content-header">
                 {data.subtitle && (
-                  <p className="invictus-passage-subtitle">{data.subtitle}</p>
+                  <p className="invictus-content-subtitle">{data.subtitle}</p>
                 )}
-                <h2 className="invictus-passage-title">{data.title}</h2>
+                <h2 className="invictus-content-title">{data.title}</h2>
                 
                 {data.description && (
                   <p className="listening-description">{data.description}</p>
