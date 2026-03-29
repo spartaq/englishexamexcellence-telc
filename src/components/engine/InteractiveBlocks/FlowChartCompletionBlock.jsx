@@ -17,9 +17,10 @@ const FlowChartCompletionBlock = ({
 }) => {
   // Support both 'steps' (native) and 'questions' (from mock data) formats
   // Convert questions to steps if needed
-  let { 
+  let {
     title,
-    steps = [], 
+    flowchart = null, // Flowchart text/image similar to diagram in DiagramLabelBlock
+    steps = [],
     questions = [],
     wordLimit = 2,
     wordList = null,
@@ -59,6 +60,38 @@ const FlowChartCompletionBlock = ({
     if (onUpdate) onUpdate(stepId, value);
   };
 
+  // Render flowchart text/image if provided (similar to diagram in DiagramLabelBlock)
+  const renderFlowchart = () => {
+    if (!flowchart) return null;
+
+    return (
+      <div className="flowchart-container">
+        {flowchart.text && (
+          <p className="flowchart-text">
+            {flowchart.text}
+          </p>
+        )}
+        {flowchart.src && (
+          <img
+            src={flowchart.src}
+            alt={flowchart.alt || 'Flowchart'}
+            className="flowchart-image"
+            style={{
+              maxWidth: flowchart.width || '100%',
+              maxHeight: flowchart.height || '400px',
+              objectFit: 'contain'
+            }}
+          />
+        )}
+        {flowchart.caption && (
+          <p className="flowchart-caption">
+            {flowchart.caption}
+          </p>
+        )}
+      </div>
+    );
+  };
+
   // Render a single step
   const renderStep = (step, index, isLast) => {
     const isGap = step.type === 'gap';
@@ -96,6 +129,12 @@ const FlowChartCompletionBlock = ({
             {isGap ? (
               /* Gap input */
               <div>
+                {/* Show step text for gaps (e.g., "Step 1: ______ the pin.") */}
+                {step.text && (
+                  <p className="step-text gap-text">
+                    {step.text}
+                  </p>
+                )}
                 {wordList ? (
                   /* Dropdown mode */
                   <div className="flow-input-container">
@@ -188,6 +227,9 @@ const FlowChartCompletionBlock = ({
           {instruction}
         </div>
       )}
+
+      {/* Flowchart Text/Image (if provided) */}
+      {renderFlowchart()}
 
       {/* Word List (if provided) */}
       {wordList && (

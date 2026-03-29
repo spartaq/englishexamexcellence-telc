@@ -480,11 +480,13 @@
   }
 }
 
+
+
 /* Mobile styles */
 @media (max-width: 768px) {
   .writing-container {
     height: auto;
-    min-height: 100vh;
+    min-height: 86vh;
   }
   
   .writing-header {
@@ -629,7 +631,7 @@
 @media (max-width: 480px) {
   .writing-container {
     height: auto;
-    min-height: calc(100vh - 56px);
+    min-height: 86vh;
   }
 
   .writing-header {

@@ -122,7 +122,7 @@ Each skill has its own block component that handles the content area:
 | Listening | `ListeningBlock` | `src/components/engine/ListeningBlock.jsx` |
 | Writing | `WritingBlock` | `src/components/engine/WritingBlock.jsx` |
 | Speaking | `SpeakingBlock` | `src/components/engine/SpeakingBlock.jsx` |
-| Vocabulary | `VocabBlock` | `src/components/engine/VocabBlock.jsx` |
+| Vocabulary | `FlashcardBlock` | `src/components/engine/FlashcardBlock.jsx` |
 
 ---
 

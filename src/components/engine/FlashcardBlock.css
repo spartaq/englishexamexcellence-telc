@@ -1,5 +1,5 @@
 /* =============================================================================
-   VOCAB TRAINING ENVIRONMENT - Clinical Design System
+   FLASHCARD TRAINING ENVIRONMENT - Clinical Design System
    ============================================================================= */
 
 :root {
@@ -40,7 +40,7 @@ html, body {
   flex: 1;
   width: 100%;
   overflow:hidden;
-  max-height: 84vh;
+  max-height: 86vh;
   
 }
 
@@ -99,6 +99,114 @@ html, body {
   text-transform: uppercase;
 }
 
+.level-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.level-btn {
+  flex: 1;
+  padding: 12px 16px;
+  background: white;
+  border: 2px solid var(--outline-variant);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--secondary);
+}
+
+.level-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.level-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.topic-select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--outline-variant);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--on-surface);
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.topic-select:hover {
+  border-color: var(--primary);
+}
+
+.topic-select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.word-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--outline-variant);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.word-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.word-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.word-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  border: none;
+}
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.slider-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--secondary);
+}
+
 .start-session-btn {
   width: 100%;
   padding: 18px;
@@ -112,9 +220,15 @@ html, body {
   transition: transform 0.2s;
 }
 
-.start-session-btn:hover {
+.start-session-btn:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(175, 16, 26, 0.2);
+}
+
+.start-session-btn:disabled {
+  background: var(--outline-variant);
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 /* =============================================================================
@@ -134,20 +248,25 @@ html, body {
   overflow: hidden; /* Contents inside won't cause double scroll */
 }
 
-.flashcard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+.flashcard-counter {
+  text-align: center;
   padding-bottom: 16px;
-  border-bottom: 2px solid var(--surface-container-low);
   flex-shrink: 0;
 }
 
-.header-value {
-  font-size: 20px;
-  font-weight: 800;
+.counter-text {
+  font-size: 14px;
+  font-weight: 700;
   color: var(--on-surface);
+  letter-spacing: 0.05em;
 }
+
+.counter-divider {
+  color: var(--secondary);
+  margin: 0 4px;
+}
+
+
 
 /* THE CARD: Fills available space between header and buttons */
 .flashcard-container {
@@ -164,6 +283,37 @@ html, body {
   box-shadow: 0 8px 30px rgba(0,0,0,0.04);
   cursor: pointer;
   min-height: 0; /* Important for flex-shrink/grow behavior */
+  perspective: 1000px;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flashcard-container.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
 }
 
 .flashcard-term {
@@ -180,6 +330,78 @@ html, body {
   width: 80px;
   background: var(--primary);
   margin: 24px 0;
+}
+
+.flashcard-hint {
+  font-size: 14px;
+  color: var(--secondary);
+  text-align: center;
+  padding: 0 20px;
+}
+
+.flashcard-definition,
+.flashcard-example-translation {
+  padding: 0 40px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.flashcard-example-translation {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.definition-label,
+.example-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.definition-text,
+.example-text {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--on-surface);
+  font-weight: 500;
+}
+
+.flashcard-translation {
+  padding: 0 40px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.translation-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.translation-text {
+  font-size: 24px;
+  line-height: 1.6;
+  color: var(--on-surface);
+  font-weight: 600;
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* SRS CONTROLS: Always at bottom of viewport */
@@ -243,6 +465,14 @@ html, body {
 @media (max-width: 768px) {
 .content-grid {
   grid-template-columns: 1fr;
+}
+
+.session-config {
+  order: 2;
+}
+
+.flashcard-section {
+  order: 1;
 }
 
 .vocab-main-content {

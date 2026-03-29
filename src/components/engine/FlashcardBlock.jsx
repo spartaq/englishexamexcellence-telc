@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useExamStore } from '../../store/useExamStore';
-import './VocabBlock.css';
+import { VOCAB_HUB } from '../../data/vocabulary';
+import './FlashcardBlock.css';
 
 // Fisher-Yates shuffle algorithm
 const shuffleArray = (array) => {
@@ -13,7 +14,7 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
-const VocabBlock = ({ 
+const FlashcardBlock = ({ 
   data, 
   onComplete 
  }) => {
@@ -23,19 +24,74 @@ const VocabBlock = ({
 
   const [words, setWords] = useState([]);
   
-  // Reset words when data changes
+  // Session configuration state
+  const [selectedLevel, setSelectedLevel] = useState(data?.level || 'B2');
+  const [selectedTopic, setSelectedTopic] = useState(data?.topic || 'Environment & Ecology');
+  const [wordCount, setWordCount] = useState(data?.words?.length || 15);
+  const [sessionStarted, setSessionStarted] = useState(false);
+  
+  // Get available topics from VOCAB_HUB
+  const availableTopics = useMemo(() => {
+    return VOCAB_HUB.categories.map(cat => cat.title);
+  }, []);
+  
+  // Get words for selected topic and level
+  const getFilteredWords = useMemo(() => {
+    const category = VOCAB_HUB.categories.find(cat => cat.title === selectedTopic);
+    if (!category) return [];
+    
+    const task = category.tasks.find(t => t.level === selectedLevel);
+    if (!task) return [];
+    
+    return task.words || [];
+  }, [selectedTopic, selectedLevel]);
+  
+  // Reset words when data changes or session starts
   useEffect(() => {
-    const rawWords = data?.words || [];
-    const shuffledWords = data?.isRandomMix ? shuffleArray(rawWords) : rawWords;
-    setWords(shuffledWords);
-    setCurrentIndex(0);
-    setFlipStage(0);
-  }, [data?.id, data?.isRandomMix, data?.words]);
+    if (sessionStarted) {
+      const rawWords = getFilteredWords.slice(0, wordCount);
+      const shuffledWords = data?.isRandomMix ? shuffleArray(rawWords) : rawWords;
+      setWords(shuffledWords);
+      setCurrentIndex(0);
+      setFlipStage(0);
+    }
+  }, [data?.id, data?.isRandomMix, sessionStarted, getFilteredWords, wordCount]);
+  
+  // Initialize with data words if provided
+  useEffect(() => {
+    if (data?.words && !sessionStarted) {
+      const rawWords = data.words;
+      const shuffledWords = data?.isRandomMix ? shuffleArray(rawWords) : rawWords;
+      setWords(shuffledWords);
+      setCurrentIndex(0);
+      setFlipStage(0);
+    }
+  }, [data?.id, data?.isRandomMix, data?.words, sessionStarted]);
   
   const currentWord = words[currentIndex];
   
   // Get level from data (each task now has one level)
-  const level = data?.level;
+  const level = sessionStarted ? selectedLevel : (data?.level || selectedLevel);
+  
+  // Handle level selection
+  const handleLevelSelect = (newLevel) => {
+    setSelectedLevel(newLevel);
+  };
+  
+  // Handle topic selection
+  const handleTopicChange = (e) => {
+    setSelectedTopic(e.target.value);
+  };
+  
+  // Handle word count change
+  const handleWordCountChange = (e) => {
+    setWordCount(parseInt(e.target.value, 10));
+  };
+  
+  // Handle start session
+  const handleStartSession = () => {
+    setSessionStarted(true);
+  };
   
   // If no words available, show message and allow completion
   if (words.length === 0) {
@@ -57,8 +113,10 @@ const VocabBlock = ({
   }
 
   const handleCardClick = () => {
-    if (flipStage < 2) {
-      setFlipStage(prev => prev + 1);
+    if (flipStage === 0) {
+      setFlipStage(1);
+    } else if (flipStage === 1) {
+      setFlipStage(2);
     }
   };
 
@@ -94,10 +152,16 @@ const VocabBlock = ({
                   <div className="config-item">
                     <label className="config-label">Target Proficiency</label>
                     <div className="level-selector">
-                      <button className={`level-btn ${level === 'B2' ? 'active' : ''}`}>
-                        B2 UPPER
+                      <button 
+                        className={`level-btn ${selectedLevel === 'B2' ? 'active' : ''}`}
+                        onClick={() => handleLevelSelect('B2')}
+                      >
+                        B2 GENERAL
                       </button>
-                      <button className={`level-btn ${level === 'C1' ? 'active' : ''}`}>
+                      <button 
+                        className={`level-btn ${selectedLevel === 'C1' ? 'active' : ''}`}
+                        onClick={() => handleLevelSelect('C1')}
+                      >
                         C1 ADVANCED
                       </button>
                     </div>
@@ -106,11 +170,14 @@ const VocabBlock = ({
                   {/* Topic Dropdown */}
                   <div className="config-item">
                     <label className="config-label">Subject Domain</label>
-                    <select className="topic-select">
-                      <option>Environment</option>
-                      <option>Technology</option>
-                      <option>Society</option>
-                      <option>Medicine</option>
+                    <select 
+                      className="topic-select"
+                      value={selectedTopic}
+                      onChange={handleTopicChange}
+                    >
+                      {availableTopics.map(topic => (
+                        <option key={topic} value={topic}>{topic}</option>
+                      ))}
                     </select>
                   </div>
 
@@ -118,25 +185,29 @@ const VocabBlock = ({
                   <div className="config-item">
                     <div className="slider-header">
                       <label className="config-label">Lexical Volume</label>
-                      <span className="slider-value">{words.length} Words</span>
+                      <span className="slider-value">{wordCount} Words</span>
                     </div>
                     <input 
                       type="range" 
                       className="word-slider"
-                      min="15" 
-                      max="100" 
-                      value={words.length}
-                      readOnly
+                      min="5" 
+                      max={Math.min(getFilteredWords.length, 100)} 
+                      value={wordCount}
+                      onChange={handleWordCountChange}
                     />
                     <div className="slider-labels">
-                      <span>15</span>
-                      <span>50</span>
-                      <span>100</span>
+                      <span>5</span>
+                      <span>{Math.floor(Math.min(getFilteredWords.length, 100) / 2)}</span>
+                      <span>{Math.min(getFilteredWords.length, 100)}</span>
                     </div>
                   </div>
 
-                  <button className="start-session-btn">
-                    Start Session
+                  <button 
+                    className="start-session-btn"
+                    onClick={handleStartSession}
+                    disabled={getFilteredWords.length === 0}
+                  >
+                    {sessionStarted ? 'Session Active' : 'Start Session'}
                   </button>
                 </div>
               </div>
@@ -154,35 +225,56 @@ const VocabBlock = ({
 
             {/* CENTER PANEL: FLASHCARD ENVIRONMENT */}
             <section className="flashcard-section">
-              {/* Metadata Header */}
-              <div className="flashcard-header">
-                <div className="header-left">
-                  <span className="header-label">Current Item</span>
-                  <span className="header-value">
-                    WORD {currentIndex + 1} <span className="light">OF</span> {words.length}
-                  </span>
-                </div>
-                <div className="header-right">
-                  <span className="header-label">Session Timer</span>
-                  <span className="timer-display">12:44.02</span>
-                </div>
+              {/* Word Counter */}
+              <div className="flashcard-counter">
+                <span className="counter-text">
+                  WORD {currentIndex + 1} <span className="counter-divider">OF</span> {words.length}
+                </span>
               </div>
 
               {/* The Flashcard */}
-              <div className="flashcard-container" onClick={handleCardClick}>
+              <div 
+                className={`flashcard-container ${flipStage > 0 ? 'flipped' : ''}`} 
+                onClick={handleCardClick}
+              >
                 {/* Clinical Grid Sub-texture */}
                 <div className="grid-texture"></div>
                 
-                <div className="flashcard-content">
-                  <h1 className="flashcard-term">{currentWord.term}</h1>
-                  <div className="flashcard-divider"></div>
-                  <p className="flashcard-hint">
-                    Click to reveal clinical definition and usage examples.
-                  </p>
+                <div className="flashcard-inner">
+                  {/* Front of card */}
+                  <div className="flashcard-front">
+                    <h1 className="flashcard-term">{currentWord.term}</h1>
+                    <div className="flashcard-divider"></div>
+                    <p className="flashcard-hint">
+                      Click to reveal clinical definition and usage examples.
+                    </p>
+                  </div>
+                  
+                  {/* Back of card */}
+                  <div className="flashcard-back">
+                    {flipStage === 1 && (
+                      <div className="flashcard-definition">
+                        <p className="definition-label">Definition</p>
+                        <p className="definition-text">{currentWord.definition}</p>
+                      </div>
+                    )}
+                    
+                    {flipStage === 2 && (
+                      <div className="flashcard-example-translation">
+                        <div className="flashcard-example">
+                          <p className="example-label">Example</p>
+                          <p className="example-text">{currentWord.example}</p>
+                        </div>
+                        <div className="flashcard-translation">
+                          <p className="translation-label">Hungarian</p>
+                          <p className="translation-text">{currentWord.hu}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 {/* Card Accents */}
-                <div className="card-accent-top">ID: INV-294-B</div>
                 <div className="card-accent-bottom">
                   <div className="accent-dot"></div>
                   <div className="accent-dot"></div>
@@ -247,4 +339,4 @@ const VocabBlock = ({
   );
 };
 
-export default VocabBlock;
+export default FlashcardBlock;

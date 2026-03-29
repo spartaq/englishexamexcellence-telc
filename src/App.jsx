@@ -16,6 +16,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import BrandTestHub from './components/ui/BrandTestHub';
 import ExamDescription from './components/ui/ExamDescription';
 import VocabHub from './components/ui/VocabHub';
+import DrillsHub from './components/ui/DrillsHub';
 import TaskSelection from './components/ui/TaskSelection';
 import PaywallModal from './components/ui/PaywallModal';
 
@@ -35,7 +36,7 @@ import MCQBlock from './components/engine/InteractiveBlocks/MCQBlock';
 import SentenceMatchingBlock from './components/engine/InteractiveBlocks/SentenceMatchingBlock';
 import TokenSelectBlock from './components/engine/InteractiveBlocks/TokenSelectBlock';
 import ReorderingBlock from './components/engine/InteractiveBlocks/ReorderingBlock';
-import VocabBlock from './components/engine/VocabBlock';
+import FlashcardBlock from './components/engine/FlashcardBlock';
 import HeadingMatchBlock from './components/engine/InteractiveBlocks/HeadingMatchBlock';
 import SentenceCompleteBlock from './components/engine/InteractiveBlocks/SentenceCompleteBlock';
 import GapFillBlock from './components/engine/InteractiveBlocks/GapFillBlock';
@@ -541,6 +542,7 @@ function App({ initialView }) {
       if (generalMock && generalMock.sections && generalMock.sections.length > 0) {
         setActiveLesson(generalMock);
         setActiveSectionIndex(0);
+        setActiveSkillTab(0);
         setView('lesson');
       }
     } else if (testType === 'academic-full-mock') {
@@ -567,6 +569,7 @@ function App({ initialView }) {
       if (academicMock && academicMock.sections && academicMock.sections.length > 0) {
         setActiveLesson(academicMock);
         setActiveSectionIndex(0);
+        setActiveSkillTab(0);
         setView('lesson');
       }
     }
@@ -896,7 +899,7 @@ function App({ initialView }) {
     console.log('[renderQuestionBlock] Called with type:', taskData.type, 'skill:', taskData.skill, 'prompt:', !!taskData.prompt, 'id:', taskData.id);
 
     if (taskData.prompts || taskData.scenarios || taskData.candidateInfo || taskData.topicCard || taskData.type === 'SPEAKING' || taskData.type === 'ielts-speaking' || taskData.type === 'discussion' || taskData.type === 'interview' || taskData.type === 'long-turn' || taskData.skill === 'speaking') {
-        return <SpeakingBlock data={taskData} onComplete={handleCheckAnswers} isMiniTest={true} />;
+        return <SpeakingBlock data={taskData} onComplete={handleCheckAnswers} isMiniTest={true} sections={activeLesson?.sections || []} activeSkillTab={activeSkillTab} activeSectionIndex={activeSectionIndex} setActiveSectionIndex={setActiveSectionIndex} setActivePassageIndex={setActivePassageIndex} setIsReviewMode={setIsReviewMode} availableSkills={activeLesson?.sections?.map(s => s.skill).filter(Boolean) || []} />;
     }
     if (taskData.type === 'WRITING' || taskData.prompt) {
         // Extract the task based on activeSectionIndex if sections exist
@@ -904,16 +907,16 @@ function App({ initialView }) {
           ? { ...taskData, ...taskData.sections[activeSectionIndex] || taskData.sections[0] }  // Merge parent with current task
           : taskData;
         console.log('[renderQuestionBlock] Rendering WritingBlock with task index:', activeSectionIndex, 'task:', JSON.stringify(writingTask).slice(0, 300));
-        return <WritingBlock data={writingTask} onComplete={handleCheckAnswers} isMiniTest={true} />;
+        return <WritingBlock data={writingTask} onComplete={handleCheckAnswers} isMiniTest={true} sections={activeLesson?.sections || []} activeSkillTab={activeSkillTab} activeSectionIndex={activeSectionIndex} setActiveSectionIndex={setActiveSectionIndex} setActivePassageIndex={setActivePassageIndex} setIsReviewMode={setIsReviewMode} availableSkills={activeLesson?.sections?.map(s => s.skill).filter(Boolean) || []} />;
     }
 
     if (taskData.type === 'LISTENING' || taskData.skill === 'listening') {
       // Calculate if this is the last section for listening
       const listeningSections = activeLesson.listening?.sections?.length || (activeLesson.sections?.filter(s => s.type === 'LISTENING' || s.skill === 'listening').length) || 1;
       const isLastListeningSection = activeSectionIndex >= listeningSections - 1;
-      return <ListeningBlock data={taskData} userAnswers={userAnswers} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} showCheckAnswers={isLastListeningSection} onCheckAnswers={handleCheckAnswers} isMiniTest={true} isReviewMode={isReviewMode} />;
+      return <ListeningBlock data={taskData} userAnswers={userAnswers} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} showCheckAnswers={isLastListeningSection} onCheckAnswers={handleCheckAnswers} isMiniTest={true} isReviewMode={isReviewMode} sections={activeLesson?.sections || []} activeSkillTab={activeSkillTab} activeSectionIndex={activeSectionIndex} setActiveSectionIndex={setActiveSectionIndex} setActivePassageIndex={setActivePassageIndex} setIsReviewMode={setIsReviewMode} availableSkills={activeLesson?.sections?.map(s => s.skill).filter(Boolean) || []} />;
     }
-    if (taskData.type === 'VOCAB' || taskData.type === 'VOCAB_FLASHCARDS') return <VocabBlock data={taskData} onComplete={handleCheckAnswers} />;
+    if (taskData.type === 'VOCAB' || taskData.type === 'VOCAB_FLASHCARDS') return <FlashcardBlock data={taskData} onComplete={handleCheckAnswers} />;
 
     if (taskData.type === 'gap-fill' && taskData.label && !taskData.content) {
         const isCorrect = isReviewMode && userAnswers[taskData.id]?.trim().toLowerCase() === taskData.answer?.toLowerCase();
@@ -973,6 +976,12 @@ function App({ initialView }) {
             onCheckAnswers={handleCheckAnswers}
             isReviewMode={isReviewMode}
             showCheckAnswers={true}
+            availableSections={activeLesson?.sections || []}
+            activeSkillTab={activeSkillTab}
+            setActiveSectionIndex={setActiveSectionIndex}
+            setActivePassageIndex={setActivePassageIndex}
+            setIsReviewMode={setIsReviewMode}
+            availableSkills={activeLesson?.sections?.map(s => s.skill).filter(Boolean) || []}
           />
         );
 
@@ -1090,7 +1099,7 @@ function App({ initialView }) {
         alignItems: 'center', 
         justifyContent: 'center', 
         height: '100vh',
-        background: 'var(--bg-primary)',
+        background: 'var(--bg-app)',
         color: 'var(--text-primary)'
       }}>
         <RefreshCw className="spinner" size={48} style={{ marginBottom: '1rem', animation: 'spin 1s linear infinite' }} />
@@ -1237,32 +1246,6 @@ function App({ initialView }) {
                           </button>
                         ))}
                       </div>
-                      
-                      {/* Passage/Part tabs for current skill */}
-                      {(() => {
-                        const currentSkill = availableSkills[activeSkillTab];
-                        const skillSections = sections.filter(s => s.skill === currentSkill);
-                        
-                        if (skillSections.length > 1) {
-                          return (
-                            <div className="header-subtabs">
-                              {skillSections.map((s, idx) => {
-                                const partTitle = `Part ${idx + 1}`;
-                                const sidx = sections.findIndex(sec => sec === s);
-                                return (
-                                  <button 
-                                    key={idx} 
-                                    onClick={() => { setActiveSectionIndex(sidx); setActivePassageIndex(0); setIsReviewMode(false); }} 
-                                    className={`header-subtab ${activeSectionIndex === sidx ? 'active' : ''}`}>
-                                    {partTitle}
-                                  </button>
-                                );
-                              })}
-                            </div>
-                          );
-                        }
-                        return null;
-                      })()}
                     </>
                   );
                 }
@@ -1775,7 +1758,8 @@ function App({ initialView }) {
           )}
 
            {/* DYNAMIC HUB & SELECTION */}
-          {view === 'hub' && <VocabHub data={activeCategory} onSelectSection={handleSelectSection} />}
+          {view === 'hub' && activeCategory?.title === 'Drills Hub' && <DrillsHub data={activeCategory} onSelectSection={handleSelectSection} />}
+          {view === 'hub' && activeCategory?.title !== 'Drills Hub' && <VocabHub data={activeCategory} onSelectSection={handleSelectSection} />}
           {view === 'selection' && <TaskSelection section={activeSection} onSelectTask={handleStartTask} />}
 
           {/* THE LESSON ENGINE */}

@@ -105,7 +105,7 @@
   width: 100%;
   min-width: 0;
   min-height: 92vh;
-  background: blue;
+  background: var(--bg-app);
   /*grid-column: 2;*/
   grid-row: 2;
 }
@@ -220,27 +220,27 @@
 @media (max-width: 768px) {
   .invictus-header {
     padding: 0 16px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     min-height: 56px;
     gap: 8px;
     height: auto;
   }
   
   .invictus-header-left {
-    flex: 1;
+    flex: 0 0 auto;
     min-width: 0;
   }
   
   .invictus-header-right {
-    flex: 1;
+    flex: 0 0 auto;
     justify-content: flex-end;
     min-width: 0;
   }
   
   .invictus-header-center {
-    order: 3;
-    width: 66%;
-    justify-content: flex-start;
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
   }
   
   .header-tabs {
@@ -374,7 +374,7 @@
   width: 100%;
   /*max-width: var(--max-content-width);*/
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 20px 0 20px;
   overflow-y: auto;
 }
 
@@ -436,27 +436,27 @@
   
   .invictus-header {
     padding: 0 16px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     min-height: 56px;
     gap: 8px;
     max-width: 100%;
   }
   
   .invictus-header-left {
-    flex: 1;
+    flex: 0 0 auto;
     min-width: 0;
   }
   
   .invictus-header-right {
-    flex: 1;
+    flex: 0 0 auto;
     justify-content: flex-end;
     min-width: 0;
   }
   
   .invictus-header-center {
-    order: 3;
-    width: 100%;
-    justify-content: flex-start;
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
   }
   
   .header-tabs {
@@ -524,7 +524,7 @@
     height: auto;
     min-height: 48px;
     padding: 8px 12px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 4px;
     display: flex;
     flex-direction: row;
@@ -539,7 +539,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    flex: 1;
+    flex: 0 0 auto;
     min-width: auto;
   }
 
@@ -547,16 +547,16 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    flex: 1;
+    flex: 0 0 auto;
     justify-content: flex-end;
     min-width: auto;
   }
 
   .invictus-header-center {
-    order: 3;
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     padding-top: 4px;
   }
 

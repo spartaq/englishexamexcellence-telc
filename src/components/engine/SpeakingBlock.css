@@ -464,7 +464,7 @@
 /* Mobile styles for SpeakingBlock */
 @media (max-width: 768px) {
   .speaking-container {
-    height: calc(100vh - 180px) !important;
+    height: calc(100vh - 100px) !important;
     min-height: 400px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -520,7 +520,7 @@
 /* Mobile (400px target) */
 @media (max-width: 480px) {
   .speaking-container {
-    height: calc(100vh - 140px) !important;
+    height: calc(100vh - 100px) !important;
     min-height: 300px;
     overflow-y: auto;
   }

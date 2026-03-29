@@ -17,9 +17,9 @@
 .invictus-split-pane-layout {
   display: flex;
   flex-direction: row;
-  height: calc(100vh - 164px);
+  height: calc(100vh - 100px);
   overflow: hidden;
-  background: var(--invictus-red-pale); /* The "Source of Truth" background */
+  background: var(--bg-app); /* The "Source of Truth" background */
 }
 
 /* Content Column: Keep it white for maximum reading contrast */

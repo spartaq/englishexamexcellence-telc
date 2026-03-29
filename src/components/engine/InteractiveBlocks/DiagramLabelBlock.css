@@ -59,6 +59,14 @@
   object-fit: contain;
 }
 
+.diagram-text {
+  margin-bottom: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+  text-align: center;
+}
+
 .diagram-caption {
   margin-top: 12px;
   font-size: 13px;
@@ -77,13 +85,14 @@
 .label-row {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 16px;
+  gap: 12px;
+  padding: 12px;
   border-radius: 12px;
   border: 2px solid;
   border-color: #e2e8f0;
   background: white;
   transition: all 0.2s ease;
+  flex-wrap: wrap;
 }
 
 .label-row.over-limit {
@@ -115,6 +124,32 @@
   font-weight: 800;
   font-size: 14px;
   flex-shrink: 0;
+  position: relative;
+}
+
+/* Question Number (small, top-right) */
+.label-question-number {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--lab-indigo);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Letter (main content) */
+.label-letter {
+  font-size: 16px;
+  font-weight: 800;
 }
 
 .label-row.row-correct .label-number {
@@ -123,6 +158,12 @@
 
 .label-row.row-incorrect .label-number {
   background: #ef4444;
+}
+
+/* Hide question number badge in review mode */
+.label-row.row-correct .label-question-number,
+.label-row.row-incorrect .label-question-number {
+  display: none;
 }
 
 /* Label Description */
@@ -135,6 +176,7 @@
 /* Input Field */
 .label-input {
   flex: 1;
+  min-width: 0;
   padding: 12px 16px;
   font-size: 15px;
   border: none;
@@ -160,8 +202,9 @@
   font-size: 12px;
   color: #94a3b8;
   font-weight: 600;
-  min-width: 60px;
+  min-width: 50px;
   text-align: right;
+  flex-shrink: 0;
 }
 
 .label-word-count.over-limit {
@@ -207,6 +250,10 @@
     border-color: var(--border-color);
   }
   
+  .diagram-text {
+    color: #F3F4F6;
+  }
+  
   .diagram-caption {
     color: var(--neutral-gray);
   }
@@ -231,6 +278,13 @@
   .label-row.row-incorrect {
     border-color: #ef4444;
     background: rgba(239, 68, 68, 0.1);
+  }
+  
+  /* Question Number Badge - Dark Mode */
+  .label-question-number {
+    background: var(--lab-indigo);
+    border-color: var(--surface-white);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   }
   
   /* Label Description */
@@ -261,5 +315,47 @@
   .correct-answer-hint {
     background: rgba(5, 150, 105, 0.15);
     color: #34d399;
+  }
+  
+  /* Mobile Responsive */
+  @media (max-width: 480px) {
+    .diagram-label-block {
+      padding: var(--space-md);
+    }
+    
+    .label-row {
+      gap: 8px;
+      padding: 10px;
+    }
+    
+    .label-number {
+      min-width: 32px;
+      height: 32px;
+      font-size: 12px;
+    }
+    
+    .label-question-number {
+      top: -4px;
+      right: -4px;
+      font-size: 9px;
+      min-width: 16px;
+      height: 16px;
+      border-radius: 8px;
+      border-width: 1.5px;
+    }
+    
+    .label-letter {
+      font-size: 14px;
+    }
+    
+    .label-input {
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+    
+    .label-word-count {
+      font-size: 11px;
+      min-width: 40px;
+    }
   }
 }

@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './QuestionCarousel.css';
 
 const QuestionCarousel = ({ 
@@ -12,7 +11,15 @@ const QuestionCarousel = ({
   onNextPart,
   showCheckAnswers = false,
   onCheckAnswers,
-  isReviewMode = false
+  isReviewMode = false,
+  // Parts tabs props
+  sections = [],
+  activeSkillTab = 0,
+  activeSectionIndex = 0,
+  setActiveSectionIndex,
+  setActivePassageIndex,
+  setIsReviewMode,
+  availableSkills = []
 }) => {
   console.log('QuestionCarousel props:', { questionsLength: questions?.length, showCheckAnswers, hasNextPassage, hasNextSection, hasOnCheckAnswers: !!onCheckAnswers });
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,35 +58,10 @@ const QuestionCarousel = ({
   const isLastQuestion = currentIndex === questions.length - 1;
   const showNextPart = isLastQuestion && (hasNextPassage || hasNextSection);
   
-
-
-  const scrollToQuestion = (index) => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollTo({
-        left: index * carouselRef.current.clientWidth,
-        behavior: 'smooth'
-      });
-    }
-    setCurrentIndex(index);
-  };
-
-  const goToPrevious = () => {
-    if (currentIndex > 0) {
-      scrollToQuestion(currentIndex - 1);
-    }
-  };
-
-  const goToNext = () => {
-    if (currentIndex < questions.length - 1) {
-      scrollToQuestion(currentIndex + 1);
-    }
-  };
-
-  const handleNextPart = () => {
-    if (onNextPart) {
-      onNextPart();
-    }
-  };
+  // Calculate parts tabs visibility - use current section's skill
+  const currentSkill = sections[activeSectionIndex]?.skill || availableSkills[activeSkillTab];
+  const skillSections = sections.filter(s => s.skill === currentSkill);
+  const showPartsTabs = skillSections.length > 1;
 
   const handleScroll = (e) => {
     const scrollLeft = e.target.scrollLeft;
@@ -109,42 +91,45 @@ const QuestionCarousel = ({
         ))}
       </div>
       
-      {/* Navigation arrows below the question */}
-      <div className="carousel-nav-footer">
-        <button
-          onClick={goToPrevious}
-          disabled={currentIndex === 0}
-          aria-label="Previous question"
-          className={`carousel-nav-btn prev`}
-        >
-          <ChevronLeft size={20} />
-          Previous
-        </button>
-        
-        {/* Check Answers button - always show when available */}
-        {onCheckAnswers && (
-          <button
-            onClick={() => { console.log('[QuestionCarousel] Check Answers button clicked'); onCheckAnswers(); }}
-            aria-label={isReviewMode ? "Hide Answers" : "Check Answers"}
-            className="carousel-check-btn"
-          >
-            {isReviewMode ? "Hide Answers" : "Check Answers"}
-          </button>
-        )}
-        
-        <button
-          onClick={goToNext}
-          disabled={isLastQuestion}
-          aria-label="Next question"
-          className={`carousel-nav-btn next`}
-        >
-          Next
-          {!isLastQuestion && <ChevronRight size={20} />}
-        </button>
-      </div>
+      {/* Footer with parts tabs and check answers button */}
+      {(onCheckAnswers || showPartsTabs) && (
+        <div className="carousel-nav-footer">
+          {/* Parts tabs */}
+          {showPartsTabs && (
+            <div className="carousel-parts-tabs">
+              {skillSections.map((s, idx) => {
+                const partTitle = `Part ${idx + 1}`;
+                const sidx = sections.findIndex(sec => sec === s);
+                return (
+                  <button 
+                    key={idx} 
+                    onClick={() => { 
+                      if (setActiveSectionIndex) setActiveSectionIndex(sidx); 
+                      if (setActivePassageIndex) setActivePassageIndex(0); 
+                      if (setIsReviewMode) setIsReviewMode(false); 
+                    }} 
+                    className={`carousel-part-tab ${activeSectionIndex === sidx ? 'active' : ''}`}>
+                    {partTitle}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+          
+          {/* Check Answers button */}
+          {onCheckAnswers && (
+            <button
+              onClick={() => { console.log('[QuestionCarousel] Check Answers button clicked'); onCheckAnswers(); }}
+              aria-label={isReviewMode ? "Hide Answers" : "Check Answers"}
+              className="carousel-check-btn"
+            >
+              {isReviewMode ? "Hide Answers" : "Check Answers"}
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };
 
 export default QuestionCarousel;
-

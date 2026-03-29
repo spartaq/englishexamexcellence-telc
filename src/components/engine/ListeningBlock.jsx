@@ -14,7 +14,24 @@ import DiagramLabelBlock from './InteractiveBlocks/DiagramLabelBlock';
 import MCQBlock from './InteractiveBlocks/MCQBlock';
 import MatchingChoiceBlock from './InteractiveBlocks/MatchingChoiceBlock';
 
-const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showCheckAnswers = false, onCheckAnswers, userAnswers = {}, onUpdate = () => {}, isReviewMode = false }) => {
+const ListeningBlock = ({ 
+  data, 
+  isMiniTest = false, 
+  onQuestionIndexChange, 
+  showCheckAnswers = false, 
+  onCheckAnswers, 
+  userAnswers = {}, 
+  onUpdate = () => {}, 
+  isReviewMode = false,
+  // Parts tabs props
+  sections = [],
+  activeSkillTab = 0,
+  activeSectionIndex = 0,
+  setActiveSectionIndex,
+  setActivePassageIndex,
+  setIsReviewMode,
+  availableSkills = []
+}) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -355,7 +372,6 @@ const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showC
 
                 
 
-
             {/* Audio Player Sticky Bar - After title */}
             <div className="audio-sticky-bar">
               <div className="player-controls">
@@ -429,6 +445,13 @@ const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showC
               showCheckAnswers={showCheckAnswers}
               onCheckAnswers={onCheckAnswers}
               isReviewMode={isReviewMode}
+              sections={sections}
+              activeSkillTab={activeSkillTab}
+              activeSectionIndex={activeSectionIndex}
+              setActiveSectionIndex={setActiveSectionIndex}
+              setActivePassageIndex={setActivePassageIndex}
+              setIsReviewMode={setIsReviewMode}
+              availableSkills={availableSkills}
             />
           </div>
         }
@@ -438,4 +461,3 @@ const ListeningBlock = ({ data, isMiniTest = false, onQuestionIndexChange, showC
 };
 
 export default ListeningBlock;
-

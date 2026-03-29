@@ -67,7 +67,7 @@ const LandingPage = () => {
                 <p>General & Academic</p>
                 <button 
                   className="btn-primary full-width"
-                  onClick={() => handleStartFreeMock()}
+                  onClick={() => handleStartTraining()}
                 >
                   START IELTS MOCK
                 </button>
@@ -78,7 +78,7 @@ const LandingPage = () => {
                 <p>iBT Preparation</p>
                 <button 
                   className="btn-secondary full-width"
-                  onClick={() => handleStartFreeMock()}
+                  onClick={() => handleStartTraining()}
                 >
                   START TOEFL MOCK
                 </button>

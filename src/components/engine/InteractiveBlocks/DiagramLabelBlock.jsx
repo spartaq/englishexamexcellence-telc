@@ -51,10 +51,15 @@ const DiagramLabelBlock = ({
 
     return (
       <div className="diagram-container">
+        {diagram.text && (
+          <p className="diagram-text">
+            {diagram.text}
+          </p>
+        )}
         {diagram.src && (
-          <img 
-            src={diagram.src} 
-            alt={diagram.alt || 'Diagram'} 
+          <img
+            src={diagram.src}
+            alt={diagram.alt || 'Diagram'}
             className="diagram-image"
             style={{
               maxWidth: diagram.width || '100%',
@@ -85,23 +90,21 @@ const DiagramLabelBlock = ({
           const overLimit = isOverLimit(userAnswer);
 
           return (
-            <div 
+            <div
               key={label.id}
               className={`label-row ${isReviewMode ? (isCorrect ? 'row-correct' : 'row-incorrect') : ''} ${overLimit ? 'over-limit' : ''}`}
             >
-              {/* Label Number/Badge */}
+              {/* Label Letter Badge */}
               <div className="label-number">
                 {isReviewMode ? (
                   isCorrect ? <CheckCircle size={18} /> : <XCircle size={18} />
-                ) : label.id}
+                ) : (
+                  <>
+                    <span className="label-question-number">{label.id}</span>
+                    <span className="label-letter">{label.letter || label.id}</span>
+                  </>
+                )}
               </div>
-
-              {/* Label Description (optional) */}
-              {label.description && (
-                <span className="label-description">
-                  {label.description}:
-                </span>
-              )}
 
               {/* Input Field */}
               <div style={{ flex: 1 }}>
@@ -110,7 +113,7 @@ const DiagramLabelBlock = ({
                   value={userAnswer}
                   onChange={(e) => handleInputChange(label.id, e.target.value)}
                   disabled={isReviewMode}
-                  placeholder={isReviewMode ? '' : `Max ${wordLimit} words...`}
+                  placeholder={isReviewMode ? '' : 'Type the label...'}
                   className="label-input"
                 />
               </div>

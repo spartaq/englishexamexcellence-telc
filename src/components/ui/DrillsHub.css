@@ -1,5 +1,6 @@
 :root {
-  --invictus-red: #e11d48;
+  --drills-amber: #f59e0b;
+  --drills-amber-dark: #d97706;
   --on-surface: #1f1b1b;
   --on-surface-variant: #534343;
   --bg-subtle: #fcf8f8;
@@ -7,7 +8,7 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-.invictus-vocab-hub {
+.drills-hub {
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
@@ -15,9 +16,9 @@
 }
 
 /* Header */
-.invictus-hub-header {
+.drills-hub-header {
   margin-bottom: 3rem;
-  border-left: 2px solid var(--invictus-red);
+  border-left: 2px solid var(--drills-amber);
   padding-left: 1.5rem;
 }
 
@@ -27,7 +28,7 @@
   gap: 1.5rem;
 }
 
-.invictus-hub-title {
+.drills-hub-title {
   font-size: 2.5rem;
   font-weight: 900;
   letter-spacing: -0.05em;
@@ -69,7 +70,7 @@
 }
 
 .engine-badge {
-  background: var(--invictus-red);
+  background: var(--drills-amber);
   font-size: 10px;
   font-weight: 800;
   padding: 0.4rem 0.8rem;
@@ -90,6 +91,11 @@
   align-items: center;
   gap: 1rem;
   margin-top: 1.5rem;
+}
+
+.btn-hero:hover {
+  background: var(--drills-amber);
+  color: #fff;
 }
 
 .hero-stats {
@@ -114,43 +120,84 @@
   font-weight: 900;
 }
 
-/* Proficiency Grid */
-.proficiency-grid {
+.mini-progress {
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  margin-bottom: 0.5rem;
+}
+
+.mini-progress .fill {
+  height: 100%;
+  background: var(--drills-amber);
+}
+
+.stat-box .sub {
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+/* Drills Grid */
+.drills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 4rem;
   margin-bottom: 4rem;
 }
 
-.track-header {
+.drill-category {
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  padding: 2rem;
+}
+
+.category-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   border-bottom: 2px solid var(--border-subtle);
   padding-bottom: 1rem;
   margin-bottom: 2rem;
 }
 
-.track-title {
-  font-size: 1.5rem;
+.category-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.category-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--drills-amber);
+}
+
+.category-title {
+  font-size: 1.25rem;
   font-weight: 900;
   text-transform: uppercase;
   margin: 0;
 }
 
-.track-lvl {
+.category-count {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   opacity: 0.5;
 }
 
-.card-stack {
+/* Drill Cards */
+.drill-cards {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.prof-card {
+.drill-card {
   background: #fff;
   border: 1px solid var(--border-subtle);
   border-left: 4px solid #d1d5db;
@@ -159,81 +206,72 @@
   cursor: pointer;
 }
 
-.prof-card.active {
-  border-left-color: var(--invictus-red);
+.drill-card.active {
+  border-left-color: var(--drills-amber);
 }
 
-.prof-card:hover {
+.drill-card:hover {
   background: var(--bg-subtle);
   transform: translateX(4px);
 }
 
-.card-top {
+.drill-card-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.card-top h3 {
+.drill-info h3 {
   margin: 0;
   font-size: 1.1rem;
   font-weight: 800;
 }
 
-.card-top p {
+.drill-type {
   margin: 0.25rem 0 0;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--on-surface-variant);
+  font-family: var(--font-mono);
 }
 
-.xp-label {
+.xp-badge {
+  font-size: 10px;
+  font-weight: 800;
+  background: #fef3c7;
+  color: var(--drills-amber-dark);
+  padding: 0.2rem 0.5rem;
+}
+
+.drill-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tier-badge {
   font-size: 10px;
   font-weight: 800;
   background: #f3f4f6;
   padding: 0.2rem 0.5rem;
+  text-transform: uppercase;
 }
 
-.xp-label.featured {
-  background: #fee2e2;
-  color: #991b1b;
+.drill-action {
+  color: var(--drills-amber);
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
-.bar-bg {
-  width: 100%;
-  height: 4px;
-  background: #f3f4f6;
-  margin-bottom: 0.5rem;
+.drill-card:hover .drill-action {
+  opacity: 1;
 }
 
-.bar-fill {
-  height: 100%;
-  background: var(--invictus-red);
+/* Drill Types Section */
+.drill-types-section {
+  margin-top: 4rem;
 }
 
-.status-meta {
-  display: flex;
-  justify-content: space-between;
-  font-size: 10px;
-  font-weight: 800;
-  opacity: 0.5;
-}
-
-/* Locked State */
-.prof-card.locked {
-  opacity: 0.5;
-  filter: grayscale(1);
-  cursor: not-allowed;
-}
-
-.lock-text {
-  font-size: 10px;
-  font-weight: 800;
-  color: var(--invictus-red);
-  margin-top: 1rem;
-}
-
-/* Topical Mastery Minimal */
 .section-heading {
   font-size: 1.25rem;
   font-weight: 900;
@@ -242,62 +280,70 @@
   opacity: 0.8;
 }
 
-.topics-grid {
+.drill-types-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
-.topic-card-minimal {
+.drill-type-card {
   background: #fff;
   border: 1px solid var(--border-subtle);
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
 }
 
-.topic-info {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.drill-type-card:hover {
+  border-color: var(--drills-amber);
+  transform: translateY(-2px);
 }
 
-.topic-icon-hex {
-  width: 36px;
-  height: 36px;
-  background: var(--bg-subtle);
+.drill-type-icon {
+  width: 48px;
+  height: 48px;
+  background: #fef3c7;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--invictus-red);
+  color: var(--drills-amber);
+  margin-bottom: 1rem;
 }
 
-.topic-name {
-  font-size: 0.75rem;
+.drill-type-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
   font-weight: 800;
 }
 
-.topic-actions {
-  display: flex;
-  gap: 4px;
+.drill-type-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--on-surface-variant);
 }
 
-.topic-actions button {
-  background: #f3f4f6;
-  border: none;
-  font-size: 10px;
-  font-weight: 800;
-  padding: 0.5rem;
-  cursor: pointer;
+/* Loading State */
+.drills-loading {
+  padding: 4rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--on-surface-variant);
 }
 
-.topic-actions button.accent {
-  background: #000;
-  color: #fff;
-}
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-card {
+    grid-template-columns: 1fr;
+  }
 
-.topic-actions button:hover {
-  background: var(--invictus-red);
-  color: #fff;
+  .hero-stats {
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+
+  .drills-grid {
+    grid-template-columns: 1fr;
+  }
 }

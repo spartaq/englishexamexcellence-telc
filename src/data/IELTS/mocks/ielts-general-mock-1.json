@@ -214,6 +214,10 @@
               {
                 "type": "flow-chart",
                 "instruction": "Type 9 - Flow-chart Completion: Complete the PASS method. Write ONE WORD ONLY.",
+                "flowchart": {
+                  "text": "The PASS method is a simple four-step technique for using a fire extinguisher. It stands for Pull, Aim, Squeeze, and Sweep. This method helps people remember the correct sequence of actions when using a fire extinguisher to put out a small fire.",
+                  "caption": "PASS Fire Extinguisher Method"
+                },
                 "questions": [
                   { "id": "29", "text": "Step 1: ______ the pin.", "answer": "Pull" },
                   { "id": "30", "text": "Step 2: ______ at the base.", "answer": "Aim" },
@@ -248,22 +252,29 @@
               },
               {
                 "type": "diagram-label",
-                "instruction": "Type 10 - Diagram Label Completion: Label the fire escape plan. Write the correct letter, A-F.",
+                "instruction": "Type 10 - Diagram Label Completion: Label the fire escape plan. Write the correct label for each letter.",
+                "wordLimit": 1,
                 "questions": [
-                  { "id": "36", "text": "Bedroom", "answer": "A" },
-                  { "id": "37", "text": "Door", "answer": "B" },
-                  { "id": "38", "text": "Hallway", "answer": "C" },
-                  { "id": "39", "text": "Stairwell", "answer": "D" }
+                  { "id": "36", "letter": "A", "answer": "Bedroom" },
+                  { "id": "37", "letter": "B", "answer": "Door" },
+                  { "id": "38", "letter": "C", "answer": "Hallway" },
+                  { "id": "39", "letter": "D", "answer": "Stairwell" }
                 ],
-                "diagramImage": "placeholder-fire-escape-diagram.png",
+                "diagram": {
+                  "text": "The building has a main entrance on the ground floor leading to a reception area. The stairwell is located in the center of the building, providing access to all floors. On the second floor, there are two bedrooms: one on the east side and one on the west side. Each bedroom has a door opening to a shared hallway. The hallway connects to the stairwell and also leads to a fire exit at the rear of the building.",
+                  "src": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+                  "alt": "Fire escape plan diagram showing building layout with labeled areas",
+                  "caption": "Fire Escape Plan - Write the correct label for each letter",
+                  "width": "100%",
+                  "height": "400px"
+                },
                 "labels": [
-                  { "id": "A", "text": "[Bedroom]" },
-                  { "id": "B", "text": "[Door]" },
-                  { "id": "C", "text": "[Hallway]" },
-                  { "id": "D", "text": "[Stairwell]" },
-                  { "id": "E", "text": "[Window]" },
-                  { "id": "F", "text": "[Exit]" }
-                ]
+                  { "id": "36", "letter": "A", "answer": "Bedroom" },
+                  { "id": "37", "letter": "B", "answer": "Door" },
+                  { "id": "38", "letter": "C", "answer": "Hallway" },
+                  { "id": "39", "letter": "D", "answer": "Stairwell" }
+                ],
+                "options": ["A", "B", "C", "D", "E", "F"]
               },
               {
                 "type": "short-answer",

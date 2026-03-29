@@ -280,49 +280,6 @@
   color: #64748b;
 }
 
-
-/* Navigation Buttons */
-.carousel-nav-btn {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.carousel-nav-btn:disabled {
-  background: #f1f5f9;
-  color: #94a3b8;
-  cursor: not-allowed;
-}
-
-.carousel-nav-btn.prev {
-  background: #e0e7ff;
-  color: #4338ca;
-}
-
-.carousel-nav-btn.prev:disabled {
-  background: #f1f5f9;
-  color: #94a3b8;
-  cursor: not-allowed;
-}
-
-.carousel-nav-btn.next {
-  background: #e0e7ff;
-  color: #4338ca;
-}
-
-.carousel-nav-btn.next:disabled {
-  background: #f1f5f9;
-  color: #94a3b8;
-  cursor: not-allowed;
-}
-
 /* Check Answers Button */
 .carousel-check-btn {
   display: flex;
@@ -343,21 +300,60 @@
   background: #16a34a;
 }
 
-/* Dark mode for navigation buttons */
+/* Parts Tabs */
+.carousel-parts-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.carousel-part-tab {
+  padding: 6px 12px;
+  border: 1px solid var(--outline-variant);
+  border-radius: 6px;
+  background: var(--surface-container-lowest);
+  color: var(--on-surface-variant);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.carousel-part-tab:hover {
+  background: var(--surface-container-low);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.carousel-part-tab.active {
+  background: var(--primary-container);
+  border-color: var(--primary);
+  color: var(--on-primary-container);
+  font-weight: 600;
+}
+
+/* Dark mode for instruction div */
 @media (prefers-color-scheme: dark) {
   .question-instruction-div {
     border-bottom-color: #374151;
     color: #9ca3af;
   }
   
-  .carousel-nav-btn.prev:not(:disabled),
-  .carousel-nav-btn.next:not(:disabled) {
-    background: #3730a3;
-    color: #e0e7ff;
+  .carousel-part-tab {
+    background: var(--surface-container);
+    border-color: var(--outline-variant);
+    color: var(--on-surface-variant);
   }
   
-  .carousel-nav-btn:disabled {
-    background: #1f2937;
-    color: #6b7280;
+  .carousel-part-tab:hover {
+    background: var(--surface-container-high);
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+  
+  .carousel-part-tab.active {
+    background: var(--primary-container);
+    border-color: var(--primary);
+    color: var(--on-primary-container);
   }
 }

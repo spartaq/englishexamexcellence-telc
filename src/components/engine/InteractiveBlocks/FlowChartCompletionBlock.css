@@ -46,6 +46,33 @@
   color: #92400e;
 }
 
+/* Flowchart Container (text/image/caption) */
+.flowchart-container {
+  margin-bottom: 20px;
+}
+
+.flowchart-text {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.flowchart-image {
+  display: block;
+  margin: 0 auto 16px auto;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.flowchart-caption {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+  text-align: center;
+  font-style: italic;
+}
+
 /* Word List Container */
 .flowchart-word-list {
   background: #f8fafc;
@@ -89,7 +116,7 @@
   padding-bottom: 8px;
   width: 100%;
   box-sizing: border-box;
-  max-height: 300px;
+  /*max-height: 300px;*/
 }
 
 /* Flow Step Box */
@@ -164,6 +191,12 @@
   font-size: 14px;
   font-weight: 600;
   color: #334155;
+}
+
+.step-text.gap-text {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #475569;
 }
 
 /* Input Container */
@@ -270,6 +303,19 @@
     color: #fbbf24;
   }
   
+  /* Flowchart Container */
+  .flowchart-text {
+    color: #9CA3AF;
+  }
+  
+  .flowchart-image {
+    border-color: var(--border-color);
+  }
+  
+  .flowchart-caption {
+    color: #6B7280;
+  }
+  
   /* Word List */
   .flowchart-word-list {
     background: var(--bg-app);
@@ -313,6 +359,10 @@
   
   /* Step Text */
   .step-text {
+    color: #9CA3AF;
+  }
+  
+  .step-text.gap-text {
     color: #9CA3AF;
   }
   

@@ -4,7 +4,19 @@ import SplitPane from './SplitPane';
 import './WritingBlock.css';
 import './engine.css';
 
-const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
+const WritingBlock = ({ 
+  data, 
+  onComplete, 
+  isMiniTest = false,
+  // Parts tabs props
+  sections = [],
+  activeSkillTab = 0,
+  activeSectionIndex = 0,
+  setActiveSectionIndex,
+  setActivePassageIndex,
+  setIsReviewMode,
+  availableSkills = []
+}) => {
   const [text, setText] = useState("");
   const [wordCount, setWordCount] = useState(0);
   const [isChecking, setIsChecking] = useState(false);
@@ -43,6 +55,11 @@ const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
 
   const progressPercentage = Math.min((wordCount / (data.targetWords || 150)) * 100, 100);
   const isMinimumMet = wordCount >= (data.targetWords || 150);
+
+  // Calculate parts tabs visibility - use current section's skill
+  const currentSkill = data?.skill || availableSkills[activeSkillTab];
+  const skillSections = sections.filter(s => s.skill === currentSkill);
+  const showPartsTabs = skillSections.length > 1;
 
   return (
     <div className="writing-container">
@@ -145,6 +162,28 @@ const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
         )}
             </div>
 
+            {/* Parts tabs */}
+            {showPartsTabs && (
+              <div className="carousel-parts-tabs">
+                {skillSections.map((s, idx) => {
+                  const partTitle = `Part ${idx + 1}`;
+                  const sidx = sections.findIndex(sec => sec === s);
+                  return (
+                    <button 
+                      key={idx} 
+                      onClick={() => { 
+                        if (setActiveSectionIndex) setActiveSectionIndex(sidx); 
+                        if (setActivePassageIndex) setActivePassageIndex(0); 
+                        if (setIsReviewMode) setIsReviewMode(false); 
+                      }} 
+                      className={`carousel-part-tab ${activeSectionIndex === sidx ? 'active' : ''}`}>
+                      {partTitle}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
             {isChecking && (
               <div className="loading-overlay">
                 <div className="loading-content">
@@ -211,4 +250,3 @@ const WritingBlock = ({ data, onComplete, isMiniTest = false }) => {
 };
 
 export default WritingBlock;
-

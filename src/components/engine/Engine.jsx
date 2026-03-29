@@ -4,7 +4,7 @@ import ReadingBlock from './ReadingBlock';
 import ListeningBlock from './ListeningBlock';
 import WritingBlock from './WritingBlock';
 import SpeakingBlock from './SpeakingBlock';
-import VocabBlock from './VocabBlock';
+import FlashcardBlock from './FlashcardBlock';
 import QuestionCarousel from './QuestionCarousel';
 import './engine.css';
 
@@ -23,6 +23,7 @@ import TableCompletionBlock from './InteractiveBlocks/TableCompletionBlock';
 import FlowChartCompletionBlock from './InteractiveBlocks/FlowChartCompletionBlock';
 import NotesCompletionBlock from './InteractiveBlocks/NotesCompletionBlock';
 import PunctuationCorrectionBlock from './InteractiveBlocks/PunctuationCorrectionBlock';
+import SentenceMatchingBlock from './InteractiveBlocks/SentenceMatchingBlock';
 
 const Engine = ({
   activeLesson,
@@ -33,6 +34,13 @@ const Engine = ({
   onCheckAnswers,
   isReviewMode = false,
   showCheckAnswers = true,
+  // Parts tabs props
+  availableSections = [],
+  activeSkillTab = 0,
+  setActiveSectionIndex,
+  setActivePassageIndex,
+  setIsReviewMode,
+  availableSkills = []
 }) => {
   // State for interactive selections
   const [gapFillSelections, setGapFillSelections] = useState({});
@@ -53,8 +61,10 @@ const Engine = ({
     const flatQs = [];
     questions.forEach((task) => {
       if (task.type === 'heading-match') {
+        // For heading-match, preserve the entire subTask structure
         flatQs.push({...task, type: 'heading-match'});
       } else if (task.type === 'flow-chart') {
+        // For flow-chart, preserve the entire subTask structure
         flatQs.push({...task, type: 'flow-chart'});
       } else if (task.type === 'matching-features' && task.features && Array.isArray(task.features)) {
         if (task.questions && Array.isArray(task.questions)) {
@@ -68,6 +78,12 @@ const Engine = ({
             });
           });
         }
+      } else if (task.type === 'sentence-matching') {
+        // For sentence-matching, preserve the entire subTask structure
+        flatQs.push({...task, type: 'sentence-matching'});
+      } else if (task.type === 'diagram-label') {
+        // For diagram-label, preserve the entire subTask structure
+        flatQs.push({...task, type: 'diagram-label'});
       } else if (task.questions && Array.isArray(task.questions)) {
         const isMatchingInfo = task.type === 'matching-info';
         const isTrinary = task.type === 'trinary';
@@ -92,6 +108,55 @@ const Engine = ({
   const passageSubTasks = currentPassage?.subTasks || currentPassage?.questions || [];
   const flatQuestions = flattenQuestions(passageSubTasks);
   const useCarousel = flatQuestions.length > 1;
+
+  // Calculate question range for display
+  const getQuestionRange = () => {
+    if (flatQuestions.length === 0) return 'Questions';
+    
+    // Extract all question IDs from nested structures
+    const extractQuestionIds = (items) => {
+      const ids = [];
+      items.forEach(item => {
+        // If item has questions array, extract IDs from it
+        if (item.questions && Array.isArray(item.questions)) {
+          item.questions.forEach(q => {
+            if (q.id) {
+              const numId = parseInt(String(q.id).replace(/^q/, ''), 10);
+              if (!isNaN(numId)) ids.push(numId);
+            }
+          });
+        }
+        // If item has labels array (diagram-label), extract IDs from it
+        if (item.labels && Array.isArray(item.labels)) {
+          item.labels.forEach(label => {
+            if (label.id) {
+              const numId = parseInt(String(label.id).replace(/^q/, ''), 10);
+              if (!isNaN(numId)) ids.push(numId);
+            }
+          });
+        }
+        // If item has a direct id, use it
+        if (item.id && !item.questions && !item.labels) {
+          const numId = parseInt(String(item.id).replace(/^q/, ''), 10);
+          if (!isNaN(numId)) ids.push(numId);
+        }
+      });
+      return ids;
+    };
+    
+    const questionIds = extractQuestionIds(flatQuestions).sort((a, b) => a - b);
+    
+    if (questionIds.length === 0) return 'Questions';
+    
+    const start = questionIds[0];
+    const end = questionIds[questionIds.length - 1];
+    
+    if (start === end) {
+      return `Question ${start}`;
+    }
+    
+    return `Questions ${start}–${end}`;
+  };
 
   // Calculate navigation
   const passagesInSection = passages.length || 1;
@@ -269,6 +334,18 @@ const Engine = ({
             className="invictus-interactive-block"
           />
         );
+      case 'sentence-matching':
+        return (
+          <SentenceMatchingBlock
+            key={q.id || idx}
+            data={q}
+            userAnswers={userAnswers}
+            onUpdate={onUpdateAnswers}
+            isReviewMode={isReviewMode}
+            hideInstruction={true}
+            className="invictus-interactive-block"
+          />
+        );
       default:
         if (q.questions && Array.isArray(q.questions)) {
           return (
@@ -399,7 +476,7 @@ const Engine = ({
           exercise={
             <div className="engine-exercise-panel">
               <h2 className="invictus-total-range">
-                Questions {currentPassage?.questionStart || 1}–{currentPassage?.questionEnd || flatQuestions.length}
+                {getQuestionRange()}
               </h2>
               {flatQuestions.length > 0 && (
                 useCarousel ? (
@@ -413,6 +490,13 @@ const Engine = ({
                     showCheckAnswers={showCheckAnswers}
                     onCheckAnswers={onCheckAnswers}
                     isReviewMode={isReviewMode}
+                    sections={availableSections}
+                    activeSkillTab={activeSkillTab}
+                    activeSectionIndex={activeSectionIndex}
+                    setActiveSectionIndex={setActiveSectionIndex}
+                    setActivePassageIndex={setActivePassageIndex}
+                    setIsReviewMode={setIsReviewMode}
+                    availableSkills={availableSkills}
                   />
                 ) : (
                   <div className="invictus-static-list">
@@ -434,6 +518,13 @@ const Engine = ({
           showCheckAnswers={showCheckAnswers}
           onCheckAnswers={onCheckAnswers}
           isReviewMode={isReviewMode}
+          sections={availableSections}
+          activeSkillTab={activeSkillTab}
+          activeSectionIndex={activeSectionIndex}
+          setActiveSectionIndex={setActiveSectionIndex}
+          setActivePassageIndex={setActivePassageIndex}
+          setIsReviewMode={setIsReviewMode}
+          availableSkills={availableSkills}
         />
       );
     }
@@ -447,6 +538,13 @@ const Engine = ({
         <WritingBlock 
           data={writingTask} 
           onComplete={onCheckAnswers}
+          sections={availableSections}
+          activeSkillTab={activeSkillTab}
+          activeSectionIndex={activeSectionIndex}
+          setActiveSectionIndex={setActiveSectionIndex}
+          setActivePassageIndex={setActivePassageIndex}
+          setIsReviewMode={setIsReviewMode}
+          availableSkills={availableSkills}
         />
       );
     }
@@ -457,6 +555,13 @@ const Engine = ({
         <SpeakingBlock 
           data={currentSection} 
           onComplete={onCheckAnswers}
+          sections={availableSections}
+          activeSkillTab={activeSkillTab}
+          activeSectionIndex={activeSectionIndex}
+          setActiveSectionIndex={setActiveSectionIndex}
+          setActivePassageIndex={setActivePassageIndex}
+          setIsReviewMode={setIsReviewMode}
+          availableSkills={availableSkills}
         />
       );
     }
@@ -464,7 +569,7 @@ const Engine = ({
     // Vocab
     if (lessonType === 'VOCAB' || lessonType === 'VOCAB_FLASHCARDS') {
       return (
-        <VocabBlock 
+        <FlashcardBlock 
           data={currentSection} 
           onComplete={onCheckAnswers}
         />

@@ -19,14 +19,52 @@ import TableCompletionBlock from './InteractiveBlocks/TableCompletionBlock';
 import FlowChartCompletionBlock from './InteractiveBlocks/FlowChartCompletionBlock';
 import NotesCompletionBlock from './InteractiveBlocks/NotesCompletionBlock';
 import PunctuationCorrectionBlock from './InteractiveBlocks/PunctuationCorrectionBlock';
+import SentenceMatchingBlock from './InteractiveBlocks/SentenceMatchingBlock';
 
-const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalRenderBlock, userAnswers = {}, onUpdate = () => {}, onQuestionIndexChange, navigationProps, showCheckAnswers = false, onCheckAnswers, isReviewMode = false }) => {
+const ReadingBlock = ({ 
+  data, 
+  isMiniTest = false, 
+  renderQuestionBlock: externalRenderBlock, 
+  userAnswers = {}, 
+  onUpdate = () => {}, 
+  onQuestionIndexChange, 
+  navigationProps, 
+  showCheckAnswers = false, 
+  onCheckAnswers, 
+  isReviewMode = false,
+  // Parts tabs props
+  sections = [],
+  activeSkillTab = 0,
+  activeSectionIndex = 0,
+  setActiveSectionIndex,
+  setActivePassageIndex,
+  setIsReviewMode,
+  availableSkills = []
+}) => {
   // Data is always an object from the mock
   const content = data?.content || data?.passage;
   console.log('[ReadingBlock] content:', content ? (Array.isArray(content) ? 'array len: ' + content.length : 'string') : 'undefined');
   // Check both data.questions and data.subTasks for questions
   // IMPORTANT: Preserve the subTask type on each question so internalRenderQuestionBlock can route correctly
-  const questions = data?.questions || (data?.subTasks ? data.subTasks.flatMap(st => (st.questions || []).map(q => ({...q, type: st.type}))) : []);
+  const questions = data?.questions || (data?.subTasks ? data.subTasks.flatMap(st => {
+    // For sentence-matching, preserve the entire subTask structure
+    if (st.type === 'sentence-matching') {
+      return [{ ...st, type: 'sentence-matching' }];
+    }
+    // For diagram-label, preserve the entire subTask structure
+    if (st.type === 'diagram-label') {
+      return [{ ...st, type: 'diagram-label' }];
+    }
+    // For flow-chart, preserve the entire subTask structure
+    if (st.type === 'flow-chart') {
+      return [{ ...st, type: 'flow-chart' }];
+    }
+    // For heading-match, preserve the entire subTask structure
+    if (st.type === 'heading-match') {
+      return [{ ...st, type: 'heading-match' }];
+    }
+    return (st.questions || []).map(q => ({...q, type: st.type}));
+  }) : []);
   const title = data?.title;
   const subtitle = data?.subtitle;
   
@@ -222,6 +260,18 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
             className="invictus-interactive-block"
           />
         );
+      case 'sentence-matching':
+        return (
+          <SentenceMatchingBlock
+            key={q.id || idx}
+            data={q}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
+            isReviewMode={isReviewMode}
+            hideInstruction={true}
+            className="invictus-interactive-block"
+          />
+        );
       default:
         if (q.questions && Array.isArray(q.questions)) {
           return (
@@ -259,6 +309,55 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
   // Use the already-flattened questions (line 28 preserves type from subTasks)
   const flatQuestions = questions;
   const useCarousel = flatQuestions.length > 1;
+
+  // Calculate question range for display
+  const getQuestionRange = () => {
+    if (flatQuestions.length === 0) return 'Questions';
+    
+    // Extract all question IDs from nested structures
+    const extractQuestionIds = (items) => {
+      const ids = [];
+      items.forEach(item => {
+        // If item has questions array, extract IDs from it
+        if (item.questions && Array.isArray(item.questions)) {
+          item.questions.forEach(q => {
+            if (q.id) {
+              const numId = parseInt(String(q.id).replace(/^q/, ''), 10);
+              if (!isNaN(numId)) ids.push(numId);
+            }
+          });
+        }
+        // If item has labels array (diagram-label), extract IDs from it
+        if (item.labels && Array.isArray(item.labels)) {
+          item.labels.forEach(label => {
+            if (label.id) {
+              const numId = parseInt(String(label.id).replace(/^q/, ''), 10);
+              if (!isNaN(numId)) ids.push(numId);
+            }
+          });
+        }
+        // If item has a direct id, use it
+        if (item.id && !item.questions && !item.labels) {
+          const numId = parseInt(String(item.id).replace(/^q/, ''), 10);
+          if (!isNaN(numId)) ids.push(numId);
+        }
+      });
+      return ids;
+    };
+    
+    const questionIds = extractQuestionIds(flatQuestions).sort((a, b) => a - b);
+    
+    if (questionIds.length === 0) return 'Questions';
+    
+    const start = questionIds[0];
+    const end = questionIds[questionIds.length - 1];
+    
+    if (start === end) {
+      return `Question ${start}`;
+    }
+    
+    return `Questions ${start}–${end}`;
+  };
 
   return (
     <div className="invictus-reading-layout">
@@ -303,7 +402,7 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
         exercise={
           <div className="reading-exercise-panel">
           <div className="invictus-question-column">
-            <h2 className="invictus-total-range">Questions 1–15</h2>
+            <h2 className="invictus-total-range">{getQuestionRange()}</h2>
             {flatQuestions.length > 0 && (
               useCarousel ? (
                 <QuestionCarousel
@@ -318,6 +417,13 @@ const ReadingBlock = ({ data, isMiniTest = false, renderQuestionBlock: externalR
                   showCheckAnswers={showCheckAnswers}
                   onCheckAnswers={onCheckAnswers}
                   isReviewMode={isReviewMode}
+                  sections={sections}
+                  activeSkillTab={activeSkillTab}
+                  activeSectionIndex={activeSectionIndex}
+                  setActiveSectionIndex={setActiveSectionIndex}
+                  setActivePassageIndex={setActivePassageIndex}
+                  setIsReviewMode={setIsReviewMode}
+                  availableSkills={availableSkills}
                 />
               ) : (
                 <div className="invictus-static-list">

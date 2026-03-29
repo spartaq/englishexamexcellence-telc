@@ -6,7 +6,19 @@ import SplitPane from './SplitPane';
 import './SpeakingBlock.css';
 import './engine.css';
 
-const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
+const SpeakingBlock = ({ 
+  data, 
+  onComplete, 
+  isMiniTest = false,
+  // Parts tabs props
+  sections = [],
+  activeSkillTab = 0,
+  activeSectionIndex = 0,
+  setActiveSectionIndex,
+  setActivePassageIndex,
+  setIsReviewMode,
+  availableSkills = []
+}) => {
    
   // --- NEW STATES FOR AI ANALYSIS ---
   const [audioBlob, setAudioBlob] = useState(null);
@@ -31,6 +43,11 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
   const audioPreviewRef = useRef(null);
 
   const isActive = useExamStore(state => state.isActive);
+
+  // Calculate parts tabs visibility - use current section's skill
+  const currentSkill = data?.skill || availableSkills[activeSkillTab];
+  const skillSections = sections.filter(s => s.skill === currentSkill);
+  const showPartsTabs = skillSections.length > 1;
 
   // Reset state when data changes (switching between parts via App.jsx)
   useEffect(() => {
@@ -320,6 +337,28 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
                 </motion.div>
               )}
             </AnimatePresence>
+
+            {/* Parts tabs - shown below recording controls */}
+            {showPartsTabs && (
+              <div className="carousel-parts-tabs" style={{ marginTop: '20px', justifyContent: 'center' }}>
+                {skillSections.map((s, idx) => {
+                  const partTitle = `Part ${idx + 1}`;
+                  const sidx = sections.findIndex(sec => sec === s);
+                  return (
+                    <button 
+                      key={idx} 
+                      onClick={() => { 
+                        if (setActiveSectionIndex) setActiveSectionIndex(sidx); 
+                        if (setActivePassageIndex) setActivePassageIndex(0); 
+                        if (setIsReviewMode) setIsReviewMode(false); 
+                      }} 
+                      className={`carousel-part-tab ${activeSectionIndex === sidx ? 'active' : ''}`}>
+                      {partTitle}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
         }
       />
@@ -330,4 +369,3 @@ const SpeakingBlock = ({ data, onComplete, isMiniTest = false }) => {
 };
 
 export default SpeakingBlock;
-
