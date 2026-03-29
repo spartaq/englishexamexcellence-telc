@@ -80,10 +80,10 @@ PROPS:
   - showUsageCount: boolean - display usage count for each option
 
 LOGIC:
-1. Extracts options from data.content or data.options
+1. Extracts questions from data.questions array
 2. For each question, renders button group (A, B, C, D...)
 3. If allowReuse=false, disables already-used options
-4. Shows usage count badges when allowReuse=true
+4. Shows usage count badges when allowReuse=true and showUsageCount=true
 5. In review mode:
    - Green for correct, red for wrong
    - Shows correct answer hints
@@ -96,6 +96,7 @@ DATA STRUCTURE:
     { id: "1", text: "Question text", answer: "A" },
     { id: "2", text: "Question text", answer: "C" }
   ],
+  options: ["A", "B", "C", "D"],
   allowReuse: true // "You may use any letter more than once"
 }
 
@@ -604,13 +605,13 @@ IELTS QUESTION TYPE MAPPING
 ================================================================================
 
 Type 1:  MCQBlock (Multiple Choice)
-Type 2:  TrinaryBlock (True/False/Not Given)
+Type 2:  TrinaryBlock (True/False/Not Given or Yes/No/Not Given)
 Type 3:  HeadingMatchBlock (Matching Headings)
 Type 4:  MatchingChoiceBlock (Matching Information)
-Type 5:  MatchingFeaturesBlock (Matching Features)
-Type 6:  MatchingFeaturesBlock (Matching Features - variant)
-Type 7:  SentenceMatchingBlock (Sentence Completion - matching)
-Type 8:  SentenceCompleteBlock (Sentence Completion - gap fill)
+Type 5:  SentenceMatchingBlock (Matching Sentence Endings)
+Type 6:  MatchingFeaturesBlock (Matching Features)
+Type 7:  SentenceCompleteBlock (Sentence Completion - gap fill)
+Type 8:  ShortAnswerBlock (Short-Answer Questions)
 Type 9:  TableCompletionBlock, NotesCompletionBlock, FlowChartCompletionBlock
 Type 10: DiagramLabelBlock (Diagram Label Completion)
 Type 11: ShortAnswerBlock (Short-Answer Questions)

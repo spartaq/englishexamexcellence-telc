@@ -11,9 +11,9 @@ IELTS Question Types: 11
 Existing Block Types: 11
 
 COVERAGE STATUS:
-✅ FULLY COVERED:     6 types
-⚠️ PARTIALLY COVERED: 3 types
-❌ MISSING:           2 types
+✅ FULLY COVERED:     4 types
+⚠️ PARTIALLY COVERED: 6 types
+❌ MISSING:           1 type
 
 ================================================================================
 DETAILED MAPPING
@@ -28,7 +28,7 @@ IELTS Description:
 - Sometimes longer list with multiple answers to choose
 - Questions in same order as text information
 
-YOUR COVERAGE: ✅ FULLY COVERED
+YOUR COVERAGE: ⚠️ PARTIALLY COVERED
 
 Block: MCQBlock.jsx
 Capabilities:

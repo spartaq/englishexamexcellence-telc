@@ -20,9 +20,9 @@ Each test screen follows this 5-part structure:
 │  - [Reading] [Writing] [Speaking] [Listening]      │
 │  - Only shown in combined/test flows                │
 ├─────────────────────────────────────────────────────┤
-│  3. PASSAGE/PART TABS                               │
+│  3. PART TABS                                         │
 │  - [Part 1] [Part 2] [Part 3]                      │
-│  - Shows "Part #" (NOT "Section" or "Passage")     │
+│  - Always shows "Part #" (never overridable)        │
 ├─────────────────────────────────────────────────────┤
 │  4. TASK HEADER                                     │
 │  ┌─────────────────────────────────────────────────┐│
@@ -49,7 +49,7 @@ Each test screen follows this 5-part structure:
 |-----------|-----------|----------|-------------|
 | **Header** | `.top-bar` | App.jsx | Sticky bar with back button + progress |
 | **SectionTabs** | `.section-tabs` | App.jsx | Skill-level tabs (Reading/Writing/etc) |
-| **PassageTabs** | `.passage-tabs` | App.jsx | Part-level tabs (Part 1/2/3) |
+| **PartTabs** | `.passage-tabs` | App.jsx | Part-level tabs (Part 1/2/3) |
 | **TaskHeader** | `.section-header` | App.jsx | The dynamic box with title |
 | **Content** | `.workspace-grid` | App.jsx | Test content area |
 
@@ -90,7 +90,7 @@ Each test screen follows this 5-part structure:
 <div className="passage-tabs">
   {subPassages.map((p, idx) => (
     <button>
-      {p.title || `Part ${idx + 1}`}
+      {`Part ${idx + 1}`}
     </button>
   ))}
 </div>
@@ -106,6 +106,9 @@ Each test screen follows this 5-part structure:
   )}
   {currentSection.description && (
     <p className="description">{currentSection.description}</p>
+  )}
+  {currentSection.instructions && (
+    <p className="instructions">{currentSection.instructions}</p>
   )}
 </div>
 ```

@@ -34,7 +34,7 @@ Use this template when creating new IELTS mock tests. Follow the structure exact
 ### Speaking Details:
 - **Part 1**: 2 topics × 4 questions = 8 questions (4-5 min)
 - **Part 2**: 1 cue card with bullet points (3-4 min)
-- **Part 3**: 4 discussion questions (4-5 min) |
+- **Part 3**: 4 discussion questions (4-5 min)
 
 ---
 
@@ -576,7 +576,7 @@ generalMock[N],
 
 ### Important: The `type` and `skill` Fields
 
-For hub routes to work correctly (Reading Academic, Reading General, Writing Academic, Writing General, Listening, Speaking), the mock data must include proper `type` or `skill` fields:
+For hub routes to work correctly (Reading Academic, Reading General, Writing Academic, Writing General, Listening, Speaking), the mock data must include either a `type` field or a `skill` field (they are alternatives, not both required):
 
 #### In Mock Root Header:
 ```json
@@ -593,8 +593,7 @@ For hub routes to work correctly (Reading Academic, Reading General, Writing Aca
 "reading": {
   "title": "Reading",
   "time": 60,
-  "type": "READING",  // Required for hub routes
-  "skill": "reading", // Alternative to type
+  "type": "READING",  // Required for hub routes (alternatively, use "skill": "reading")
   "sections": [ ... ]
 }
 ```
@@ -604,8 +603,7 @@ For hub routes to work correctly (Reading Academic, Reading General, Writing Aca
 "writing": {
   "title": "Writing",
   "time": 60,
-  "type": "WRITING",  // Required for hub routes
-  "skill": "writing", // Alternative to type
+  "type": "WRITING",  // Required for hub routes (alternatively, use "skill": "writing")
   "sections": [ ... ]
 }
 ```
@@ -615,8 +613,7 @@ For hub routes to work correctly (Reading Academic, Reading General, Writing Aca
 "listening": {
   "title": "Listening",
   "time": 30,
-  "type": "LISTENING",  // Required for hub routes
-  "skill": "listening", // Alternative to type
+  "type": "LISTENING",  // Required for hub routes (alternatively, use "skill": "listening")
   "sections": [ ... ]
 }
 ```
@@ -626,8 +623,7 @@ For hub routes to work correctly (Reading Academic, Reading General, Writing Aca
 "speaking": {
   "title": "Speaking",
   "time": 15,
-  "type": "SPEAKING",  // Required for hub routes
-  "skill": "speaking", // Alternative to type
+  "type": "SPEAKING",  // Required for hub routes (alternatively, use "skill": "speaking")
   "parts": [ ... ]
 }
 ```

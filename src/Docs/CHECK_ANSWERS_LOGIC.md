@@ -8,7 +8,7 @@ This document describes the logic flow for the "Check Answers" feature in the IE
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    User takes Reading/LListening test           │
+│                    User takes Reading/Listening test            │
 └─────────────────────────────────────────────────────────────────┘
                                 │
                                 ▼

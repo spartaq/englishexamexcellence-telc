@@ -27,8 +27,13 @@ const TaskSelection = ({ section, onBack, onSelectTask }) => {
     );
   }
 
-  // Filter out quick flash tasks
-  const filteredTasks = tasksToShow.filter(task => !task.isQuickFlash);
+  // Filter out quick flash tasks, but keep selectedTask if it exists
+  const filteredTasks = tasksToShow.filter(task => {
+    if (section.selectedTask && task.id === section.selectedTask.id) {
+      return true; // Always include selectedTask
+    }
+    return !task.isQuickFlash;
+  });
 
   return (
     <div className="task-selection-view">

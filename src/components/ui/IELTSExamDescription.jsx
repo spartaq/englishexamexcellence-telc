@@ -19,6 +19,7 @@ const ExamDescription = ({ activeTest, onBack }) => {
       <header className="strategy-header">
         {hasBackHandler ? (
           <button 
+            type="button"
             onClick={onBack} 
             className="btn-back-link" 
             style={{ marginBottom: '16px', cursor: 'pointer' }}

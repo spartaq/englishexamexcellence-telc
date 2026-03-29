@@ -53,7 +53,7 @@ Landing Page (/)
 **Purpose:** First impression, marketing, conversion
 
 **Layout Sections:**
-- **Navbar:** Logo ("THE EXAM LAB"), "The Methodology" button, "Sign In" button
+- **Navbar:** Logo ("THE EXAM LAB"), "The Methodology" button (navigates to on-page section or modal; displays overview, key sections: Purpose, Steps, Evidence, Outcomes, and linked resources), "Sign In" button
 - **Hero Section:**
   - Badge: "IELTS • TOEFL • LangCert"
   - Headline: "Stop practicing. Start training."
@@ -353,8 +353,19 @@ These are the core exercise components - **each has unique UI patterns**:
 - Can be done daily for skill building
 
 ### 7.3 AI-Assisted Feedback
-- Speaking: Record voice, get AI analysis
-- Writing: (In development) AI essay evaluation
+- **Provider(s):** OpenAI GPT-4 + Whisper API (or Azure Speech Services as alternative)
+- **Speaking Evaluation:**
+  - Uses OpenAI Whisper for audio transcription
+  - Metrics: Pronunciation accuracy, fluency score, intonation/pitch stability, word error rate
+  - Response time SLA: ≤10s for 30s audio recording
+  - UI: Shows recording progress, displays transcription + feedback, retry on timeout
+  - Fallback: Queue for later processing, notify user with offline message
+- **Writing Evaluation:**
+  - Uses GPT-4 for essay analysis
+  - Metrics: Grammar score, coherence, lexical richness, readability score, rubric-based scoring
+  - Response time SLA: ≤2s for short text, ≤5s for full essays
+  - UI: Shows analysis progress indicator, results panel with score breakdown, retry attempts
+  - Fallback: Degrade to local grammar checks (if available), inform user of service unavailability
 
 ### 7.4 Timed Tests
 - Reading: 60 minutes
@@ -390,11 +401,157 @@ These are the core exercise components - **each has unique UI patterns**:
 
 ## 10. External Dependencies
 
-- **Icons:** Lucide React (`lucide-react`)
-- **Animation:** Framer Motion (`framer-motion`)
-- **Routing:** React Router (`react-router-dom`)
-- **State Management:** Zustand (`zustand`)
-- **Fonts:** Google Fonts (Plus Jakarta Sans)
+**Core Framework:**
+- **React:** `"react": "^18.0.0"` - UI library
+- **React DOM:** `"react-dom": "^18.0.0"` - React rendering
+
+**Build Tool:**
+- **Vite:** `"vite": "^4.0.0"` - Fast build tooling and dev server
+
+**Language & Runtime:**
+- **TypeScript:** `"typescript": "^5.0.0"` - Optional, for type safety
+
+**Routing & State:**
+- **React Router:** `"react-router-dom": "^6.0.0"` - Client-side routing
+- **Zustand:** `"zustand": "^4.0.0"` - Lightweight state management
+
+**UI & Animation:**
+- **Lucide React:** `"lucide-react": "^0.200.0"` - Icon library
+- **Framer Motion:** `"framer-motion": "^10.0.0"` - Animation library
+- **Google Fonts:** Plus Jakarta Sans - Typography via CDN
+
+**Audio & Recording:**
+- **MediaRecorder API:** Native browser API - Audio recording (no external library required)
+- **RecordRTC:** `"recordrtc": "^5.6.0"` - Alternative cross-browser audio recording
+
+**HTTP Client:**
+- **Axios:** `"axios": "^1.0.0"` - HTTP requests (or native fetch)
+
+**Testing:**
+- **Vitest:** `"vitest": "^0.30.0"` - Unit test framework
+- **React Testing Library:** `"@testing-library/react": "^14.0.0"` - Component testing
+- **Jest:** (Optional) `"jest": "^29.0.0"` - Alternative test runner
+
+---
+
+## 12. Authentication & Authorization
+
+**User Flows:**
+- **Sign Up:** POST `/auth/signup` with email, password → returns access token + refresh token
+- **Sign In:** POST `/auth/signin` with credentials → returns access token + refresh token
+- **Refresh Token:** POST `/auth/refresh` → returns new access token
+- **Sign Out:** POST `/auth/logout` → invalidates refresh token on server
+- **Session Lifecycle:** Access token (short-lived, ~1hr), Refresh token (long-lived, ~7 days)
+
+**Roles:**
+- `"student"` - Default user role, can take tests and access exercises
+- `"teacher"` - (Future) Admin capabilities
+- `"admin"` - (Future) System administration
+
+**Implementation:**
+- Store access token in memory; refresh token in secure httpOnly cookie
+- Include Authorization header: `Authorization: Bearer {accessToken}` on all protected requests
+- On 401 response, automatically refresh token and retry request
+
+---
+
+## 13. Error Handling
+
+**Client-Side Error Formats:**
+```json
+{
+  "type": "API_ERROR | VALIDATION_ERROR | NETWORK_ERROR | UNKNOWN_ERROR",
+  "message": "User-friendly error description",
+  "code": "ERROR_CODE",
+  "details": { ...optional details... }
+}
+```
+
+**Retry & Backoff Policy:**
+- Max 3 retries with exponential backoff (1s, 2s, 4s)
+- Do NOT retry on: 4xx errors (except 408, 429), invalid auth
+- DO retry on: 5xx, 408, 429 (rate limit)
+
+**UX Patterns:**
+- **Global ErrorBoundary:** Catches React component crashes, displays fallback UI, logs error
+- **Per-Component Error:** Forms, async operations show inline error messages
+- **Toast/Notification:** Success messages (2s), warnings (4s), errors (6s or user dismissal)
+- **Retry UI:** Show retry button for recoverable errors (network failures, timeouts)
+
+---
+
+## 14. Loading States
+
+**Skeleton/Spinner Techniques:**
+- **Test Page Loading:** Show skeleton placeholders for passage, questions, timer
+- **Question Carousel:** Loading spinner while loading next question or checking answers
+- **Audio Loading:** Spinner for audio playback initialization (reading passages, listening comprehension)
+- **Results Page:** Progressive loading of score breakdown, detailed feedback
+
+**Implementation:**
+- Use CSS spinners or Framer Motion for animations
+- Show estimated remaining time: "Loading... (2s)"
+- For long operations (>3s), show progress bar with percentage
+
+---
+
+## 15. API Structure
+
+**Base URL:** `https://api.englishexamexcellence.com` (or local: `http://localhost:5000`)
+
+**Core Resources:**
+- `/tests` - Full test metadata (id, title, description, duration, sections)
+- `/passages` - Reading/listening passages (id, content, audio URL, length)
+- `/questions` - Questions within a passage (id, type, text, options, correctAnswer)
+- `/results` - User test results (userId, testId, score, answers submitted, timestamp)
+- `/xp` - User XP data (totalXP, badges, tier level)
+
+**Request/Response Format:**
+```json
+{
+  "data": { ...resource data... },
+  "status": "success | error",
+  "message": "Optional message",
+  "pagination": { "page": 1, "limit": 20, "total": 100 }
+}
+```
+
+**Authentication Headers:**
+```
+Authorization: Bearer {accessToken}
+Content-Type: application/json
+```
+
+**Pagination:**
+- Query: `?page=1&limit=20`
+- Response includes `pagination.total` for record count
+
+---
+
+## 16. State Management
+
+**Zustand Store Architecture:**
+
+**1. Auth Store** (`authStore`)
+- State: `{ user, accessToken, refreshToken, isAuthenticated, role }`
+- Actions: `login(email, password)`, `logout()`, `refreshAuth()`, `updateUser(patch)`
+- Selectors: `useAuthStore(state => state.user)`, `useAuthStore(state => state.isAuthenticated)`
+
+**2. Test Store** (`testStore`)
+- State: `{ currentTest, currentQuestion, userAnswers, startTime, timerRunning, score }`
+- Actions: `loadTest(testId)`, `submitAnswer(questionId, value)`, `nextQuestion()`, `previousQuestion()`, `finishTest()`
+- Selectors: `useTestStore(state => state.currentTest)`, `useTestStore(state => state.userAnswers)`
+
+**3. UI Store** (`uiStore`)
+- State: `{ sidebarOpen, activeTab, modal, notification }`
+- Actions: `toggleSidebar()`, `setActiveTab(tab)`, `openModal(type, data)`, `closeModal()`, `showNotification(message, type)`
+- Selectors: `useUIStore(state => state.sidebarOpen)`, `useUIStore(state => state.modal)`
+
+**Key Methods & Selectors for Components:**
+- **Navbar:** `useAuthStore((state) => state.user)`, `useAuthStore((state) => state.isAuthenticated)`, action: `logout()`
+- **DashboardWrapper:** Uses all three stores for layout context
+- **BrandTestHub:** `useTestStore((state) => state.currentTest)`, action: `loadTest(hubKey)`
+- **TestPage:** `useTestStore((state) => state.userAnswers)`, `useTestStore((state) => state.timerRunning)`, action: `submitAnswer(id, value)`
 
 ---
 
@@ -406,7 +563,12 @@ These are the core exercise components - **each has unique UI patterns**:
 4. **Consistent component patterns** - For 15+ question types
 5. **Mobile-friendly** - Many users practice on phones
 6. **Gamification integration** - XP should be visually appealing
-7. **Accessibility** - Clear contrast, readable fonts
+7. **Accessibility** - WCAG 2.1 AA compliance with:
+   - **Keyboard Navigation:** Tab order follows visual flow, focusable elements clearly indicated, focus traps in modals/dropdowns, standard keyboard shortcuts (Escape closes modals, Enter submits forms)
+   - **Screen Reader Support:** Semantic HTML (proper heading hierarchy, nav elements, form labels), ARIA attributes (aria-label for icon buttons, aria-live for dynamic content, aria-expanded for toggles)
+   - **Focus Management:** Visible focus indicators (2px outline, 3:1 contrast), focus trap in modals (trap shift+tab at end), manage focus on page navigation
+   - **Contrast Ratios:** 4.5:1 for normal text, 3:1 for large text (18pt+), 3:1 for UI components; test with WCAG contrast checker
+   - **Accessible Forms:** Label each input, error messages linked to fields via aria-describedby, hint text visible
 
 ---
 

@@ -433,7 +433,7 @@ function App({ initialView }) {
       }
       
       // Navigate to /ielts/{hubKey} for all hubs
-      const hubPath = `/ielts/${hubKey.replace('_', '-')}`;
+      const hubPath = `/ielts/${hubKey.replaceAll('_', '-')}`;
       console.log('navigating to', hubPath);
       navigate(hubPath);
     } else {
