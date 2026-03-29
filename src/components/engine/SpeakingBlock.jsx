@@ -342,7 +342,6 @@ const SpeakingBlock = ({
             {showPartsTabs && (
               <div className="carousel-parts-tabs" style={{ marginTop: '20px', justifyContent: 'center' }}>
                 {skillSections.map((s, idx) => {
-                  const partTitle = `Part ${idx + 1}`;
                   const sidx = sections.findIndex(sec => sec === s);
                   return (
                     <button 
@@ -353,7 +352,7 @@ const SpeakingBlock = ({
                         if (setIsReviewMode) setIsReviewMode(false); 
                       }} 
                       className={`carousel-part-tab ${activeSectionIndex === sidx ? 'active' : ''}`}>
-                      {partTitle}
+                      {idx + 1}
                     </button>
                   );
                 })}

@@ -76,7 +76,7 @@
   --surface-dim: #f2d3d3;
   
   /* Primary Colors */
-  --primary: #b80035;
+  --primary: darkred;
   --primary-container: #e11d48;
   --on-primary: #ffffff;
   --on-primary-container: #fffaf9;
@@ -118,13 +118,18 @@
 
   /* Legacy Invictus tokens (for backward compatibility) */
   --invictus-font: 'Plus Jakarta Sans', sans-serif;
-  --invictus-red: #b80035;
-  --invictus-red-pale: #fff0f0;
-  --invictus-red-dark: #8a0025;
-  --invictus-slate: #281718;
   --invictus-gray-100: #f2d3d3;
   --invictus-gray-200: #e5bdbe;
   --invictus-radius: 8px;
+
+  /* DrillsHub */
+    --drills-amber: #f59e0b;
+  --drills-amber-dark: #d97706;
+  --on-surface: #1f1b1b;
+  --on-surface-variant: #534343;
+  --bg-subtle: #fcf8f8;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 /* --- 3. RESET & BASE --- */
@@ -186,6 +191,9 @@ body {
   font-size: 14px;
   letter-spacing: -0.01em;
 }
+
+
+
 
 /* --- 5. DARK MODE (Invictus Dark Obsidian) --- */
 @media (prefers-color-scheme: dark) {

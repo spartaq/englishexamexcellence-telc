@@ -96,9 +96,9 @@ const FlashcardBlock = ({
   // If no words available, show message and allow completion
   if (words.length === 0) {
     return (
-      <div className="invictus-vocab-session-layout">
-        <div className="vocab-container">
-          <div className="vocab-empty">
+      <div className="invictus-flashcard-session-layout">
+        <div className="flashcard-container">
+          <div className="flashcard-empty">
             <h3>No vocabulary words available</h3>
             <p>This exercise needs a words array to display.</p>
             <button 
@@ -138,10 +138,10 @@ const FlashcardBlock = ({
   };
 
   return (
-    <div className="invictus-vocab-session-layout">
+    <div className="invictus-flashcard-session-layout">
       {/* MAIN CONTENT AREA */}
-      <main className="vocab-main-content">
-        <div className="vocab-main-content-inner">
+      <main className="flashcard-main-content">
+        <div className="flashcard-main-content-inner">
           <div className="content-grid">
             {/* LEFT PANEL: SESSION CONFIGURATION */}
             <section className="session-config">
@@ -237,6 +237,36 @@ const FlashcardBlock = ({
                 className={`flashcard-container ${flipStage > 0 ? 'flipped' : ''}`} 
                 onClick={handleCardClick}
               >
+                {/* Navigation Arrows */}
+                <button
+                  className="flashcard-nav-arrow flashcard-nav-prev"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (currentIndex > 0) {
+                      setCurrentIndex(prev => prev - 1);
+                      setFlipStage(0);
+                    }
+                  }}
+                  disabled={currentIndex === 0}
+                  aria-label="Previous card"
+                >
+                  <span className="material-symbols-outlined">chevron_left</span>
+                </button>
+                
+                <button
+                  className="flashcard-nav-arrow flashcard-nav-next"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (currentIndex < words.length - 1) {
+                      setCurrentIndex(prev => prev + 1);
+                      setFlipStage(0);
+                    }
+                  }}
+                  disabled={currentIndex === words.length - 1}
+                  aria-label="Next card"
+                >
+                  <span className="material-symbols-outlined">chevron_right</span>
+                </button>
                 {/* Clinical Grid Sub-texture */}
                 <div className="grid-texture"></div>
                 

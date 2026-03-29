@@ -383,13 +383,19 @@ const Engine = ({
   // Render passage content
   const renderContent = () => {
     const content = currentPassage?.content;
+    const passageTitle = currentPassage?.title;
+    const passageSubtitle = currentPassage?.subtitle;
     
     if (typeof content === 'string') {
       return (
-        <div 
-          className="invictus-content-text" 
-          dangerouslySetInnerHTML={{ __html: content }} 
-        />
+        <>
+          {passageSubtitle && <p className="invictus-content-subtitle">{passageSubtitle}</p>}
+          {passageTitle && <h2 className="invictus-content-title">{passageTitle}</h2>}
+          <div 
+            className="invictus-content-text" 
+            dangerouslySetInnerHTML={{ __html: content }} 
+          />
+        </>
       );
     }
 
@@ -399,6 +405,8 @@ const Engine = ({
       if (isObjectFormat) {
         return (
           <>
+            {passageSubtitle && <p className="invictus-content-subtitle">{passageSubtitle}</p>}
+            {passageTitle && <h2 className="invictus-content-title">{passageTitle}</h2>}
             {content.map((paragraph) => (
               <div key={paragraph.id} className="invictus-paragraph-container">
                 <span className="invictus-paragraph-id">
@@ -414,6 +422,8 @@ const Engine = ({
       } else {
         return (
           <>
+            {passageSubtitle && <p className="invictus-content-subtitle">{passageSubtitle}</p>}
+            {passageTitle && <h2 className="invictus-content-title">{passageTitle}</h2>}
             {content.map((htmlSnippet, index) => (
               <div 
                 key={index} 

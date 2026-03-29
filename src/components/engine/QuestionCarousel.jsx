@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Check } from 'lucide-react';
 import './QuestionCarousel.css';
 
 const QuestionCarousel = ({ 
@@ -98,7 +99,6 @@ const QuestionCarousel = ({
           {showPartsTabs && (
             <div className="carousel-parts-tabs">
               {skillSections.map((s, idx) => {
-                const partTitle = `Part ${idx + 1}`;
                 const sidx = sections.findIndex(sec => sec === s);
                 return (
                   <button 
@@ -109,7 +109,7 @@ const QuestionCarousel = ({
                       if (setIsReviewMode) setIsReviewMode(false); 
                     }} 
                     className={`carousel-part-tab ${activeSectionIndex === sidx ? 'active' : ''}`}>
-                    {partTitle}
+                    {idx + 1}
                   </button>
                 );
               })}
@@ -123,7 +123,7 @@ const QuestionCarousel = ({
               aria-label={isReviewMode ? "Hide Answers" : "Check Answers"}
               className="carousel-check-btn"
             >
-              {isReviewMode ? "Hide Answers" : "Check Answers"}
+              <Check size={18} />
             </button>
           )}
         </div>

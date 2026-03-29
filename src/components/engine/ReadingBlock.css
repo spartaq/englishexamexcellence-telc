@@ -20,7 +20,7 @@
   margin-bottom: 12px;
 }
 
-/* Paragraph letter (A, B, C...) - red with pink background */
+/* Paragraph letter (A, B, C...) - red box with pink background */
 .invictus-paragraph-letter {
   display: inline-flex;
   align-items: center;
@@ -31,6 +31,7 @@
   color: #e11d48; /* red text */
   font-weight: 700;
   font-size: 14px;
+  border: 2px solid #e11d48; /* red border */
   border-radius: 4px;
   margin-right: 10px;
   margin-top: 2px;
@@ -65,7 +66,7 @@
 @media (max-width: 768px) {
   .invictus-reading-layout {
     flex-direction: column;
-    height: auto;
+    height: 100vh;
   }
   
   .invictus-content-text {
@@ -103,8 +104,7 @@
 @media (max-width: 480px) {
   .invictus-reading-layout {
     flex-direction: column;
-    height: auto;
-    max-height: 87vh;
+    height: 100vh;
   }
 
   .invictus-content-text {

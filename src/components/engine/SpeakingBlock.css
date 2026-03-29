@@ -563,7 +563,7 @@
 /* Mobile styles for SpeakingBlock */
 @media (max-width: 768px) {
   .speaking-container {
-    height: calc(100vh - 100px) !important;
+    height: 100vh;
     min-height: 400px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -619,7 +619,7 @@
 /* Mobile (400px target) */
 @media (max-width: 480px) {
   .speaking-container {
-    height: calc(100vh - 100px) !important;
+    height: 100vh;
     min-height: 300px;
     overflow-y: auto;
   }
@@ -673,46 +673,7 @@
 
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --surface-container-lowest: #1a1415;
-    --surface-container-low: #2d1a1b;
-    --surface-container: #3d2527;
-    --surface-container-high: #4d2f31;
-    --surface-container-highest: #5e393b;
-    --surface-dim: #1a1415;
-    
-    --primary: #ffb3b6;
-    --primary-container: #b80035;
-    --on-primary: #690011;
-    --on-primary-container: #ffdada;
-    --primary-fixed: #930028;
-    --primary-fixed-dim: #ffb3b6;
-    
-    --secondary: #ffb3b6;
-    --secondary-container: #a83544;
-    --on-secondary: #680011;
-    --on-secondary-container: #ffdada;
-    
-    --tertiary: #74d8bd;
-    --tertiary-container: #005142;
-    --on-tertiary: #003722;
-    --on-tertiary-container: #90f5d9;
-    
-    --error: #ffb4ab;
-    --error-container: #93000a;
-    --on-error: #690005;
-    --on-error-container: #ffdad6;
-    
-    --surface-variant: #5e393b;
-    --on-surface-variant: #e5bdbe;
-    --outline: #8f5254;
-    --outline-variant: #5e393b;
-    
-    --on-surface: #f2d3d3;
-    --on-background: #f2d3d3;
-    --background: #1a1415;
-  }
-  
+   
   .speaking-container {
     background: var(--surface-container-lowest);
   }

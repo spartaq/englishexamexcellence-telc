@@ -129,16 +129,13 @@ const BrandTestHub = ({
               
               return (
                 <div key={mock.id} className={`exam-list-item ${!hasAccess ? 'locked-item' : ''}`}>
-                  <div className="exam-id">#{mock.mockNumber}</div>
-                  <div className="exam-info">
+                    <div className="exam-info">
                     <div className="exam-title">
                         {mock.title} 
                         {!hasAccess && <Lock size={14} style={{ marginLeft: '8px', color: '#94a3b8' }} />}
                     </div>
                     <div className="exam-meta">
-                      <span>{mock.type}</span>
-                      <span>•</span>
-                      <span className={`tier-text ${mock.tier}`}>{mock.tier.toUpperCase()} TIER</span>
+                  <span className={`tier-text ${mock.tier}`}>{mock.tier.toUpperCase()} TIER</span>
                     </div>
                   </div>
                   

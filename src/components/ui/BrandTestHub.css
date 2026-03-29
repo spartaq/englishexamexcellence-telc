@@ -3,7 +3,7 @@
    ============================================================================= */
 
 .ielts-hub-container {
-  /*background-color: var(--invictus-red-pale);*/
+  /*background-color: var(--invictus-red);*/
   min-height: 100vh;
   padding: 20px 0px 80px 0px;
 }
@@ -76,7 +76,7 @@
 }
 
 .btn-white {
-  background: white;
+  background: var(--surface-white);
   color: var(--invictus-red);
   padding: 14px 28px;
   border-radius: 10px;
@@ -132,7 +132,7 @@
 }
 
 .quick-card {
-  background: white;
+  background: var(--surface-white);
   padding: 40px;
   border-radius: 20px;
   border: 1px solid var(--invictus-gray-200);
@@ -149,7 +149,7 @@
 .quick-icon-box {
   width: 48px;
   height: 48px;
-  background: var(--invictus-red-pale);
+  background: var(--invictus-red);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -160,7 +160,7 @@
 
 /* --- 3. THE EXAM ARCHIVE (LIST VIEW) --- */
 .exam-archive-container {
-  background: white;
+  background: var(--surface-white);
   border-radius: 16px;
   margin: 0 40px 40px;
   padding: 24px;
@@ -192,7 +192,7 @@
 }
 
 .search-input-wrapper input:focus {
-  background: white;
+  background: var(--surface-white);
   border-color: var(--invictus-red);
   outline: none;
   box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.05);
@@ -219,7 +219,7 @@
 }
 
 .filter-tab.active {
-  background: white;
+  background: var(--surface-white);
   color: var(--invictus-red);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
@@ -238,7 +238,7 @@
 }
 
 .exam-list-item:hover {
-  background: var(--invictus-red-pale);
+  background: var(--invictus-red);
 }
 
 .exam-id {
@@ -293,7 +293,7 @@
 }
 
 .hub-card {
-  background: white;
+  background: var(--surface-white);
   border-radius: 20px;
   border: 1px solid var(--invictus-gray-200);
   overflow: hidden;
@@ -322,7 +322,7 @@
 .btn-hub {
   width: 100%;
   padding: 14px;
-  background: white;
+  background: var(--surface-white);
   border: 1px solid var(--invictus-gray-200);
   border-radius: 10px;
   font-weight: 700;
@@ -340,6 +340,12 @@
   .quick-start-grid, .precision-grid {
     grid-template-columns: 1fr;
   }
+   .ielts-hero-banner {
+    padding: 24px 16px;
+    margin: 16px;
+    border-radius: 16px;
+  }
+
 }
 
 /* Mobile (400px target) */

@@ -5,6 +5,17 @@
 
 /* --- THE SPLIT PANE SYSTEM --- */
 
+/* Engine Container - wraps the entire engine */
+.invictus-engine-container {
+  flex: 1;
+  width: 100%;
+  /*max-width: var(--max-content-width);*/
+  margin: 0 auto;
+  padding: 0 20px 0 20px;
+  overflow-y: auto;
+  background: var(--bg-app);
+}
+
 .engine-exercise-panel {
   background: var(--bg-app);
   height: 100%;
@@ -23,7 +34,7 @@
 }
 
 /* Content Column: Keep it white for maximum reading contrast */
-.invictus-content-column {
+.invictus-content-column  {
   flex: 65;
   overflow-y: auto;
   padding: 40px;
@@ -285,6 +296,31 @@
   font-weight: 700;
 }
 
+/* --- PARAGRAPH CONTAINER --- */
+.invictus-paragraph-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+/* --- PARAGRAPH ID (A, B, C...) - Red Box --- */
+.invictus-paragraph-id {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 26px;
+  background-color: #fce7f3; /* pink background */
+  color: #e11d48; /* red text */
+  font-weight: 700;
+  font-size: 14px;
+  border: 2px solid #e11d48; /* red border */
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
 /* --- CONTENT HEADER (Title & Subtitle) --- */
 
 .invictus-content-header {
@@ -340,15 +376,17 @@
   .invictus-split-pane-layout {
     flex-direction: column;
     height: auto;
-    min-height: calc(100vh - 165px);
+    min-height: calc(100vh - 48px);
   }
 
   .invictus-content-column {
-    max-height: 40vh;
+    flex: 60;
     padding: 12px;
     border-right: none;
     border-bottom: 1px solid rgba(211, 47, 47, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    overflow-y: auto;
+    min-height: 0;
   }
 
   .invictus-content-column h2 {
@@ -362,12 +400,13 @@
   }
 
   .invictus-question-column {
+    flex: 40;
     padding: 16px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
-    max-height: 48vh;
     min-width: 0;
+    min-height: 0;
   }
 
   .invictus-total-range {

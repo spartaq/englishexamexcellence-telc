@@ -166,7 +166,6 @@ const WritingBlock = ({
             {showPartsTabs && (
               <div className="carousel-parts-tabs">
                 {skillSections.map((s, idx) => {
-                  const partTitle = `Part ${idx + 1}`;
                   const sidx = sections.findIndex(sec => sec === s);
                   return (
                     <button 
@@ -177,7 +176,7 @@ const WritingBlock = ({
                         if (setIsReviewMode) setIsReviewMode(false); 
                       }} 
                       className={`carousel-part-tab ${activeSectionIndex === sidx ? 'active' : ''}`}>
-                      {partTitle}
+                      {idx + 1}
                     </button>
                   );
                 })}

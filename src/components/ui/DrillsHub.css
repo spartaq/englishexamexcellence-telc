@@ -1,13 +1,3 @@
-:root {
-  --drills-amber: #f59e0b;
-  --drills-amber-dark: #d97706;
-  --on-surface: #1f1b1b;
-  --on-surface-variant: #534343;
-  --bg-subtle: #fcf8f8;
-  --border-subtle: rgba(0, 0, 0, 0.08);
-  --font-mono: 'JetBrains Mono', monospace;
-}
-
 .drills-hub {
   padding: 2rem;
   max-width: 1400px;

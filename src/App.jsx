@@ -65,7 +65,7 @@ import { getAtomsFromMocks, pluckRandom, getVocabById, pluckRandomFullMock, find
 import { getMockById } from './data/IELTS/mocks';
 
 // ============================================================
-// CHAPTER 2: THE SYLLABUS (EXAM CONFIGURATIONS)
+// CHAPTER 2: THE SYLLABUS (EXAM CONFIGURATIONS) Landing page
 // ============================================================
 const TEST_PLATFORM_CONFIG = {
   ielts: {

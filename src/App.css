@@ -108,6 +108,7 @@
   background: var(--bg-app);
   /*grid-column: 2;*/
   grid-row: 2;
+  overflow: hidden;
 }
 
 .invictus-workspace {
@@ -130,8 +131,8 @@
   width: 100%;
   grid-column: 1 / -1;
   grid-row: 1;
-  background: var(--invictus-red-pale);
-  border-bottom: 2px solid var(--invictus-red-pale);
+  background: var(--invictus-red);
+  border-bottom: 2px solid var(--invictus-red);
   padding: 0 40px;
   display: flex;
   justify-content: space-between;
@@ -199,22 +200,7 @@
   color: var(--invictus-red);
 }
 
-/* Finish button */
-.invictus-finish-btn {
-  background: var(--invictus-red);
-  color: white;
-  padding: 10px 24px;
-  border-radius: 8px;
-  font-weight: 700;
-  border: none;
-  transition: all 0.2s;
-  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.15);
-}
 
-.invictus-finish-btn:hover {
-  background: var(--invictus-red-dark);
-  transform: translateY(-1px);
-}
 
 /* Mobile responsive */
 @media (max-width: 768px) {
@@ -368,15 +354,7 @@
   text-transform: uppercase;
 }
 
-/* --- ENGINE CONTAINER --- Invictus Style this is key for unified styles*/
-.invictus-engine-container {
-  flex: 1;
-  width: 100%;
-  /*max-width: var(--max-content-width);*/
-  margin: 0 auto;
-  padding: 0 20px 0 20px;
-  overflow-y: auto;
-}
+
 
 .invictus-header-logo {
   font-weight: 800;
@@ -403,21 +381,7 @@
   transform: translateX(-2px);
 }
 
-.invictus-finish-btn {
-  background: var(--invictus-red);
-  color: white;
-  padding: 10px 24px;
-  border-radius: 8px;
-  font-weight: 700;
-  border: none;
-  transition: all 0.2s;
-  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.15);
-}
 
-.invictus-finish-btn:hover {
-  background: var(--invictus-red-dark);
-  transform: translateY(-1px);
-}
 
 /* --- MOBILE NAV --- */
 @media (max-width: 768px) {
@@ -512,6 +476,7 @@
     flex-direction: column;
     grid-template-columns: 1fr;
     min-height: 100vh;
+    overflow: hidden;
   }
 
   .invictus-app-shell > * {
@@ -520,7 +485,8 @@
   }
 
   .invictus-header {
-    position: relative;
+    position: sticky;
+    top: 0;
     height: auto;
     min-height: 48px;
     padding: 8px 12px;
@@ -533,6 +499,7 @@
     width: 100%;
     grid-column: 1;
     grid-row: 1;
+    z-index: 100;
   }
 
   .invictus-header-left {
@@ -596,11 +563,4 @@
 
 }
 
-/* ============================================
-   ENGINE SPECIFIC OVERRIDES
-   ============================================ */
 
-.invictus-engine-container {
-  width: 100%;
-  height: 100%;
-}
