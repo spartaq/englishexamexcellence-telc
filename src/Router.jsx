@@ -47,26 +47,6 @@ const Router = () => {
           <App initialView="ielts-academic-mini-test" />
         </ProtectedRoute>
       } />
-      <Route path="/ielts/general-full-test" element={
-        <ProtectedRoute>
-          <App initialView="ielts-general-full-test" />
-        </ProtectedRoute>
-      } />
-      <Route path="/ielts/academic-full-test" element={
-        <ProtectedRoute>
-          <App initialView="ielts-academic-full-test" />
-        </ProtectedRoute>
-      } />
-      <Route path="/ielts/general-full-individual" element={
-        <ProtectedRoute>
-          <App initialView="ielts-general-full-individual" />
-        </ProtectedRoute>
-      } />
-      <Route path="/ielts/academic-full-individual" element={
-        <ProtectedRoute>
-          <App initialView="ielts-academic-full-individual" />
-        </ProtectedRoute>
-      } />
       <Route path="/ielts/reading-academic" element={
         <ProtectedRoute>
           <App initialView="reading_academic" />
@@ -107,31 +87,11 @@ const Router = () => {
           <App initialView="drillshub" />
         </ProtectedRoute>
       } />
-      <Route path="/ielts/mini-individual" element={
-        <ProtectedRoute>
-          <App initialView="ielts-mini-individual" />
-        </ProtectedRoute>
-      } />
-      <Route path="/ielts/full-individual" element={
-        <ProtectedRoute>
-          <App initialView="ielts-full-individual" />
-        </ProtectedRoute>
-      } />
       
       {/* LangCert routes - exam-based routing */}
       <Route path="/langcert" element={
         <ProtectedRoute>
           <App initialView="langcert-hub" />
-        </ProtectedRoute>
-      } />
-      <Route path="/langcert/test-hub" element={
-        <ProtectedRoute>
-          <App initialView="langcert-test-hub" />
-        </ProtectedRoute>
-      } />
-      <Route path="/langcert/reading" element={
-        <ProtectedRoute>
-          <App initialView="langcert_reading" />
         </ProtectedRoute>
       } />
       
@@ -141,11 +101,7 @@ const Router = () => {
           <App initialView="toefl-hub" />
         </ProtectedRoute>
       } />
-      <Route path="/toefl/test-hub" element={
-        <ProtectedRoute>
-          <App initialView="toefl-test-hub" />
-        </ProtectedRoute>
-      } />
+      
     </Routes>
   );
 };

@@ -42,8 +42,8 @@ const BrandTestHub = ({
       {/* --- 1. WELCOME HERO SECTION --- */}
       <header className="ielts-hero-banner">
         <div className="hero-content">
-          <span className="hero-badge">Exam Training System</span>
-          <h1 className="hero-title">{activeTest?.title || 'Exam Hub'}</h1>
+          <span className="hero-badge">IELTS PRactice Tests</span>
+          <h1 className="hero-title">{activeTest?.title || 'IELTS Hub'}</h1>
           <p className="hero-subtitle">
             Stop practicing. Start training. Build skills daily with Atoms, 
             or test your stamina with our full mock exam archive.

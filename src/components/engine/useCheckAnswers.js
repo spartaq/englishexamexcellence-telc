@@ -2,344 +2,141 @@ import { useCallback } from 'react';
 
 /**
  * Custom hook for handling check answers logic
- * Extracts the scoring and evaluation logic from App.jsx
  */
 const useCheckAnswers = ({
   activeLesson,
   activeSectionIndex,
   activePassageIndex,
   userAnswers,
-  gapFillSelections,
-  headingSelections,
   activeTest,
 }) => {
   
-  // Helper to get any stored answer
+  // 1. HELPER: Get answer from any possible state bucket (Unified)
   const getAnyStoredAnswer = useCallback((questionId) => {
     if (userAnswers && userAnswers[questionId] !== undefined) {
       return userAnswers[questionId];
     }
-    if (gapFillSelections && gapFillSelections[questionId]) {
-      return gapFillSelections[questionId];
-    }
     return null;
-  }, [userAnswers, gapFillSelections]);
+  }, [userAnswers]);
 
-  // Flatten questions from lesson
+  // 2. HELPER: The "Crawler" - turns a complex lesson into a flat list of questions
   const getFlattenedQuestions = useCallback((lesson) => {
-    const questions = [];
-    
-    const extractFromSection = (section, passageTitle) => {
-      // Get passages
-      const passages = section?.passages || [];
-      passages.forEach(passage => {
-        const subTasks = passage?.subTasks || passage?.questions || [];
-        subTasks.forEach(task => {
-          // If task has nested questions
-          if (task.questions && Array.isArray(task.questions)) {
-            task.questions.forEach(q => {
-              questions.push({
-                ...q,
-                passage: passage.title || passageTitle
-              });
-            });
-          } else {
-            questions.push({
-              ...task,
-              passage: passage.title || passageTitle
-            });
-          }
-        });
-      });
+    let flat = [];
+    const crawl = (obj) => {
+      if (!obj || typeof obj !== 'object') return;
       
-      // Also check section-level questions
-      if (section.questions && Array.isArray(section.questions)) {
-        section.questions.forEach(task => {
-          if (task.questions && Array.isArray(task.questions)) {
-            task.questions.forEach(q => {
-              questions.push({
-                ...q,
-                passage: section.title
-              });
-            });
-          } else {
-            questions.push({
-              ...task,
-              passage: section.title
-            });
-          }
-        });
+      // It's a question if it has an ID and an answer
+      const hasContent = obj.text || obj.question || obj.prompt || obj.stem || obj.label;
+      const hasAnswer = obj.answer !== undefined || obj.answers !== undefined || obj.correctIndex !== undefined;
+      
+      if (obj.id !== undefined && hasContent && hasAnswer) {
+        flat.push(obj);
       }
+
+      // Dig deeper into all possible nested keys
+      const childrenKeys = ['sections', 'passages', 'parts', 'questions', 'subTasks', 'labels', 'notes'];
+      childrenKeys.forEach(key => {
+        if (Array.isArray(obj[key])) obj[key].forEach(crawl);
+        else if (obj[key] && typeof obj[key] === 'object') crawl(obj[key]);
+      });
     };
-
-    if (lesson.sections) {
-      lesson.sections.forEach(section => {
-        extractFromSection(section, section.title);
-      });
-    } else if (lesson.passages) {
-      lesson.passages.forEach(passage => {
-        const subTasks = passage?.subTasks || passage?.questions || [];
-        subTasks.forEach(task => {
-          if (task.questions && Array.isArray(task.questions)) {
-            task.questions.forEach(q => {
-              questions.push({
-                ...q,
-                passage: passage.title
-              });
-            });
-          } else {
-            questions.push({
-              ...task,
-              passage: passage.title
-            });
-          }
-        });
-      });
-    } else if (lesson.questions) {
-      lesson.questions.forEach(q => {
-        questions.push(q);
-      });
-    }
-
-    return questions;
+    crawl(lesson);
+    return flat;
   }, []);
 
-  // Check answers and calculate results
+  // 3. HELPER: Check if a specific passage is 100% correct (UI helper)
+  const getPassageStatus = useCallback((passage, isReviewMode) => {
+    if (!isReviewMode || !passage) return null;
+    const questions = getFlattenedQuestions(passage);
+    if (questions.length === 0) return null;
+    
+    let correct = 0;
+    questions.forEach(q => {
+      const userVal = String(getAnyStoredAnswer(q.id) || "").trim().toLowerCase();
+      const correctVal = String(q.answer || q.correctIndex).trim().toLowerCase();
+      if (userVal === correctVal) correct++;
+    });
+    return correct === questions.length ? 'correct' : 'incorrect';
+  }, [getFlattenedQuestions, getAnyStoredAnswer]);
+
+  // 4. MAIN LOGIC: The Grading Engine
   const checkAnswers = useCallback((drillAnswers = null) => {
-    // Handle ielts-complex type differently - the lesson itself contains passages
+    // Context Detection
     const isIeltsComplex = activeLesson.type === 'ielts-complex' || activeLesson.type === 'READING';
     const currentSection = isIeltsComplex ? activeLesson : activeLesson.sections?.[activeSectionIndex];
     const passages = currentSection?.passages || [];
     const currentPassage = passages[activePassageIndex] || currentSection;
 
-    const isWritingTask = 
-      activeLesson.type?.includes('WRITING') || 
-      currentSection?.type === 'WRITING' || 
-      currentPassage?.type === 'WRITING' ||
-      activeLesson.type === 'writing-mock';
-
-    const isSpeakingTask = 
-      activeLesson.type?.includes('SPEAKING') || 
-      currentSection?.type === 'SPEAKING' || 
-      currentPassage?.type === 'SPEAKING' ||
-      activeLesson.type === 'ielts-speaking';
-
-    // Writing and speaking tasks are processed normally
-    // (they are handled differently via AI check answers)
-
     let results = { accuracy: 0, earnedXP: 0, isPerfect: false };
     let ieltsScore = null;
 
-    // Detect if this is an IELTS test
-    const isIELTS = 
-      activeTest?.id === 'ielts' || 
-      activeLesson.type?.includes('ielts') ||
-      activeLesson.id?.includes('ielts') ||
-      activeLesson.type === 'general-reading-mock' ||
-      activeLesson.type === 'academic-reading-mock' ||
-      activeLesson.type === 'ielts-listening-mock' ||
-      activeLesson.type === 'full-mock';
-    
-    console.log('[useCheckAnswers] isIELTS:', isIELTS, 'currentPassage:', currentPassage?.title, 'activeSectionIndex:', activeSectionIndex);
-    
-    const isReading = activeLesson.skill === 'reading' || 
-                     activeLesson.type === 'READING' ||
-                     activeLesson.type === 'reading' ||
-                     activeLesson.type === 'general-reading-mock' ||
-                     activeLesson.type === 'academic-reading-mock' ||
-                     currentSection?.type === 'READING' ||
-                     currentPassage?.type === 'READING';
-    const isListening = activeLesson.skill === 'listening' || 
-                        activeLesson.type === 'LISTENING' ||
-                        activeLesson.type === 'ielts-listening-mock' ||
-                        currentSection?.type === 'LISTENING' ||
-                        currentPassage?.type === 'LISTENING';
+    // IELTS Metadata
+    const isIELTS = activeTest?.id === 'ielts' || activeLesson.type?.includes('ielts') || activeLesson.type === 'full-mock';
+    const isReading = activeLesson.skill === 'reading' || activeLesson.type === 'READING' || currentSection?.type === 'READING';
+    const isGeneralTraining = activeLesson.type === 'general-training' || activeLesson.id?.includes('general');
 
-    // Determine test type for IELTS (academic vs general)
-    const isGeneralTraining = activeLesson.type === 'general-training' || 
-                               activeLesson.id?.includes('general');
-
-    // Handle special question types
+    // SCORING BY TYPE
+    // A. Heading Match
     if (activeLesson.type === 'heading-match') {
-      const totalQuestions = Object.keys(activeLesson.answers || {}).length;
+      const answers = activeLesson.answers || {};
+      const totalQuestions = Object.keys(answers).length;
       let correctCount = 0;
-      Object.keys(activeLesson.answers || {}).forEach(paraId => {
-        if (String(headingSelections[paraId]) === String(activeLesson.answers[paraId])) {
-          correctCount++;
-        }
+      Object.keys(answers).forEach(paraId => {
+        if (String(userAnswers[paraId]) === String(answers[paraId])) correctCount++;
       });
       const accuracy = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
-      results = { 
-        accuracy, 
-        earnedXP: Math.round((activeLesson.xpReward || 0) * (accuracy / 100)), 
-        isPerfect: accuracy >= 100 
-      };
+      results = { accuracy, earnedXP: Math.round((activeLesson.xpReward || 500) * (accuracy / 100)), isPerfect: accuracy >= 100 };
     } 
-    else if (activeLesson.type === 'token-select') {
-      const selected = userAnswers[activeLesson.id] || [];
-      // Simple evaluation
-      const correct = selected.filter((s, i) => 
-        activeLesson.correctTokens?.includes(s)
-      ).length;
-      const accuracy = selected.length > 0 ? Math.round((correct / selected.length) * 100) : 0;
-      results = { 
-        accuracy, 
-        earnedXP: Math.round((activeLesson.xpReward || 0) * (accuracy / 100)), 
-        isPerfect: accuracy >= 100 
-      };
-    } 
-    else if (activeLesson.type === 'gap-fill-tokens') {
-      const selections = gapFillSelections[activeLesson.id] || {};
-      const answers = activeLesson.answers || activeLesson.answer || [];
-      let correctCount = 0;
-      answers.forEach((answer, index) => {
-        const gapIndex = index + 1;
-        const userAnswer = selections[gapIndex];
-        if (userAnswer && userAnswer.toLowerCase() === answer.toLowerCase()) {
-          correctCount++;
-        }
-      });
-      const accuracy = answers.length > 0 ? Math.round((correctCount / answers.length) * 100) : 0;
-      results = { 
-        accuracy, 
-        earnedXP: Math.round((activeLesson.xpReward || 0) * (accuracy / 100)), 
-        isPerfect: accuracy >= 100 
-      };
-    } 
-    else if (activeLesson.type === 'punctuation-correction') {
-      const placements = userAnswers[activeLesson.id] || {};
-      const sentences = activeLesson.sentences || [];
-      let totalCorrect = 0;
-      let totalExpected = 0;
-      
-      sentences.forEach(sentence => {
-        const userPositions = new Set(placements[sentence.id] || []);
-        const expectedPositions = new Set(sentence.correctPositions || []);
-        
-        const correct = [...userPositions].filter(pos => expectedPositions.has(pos));
-        totalCorrect += correct.length;
-        totalExpected += expectedPositions.size;
-      });
-      
-      const accuracy = totalExpected > 0 ? Math.round((totalCorrect / totalExpected) * 100) : 0;
-      results = { 
-        accuracy, 
-        earnedXP: Math.round((activeLesson.xpReward || 0) * (accuracy / 100)), 
-        isPerfect: accuracy >= 100 
-      };
-    } 
+    // B. Token Select / Punctuation
+    else if (activeLesson.type === 'token-select' || activeLesson.type === 'punctuation-correction') {
+      const userSelections = userAnswers[activeLesson.id] || [];
+      const correctOnes = activeLesson.correctTokens || activeLesson.correctPositions || [];
+      const correct = userSelections.filter(s => correctOnes.includes(s)).length;
+      const accuracy = correctOnes.length > 0 ? Math.round((correct / correctOnes.length) * 100) : 0;
+      results = { accuracy, earnedXP: Math.round((activeLesson.xpReward || 300) * (accuracy / 100)), isPerfect: accuracy >= 100 };
+    }
+    // C. Standard Flow (MCQ, Short Answer, Gap Fill)
     else {
-      // For IELTS tests with passages, only check the current passage's questions
-      // to avoid showing results from other passages
-      let allQuestions;
-      console.log('[useCheckAnswers] Checking with isIELTS:', isIELTS, 'currentPassage:', currentPassage?.title);
-      if (isIELTS && currentPassage) {
-        // Extract questions from current passage's subTasks
-        const passageQuestions = [];
-        const subTasks = currentPassage?.subTasks || [];
-        console.log('[useCheckAnswers] subTasks length:', subTasks.length);
-        subTasks.forEach(task => {
-          if (task.questions && Array.isArray(task.questions)) {
-            task.questions.forEach(q => {
-              passageQuestions.push({
-                ...q,
-                passage: currentPassage.title
-              });
-            });
-          } else {
-            passageQuestions.push({
-              ...task,
-              passage: currentPassage.title
-            });
-          }
-        });
-        // Also check for direct questions on the passage
-        if (currentPassage.questions && Array.isArray(currentPassage.questions)) {
-          currentPassage.questions.forEach(q => {
-            passageQuestions.push({
-              ...q,
-              passage: currentPassage.title
-            });
-          });
-        }
-        console.log('[useCheckAnswers] passageQuestions count:', passageQuestions.length);
-        allQuestions = passageQuestions;
-      } else {
-        // Default: iterate through all flattened questions
-        console.log('[useCheckAnswers] Using getFlattenedQuestions fallback');
-        allQuestions = getFlattenedQuestions(activeLesson);
-      }
+      // For IELTS, we usually grade per passage. For drills, we grade the whole lesson.
+      const questionsToGrade = (isIELTS && currentPassage) 
+        ? getFlattenedQuestions(currentPassage) 
+        : getFlattenedQuestions(activeLesson);
+
       let correctCount = 0;
-      allQuestions.forEach(q => {
+      questionsToGrade.forEach(q => {
         const userVal = getAnyStoredAnswer(q.id);
-        const correctVal = q.answer;
+        const correctVal = q.answer ?? q.correctIndex;
+
         if (Array.isArray(correctVal)) {
           const isCorrect = Array.isArray(userVal) && 
-            correctVal.every((val, idx) => 
-              String(val).trim().toLowerCase() === String(userVal[idx] || "").trim().toLowerCase()
-            );
+            correctVal.every((val, idx) => String(val).trim().toLowerCase() === String(userVal[idx] || "").trim().toLowerCase());
           if (isCorrect) correctCount++;
         } else {
-          if (String(userVal || "").trim().toLowerCase() === String(correctVal || "").trim().toLowerCase()) {
-            correctCount++;
-          }
+          if (String(userVal || "").trim().toLowerCase() === String(correctVal || "").trim().toLowerCase()) correctCount++;
         }
       });
-      const accuracy = allQuestions.length > 0 ? Math.round((correctCount / allQuestions.length) * 100) : 0;
-      results = { 
-        accuracy, 
-        earnedXP: Math.round((activeLesson.xpReward || 0) * (accuracy / 100)), 
-        isPerfect: accuracy >= 100 
-      };
+
+      const accuracy = questionsToGrade.length > 0 ? Math.round((correctCount / questionsToGrade.length) * 100) : 0;
+      results = { accuracy, earnedXP: Math.round((activeLesson.xpReward || activeLesson.xp || 500) * (accuracy / 100)), isPerfect: accuracy >= 100 };
     }
 
-    // Apply IELTS scoring if applicable
+    // Apply IELTS Band Score math if applicable
     if (isIELTS && isReading) {
       const scaledMarks = results.isPerfect ? 40 : Math.round((results.accuracy / 100) * 40);
-      const testType = isGeneralTraining ? 'general' : 'academic';
-      ieltsScore = calculateIELTSReadingScore(scaledMarks, testType);
+      const thresholds = isGeneralTraining ? [0, 4, 6, 9, 12, 16, 20, 23, 27, 30] : [0, 3, 5, 8, 11, 15, 19, 22, 26, 29];
+      let band = 0;
+      for (let i = 9; i >= 0; i--) { if (scaledMarks >= thresholds[i]) { band = i; break; } }
+      ieltsScore = { band, marks: scaledMarks, maxMarks: 40 };
     }
 
-    return {
-      results,
-      ieltsScore,
-      isIELTS,
-      isReading,
-      isListening,
-      isGeneralTraining,
-      needsReflection: false
-    };
-  }, [
-    activeLesson,
-    activeSectionIndex,
-    activePassageIndex,
-    userAnswers,
-    gapFillSelections,
-    headingSelections,
-    activeTest,
-    getFlattenedQuestions,
-    getAnyStoredAnswer
-  ]);
-
-  // Simple IELTS score calculator (placeholder - use scoring utils in production)
-  const calculateIELTSReadingScore = (marks, testType) => {
-    const bands = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    const thresholds = testType === 'general' 
-      ? [0, 4, 6, 9, 12, 16, 20, 23, 27, 30]
-      : [0, 3, 5, 8, 11, 15, 19, 22, 26, 29];
-    
-    for (let i = thresholds.length - 1; i >= 0; i--) {
-      if (marks >= thresholds[i]) {
-        return { band: bands[i], marks, maxMarks: 40 };
-      }
-    }
-    return { band: 0, marks, maxMarks: 40 };
-  };
+    return { results, ieltsScore };
+  }, [activeLesson, activeSectionIndex, activePassageIndex, userAnswers, activeTest, getFlattenedQuestions, getAnyStoredAnswer]);
 
   return {
     checkAnswers,
     getFlattenedQuestions,
-    getAnyStoredAnswer
+    getAnyStoredAnswer,
+    getPassageStatus
   };
 };
 

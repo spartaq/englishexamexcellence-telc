@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, useParams } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './styles/globals.css';
 import './App.css';
 
@@ -7,106 +7,40 @@ import './App.css';
 // CHAPTER 1: THE TEACHER'S TOOLS (IMPORTS & ASSETS)
 // ============================================================
 import { 
-  LayoutDashboard, BookOpen, LogOut, Award, 
-  CheckCircle, XCircle, ArrowRight, Book, Mic, Headset, PenTool,
-  Zap, Library, Atom, RefreshCw
+  BookOpen, 
+  Mic, Headset, PenTool,
+  Zap, Library, RefreshCw
 } from 'lucide-react';
 // Navigation & Structure Components
-import LandingPage from './components/LandingPage/LandingPage';
 import BrandTestHub from './components/ui/BrandTestHub';
 import ExamDescription from './components/ui/IELTSExamDescription';
 import VocabHub from './components/ui/VocabHub';
 import DrillsHub from './components/ui/DrillsHub';
 import TaskSelection from './components/ui/TaskSelection';
-import PaywallModal from './components/ui/PaywallModal';
-
-// Experience & Feedback Components
-import XPBadge from './components/gamified/XPBadge';
 
 import ResultScreen from './components/engine/ResultScreen'; 
 
 // The Training Blocks (Engine Components)
 import Engine from './components/engine/Engine';
 import useCheckAnswers from './components/engine/useCheckAnswers';
-import ReadingBlock from './components/engine/ReadingBlock';
-import WritingBlock from './components/engine/WritingBlock';
-import SpeakingBlock from './components/engine/SpeakingBlock'; 
-import ListeningBlock from './components/engine/ListeningBlock'; 
-import MCQBlock from './components/engine/InteractiveBlocks/MCQBlock';
-import SentenceMatchingBlock from './components/engine/InteractiveBlocks/SentenceMatchingBlock';
-import TokenSelectBlock from './components/engine/InteractiveBlocks/TokenSelectBlock';
-import ReorderingBlock from './components/engine/InteractiveBlocks/ReorderingBlock';
-import FlashcardBlock from './components/engine/FlashcardBlock';
-import HeadingMatchBlock from './components/engine/InteractiveBlocks/HeadingMatchBlock';
-import SentenceCompleteBlock from './components/engine/InteractiveBlocks/SentenceCompleteBlock';
-import GapFillBlock from './components/engine/InteractiveBlocks/GapFillBlock';
-import TrinaryBlock from './components/engine/InteractiveBlocks/TrinaryBlock';
-import MatchingChoiceBlock from './components/engine/InteractiveBlocks/MatchingChoiceBlock';
-import MatchingFeaturesBlock from './components/engine/InteractiveBlocks/MatchingFeaturesBlock';
-import SmartInputBlock from './components/engine/InteractiveBlocks/SmartInputBlock';
-import ShortAnswerBlock from './components/engine/InteractiveBlocks/ShortAnswerBlock';
-import DiagramLabelBlock from './components/engine/InteractiveBlocks/DiagramLabelBlock';
-import TableCompletionBlock from './components/engine/InteractiveBlocks/TableCompletionBlock';
-import FlowChartCompletionBlock from './components/engine/InteractiveBlocks/FlowChartCompletionBlock';
-import NotesCompletionBlock from './components/engine/InteractiveBlocks/NotesCompletionBlock';
-import PunctuationCorrectionBlock from './components/engine/InteractiveBlocks/PunctuationCorrectionBlock';
 
 // Behind-the-Scenes (Data, Hooks & Utilities)
-import { HUBS, ieltsMocks, lessonDatabase } from './data/index';
-import { loadFullLesson } from './utils/lessonLoader';
-import { ATOM_HUB } from './data/IELTS/atoms';
 import { useActive } from './hooks/useActive';
 import { useXP } from './hooks/useXP';
 import { useExamStore } from './store/useExamStore';
 import ScrollToTop from './scrollToTop';
-import { evaluateDrill } from './utils/evaluate';
-import { calculateIELTSReadingScore, calculateIELTSListeningScore, calculateIELTSScore, calculateAccuracy } from './utils/scoring/index';
-import { getAtomsFromMocks, pluckRandom, getVocabById, pluckRandomFullMock, findVocabFromReading, pluckSingleSpeakingPart } from './utils/mockPlucker';
+import { pluckRandom, pluckRandomFullMock, findVocabFromReading, pluckSingleSpeakingPart } from './utils/mockPlucker';
+import { resolvePath, resolveSection } from './utils/NavigationResolver';
 import { getMockById } from './data/IELTS/mocks';
+import { LessonFactory } from './utils/LessonFactory';
+
+// Layout Shell Components
+import AppShell from './components/ui/AppShell';
+import LessonHeaderTabs from './components/ui/LessonHeaderTabs';
 
 // ============================================================
-// CHAPTER 2: THE SYLLABUS (EXAM CONFIGURATIONS) Landing page
+// CHAPTER 2: 
 // ============================================================
-const TEST_PLATFORM_CONFIG = {
-  ielts: {
-    id: 'ielts',
-    title: 'IELTS',
-    description: 'Complete Academic and General Training prep',
-    color: '#e11d48',
-    modules: [
-      { id: 'reading_ac', title: 'Academic Reading', icon: <BookOpen size={20} />, hubKey: 'reading_academic' },
-      { id: 'reading_gt', title: 'General Reading', icon: <BookOpen size={20} />, hubKey: 'reading_general' },
-      { id: 'writing_ac', title: 'Academic Writing', icon: <PenTool size={20} />, hubKey: 'writing_academic' },
-      { id: 'writing_gt', title: 'General Writing', icon: <PenTool size={20} />, hubKey: 'writing_general' },
-      { id: 'listening', title: 'Listening', icon: <Headset size={20} />, hubKey: 'listening' },
-      { id: 'speaking', title: 'Speaking', icon: <Mic size={20} />, hubKey: 'speaking' },
-    ]
-  },
-  langcert: {
-    id: 'langcert',
-    title: 'LangCert',
-    description: 'International ESOL qualification',
-    color: '#2563eb',
-    modules: [
-      { id: 'speaking', title: 'Speaking', icon: <Mic size={20} />, hubKey: 'speaking' },
-      { id: 'reading', title: 'Reading', icon: <BookOpen size={20} />, hubKey: 'langcert_reading' },
-    ]
-  },
-  toefl: {
-    id: 'toefl',
-    title: 'TOEFL',
-    description: 'Test of English as a Foreign Language',
-    color: '#3b82f6',
-    modules: [
-      { id: 'r_ac', title: 'Academic Reading', icon: <BookOpen size={20} />, hubKey: 'reading_academic' },
-      { id: 'r_gt', title: 'General Reading', icon: <BookOpen size={20} />, hubKey: 'reading_general' },
-      { id: 'w_ac', title: 'Academic Writing', icon: <PenTool size={20} />, hubKey: 'writing_academic' },
-      { id: 'w_gt', title: 'General Writing', icon: <PenTool size={20} />, hubKey: 'writing_general' },
-      { id: 'listening', title: 'Listening', icon: <Headset size={20} />, hubKey: 'listening' },
-      { id: 'speaking', title: 'Speaking', icon: <Mic size={20} />, hubKey: 'speaking' },
-    ]
-  }
-};
 
 const EXTRA_TOOLS = [
   { 
@@ -126,6 +60,7 @@ const EXTRA_TOOLS = [
     color: '#f59e0b' 
   }
 ];
+
 
 function App({ initialView }) {
   // ============================================================
@@ -153,18 +88,16 @@ function App({ initialView }) {
     return () => clearTimeout(timer);
   }, []);
 
+  // handle update answer
+const handleUpdateAnswer = useCallback((qId, val) => {
+  setUserAnswers(prev => ({ ...prev, [qId]: val }));
+}, []);
+
   // Helper to set view with history tracking
   const navigateToView = (newView) => {
     if (newView !== view) {
       setViewHistory(prev => [...prev, newView]);
       setView(newView);
-      
-      // Update URL based on view type
-      if (newView === 'testHub' && activeTest) {
-        navigate(`/ielts/${activeTest.id}-full-individual`);
-      } else if (newView === 'ieltsHub' && activeTest) {
-        navigate(`/ielts/${activeTest.id}-hub`);
-      }
     }
   };
 
@@ -179,20 +112,14 @@ function App({ initialView }) {
       setView(previousView);
       
       // Update URL based on previous view
-      if (previousView === 'dashboard' || previousView === 'landing') {
+      if (previousView === 'landing') {
         navigate('/ielts');
       } else if (previousView === 'ieltsHub') {
-        // Navigate to ieltsHub URL - use activeTest if available, otherwise default
-        navigate(activeTest ? `/ielts/${activeTest.id}-hub` : '/ielts');
-      } else if (previousView === 'testHub') {
-        // Navigate to testHub URL - use activeTest if available, otherwise default
-        navigate(activeTest ? `/ielts/${activeTest.id}-full-individual` : '/ielts');
-      } else if (previousView === 'hub') {
-        // Go back to test hub for hub views - use activeTest if available, otherwise default
-        navigate(activeTest ? `/ielts/${activeTest.id}-full-individual` : '/ielts');
+        navigate('/ielts');
+      } else if (previousView === 'drillsHub') {
+        navigate('/ielts');
       } else if (previousView === 'selection') {
-        // If going back to selection from a hub, stay on test hub - use activeTest if available, otherwise default
-        navigate(activeTest ? `/ielts/${activeTest.id}-full-individual` : '/ielts');
+        navigate('/ielts');
       }
     } else {
       // If we're at the root view or directly accessed, go to ieltsHub
@@ -210,10 +137,8 @@ function App({ initialView }) {
   const navigate = useNavigate();
   
   // Complex Interaction State
-  const [gapFillSelections, setGapFillSelections] = useState({});
-  const [activeGap, setActiveGap] = useState(null);
-  const [headingSelections, setHeadingSelections] = useState({});
-  const [mcqSelections, setMcqSelections] = useState({});
+  // Note: gapFillSelections, headingSelections, and mcqSelections are no longer needed
+  // as the Engine now uses handleUpdateAnswer (useCallback) with userAnswers as the single source of truth
 
   // Global Store Connections
   const claimXp = useExamStore(state => state.claimXp);
@@ -227,94 +152,19 @@ function App({ initialView }) {
    // Effect to handle initial view (routing)
   useEffect(() => {
     console.log('[Routing] initialView changed:', initialView);
-    if (initialView && initialView !== 'ieltsHub') {
-      // Clear previous state before loading new hub
-      setActiveCategory(null);
-      setActiveSection(null);
-      // Check if it's a mini individual route (e.g., ielts-mini-individual) - must check FIRST
-      if (initialView.includes('-mini-individual')) {
-        const testId = initialView.split('-')[0]; // Extract test id (e.g., ielts from ielts-mini-individual)
-        if (TEST_PLATFORM_CONFIG[testId]) {
-          setActiveTest(TEST_PLATFORM_CONFIG[testId]);
-          // Initialize history with dashboard -> strategy -> skillTests
-          setViewHistory(['dashboard', 'ieltsHub', 'skillTests']);
-          setView('skillTests');
-        }
-      } else if (initialView.includes('-full-individual')) {
-        // Check if it's a full individual route (e.g., ielts-full-individual)
-        const testId = initialView.split('-')[0]; // Extract test id (e.g., ielts from ielts-full-individual)
-        if (TEST_PLATFORM_CONFIG[testId]) {
-          setActiveTest(TEST_PLATFORM_CONFIG[testId]);
-          // Initialize history with dashboard -> strategy -> testHub
-          setViewHistory(['dashboard', 'ieltsHub', 'testHub']);
-          setView('testHub');
-        }
-      } else if (initialView.includes('-hub')) {
-        // Check if it's a strategy route (e.g., ielts-hub)
-        const testId = initialView.split('-')[0]; // Extract test id (e.g., ielts from ielts-hub)
-        if (TEST_PLATFORM_CONFIG[testId]) {
-          setActiveTest(TEST_PLATFORM_CONFIG[testId]);
-          // Initialize history with dashboard -> ieltsHub
-          setViewHistory(['dashboard', 'ieltsHub']);
-          setView('ieltsHub');
-        }
-      } else if (initialView.includes('-test-hub')) {
-        // Check if it's a test hub route (e.g., ielts-test-hub)
-        const testId = initialView.split('-')[0]; // Extract test id (e.g., ielts from ielts-test-hub)
-        if (TEST_PLATFORM_CONFIG[testId]) {
-          setActiveTest(TEST_PLATFORM_CONFIG[testId]);
-          // Initialize history with dashboard -> testHub
-          setViewHistory(['dashboard', 'testHub']);
-          setView('testHub');
-        }
-      } else {
-        // Check if it's a hub route (HUBS object keys) - check this FIRST to prioritize hub/selection flow
-        // Normalize hubKey: convert hyphens to underscores to match HUBS keys
-        const hubKey = initialView.replace(/-/g, '_');
-        if (HUBS[hubKey]) {
-          const hub = HUBS[hubKey];
-          // Directly set the view and activeCategory instead of calling handleSelectModule
-          setActiveCategory(hub);
-          
-          // If hub has only 1 category, skip directly to selection (don't include 'hub' in history)
-          if (hub.categories && hub.categories.length === 1) {
-            setActiveSection(hub.categories[0]);
-            setViewHistory(['dashboard', 'selection']);
-            setView('selection');
-          } else {
-            // Initialize history with dashboard -> hub
-            setViewHistory(['dashboard', 'hub']);
-            setView('hub');
-          }
-        } else {
-          // Check if it's a full test route (with or without mock ID)
-          if (initialView.startsWith('ielts-general-full-test') || initialView.startsWith('ielts-academic-full-test') || initialView.startsWith('ielts-general-mock-') || initialView.startsWith('ielts-academic-mock-')) {
-            const testType = (initialView.startsWith('ielts-general-full-test') || initialView.startsWith('ielts-general-mock-')) ? 'general-full-mock' : 'academic-full-mock';
-            const testId = 'ielts';
-            if (TEST_PLATFORM_CONFIG[testId]) {
-              setActiveTest(TEST_PLATFORM_CONFIG[testId]);
-              // Set view to ieltsHub so the BrandTestHub renders, then trigger the test
-              setViewHistory(['dashboard', 'ieltsHub']);
-              setView('ieltsHub');
-              // Use setTimeout to ensure the view is set before triggering onSelectPath
-              setTimeout(() => {
-                // Find the BrandTestHub's onSelectPath through the component tree
-                // Since we can't directly call it, we'll set up the test manually
-                handleFullTestSelection(testType, initialView);
-              }, 100);
-            }
-          } else {
-            // Check if it's a mini test route (skillCategories in ATOM_HUB)
-            const taskMetadata = ATOM_HUB.skillCategories[initialView];
-            if (taskMetadata) {
-              handleStartTask(taskMetadata);
-            } else {
-              // For any other route not matching known patterns, go to ieltsHub
-              setView('ieltsHub');
-            }
-          }
-        }
-      }
+    
+    // Use NavigationResolver to determine the navigation plan
+    const plan = resolvePath(initialView);
+    
+    // Apply the plan to the states
+    setView(plan.view);
+    setViewHistory(plan.viewHistory);
+    setActiveCategory(plan.activeCategory);
+    setActiveSection(plan.activeSection);
+    
+    // If the plan contains a triggerTask, call handleStartTask
+    if (plan.triggerTask) {
+      handleStartTask(plan.triggerTask);
     }
   }, [initialView]);     
 
@@ -324,555 +174,104 @@ function App({ initialView }) {
   const showSidebar = !isHighFocus && view !== 'results' && view !== 'landing';
   const showHeader = view !== 'results' && view !== 'landing';
 
+
+  
   // ============================================================
-  // CHAPTER 4: THE GRADING MACHINE (CORE LOGIC)
+  // CHAPTER 4: THE GRADING MACHINE
   // ============================================================
-
-  const getFlattenedQuestions = (lesson) => {
-    let flat = [];
-    const crawl = (obj) => {
-      if (!obj || typeof obj !== 'object') return;
-      // Only consider it a question if it has text/question/prompt AND an answer
-      const hasText = obj.text || obj.question || obj.prompt || obj.stem;
-      const hasAnswer = obj.answer !== undefined;
-      if (obj.id !== undefined && hasText && hasAnswer) {
-        flat.push(obj);
-      }
-      const childrenKeys = ['sections', 'passages', 'parts', 'questions', 'subTasks'];
-      childrenKeys.forEach(key => {
-        if (Array.isArray(obj[key])) obj[key].forEach(crawl);
-        else if (obj[key] && typeof obj[key] === 'object') crawl(obj[key]);
-      });
-    };
-    crawl(lesson);
-    return flat;
-  };
-
-  const getAnyStoredAnswer = (id) => {
-    if (mcqSelections.hasOwnProperty(id)) return mcqSelections[id];
-    if (gapFillSelections.hasOwnProperty(id)) {
-      const selectionObj = gapFillSelections[id];
-      return Object.keys(selectionObj)
-        .sort((a, b) => Number(a) - Number(b))
-        .map(key => selectionObj[key]);
-    }
-    if (headingSelections.hasOwnProperty(id)) return headingSelections[id];
-    if (userAnswers.hasOwnProperty(id)) return userAnswers[id];
-    return undefined;
-  };
-
-  const getPassageStatus = (passage) => {
-    if (!isReviewMode || !passage) return null;
-    const questions = getFlattenedQuestions(passage);
-    if (questions.length === 0) return null;
-    let correct = 0;
-    questions.forEach(q => {
-      const userVal = String(getAnyStoredAnswer(q.id) || "").trim().toLowerCase();
-      const correctVal = String(q.answer).trim().toLowerCase();
-      if (userVal === correctVal) correct++;
-    });
-    return correct === questions.length ? 'correct' : 'incorrect';
-  };
-
-  // Use the checkAnswers hook instead of inline function
-  const { checkAnswers } = useCheckAnswers({
+  
+  // Initialize the hook
+  const { checkAnswers, getPassageStatus } = useCheckAnswers({
     activeLesson,
     activeSectionIndex,
     activePassageIndex,
     userAnswers,
-    gapFillSelections,
-    headingSelections,
     activeTest,
   });
 
+  // The orchestrator that handles the click event
   const handleCheckAnswers = (drillAnswers = null) => {
-    console.log('[App] handleCheckAnswers called', { drillAnswers, userAnswersKeys: Object.keys(userAnswers || {}) });
-    // Use the hook's checkAnswers function - it handles all the logic
-    const result = checkAnswers(drillAnswers);
-    console.log('[App] checkAnswers result:', result);
+    // 1. Get the math from the hook
+    const { results, ieltsScore } = checkAnswers(drillAnswers);
     
-    const { results: rawResults, ieltsScore, isIELTS, isReading, isListening, isGeneralTraining } = result;
-    let results = rawResults;
+    // 2. Combine results with IELTS score if it exists
+    const finalResults = ieltsScore ? { ...results, ieltsScore } : results;
 
-    // Include IELTS score in results if available
-    if (ieltsScore) {
-      results = { ...results, ieltsScore };
-    }
-
-    setLessonResults(results);
-    // Toggle review mode to show answers inline (instead of navigating to results screen)
-    setIsReviewMode(prev => !prev); 
+    // 3. Save to state and enter review mode
+    setLessonResults(finalResults);
+    setIsReviewMode(prev => !prev); // Toggle Review Mode
   };
 
   // ============================================================
   // CHAPTER 5: THE HALLWAYS (NAVIGATION HANDLERS)
   // ============================================================
-  const handleGetStarted = () => navigateToView('landing'); 
-  const handleSelectTest = (testId) => {
-    setActiveTest(TEST_PLATFORM_CONFIG[testId]);
-    navigateToView('ieltsHub');
-    navigate(`/ielts/${testId}-hub`);
-  };
+  const handleGetStarted = () => navigateToView('landing');
 
   const handleSelectModule = (hubKey) => {
     console.log('handleSelectModule called with', hubKey);
     
-    // Directly set state instead of relying on route change
-    const normalizedKey = hubKey.replace(/-/g, '_');
-    const hub = HUBS[normalizedKey];
-    
-    if (hub) {
-      console.log('Found hub, setting state:', hub.title);
-      setActiveCategory(hub);
-      
-      if (hub.categories && hub.categories.length === 1) {
-        setActiveSection(hub.categories[0]);
-        setViewHistory(['dashboard', 'selection']);
-        setView('selection');
-      } else {
-        setViewHistory(['dashboard', 'hub']);
-        setView('hub');
-      }
-      
-      // Navigate to /ielts/{hubKey} for all hubs
-      const hubPath = `/ielts/${hubKey.replaceAll('_', '-')}`;
-      console.log('navigating to', hubPath);
-      navigate(hubPath);
-    } else {
-      console.error('Hub not found for key:', hubKey);
-    }
+    // Simply navigate to the route - let the Resolver handle state updates
+    const hubPath = `/ielts/${hubKey.replaceAll('_', '-')}`;
+    console.log('navigating to', hubPath);
+    navigate(hubPath);
   };
 
-  // Helper function to create a full mock from a specific mock object
-  const createFullMockFromMock = (mock, testType) => {
-    if (!mock) return null;
-    
-    const sections = [];
-    
-    // Add reading sections
-    if (mock.reading?.sections) {
-      mock.reading.sections.forEach(section => {
-        if (section.passages) {
-          section.passages.forEach(passage => {
-            sections.push({
-              ...passage,
-              skill: 'reading',
-              type: passage.type || 'reading-practice'
-            });
-          });
-        }
-      });
-    }
-    
-    // Add writing sections
-    if (mock.writing?.sections) {
-      mock.writing.sections.forEach(section => {
-        sections.push({
-          ...section,
-          skill: 'writing',
-          type: 'WRITING'
-        });
-      });
-    }
-    
-    // Add listening sections
-    if (mock.listening?.sections) {
-      mock.listening.sections.forEach(section => {
-        sections.push({
-          ...section,
-          skill: 'listening',
-          type: 'LISTENING'
-        });
-      });
-    }
-    
-    // Add speaking parts
-    if (mock.speaking?.parts) {
-      mock.speaking.parts.forEach(part => {
-        sections.push({
-          ...part,
-          skill: 'speaking',
-          type: 'SPEAKING'
-        });
-      });
-    }
-    
-    // Add vocabulary
-    if (mock.vocabulary) {
-      sections.unshift({
-        ...mock.vocabulary,
-        skill: 'vocab',
-        type: 'VOCAB'
-      });
-    }
-    
-    return {
-      id: `full-mock-${mock.id}`,
-      title: mock.title,
-      type: 'full-mock',
-      testType: testType,
-      mockNumber: mock.mockNumber,
-      xp: 2000,
-      sections: sections
-    };
-  };
-
+  
   // Helper function to start a full test (used by routes and onSelectPath)
   const handleFullTestSelection = (testType, path = null) => {
-    console.log('[handleFullTestSelection] Called with:', { testType, path });
-    if (testType === 'general-full-mock') {
-      // Check if path contains a specific mock ID
-      let specificMock = null;
-      if (path && path.startsWith('ielts-general-mock-')) {
-        // Path is directly the mock ID (e.g., 'ielts-general-mock-1')
-        console.log('[handleFullTestSelection] Using path as mockId:', path);
-        specificMock = getMockById(path);
-        console.log('[handleFullTestSelection] Found specificMock:', specificMock);
-      } else if (path && path.startsWith('ielts-general-full-test-')) {
-        // Legacy path format (e.g., 'ielts-general-full-test-ielts-general-mock-1')
-        const mockId = path.replace('ielts-general-full-test-', '');
-        console.log('[handleFullTestSelection] Extracted mockId:', mockId);
-        specificMock = getMockById(mockId);
-        console.log('[handleFullTestSelection] Found specificMock:', specificMock);
-      }
-      
-      // Use specific mock if found, otherwise fallback to random
-      const generalMock = specificMock
-        ? createFullMockFromMock(specificMock, 'general')
-        : pluckRandomFullMock('general');
-      console.log('[handleFullTestSelection] Using mock:', generalMock);
-      if (generalMock && generalMock.sections && generalMock.sections.length > 0) {
-        setActiveLesson(generalMock);
-        setActiveSectionIndex(0);
-        setActiveSkillTab(0);
-        setView('lesson');
-      }
-    } else if (testType === 'academic-full-mock') {
-      // Check if path contains a specific mock ID
-      let specificMock = null;
-      if (path && path.startsWith('ielts-academic-mock-')) {
-        // Path is directly the mock ID (e.g., 'ielts-academic-mock-1')
-        console.log('[handleFullTestSelection] Using path as mockId:', path);
-        specificMock = getMockById(path);
-        console.log('[handleFullTestSelection] Found specificMock:', specificMock);
-      } else if (path && path.startsWith('ielts-academic-full-test-')) {
-        // Legacy path format (e.g., 'ielts-academic-full-test-ielts-academic-mock-1')
-        const mockId = path.replace('ielts-academic-full-test-', '');
-        console.log('[handleFullTestSelection] Extracted mockId:', mockId);
-        specificMock = getMockById(mockId);
-        console.log('[handleFullTestSelection] Found specificMock:', specificMock);
-      }
-      
-      // Use specific mock if found, otherwise fallback to random
-      const academicMock = specificMock
-        ? createFullMockFromMock(specificMock, 'academic')
-        : pluckRandomFullMock('academic');
-      console.log('[handleFullTestSelection] Using mock:', academicMock);
-      if (academicMock && academicMock.sections && academicMock.sections.length > 0) {
-        setActiveLesson(academicMock);
-        setActiveSectionIndex(0);
-        setActiveSkillTab(0);
-        setView('lesson');
-      }
+    // The Factory handles all the path parsing and formatting
+    const fullMock = LessonFactory.prepareFullTest(testType, path);
+    
+    if (fullMock) {
+      setActiveLesson(fullMock);
+      setActiveSectionIndex(0);
+      setActiveSkillTab(0);
+      setView('lesson');
+    } else {
+      console.error("Could not resolve full mock for:", testType, path);
     }
   };
 
    const handleSelectSection = (section) => {
      console.log('handleSelectSection called with:', section);
      
-    // Check for VOCAB_FLASHCARDS type - start immediately
-      if (section.type === 'VOCAB_FLASHCARDS') {
-        console.log('VOCAB_FLASHCARDS detected, calling handleStartTask');
-        handleStartTask(section);
-        return;
-      }
-      
-      // Check if this is an ATOM_HUB category or VOCAB task (explicitly check for task types)
-      const allowedTaskTypes = ['TASK', 'VOCAB_FLASHCARDS', 'VOCAB', 'reading-drill', 'punctuation-correction'];
-      if (section.type && allowedTaskTypes.includes(section.type)) {
-        handleStartTask(section);
-        return;
-      }
-      
-      // If this is from the DRILLS_HUB, use standard behavior
-     if (activeCategory && activeCategory.title === "Drills Hub") {
-       setActiveSection(section);
-       setView('selection');
-     } 
-     // If this is an 'atom' section from ATOM_HUB, go pluck the tasks from the mocks
-     else if (section.id === 'reading-drills' || section.id === 'listening-drills') {
-       const hydratedSection = getAtomsFromMocks(section.id);
-       setActiveSection(hydratedSection);
-       setView('selection');
-     } 
-     // Standard behavior for normal lessons
-     else {
-       setActiveSection(section);
-       setView('selection');
+     // Use NavigationResolver to determine the navigation plan
+     const plan = resolveSection(section, activeCategory);
+     
+     // Apply the plan to the states
+     setView(plan.view);
+     setViewHistory(plan.viewHistory);
+     setActiveCategory(plan.activeCategory);
+     setActiveSection(plan.activeSection);
+     
+     // If the plan contains a triggerTask, call handleStartTask
+     if (plan.triggerTask) {
+       handleStartTask(plan.triggerTask);
      }
   };
 
   const handleStartTask = (taskMetadata) => {
-    console.log('handleStartTask called!', taskMetadata.type);
-    if (taskMetadata.tier !== 'bronze' && !isPremium) { setShowPaywall(true); return; }
-    
-    // Handle VOCAB type - load directly from task metadata
-    if (taskMetadata.type === 'VOCAB' || taskMetadata.type === 'VOCAB_FLASHCARDS') {
-      setActiveLesson(taskMetadata);
-      setView('lesson');
-    } else if (taskMetadata.type === 'flow') {
-      // Mini-test flow: pick random exercises from each skill
-      // Vocab comes from the reading passage in this test
-      const readingExercise = pluckRandom('reading');
-      const vocabExercise = findVocabFromReading(readingExercise);
-      
-      const flowLesson = {
-        id: 'dynamic-flow',
-        title: taskMetadata.title || 'Daily Mini Test',
-        type: 'mixed-flow',
-        xpReward: taskMetadata.xp || 1500,
-        sections: [
-          { ...vocabExercise, skill: 'vocab' },
-          { ...readingExercise, skill: 'reading' },
-          { ...pluckRandom('listening'), skill: 'listening' },
-          { ...(pluckSingleSpeakingPart()?.sections?.[0] || {
-            id: 'speaking-fallback',
-            title: 'Speaking Practice',
-            type: 'SPEAKING',
-            xp: 200,
-            prompts: [
-              'Tell me about your hometown.',
-              'What do you like to do in your free time?',
-              'Describe your favorite food.',
-              'What is your favorite season? Why?'
-            ]
-          }), skill: 'speaking' },
-          { ...pluckRandom('writing'), skill: 'writing' }
-        ].filter(Boolean)
-      };
-      setActiveLesson(flowLesson);
-      setView('lesson');
-    } else if (taskMetadata.type === 'academic-flow') {
-      // Academic Mini Flow: uses academic reading and writing
-      const readingExercise = pluckRandom('reading_academic');
-      const vocabExercise = findVocabFromReading(readingExercise);
-      
-      const flowLesson = {
-        id: 'academic-dynamic-flow',
-        title: taskMetadata.title || 'Academic Mini Test',
-        type: 'mixed-flow',
-        xpReward: taskMetadata.xp || 1500,
-        sections: [
-          { ...vocabExercise, skill: 'vocab' },
-          { ...readingExercise, skill: 'reading' },
-          { ...pluckRandom('listening'), skill: 'listening' },
-          { ...(pluckSingleSpeakingPart()?.sections?.[0] || {
-            id: 'speaking-fallback',
-            title: 'Speaking Practice',
-            type: 'SPEAKING',
-            xp: 200,
-            prompts: [
-              'Tell me about your hometown.',
-              'What do you like to do in your free time?',
-              'Describe your favorite food.',
-              'What is your favorite season? Why?'
-            ]
-          }), skill: 'speaking' },
-          { ...pluckRandom('writing_academic'), skill: 'writing' }
-        ].filter(Boolean)
-      };
-      setActiveLesson(flowLesson);
-      setView('lesson');
-    } else if (taskMetadata.type === 'random-pick') {
-      // Random pick: get a random exercise from the specified skill
-      const randomExercise = pluckRandom(taskMetadata.skill);
-      if (randomExercise) {
-        setActiveLesson({
-          ...randomExercise,
-          xpReward: taskMetadata.xp || 500
-        });
-        setView('lesson');
-      }
-    } else if (taskMetadata.type === 'specific' || taskMetadata.type === 'gap-fill-tokens') {
-      // Specific exercise: load by exerciseId
-      const fullLesson = loadFullLesson(taskMetadata, lessonDatabase);
-      setActiveLesson(fullLesson);
-      setView('lesson');
-    } else if (taskMetadata.type === 'full-flow') {
-      // Full test flow: combine all 4 skills with full mock content
-      const fullMock = pluckRandomFullMock();
-      
-      if (fullMock) {
-        setActiveLesson({
-          ...fullMock,
-          type: 'full-test',
-          xpReward: taskMetadata.xp || 2000
-        });
-        setView('lesson');
-      }
-    } else if (taskMetadata.id === 'mini-test-flow') {
-      // Legacy flow handling - also use vocab from reading
-      const readingExercise = pluckRandom('reading');
-      const vocabExercise = findVocabFromReading(readingExercise);
-      
-      const flowLesson = {
-        id: 'dynamic-flow',
-        title: 'Daily Mini Test',
-        type: 'mixed-flow',
-        sections: [
-          { ...vocabExercise, skill: 'vocab' },
-          { ...readingExercise, skill: 'reading' },
-          { ...pluckRandom('listening'), skill: 'listening' },
-          { ...(pluckSingleSpeakingPart()?.sections?.[0] || {
-            id: 'speaking-fallback',
-            title: 'Speaking Practice',
-            type: 'SPEAKING',
-            xp: 200,
-            prompts: [
-              'Tell me about your hometown.',
-              'What do you like to do in your free time?',
-              'Describe your favorite food.',
-              'What is your favorite season? Why?'
-            ]
-          }), skill: 'speaking' },
-          { ...pluckRandom('writing'), skill: 'writing' }
-        ].filter(Boolean)
-      };
-      setActiveLesson(flowLesson);
-      setView('lesson');
-    } else if (taskMetadata.type === 'ielts-complex' || taskMetadata.type === 'READING' || taskMetadata.skill === 'reading') {
-      console.log('[DEBUG] Reading task triggered, metadata:', JSON.stringify(taskMetadata));
-      // Reading task from hub - load reading section from mock
-      if (taskMetadata.mockId) {
-        const mock = ieltsMocks[taskMetadata.mockId];
-        if (mock?.reading) {
-          // Flatten all passages from all sections into a single array for the lesson
-          const allPassages = [];
-          if (mock.reading.sections) {
-            mock.reading.sections.forEach(section => {
-              if (section.passages) {
-                section.passages.forEach(passage => {
-                  allPassages.push({
-                    ...passage,
-                    sectionTitle: section.title,
-                    sectionDescription: section.description,
-                    sectionSubtitle: section.subtitle
-                  });
-                });
-              }
-            });
-          }
-          
-          setActiveLesson({
-            ...mock.reading,
-            passages: allPassages,
-            type: 'READING',
-            skill: 'reading',
-            xpReward: taskMetadata.xp || 300
-          });
-          setView('lesson');
-          return;
-        }
-      }
-      // Fallback: try standard loading
-      const fullLesson = loadFullLesson(taskMetadata, lessonDatabase);
-      setActiveLesson(fullLesson);
-      setView('lesson');
-    } else if (taskMetadata.type === 'WRITING' || taskMetadata.skill === 'writing') {
-      console.log('[DEBUG] Writing task triggered, metadata:', JSON.stringify(taskMetadata));
-      // Writing task from hub - load writing section from mock
-      console.log('[DEBUG] Checking mockId:', taskMetadata.mockId, 'ieltsMocks:', Object.keys(ieltsMocks));
-      if (taskMetadata.mockId) {
-        const mock = ieltsMocks[taskMetadata.mockId];
-        console.log('[DEBUG] Found mock:', mock, 'writing:', mock?.writing);
-        if (mock?.writing) {
-          // Flatten all tasks from all sections
-          const allTasks = [];
-          if (mock.writing.sections) {
-            mock.writing.sections.forEach(section => {
-              allTasks.push(section);
-            });
-          }
-          console.log('[DEBUG] Writing sections:', allTasks.length);
-          
-          setActiveLesson({
-            ...mock.writing,
-            sections: allTasks,
-            type: 'WRITING',
-            skill: 'writing',
-            xpReward: taskMetadata.xp || 500
-          });
-          console.log('[DEBUG] Setting view to lesson, activeLesson sections:', allTasks.length);
-          setView('lesson');
-          console.log('[DEBUG] Done, returning');
-          return;
-        } else {
-          console.log('[DEBUG] No mock.writing found');
-        }
-      } else {
-        console.log('[DEBUG] No mockId in task');
-      }
-      // Fallback: try standard loading
-      console.log('[DEBUG] Falling back to loadFullLesson');
-      const fullLesson = loadFullLesson(taskMetadata, lessonDatabase);
-      console.log('[DEBUG] Fallback result:', fullLesson);
-      setActiveLesson(fullLesson);
-      setView('lesson');
-    } else if (taskMetadata.type === 'LISTENING' || taskMetadata.skill === 'listening') {
-      // Listening task from hub - load listening section from mock
-      if (taskMetadata.mockId) {
-        const mock = ieltsMocks[taskMetadata.mockId];
-        if (mock?.listening) {
-          setActiveLesson({
-            ...mock.listening,
-            type: 'LISTENING',
-            skill: 'listening',
-            xpReward: taskMetadata.xp || 300
-          });
-          setView('lesson');
-          return;
-        }
-      }
-      // Fallback: try standard loading
-      const fullLesson = loadFullLesson(taskMetadata, lessonDatabase);
-      setActiveLesson(fullLesson);
-      setView('lesson');
-    } else if (taskMetadata.type === 'speaking' || taskMetadata.skill === 'speaking') {
-      // Speaking task from hub - load speaking section from mock
-      if (taskMetadata.mockId) {
-        const mock = ieltsMocks[taskMetadata.mockId];
-        if (mock?.speaking) {
-          setActiveLesson({
-            ...mock.speaking,
-            type: 'speaking',
-            skill: 'speaking',
-            xpReward: taskMetadata.xp || 300
-          });
-          setView('lesson');
-          return;
-        }
-      }
-      // Fallback: try standard loading
-      const fullLesson = loadFullLesson(taskMetadata, lessonDatabase);
-      setActiveLesson(fullLesson);
-      setView('lesson');
-    } else {
-      // STANDARD: Load a single task
-      const fullLesson = loadFullLesson(taskMetadata, lessonDatabase);
-      setActiveLesson(fullLesson);
-      setView('lesson');
+    // 1. Check Permissions
+    if (taskMetadata.tier !== 'bronze' && !isPremium) { 
+      setShowPaywall(true); 
+      return; 
     }
     
+    // 2. Clear previous session state
+    setUserAnswers({});
+    setIsReviewMode(false);
     setActiveSectionIndex(0);
     setActivePassageIndex(0);
-    setActiveSkillTab(0);
-    setUserAnswers({});
-    setGapFillSelections({});
-    setHeadingSelections({});
-    setMcqSelections({});
-    setActiveGap(null);
-    setIsReviewMode(false);
-    navigateToView('lesson');
+
+    // 3. Prepare the Lesson using the Factory
+    const preparedLesson = LessonFactory.create(taskMetadata);
+
+    if (preparedLesson) {
+      setActiveLesson(preparedLesson);
+      setView('lesson'); // Navigate to Engine
+    } else {
+      console.error("Failed to prepare lesson", taskMetadata);
+    }
   };
 
   const handleFinishLesson = () => navigateToView('results');
@@ -881,212 +280,7 @@ function App({ initialView }) {
     claimXp(lessonResults.earnedXP || activeLesson.xpReward || activeLesson.xp || 0);
     navigateToView('ieltsHub');
     setActiveLesson(null);
-  };
-
-  const handleGapFillWordSelect = (word, parentId) => {
-    const targetId = activeGap?.parentId || parentId;
-    const targetGapIndex = activeGap?.gapId;
-    if (targetId && targetGapIndex) {
-      setGapFillSelections(prev => ({...prev, [targetId]: {...(prev[targetId] || {}), [targetGapIndex]: word}}));
-      setActiveGap(null);
-    }
-  };
-
-  // ============================================================
-  // CHAPTER 6: THE CLASSROOM BUILDER (RENDER HELPERS)
-  // ============================================================
-  const renderQuestionBlock = (taskData) => {
-    if (!taskData) return null;
-    
-    console.log('[renderQuestionBlock] Called with type:', taskData.type, 'skill:', taskData.skill, 'prompt:', !!taskData.prompt, 'id:', taskData.id);
-
-    if (taskData.prompts || taskData.scenarios || taskData.candidateInfo || taskData.topicCard || taskData.type === 'SPEAKING' || taskData.type === 'ielts-speaking' || taskData.type === 'discussion' || taskData.type === 'interview' || taskData.type === 'long-turn' || taskData.skill === 'speaking') {
-        return <SpeakingBlock data={taskData} onComplete={handleCheckAnswers} isMiniTest={true} sections={activeLesson?.sections || []} activeSkillTab={activeSkillTab} activeSectionIndex={activeSectionIndex} setActiveSectionIndex={setActiveSectionIndex} setActivePassageIndex={setActivePassageIndex} setIsReviewMode={setIsReviewMode} availableSkills={activeLesson?.sections?.map(s => s.skill).filter(Boolean) || []} />;
-    }
-    if (taskData.type === 'WRITING' || taskData.prompt) {
-        // Extract the task based on activeSectionIndex if sections exist
-        const writingTask = taskData.sections && taskData.sections.length > 0 
-          ? { ...taskData, ...taskData.sections[activeSectionIndex] || taskData.sections[0] }  // Merge parent with current task
-          : taskData;
-        console.log('[renderQuestionBlock] Rendering WritingBlock with task index:', activeSectionIndex, 'task:', JSON.stringify(writingTask).slice(0, 300));
-        return <WritingBlock data={writingTask} onComplete={handleCheckAnswers} isMiniTest={true} sections={activeLesson?.sections || []} activeSkillTab={activeSkillTab} activeSectionIndex={activeSectionIndex} setActiveSectionIndex={setActiveSectionIndex} setActivePassageIndex={setActivePassageIndex} setIsReviewMode={setIsReviewMode} availableSkills={activeLesson?.sections?.map(s => s.skill).filter(Boolean) || []} />;
-    }
-
-    if (taskData.type === 'LISTENING' || taskData.skill === 'listening') {
-      // Calculate if this is the last section for listening
-      const listeningSections = activeLesson.listening?.sections?.length || (activeLesson.sections?.filter(s => s.type === 'LISTENING' || s.skill === 'listening').length) || 1;
-      const isLastListeningSection = activeSectionIndex >= listeningSections - 1;
-      return <ListeningBlock data={taskData} userAnswers={userAnswers} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} showCheckAnswers={isLastListeningSection} onCheckAnswers={handleCheckAnswers} isMiniTest={true} isReviewMode={isReviewMode} sections={activeLesson?.sections || []} activeSkillTab={activeSkillTab} activeSectionIndex={activeSectionIndex} setActiveSectionIndex={setActiveSectionIndex} setActivePassageIndex={setActivePassageIndex} setIsReviewMode={setIsReviewMode} availableSkills={activeLesson?.sections?.map(s => s.skill).filter(Boolean) || []} />;
-    }
-    if (taskData.type === 'VOCAB' || taskData.type === 'VOCAB_FLASHCARDS') return <FlashcardBlock data={taskData} onComplete={handleCheckAnswers} />;
-
-    if (taskData.type === 'gap-fill' && taskData.label && !taskData.content) {
-        const isCorrect = isReviewMode && userAnswers[taskData.id]?.trim().toLowerCase() === taskData.answer?.toLowerCase();
-        return (
-            <div key={taskData.id} style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '15px' }}>
-                <span style={{ fontWeight: 700, minWidth: '150px' }}>{taskData.label}</span>
-                <div style={{ position: 'relative', flex: 1 }}>
-                    <input 
-                        type="text" 
-                        className={`listening-text-input ${isReviewMode ? (isCorrect ? 'correct' : 'incorrect') : ''}`}
-                        value={userAnswers[taskData.id] || ''}
-                        onChange={(e) => setUserAnswers(prev => ({...prev, [taskData.id]: e.target.value}))}
-                        disabled={isReviewMode}
-                        placeholder={taskData.placeholder || "Type answer..."}
-                    />
-                    {isReviewMode && !isCorrect && <span className="listening-correction">{taskData.answer}</span>}
-                </div>
-            </div>
-        );
-    }
-
-    const children = taskData.questions || taskData.subTasks;
-    // Don't render nested questions for LISTENING sections - they handle their own rendering
-    if (children && !taskData.type) {
-      return (
-        <div className="nested-questions-wrapper">
-          {children.map((child, idx) => (
-            <div key={child.id || idx}>{renderQuestionBlock(child)}</div>
-          ))}
-        </div>
-      );
-    }
-    
-    // Early return for LISTENING type - it handles its own rendering
-    if (taskData.type === 'LISTENING' || taskData.skill === 'listening') {
-      return null;
-    }
-
-    switch (taskData.type) {
-      case 'token-select':
-        return <TokenSelectBlock data={taskData} isReviewMode={isReviewMode} onUpdate={(selected) => setUserAnswers(prev => ({...prev, [taskData.id]: selected}))} />;
-
-      case 'punctuation-correction':
-        return <PunctuationCorrectionBlock data={taskData} isReviewMode={isReviewMode} onUpdate={(placements) => setUserAnswers(prev => ({...prev, [taskData.id]: placements}))} />;
-
-      case 'ielts-complex':
-      case 'READING':
-      case 'reading':
-        // Use Engine for ielts-complex reading passages
-        return (
-          <Engine
-            activeLesson={activeLesson}
-            activeSectionIndex={activeSectionIndex}
-            activePassageIndex={activePassageIndex}
-            userAnswers={userAnswers}
-            onUpdateAnswers={(qId, val) => { console.log('[App] onUpdateAnswers called:', qId, val); setUserAnswers(prev => ({...prev, [qId]: val})); }}
-            onCheckAnswers={handleCheckAnswers}
-            isReviewMode={isReviewMode}
-            showCheckAnswers={true}
-            availableSections={activeLesson?.sections || []}
-            activeSkillTab={activeSkillTab}
-            setActiveSectionIndex={setActiveSectionIndex}
-            setActivePassageIndex={setActivePassageIndex}
-            setIsReviewMode={setIsReviewMode}
-            availableSkills={activeLesson?.sections?.map(s => s.skill).filter(Boolean) || []}
-          />
-        );
-
-      case 'mcq':
-        if (taskData.questions) return taskData.questions.map(q => <div key={q.id}>{renderQuestionBlock({ ...q, type: 'mcq' })}</div>);
-        return (
-          <MCQBlock 
-            data={{ id: taskData.id, question: taskData.question || taskData.text, options: taskData.options, correctIndex: taskData.correctIndex ?? taskData.answer, correctIndices: taskData.correctIndices, multiSelect: taskData.multiSelect }} 
-            isReviewMode={isReviewMode} 
-            selectedAnswer={mcqSelections[taskData.id]} 
-            selectedAnswers={Array.isArray(mcqSelections[taskData.id]) ? mcqSelections[taskData.id] : []}
-            onSelect={(idx) => setMcqSelections({...mcqSelections, [taskData.id]: idx})}
-            onMultiSelect={(indices) => setMcqSelections({...mcqSelections, [taskData.id]: indices})}
-          />
-        );
-
-      case 'gap-fill':
-        if (taskData.questions) return taskData.questions.map(q => <div key={q.id}>{renderQuestionBlock({ ...q, type: 'gap-fill' })}</div>);
-        return (
-          <SentenceCompleteBlock 
-            data={{ id: taskData.id, content: taskData.text || taskData.content, options: taskData.wordBank || taskData.options, answers: Array.isArray(taskData.answer) ? taskData.answer : [taskData.answer] }} 
-            isReviewMode={isReviewMode} 
-            selections={gapFillSelections[taskData.id] || {}} 
-            activeGap={activeGap} 
-            onWordSelect={(w) => handleGapFillWordSelect(w, taskData.id)} 
-            onGapClick={(idx) => setActiveGap({ parentId: taskData.id, gapId: idx })} 
-          />
-        );
-
-      case 'gap-fill-tokens':
-        return (
-          <GapFillBlock
-            data={{
-              id: taskData.id,
-              title: taskData.title,
-              instruction: taskData.instruction,
-              passage: taskData.passage || taskData.text,
-              tokens: taskData.tokens || taskData.wordBank || [],
-              answers: taskData.answers || taskData.answer || [],
-              xpReward: taskData.xpReward
-            }}
-            isReviewMode={isReviewMode}
-            onUpdate={(selections) => setGapFillSelections({...gapFillSelections, [taskData.id]: selections})}
-          />
-        );
-
-      case 'heading-match':
-        return (
-          <HeadingMatchBlock 
-            data={taskData} 
-            selections={headingSelections} 
-            onSelect={(paraId, headingIdx) => {
-              setHeadingSelections(prev => ({ ...prev, [paraId]: headingIdx }));
-            }}
-            isReviewMode={isReviewMode}
-          />
-        );
-
-      case 'sentence-matching':
-        return <SentenceMatchingBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
-
-      case 'trinary':
-        if (taskData.questions) return taskData.questions.map(q => <div key={q.id}>{renderQuestionBlock({ ...q, type: 'trinary' })}</div>);
-        return <TrinaryBlock data={taskData} userAnswers={userAnswers} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} isReviewMode={isReviewMode} />;
-      
-      case 'short-answer':
-        return  <ShortAnswerBlock 
-      data={taskData} 
-      userAnswers={userAnswers} 
-      isReviewMode={isReviewMode} 
-      wordLimit={taskData.wordLimit} 
-      onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} 
-    />;
-      
-      case 'matching-info':
-      case 'matching-choice': 
-        return <MatchingChoiceBlock data={{
-          ...taskData,
-          parentContent: taskData.parentContent || taskData.content
-        }} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
-      
-      case 'matching-features':
-        return <MatchingFeaturesBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
-      
-      case 'diagram-label':
-        return <DiagramLabelBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
-      
-      case 'table':
-        return <TableCompletionBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
-      
-      case 'flowchart':
-        return <FlowChartCompletionBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
-      
-      case 'notes':
-      case 'notes-completion':
-        return <NotesCompletionBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
-      
-      case 'table-completion':
-        return <TableCompletionBlock data={taskData} userAnswers={userAnswers} isReviewMode={isReviewMode} onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))} />;
-      
-      default: return null;
-    }
-  };
+  };  
 
   // ============================================================
   // CHAPTER 7: THE SCHOOL BUILDING (MAIN RENDER)
@@ -1116,229 +310,40 @@ function App({ initialView }) {
     );
   }
 
+  // Prepare header center content with LessonHeaderTabs
+  const headerCenterContent = view === 'lesson' && activeLesson ? (
+    <LessonHeaderTabs
+      activeLesson={activeLesson}
+      activeSectionIndex={activeSectionIndex}
+      activeSkillTab={activeSkillTab}
+      setActiveSectionIndex={setActiveSectionIndex}
+      setActiveSkillTab={setActiveSkillTab}
+      setIsReviewMode={setIsReviewMode}
+      setActivePassageIndex={setActivePassageIndex}
+    />
+  ) : null;
+
   return (
     <div className={`invictus-app-shell ${isHighFocus ? 'high-focus-layout' : ''}`}>
-      <ScrollToTop /> 
-      {/* SIDEBAR NAVIGATION */}
-      {showSidebar && (
-        <aside className="invictus-sidebar">
-          <div className="invictus-brand" style={{ marginBottom: '2rem' }}>
-            <h2 className="invictus-brand-title" style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--invictus-red)' }}>Invictus</h2>
-            <p className="invictus-brand-subtext" style={{ fontSize: '0.7rem', opacity: 0.5 }}>{activeTest ? activeTest.title.toUpperCase() : 'SELECT EXAM'}</p>
-          </div>
-          <nav className="invictus-nav" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <button onClick={() => { navigateToView('ieltsHub'); setActiveTest(null); }} className={`invictus-nav-item ${view === 'ieltsHub' ? 'active' : ''}`}>
-              <LayoutDashboard size={18} /> IELTSHub
-            </button>
-            {activeTest && (
-              <button onClick={() => navigate(`/ielts/${activeTest.id}-full-individual`)} className={`invictus-nav-item ${view === 'testHub' ? 'active' : ''}`}>
-                <BookOpen size={18} /> {activeTest.title} Hub
-              </button>
-            )}
-            <button className="invictus-nav-item" onClick={() => navigateToView('landing')} style={{ marginTop: 'auto', opacity: 0.5 }}>
-              <LogOut size={18} /> Exit Lab
-            </button>
-          </nav>
-          <div style={{ marginTop: 'auto' }}><XPBadge mode="total" /></div>
-        </aside>
-      )}
-
-      {/* HEADER - Full width, above sidebar and content */}
-      {showHeader && (
-        <header className="invictus-header">
-          <div className="invictus-header-left">
-              {/* Only show header back button for views that don't have their own back button */}
-               {view === 'testHub' && (
-                 <button onClick={() => navigateBack()} className="exit-btn">
-                   <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
-                 </button>
-               )}
-              {view === 'lesson' && (
-                <button onClick={() => { 
-                  setActiveLesson(null); 
-                  navigateBack();
-                }} className="exit-btn">
-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
-                </button>
-              )}
-              {view === 'results' && (
-                <button onClick={() => navigateBack()} className="exit-btn">
-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
-                </button>
-              )}
-
-              {view === 'skillTests' && (
-                <button onClick={() => navigateBack()} className="exit-btn">
-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
-                </button>
-              )}
-              {(view === 'hub' || view === 'selection') && (
-                <button onClick={() => navigateBack()} className="exit-btn">
-                  <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
-                </button>
-              )}
-
-
-            </div>
-
-            <div className="invictus-header-center">
-             
-             
-              {/* SECTION TABS - Always visible in header during lesson */}
-              {view === 'lesson' && activeLesson && (() => {
-                const sections = activeLesson.sections || activeLesson.passages || [];
-                const hasMultipleSkills = sections.some(s => s.skill);
-                
-                // Combined flow: Vocab, Reading, Writing, Speaking, Listening
-                if (hasMultipleSkills) {
-                  const skillOrder = ['vocab', 'reading', 'writing', 'speaking', 'listening'];
-                  const availableSkills = skillOrder.filter(skill => 
-                    sections.some(s => s.skill === skill)
-                  );
-                  
-                  return (
-                    <>
-                      <div className="header-tabs">
-                        {availableSkills.map((skill, idx) => (
-                          <button 
-                            key={skill} 
-                            onClick={() => { 
-                              const skillSectionIdx = sections.findIndex(s => s.skill === skill);
-                              setActiveSkillTab(idx);
-                              setActiveSectionIndex(skillSectionIdx >= 0 ? skillSectionIdx : 0); 
-                              setActivePassageIndex(0); 
-                              setIsReviewMode(false); 
-                            }} 
-                            className={`header-tab ${activeSkillTab === idx ? 'active' : ''}`}>
-                            {skill === 'vocab' ? <><Zap size={14} /></> : skill === 'reading' ? <><BookOpen size={14} /> </> : skill === 'listening' ? <><Headset size={14} /> </> : skill === 'writing' ? <><PenTool size={14} /> </> : skill === 'speaking' ? <><Mic size={14} /> </> : skill}
-                          </button>
-                        ))}
-                      </div>
-                    </>
-                  );
-                }
-                
-                // Single skill flow: show section tabs and passage tabs
-                if (sections.length > 1) {
-                  return (
-                    <>
-                      <div className="header-tabs">
-                        {sections.map((s, idx) => (
-                          <button 
-                            key={idx} 
-                            onClick={() => { setActiveSectionIndex(idx); setActivePassageIndex(0); setIsReviewMode(false); }} 
-                            className={`header-tab ${activeSectionIndex === idx ? 'active' : ''}`}>
-                            {s.skill === 'vocab' ? <><Zap size={14} /> Vocab</> : s.skill === 'reading' ? <><BookOpen size={14} /> Reading</> : s.skill === 'listening' ? <><Headset size={14} /> Listening</> : s.skill === 'writing' ? <><PenTool size={14} /> Writing</> : s.skill === 'speaking' ? <><Mic size={14} /> Speaking</> : s.type === 'ielts-speaking' ? <><Mic size={14} /> Speaking</> : s.type === 'discussion' ? <><Mic size={14} /> Part 3</> : s.type === 'interview' ? <><Mic size={14} /> Part 1</> : s.type === 'long-turn' ? <><Mic size={14} /> Part 2</> : s.type === 'LISTENING' ? <><Headset size={14} /> Listening</> : s.type === 'WRITING' ? <><PenTool size={14} /> Writing</> : s.type === 'VOCAB' ? <><Zap size={14} /> Vocab</> : (s.type && (s.type.includes('reading') || s.type === 'reading-practice' || s.type.includes('ielts'))) ? <><BookOpen size={14} /> Reading</> : `Part ${idx + 1}`}
-                          </button>
-                        ))}
-                      </div>
-                    </>
-                  );
-                }
-                
-                return null;
-              })()}
-
-              
-            </div>
-            <div className="invictus-header-right">
-              {view === 'lesson' && <XPBadge mode="time" />}
-            </div>
-          </header>
-        )}
-
+      <ScrollToTop />
+      
+      <AppShell
+        view={view}
+        activeTest={activeTest}
+        showSidebar={showSidebar}
+        showHeader={showHeader}
+        onNavigateBack={() => {
+          setActiveLesson(null);
+          navigateBack();
+        }}
+        onNavigateToView={navigateToView}
+        headerCenterContent={headerCenterContent}
+        setActiveTest={setActiveTest}
+      >
         <main className="invictus-main-content">
-        <div className="invictus-engine-container workspace-container">
+          <div className="invictus-engine-container workspace-container">
 
-          {/* DASHBOARD VIEW - Now redirects to ieltsHub (BrandTestHub) */}
-          {view === 'dashboard' && (
-            <BrandTestHub 
-              activeTest={activeTest}
-              EXTRA_TOOLS={EXTRA_TOOLS}
-              onSelectModule={handleSelectModule}
-              onOpenPaywall={() => setShowPaywall(true)}
-              onSelectPath={(path) => {
-                console.log('[onSelectPath] Received path:', path);
-                // Check if path is a mock ID (e.g., 'ielts-general-mock-1' or 'ielts-academic-mock-1')
-                if (path && path.startsWith('ielts-general-mock-')) {
-                  console.log('[onSelectPath] Detected general mock ID, calling handleFullTestSelection');
-                  handleFullTestSelection('general-full-mock', path);
-                } else if (path && path.startsWith('ielts-academic-mock-')) {
-                  console.log('[onSelectPath] Detected academic mock ID, calling handleFullTestSelection');
-                  handleFullTestSelection('academic-full-mock', path);
-                } else if (path === 'ielts-general-mini-test') {
-                  const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
-                  const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
-                  let singleExercise = null;
-                  if (randomSkill === 'vocab') {
-                    const readingExercise = pluckRandom('reading_general');
-                    singleExercise = findVocabFromReading(readingExercise);
-                  } else if (randomSkill === 'reading') {
-                    singleExercise = pluckRandom('reading_general');
-                  } else if (randomSkill === 'writing') {
-                    singleExercise = pluckRandom('writing_general');
-                  } else if (randomSkill === 'speaking') {
-                    const speakingWrapper = pluckSingleSpeakingPart();
-                    singleExercise = speakingWrapper?.sections?.[0] || { id: 'speaking-fallback', title: 'Speaking Practice', type: 'SPEAKING', xp: 200, prompts: ['Tell me about your hometown.'] };
-                  } else if (randomSkill === 'listening') {
-                    singleExercise = pluckRandom('listening');
-                  }
-                  const miniTest = { id: 'mini-test-flow', title: 'General Mini Test', type: 'mini-test-flow', xp: singleExercise?.xp || 200, sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean) };
-                  if (miniTest.sections.length > 0) { setActiveLesson(miniTest); setActiveSectionIndex(0); setView('lesson'); }
-                } else if (path === 'ielts-academic-mini-test') {
-                  const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
-                  const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
-                  let singleExercise = null;
-                  if (randomSkill === 'vocab') {
-                    const readingExercise = pluckRandom('reading_academic');
-                    singleExercise = findVocabFromReading(readingExercise);
-                  } else if (randomSkill === 'reading') {
-                    singleExercise = pluckRandom('reading_academic');
-                  } else if (randomSkill === 'writing') {
-                    singleExercise = pluckRandom('writing_academic');
-                  } else if (randomSkill === 'speaking') {
-                    const speakingWrapper = pluckSingleSpeakingPart();
-                    singleExercise = speakingWrapper?.sections?.[0] || { id: 'speaking-fallback', title: 'Speaking Practice', type: 'SPEAKING', xp: 200, prompts: ['Tell me about your hometown.'] };
-                  } else if (randomSkill === 'listening') {
-                    singleExercise = pluckRandom('listening');
-                  }
-                  const academicMiniTest = { id: 'academic-mini-flow', title: 'Academic Mini Test', type: 'academic-mini-flow', xp: singleExercise?.xp || 200, sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean) };
-                  if (academicMiniTest.sections.length > 0) { setActiveLesson(academicMiniTest); setActiveSectionIndex(0); setView('lesson'); }
-                } else if (path.startsWith('ielts-general-full-test-')) {
-                  // Extract mock ID from path (e.g., 'ielts-general-full-test-ielts-general-mock-1')
-                  const mockId = path.replace('ielts-general-full-test-', '');
-                  const specificMock = getMockById(mockId);
-                  // Create full mock from specific mock or fall back to random
-                  const generalMock = specificMock
-                    ? createFullMockFromMock(specificMock, 'general')
-                    : pluckRandomFullMock('general');
-                  if (generalMock && generalMock.sections && generalMock.sections.length > 0) {
-                    setActiveLesson(generalMock);
-                    setActiveSectionIndex(0);
-                    setView('lesson');
-                  }
-                } else if (path.startsWith('ielts-academic-full-test-')) {
-                  // Extract mock ID from path (e.g., 'ielts-academic-full-test-ielts-academic-mock-1')
-                  const mockId = path.replace('ielts-academic-full-test-', '');
-                  const specificMock = getMockById(mockId);
-                  // Create full mock from specific mock or fall back to random
-                  const academicMock = specificMock
-                    ? createFullMockFromMock(specificMock, 'academic')
-                    : pluckRandomFullMock('academic');
-                  if (academicMock && academicMock.sections && academicMock.sections.length > 0) {
-                    setActiveLesson(academicMock);
-                    setActiveSectionIndex(0);
-                    setView('lesson');
-                  }
-                } else if (path === 'random-mock') {
-                  const randomMock = pluckRandomFullMock();
-                  if (randomMock && randomMock.sections && randomMock.sections.length > 0) { setActiveLesson(randomMock); setActiveSectionIndex(0); setView('lesson'); }
-                } else if (path === 'skill-tests') {
-                  setView('skillTests');
-                }
-              }}
-            />
-          )}
+         
 
           {/* IELTSHUB VIEW - Uses BrandTestHub */}
           {view === 'ieltsHub' && (
@@ -1710,225 +715,41 @@ function App({ initialView }) {
             </div>
           )}
 
-          {/* TEST HUB VIEW */}
-          {view === 'testHub' && activeTest && (
-            <div className="test-hub-view">
-              <h1>{activeTest.title} Mock Tests</h1>
-              <div className="test-hub-grid">
-                {activeTest.modules.map(module => (
-                  <button key={module.id} onClick={() => handleSelectModule(module.hubKey)} className="hub-module-btn">
-                    <span className="icon-wrapper" style={{ background: activeTest.color }}>{module.icon}</span>
-                    <h4>{module.title}</h4>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
            {/* DYNAMIC HUB & SELECTION */}
-          {view === 'hub' && activeCategory?.title === 'Drills Hub' && <DrillsHub data={activeCategory} onSelectSection={handleSelectSection} onStartTask={handleStartTask} />}
-          {view === 'hub' && activeCategory?.title !== 'Drills Hub' && <VocabHub data={activeCategory} onSelectSection={handleSelectSection} />}
+          {view === 'drillsHub' && activeCategory?.title === 'Drills Hub' && <DrillsHub data={activeCategory} onSelectSection={handleSelectSection} onStartTask={handleStartTask} />}
+          {view === 'drillsHub' && activeCategory?.title !== 'Drills Hub' && <VocabHub data={activeCategory} onSelectSection={handleSelectSection} />}
           {view === 'selection' && <TaskSelection section={activeSection} onSelectTask={handleStartTask} />}
 
           {/* THE LESSON ENGINE */}
-          {view === 'lesson' && activeLesson && (
-            console.log('[RENDER] Rendering lesson, activeLesson.type:', activeLesson.type, 'sections:', activeLesson.sections?.length) ||
-            <div className="lesson-engine">
-              {/* Use mock-flow for tests with sections/passages/parts OR mock-test types */}
-              {(activeLesson.sections || activeLesson.passages || activeLesson.parts || 
-               (activeLesson.type && activeLesson.type.includes('mock')) ||
-               activeLesson.type === 'LISTENING' ||
-               activeLesson.type === 'SPEAKING' ||
-               activeLesson.type === 'WRITING' ||
-               activeLesson.type === 'ielts-complex' ||
-               activeLesson.type === 'reading-practice' ||
-               activeLesson.type === 'full-test') ? (
-                <div className="mock-flow">
-                  {(() => {
-                    const sections = activeLesson.sections || activeLesson.passages || [];
-                    // For speaking tests with 'parts' array (full mocks), use activeLesson directly
-                    // For 'ielts-complex' type reading exercises, activeLesson IS the passage
-                    // Otherwise use the section at activeSectionIndex
-                    // Check if we have multiple passages - if so, don't treat as single passage
-                    const hasMultiplePassages = activeLesson.passages && activeLesson.passages.length > 1;
-                    const isSinglePassage = !hasMultiplePassages && (activeLesson.type === 'ielts-complex' || activeLesson.type === 'READING' || activeLesson.type === 'reading' || activeLesson.type === 'reading-practice' || activeLesson.type === 'LISTENING' || activeLesson.type === 'listening' || activeLesson.type === 'WRITING' || activeLesson.type === 'writing');
-                    const currentSection = (activeLesson.parts && activeLesson.parts.length > 0) 
-                      ? activeLesson 
-                      : isSinglePassage 
-                        ? activeLesson 
-                        : sections[activeSectionIndex];
-                    const subPassages = currentSection?.passages || [];
-                    const currentPassage = subPassages[activePassageIndex];
-                    const directQuestions = currentSection?.questions || [];
-
-                    return (
-                      <div className="ielts-mock-container">
-                        {/* UNIFIED SKILL TABS - moved to header */}
-                        {(() => {
-                          // Section tabs are now in the header - return null to remove from content
-                          return null;
-                        })()}
-
-                        {/* Section header - now handled in renderContent within blocks */}
-
-                        {/* Check if we should use single-column layout for self-contained blocks */}
-                        {(() => {
-                          // Check if this section type handles its own questions internally
-                          // Also check if currentSection or its passages have reading skill
-                          const sectionHasReading = currentSection?.skill === 'reading' || 
-                            (currentSection?.passages && currentSection.passages.some(p => p.type === 'ielts-complex'));
-                          const handlesOwnQuestions = ['LISTENING', 'SPEAKING', 'WRITING', 'VOCAB', 'ielts-speaking', 'discussion', 'interview', 'long-turn', 'READING', 'reading', 'reading-practice', 'ielts-complex'].includes(currentSection.type) || currentSection.skill === 'listening' || currentSection.skill === 'speaking' || currentSection.skill === 'writing' || currentSection.skill === 'vocab' || currentSection.skill === 'reading' || sectionHasReading;
-                          
-                          console.log('[RENDER] currentSection.type:', currentSection.type, 'currentSection.skill:', currentSection.skill, 'handlesOwnQuestions:', handlesOwnQuestions);
-                          
-                          const subTasks = currentPassage?.subTasks || currentSection?.subTasks || [];
-                          
-                          // Render self-contained blocks directly
-                          if (handlesOwnQuestions) {
-                            // Check if this is a mini-test flow (combined flow)
-                            const isMiniTest = activeLesson.type === 'mixed-flow';
-                            
-                            // For speaking tests with 'parts' array, extract the current part
-                            const hasSpeakingParts = activeLesson.parts && activeLesson.parts.length > 0;
-                            const currentPart = hasSpeakingParts ? activeLesson.parts[activeSectionIndex] : null;
-                            
-                            // For reading/writing/listening sections, include the passage data
-                            // For full mocks, passages are nested in currentSection.passages
-                            const currentPassage = subPassages.length > 0 ? subPassages[0] : null;
-                            const taskData = currentPart 
-                              ? {...activeLessonWithoutParts, ...currentPart, isMiniTest} 
-                              : currentPassage
-                                ? {...currentSection, ...currentPassage, isMiniTest}
-                                : {...currentSection, isMiniTest};
-                            
-                            return (
-                              <div className="workspace-grid single-column">
-                                <div className="question-pane full-width">
-                                  {renderQuestionBlock(taskData)}
-                                  
-
-                                </div>
-                              </div>
-                            );
-                          }
-                          const hasHeadingMatch = subTasks.some(t => t.type === 'heading-match');
-                          const hasMatchingChoice = subTasks.some(t => t.type === 'matching-choice');
-                          const hasMatchingFeatures = subTasks.some(t => t.type === 'matching-features');
-                          const hasGapFill = subTasks.some(t => t.type === 'gap-fill');
-                          const useSingleColumn = hasHeadingMatch || hasMatchingChoice || hasMatchingFeatures || hasGapFill;
-                          
-                          // If single column needed (heading-match, matching-choice, or gap-fill), render everything together
-                          if (useSingleColumn) {
-                            // For gap-fill, render only the subTasks (the text with gaps IS the content)
-                            // For other types, render the full passage/section
-                            return (
-                              <div className="workspace-grid single-column">
-                                <div className="question-pane full-width">
-                                  {hasGapFill ? (
-                                    // Render only gap-fill subtasks - the text with gaps is self-contained
-                                    subTasks.filter(t => t.type === 'gap-fill').map((task, idx) => (
-                                      <SentenceCompleteBlock 
-                                        key={`gap-${idx}`}
-                                        data={{ 
-                                          id: task.id || `${currentPassage?.id || currentSection?.id}-gap-${idx}`, 
-                                          content: task.text || task.content, 
-                                          options: task.wordBank || task.options, 
-                                          answers: Array.isArray(task.answer) ? task.answer : [task.answer] 
-                                        }} 
-                                        isReviewMode={isReviewMode}
-                                        selections={gapFillSelections[currentPassage?.id || currentSection?.id] || {}} 
-                                        activeGap={activeGap} 
-                                        onWordSelect={(w) => handleGapFillWordSelect(w, currentPassage?.id || currentSection?.id)} 
-                                        onGapClick={(idx) => setActiveGap({ parentId: currentPassage?.id || currentSection?.id, gapId: idx })} 
-                                      />
-                                    ))
-                                  ) : (
-                                    <>
-                                      {renderQuestionBlock(subPassages.length > 0 ? currentPassage : currentSection)}
-                                      {!handlesOwnQuestions && directQuestions.length > 0 && directQuestions.map(q => <div key={q.id} style={{marginBottom: '20px'}}>{renderQuestionBlock(q)}</div>)}
-                                    </>
-                                  )}
-                                </div>
-                              </div>
-                            );
-                          }
-                          
-                          // Original two-column layout for reading passages with content
-                          // Note: LISTENING, SPEAKING, WRITING, VOCAB types handle their own questions internally
-                           
-                           return (
-                             <div className={`workspace-grid ${(subPassages.length > 0 || currentSection.content) ? '' : 'single-column'}`}>
-                               {(subPassages.length > 0 || currentSection.content) && (
-                                 <div className="reading-pane">
-                                   <ReadingBlock 
-                                      data={currentPassage || currentSection} 
-                                      userAnswers={userAnswers}
-                                      onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))}
-                                      showCheckAnswers={true}
-                                      onCheckAnswers={handleCheckAnswers}
-                                      isReviewMode={isReviewMode}
-                                    />
-                                 </div>
-                               )}
-                               <div className="question-pane">
-                                 <>
-                                   {renderQuestionBlock(subPassages.length > 0 ? currentPassage : currentSection)}
-                                   {!handlesOwnQuestions && directQuestions.length > 0 && directQuestions.map(q => <div key={q.id} style={{marginBottom: '20px'}}>{renderQuestionBlock(q)}</div>)}
-                                   
-                                   {/*  in IELTS complex tests */}
-                                 </>
-                               </div>
-                             </div>
-                           );
-                        })()}
-                      </div>
-                      
-                    );
-                  })()}
-                </div>
-              ) : (
-                <div className="drill-flow">
-                  {/* Section header for reading skill tests */}
-                  {(activeLesson.title || activeLesson.sourceTitle) && (
-                    <div className="section-header" style={{ marginBottom: '20px' }}>
-                      <h2>{activeLesson.title || activeLesson.sourceTitle}</h2>
-                      {activeLesson.instructions && (
-                        <p className="description">{activeLesson.instructions}</p>
-                      )}
-                    </div>
-                  )}
-                  {activeLesson.instructions && !activeLesson.title && !activeLesson.sourceTitle && (
-                    <div className="lesson-instructions">
-                      <div className="instructions-icon">📋</div>
-                      <div className="instructions-text">{activeLesson.instructions}</div>
-                    </div>
-                  )}
-                  {activeLesson.content && activeLesson.type !== 'token-select' && activeLesson.type !== 'heading-match' && (
-                    <ReadingBlock 
-                      data={activeLesson} 
-                      userAnswers={userAnswers}
-                      onUpdate={(qId, val) => setUserAnswers(prev => ({...prev, [qId]: val}))}
-                      showCheckAnswers={true}
-                      onCheckAnswers={handleCheckAnswers}
-                      isReviewMode={isReviewMode}
-                    />
-                  )}
-                  {renderQuestionBlock(activeLesson)}
-                  
-
-                </div>
-              )}
-            </div>
-          )}
+{view === 'lesson' && activeLesson && (
+  <div className="lesson-engine">
+    {/* 
+       The Engine now handles 'ielts-complex', 'reading', 'listening', etc. 
+       We just pass it the activeLesson and let it work.
+    */}
+    <Engine 
+      activeLesson={activeLesson}
+      activeSectionIndex={activeSectionIndex}
+      activePassageIndex={activePassageIndex}
+      userAnswers={userAnswers}
+      onUpdateAnswers={handleUpdateAnswer} // This uses the bridge function we added
+      onCheckAnswers={handleCheckAnswers}
+      isReviewMode={isReviewMode}
+      availableSections={activeLesson?.sections || []}
+      activeSkillTab={activeSkillTab}
+      setActiveSectionIndex={setActiveSectionIndex}
+      setActivePassageIndex={setActivePassageIndex}
+      setIsReviewMode={setIsReviewMode}
+      availableSkills={activeLesson?.sections?.map(s => s.skill).filter(Boolean) || []}
+    />
+  </div>
+)}
 
           {/* RESULTS SCREEN */}
           {view === 'results' && <ResultScreen lesson={activeLesson} results={lessonResults} userAnswers={userAnswers} onClaim={handleFinalClaim} activeSectionIndex={activeSectionIndex} activePassageIndex={activePassageIndex} />}
         </div>
-
-       
       </main>
-
-
+      </AppShell>
     </div>
   );
 }
