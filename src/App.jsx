@@ -29,7 +29,7 @@ import { useActive } from './hooks/useActive';
 import { useXP } from './hooks/useXP';
 import { useExamStore } from './store/useExamStore';
 import ScrollToTop from './scrollToTop';
-import { pluckRandom, pluckRandomFullMock, findVocabFromReading, pluckSingleSpeakingPart } from './utils/mockPlucker';
+import { pluckRandomFullMock, pluckRandom } from './utils/mockPlucker';
 import { resolvePath, resolveSection } from './utils/NavigationResolver';
 import { getMockById } from './data/IELTS/mocks';
 import { LessonFactory } from './utils/LessonFactory';
@@ -251,8 +251,9 @@ const handleUpdateAnswer = useCallback((qId, val) => {
   };
 
   const handleStartTask = (taskMetadata) => {
-    // 1. Check Permissions
-    if (taskMetadata.tier !== 'bronze' && !isPremium) { 
+    console.log('[App] handleStartTask called with:', taskMetadata);
+    // 1. Check Permissions (only if tier is specified)
+    if (taskMetadata.tier && taskMetadata.tier !== 'bronze' && !isPremium) { 
       setShowPaywall(true); 
       return; 
     }
@@ -265,6 +266,7 @@ const handleUpdateAnswer = useCallback((qId, val) => {
 
     // 3. Prepare the Lesson using the Factory
     const preparedLesson = LessonFactory.create(taskMetadata);
+    console.log('[App] Prepared lesson:', preparedLesson);
 
     if (preparedLesson) {
       setActiveLesson(preparedLesson);
@@ -341,7 +343,7 @@ const handleUpdateAnswer = useCallback((qId, val) => {
         setActiveTest={setActiveTest}
       >
         <main className="invictus-main-content">
-          <div className="invictus-engine-container workspace-container">
+          <div className="invictus-main-container workspace-container">
 
          
 
@@ -355,246 +357,17 @@ const handleUpdateAnswer = useCallback((qId, val) => {
               onSelectPath={(path, skill) => {
                 console.log('[onSelectPath - ieltsHub] Received path:', path, 'skill:', skill);
                 // Check if path is a mock ID (e.g., 'ielts-general-mock-1' or 'ielts-academic-mock-1')
-                if (path && path.startsWith('ielts-general-mock-')) {
-                  console.log('[onSelectPath - ieltsHub] Detected general mock ID, calling handleFullTestSelection');
+                if (path && (path.startsWith('ielts-general-mock-') || path.startsWith('ielts-academic-mock-'))) {
+                  console.log('[onSelectPath - ieltsHub] Detected mock ID, calling handleFullTestSelection');
                   handleFullTestSelection('general-full-mock', path);
-                } else if (path && path.startsWith('ielts-academic-mock-')) {
-                  console.log('[onSelectPath - ieltsHub] Detected academic mock ID, calling handleFullTestSelection');
-                  handleFullTestSelection('academic-full-mock', path);
-                } else if (path === 'ielts-general-mini-test') {
-                  // Mini-test flow: pick ONE random exercise from General test
-                  // Randomly select a skill type
-                  const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
-                  const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
-                  
-                  let singleExercise = null;
-                  
-                  if (randomSkill === 'vocab') {
-                    const readingExercise = pluckRandom('reading_general');
-                    singleExercise = findVocabFromReading(readingExercise);
-                  } else if (randomSkill === 'reading') {
-                    singleExercise = pluckRandom('reading_general');
-                  } else if (randomSkill === 'writing') {
-                    singleExercise = pluckRandom('writing_general');
-                  } else if (randomSkill === 'speaking') {
-                    const speakingWrapper = pluckSingleSpeakingPart();
-                    singleExercise = speakingWrapper?.sections?.[0] || {
-                      id: 'speaking-fallback',
-                      title: 'Speaking Practice',
-                      type: 'SPEAKING',
-                      xp: 200,
-                      prompts: ['Tell me about your hometown.', 'What do you like to do in your free time?']
-                    };
-                  } else if (randomSkill === 'listening') {
-                    singleExercise = pluckRandom('listening');
-                  }
-                  
-                  // Create a mini-test flow with only ONE random exercise
-                  const miniTest = {
-                    id: 'mini-test-flow',
-                    title: 'General Mini Test',
-                    type: 'mini-test-flow',
-                    xp: singleExercise?.xp || 200,
-                    sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean)
-                  };
-                  
-                  if (miniTest.sections.length > 0) {
-                    setActiveLesson(miniTest);
-                    setActiveSectionIndex(0);
-                    setView('lesson');
-                  }
-                } else if (path === 'ielts-academic-mini-test') {
-                  // Academic Mini Flow: pick ONE random exercise
-                  const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
-                  const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
-                  
-                  let singleExercise = null;
-                  
-                  if (randomSkill === 'vocab') {
-                    const readingExercise = pluckRandom('reading_academic');
-                    singleExercise = findVocabFromReading(readingExercise);
-                  } else if (randomSkill === 'reading') {
-                    singleExercise = pluckRandom('reading_academic');
-                  } else if (randomSkill === 'writing') {
-                    singleExercise = pluckRandom('writing_academic');
-                  } else if (randomSkill === 'speaking') {
-                    const speakingWrapper = pluckSingleSpeakingPart();
-                    singleExercise = speakingWrapper?.sections?.[0] || {
-                      id: 'speaking-fallback',
-                      title: 'Speaking Practice',
-                      type: 'SPEAKING',
-                      xp: 200,
-                      prompts: ['Tell me about your hometown.', 'What do you like to do in your free time?']
-                    };
-                  } else if (randomSkill === 'listening') {
-                    singleExercise = pluckRandom('listening');
-                  }
-                  
-                  // Create a mini-test flow with only ONE random exercise
-                  const academicMiniTest = {
-                    id: 'academic-mini-flow',
-                    title: 'Academic Mini Test',
-                    type: 'academic-mini-flow',
-                    xp: singleExercise?.xp || 200,
-                    sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean)
-                  };
-                  
-                  if (academicMiniTest.sections.length > 0) {
-                    setActiveLesson(academicMiniTest);
-                    setActiveSectionIndex(0);
-                    setView('lesson');
-                  }
-                } else if (path === 'ielts-mini-random-general') {
-                  // Single random exercise - General Training (reading/writing are general)
-                  const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
-                  const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
-                  
-                  let singleExercise = null;
-                  
-                  if (randomSkill === 'vocab') {
-                    const readingExercise = pluckRandom('reading_general');
-                    singleExercise = findVocabFromReading(readingExercise);
-                  } else if (randomSkill === 'reading') {
-                    singleExercise = pluckRandom('reading_general');
-                  } else if (randomSkill === 'writing') {
-                    singleExercise = pluckRandom('writing_general');
-                  } else if (randomSkill === 'speaking') {
-                    const speakingWrapper = pluckSingleSpeakingPart();
-                    singleExercise = speakingWrapper?.sections?.[0] || {
-                      id: 'speaking-fallback',
-                      title: 'Speaking Practice',
-                      type: 'SPEAKING',
-                      xp: 200,
-                      prompts: ['Tell me about your hometown.', 'What do you like to do in your free time?']
-                    };
-                  } else if (randomSkill === 'listening') {
-                    singleExercise = pluckRandom('listening');
-                  }
-                  
-                  // Create a mini-test flow with only ONE random exercise
-                  const miniTest = {
-                    id: 'mini-random-general-flow',
-                    title: 'General Quick Practice',
-                    type: 'mini-random-flow',
-                    xp: singleExercise?.xp || 200,
-                    sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean)
-                  };
-                  
-                  if (miniTest.sections.length > 0) {
-                    setActiveLesson(miniTest);
-                    setActiveSectionIndex(0);
-                    navigateToView('lesson');
-                  }
-                } else if (path === 'ielts-mini-random-academic') {
-                  // Single random exercise - Academic (reading/writing are academic)
-                  const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
-                  const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
-                  
-                  let singleExercise = null;
-                  
-                  if (randomSkill === 'vocab') {
-                    const readingExercise = pluckRandom('reading_academic');
-                    singleExercise = findVocabFromReading(readingExercise);
-                  } else if (randomSkill === 'reading') {
-                    singleExercise = pluckRandom('reading_academic');
-                  } else if (randomSkill === 'writing') {
-                    singleExercise = pluckRandom('writing_academic');
-                  } else if (randomSkill === 'speaking') {
-                    const speakingWrapper = pluckSingleSpeakingPart();
-                    singleExercise = speakingWrapper?.sections?.[0] || {
-                      id: 'speaking-fallback',
-                      title: 'Speaking Practice',
-                      type: 'SPEAKING',
-                      xp: 200,
-                      prompts: ['Tell me about your hometown.', 'What do you like to do in your free time?']
-                    };
-                  } else if (randomSkill === 'listening') {
-                    singleExercise = pluckRandom('listening');
-                  }
-                  
-                  // Create a mini-test flow with only ONE random exercise
-                  const miniTest = {
-                    id: 'mini-random-academic-flow',
-                    title: 'Academic Quick Practice',
-                    type: 'mini-random-flow',
-                    xp: singleExercise?.xp || 200,
-                    sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean)
-                  };
-                  
-                  if (miniTest.sections.length > 0) {
-                    setActiveLesson(miniTest);
-                    setActiveSectionIndex(0);
-                    navigateToView('lesson');
-                  }
                 } else if (path === 'skill-tests') {
-                   // Show the skill tests view with individual skill options
-                   navigateToView('skillTests');
-                } else if (path === 'atom-skill') {
-                  // Start a random exercise from the specific skill
-                  // skill = 'reading-ac', 'reading-gt', 'writing-ac', etc.
-                  const skillMap = {
-                    'reading-ac': 'reading',
-                    'reading-gt': 'reading',
-                    'writing-ac': 'writing',
-                    'writing-gt': 'writing',
-                    'listening': 'listening',
-                    'speaking': 'speaking'
-                  };
-                  const randomExercise = pluckRandom(skillMap[skill] || skill);
-                  if (randomExercise) {
-                    setActiveLesson(randomExercise);
-                    setActiveSectionIndex(0);
-                    setView('lesson');
-                  }
-                } else if (path === 'random-mock') {
-                   // Start a random full mock test immediately
-                   const randomMock = pluckRandomFullMock();
-                   if (randomMock && randomMock.sections && randomMock.sections.length > 0) {
-                     setActiveLesson(randomMock);
-                     setActiveSectionIndex(0);
-                     setView('lesson');
-                   }
-                 } else if (path === 'general-full-mock') {
-                   // Start a General Training full mock test
-                   const generalMock = pluckRandomFullMock('general');
-                   if (generalMock && generalMock.sections && generalMock.sections.length > 0) {
-                     setActiveLesson(generalMock);
-                     setActiveSectionIndex(0);
-                     setView('lesson');
-                   }
-                 } else if (path === 'academic-full-mock') {
-                   // Start an Academic full mock test
-                   const academicMock = pluckRandomFullMock('academic');
-                   if (academicMock && academicMock.sections && academicMock.sections.length > 0) {
-                     setActiveLesson(academicMock);
-                     setActiveSectionIndex(0);
-                     setView('lesson');
-                   }
-                   } else if (path.startsWith('ielts-general-full-test-')) {
-                     // Start a General Training full test (from BrandTestHub) with specific mock ID
-                     const mockId = path.replace('ielts-general-full-test-', '');
-                     const specificMock = getMockById(mockId);
-                     const generalMock = specificMock || pluckRandomFullMock('general');
-                     if (generalMock && generalMock.sections && generalMock.sections.length > 0) {
-                       setActiveLesson(generalMock);
-                       setActiveSectionIndex(0);
-                       setView('lesson');
-                     }
-                   } else if (path.startsWith('ielts-academic-full-test-')) {
-                     // Start an Academic full test (from BrandTestHub) with specific mock ID
-                     const mockId = path.replace('ielts-academic-full-test-', '');
-                     const specificMock = getMockById(mockId);
-                     const academicMock = specificMock || pluckRandomFullMock('academic');
-                     if (academicMock && academicMock.sections && academicMock.sections.length > 0) {
-                       setActiveLesson(academicMock);
-                       setActiveSectionIndex(0);
-                       setView('lesson');
-                     }
-                  } else if (path === 'mocks') {
-                    // Navigate to test hub with URL change
-                    if (activeTest) {
-                      navigate(`/ielts/${activeTest.id}-full-individual`);
-                    }
+                  // Navigate to skill tests view
+                  console.log('[onSelectPath - ieltsHub] Navigating to skillTests view');
+                  navigateToView('skillTests');
+                } else {
+                  // All other paths are handled by LessonFactory
+                  console.log('[onSelectPath - ieltsHub] Calling handleStartTask with:', { id: path, skill });
+                  handleStartTask({ id: path, skill });
                 }
               }}
                onShowDescription={() => navigateToView('description')}

@@ -143,6 +143,40 @@ export const LessonFactory = {
       };
     }
 
+    // Command-style strings for mini-tests and random exercises
+    if (taskMetadata.id) {
+      console.log('[LessonFactory] Checking command-style id:', taskMetadata.id);
+      // General Mini Test - single random exercise
+      if (taskMetadata.id === 'ielts-general-mini-test') {
+        console.log('[LessonFactory] Matched ielts-general-mini-test');
+        return LessonFactory.createMiniTest('general');
+      }
+
+      // Academic Mini Test - single random exercise
+      if (taskMetadata.id === 'ielts-academic-mini-test') {
+        console.log('[LessonFactory] Matched ielts-academic-mini-test');
+        return LessonFactory.createMiniTest('academic');
+      }
+
+      // General Quick Practice - single random exercise
+      if (taskMetadata.id === 'ielts-mini-random-general') {
+        console.log('[LessonFactory] Matched ielts-mini-random-general');
+        return LessonFactory.createMiniTest('general');
+      }
+
+      // Academic Quick Practice - single random exercise
+      if (taskMetadata.id === 'ielts-mini-random-academic') {
+        console.log('[LessonFactory] Matched ielts-mini-random-academic');
+        return LessonFactory.createMiniTest('academic');
+      }
+
+      // Atom Skill - random exercise for specific skill
+      if (taskMetadata.id === 'atom-skill') {
+        console.log('[LessonFactory] Matched atom-skill');
+        return LessonFactory.createAtomSkill(taskMetadata.skill);
+      }
+    }
+
     // Mock sections (from Hubs)
     if (taskMetadata.mockId) {
         const mock = ieltsMocks[taskMetadata.mockId];
@@ -161,5 +195,64 @@ export const LessonFactory = {
 
     // Standalone Drills
     return loadFullLesson(taskMetadata, lessonDatabase);
+  },
+
+  // 4. HELPER: Create a mini-test with a single random exercise
+  createMiniTest: (testType) => {
+    console.log('[LessonFactory] Creating mini-test for:', testType);
+    const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking'];
+    const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
+    console.log('[LessonFactory] Random skill selected:', randomSkill);
+    
+    let singleExercise = null;
+    
+    if (randomSkill === 'vocab') {
+      const readingExercise = pluckRandom(`reading_${testType}`);
+      console.log('[LessonFactory] Reading exercise for vocab:', readingExercise);
+      singleExercise = findVocabFromReading(readingExercise);
+    } else if (randomSkill === 'reading') {
+      singleExercise = pluckRandom(`reading_${testType}`);
+    } else if (randomSkill === 'writing') {
+      singleExercise = pluckRandom(`writing_${testType}`);
+    } else if (randomSkill === 'speaking') {
+      const speakingWrapper = pluckSingleSpeakingPart();
+      singleExercise = speakingWrapper?.sections?.[0] || {
+        id: 'speaking-fallback',
+        title: 'Speaking Practice',
+        type: 'SPEAKING',
+        xp: 200,
+        prompts: ['Tell me about your hometown.', 'What do you like to do in your free time?']
+      };
+    } else if (randomSkill === 'listening') {
+      singleExercise = pluckRandom('listening');
+    }
+    
+    console.log('[LessonFactory] Single exercise:', singleExercise);
+    
+    // Create a mini-test flow with only ONE random exercise
+    const miniTest = {
+      id: `mini-test-${testType}-${Date.now()}`,
+      title: testType === 'general' ? 'General Mini Test' : 'Academic Mini Test',
+      type: 'mini-test-flow',
+      xp: singleExercise?.xp || 200,
+      sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean)
+    };
+    
+    console.log('[LessonFactory] Mini-test created:', miniTest);
+    return miniTest.sections.length > 0 ? miniTest : null;
+  },
+
+  // 5. HELPER: Create an atom skill exercise for a specific skill
+  createAtomSkill: (skill) => {
+    const skillMap = {
+      'reading-ac': 'reading',
+      'reading-gt': 'reading',
+      'writing-ac': 'writing',
+      'writing-gt': 'writing',
+      'listening': 'listening',
+      'speaking': 'speaking'
+    };
+    const randomExercise = pluckRandom(skillMap[skill] || skill);
+    return randomExercise || null;
   }
 };

@@ -2,17 +2,26 @@
 
 /* Main container */
 .listening-container {
-  display: flex;
-  flex-direction: column;
   height: 100%;
   background: var(--background);
+}
+
+/* Mobile: Ensure panels have independent scrolling */
+@media (max-width: 768px) {
+  .listening-container {
+    height: calc(100vh - 48px);
+  }
+  
+  .listening-container .invictus-split-pane-layout {
+    height: 100%;
+  }
 }
 
 /* Content Panel */
 .listening-content-panel {
   background: var(--surface);
   height: 100%;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 /* Audio Sticky Bar */
@@ -182,6 +191,14 @@
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+/* Mobile: Ensure exercise panel has independent scrolling */
+@media (max-width: 768px) {
+  .listening-exercise-panel {
+    flex: 1;
+    min-height: 0;
+  }
 }
 
 

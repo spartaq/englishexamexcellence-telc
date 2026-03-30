@@ -89,7 +89,7 @@ const ListeningBlock = ({
     <div className="listening-container">
       <SplitPane
         content={
-          <div className="invictus-content-column">
+          <>
             {/* Header Section */}
             {data.title && (
                <div className="invictus-content-header">
@@ -133,7 +133,7 @@ const ListeningBlock = ({
                 <p className="protip-text">Answers usually appear in the order they are heard. Keep your eyes on the next question while listening.</p>
               </div>
             </div>
-          </div>
+          </>
         }
         exercise={
           <div className="listening-exercise-panel">

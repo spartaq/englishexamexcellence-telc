@@ -4,9 +4,17 @@
 .invictus-reading-layout {
   font-family: var(--invictus-font);
   background: var(--surface-container-lowest);
-  /*height: 100vh;*/
+  height: 100%;
+}
+
+/* Exercise Panel */
+.reading-exercise-panel {
+  background: var(--surface-container-lowest);
+  height: 100%;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 
@@ -65,8 +73,16 @@
 /* Mobile styles */
 @media (max-width: 768px) {
   .invictus-reading-layout {
-    flex-direction: column;
-    height: 100vh;
+    height: calc(100vh - 48px);
+  }
+  
+  .invictus-reading-layout .invictus-split-pane-layout {
+    height: 100%;
+  }
+  
+  .reading-exercise-panel {
+    flex: 1;
+    min-height: 0;
   }
   
   .invictus-content-text {
@@ -103,8 +119,16 @@
 /* Mobile (400px target) */
 @media (max-width: 480px) {
   .invictus-reading-layout {
-    flex-direction: column;
-    height: 100vh;
+    height: calc(100vh - 48px);
+  }
+  
+  .invictus-reading-layout .invictus-split-pane-layout {
+    height: 100%;
+  }
+  
+  .reading-exercise-panel {
+    flex: 1;
+    min-height: 0;
   }
 
   .invictus-content-text {
