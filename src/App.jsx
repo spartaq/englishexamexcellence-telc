@@ -15,6 +15,7 @@ import {
 import BrandTestHub from './components/ui/BrandTestHub';
 import ExamDescription from './components/ui/IELTSExamDescription';
 import VocabHub from './components/ui/VocabHub';
+import MyWords from './components/ui/MyWords';
 import DrillsHub from './components/ui/DrillsHub';
 import TaskSelection from './components/ui/TaskSelection';
 
@@ -120,6 +121,8 @@ const handleUpdateAnswer = useCallback((qId, val) => {
         navigate('/ielts');
       } else if (previousView === 'selection') {
         navigate('/ielts');
+      } else if (previousView === 'mywords') {
+        navigate('/ielts/mywords');
       }
     } else {
       // If we're at the root view or directly accessed, go to ieltsHub
@@ -490,7 +493,8 @@ const handleUpdateAnswer = useCallback((qId, val) => {
 
            {/* DYNAMIC HUB & SELECTION */}
           {view === 'drillsHub' && activeCategory?.title === 'Drills Hub' && <DrillsHub data={activeCategory} onSelectSection={handleSelectSection} onStartTask={handleStartTask} />}
-          {view === 'drillsHub' && activeCategory?.title !== 'Drills Hub' && <VocabHub data={activeCategory} onSelectSection={handleSelectSection} />}
+          {view === 'drillsHub' && activeCategory?.title !== 'Drills Hub' && <VocabHub data={activeCategory} onSelectSection={handleSelectSection} onNavigateToMyWords={() => navigateToView('mywords')} />}
+          {view === 'mywords' && <MyWords onBack={() => navigateToView('drillsHub')} />}
           {view === 'selection' && <TaskSelection section={activeSection} onSelectTask={handleStartTask} />}
 
           {/* THE LESSON ENGINE */}

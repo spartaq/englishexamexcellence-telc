@@ -37,6 +37,18 @@ export const resolvePath = (path) => {
     return defaultPlan;
   }
 
+  // Handle mywords view
+  if (path === 'mywords') {
+    return {
+      view: 'mywords',
+      viewHistory: ['mywords'],
+      activeCategory: null,
+      activeSection: null,
+      triggerTask: null,
+      triggerFullTest: null,
+    };
+  }
+
   // Normalize hubKey: convert hyphens to underscores to match HUBS keys
   const hubKey = path.replace(/-/g, '_');
 

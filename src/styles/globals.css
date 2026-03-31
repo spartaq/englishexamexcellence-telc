@@ -11,7 +11,7 @@
   /* --- Primary Colors (Invictus Academic Red) --- */
   --invictus-red: darkred;
   --invictus-red-dark: #B71C1C;
-  --invictus-red-pale: #fbf9f9;
+  --invictus-red-pale: #f8ebeb;
   --invictus-slate: #1F2937;
   --surface-white: #FFFFFF;
   
@@ -57,7 +57,7 @@
   --radius-full: 100px;
 
   /* --- Layout --- */
-  --sidebar-width: 260px;
+  --sidebar-width: 200px;
   --max-content-width: 1400px;
 
   /* --- Instruction Box Variants (Invictus Refined) --- */

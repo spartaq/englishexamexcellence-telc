@@ -51,7 +51,7 @@ const AppShell = ({
               <LogOut size={18} /> Exit Lab
             </button>
           </nav>
-          <div style={{ marginTop: 'auto' }}>
+          <div style={{ marginTop: '60vh' }}>
             <XPBadge mode="total" />
           </div>
         </aside>

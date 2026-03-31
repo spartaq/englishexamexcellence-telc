@@ -14,6 +14,34 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
+// Prioritize words by SRS status: due words first, then by level, then by review date
+const prioritizeWords = (words, progress) => {
+  const now = Date.now();
+  return [...words].sort((a, b) => {
+    const aProgress = progress[a.term];
+    const bProgress = progress[b.term];
+    
+    // Due words first (nextReview <= now or no progress)
+    const aDue = aProgress ? aProgress.nextReview <= now : true;
+    const bDue = bProgress ? bProgress.nextReview <= now : true;
+    
+    if (aDue && !bDue) return -1;
+    if (!aDue && bDue) return 1;
+    
+    // Among due words, lower level first (needs more practice)
+    if (aDue && bDue) {
+      const aLevel = aProgress?.level || 0;
+      const bLevel = bProgress?.level || 0;
+      return aLevel - bLevel;
+    }
+    
+    // Among non-due words, earlier review date first
+    const aReview = aProgress?.nextReview || 0;
+    const bReview = bProgress?.nextReview || 0;
+    return aReview - bReview;
+  });
+};
+
 const FlashcardBlock = ({ 
   data, 
   onComplete 
@@ -21,6 +49,7 @@ const FlashcardBlock = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [flipStage, setFlipStage] = useState(0);
   const updateVocabMastery = useExamStore(state => state.updateVocabMastery);
+  const vocabProgress = useExamStore(state => state.vocabProgress);
 
   const [words, setWords] = useState([]);
   
@@ -50,12 +79,13 @@ const FlashcardBlock = ({
   useEffect(() => {
     if (sessionStarted) {
       const rawWords = getFilteredWords.slice(0, wordCount);
-      const shuffledWords = data?.isRandomMix ? shuffleArray(rawWords) : rawWords;
+      const prioritizedWords = prioritizeWords(rawWords, vocabProgress);
+      const shuffledWords = data?.isRandomMix ? shuffleArray(prioritizedWords) : prioritizedWords;
       setWords(shuffledWords);
       setCurrentIndex(0);
       setFlipStage(0);
     }
-  }, [data?.id, data?.isRandomMix, sessionStarted, getFilteredWords, wordCount]);
+  }, [data?.id, data?.isRandomMix, sessionStarted, getFilteredWords, wordCount, vocabProgress]);
   
   // Initialize with data words if provided
   useEffect(() => {
@@ -323,7 +353,7 @@ const FlashcardBlock = ({
                 >
                   <span className="material-symbols-outlined srs-icon">cancel</span>
                   <span className="srs-label">Recall Failure</span>
-                  <span className="srs-review-time">Review in 1m</span>
+                  <span className="srs-review-time">Review soon</span>
                 </button>
                 
                 <button
@@ -335,7 +365,7 @@ const FlashcardBlock = ({
                 >
                   <span className="material-symbols-outlined srs-icon">question_mark</span>
                   <span className="srs-label">Uncertain</span>
-                  <span className="srs-review-time">Review in 10m</span>
+                  <span className="srs-review-time">Review in 2-3 days</span>
                 </button>
                 
                 <button
@@ -347,7 +377,7 @@ const FlashcardBlock = ({
                 >
                   <span className="material-symbols-outlined srs-icon">verified</span>
                   <span className="srs-label">Mastered</span>
-                  <span className="srs-review-time">Review in 4d</span>
+                  <span className="srs-review-time">Review in 1 week</span>
                 </button>
               </div>
 

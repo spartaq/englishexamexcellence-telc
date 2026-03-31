@@ -82,6 +82,11 @@ const Router = () => {
           <App initialView="vocabulary" />
         </ProtectedRoute>
       } />
+      <Route path="/ielts/mywords" element={
+        <ProtectedRoute>
+          <App initialView="mywords" />
+        </ProtectedRoute>
+      } />
       <Route path="/ielts/drillshub" element={
         <ProtectedRoute>
           <App initialView="drillshub" />

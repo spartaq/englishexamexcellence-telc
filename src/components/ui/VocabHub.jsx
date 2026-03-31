@@ -1,5 +1,6 @@
 import React from 'react';
-import { Trophy, Zap, Layers, Activity, Book, Globe, Shield, School, Lock, ArrowRight } from 'lucide-react';
+import { Trophy, Zap, Layers, Activity, Book, Globe, Shield, School, Lock, ArrowRight, BookOpen } from 'lucide-react';
+import { useExamStore } from '../../store/useExamStore';
 import './VocabHub.css';
 
 const topicIcons = {
@@ -11,11 +12,31 @@ const topicIcons = {
   'Education': <School size={20} />
 };
 
-const VocabHub = ({ data, onSelectSection }) => {
+// Calculate completion percentage based on vocabProgress
+const calculateCompletion = (words, progress) => {
+  if (!words || words.length === 0) return 0;
+  const mastered = words.filter(w => {
+    const p = progress[w.term];
+    return p && p.level >= 3; // Level 3+ = mastered
+  }).length;
+  return Math.round((mastered / words.length) * 100);
+};
+
+const VocabHub = ({ data, onSelectSection, onNavigateToMyWords }) => {
   const hub = data;
+  const vocabProgress = useExamStore(state => state.vocabProgress);
+  
   if (!hub) return <div className="invictus-loading">Initializing Lexical Engine...</div>;
 
   const categories = hub.categories || [];
+  
+  // Calculate completion for each category
+  const b2Completion = categories[0]?.tasks?.[0]?.words 
+    ? calculateCompletion(categories[0].tasks[0].words, vocabProgress) 
+    : 0;
+  const c1Completion = categories[1]?.tasks?.[0]?.words 
+    ? calculateCompletion(categories[1].tasks[0].words, vocabProgress) 
+    : 0;
 
   return (
     <div className="invictus-vocab-hub">
@@ -39,12 +60,17 @@ const VocabHub = ({ data, onSelectSection }) => {
             </div>
             <h2>QUICK FLASH</h2>
             <p>Initiate high-intensity randomized sessions across 12,000 academic tokens.</p>
-            <button className="btn-hero" onClick={() => {
-              const c1Task = categories[0]?.tasks?.find(t => t.level === 'C1') || categories[0]?.tasks?.[1] || categories[0]?.tasks?.[0];
-              onSelectSection(c1Task ? { ...c1Task, type: 'VOCAB_FLASHCARDS', isRandomMix: true } : { type: 'VOCAB_FLASHCARDS', level: 'C1', tier: 'bronze' });
-            }}>
-              START RANDOM PRACTICE <Layers size={18} />
-            </button>
+            <div className="hero-buttons">
+              <button className="btn-hero" onClick={() => {
+                const c1Task = categories[0]?.tasks?.find(t => t.level === 'C1') || categories[0]?.tasks?.[1] || categories[0]?.tasks?.[0];
+                onSelectSection(c1Task ? { ...c1Task, type: 'VOCAB_FLASHCARDS', isRandomMix: true } : { type: 'VOCAB_FLASHCARDS', level: 'C1', tier: 'bronze' });
+              }}>
+                START RANDOM PRACTICE <Layers size={18} />
+              </button>
+              <button className="btn-hero secondary" onClick={onNavigateToMyWords}>
+                <BookOpen size={18} /> MY WORDS
+              </button>
+            </div>
           </div>
           <div className="hero-stats">
             <div className="stat-box">
@@ -82,8 +108,8 @@ const VocabHub = ({ data, onSelectSection }) => {
                 </div>
                 <span className="xp-label featured">850 XP</span>
               </div>
-              <div className="bar-bg"><div className="bar-fill" style={{width: '65%'}}></div></div>
-              <div className="status-meta"><span>COMPLETION</span><span>65%</span></div>
+              <div className="bar-bg"><div className="bar-fill" style={{width: `${b2Completion}%`}}></div></div>
+              <div className="status-meta"><span>COMPLETION</span><span>{b2Completion}%</span></div>
             </div>
 
             <div className="prof-card" onClick={() => onSelectSection(categories[0])}>
@@ -94,8 +120,8 @@ const VocabHub = ({ data, onSelectSection }) => {
                 </div>
                 <span className="xp-label">420 XP</span>
               </div>
-              <div className="bar-bg"><div className="bar-fill" style={{width: '12%'}}></div></div>
-              <div className="status-meta"><span>COMPLETION</span><span>12%</span></div>
+              <div className="bar-bg"><div className="bar-fill" style={{width: `${b2Completion}%`}}></div></div>
+              <div className="status-meta"><span>COMPLETION</span><span>{b2Completion}%</span></div>
             </div>
           </div>
         </section>
@@ -119,8 +145,8 @@ const VocabHub = ({ data, onSelectSection }) => {
                 </div>
                 <span className="xp-label featured">2500 XP</span>
               </div>
-              <div className="bar-bg"><div className="bar-fill" style={{width: '18%'}}></div></div>
-              <div className="status-meta"><span>COMPLETION</span><span>18%</span></div>
+              <div className="bar-bg"><div className="bar-fill" style={{width: `${c1Completion}%`}}></div></div>
+              <div className="status-meta"><span>COMPLETION</span><span>{c1Completion}%</span></div>
             </div>
 
             <div className="prof-card locked">
