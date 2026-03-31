@@ -59,7 +59,7 @@
 .mcq-question {
   font-size: 16px;
   font-weight: 800;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   padding-right: 60px;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .mcq-question-label {
-  color: var(--lab-indigo);
+  color: var(--invictus-red);
   margin-right: 8px;
 }
 
@@ -370,8 +370,11 @@
     gap: 8px;
   }
   
-  .mcq-option {
-    padding: 12px;
+
+
+  .mcq-option,
+.option-button {
+    padding: 11px;
     font-size: 13px;
     border-radius: 10px;
   }

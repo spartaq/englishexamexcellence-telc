@@ -153,8 +153,8 @@ const MCQBlock = ({
       )}
 
       {/* Question */}
-      <h3 className={`question-text ${isMultiSelect ? 'multiselect' : ''}`}>
-        <span className="question-label">{String(data.id).replace(/^q/, '')}.</span>
+      <h3 className={`mcq-question ${isMultiSelect ? 'multiselect' : ''}`}>
+        <span className="mcq-question-label">{String(data.id).replace(/^q/, '')}.</span>
         {data.question || data.text}
         {isMultiSelect && (
           <span className="mcq-question-subtext" style={{ display: 'block', fontSize: '13px', fontWeight: '400', color: '#64748b', marginTop: '4px' }}>

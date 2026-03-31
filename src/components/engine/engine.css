@@ -60,10 +60,14 @@
 .invictus-total-range {
   font-size: 24px;
   font-weight: 800;
-  color: var(--invictus-slate);
+  color: #ffffff;
+  background: var(--invictus-red);
   margin-bottom: 24px;
   letter-spacing: -0.02em;
   font-family: var(--invictus-font);
+  padding: 12px 20px;
+  border-radius: 8px;
+  display: inline-block;
 }
 
 /* The instruction box: white background on the pink panel for focus */
@@ -410,8 +414,9 @@
   }
 
   .invictus-total-range {
-    font-size: 18px;
-    margin-bottom: 16px;
+    font-size: 15px;
+    margin-bottom: 0px;
+    padding: 8px 12px;
   }
 
   .invictus-instruction-box {
@@ -451,4 +456,11 @@
     padding: 12px;
     font-size: 14px;
   }
+
+  /* Question Card - shared across Listening and InteractiveBlocks */
+.question-card {
+  padding: 20px;
+  border: 1px solid var(--outline-variant);
+  margin-bottom: 0px;
+}
 }

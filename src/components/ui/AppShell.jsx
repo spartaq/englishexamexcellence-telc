@@ -1,6 +1,7 @@
 import React from 'react';
 import { LayoutDashboard, LogOut, ArrowRight } from 'lucide-react';
 import XPBadge from '../gamified/XPBadge';
+import './AppShell.css';
 
 /**
  * AppShell Component
@@ -24,15 +25,15 @@ const AppShell = ({
       {/* SIDEBAR NAVIGATION */}
       {showSidebar && (
         <aside className="invictus-sidebar">
-          <div className="invictus-brand" style={{ marginBottom: '2rem' }}>
-            <h2 className="invictus-brand-title" style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--invictus-red)' }}>
+          <div className="invictus-brand">
+            <h2 className="invictus-brand-title">
               IELTSHub
             </h2>
-            <p className="invictus-brand-subtext" style={{ fontSize: '0.7rem', opacity: 0.5 }}>
+            <p className="invictus-brand-subtext">
               {activeTest ? activeTest.title.toUpperCase() : 'SELECT EXAM'}
             </p>
           </div>
-          <nav className="invictus-nav" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <nav className="invictus-nav">
             <button 
               onClick={() => { 
                 onNavigateToView('ieltsHub'); 
@@ -44,16 +45,13 @@ const AppShell = ({
             </button>
 
             <button 
-              className="invictus-nav-item" 
-              onClick={() => onNavigateToView('landing')} 
-              style={{ marginTop: 'auto', opacity: 0.5 }}
+              className="invictus-nav-item invictus-nav-item-exit" 
+              onClick={() => onNavigateToView('landing')}
             >
               <LogOut size={18} /> Exit Lab
             </button>
           </nav>
-          <div style={{ marginTop: '60vh' }}>
-            <XPBadge mode="total" />
-          </div>
+         
         </aside>
       )}
 
@@ -68,22 +66,22 @@ const AppShell = ({
                 }} 
                 className="exit-btn"
               >
-                <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
+                <ArrowRight size={14} className="exit-btn-icon" /> Back
               </button>
             )}
             {view === 'results' && (
               <button onClick={() => onNavigateBack()} className="exit-btn">
-                <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
+                <ArrowRight size={14} className="exit-btn-icon" /> Back
               </button>
             )}
             {view === 'skillTests' && (
               <button onClick={() => onNavigateBack()} className="exit-btn">
-                <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
+                <ArrowRight size={14} className="exit-btn-icon" /> Back
               </button>
             )}
             {(view === 'drillsHub' || view === 'selection') && (
               <button onClick={() => onNavigateBack()} className="exit-btn">
-                <ArrowRight size={14} style={{ transform: 'rotate(180deg)' }} /> Back
+                <ArrowRight size={14} className="exit-btn-icon" /> Back
               </button>
             )}
           </div>

@@ -70,7 +70,7 @@
 .diagram-caption {
   margin-top: 12px;
   font-size: 13px;
-  color: #64748b;
+  color: #475569;
   font-style: italic;
 }
 
@@ -84,15 +84,14 @@
 /* Label Row */
 .label-row {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 12px;
-  padding: 12px;
+  padding: 16px;
   border-radius: 12px;
   border: 2px solid;
   border-color: #e2e8f0;
   background: white;
   transition: all 0.2s ease;
-  flex-wrap: wrap;
 }
 
 .label-row.over-limit {
@@ -111,67 +110,36 @@
   background: #fef2f2;
 }
 
-/* Label Number Badge */
-.label-number {
-  min-width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--lab-indigo);
-  color: white;
+/* Label Text Container */
+.label-text-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* Question Number */
+.label-question-number {
+  color: var(--invictus-red);
   font-weight: 800;
   font-size: 14px;
-  flex-shrink: 0;
-  position: relative;
-}
-
-/* Question Number (small, top-right) */
-.label-question-number {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  background: var(--lab-indigo);
-  color: white;
-  font-size: 10px;
-  font-weight: 700;
-  min-width: 18px;
-  height: 18px;
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-/* Letter (main content) */
-.label-letter {
-  font-size: 16px;
-  font-weight: 800;
-}
-
-.label-row.row-correct .label-number {
-  background: #10b981;
-}
-
-.label-row.row-incorrect .label-number {
-  background: #ef4444;
-}
-
-/* Hide question number badge in review mode */
-.label-row.row-correct .label-question-number,
-.label-row.row-incorrect .label-question-number {
-  display: none;
 }
 
 /* Label Description */
 .label-description {
-  min-width: 120px;
-  font-weight: 600;
-  color: #475569;
+  font-weight: 800;
+  color: #1e293b;
+  font-size: 14px;
 }
+
+/* Status Icon */
+.status-icon {
+  margin-left: 10px;
+  vertical-align: middle;
+  display: inline-flex;
+}
+
+
 
 /* Input Field */
 .label-input {
@@ -200,7 +168,7 @@
 /* Word Count */
 .label-word-count {
   font-size: 12px;
-  color: #94a3b8;
+  color: #64748b;
   font-weight: 600;
   min-width: 50px;
   text-align: right;
@@ -209,6 +177,73 @@
 
 .label-word-count.over-limit {
   color: #f59e0b;
+}
+
+/* Letter Buttons Container */
+.letter-buttons-container {
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* Letter Button */
+.letter-button {
+  width: 43px;
+  height: 43px;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+  background: white;
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter-button:hover:not(:disabled) {
+  border-color: #94a3b8;
+  color: #1e293b;
+  background-color: #f8fafc;
+}
+
+.letter-button.letter-selected {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.4);
+  transform: scale(1.05);
+}
+
+.letter-button.letter-correct {
+  border-color: #10b981;
+  background: #10b981;
+  color: white;
+}
+
+.letter-button.letter-incorrect {
+  border-color: #ef4444;
+  background: #ef4444;
+  color: white;
+}
+
+.letter-button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.letter-button.letter-selected:disabled {
+  opacity: 1;
+}
+
+/* Ensure disabled buttons aren't too faded during review */
+.letter-button:disabled:not(.letter-correct):not(.letter-incorrect) {
+  opacity: 0.3;
+  border-color: #e2e8f0;
 }
 
 /* Correct Answer Hint */
@@ -280,16 +315,14 @@
     background: rgba(239, 68, 68, 0.1);
   }
   
-  /* Question Number Badge - Dark Mode */
+  /* Question Number - Dark Mode */
   .label-question-number {
-    background: var(--lab-indigo);
-    border-color: var(--surface-white);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    color: var(--invictus-red);
   }
   
-  /* Label Description */
+  /* Label Description - Dark Mode */
   .label-description {
-    color: #9CA3AF;
+    color: #F3F4F6;
   }
   
   /* Input Field */
@@ -299,18 +332,64 @@
   }
   
   .label-input::placeholder {
-    color: #6B7280;
+    color: #94A3B8;
   }
   
   /* Word Count */
   .label-word-count {
-    color: #6B7280;
+    color: #94A3B8;
   }
   
   .label-word-count.over-limit {
     color: #f59e0b;
   }
   
+  /* Letter Buttons */
+  .letter-button {
+    background-color: var(--surface-white);
+    border-color: var(--border-color);
+    color: #9CA3AF;
+  }
+  
+  .letter-button:hover:not(:disabled) {
+    border-color: #6B7280;
+    color: #F3F4F6;
+    background-color: var(--bg-app);
+  }
+  
+  .letter-button.letter-selected {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+  }
+  
+  .letter-button.letter-correct {
+    border-color: #10b981;
+    background: #10b981;
+    color: white;
+  }
+  
+  .letter-button.letter-incorrect {
+    border-color: #ef4444;
+    background: #ef4444;
+    color: white;
+  }
+  
+  .letter-button:disabled:not(.letter-correct):not(.letter-incorrect) {
+    opacity: 0.3;
+    border-color: var(--border-color);
+  }
+  
+  .letter-button.letter-selected:disabled {
+    opacity: 1;
+  }
+  
+  /* Ensure disabled buttons aren't too faded during review */
+  .letter-button:disabled:not(.letter-correct):not(.letter-incorrect) {
+    opacity: 0.3;
+    border-color: var(--border-color);
+  }
+
   /* Correct Answer Hint */
   .correct-answer-hint {
     background: rgba(5, 150, 105, 0.15);
@@ -328,24 +407,17 @@
       padding: 10px;
     }
     
-    .label-number {
-      min-width: 32px;
-      height: 32px;
-      font-size: 12px;
+    .label-text-container {
+      gap: 6px;
+      margin-bottom: 6px;
     }
     
     .label-question-number {
-      top: -4px;
-      right: -4px;
-      font-size: 9px;
-      min-width: 16px;
-      height: 16px;
-      border-radius: 8px;
-      border-width: 1.5px;
+      font-size: 12px;
     }
     
-    .label-letter {
-      font-size: 14px;
+    .label-description {
+      font-size: 12px;
     }
     
     .label-input {
@@ -356,6 +428,16 @@
     .label-word-count {
       font-size: 11px;
       min-width: 40px;
+    }
+    
+    .letter-buttons-container {
+      gap: 6px;
+    }
+    
+    .letter-button {
+      width: 36px;
+      height: 36px;
+      font-size: 14px;
     }
   }
 }

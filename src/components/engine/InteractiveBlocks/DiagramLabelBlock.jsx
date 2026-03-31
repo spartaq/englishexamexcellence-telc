@@ -18,9 +18,18 @@ const DiagramLabelBlock = ({
   const { 
     diagram, 
     labels = [], 
+    questions = [],
     wordLimit = 2,
     instruction = `Write NO MORE THAN ${wordLimit} WORDS AND/OR A NUMBER for each answer.`
   } = data;
+  
+  // Create a map of label to question ID
+  const labelToQuestionMap = {};
+  questions.forEach((q, index) => {
+    if (labels[index]) {
+      labelToQuestionMap[labels[index].id] = q.id;
+    }
+  });
 
   // Word count validation
   const countWords = (text) => {
@@ -77,8 +86,11 @@ const DiagramLabelBlock = ({
     );
   };
 
-  // Render labels with input fields
+  // Render labels with letter buttons
   const renderLabels = () => {
+    // Get all available letters from labels
+    const availableLetters = labels.map(l => l.letter || l.id);
+    
     return (
       <div className="labels-container">
         {labels.map((label) => {
@@ -87,45 +99,61 @@ const DiagramLabelBlock = ({
           const isCorrect = normalizeAnswer(userAnswer) === normalizeAnswer(correctAnswer);
           const isWrong = userAnswer && !isCorrect;
           const isMissing = isReviewMode && !userAnswer;
-          const overLimit = isOverLimit(userAnswer);
 
           return (
             <div
               key={label.id}
-              className={`label-row ${isReviewMode ? (isCorrect ? 'row-correct' : 'row-incorrect') : ''} ${overLimit ? 'over-limit' : ''}`}
+              className={`label-row ${isReviewMode ? (isCorrect ? 'row-correct' : 'row-incorrect') : ''}`}
             >
-              {/* Label Letter Badge */}
-              <div className="label-number">
-                {isReviewMode ? (
-                  isCorrect ? <CheckCircle size={18} /> : <XCircle size={18} />
-                ) : (
-                  <>
-                    <span className="label-question-number">{label.id}</span>
-                    <span className="label-letter">{label.letter || label.id}</span>
-                  </>
+              {/* Label Text with Question Number */}
+              <div className="label-text-container">
+                <span className="label-question-number">{labelToQuestionMap[label.id] || label.id}.</span>
+                <span className="label-description">
+                  {label.description || label.text || `Label ${label.id}`}
+                </span>
+                {isReviewMode && (
+                  <span className="status-icon">
+                    {isCorrect ? <CheckCircle size={18} color="#10b981" /> : <XCircle size={18} color="#ef4444" />}
+                  </span>
                 )}
               </div>
 
-              {/* Input Field */}
-              <div style={{ flex: 1 }}>
-                <input
-                  type="text"
-                  value={userAnswer}
-                  onChange={(e) => handleInputChange(label.id, e.target.value)}
-                  disabled={isReviewMode}
-                  placeholder={isReviewMode ? '' : 'Type the label...'}
-                  className="label-input"
-                />
+              {/* Letter Buttons */}
+              <div className="letter-buttons-container">
+                {availableLetters.map((letter) => {
+                  const isSelected = userAnswer === letter;
+                  const isCorrectLetter = correctAnswer === letter;
+                  
+                  let buttonClass = 'letter-button';
+                  if (isReviewMode) {
+                    if (isCorrectLetter) {
+                      buttonClass += ' letter-correct';
+                    } else if (isSelected && !isCorrectLetter) {
+                      buttonClass += ' letter-incorrect';
+                    }
+                  } else if (isSelected) {
+                    buttonClass += ' letter-selected';
+                  }
+
+                  return (
+                    <button
+                      key={letter}
+                      className={buttonClass}
+                      onClick={() => !isReviewMode && handleInputChange(label.id, letter)}
+                      disabled={isReviewMode}
+                    >
+                      {letter}
+                    </button>
+                  );
+                })}
               </div>
 
-              {/* Word Count */}
-              {!isReviewMode && (
-                <span className={`label-word-count ${overLimit ? 'over-limit' : ''}`}>
-                  {countWords(userAnswer)}/{wordLimit}
-                </span>
+              {/* Correct Answer Hint (Review Mode) */}
+              {isReviewMode && isMissing && (
+                <div className="correct-answer-hint">
+                  Correct: {correctAnswer}
+                </div>
               )}
-
-
             </div>
           );
         })}

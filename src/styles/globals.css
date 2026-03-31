@@ -154,8 +154,28 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background: var(--bg-app);
   color: var(--invictus-slate);
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+html {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Ensure consistent rendering between dev and build */
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent any potential scroll issues */
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
 }
 
 /* --- 4. UTILITY CLASSES --- */

@@ -8,9 +8,9 @@
   display: grid;
   /*grid-template-rows: auto 1fr;*/
   grid-template-columns: var(--sidebar-width) 1fr;
-  max-height: 100vh;
+  height: 100vh;
   width: 85vw;
-  overflow: auto;
+  overflow: hidden;
   background: transparent;
   margin: 0 auto;
 }

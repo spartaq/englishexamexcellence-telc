@@ -52,8 +52,8 @@ const SentenceMatchingBlock = ({ data, userAnswers, onUpdate, isReviewMode }) =>
               gap: '20px'
             }}>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <span style={{ fontWeight: 800, color: 'var(--lab-indigo)' }}>{q.id}</span>
-                <p style={{ margin: 0, fontWeight: 600, fontSize: '15px' }}>{q.text} ...</p>
+                <span style={{ fontWeight: 800, color: 'var(--invictus-red)' }}>{q.id}</span>
+                <p style={{ margin: 0, fontWeight: 800, fontSize: '16px' }}>{q.text} ...</p>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>

@@ -20,11 +20,12 @@
 }
 
 .trinary-q {
-  font-size: 1.05rem;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 800;
   color: #2d3748;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
   line-height: 1.5;
+  padding-right: 60px;
 }
 
 .trinary-button-group {
@@ -138,8 +139,9 @@
 /* Style the question number */
 .q-number {
   font-weight: 800;
-  color: #3b82f6;
-  margin-right: 5px;
+  color: var(--invictus-red);
+  margin-right: 8px;
+  display: inline;
 }
 
 .status-icon {
@@ -165,7 +167,7 @@
   }
 
   .trinary-q {
-    font-size: 1rem;
+    font-size: 14px;
   }
 }
 
@@ -243,7 +245,7 @@
   
   /* Style the question number */
   .q-number {
-    color: #60a5fa;
+    color: var(--invictus-red);
   }
   
   /* Keep non-selected/non-correct buttons faded during review */

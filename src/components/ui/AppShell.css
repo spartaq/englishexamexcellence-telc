@@ -1,0 +1,35 @@
+/* AppShell Component Styles */
+
+.invictus-brand {
+  margin-bottom: 2rem;
+}
+
+.invictus-brand-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--invictus-red);
+}
+
+.invictus-brand-subtext {
+  font-size: 0.7rem;
+  opacity: 0.5;
+}
+
+.invictus-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.invictus-nav-item-exit {
+  margin-top: auto;
+  opacity: 0.5;
+}
+
+.invictus-xp-badge-container {
+  margin-top: auto;
+}
+
+.exit-btn-icon {
+  transform: rotate(180deg);
+}

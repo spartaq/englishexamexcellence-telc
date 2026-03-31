@@ -12,11 +12,30 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
-  overflow-x: hidden;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#root {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Ensure consistent rendering between dev and build */
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent any potential scroll issues */
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
 }
 
 /* Focus styles - core styles in globals.css */

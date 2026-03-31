@@ -56,13 +56,16 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
               borderLeft: isCorrect ? '4px solid #10b981' : isIncorrect ? '4px solid #ef4444' : '4px solid transparent'
             }}
           >
-            <div className="para-label" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-              {isCorrect ? <CheckCircle size={14} color="#10b981" /> : 
-               isIncorrect ? <XCircle size={14} color="#ef4444" /> : 
-               <span className="question-label">{String(q.id).replace(/^q/, '')}.</span>}
-            </div>
-            
-            <p className="question-text" style={{ marginBottom: '16px' }}>{q.text}</p>
+            <h3 className="hm-question">
+              <span className="question-label">{String(q.id).replace(/^q/, '')}.</span>
+              {q.text}
+              {isReviewMode && (
+                <span className="status-icon">
+                  {isCorrect ? <CheckCircle size={18} color="#10b981" /> : 
+                   isIncorrect ? <XCircle size={18} color="#ef4444" /> : null}
+                </span>
+              )}
+            </h3>
             
             <div className="select-wrapper" style={{ minWidth: '180px' }}>
               <select 

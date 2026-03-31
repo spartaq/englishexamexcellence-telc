@@ -59,12 +59,13 @@ const ShortAnswerBlock = ({
   return (
     <div className="short-answer-container">
       {/* 5. SINGLE INSTRUCTION BOX (Rendered once for the whole block) */}
-      {!hideInstruction && (
+      {/* Temporarily hidden - will be handled later */}
+      {/* {!hideInstruction && (
         <div className="question-instruction">
           <AlertTriangle size={16} style={{ marginRight: '8px', flexShrink: 0 }} />
           <span>{instructionText}</span>
         </div>
-      )}
+      )} */}
       
       {/* 6. LIST OF QUESTIONS */}
       <div className="sa-questions-wrapper">
@@ -81,15 +82,15 @@ const ShortAnswerBlock = ({
               key={q.id || index} 
               className={`question-card ${isReviewMode ? (isCorrect ? 'correct' : 'incorrect') : overLimit ? 'over-limit' : ''}`}
             >
-              <div className="sa-question-header" style={{ marginBottom: '12px' }}>
+              <h3 className="sa-question">
                 <span className="question-label">{String(q.id || index + 1).replace(/^q/, '')}.</span>
-                <p className="question-text" style={{ marginBottom: 0 }}>{q.text}</p>
+                {q.text}
                 {isReviewMode && (
                   <span className="status-icon">
-                    {isCorrect ? <CheckCircle size={20} color="#10b981" /> : <XCircle size={20} color="#ef4444" />}
+                    {isCorrect ? <CheckCircle size={18} color="#10b981" /> : <XCircle size={18} color="#ef4444" />}
                   </span>
                 )}
-              </div>
+              </h3>
 
               <div className="sa-input-section">
                 <div className="sa-input-container">

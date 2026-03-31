@@ -143,16 +143,18 @@
 
 .question-number {
   font-weight: 800;
-  color: var(--lab-indigo);
-  min-width: 30px;
+  color: var(--invictus-red);
+  margin-right: 8px;
+  display: inline;
 }
 
 .question-text {
   margin: 0;
   flex: 1;
-  font-weight: 500;
+  font-weight: 800;
   color: #1e293b;
-  min-width: 200px;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .status-icon {

@@ -138,9 +138,9 @@ export default function MatchingChoiceBlock({
             key={q.id} 
             className={`question-card ${isReviewMode ? (isCorrect ? 'correct' : isWrong ? 'incorrect' : '') : ''}`}
           >
-            <div className="matching-choice-text" style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+            <h3 className="matching-choice-text">
               <span className="question-label">{String(q.id).replace(/^q/, '')}.</span>
-              <p className="question-text" style={{ marginBottom: 0, flex: 1 }}>{q.text}</p>
+              {q.text}
               
               {isReviewMode && (
                 <span className="status-icon">
@@ -152,7 +152,7 @@ export default function MatchingChoiceBlock({
                   }
                 </span>
               )}
-            </div>
+            </h3>
             
             <div className="choice-button-group">
               {options.map((opt) => {
@@ -184,20 +184,7 @@ export default function MatchingChoiceBlock({
                     {opt}
                     {/* Usage indicator for reuse mode */}
                     {canReuse && !isReviewMode && isSelected && (
-                      <span style={{
-                        position: 'absolute',
-                        top: '-6px',
-                        right: '-6px',
-                        background: 'var(--lab-indigo)',
-                        color: 'white',
-                        fontSize: '9px',
-                        width: '16px',
-                        height: '16px',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}>
+                      <span className="usage-indicator">
                         {usageCount}
                       </span>
                     )}

@@ -133,7 +133,7 @@
         "id": "s2",
         "section": 2,
         "title": "Reading Passage 2: Company Profiles",
-        "description": "Questions 15-28 - Types: Short Answer, Matching Features, Sentence Completion, Yes/No/Not Given",
+        "description": "Reading Passage 2",
         "passages": [
           {
             "id": "p2",
@@ -149,21 +149,21 @@
             "subTasks": [
               {
                 "type": "short-answer",
-                "instruction": "Type 11 - Short Answer Questions: Write NO MORE THAN THREE WORDS.",
+                "instruction": "hort Answer Questions: Write NO MORE THAN THREE WORDS.",
                 "questions": [
-                  { "id": "15", "text": "What industry does ASM serve?", "answer": "retail" },
-                  { "id": "16", "text": "What is Chipotle known for?", "answer": "fresh ingredients" },
-                  { "id": "17", "text": "What does Vitamin Shoppe sell?", "answer": "nutritional supplements" }
+                  { "id": "12", "text": "What industry does ASM serve?", "answer": "retail" },
+                  { "id": "13", "text": "What is Chipotle known for?", "answer": "fresh ingredients" },
+                  { "id": "14", "text": "What does Vitamin Shoppe sell?", "answer": "nutritional supplements" }
                 ]
               },
               {
                 "type": "matching-features",
-                "instruction": "Type 6 - Matching Features: Match the company to the statement. Write the correct letter, A-E.",
+                "instruction": "Matching Features: Match the company to the statement. Write the correct letter, A-E.",
                 "questions": [
-                  { "id": "18", "text": "Provides medical care at home.", "answer": "E" },
-                  { "id": "19", "text": "Focuses on building brand awareness.", "answer": "C" },
-                  { "id": "20", "text": "Provides options for promotion within the company.", "answer": "B" },
-                  { "id": "21", "text": "Educates people on healthy living.", "answer": "A" }
+                  { "id": "15", "text": "Provides medical care at home.", "answer": "E" },
+                  { "id": "16", "text": "Focuses on building brand awareness.", "answer": "C" },
+                  { "id": "17", "text": "Provides options for promotion within the company.", "answer": "B" },
+                  { "id": "18", "text": "Educates people on healthy living.", "answer": "A" }
                 ],
                 "features": [
                   { "id": "A", "name": "The Vitamin Shoppe" },
@@ -175,8 +175,8 @@
               },
               {
                 "type": "sentence-complete",
-                "instruction": "Type 8 - Sentence Completion: Complete each sentence with NO MORE THAN TWO WORDS from the passage.",
-                "content": "The Vitamin Shoppe offers approximately __(1)__ different products. Chipotle was founded in __(2)__. ASM has more than __(3)__ offices in the US and Canada. PSA Healthcare is headquartered in __(4)__.",
+                "instruction": "Sentence Completion",
+                "content": "The Vitamin Shoppe offers approximately __(19)__ different products. Chipotle was founded in __(20)__. ASM has more than __(21)__ offices in the US and Canada. PSA Healthcare is headquartered in __(22)__.",
                 "options": ["8000", "1993", "65", "Atlanta"],
                 "answers": ["8000", "1993", "65", "Atlanta"]
               },
@@ -184,9 +184,9 @@
                 "type": "trinary",
                 "instruction": "Type 3 - Identifying Writer's Views (Yes/No/Not Given): Write YES, NO or NOT GIVEN.",
                 "questions": [
-                  { "id": "26", "text": "The Vitamin Shoppe pays above-average wages.", "answer": "YES" },
-                  { "id": "27", "text": "Chipotle employees find the work relaxing.", "answer": "NO" },
-                  { "id": "28", "text": "All companies offer flexible schedules.", "answer": "NOT GIVEN" }
+                  { "id": "23", "text": "The Vitamin Shoppe pays above-average wages.", "answer": "YES" },
+                  { "id": "24", "text": "Chipotle employees find the work relaxing.", "answer": "NO" },
+                  { "id": "25", "text": "All companies offer flexible schedules.", "answer": "NOT GIVEN" }
                 ]
               }
             ]
@@ -219,19 +219,19 @@
                   "caption": "PASS Fire Extinguisher Method"
                 },
                 "questions": [
-                  { "id": "29", "text": "Step 1: ______ the pin.", "answer": "Pull" },
-                  { "id": "30", "text": "Step 2: ______ at the base.", "answer": "Aim" },
-                  { "id": "31", "text": "Step 3: ______ the handle.", "answer": "Squeeze" },
-                  { "id": "32", "text": "Step 4: ______ from side to side.", "answer": "Sweep" }
+                  { "id": "26", "text": "Step 1: ______ the pin.", "answer": "Pull" },
+                  { "id": "27", "text": "Step 2: ______ at the base.", "answer": "Aim" },
+                  { "id": "28", "text": "Step 3: ______ the handle.", "answer": "Squeeze" },
+                  { "id": "29", "text": "Step 4: ______ from side to side.", "answer": "Sweep" }
                 ]
               },
               {
                 "type": "sentence-matching",
                 "instruction": "Type 7 - Matching Sentence Endings: Match the sentence beginnings (A-F) with the correct endings (i-vi).",
                 "questions": [
-                  { "id": "33", "text": "Fire drills are important because", "answer": "ii" },
-                  { "id": "34", "text": "Families should discuss", "answer": "iii" },
-                  { "id": "35", "text": "An escape plan helps", "answer": "v" }
+                  { "id": "30", "text": "Fire drills are important because", "answer": "ii" },
+                  { "id": "31", "text": "Families should discuss", "answer": "iii" },
+                  { "id": "32", "text": "An escape plan helps", "answer": "v" }
                 ],
                 "beginnings": [
                   { "id": "A", "text": "Fire drills are important because" },
@@ -255,10 +255,10 @@
                 "instruction": "Type 10 - Diagram Label Completion: Label the fire escape plan. Write the correct label for each letter.",
                 "wordLimit": 1,
                 "questions": [
-                  { "id": "36", "letter": "A", "answer": "Bedroom" },
-                  { "id": "37", "letter": "B", "answer": "Door" },
-                  { "id": "38", "letter": "C", "answer": "Hallway" },
-                  { "id": "39", "letter": "D", "answer": "Stairwell" }
+                  { "id": "33", "letter": "A", "answer": "Bedroom" },
+                  { "id": "34", "letter": "B", "answer": "Door" },
+                  { "id": "35", "letter": "C", "answer": "Hallway" },
+                  { "id": "36", "letter": "D", "answer": "Stairwell" }
                 ],
                 "diagram": {
                   "text": "The building has a main entrance on the ground floor leading to a reception area. The stairwell is located in the center of the building, providing access to all floors. On the second floor, there are two bedrooms: one on the east side and one on the west side. Each bedroom has a door opening to a shared hallway. The hallway connects to the stairwell and also leads to a fire exit at the rear of the building.",
@@ -269,10 +269,10 @@
                   "height": "400px"
                 },
                 "labels": [
-                  { "id": "36", "letter": "A", "answer": "Bedroom" },
-                  { "id": "37", "letter": "B", "answer": "Door" },
-                  { "id": "38", "letter": "C", "answer": "Hallway" },
-                  { "id": "39", "letter": "D", "answer": "Stairwell" }
+                  { "id": "Bedroom", "letter": "A", "answer": "Bedroom" },
+                  { "id": "Door", "letter": "B", "answer": "Door" },
+                  { "id": "Hallway", "letter": "C", "answer": "Hallway" },
+                  { "id": "Stairwell", "letter": "D", "answer": "Stairwell" }
                 ],
                 "options": ["A", "B", "C", "D", "E", "F"]
               },
@@ -280,11 +280,10 @@
                 "type": "short-answer",
                 "instruction": "Type 11 - Short Answer Questions: Answer the questions using NO MORE THAN THREE WORDS.",
                 "questions": [
-                  { "id": "40", "text": "What type of equipment should be regularly inspected?", "answer": "electrical equipment", "wordLimit": 3 },
-                  { "id": "41", "text": "What materials should be kept away from heat sources?", "answer": "flammable materials", "wordLimit": 3 },
-                  { "id": "42", "text": "How often should smoke detector batteries be changed?", "answer": "once a year", "wordLimit": 3 },
-                  { "id": "43", "text": "What should never be used during a fire?", "answer": "elevators", "wordLimit": 3 },
-                  { "id": "44", "text": "Where should people meet after evacuating?", "answer": "assembly point", "wordLimit": 3 }
+                  { "id": "37", "text": "What type of equipment should be regularly inspected?", "answer": "electrical equipment", "wordLimit": 3 },
+                  { "id": "38", "text": "What materials should be kept away from heat sources?", "answer": "flammable materials", "wordLimit": 3 },
+                  { "id": "39", "text": "How often should smoke detector batteries be changed?", "answer": "once a year", "wordLimit": 3 },
+                  { "id": "40", "text": "What should never be used during a fire?", "answer": "elevators", "wordLimit": 3 }
                 ]
               }
             ]
@@ -523,6 +522,7 @@
             ]
           },
           {
+            "id": 36,
             "type": "mcq",
             "instruction": "Choose the correct letter, A, B or C.",
             "question": "According to the lecture, what triggers the warning behavior?",
@@ -530,18 +530,21 @@
             "answer": "B"
           },
           {
+            "id": 37,
             "type": "mcq",
             "question": "How many species were studied in total?",
             "options": ["12", "25", "30"],
             "answer": "C"
           },
           {
+            "id": 38,
             "type": "mcq",
             "question": "What was surprising about the results?",
             "options": ["the complexity of communication", "the speed of adaptation", "the memory capacity"],
             "answer": "A"
           },
           {
+            "id": 39,
             "type": "mcq",
             "question": "The funding for the research came from",
             "options": ["government grants", "private donations", "university funds"],

@@ -31,7 +31,7 @@ const ReadingBlock = ({
   // We keep this logic here because the Carousel needs a flat array to navigate slides
   const questions = data?.questions || (data?.subTasks ? data.subTasks.flatMap(st => {
     // These types are "Self-Contained" (one block handles multiple items)
-    const selfContainedTypes = ['sentence-matching', 'diagram-label', 'flow-chart', 'heading-match'];
+    const selfContainedTypes = ['sentence-matching', 'diagram-label', 'flow-chart', 'heading-match', 'sentence-complete', 'gap-fill'];
     
     if (selfContainedTypes.includes(st.type)) {
       return [{ ...st, type: st.type }];
