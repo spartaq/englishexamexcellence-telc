@@ -243,8 +243,22 @@ const QuestionDispatcherWithCheck = ({
   if (!data) return null;
 
   const qId = data.id;
-  const hasUserAnswers = userAnswers[qId] !== undefined && 
-    (Array.isArray(userAnswers[qId]) ? userAnswers[qId].length > 0 : true);
+  const checkValue = (value) => {
+    if (value === undefined || value === null) return false;
+    if (Array.isArray(value)) return value.length > 0;
+    if (typeof value === 'string') return value.trim().length > 0;
+    return true;
+  };
+
+  const hasUserAnswers = (() => {
+    if (checkValue(userAnswers[qId])) return true;
+    const qIdStr = String(qId);
+    return Object.keys(userAnswers).some((key) => {
+      if (!key) return false;
+      if (key === qIdStr) return checkValue(userAnswers[key]);
+      return key.startsWith(`${qIdStr}-`) || key.startsWith(`${qIdStr}.`);
+    });
+  })();
 
   return (
     <div className="question-dispatcher-wrapper">

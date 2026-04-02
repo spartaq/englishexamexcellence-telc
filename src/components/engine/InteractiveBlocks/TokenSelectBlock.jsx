@@ -93,7 +93,19 @@ const TokenSelectBlock = ({ data, onUpdate, isReviewMode = false }) => {
           }
 
           return (
-            <span key={i} onClick={() => toggleToken(i)} className={className}>
+            <span
+              key={i}
+              className={className}
+              onClick={() => isClickable && !isReviewMode && toggleToken(i)}
+              role={isClickable && !isReviewMode ? 'button' : undefined}
+              tabIndex={isClickable && !isReviewMode ? 0 : undefined}
+              onKeyDown={(e) => {
+                if (isClickable && !isReviewMode && (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar')) {
+                  e.preventDefault();
+                  toggleToken(i);
+                }
+              }}
+            >
               {token}
             </span>
           );

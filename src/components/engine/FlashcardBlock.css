@@ -1236,58 +1236,5 @@
   .flashcard-term {
     font-size: clamp(20px, 5vh, 50px);
   }
-
-  /* Dark mode for mobile menu */
-  .mobile-menu-panel {
-    background: var(--surface-container-low);
-  }
-
-  .mobile-menu-content .config-item {
-    background: var(--surface-container);
-    border-color: var(--outline-variant);
-  }
-
-  .mobile-menu-content .level-btn {
-    background: var(--surface-container);
-    border-color: var(--outline-variant);
-    color: var(--on-surface-variant);
-  }
-
-  .mobile-menu-content .level-btn:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-  }
-
-  .mobile-menu-content .level-btn.active {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: white;
-  }
-
-  .mobile-menu-content .topic-select {
-    background: var(--surface-container);
-    border-color: var(--outline-variant);
-    color: var(--on-surface);
-  }
-
-  .mobile-menu-content .topic-select:hover {
-    border-color: var(--primary);
-  }
-
-  .mobile-menu-content .topic-select:focus {
-    border-color: var(--primary);
-  }
-
-  .mobile-menu-content .start-session-btn {
-    background: var(--primary);
-    color: white;
-  }
-
-  .mobile-menu-content .start-session-btn:hover:not(:disabled) {
-    box-shadow: 0 4px 12px rgba(175, 16, 26, 0.3);
-  }
-
-  .mobile-menu-content .start-session-btn:disabled {
-    background: var(--outline-variant);
-  }
 }
+

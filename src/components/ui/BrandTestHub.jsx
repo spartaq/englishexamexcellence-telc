@@ -170,16 +170,33 @@ const BrandTestHub = ({
       </div>
 
       <div className="precision-grid">
-        {EXTRA_TOOLS && EXTRA_TOOLS.map(tool => (
-          <div key={tool.id} className="quick-card" onClick={() => onSelectModule(tool.hubKey)}>
-            <div className="quick-icon-box" style={{ background: `${tool.color}15`, color: tool.color }}>
-                {React.cloneElement(tool.icon, { size: 24 })}
+        {EXTRA_TOOLS && EXTRA_TOOLS.map(tool => {
+          const hubKey = tool && typeof tool.hubKey === 'string' && tool.hubKey.trim() ? tool.hubKey : null;
+          const validHex = /^#(?:[0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(tool?.color);
+          const background = validHex ? `${tool.color}15` : 'rgba(15, 23, 42, 0.08)';
+          const iconContent = React.isValidElement(tool.icon) ? React.cloneElement(tool.icon, { size: 24 }) : null;
+
+          return (
+            <div
+              key={tool.id}
+              className="quick-card"
+              onClick={() => {
+                if (hubKey && typeof onSelectModule === 'function') {
+                  onSelectModule(hubKey);
+                } else {
+                  console.warn('[BrandTestHub] onSelectModule called with invalid tool.hubKey', tool);
+                }
+              }}
+            >
+              <div className="quick-icon-box" style={{ background, color: validHex ? tool.color : '#0f172a' }}>
+                {iconContent}
+              </div>
+              <h3 className="exam-title">{tool.title}</h3>
+              <p className="exam-meta">TARGETED SKILL BUILDING</p>
+              <p className="exam-description">{tool.description}</p>
             </div>
-            <h3 className="exam-title">{tool.title}</h3>
-            <p className="exam-meta">TARGETED SKILL BUILDING</p>
-            <p className="exam-description">{tool.description}</p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

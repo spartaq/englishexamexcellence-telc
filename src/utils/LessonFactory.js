@@ -179,7 +179,9 @@ export const LessonFactory = {
       // Random Full Mock - Quick Start button
       if (taskMetadata.id === 'random-mock') {
         console.log('[LessonFactory] Matched random-mock');
-        return pluckRandomFullMock();
+        const type = taskMetadata.testType || 'general';
+        const rawMock = pluckRandomFullMock(type);
+        return createFullMockFromMock(rawMock);
       }
     }
 

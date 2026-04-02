@@ -102,32 +102,36 @@ const VocabHub = ({ data, onSelectSection, onNavigateToMyWords }) => {
               <span className="sub">65/100 WORDS</span>
             </div>
             {totalDueWords > 0 && (
-              <div className="stat-box due-words-box" onClick={() => {
-                // Start a review session with due words
-                const dueWords = [];
-                categories.forEach(cat => {
-                  cat.tasks?.forEach(task => {
-                    task.words?.forEach(word => {
-                      const p = vocabProgress[word.term];
-                      if (!p || p.nextReview <= Date.now()) {
-                        dueWords.push(word);
-                      }
+              <button
+                type="button"
+                className="stat-box due-words-box"
+                onClick={() => {
+                  const dueWords = [];
+                  categories.forEach(cat => {
+                    cat.tasks?.forEach(task => {
+                      task.words?.forEach(word => {
+                        const p = vocabProgress[word.term];
+                        if (!p || p.nextReview <= Date.now()) {
+                          dueWords.push(word);
+                        }
+                      });
                     });
                   });
-                });
-                if (dueWords.length > 0) {
-                  onSelectSection({ 
-                    type: 'VOCAB_FLASHCARDS', 
-                    words: dueWords.slice(0, 20), // Limit to 20 words
-                    isRandomMix: true,
-                    title: 'Review Due Words'
-                  });
-                }
-              }}>
+                  if (dueWords.length > 0) {
+                    onSelectSection({ 
+                      type: 'VOCAB_FLASHCARDS', 
+                      words: dueWords.slice(0, 20), // Limit to 20 words
+                      isRandomMix: true,
+                      title: 'Review Due Words'
+                    });
+                  }
+                }}
+                aria-label="Start review of due words"
+              >
                 <span className="label">DUE FOR REVIEW</span>
                 <span className="value due-count">{totalDueWords}</span>
                 <span className="sub">WORDS READY</span>
-              </div>
+              </button>
             )}
           </div>
         </div>

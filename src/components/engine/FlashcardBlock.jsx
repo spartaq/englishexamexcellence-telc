@@ -66,7 +66,107 @@ const FlashcardBlock = ({
   
   // Mobile menu state
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
+  const SessionConfigForm = ({
+    selectedLevel,
+    selectedTopic,
+    wordCount,
+    availableTopics,
+    getFilteredWords,
+    sessionStarted,
+    handleLevelSelect,
+    handleTopicChange,
+    handleWordCountChange,
+    handleStartSession,
+    onSessionStart
+  }) => {
+    const availableCount = getFilteredWords.length;
+    const sliderMax = Math.max(5, Math.min(availableCount, 100));
+    const sliderMin = Math.min(5, sliderMax);
+    const safeSliderValue = Math.min(Math.max(wordCount, sliderMin), sliderMax);
+    const isSliderDisabled = availableCount === 0;
+
+    return (
+      <>
+        <h2 className="config-section-title">Session Configuration</h2>
+        <div className="config-group">
+          <div className="config-item">
+            <label className="config-label">Target Proficiency</label>
+            <div className="level-selector">
+              <button 
+                className={`level-btn ${selectedLevel === 'B2' ? 'active' : ''}`}
+                onClick={() => handleLevelSelect('B2')}
+              >
+                B2 GENERAL
+              </button>
+              <button 
+                className={`level-btn ${selectedLevel === 'C1' ? 'active' : ''}`}
+                onClick={() => handleLevelSelect('C1')}
+              >
+                C1 ADVANCED
+              </button>
+            </div>
+          </div>
+
+          <div className="config-item">
+            <label className="config-label">Subject Domain</label>
+            <select 
+              className="topic-select"
+              value={selectedTopic}
+              onChange={handleTopicChange}
+            >
+              {availableTopics.map(topic => (
+                <option key={topic} value={topic}>{topic}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="config-item">
+            <div className="slider-header">
+              <label className="config-label">Lexical Volume</label>
+              <span className="slider-value">{safeSliderValue} Words</span>
+            </div>
+            <input 
+              type="range" 
+              className="word-slider"
+              min={sliderMin}
+              max={sliderMax}
+              value={safeSliderValue}
+              disabled={isSliderDisabled}
+              onChange={handleWordCountChange}
+            />
+            <div className="slider-labels">
+              <span>{sliderMin}</span>
+              <span>{Math.floor(sliderMax / 2)}</span>
+              <span>{sliderMax}</span>
+            </div>
+          </div>
+
+          <button 
+            className="start-session-btn"
+            onClick={() => {
+              handleStartSession();
+              if (typeof onSessionStart === 'function') onSessionStart();
+            }}
+            disabled={availableCount === 0}
+          >
+            {sessionStarted ? 'Session Active' : 'Start Session'}
+          </button>
+        </div>
+
+        <div className="protocol-section">
+          <div className="protocol-header">
+            <span className="protocol-dot"></span>
+            <span className="protocol-label">Active Protocol</span>
+          </div>
+          <p className="protocol-text">
+            Spaced Repetition System (SRS) enabled. Your feedback directly influences the algorithmic latency of future word presentations.
+          </p>
+        </div>
+      </>
+    );
+  };
+
   // Get available topics from VOCAB_HUB
   const availableTopics = useMemo(() => {
     return VOCAB_HUB.categories.map(cat => cat.title);
@@ -208,80 +308,19 @@ const FlashcardBlock = ({
                 </button>
               </div>
               <div className="mobile-menu-content">
-                {/* Level Selector */}
-                <div className="config-item">
-                  <label className="config-label">Target Proficiency</label>
-                  <div className="level-selector">
-                    <button 
-                      className={`level-btn ${selectedLevel === 'B2' ? 'active' : ''}`}
-                      onClick={() => handleLevelSelect('B2')}
-                    >
-                      B2 GENERAL
-                    </button>
-                    <button 
-                      className={`level-btn ${selectedLevel === 'C1' ? 'active' : ''}`}
-                      onClick={() => handleLevelSelect('C1')}
-                    >
-                      C1 ADVANCED
-                    </button>
-                  </div>
-                </div>
-
-                {/* Topic Dropdown */}
-                <div className="config-item">
-                  <label className="config-label">Subject Domain</label>
-                  <select 
-                    className="topic-select"
-                    value={selectedTopic}
-                    onChange={handleTopicChange}
-                  >
-                    {availableTopics.map(topic => (
-                      <option key={topic} value={topic}>{topic}</option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Word Count Slider */}
-                <div className="config-item">
-                  <div className="slider-header">
-                    <label className="config-label">Lexical Volume</label>
-                    <span className="slider-value">{wordCount} Words</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    className="word-slider"
-                    min="5" 
-                    max={Math.min(getFilteredWords.length, 100)} 
-                    value={wordCount}
-                    onChange={handleWordCountChange}
-                  />
-                  <div className="slider-labels">
-                    <span>5</span>
-                    <span>{Math.floor(Math.min(getFilteredWords.length, 100) / 2)}</span>
-                    <span>{Math.min(getFilteredWords.length, 100)}</span>
-                  </div>
-                </div>
-
-                <button 
-                  className="start-session-btn"
-                  onClick={() => {
-                    handleStartSession();
-                    setIsMobileMenuOpen(false);
-                  }}
-                  disabled={getFilteredWords.length === 0}
-                >
-                  {sessionStarted ? 'Session Active' : 'Start Session'}
-                </button>
-              </div>
-              
-              <div className="protocol-section">
-                <div className="protocol-header">
-                  <span className="protocol-dot"></span>
-                  <span className="protocol-label">Active Protocol</span>
-                </div>
-                <p className="protocol-text">
-                  Spaced Repetition System (SRS) enabled. Your feedback directly influences the algorithmic latency of future word presentations.
-                </p>
+                <SessionConfigForm
+                  selectedLevel={selectedLevel}
+                  selectedTopic={selectedTopic}
+                  wordCount={wordCount}
+                  availableTopics={availableTopics}
+                  getFilteredWords={getFilteredWords}
+                  sessionStarted={sessionStarted}
+                  handleLevelSelect={handleLevelSelect}
+                  handleTopicChange={handleTopicChange}
+                  handleWordCountChange={handleWordCountChange}
+                  handleStartSession={handleStartSession}
+                  onSessionStart={() => setIsMobileMenuOpen(false)}
+                />
               </div>
             </motion.aside>
           </>
@@ -293,82 +332,18 @@ const FlashcardBlock = ({
           <div className="content-grid">
             {/* LEFT PANEL: SESSION CONFIGURATION */}
             <section className="session-config">
-              <div>
-                <h2 className="config-section-title">Session Configuration</h2>
-                <div className="config-group">
-                  {/* Level Selector */}
-                  <div className="config-item">
-                    <label className="config-label">Target Proficiency</label>
-                    <div className="level-selector">
-                      <button 
-                        className={`level-btn ${selectedLevel === 'B2' ? 'active' : ''}`}
-                        onClick={() => handleLevelSelect('B2')}
-                      >
-                        B2 GENERAL
-                      </button>
-                      <button 
-                        className={`level-btn ${selectedLevel === 'C1' ? 'active' : ''}`}
-                        onClick={() => handleLevelSelect('C1')}
-                      >
-                        C1 ADVANCED
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Topic Dropdown */}
-                  <div className="config-item">
-                    <label className="config-label">Subject Domain</label>
-                    <select 
-                      className="topic-select"
-                      value={selectedTopic}
-                      onChange={handleTopicChange}
-                    >
-                      {availableTopics.map(topic => (
-                        <option key={topic} value={topic}>{topic}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Word Count Slider */}
-                  <div className="config-item">
-                    <div className="slider-header">
-                      <label className="config-label">Lexical Volume</label>
-                      <span className="slider-value">{wordCount} Words</span>
-                    </div>
-                    <input 
-                      type="range" 
-                      className="word-slider"
-                      min="5" 
-                      max={Math.min(getFilteredWords.length, 100)} 
-                      value={wordCount}
-                      onChange={handleWordCountChange}
-                    />
-                    <div className="slider-labels">
-                      <span>5</span>
-                      <span>{Math.floor(Math.min(getFilteredWords.length, 100) / 2)}</span>
-                      <span>{Math.min(getFilteredWords.length, 100)}</span>
-                    </div>
-                  </div>
-
-                  <button 
-                    className="start-session-btn"
-                    onClick={handleStartSession}
-                    disabled={getFilteredWords.length === 0}
-                  >
-                    {sessionStarted ? 'Session Active' : 'Start Session'}
-                  </button>
-                </div>
-              </div>
-
-              <div className="protocol-section">
-                <div className="protocol-header">
-                  <span className="protocol-dot"></span>
-                  <span className="protocol-label">Active Protocol</span>
-                </div>
-                <p className="protocol-text">
-                  Spaced Repetition System (SRS) enabled. Your feedback directly influences the algorithmic latency of future word presentations.
-                </p>
-              </div>
+              <SessionConfigForm
+                selectedLevel={selectedLevel}
+                selectedTopic={selectedTopic}
+                wordCount={wordCount}
+                availableTopics={availableTopics}
+                getFilteredWords={getFilteredWords}
+                sessionStarted={sessionStarted}
+                handleLevelSelect={handleLevelSelect}
+                handleTopicChange={handleTopicChange}
+                handleWordCountChange={handleWordCountChange}
+                handleStartSession={handleStartSession}
+              />
             </section>
 
             {/* CENTER PANEL: FLASHCARD ENVIRONMENT */}

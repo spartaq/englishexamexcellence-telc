@@ -88,14 +88,33 @@
 .token-select-token {
   display: inline;
   padding: 2px 0;
-  cursor: pointer;
   border-radius: 2px;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.token-select-token.clickable:hover {
+.token-select-token.clickable {
+  cursor: pointer;
+}
+
+.token-select-token.clickable:hover,
+.token-select-token.clickable:focus-visible,
+.token-select-token.clickable:focus {
   background: #e0e7ff;
   color: #4338ca;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.token-select-token.selected:focus-visible,
+.token-select-token.selected:focus,
+.token-select-token.review-correct:focus-visible,
+.token-select-token.review-correct:focus,
+.token-select-token.review-incorrect:focus-visible,
+.token-select-token.review-incorrect:focus,
+.token-select-token.review-missed:focus-visible,
+.token-select-token.review-missed:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.75);
 }
 
 .token-select-token.selected {

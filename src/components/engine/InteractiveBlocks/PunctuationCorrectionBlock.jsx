@@ -152,7 +152,15 @@ const PunctuationCorrectionBlock = ({ data, onUpdate, isReviewMode = false }) =>
                 {wordIndex < words.length - 1 && (
                   <span 
                     className={gapClassName}
+                    role="button"
+                    tabIndex={isReviewMode ? -1 : 0}
                     onClick={() => togglePunctuation(sentence.id, position)}
+                    onKeyDown={(e) => {
+                      if (!isReviewMode && (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar')) {
+                        e.preventDefault();
+                        togglePunctuation(sentence.id, position);
+                      }
+                    }}
                     title={isReviewMode ? '' : 'Click to add/remove comma'}
                   >
                     {hasUserComma ? (

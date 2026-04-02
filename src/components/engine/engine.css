@@ -443,8 +443,9 @@
     font-size: 14px;
     width: 100%;
   }
+}
 
-  /* Answer options */
+/* Question Card - shared across Listening and InteractiveBlocks */
   .invictus-answer-option {
     padding: 12px;
     font-size: 14px;
@@ -535,5 +536,4 @@
   .engine-fallback-container {
     padding: 16px;
   }
-}
 }
