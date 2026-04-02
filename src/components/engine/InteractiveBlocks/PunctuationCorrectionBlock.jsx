@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Zap, Info, CheckCircle, XCircle } from 'lucide-react';
+import './PunctuationCorrectionBlock.css';
 
 /**
  * PunctuationCorrectionBlock - Interactive drill for adding punctuation
@@ -114,41 +115,15 @@ const PunctuationCorrectionBlock = ({ data, onUpdate, isReviewMode = false }) =>
     return (
       <div 
         key={sentence.id} 
-        className="sentence-container"
-        style={{
-          background: '#f8fafc',
-          borderRadius: '12px',
-          padding: '20px',
-          marginBottom: '16px',
-          border: '1px solid #e2e8f0'
-        }}
+        className="punctuation-sentence-container"
       >
         {/* Sentence number */}
-        <div style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '28px',
-          height: '28px',
-          background: '#e0e7ff',
-          color: '#4338ca',
-          borderRadius: '50%',
-          fontSize: '0.85rem',
-          fontWeight: 700,
-          marginRight: '12px'
-        }}>
+        <div className="punctuation-sentence-number">
           {sentenceIndex + 1}
         </div>
         
         {/* Interactive sentence */}
-        <div style={{ 
-          display: 'inline-flex', 
-          flexWrap: 'wrap', 
-          alignItems: 'center',
-          gap: '2px',
-          fontSize: '1.1rem',
-          lineHeight: '2.2'
-        }}>
+        <div className="punctuation-interactive-sentence">
           {words.map((word, wordIndex) => {
             // Position = wordIndex means "after this word"
             const position = wordIndex;
@@ -156,69 +131,34 @@ const PunctuationCorrectionBlock = ({ data, onUpdate, isReviewMode = false }) =>
             const hasExpectedComma = expectedPositions?.has(position);
             
             // Determine gap styling based on state
-            let gapStyle = {
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              minWidth: '24px',
-              height: '28px',
-              cursor: isReviewMode ? 'default' : 'pointer',
-              borderRadius: '4px',
-              transition: 'all 0.15s ease',
-              position: 'relative',
-              margin: '0 2px'
-            };
-
+            let gapClassName = 'punctuation-gap';
             if (isReviewMode) {
-              if (hasUserComma && hasExpectedComma) {
-                // Correct placement
-                gapStyle.background = '#dcfce7';
-                gapStyle.border = '2px solid #22c55e';
-              } else if (hasUserComma && !hasExpectedComma) {
-                // Wrong placement
-                gapStyle.background = '#fee2e2';
-                gapStyle.border = '2px solid #ef4444';
-              } else if (!hasUserComma && hasExpectedComma) {
-                // Missed placement
-                gapStyle.background = '#fef9c3';
-                gapStyle.border = '2px solid #facc15';
-              } else {
-                // No comma needed, no comma placed - neutral
-                gapStyle.background = 'transparent';
-                gapStyle.border = '2px dashed #e2e8f0';
-              }
+              if (hasUserComma && hasExpectedComma) gapClassName += ' review-correct';
+              else if (hasUserComma && !hasExpectedComma) gapClassName += ' review-incorrect';
+              else if (!hasUserComma && hasExpectedComma) gapClassName += ' review-missed';
+              else gapClassName += ' review-neutral';
             } else {
-              if (hasUserComma) {
-                gapStyle.background = '#e0e7ff';
-                gapStyle.border = '2px solid #6366f1';
-              } else {
-                gapStyle.background = 'transparent';
-                gapStyle.border = '2px dashed #cbd5e1';
-              }
+              if (hasUserComma) gapClassName += ' user-comma';
             }
 
             return (
               <React.Fragment key={wordIndex}>
                 {/* The word itself */}
-                <span style={{ 
-                  padding: '4px 6px',
-                  borderRadius: '4px',
-                  color: '#1e293b'
-                }}>
+                <span className="punctuation-word">
                   {word}
                 </span>
                 
                 {/* Clickable gap AFTER word (not after last word) */}
                 {wordIndex < words.length - 1 && (
                   <span 
-                    style={gapStyle}
+                    className={gapClassName}
                     onClick={() => togglePunctuation(sentence.id, position)}
                     title={isReviewMode ? '' : 'Click to add/remove comma'}
                   >
                     {hasUserComma ? (
-                      <span style={{ color: '#4338ca', fontWeight: 700 }}>{punctuationMark}</span>
+                      <span className="punctuation-comma-mark">{punctuationMark}</span>
                     ) : isReviewMode && hasExpectedComma ? (
-                      <span style={{ color: '#ca8a04', fontWeight: 700 }}>{punctuationMark}</span>
+                      <span className="punctuation-comma-mark missed">{punctuationMark}</span>
                     ) : null}
                   </span>
                 )}
@@ -229,16 +169,8 @@ const PunctuationCorrectionBlock = ({ data, onUpdate, isReviewMode = false }) =>
 
         {/* Explanation in review mode */}
         {isReviewMode && sentence.explanation && (
-          <div style={{
-            marginTop: '12px',
-            padding: '12px 16px',
-            background: '#eff6ff',
-            borderRadius: '8px',
-            fontSize: '0.9rem',
-            color: '#1e40af',
-            borderLeft: '3px solid #3b82f6'
-          }}>
-            <strong>💡 Tip:</strong> {sentence.explanation}
+          <div className="punctuation-explanation">
+            <span className="punctuation-explanation-tip">💡 Tip:</span> {sentence.explanation}
           </div>
         )}
       </div>
@@ -248,59 +180,27 @@ const PunctuationCorrectionBlock = ({ data, onUpdate, isReviewMode = false }) =>
   const results = isReviewMode ? calculateResults() : null;
 
   return (
-    <div 
-      className="punctuation-correction-block"
-      style={{
-        background: 'white',
-        padding: '32px',
-        borderRadius: '24px',
-        border: '1px solid #e2e8f0',
-        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.05)'
-      }}
-    >
+    <div className="punctuation-correction-block">
       {/* HEADER: Title & XP Reward */}
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'space-between', 
-        alignItems: 'center', 
-        marginBottom: '16px' 
-      }}>
-        <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', margin: 0 }}>
+      <div className="punctuation-header">
+        <h3 className="punctuation-title">
           {title}
         </h3>
-        <div style={{ 
-          display: 'flex', 
-          alignItems: 'center', 
-          gap: '6px', 
-          background: '#fef3c7', 
-          color: '#d97706', 
-          padding: '6px 12px', 
-          borderRadius: '100px', 
-          fontSize: '0.85rem', 
-          fontWeight: 700 
-        }}>
+        <div className="punctuation-xp">
           <Zap size={14} fill="#d97706" /> {xpReward} XP
         </div>
       </div>
 
       {/* INSTRUCTION */}
-      <div style={{ 
-        display: 'flex', 
-        gap: '10px', 
-        background: '#f1f5f9', 
-        padding: '14px 18px', 
-        borderRadius: '12px', 
-        marginBottom: '24px',
-        border: '1px solid #e2e8f0'
-      }}>
-        <Info size={18} style={{ color: '#64748b', marginTop: '2px', flexShrink: 0 }} />
-        <p style={{ margin: 0, fontSize: '0.95rem', color: '#334155', fontWeight: 500, lineHeight: 1.5 }}>
+      <div className="punctuation-instruction">
+        <Info size={18} className="punctuation-instruction-icon" />
+        <p className="punctuation-instruction-text">
           {instruction || `Click between words to add ${punctuationMark === ',' ? 'commas' : punctuationMark} where needed.`}
         </p>
       </div>
 
       {/* SENTENCES */}
-      <div className="sentences-container" style={{ marginBottom: '24px' }}>
+      <div className="punctuation-sentences-container">
         {sentences.map((sentence, index) => renderSentence(sentence, index))}
       </div>
 
@@ -308,51 +208,33 @@ const PunctuationCorrectionBlock = ({ data, onUpdate, isReviewMode = false }) =>
       {isReviewMode && (
         <>
           {/* Results Summary */}
-          <div style={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            gap: '24px', 
-            padding: '16px', 
-            background: '#f8fafc', 
-            borderRadius: '12px', 
-            border: '1px solid #e2e8f0', 
-            marginBottom: '16px'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{ width: 12, height: 12, background: '#dcfce7', border: '2px solid #22c55e', borderRadius: '3px' }} /> 
-              <span style={{ fontSize: '0.85rem', color: '#374151' }}>Correct</span>
+          <div className="punctuation-results-summary">
+            <div className="punctuation-results-item">
+              <div className="punctuation-results-color correct" /> 
+              <span className="punctuation-results-label">Correct</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{ width: 12, height: 12, background: '#fee2e2', border: '2px solid #ef4444', borderRadius: '3px' }} /> 
-              <span style={{ fontSize: '0.85rem', color: '#374151' }}>Extra</span>
+            <div className="punctuation-results-item">
+              <div className="punctuation-results-color extra" /> 
+              <span className="punctuation-results-label">Extra</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{ width: 12, height: 12, background: '#fef9c3', border: '2px solid #facc15', borderRadius: '3px' }} /> 
-              <span style={{ fontSize: '0.85rem', color: '#374151' }}>Missed</span>
+            <div className="punctuation-results-item">
+              <div className="punctuation-results-color missed" /> 
+              <span className="punctuation-results-label">Missed</span>
             </div>
           </div>
 
           {/* Score Display */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '12px',
-            padding: '16px',
-            background: results.accuracy === 100 ? '#dcfce7' : '#f8fafc',
-            borderRadius: '12px',
-            border: `1px solid ${results.accuracy === 100 ? '#22c55e' : '#e2e8f0'}`
-          }}>
+          <div className={`punctuation-score-display ${results.accuracy === 100 ? 'perfect' : ''}`}>
             {results.accuracy === 100 ? (
               <>
-                <CheckCircle size={24} color="#22c55e" />
-                <span style={{ fontSize: '1.1rem', fontWeight: 700, color: '#15803d' }}>
+                <CheckCircle size={24} className="punctuation-score-icon" />
+                <span className="punctuation-score-text">
                   Perfect! All commas placed correctly!
                 </span>
               </>
             ) : (
               <>
-                <span style={{ fontSize: '1.1rem', fontWeight: 700, color: '#374151' }}>
+                <span className="punctuation-score-text normal">
                   Score: {results.totalCorrect}/{results.totalExpected} correct ({results.accuracy}%)
                 </span>
               </>

@@ -154,14 +154,12 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background: var(--bg-app);
   color: var(--invictus-slate);
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
 
 html {
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 /* Ensure consistent rendering between dev and build */
@@ -169,14 +167,7 @@ html {
   box-sizing: border-box;
 }
 
-/* Prevent any potential scroll issues */
-html {
-  overflow: hidden;
-}
-
-body {
-  overflow: hidden;
-}
+/* Scroll behavior is now handled by individual components */
 
 /* --- 4. UTILITY CLASSES --- */
 

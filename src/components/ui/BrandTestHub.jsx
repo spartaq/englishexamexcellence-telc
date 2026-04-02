@@ -83,18 +83,21 @@ const BrandTestHub = ({
           <div className="quick-icon-box"><Shuffle size={24} /></div>
           <h3 className="exam-title">General Random</h3>
           <p className="exam-meta">15 MIN • ALL SKILLS</p>
+          <p className="exam-description">A randomized mix of questions across all four skills to keep you sharp and adaptable.</p>
         </div>
 
         <div className="quick-card" onClick={() => onSelectPath('ielts-academic-mini-test')}>
           <div className="quick-icon-box"><BookOpen size={24} /></div>
           <h3 className="exam-title">Academic Random</h3>
           <p className="exam-meta">15 MIN • ALL SKILLS</p>
+          <p className="exam-description">Academic-focused questions designed to simulate real exam conditions and challenge your knowledge.</p>
         </div>
 
         <div className="quick-card" onClick={() => onSelectPath('skill-tests')}>
           <div className="quick-icon-box"><List size={24} /></div>
           <h3 className="exam-title">Specific Skills</h3>
           <p className="exam-meta">CHOOSE YOUR ATOM</p>
+          <p className="exam-description">Target individual skills with focused practice sessions tailored to your weak areas.</p>
         </div>
       </div>
 
@@ -168,28 +171,13 @@ const BrandTestHub = ({
 
       <div className="precision-grid">
         {EXTRA_TOOLS && EXTRA_TOOLS.map(tool => (
-          <div key={tool.id} className="hub-card">
-            <div className="hub-header">
-                <div className="quick-icon-box" style={{ background: `${tool.color}15`, color: tool.color }}>
-                    {React.cloneElement(tool.icon, { size: 24 })}
-                </div>
-                <h3 className="exam-title">{tool.title}</h3>
+          <div key={tool.id} className="quick-card" onClick={() => onSelectModule(tool.hubKey)}>
+            <div className="quick-icon-box" style={{ background: `${tool.color}15`, color: tool.color }}>
+                {React.cloneElement(tool.icon, { size: 24 })}
             </div>
-            <div className="hub-body">
-              <p className="exam-meta" style={{ marginBottom: '12px' }}>{tool.description}</p>
-              <ul style={{ listStyle: 'none', padding: 0, fontSize: '14px', color: '#64748b' }}>
-                <li style={{ marginBottom: '4px' }}>✓ Targeted Skill Building</li>
-                <li>✓ Instant XP Rewards</li>
-              </ul>
-            </div>
-            <div className="hub-footer">
-              <button 
-                className="btn-hub" 
-                onClick={() => onSelectModule(tool.hubKey)}
-              >
-                Enter {tool.title.split(' ').pop()} Lab
-              </button>
-            </div>
+            <h3 className="exam-title">{tool.title}</h3>
+            <p className="exam-meta">TARGETED SKILL BUILDING</p>
+            <p className="exam-description">{tool.description}</p>
           </div>
         ))}
       </div>

@@ -13,7 +13,7 @@ export default defineConfig({
       manifest: {
         name: 'The Exam Lab',
         short_name: 'ExamLab',
-        theme_color: '#5850EC',
+        theme_color: '#B71C1C',
         icons: [
           { src: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
           { src: '/icon-512x512.png', sizes: '512x512', type: 'image/png' }

@@ -44,12 +44,17 @@ const prioritizeWords = (words, progress) => {
 
 const FlashcardBlock = ({ 
   data, 
-  onComplete 
+  onComplete,
+  onNavigateToMyWords
  }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [flipStage, setFlipStage] = useState(0);
   const updateVocabMastery = useExamStore(state => state.updateVocabMastery);
   const vocabProgress = useExamStore(state => state.vocabProgress);
+  const srsTestMode = useExamStore(state => state.srsTestMode);
+  const toggleSrsTestMode = useExamStore(state => state.toggleSrsTestMode);
+  const resetVocabProgress = useExamStore(state => state.resetVocabProgress);
+  const [showDebugPanel, setShowDebugPanel] = useState(false);
 
   const [words, setWords] = useState([]);
   
@@ -58,6 +63,9 @@ const FlashcardBlock = ({
   const [selectedTopic, setSelectedTopic] = useState(data?.topic || 'Environment & Ecology');
   const [wordCount, setWordCount] = useState(data?.words?.length || 15);
   const [sessionStarted, setSessionStarted] = useState(false);
+  
+  // Mobile menu state
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   // Get available topics from VOCAB_HUB
   const availableTopics = useMemo(() => {
@@ -169,6 +177,116 @@ const FlashcardBlock = ({
 
   return (
     <div className="invictus-flashcard-session-layout">
+      {/* Mobile Slide-in Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            {/* Overlay */}
+            <motion.div 
+              className="mobile-menu-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            {/* Slide-in Panel */}
+            <motion.aside 
+              className="mobile-menu-panel"
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            >
+              <div className="mobile-menu-header">
+                <h2 className="mobile-menu-title">Session Configuration</h2>
+                <button 
+                  className="mobile-menu-close"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label="Close menu"
+                >
+                  <span className="material-symbols-outlined">close</span>
+                </button>
+              </div>
+              <div className="mobile-menu-content">
+                {/* Level Selector */}
+                <div className="config-item">
+                  <label className="config-label">Target Proficiency</label>
+                  <div className="level-selector">
+                    <button 
+                      className={`level-btn ${selectedLevel === 'B2' ? 'active' : ''}`}
+                      onClick={() => handleLevelSelect('B2')}
+                    >
+                      B2 GENERAL
+                    </button>
+                    <button 
+                      className={`level-btn ${selectedLevel === 'C1' ? 'active' : ''}`}
+                      onClick={() => handleLevelSelect('C1')}
+                    >
+                      C1 ADVANCED
+                    </button>
+                  </div>
+                </div>
+
+                {/* Topic Dropdown */}
+                <div className="config-item">
+                  <label className="config-label">Subject Domain</label>
+                  <select 
+                    className="topic-select"
+                    value={selectedTopic}
+                    onChange={handleTopicChange}
+                  >
+                    {availableTopics.map(topic => (
+                      <option key={topic} value={topic}>{topic}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Word Count Slider */}
+                <div className="config-item">
+                  <div className="slider-header">
+                    <label className="config-label">Lexical Volume</label>
+                    <span className="slider-value">{wordCount} Words</span>
+                  </div>
+                  <input 
+                    type="range" 
+                    className="word-slider"
+                    min="5" 
+                    max={Math.min(getFilteredWords.length, 100)} 
+                    value={wordCount}
+                    onChange={handleWordCountChange}
+                  />
+                  <div className="slider-labels">
+                    <span>5</span>
+                    <span>{Math.floor(Math.min(getFilteredWords.length, 100) / 2)}</span>
+                    <span>{Math.min(getFilteredWords.length, 100)}</span>
+                  </div>
+                </div>
+
+                <button 
+                  className="start-session-btn"
+                  onClick={() => {
+                    handleStartSession();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  disabled={getFilteredWords.length === 0}
+                >
+                  {sessionStarted ? 'Session Active' : 'Start Session'}
+                </button>
+              </div>
+              
+              <div className="protocol-section">
+                <div className="protocol-header">
+                  <span className="protocol-dot"></span>
+                  <span className="protocol-label">Active Protocol</span>
+                </div>
+                <p className="protocol-text">
+                  Spaced Repetition System (SRS) enabled. Your feedback directly influences the algorithmic latency of future word presentations.
+                </p>
+              </div>
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
       {/* MAIN CONTENT AREA */}
       <main className="flashcard-main-content">
         <div className="flashcard-main-content-inner">
@@ -255,11 +373,29 @@ const FlashcardBlock = ({
 
             {/* CENTER PANEL: FLASHCARD ENVIRONMENT */}
             <section className="flashcard-section">
-              {/* Word Counter */}
-              <div className="flashcard-counter">
-                <span className="counter-text">
-                  WORD {currentIndex + 1} <span className="counter-divider">OF</span> {words.length}
-                </span>
+              {/* Section Title */}
+              <div className="flashcard-section-header">
+                <h2 className="flashcard-section-title">Vocabulary Training</h2>
+                <p className="flashcard-section-subtitle">{selectedTopic} • {level} Level</p>
+                <div className="flashcard-header-actions">
+                  {onNavigateToMyWords && (
+                    <button 
+                      className="my-words-btn"
+                      onClick={onNavigateToMyWords}
+                    >
+                      <span className="material-symbols-outlined">book</span>
+                      My Words
+                    </button>
+                  )}
+                  {/* Mobile Menu Trigger Button */}
+                  <button 
+                    className="mobile-menu-trigger"
+                    onClick={() => setIsMobileMenuOpen(true)}
+                    aria-label="Open session configuration"
+                  >
+                    <span className="material-symbols-outlined">tune</span>
+                  </button>
+                </div>
               </div>
 
               {/* The Flashcard */}
@@ -267,6 +403,12 @@ const FlashcardBlock = ({
                 className={`flashcard-container ${flipStage > 0 ? 'flipped' : ''}`} 
                 onClick={handleCardClick}
               >
+                {/* Word Counter */}
+                <div className="flashcard-counter">
+                  <span className="counter-text">
+                    WORD {currentIndex + 1} <span className="counter-divider">OF</span> {words.length}
+                  </span>
+                </div>
                 {/* Navigation Arrows */}
                 <button
                   className="flashcard-nav-arrow flashcard-nav-prev"
@@ -306,7 +448,7 @@ const FlashcardBlock = ({
                     <h1 className="flashcard-term">{currentWord.term}</h1>
                     <div className="flashcard-divider"></div>
                     <p className="flashcard-hint">
-                      Click to reveal clinical definition and usage examples.
+                      Click for definition and usage examples.
                     </p>
                   </div>
                   
@@ -380,6 +522,101 @@ const FlashcardBlock = ({
                   <span className="srs-review-time">Review in 1 week</span>
                 </button>
               </div>
+
+              {/* Debug Panel for SRS Testing */}
+              <div className="debug-panel-toggle">
+                <button 
+                  className="debug-toggle-btn"
+                  onClick={() => setShowDebugPanel(!showDebugPanel)}
+                >
+                  <span className="material-symbols-outlined">bug_report</span>
+                  {showDebugPanel ? 'Hide Debug' : 'Show Debug'}
+                </button>
+              </div>
+
+              {showDebugPanel && (
+                <div className="debug-panel">
+                  <div className="debug-header">
+                    <h3>SRS Debug Panel</h3>
+                    <span className="debug-badge">TEST MODE</span>
+                  </div>
+                  <p className="debug-warning">
+                    ⚠️ This is TEMPORARY testing behavior. Production will use the real SRS algorithm.
+                  </p>
+                  
+                  <div className="debug-controls">
+                    <div className="debug-control-item">
+                      <label className="debug-label">
+                        <input 
+                          type="checkbox" 
+                          checked={srsTestMode}
+                          onChange={toggleSrsTestMode}
+                        />
+                        <span>Test Mode (seconds instead of days)</span>
+                      </label>
+                      <p className="debug-hint">
+                        {srsTestMode 
+                          ? 'Intervals: 0s, 5s, 15s, 30s, 60s, 120s' 
+                          : 'Intervals: 0d, 1d, 3d, 7d, 14d, 30d'}
+                      </p>
+                    </div>
+                    
+                    <button 
+                      className="debug-reset-btn"
+                      onClick={() => {
+                        if (window.confirm('Reset all SRS progress? This cannot be undone.')) {
+                          resetVocabProgress();
+                        }
+                      }}
+                    >
+                      <span className="material-symbols-outlined">refresh</span>
+                      Reset All Progress
+                    </button>
+                  </div>
+                  
+                  {currentWord && (
+                    <div className="debug-info">
+                      <h4>Current Word: {currentWord.term}</h4>
+                      <div className="debug-stats">
+                        <div className="debug-stat">
+                          <span className="debug-stat-label">Level:</span>
+                          <span className="debug-stat-value">
+                            {vocabProgress[currentWord.term]?.level || 0}
+                          </span>
+                        </div>
+                        <div className="debug-stat">
+                          <span className="debug-stat-label">Next Review:</span>
+                          <span className="debug-stat-value">
+                            {vocabProgress[currentWord.term]?.nextReview 
+                              ? new Date(vocabProgress[currentWord.term].nextReview).toLocaleString()
+                              : 'Not set'}
+                          </span>
+                        </div>
+                        <div className="debug-stat">
+                          <span className="debug-stat-label">Status:</span>
+                          <span className={`debug-stat-value ${
+                            vocabProgress[currentWord.term]?.nextReview <= Date.now() 
+                              ? 'due' 
+                              : 'not-due'
+                          }`}>
+                            {vocabProgress[currentWord.term]?.nextReview <= Date.now() 
+                              ? 'DUE FOR REVIEW' 
+                              : 'Not due yet'}
+                          </span>
+                        </div>
+                        {vocabProgress[currentWord.term]?.nextReview && (
+                          <div className="debug-stat">
+                            <span className="debug-stat-label">Time until review:</span>
+                            <span className="debug-stat-value">
+                              {Math.max(0, Math.round((vocabProgress[currentWord.term].nextReview - Date.now()) / 1000))}s
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* Keyboard Shortcuts Footer */}
               <div className="keyboard-shortcuts">

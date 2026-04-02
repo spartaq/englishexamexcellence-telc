@@ -51,8 +51,8 @@ const LandingPage = () => {
           <div className="hero-content">
             <div className="hero-badge">IELTS • TOEFL • TELC</div>
             <h1>
-              Stop practicing. <br />
-              <span className="text-gradient">Start training.</span>
+              English Exam Lab <br />
+              <span className="text-gradient">Really learn.</span>
             </h1>
             <p className="hero-subtext">
               Most students just measure their level with mock tests. We help you <strong>improve</strong> it. 

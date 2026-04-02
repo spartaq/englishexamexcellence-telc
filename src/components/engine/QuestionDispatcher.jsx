@@ -24,14 +24,18 @@ import SentenceMatchingBlock from './InteractiveBlocks/SentenceMatchingBlock';
  * @param {Object} data - The raw question/task object from the JSON
  * @param {Object} userAnswers - The global state object containing answers
  * @param {Function} onUpdate - Function (id, value) => updateState
+ * @param {Function} onCheckAnswers - Function to trigger grading
  * @param {Boolean} isReviewMode - Whether to show answers/corrections
+ * @param {Boolean} showCheckAnswers - Whether to show the Check Answers button
  * @param {String|Array} passageContent - (Optional) The text content for context-heavy questions
  */
 const QuestionDispatcher = ({ 
   data, 
   userAnswers = {}, 
   onUpdate, 
+  onCheckAnswers,
   isReviewMode = false,
+  showCheckAnswers = true,
   passageContent = null 
 }) => {
   if (!data) return null;
@@ -226,4 +230,46 @@ const QuestionDispatcher = ({
   }
 };
 
-export default QuestionDispatcher;
+// Wrapper component that adds Check Answers button
+const QuestionDispatcherWithCheck = ({
+  data,
+  userAnswers = {},
+  onUpdate,
+  onCheckAnswers,
+  isReviewMode = false,
+  showCheckAnswers = true,
+  passageContent = null
+}) => {
+  if (!data) return null;
+
+  const qId = data.id;
+  const hasUserAnswers = userAnswers[qId] !== undefined && 
+    (Array.isArray(userAnswers[qId]) ? userAnswers[qId].length > 0 : true);
+
+  return (
+    <div className="question-dispatcher-wrapper">
+      <QuestionDispatcher
+        data={data}
+        userAnswers={userAnswers}
+        onUpdate={onUpdate}
+        isReviewMode={isReviewMode}
+        passageContent={passageContent}
+      />
+      
+      {/* Check Answers Button */}
+      {showCheckAnswers && !isReviewMode && onCheckAnswers && (
+        <div className="check-answers-container">
+          <button 
+            className="check-answers-btn"
+            onClick={() => onCheckAnswers()}
+            disabled={!hasUserAnswers}
+          >
+            Check Answers
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default QuestionDispatcherWithCheck;

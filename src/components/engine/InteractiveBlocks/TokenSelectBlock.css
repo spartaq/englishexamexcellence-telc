@@ -1,0 +1,187 @@
+/* ============================================
+   TOKEN SELECT BLOCK - Interactive Grammar Drill
+   ============================================ */
+
+.token-select-block {
+  background: white;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.token-select-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.token-select-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.token-select-xp {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef3c7;
+  color: #d97706;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* Instruction */
+.token-select-instruction {
+  display: flex;
+  gap: 10px;
+  background: #f1f5f9;
+  padding: 14px 18px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 1px solid #e2e8f0;
+}
+
+.token-select-instruction-icon {
+  color: #64748b;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.token-select-instruction-text {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #334155;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Natural Text Area */
+.token-select-text-area {
+  line-height: 2.3;
+  font-size: 1.2rem;
+  color: #1e293b;
+  text-align: left;
+  white-space: pre-wrap;
+  margin-bottom: 32px;
+}
+
+/* Token (Word) */
+.token-select-token {
+  display: inline;
+  padding: 2px 0;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+}
+
+.token-select-token.clickable:hover {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+.token-select-token.selected {
+  background: #e0e7ff;
+  color: #4338ca;
+  font-weight: 600;
+}
+
+.token-select-token.review-correct {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.token-select-token.review-incorrect {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.token-select-token.review-missed {
+  background: #fef9c3;
+  box-shadow: 0 0 0 1px #facc15;
+}
+
+/* Results Legend */
+.token-select-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.85rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.token-select-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.token-select-legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.token-select-legend-color.correct {
+  background: #dcfce7;
+  border: 1px solid #22c55e;
+}
+
+.token-select-legend-color.incorrect {
+  background: #fee2e2;
+  border: 1px solid #ef4444;
+}
+
+.token-select-legend-color.missed {
+  background: #fef9c3;
+  border: 1px solid #facc15;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .token-select-block {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .token-select-text-area {
+    font-size: 1rem;
+    line-height: 2;
+  }
+
+  .token-select-legend {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

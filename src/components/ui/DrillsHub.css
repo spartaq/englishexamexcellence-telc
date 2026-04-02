@@ -3,6 +3,18 @@
   max-width: 1400px;
   margin: 0 auto;
   color: var(--on-surface);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Header */
@@ -54,9 +66,22 @@
 .hero-card {
   display: grid;
   grid-template-columns: 1fr 300px;
-  background: #111;
+  background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
   color: #fff;
   padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .engine-badge {
@@ -81,11 +106,39 @@
   align-items: center;
   gap: 1rem;
   margin-top: 1.5rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-hero::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.btn-hero:hover::after {
+  width: 300px;
+  height: 300px;
 }
 
 .btn-hero:hover {
   background: var(--drills-amber);
   color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(245, 158, 11, 0.3);
+}
+
+.btn-hero:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(245, 158, 11, 0.2);
 }
 
 .hero-stats {
@@ -192,17 +245,58 @@
   border: 1px solid var(--border-subtle);
   border-left: 4px solid #d1d5db;
   padding: 1.5rem;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.drill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.drill-card:hover::before {
+  opacity: 1;
 }
 
 .drill-card.active {
   border-left-color: var(--drills-amber);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+}
+
+.drill-card.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--drills-amber);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .drill-card:hover {
   background: var(--bg-subtle);
-  transform: translateX(4px);
+  transform: translateX(8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-left-color: var(--drills-amber);
 }
 
 .drill-card-top {
@@ -250,7 +344,13 @@
 .drill-action {
   color: var(--drills-amber);
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: all 0.25s ease;
+  transform: translateX(-8px);
+}
+
+.drill-card:hover .drill-action {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .drill-card:hover .drill-action {
@@ -280,12 +380,32 @@
   background: #fff;
   border: 1px solid var(--border-subtle);
   padding: 1.5rem;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.drill-type-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--drills-amber) 0%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.drill-type-card:hover::before {
+  transform: scaleX(1);
 }
 
 .drill-type-card:hover {
   border-color: var(--drills-amber);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 .drill-type-icon {

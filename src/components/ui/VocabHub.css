@@ -121,12 +121,62 @@
   font-weight: 900;
 }
 
+/* Due Words Badge */
+.stat-box.due-words-box {
+  cursor: pointer;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  transition: all 0.2s ease;
+}
+
+.stat-box.due-words-box:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.5);
+  transform: translateY(-2px);
+}
+
+.stat-box .due-count {
+  color: #ef4444;
+  font-size: 2.5rem;
+}
+
 /* Proficiency Grid */
 .proficiency-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 4rem;
   margin-bottom: 4rem;
+}
+
+@media (max-width: 480px) {
+  .invictus-vocab-hub {
+    padding: 1rem;
+  }
+
+  .invictus-hub-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-card {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .hero-stats {
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+
+  .proficiency-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .track-header {
@@ -158,12 +208,15 @@
 }
 
 .prof-card {
-  background: #fff;
+  background: var(--bg-app);
   border: 1px solid var(--border-subtle);
   border-left: 4px solid #d1d5db;
   padding: 1.5rem;
   transition: all 0.2s ease;
   cursor: pointer;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .prof-card.active {
@@ -180,12 +233,17 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 1.5rem;
+  gap: 0.5rem;
+  min-width: 0;
 }
 
 .card-top h3 {
   margin: 0;
   font-size: 1.1rem;
   font-weight: 800;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 .card-top p {
@@ -256,7 +314,7 @@
 }
 
 .topic-card-minimal {
-  background: #fff;
+  background: var(--bg-app);
   border: 1px solid var(--border-subtle);
   padding: 1rem;
   display: flex;

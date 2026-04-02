@@ -22,6 +22,17 @@ const calculateCompletion = (words, progress) => {
   return Math.round((mastered / words.length) * 100);
 };
 
+// Calculate due words count (words ready for review)
+const calculateDueWords = (words, progress) => {
+  if (!words || words.length === 0) return 0;
+  const now = Date.now();
+  return words.filter(w => {
+    const p = progress[w.term];
+    // Due if: no progress yet, or nextReview <= now
+    return !p || p.nextReview <= now;
+  }).length;
+};
+
 const VocabHub = ({ data, onSelectSection, onNavigateToMyWords }) => {
   const hub = data;
   const vocabProgress = useExamStore(state => state.vocabProgress);
@@ -37,6 +48,14 @@ const VocabHub = ({ data, onSelectSection, onNavigateToMyWords }) => {
   const c1Completion = categories[1]?.tasks?.[0]?.words 
     ? calculateCompletion(categories[1].tasks[0].words, vocabProgress) 
     : 0;
+  
+  // Calculate due words count across all categories
+  const totalDueWords = categories.reduce((sum, cat) => {
+    const catDue = cat.tasks?.reduce((taskSum, task) => {
+      return taskSum + calculateDueWords(task.words, vocabProgress);
+    }, 0) || 0;
+    return sum + catDue;
+  }, 0);
 
   return (
     <div className="invictus-vocab-hub">
@@ -82,6 +101,34 @@ const VocabHub = ({ data, onSelectSection, onNavigateToMyWords }) => {
               <div className="mini-progress"><div className="fill" style={{width: '65%'}}></div></div>
               <span className="sub">65/100 WORDS</span>
             </div>
+            {totalDueWords > 0 && (
+              <div className="stat-box due-words-box" onClick={() => {
+                // Start a review session with due words
+                const dueWords = [];
+                categories.forEach(cat => {
+                  cat.tasks?.forEach(task => {
+                    task.words?.forEach(word => {
+                      const p = vocabProgress[word.term];
+                      if (!p || p.nextReview <= Date.now()) {
+                        dueWords.push(word);
+                      }
+                    });
+                  });
+                });
+                if (dueWords.length > 0) {
+                  onSelectSection({ 
+                    type: 'VOCAB_FLASHCARDS', 
+                    words: dueWords.slice(0, 20), // Limit to 20 words
+                    isRandomMix: true,
+                    title: 'Review Due Words'
+                  });
+                }
+              }}>
+                <span className="label">DUE FOR REVIEW</span>
+                <span className="value due-count">{totalDueWords}</span>
+                <span className="sub">WORDS READY</span>
+              </div>
+            )}
           </div>
         </div>
       </section>

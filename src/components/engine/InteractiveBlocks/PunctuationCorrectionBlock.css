@@ -1,0 +1,313 @@
+/* ============================================
+   PUNCTUATION CORRECTION BLOCK - Interactive Grammar Drill
+   ============================================ */
+
+.punctuation-correction-block {
+  background: white;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.punctuation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.punctuation-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.punctuation-xp {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef3c7;
+  color: #d97706;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* Instruction */
+.punctuation-instruction {
+  display: flex;
+  gap: 10px;
+  background: #f1f5f9;
+  padding: 14px 18px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 1px solid #e2e8f0;
+}
+
+.punctuation-instruction-icon {
+  color: #64748b;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.punctuation-instruction-text {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #334155;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Sentences Container */
+.punctuation-sentences-container {
+  margin-bottom: 24px;
+}
+
+/* Sentence Container */
+.punctuation-sentence-container {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.punctuation-sentence-container:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Sentence Number */
+.punctuation-sentence-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: #e0e7ff;
+  color: #4338ca;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-right: 12px;
+}
+
+/* Interactive Sentence */
+.punctuation-interactive-sentence {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+  font-size: 1.1rem;
+  line-height: 2.2;
+}
+
+/* Word */
+.punctuation-word {
+  padding: 4px 6px;
+  border-radius: 4px;
+  color: #1e293b;
+}
+
+/* Gap (Clickable area for comma) */
+.punctuation-gap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 28px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  position: relative;
+  margin: 0 2px;
+}
+
+.punctuation-gap:hover {
+  background: #e0e7ff;
+  border-color: #6366f1;
+}
+
+.punctuation-gap.user-comma {
+  background: #e0e7ff;
+  border: 2px solid #6366f1;
+}
+
+.punctuation-gap.user-comma:hover {
+  background: #c7d2fe;
+  border-color: #4f46e5;
+}
+
+/* Review Mode States */
+.punctuation-gap.review-correct {
+  background: #dcfce7;
+  border: 2px solid #22c55e;
+}
+
+.punctuation-gap.review-incorrect {
+  background: #fee2e2;
+  border: 2px solid #ef4444;
+}
+
+.punctuation-gap.review-missed {
+  background: #fef9c3;
+  border: 2px solid #facc15;
+}
+
+.punctuation-gap.review-neutral {
+  background: transparent;
+  border: 2px dashed #e2e8f0;
+}
+
+/* Comma Mark */
+.punctuation-comma-mark {
+  color: #4338ca;
+  font-weight: 700;
+}
+
+.punctuation-comma-mark.missed {
+  color: #ca8a04;
+  font-weight: 700;
+}
+
+/* Explanation */
+.punctuation-explanation {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: #eff6ff;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #1e40af;
+  border-left: 3px solid #3b82f6;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.punctuation-explanation-tip {
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+/* Results Summary */
+.punctuation-results-summary {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 16px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.punctuation-results-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.punctuation-results-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.punctuation-results-color.correct {
+  background: #dcfce7;
+  border: 2px solid #22c55e;
+}
+
+.punctuation-results-color.extra {
+  background: #fee2e2;
+  border: 2px solid #ef4444;
+}
+
+.punctuation-results-color.missed {
+  background: #fef9c3;
+  border: 2px solid #facc15;
+}
+
+.punctuation-results-label {
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+/* Score Display */
+.punctuation-score-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.punctuation-score-display.perfect {
+  background: #dcfce7;
+  border-color: #22c55e;
+}
+
+.punctuation-score-icon {
+  color: #22c55e;
+}
+
+.punctuation-score-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #15803d;
+}
+
+.punctuation-score-text.normal {
+  color: #374151;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .punctuation-correction-block {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .punctuation-interactive-sentence {
+    font-size: 1rem;
+    line-height: 2;
+  }
+
+  .punctuation-results-summary {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .punctuation-sentence-container {
+    padding: 16px;
+  }
+}

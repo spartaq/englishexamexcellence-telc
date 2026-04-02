@@ -15,13 +15,11 @@
 html, body {
   margin: 0;
   min-width: 320px;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 #root {
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 /* Ensure consistent rendering between dev and build */
@@ -29,17 +27,10 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Prevent any potential scroll issues */
-html {
-  overflow: hidden;
-}
-
-body {
-  overflow: hidden;
-}
+/* Scroll behavior is now handled by individual components */
 
 /* Focus styles - core styles in globals.css */
 :focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid #B71C1C;
   outline-offset: 2px;
 }

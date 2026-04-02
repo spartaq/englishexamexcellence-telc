@@ -1,4 +1,206 @@
 /* =============================================================================
+   IELTS EXAM INFO / STRATEGY PAGE STYLING
+   ============================================================================= */
+
+.strategy-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+  min-height: 100vh;
+  background: var(--surface-white);
+}
+
+.strategy-header {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.strategy-header h1 {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--invictus-slate);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.strategy-header p {
+  font-size: 18px;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.btn-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #2563eb;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s;
+}
+
+.btn-back-link:hover {
+  color: #1d4ed8;
+  transform: translateX(-4px);
+}
+
+.intel-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid var(--invictus-gray-200);
+}
+
+.intel-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.intel-header h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--invictus-slate);
+  letter-spacing: -0.02em;
+}
+
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.pillar-item {
+  background: var(--surface-white);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  border: 1px solid var(--invictus-gray-100);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.pillar-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border-color: var(--invictus-red);
+}
+
+.icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pillar-content h4 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--invictus-slate);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.pillar-content p {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.pillar-content p strong {
+  color: var(--invictus-slate);
+  font-weight: 700;
+}
+
+.teacher-note {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: 12px;
+  padding: 24px 28px;
+  border-left: 4px solid #f59e0b;
+}
+
+.teacher-note h4 {
+  font-size: 14px;
+  font-weight: 800;
+  color: #92400e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.teacher-note p {
+  font-size: 16px;
+  color: #78350f;
+  line-height: 1.7;
+  margin: 0;
+  font-style: italic;
+}
+
+.teacher-note p strong {
+  color: #b45309;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .strategy-container {
+    padding: 24px 16px;
+  }
+
+  .strategy-header h1 {
+    font-size: 28px;
+  }
+
+  .strategy-header p {
+    font-size: 15px;
+  }
+
+  .intel-section {
+    padding: 24px 16px;
+  }
+
+  .intel-header h2 {
+    font-size: 22px;
+  }
+
+  .pillar-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pillar-item {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .icon-wrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pillar-content h4 {
+    font-size: 18px;
+  }
+
+  .teacher-note {
+    padding: 20px;
+  }
+
+  .teacher-note p {
+    font-size: 14px;
+  }
+}
+
+/* =============================================================================
    IELTS HUB REFACTOR - Hero & Catalog Layout
    ============================================================================= */
 
@@ -140,6 +342,13 @@
   cursor: pointer;
 }
 
+.exam-description {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
 .quick-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(211, 47, 47, 0.06);
@@ -149,7 +358,7 @@
 .quick-icon-box {
   width: 48px;
   height: 48px;
-  background: var(--invictus-red);
+  background: darkred;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -227,10 +436,12 @@
 /* Exam List Row */
 .exam-list-item {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  padding: 20px 24px;
+  padding: 20px 0px;
   border-bottom: 1px solid var(--invictus-gray-100);
   transition: background 0.2s;
+  gap: 1px;
 }
 
 .exam-list-item:last-child {
@@ -270,7 +481,7 @@
 }
 
 .btn-start-exam {
-  background: var(--invictus-red);
+  background: darkred;
   color: white;
   padding: 10px 24px;
   border-radius: 8px;
@@ -290,49 +501,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   padding: 0 40px;
-}
-
-.hub-card {
-  background: var(--surface-white);
-  border-radius: 20px;
-  border: 1px solid var(--invictus-gray-200);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.hub-header {
-  padding: 32px;
-  border-bottom: 1px solid var(--invictus-gray-100);
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.hub-body {
-  padding: 32px;
-  flex: 1;
-}
-
-.hub-footer {
-  padding: 24px 32px;
-  background: var(--invictus-gray-100);
-}
-
-.btn-hub {
-  width: 100%;
-  padding: 14px;
-  background: var(--surface-white);
-  border: 1px solid var(--invictus-gray-200);
-  border-radius: 10px;
-  font-weight: 700;
-  color: var(--invictus-slate);
-  transition: all 0.2s;
-}
-
-.btn-hub:hover {
-  border-color: var(--invictus-red);
-  color: var(--invictus-red);
+  margin-bottom: 60px;
 }
 
 /* Responsive */
@@ -483,6 +652,12 @@
     gap: 12px;
   }
 
+    /* Exam List Row */
+  .exam-list-item {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
   .exam-card {
     padding: 12px;
     border-radius: 10px;

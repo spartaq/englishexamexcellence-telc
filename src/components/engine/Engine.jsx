@@ -22,7 +22,8 @@ const Engine = ({
   setActiveSectionIndex,
   setActivePassageIndex,
   setIsReviewMode,
-  availableSkills = []
+  availableSkills = [],
+  onNavigateToMyWords
 }) => {
 
   // 1. Resolve Data hierarchy
@@ -134,6 +135,7 @@ if (lessonType === 'VOCAB' || lessonType === 'VOCAB_FLASHCARDS' || skill === 'vo
     <FlashcardBlock 
       data={vocabData} 
       onComplete={onCheckAnswers}
+      onNavigateToMyWords={onNavigateToMyWords}
     />
   );
 }
@@ -146,7 +148,9 @@ if (lessonType === 'VOCAB' || lessonType === 'VOCAB_FLASHCARDS' || skill === 'vo
           data={currentSection}
           userAnswers={userAnswers}
           onUpdate={onUpdateAnswers}
+          onCheckAnswers={onCheckAnswers}
           isReviewMode={isReviewMode}
+          showCheckAnswers={showCheckAnswers}
         />
       </div>
     );

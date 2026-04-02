@@ -99,6 +99,7 @@ const handleUpdateAnswer = useCallback((qId, val) => {
     if (newView !== view) {
       setViewHistory(prev => [...prev, newView]);
       setView(newView);
+      setCurrentView(newView); // Update Zustand store for ScrollToTop
     }
   };
 
@@ -111,6 +112,7 @@ const handleUpdateAnswer = useCallback((qId, val) => {
       const previousView = newHistory[newHistory.length - 1];
       setViewHistory(newHistory);
       setView(previousView);
+      setCurrentView(previousView); // Update Zustand store for ScrollToTop
       
       // Update URL based on previous view
       if (previousView === 'landing') {
@@ -127,6 +129,7 @@ const handleUpdateAnswer = useCallback((qId, val) => {
     } else {
       // If we're at the root view or directly accessed, go to ieltsHub
       setView('ieltsHub');
+      setCurrentView('ieltsHub'); // Update Zustand store for ScrollToTop
       navigate('/ielts');
     }
   };      
@@ -145,7 +148,8 @@ const handleUpdateAnswer = useCallback((qId, val) => {
 
   // Global Store Connections
   const claimXp = useExamStore(state => state.claimXp);
-  const isPremium = useExamStore(state => state.isPremium); 
+  const isPremium = useExamStore(state => state.isPremium);
+  const setCurrentView = useExamStore(state => state.setCurrentView); 
     
   // Effort Tracking Hooks
   const isUserInApp = view !== 'landing';
@@ -154,8 +158,6 @@ const handleUpdateAnswer = useCallback((qId, val) => {
   
    // Effect to handle initial view (routing)
   useEffect(() => {
-    console.log('[Routing] initialView changed:', initialView);
-    
     // Use NavigationResolver to determine the navigation plan
     const plan = resolvePath(initialView);
     
@@ -164,6 +166,7 @@ const handleUpdateAnswer = useCallback((qId, val) => {
     setViewHistory(plan.viewHistory);
     setActiveCategory(plan.activeCategory);
     setActiveSection(plan.activeSection);
+    setCurrentView(plan.view); // Update Zustand store for ScrollToTop
     
     // If the plan contains a triggerTask, call handleStartTask
     if (plan.triggerTask) {
@@ -172,9 +175,9 @@ const handleUpdateAnswer = useCallback((qId, val) => {
   }, [initialView]);     
 
   // Layout logic for specialized views
-  // Note: All skill types removed from isHighFocus to show sidebar for all exercises
+  // Note: All skill types removed from isHighFocus to show sidebar for all exercises if && view !== 'lesson' is not present
   const isHighFocus = false;
-  const showSidebar = !isHighFocus && view !== 'results' && view !== 'landing';
+  const showSidebar = !isHighFocus && view !== 'results' && view !== 'landing' && view !== 'lesson';
   const showHeader = view !== 'results' && view !== 'landing';
 
 
@@ -211,11 +214,8 @@ const handleUpdateAnswer = useCallback((qId, val) => {
   const handleGetStarted = () => navigateToView('landing');
 
   const handleSelectModule = (hubKey) => {
-    console.log('handleSelectModule called with', hubKey);
-    
     // Simply navigate to the route - let the Resolver handle state updates
     const hubPath = `/ielts/${hubKey.replaceAll('_', '-')}`;
-    console.log('navigating to', hubPath);
     navigate(hubPath);
   };
 
@@ -230,14 +230,12 @@ const handleUpdateAnswer = useCallback((qId, val) => {
       setActiveSectionIndex(0);
       setActiveSkillTab(0);
       setView('lesson');
+      setCurrentView('lesson'); // Update Zustand store for ScrollToTop
     } else {
-      console.error("Could not resolve full mock for:", testType, path);
     }
   };
 
    const handleSelectSection = (section) => {
-     console.log('handleSelectSection called with:', section);
-     
      // Use NavigationResolver to determine the navigation plan
      const plan = resolveSection(section, activeCategory);
      
@@ -246,6 +244,7 @@ const handleUpdateAnswer = useCallback((qId, val) => {
      setViewHistory(plan.viewHistory);
      setActiveCategory(plan.activeCategory);
      setActiveSection(plan.activeSection);
+     setCurrentView(plan.view); // Update Zustand store for ScrollToTop
      
      // If the plan contains a triggerTask, call handleStartTask
      if (plan.triggerTask) {
@@ -254,7 +253,6 @@ const handleUpdateAnswer = useCallback((qId, val) => {
   };
 
   const handleStartTask = (taskMetadata) => {
-    console.log('[App] handleStartTask called with:', taskMetadata);
     // 1. Check Permissions (only if tier is specified)
     if (taskMetadata.tier && taskMetadata.tier !== 'bronze' && !isPremium) { 
       setShowPaywall(true); 
@@ -269,13 +267,11 @@ const handleUpdateAnswer = useCallback((qId, val) => {
 
     // 3. Prepare the Lesson using the Factory
     const preparedLesson = LessonFactory.create(taskMetadata);
-    console.log('[App] Prepared lesson:', preparedLesson);
-
     if (preparedLesson) {
       setActiveLesson(preparedLesson);
       setView('lesson'); // Navigate to Engine
+      setCurrentView('lesson'); // Update Zustand store for ScrollToTop
     } else {
-      console.error("Failed to prepare lesson", taskMetadata);
     }
   };
 
@@ -329,7 +325,7 @@ const handleUpdateAnswer = useCallback((qId, val) => {
   ) : null;
 
   return (
-    <div className={`invictus-app-shell ${isHighFocus ? 'high-focus-layout' : ''}`}>
+    <div className={`invictus-app-shell ${isHighFocus ? 'high-focus-layout' : ''} ${!showSidebar ? 'no-sidebar' : ''}`}>
       <ScrollToTop />
       
       <AppShell
@@ -358,18 +354,14 @@ const handleUpdateAnswer = useCallback((qId, val) => {
               onSelectModule={handleSelectModule}
               onOpenPaywall={() => setShowPaywall(true)}
               onSelectPath={(path, skill) => {
-                console.log('[onSelectPath - ieltsHub] Received path:', path, 'skill:', skill);
                 // Check if path is a mock ID (e.g., 'ielts-general-mock-1' or 'ielts-academic-mock-1')
                 if (path && (path.startsWith('ielts-general-mock-') || path.startsWith('ielts-academic-mock-'))) {
-                  console.log('[onSelectPath - ieltsHub] Detected mock ID, calling handleFullTestSelection');
                   handleFullTestSelection('general-full-mock', path);
                 } else if (path === 'skill-tests') {
                   // Navigate to skill tests view
-                  console.log('[onSelectPath - ieltsHub] Navigating to skillTests view');
                   navigateToView('skillTests');
                 } else {
                   // All other paths are handled by LessonFactory
-                  console.log('[onSelectPath - ieltsHub] Calling handleStartTask with:', { id: path, skill });
                   handleStartTask({ id: path, skill });
                 }
               }}
@@ -518,6 +510,7 @@ const handleUpdateAnswer = useCallback((qId, val) => {
       setActivePassageIndex={setActivePassageIndex}
       setIsReviewMode={setIsReviewMode}
       availableSkills={activeLesson?.sections?.map(s => s.skill).filter(Boolean) || []}
+      onNavigateToMyWords={() => navigateToView('mywords')}
     />
   </div>
 )}
