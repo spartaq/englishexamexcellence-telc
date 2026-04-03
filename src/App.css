@@ -122,7 +122,7 @@
   width: 100%;
   /*max-width: var(--max-content-width);*/
   margin: 0 auto;
-  padding: 0 10px 0 10px;
+  padding: 0;
   overflow-y: auto;
   background: var(--bg-app);
 }
@@ -364,6 +364,11 @@
     width: 100vw;
   } 
   
+  .invictus-main-container {
+  padding: 0 10px 0 10px;
+  overflow-y: auto;
+  background: var(--bg-app);
+}
   .invictus-logo {
     font-size: 0.95rem;
   }

@@ -149,7 +149,7 @@
             "subTasks": [
               {
                 "type": "short-answer",
-                "instruction": "hort Answer Questions: Write NO MORE THAN THREE WORDS.",
+                "instruction": "Short Answer Questions: Write NO MORE THAN THREE WORDS.",
                 "questions": [
                   { "id": "12", "text": "What industry does ASM serve?", "answer": "retail" },
                   { "id": "13", "text": "What is Chipotle known for?", "answer": "fresh ingredients" },

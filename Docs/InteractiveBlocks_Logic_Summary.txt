@@ -81,7 +81,7 @@ KEY PATTERNS:
 - Dropdown disabled in review mode
 
 ================================================================================
-3. MatchingChoiceBlock.jsx [ENHANCED]
+3. MatchingInfoBlock.jsx [ENHANCED]
 ================================================================================
 PURPOSE:
 Multiple choice matching where questions are matched to letter options (A-K).
@@ -765,7 +765,7 @@ MatchingFeaturesBlock:
   allowReuse: true
 }
 
-MatchingChoiceBlock:
+MatchingInfoBlock:
 {
   questions: [
     { id: "1", text: "Which paragraph mentions X?", answer: "B" }
@@ -781,7 +781,7 @@ IELTS QUESTION TYPE COVERAGE
 Type 1  - Multiple Choice                    → MCQBlock ✓
 Type 2  - Identifying Information (T/F/NG)   → TrinaryBlock (mode: 'tfng') ✓
 Type 3  - Identifying Writer's Views (Y/N/NG)→ TrinaryBlock (mode: 'ynng') ✓
-Type 4  - Matching Information               → MatchingChoiceBlock ✓
+Type 4  - Matching Information               → MatchingInfoBlock ✓
 Type 5  - Matching Headings                  → HeadingMatchBlock ✓
 Type 6  - Matching Features                  → MatchingFeaturesBlock ✓
 Type 7  - Matching Sentence Endings          → SentenceMatchingBlock ✓

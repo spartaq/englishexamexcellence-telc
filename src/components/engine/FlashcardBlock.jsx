@@ -51,10 +51,6 @@ const FlashcardBlock = ({
   const [flipStage, setFlipStage] = useState(0);
   const updateVocabMastery = useExamStore(state => state.updateVocabMastery);
   const vocabProgress = useExamStore(state => state.vocabProgress);
-  const srsTestMode = useExamStore(state => state.srsTestMode);
-  const toggleSrsTestMode = useExamStore(state => state.toggleSrsTestMode);
-  const resetVocabProgress = useExamStore(state => state.resetVocabProgress);
-  const [showDebugPanel, setShowDebugPanel] = useState(false);
 
   const [words, setWords] = useState([]);
   
@@ -353,6 +349,7 @@ const FlashcardBlock = ({
                 <h2 className="flashcard-section-title">Vocabulary Training</h2>
                 <p className="flashcard-section-subtitle">{selectedTopic} • {level} Level</p>
                 <div className="flashcard-header-actions">
+                  {/* My Words Button */}
                   {onNavigateToMyWords && (
                     <button 
                       className="my-words-btn"
@@ -498,109 +495,6 @@ const FlashcardBlock = ({
                 </button>
               </div>
 
-              {/* Debug Panel for SRS Testing */}
-              <div className="debug-panel-toggle">
-                <button 
-                  className="debug-toggle-btn"
-                  onClick={() => setShowDebugPanel(!showDebugPanel)}
-                >
-                  <span className="material-symbols-outlined">bug_report</span>
-                  {showDebugPanel ? 'Hide Debug' : 'Show Debug'}
-                </button>
-              </div>
-
-              {showDebugPanel && (
-                <div className="debug-panel">
-                  <div className="debug-header">
-                    <h3>SRS Debug Panel</h3>
-                    <span className="debug-badge">TEST MODE</span>
-                  </div>
-                  <p className="debug-warning">
-                    ⚠️ This is TEMPORARY testing behavior. Production will use the real SRS algorithm.
-                  </p>
-                  
-                  <div className="debug-controls">
-                    <div className="debug-control-item">
-                      <label className="debug-label">
-                        <input 
-                          type="checkbox" 
-                          checked={srsTestMode}
-                          onChange={toggleSrsTestMode}
-                        />
-                        <span>Test Mode (seconds instead of days)</span>
-                      </label>
-                      <p className="debug-hint">
-                        {srsTestMode 
-                          ? 'Intervals: 0s, 5s, 15s, 30s, 60s, 120s' 
-                          : 'Intervals: 0d, 1d, 3d, 7d, 14d, 30d'}
-                      </p>
-                    </div>
-                    
-                    <button 
-                      className="debug-reset-btn"
-                      onClick={() => {
-                        if (window.confirm('Reset all SRS progress? This cannot be undone.')) {
-                          resetVocabProgress();
-                        }
-                      }}
-                    >
-                      <span className="material-symbols-outlined">refresh</span>
-                      Reset All Progress
-                    </button>
-                  </div>
-                  
-                  {currentWord && (
-                    <div className="debug-info">
-                      <h4>Current Word: {currentWord.term}</h4>
-                      <div className="debug-stats">
-                        <div className="debug-stat">
-                          <span className="debug-stat-label">Level:</span>
-                          <span className="debug-stat-value">
-                            {vocabProgress[currentWord.term]?.level || 0}
-                          </span>
-                        </div>
-                        <div className="debug-stat">
-                          <span className="debug-stat-label">Next Review:</span>
-                          <span className="debug-stat-value">
-                            {vocabProgress[currentWord.term]?.nextReview 
-                              ? new Date(vocabProgress[currentWord.term].nextReview).toLocaleString()
-                              : 'Not set'}
-                          </span>
-                        </div>
-                        <div className="debug-stat">
-                          <span className="debug-stat-label">Status:</span>
-                          <span className={`debug-stat-value ${
-                            vocabProgress[currentWord.term]?.nextReview <= Date.now() 
-                              ? 'due' 
-                              : 'not-due'
-                          }`}>
-                            {vocabProgress[currentWord.term]?.nextReview <= Date.now() 
-                              ? 'DUE FOR REVIEW' 
-                              : 'Not due yet'}
-                          </span>
-                        </div>
-                        {vocabProgress[currentWord.term]?.nextReview && (
-                          <div className="debug-stat">
-                            <span className="debug-stat-label">Time until review:</span>
-                            <span className="debug-stat-value">
-                              {Math.max(0, Math.round((vocabProgress[currentWord.term].nextReview - Date.now()) / 1000))}s
-                            </span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Keyboard Shortcuts Footer */}
-              <div className="keyboard-shortcuts">
-                <kbd className="kbd">SPACE</kbd>
-                <span className="shortcut-label">to reveal answer</span>
-                <span className="shortcut-divider">|</span>
-                <kbd className="kbd">1 - 3</kbd>
-                <span className="shortcut-label">to log results</span>
-              </div>
             </section>
           </div>
         </div>

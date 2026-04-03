@@ -1,4 +1,4 @@
-/* MatchingChoiceBlock.css */
+/* MatchingInfoBlock.css */
 
 .matching-choice-container {
   background: var(--surface-white);
@@ -127,9 +127,9 @@
   }
 
   .choice-btn {
-  width: 43px;
-  height: 43px;
-}
+    width: 43px;
+    height: 43px;
+  }
 }
 
 /* Review Mode Row Styles */

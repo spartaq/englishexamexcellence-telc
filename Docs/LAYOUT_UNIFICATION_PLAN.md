@@ -66,7 +66,7 @@ Each InteractiveBlock uses **inconsistent** class naming and structure:
 | `ShortAnswerBlock` | `.short-answer-container` | `.sa-question-text` | `.sa-input` |
 | `TableCompletionBlock` | `.table-completion-block` | (uses table cells) | `.gap-input` |
 | `NotesCompletionBlock` | `.notes-completion-block` | `.note-item` | `.gap-input` |
-| `MatchingChoiceBlock` | `.matching-choice-container` | `.matching-choice-text` | `.choice-btn` |
+| `MatchingInfoBlock` | `.matching-choice-container` | `.matching-choice-text` | `.choice-btn` |
 | `GapFillBlock` | `.gap-fill-block` | `.gap-line` | `.token-button` |
 | `HeadingMatchBlock` | `.heading-match-container` | `.match-row` | `.heading-select` |
 
@@ -339,7 +339,7 @@ const QuestionContainer = ({
    - Changed `.sa-word-counter` → `.word-counter`
    - Changed `.sa-correct-answer` → `.correct-answer-hint`
 
-6. **MatchingChoiceBlock.jsx** - Updated to use unified classes:
+6. **MatchingInfoBlock.jsx** - Updated to use unified classes:
    - Changed `.matching-choice-row` → `.question-card`
    - Changed `.choice-btn` → `.option-button`
    - Updated review state classes

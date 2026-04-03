@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LayoutDashboard, LogOut, ArrowRight } from 'lucide-react';
+import { useUser, useSignIn, UserButton } from '@clerk/react';
 import XPBadge from '../gamified/XPBadge';
 import './AppShell.css';
 
@@ -18,8 +19,16 @@ const AppShell = ({
   onNavigateBack,
   onNavigateToView,
   headerCenterContent,
-  setActiveTest
+  setActiveTest,
+  onNavigateToMyWords
 }) => {
+  const { user, isLoaded } = useUser();
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+
+  const handleSignOut = () => {
+    window.location.href = '/';
+  };
+
   return (
     <>
       {/* SIDEBAR NAVIGATION */}
@@ -51,7 +60,7 @@ const AppShell = ({
               <LogOut size={18} /> Exit Lab
             </button>
           </nav>
-         
+          
         </aside>
       )}
 
@@ -92,6 +101,54 @@ const AppShell = ({
 
           <div className="invictus-header-right">
             {view === 'lesson' && <XPBadge mode="time" />}
+            
+            {/* Custom Profile Dropdown */}
+            <div className="profile-dropdown-container">
+              <button 
+                className="profile-trigger"
+                onClick={() => setShowProfileMenu(!showProfileMenu)}
+              >
+                {isLoaded && user ? (
+                  user.imageUrl ? (
+                    <img 
+                      src={user.imageUrl} 
+                      alt="Profile" 
+                      className="profile-avatar"
+                    />
+                  ) : (
+                    <div className="profile-avatar-fallback">
+                      {user.firstName?.[0] || user.username?.[0] || 'U'}
+                    </div>
+                  )
+                ) : (
+                  <div className="profile-avatar-fallback">?</div>
+                )}
+              </button>
+              
+              {showProfileMenu && (
+                <div className="profile-dropdown">
+                  {onNavigateToMyWords && (
+                    <button 
+                      className="profile-dropdown-item"
+                      onClick={() => {
+                        onNavigateToMyWords();
+                        setShowProfileMenu(false);
+                      }}
+                    >
+                      <span className="material-symbols-outlined">book</span>
+                      My Words
+                    </button>
+                  )}
+                  <button 
+                    className="profile-dropdown-item"
+                    onClick={handleSignOut}
+                  >
+                    <span className="material-symbols-outlined">logout</span>
+                    Sign Out
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </header>
       )}

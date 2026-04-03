@@ -181,7 +181,7 @@ These are the core exercise components - **each has unique UI patterns**:
 |-----------------|---------------|------------|
 | `MCQBlock` | Multiple Choice | Radio buttons with A/B/C/D options |
 | `ShortAnswerBlock` | Short Answer | Text input field |
-| `MatchingChoiceBlock` | Matching Information | Dropdown or list matching |
+| `MatchingInfoBlock` | Matching Information | Dropdown or list matching |
 | `HeadingMatchBlock` | Matching Headings | List of headings to match to paragraphs |
 | `SentenceCompleteBlock` | Sentence Completion | Fill-in-the-blank with word bank |
 | `GapFillBlock` | Gap Fill | Click-to-fill gaps in text |

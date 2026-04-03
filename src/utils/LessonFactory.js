@@ -181,7 +181,7 @@ export const LessonFactory = {
         console.log('[LessonFactory] Matched random-mock');
         const type = taskMetadata.testType || 'general';
         const rawMock = pluckRandomFullMock(type);
-        return createFullMockFromMock(rawMock);
+        return LessonFactory.createFullMockFromMock(rawMock);
       }
     }
 

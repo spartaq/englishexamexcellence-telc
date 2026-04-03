@@ -100,7 +100,7 @@ const ResultScreen = ({ lesson, results, userAnswers = {}, onClaim, activeSectio
     // Use a flag to track what's been processed to avoid duplicates
     const processed = new Set();
     
-    // For ielts-complex or full-mock tests, extract from current section/passage
+    // For ielts-complex or random-mock tests, extract from current section/passage
     const isIeltsComplex = lesson.type === 'ielts-complex' || lesson.type === 'full-mock';
     
     if (isIeltsComplex && lesson.sections) {

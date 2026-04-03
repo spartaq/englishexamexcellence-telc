@@ -1,9 +1,9 @@
 import React from 'react';
 import { CheckCircle, XCircle, AlertCircle } from 'lucide-react';
-import './MatchingChoiceBlock.css';
+import './MatchingInfoBlock.css';
 
 /**
- * MatchingChoiceBlock - IELTS Type 4: Matching Information
+ * MatchingInfoBlock - IELTS Type 4: Matching Information
  * 
  * Match questions to letter options (A, B, C, etc.).
  * Options may represent paragraphs, sections, or categories.
@@ -13,7 +13,7 @@ import './MatchingChoiceBlock.css';
  * - Visual tracking of option usage
  * - Better review mode feedback
  */
-export default function MatchingChoiceBlock({ 
+export default function MatchingInfoBlock({ 
   data, 
   onUpdate, 
   userAnswers = {}, 
@@ -51,9 +51,9 @@ export default function MatchingChoiceBlock({
   // Get passage content (handle array, objects with text, or string)
   const getContentHtml = () => {
     const content = data.parentContent || data.content;
-    console.log('[MatchingChoiceBlock] getContentHtml content:', content);
+    console.log('[MatchingInfoBlock] getContentHtml content:', content);
     if (!content) {
-      console.log('[MatchingChoiceBlock] No content found - data keys:', Object.keys(data || {}));
+      console.log('[MatchingInfoBlock] No content found - data keys:', Object.keys(data || {}));
       return '';
     }
     if (Array.isArray(content)) {
@@ -64,7 +64,7 @@ export default function MatchingChoiceBlock({
         }
         return item;
       }).join('');
-      console.log('[MatchingChoiceBlock] getContentHtml result:', result?.slice(0, 200));
+      console.log('[MatchingInfoBlock] getContentHtml result:', result?.slice(0, 200));
       return result;
     }
     return content;
@@ -92,13 +92,13 @@ export default function MatchingChoiceBlock({
   };
 
   const handleSelect = (qId, value) => {
-    console.log('[MatchingChoiceBlock] handleSelect called:', { qId, value, isReviewMode });
+    console.log('[MatchingInfoBlock] handleSelect called:', { qId, value, isReviewMode });
     if (isReviewMode) return;
     if (!onUpdate) {
-      console.log('[MatchingChoiceBlock] WARNING: onUpdate is not defined!');
+      console.log('[MatchingInfoBlock] WARNING: onUpdate is not defined!');
       return;
     }
-    console.log('[MatchingChoiceBlock] Calling onUpdate with:', qId, value);
+    console.log('[MatchingInfoBlock] Calling onUpdate with:', qId, value);
     onUpdate(qId, value);
   };
 
@@ -198,8 +198,8 @@ export default function MatchingChoiceBlock({
         );
       })}
 
-     
       
+       
     </div>
   );
 }

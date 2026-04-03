@@ -67,7 +67,7 @@ DATA STRUCTURE:
 }
 
 ================================================================================
-3. MatchingChoiceBlock.jsx
+3. MatchingInfoBlock.jsx
 ================================================================================
 PURPOSE: Match questions to letter options A, B, C... (IELTS Type 4: Matching Information)
 
@@ -607,7 +607,7 @@ IELTS QUESTION TYPE MAPPING
 Type 1:  MCQBlock (Multiple Choice)
 Type 2:  TrinaryBlock (True/False/Not Given or Yes/No/Not Given)
 Type 3:  HeadingMatchBlock (Matching Headings)
-Type 4:  MatchingChoiceBlock (Matching Information)
+Type 4:  MatchingInfoBlock (Matching Information)
 Type 5:  SentenceMatchingBlock (Matching Sentence Endings)
 Type 6:  MatchingFeaturesBlock (Matching Features)
 Type 7:  SentenceCompleteBlock (Sentence Completion - gap fill)

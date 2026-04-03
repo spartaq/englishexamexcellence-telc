@@ -340,6 +340,7 @@ const handleUpdateAnswer = useCallback((qId, val) => {
         onNavigateToView={navigateToView}
         headerCenterContent={headerCenterContent}
         setActiveTest={setActiveTest}
+        onNavigateToMyWords={() => navigateToView('mywords')}
       >
         <main className="invictus-main-content">
           <div className="invictus-main-container workspace-container">

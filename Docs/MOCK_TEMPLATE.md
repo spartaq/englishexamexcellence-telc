@@ -181,7 +181,7 @@ Create in: `src/data/IELTS/mocks/ielts-[general|academic]-mock-[NUMBER].json`
 
 | Question Type | JSON `type` Value | Component |
 |---------------|-------------------|-----------|
-| Matching Information (Paragraph Matching) | `matching-info` | MatchingChoiceBlock |
+| Matching Information (Paragraph Matching) | `matching-info` | MatchingInfoBlock |
 | Multiple Choice | `mcq` | MCQBlock |
 | Short Answer | `short-answer` | ShortAnswerBlock |
 | True/False/Not Given | `trinary` | TrinaryBlock |

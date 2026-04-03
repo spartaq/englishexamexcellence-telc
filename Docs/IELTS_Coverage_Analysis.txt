@@ -92,7 +92,7 @@ IELTS Description:
 
 YOUR COVERAGE: ⚠️ PARTIALLY COVERED
 
-Block: MatchingChoiceBlock.jsx
+Block: MatchingInfoBlock.jsx
 Capabilities:
 - Match questions to letter options ✓
 - Review mode ✓
@@ -103,7 +103,7 @@ GAPS:
 - No visual indication of reusable options
 - No enforcement of single-use vs multi-use options
 
-RECOMMENDATION: Enhance MatchingChoiceBlock with:
+RECOMMENDATION: Enhance MatchingInfoBlock with:
 - allowReuse prop
 - Visual indicator for "can be used more than once"
 - Usage counter on options

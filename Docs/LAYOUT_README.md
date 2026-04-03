@@ -110,7 +110,7 @@ All located in `src/components/engine/InteractiveBlocks/`:
 | Block | File | Question Type |
 |-------|------|---------------|
 | ShortAnswerBlock | `ShortAnswerBlock.jsx` | `short-answer` |
-| MatchingChoiceBlock | `MatchingChoiceBlock.jsx` | `matching-choice`, `matching-info` |
+| MatchingInfoBlock | `MatchingInfoBlock.jsx` | `matching-choice`, `matching-info` |
 | MCQBlock | `MCQBlock.jsx` | `mcq` / `multiple-choice` |
 | TrinaryBlock | `TrinaryBlock.jsx` | `trinary` (TRUE/FALSE/NOT GIVEN) |
 | HeadingMatchBlock | `HeadingMatchBlock.jsx` | `heading-match` |
@@ -393,10 +393,10 @@ Different question types should use different block components:
 | Question Type | Block Component | Notes |
 |---------------|-----------------|-------|
 | `short-answer` | ShortAnswerBlock | Text input for answers |
-| `matching-info` | MatchingChoiceBlock | Button options (A, B, C...) |
+| `matching-info` | MatchingInfoBlock | Button options (A, B, C...) |
 | `trinary` | TrinaryBlock | TRUE/FALSE/NOT GIVEN buttons |
 | `mcq` | MCQBlock | Multiple choice with radio/button options |
-| `matching-choice` | MatchingChoiceBlock | Match options to questions |
+| `matching-choice` | MatchingInfoBlock | Match options to questions |
 | `heading-match` | HeadingMatchBlock | Match paragraphs to headings |
 | `gap-fill` | GapFillBlock | Fill gaps from word bank |
 | `sentence-complete` | SentenceCompleteBlock | Complete sentences |
@@ -411,7 +411,7 @@ switch (qt) {
   case 'short-answer':
     return <ShortAnswerBlock data={q} userAnswers={{}} onUpdate={() => {}} ... />;
   case 'matching-info':
-    return <MatchingChoiceBlock data={q} ... />;  // NOT ShortAnswerBlock!
+    return <MatchingInfoBlock data={q} ... />;  // NOT ShortAnswerBlock!
   case 'trinary':
     return <TrinaryBlock data={q} ... />;
   // ... etc

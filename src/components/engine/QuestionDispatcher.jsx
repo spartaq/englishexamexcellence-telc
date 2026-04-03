@@ -3,7 +3,7 @@ import React from 'react';
 // Import all Interactive Blocks
 import ShortAnswerBlock from './InteractiveBlocks/ShortAnswerBlock';
 import MCQBlock from './InteractiveBlocks/MCQBlock';
-import MatchingChoiceBlock from './InteractiveBlocks/MatchingChoiceBlock';
+import MatchingInfoBlock from './InteractiveBlocks/MatchingInfoBlock';
 import HeadingMatchBlock from './InteractiveBlocks/HeadingMatchBlock';
 import SentenceCompleteBlock from './InteractiveBlocks/SentenceCompleteBlock';
 import GapFillBlock from './InteractiveBlocks/GapFillBlock';
@@ -103,7 +103,7 @@ const QuestionDispatcher = ({
     case 'matching-info':
     case 'matching-choice':
       return (
-        <MatchingChoiceBlock 
+        <MatchingInfoBlock 
           data={{ ...data, parentContent: passageContent || data.content }} 
           userAnswers={userAnswers}
           onUpdate={onUpdate}
