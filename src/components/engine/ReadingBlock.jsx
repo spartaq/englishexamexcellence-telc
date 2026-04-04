@@ -30,11 +30,12 @@ const ReadingBlock = ({
   // 2. Flatten questions for the Carousel
   // We keep this logic here because the Carousel needs a flat array to navigate slides
   const questions = data?.questions || (data?.subTasks ? data.subTasks.flatMap(st => {
-    // These types are "Self-Contained" (one block handles multiple items)
-    const selfContainedTypes = ['sentence-matching', 'diagram-label', 'flow-chart', 'heading-match', 'sentence-complete', 'gap-fill'];
+    // These types are "Self-Contained" (one block handles multiple questions itself)
+    const selfContainedTypes = ['sentence-matching', 'diagram-label', 'flow-chart', 'flowchart', 'heading-match', 'sentence-complete', 'gap-fill', 'short-answer', 'mcq', 'trinary', 'matching-info', 'matching-features'];
     
     if (selfContainedTypes.includes(st.type)) {
-      return [{ ...st, type: st.type }];
+      // Keep the entire subTask as-is - the block handles grouping internally
+      return [st];
     }
     
     // Otherwise, treat subtasks as a collection of individual questions
@@ -44,20 +45,33 @@ const ReadingBlock = ({
   const flatQuestions = questions;
   const useCarousel = flatQuestions.length > 1;
 
-  // 3. Helper to calculate question range (e.g. "Questions 1-5")
+// 3. Helper to calculate question range (e.g. "Questions 1-5")
   const getQuestionRange = () => {
     if (flatQuestions.length === 0) return 'Questions';
     const extractIds = (items) => {
       const ids = [];
       items.forEach(item => {
-        if (item.questions) item.questions.forEach(q => ids.push(parseInt(String(q.id).replace(/\D/g, ''), 10)));
-        else if (item.labels) item.labels.forEach(l => ids.push(parseInt(String(l.id).replace(/\D/g, ''), 10)));
-        else if (item.id) ids.push(parseInt(String(item.id).replace(/\D/g, ''), 10));
+        if (item.questions) item.questions.forEach(q => {
+          const numId = parseInt(String(q.id).replace(/\D/g, ''), 10);
+          console.log('[ReadingBlock] Question id:', q.id, '-> parsed:', numId);
+          ids.push(numId);
+        });
+        else if (item.labels) item.labels.forEach(l => {
+          const numId = parseInt(String(l.id).replace(/\D/g, ''), 10);
+          console.log('[ReadingBlock] Label id:', l.id, '-> parsed:', numId);
+          ids.push(numId);
+        });
+        else if (item.id) {
+          const numId = parseInt(String(item.id).replace(/\D/g, ''), 10);
+          console.log('[ReadingBlock] Item id:', item.id, '-> parsed:', numId);
+          ids.push(numId);
+        }
       });
       return ids.filter(id => !isNaN(id));
     };
     const ids = extractIds(flatQuestions).sort((a, b) => a - b);
-    return ids.length ? `Questions ${ids[0]}${ids.length > 1 ? `–${ids[ids.length-1]}` : ''}` : 'Questions';
+    console.log('[ReadingBlock] All extracted IDs:', ids);
+    return ids.length ? `Questions ${ids[0]}${ids.length > 1 ? `-${ids[ids.length-1]}` : ''}` : 'Questions';
   };
 
   return (
@@ -106,7 +120,7 @@ const ReadingBlock = ({
                         userAnswers={userAnswers} 
                         onUpdate={onUpdate} 
                         isReviewMode={isReviewMode}
-                        passageContent={content} // Pass content for matching-info logic
+                        passageContent={content}
                       />
                     )}
                     showInstruction={true}

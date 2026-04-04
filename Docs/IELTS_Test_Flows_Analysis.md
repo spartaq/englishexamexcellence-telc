@@ -12,16 +12,18 @@ This document analyzes all the different test flows in the IELTS section of the 
 | Path | Button Title | Description |
 |------|--------------|-------------|
 | `'skill-tests'` | (Card click - "Skill Tests") | Shows Skill Tests view with individual skill buttons |
-| `'general-full-mock'` | "Take General Mock" | Start General Training full mock (4 skills) |
-| `'academic-full-mock'` | "Take Academic Mock" | Start Academic full mock (4 skills) |
-| `'random-mock'` | "Take Random Mock" | Random mock (general or academic) |
-| `'mocks'` | "View All Mocks" | Navigate to Test Hub grid |
+| `'ielts-general-mock-1'` | "Start Mock" on General Mock 1 | Start specific General Training mock |
+| `'ielts-general-mock-2'` | "Start Mock" on General Mock 2 | Start specific General Training mock |
+| `'ielts-academic-mock-1'` | "Start Mock" on Academic Mock 1 | Start specific Academic mock |
+| `'random-mock'` | "Quick Start" | Start random mock (general or academic) |
+| `'ielts-general-mini-test'` | "General Random" (Daily Skill Training) | Single random general exercise |
+| `'ielts-academic-mini-test'` | "Academic Random" (Daily Skill Training) | Single random academic exercise |
 
 ### ExamStrategy.jsx (Strategy Screen - After selecting IELTS)
 | Path | Button Title | Description |
 |------|--------------|-------------|
 | `'atoms'` | "Train Atoms" | Quick skill practice with daily mixed flow |
-| `'mocks'` | "Take Full Mock" | Full mock exam (same as 'general-full-mock') |
+| `'ielts-general-mock-1'` | "Take Full Mock" | Full mock exam |
 
 ### SkillTests View (Individual Skill Practice)
 | Path | Button | Action |
@@ -167,16 +169,25 @@ This document analyzes all the different test flows in the IELTS section of the 
 
 ## 7. SKILL TESTS (Individual Skills)
 
-- **View:** "Skill Tests" (from BrandTestHub card click)
+- **View:** "Skill Tests" (from BrandTestHub "Specific Skills" card click)
 - **Route:** `path === 'skill-tests'` → `navigateToView('skillTests')`
-- **Content:** Individual skill exercises (not combined flow)
-- **Available Skills:**
-  | Skill | Action | XP |
-  |-------|--------|-----|
-  | Reading | `pluckRandom('reading')` | +300 |
-  | Listening | `pluckRandom('listening')` | +250 |
-  | Writing | `pluckRandom('writing')` | +400 |
-  | Speaking | `pluckSingleSpeakingPart()` | +300 |
+- **Description:** Individual skill practice - get a single random exercise for one skill at a time
+- **Content:** Each click gives one standalone exercise (not a combined test like full mock)
+
+| Skill | Action | XP |
+|-------|--------|-----|
+| Reading | `pluckRandom('reading')` | +300 |
+| Listening | `pluckRandom('listening')` | +250 |
+| Writing | `pluckRandom('writing')` | +400 |
+| Speaking | `pluckRandom('speaking')` | +350 |
+| Vocabulary | `pluckRandom('vocabulary')` | +150 |
+
+**Flow:**
+1. User clicks "Specific Skills" card in BrandTestHub (Daily Skill Training section)
+2. `onSelectPath('skill-tests')` is called
+3. App.jsx checks `path === 'skill-tests'` and calls `navigateToView('skillTests')`
+4. SkillTests view renders with 5 skill cards
+5. User clicks a skill card → `pluckRandom(skill)` → sets as activeLesson → navigates to 'lesson' view
 
 ---
 
@@ -208,20 +219,9 @@ This document analyzes all the different test flows in the IELTS section of the 
 - `/ielts` → IELTS Hub (main entry)
 - `/ielts/general-mini-test` → General Mini Test
 - `/ielts/academic-mini-test` → Academic Mini Test
-- `/ielts/general-full-test` → General Full Mock Test
-- `/ielts/academic-full-test` → Academic Full Mock Test
-- `/ielts/general-full-individual` → General Full Mock Individual Skills
-- `/ielts/academic-full-individual` → Academic Full Mock Individual Skills
-- `/ielts/reading-academic` → Academic Reading Hub
-- `/ielts/reading-general` → General Reading Hub
-- `/ielts/writing-academic` → Academic Writing Hub
-- `/ielts/writing-general` → General Writing Hub
-- `/ielts/listening` → Listening Hub
-- `/ielts/speaking` → Speaking Hub
 - `/ielts/vocabulary` → Vocabulary Hub
+- `/ielts/mywords` → My Words (saved vocabulary)
 - `/ielts/drillshub` → Drills Hub
-- `/ielts/mini-individual` → Mini Individual Hub
-- `/ielts/full-individual` → Full Individual Test Hub
 
 ### LangCert Routes (Exam-Based Routing)
 - `/langcert` → LangCert Hub
@@ -251,11 +251,12 @@ Landing Page → IELTS Hub
 ## 10. KEY DIFFERENCES: MINI vs FULL MOCK vs SKILL TESTS
 
 | Feature | Skill Tests | Mini Test | Full Mock (Hub) |
-|---------|--------------|-----------|-----------------|
-| Speaking Parts | 1 (single part) | 1 (single part) | 3 (Part 1/2/3 tabs) |
+|---------|-------------|-----------|-----------------|
+| Speaking XP | +350 | +300 (single part) | +300 (3 parts) |
 | Sections | 1 (single skill) | 5 (one per skill) | Varies by module |
 | Skill Tabs | Shows single skill | Shows all 5 skills | Shows single skill |
 | Content Source | Random pluck | Random pluck | Specific hub data |
+| Entry Point | "Specific Skills" card | Daily Skill Training cards | "Full Mock Exam Archive" |
 
 ---
 
@@ -274,3 +275,48 @@ Landing Page → IELTS Hub
 4. Review mode for speaking parts
 5. Scoring/evaluation for each part type
 6. Skill Tests writing - Ensure correct data is plucked (currently using 'writing' not 'writing_general' or 'writing_academic')
+
+---
+
+## 13. QUICK START BUTTON FIX (April 2026)
+
+### Problem
+The Quick Start button on BrandTestHub (path: `'random-mock'`) was showing "Unsupported question type: full-mock" error. The full-mock lesson was being created but with empty `sections` array.
+
+### Root Cause
+In `mockPlucker.js`, the function `pluckRandomFullMock()` was building a full mock object with an empty `sections` array internally, then returning that already-processed object. However, `LessonFactory.createFullMockFromMock()` expected a RAW mock object (from `ieltsMocks`) to process and build sections from.
+
+The chain was:
+1. `LessonFactory.create({ id: 'random-mock' })` → calls `pluckRandomFullMock(type)` 
+2. `pluckRandomFullMock` returned object with `type: 'full-mock'` and empty `sections`
+3. `createFullMockFromMock()` tried to process this as if it were a raw mock, but since sections were empty and properties didn't match the expected raw mock structure, it returned empty sections
+
+### Solution
+Modified `pluckRandomFullMock()` in `mockPlucker.js` to return the RAW mock object (from `ieltsMocks`) instead of a pre-built object. This allows `createFullMockFromMock()` to properly process the mock and build the sections array.
+
+**Code change in `mockPlucker.js`:**
+```javascript
+// BEFORE (broken):
+const fullMock = {
+  id: `mock-${testType}-${Date.now()}`,
+  title: mockTitle,
+  type: 'full-mock',
+  testType: testType,
+  mockNumber: mock.mockNumber,
+  xp: 2000,
+  sections: sections  // empty!
+};
+return fullMock;
+
+// AFTER (fixed):
+return mock; // Return RAW mock for createFullMockFromMock to process
+```
+
+### How It Works Now
+1. User clicks Quick Start → `onSelectPath('random-mock')`
+2. App calls `handleStartTask({ id: 'random-mock' })`
+3. `LessonFactory.create()` matches `taskMetadata.id === 'random-mock'`
+4. Calls `pluckRandomFullMock('general')` → returns RAW mock from `ieltsMocks`
+5. Calls `LessonFactory.createFullMockFromMock(rawMock, 'general')`
+6. `createFullMockFromMock` processes raw mock → builds proper sections array with skill/type for each section
+7. Returns full-mock lesson with sections → Engine renders correctly via skill-based routing

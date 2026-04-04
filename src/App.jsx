@@ -231,7 +231,6 @@ const handleUpdateAnswer = useCallback((qId, val) => {
       setActiveSkillTab(0);
       setView('lesson');
       setCurrentView('lesson'); // Update Zustand store for ScrollToTop
-    } else {
     }
   };
 
@@ -357,7 +356,8 @@ const handleUpdateAnswer = useCallback((qId, val) => {
               onSelectPath={(path, skill) => {
                 // Check if path is a mock ID (e.g., 'ielts-general-mock-1' or 'ielts-academic-mock-1')
                 if (path && (path.startsWith('ielts-general-mock-') || path.startsWith('ielts-academic-mock-'))) {
-                  handleFullTestSelection('general-full-mock', path);
+                  const testType = path.startsWith('ielts-academic-mock-') ? 'academic' : 'general';
+                  handleFullTestSelection(testType, path);
                 } else if (path === 'skill-tests') {
                   // Navigate to skill tests view
                   navigateToView('skillTests');
@@ -379,8 +379,8 @@ const handleUpdateAnswer = useCallback((qId, val) => {
 
           {/* SKILL TESTS VIEW */}
           {view === 'skillTests' && (
-            <div className="strategy-container">
-              <header className="strategy-header">
+            <div className="ielts-hub-container">
+              <header className="ielts-hub-header">
                 <h1>Skill Tests</h1>
                 <p>Choose a specific skill to practice with a random exercise.</p>
               </header>

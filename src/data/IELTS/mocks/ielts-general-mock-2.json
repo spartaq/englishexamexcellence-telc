@@ -7,36 +7,133 @@
   "xpReward": 5000,
   "tier": "bronze",
   "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
-
   "vocabulary": {
     "id": "vocab-general-2",
     "title": "Test Vocabulary",
     "level": "B2",
     "words": [
-      { "term": "metropolitan", "hu": "nagyvárosi", "definition": "Relating to a large city", "example": "Metropolitan areas have millions of residents." },
-      { "term": "infrastructure", "hu": "infrastruktúra", "definition": "The basic systems and facilities", "example": "Cities need good infrastructure." },
-      { "term": "commute", "hu": "ingázik", "definition": "To travel regularly to work", "example": "Many people commute to the city center." },
-      { "term": "accommodation", "hu": "szállás", "definition": "A place to live or stay", "example": "Finding accommodation in big cities is expensive." },
-      { "term": "tourism", "hu": "turizmus", "definition": "The business of travel and leisure", "example": "Tourism is important for the local economy." },
-      { "term": "authentic", "hu": "autentikus", "definition": "Genuine and original", "example": "The restaurant serves authentic Italian food." },
-      { "term": "cuisine", "hu": "konyha", "definition": "A style of cooking", "example": "Thai cuisine is known for its bold flavors." },
-      { "term": "reservation", "hu": "foglalás", "definition": "An arrangement to hold something", "example": "I made a reservation for dinner." },
-      { "term": "deadline", "hu": "határidő", "definition": "The latest time to complete something", "example": "The deadline for the project is Friday." },
-      { "term": "colleague", "hu": "kolléga", "definition": "A work partner", "example": "I discussed the issue with my colleague." },
-      { "term": "promotion", "hu": "elöléptetés", "definition": "Advancement in job position", "example": "She received a promotion at work." },
-      { "term": "networking", "hu": "hálózatépítés", "definition": "Building professional contacts", "example": "Networking is important for career growth." },
-      { "term": "franchise", "hu": "franchise", "definition": "A business license", "example": "He bought a fast food franchise." },
-      { "term": "renovate", "hu": "felújít", "definition": "To repair and improve", "example": "They plan to renovate the old building." },
-      { "term": "spacious", "hu": "tágas", "definition": "Having plenty of space", "example": "The apartment has spacious rooms." },
-      { "term": "facilities", "hu": "létesítmények", "definition": "Equipment and buildings", "example": "The sports facilities are excellent." },
-      { "term": "maintain", "hu": "fenntart", "definition": "To keep in good condition", "example": "Regular maintenance is required." },
-      { "term": "sustainable", "hu": "fenntartható", "definition": "Able to continue long term", "example": "We need sustainable solutions." },
-      { "term": "diverse", "hu": "változatos", "definition": "Showing variety", "example": "The city has a diverse population." },
-      { "term": "vibrant", "hu": "élénk", "definition": "Full of energy and life", "example": "The downtown area is vibrant at night." }
+      {
+        "term": "metropolitan",
+        "hu": "nagyvárosi",
+        "definition": "Relating to a large city",
+        "example": "Metropolitan areas have millions of residents."
+      },
+      {
+        "term": "infrastructure",
+        "hu": "infrastruktúra",
+        "definition": "The basic systems and facilities",
+        "example": "Cities need good infrastructure."
+      },
+      {
+        "term": "commute",
+        "hu": "ingázik",
+        "definition": "To travel regularly to work",
+        "example": "Many people commute to the city center."
+      },
+      {
+        "term": "accommodation",
+        "hu": "szállás",
+        "definition": "A place to live or stay",
+        "example": "Finding accommodation in big cities is expensive."
+      },
+      {
+        "term": "tourism",
+        "hu": "turizmus",
+        "definition": "The business of travel and leisure",
+        "example": "Tourism is important for the local economy."
+      },
+      {
+        "term": "authentic",
+        "hu": "autentikus",
+        "definition": "Genuine and original",
+        "example": "The restaurant serves authentic Italian food."
+      },
+      {
+        "term": "cuisine",
+        "hu": "konyha",
+        "definition": "A style of cooking",
+        "example": "Thai cuisine is known for its bold flavors."
+      },
+      {
+        "term": "reservation",
+        "hu": "foglalás",
+        "definition": "An arrangement to hold something",
+        "example": "I made a reservation for dinner."
+      },
+      {
+        "term": "deadline",
+        "hu": "határidő",
+        "definition": "The latest time to complete something",
+        "example": "The deadline for the project is Friday."
+      },
+      {
+        "term": "colleague",
+        "hu": "kolléga",
+        "definition": "A work partner",
+        "example": "I discussed the issue with my colleague."
+      },
+      {
+        "term": "promotion",
+        "hu": "elöléptetés",
+        "definition": "Advancement in job position",
+        "example": "She received a promotion at work."
+      },
+      {
+        "term": "networking",
+        "hu": "hálózatépítés",
+        "definition": "Building professional contacts",
+        "example": "Networking is important for career growth."
+      },
+      {
+        "term": "franchise",
+        "hu": "franchise",
+        "definition": "A business license",
+        "example": "He bought a fast food franchise."
+      },
+      {
+        "term": "renovate",
+        "hu": "felújít",
+        "definition": "To repair and improve",
+        "example": "They plan to renovate the old building."
+      },
+      {
+        "term": "spacious",
+        "hu": "tágas",
+        "definition": "Having plenty of space",
+        "example": "The apartment has spacious rooms."
+      },
+      {
+        "term": "facilities",
+        "hu": "létesítmények",
+        "definition": "Equipment and buildings",
+        "example": "The sports facilities are excellent."
+      },
+      {
+        "term": "maintain",
+        "hu": "fenntart",
+        "definition": "To keep in good condition",
+        "example": "Regular maintenance is required."
+      },
+      {
+        "term": "sustainable",
+        "hu": "fenntartható",
+        "definition": "Able to continue long term",
+        "example": "We need sustainable solutions."
+      },
+      {
+        "term": "diverse",
+        "hu": "változatos",
+        "definition": "Showing variety",
+        "example": "The city has a diverse population."
+      },
+      {
+        "term": "vibrant",
+        "hu": "élénk",
+        "definition": "Full of energy and life",
+        "example": "The downtown area is vibrant at night."
+      }
     ]
   },
-
-
   "reading": {
     "title": "General Training Reading Mock 1 - Expanded",
     "time": 60,
@@ -53,14 +150,46 @@
             "subtitle": "Reading Passage 1",
             "type": "ielts-complex",
             "vocabList": [
-              { "term": "metropolitan", "hu": "nagyvárosi", "definition": "Relating to a large city" },
-              { "term": "infrastructure", "hu": "infrastruktúra", "definition": "The basic systems and facilities" },
-              { "term": "commute", "hu": "ingázik", "definition": "To travel regularly to work" },
-              { "term": "accommodation", "hu": "szállás", "definition": "A place to live or stay" },
-              { "term": "tourism", "hu": "turizmus", "definition": "The business of travel and leisure" },
-              { "term": "authentic", "hu": "autentikus", "definition": "Genuine and original" },
-              { "term": "cuisine", "hu": "konyha", "definition": "A style of cooking" },
-              { "term": "reservation", "hu": "foglalás", "definition": "An arrangement to hold something" }
+              {
+                "term": "metropolitan",
+                "hu": "nagyvárosi",
+                "definition": "Relating to a large city"
+              },
+              {
+                "term": "infrastructure",
+                "hu": "infrastruktúra",
+                "definition": "The basic systems and facilities"
+              },
+              {
+                "term": "commute",
+                "hu": "ingázik",
+                "definition": "To travel regularly to work"
+              },
+              {
+                "term": "accommodation",
+                "hu": "szállás",
+                "definition": "A place to live or stay"
+              },
+              {
+                "term": "tourism",
+                "hu": "turizmus",
+                "definition": "The business of travel and leisure"
+              },
+              {
+                "term": "authentic",
+                "hu": "autentikus",
+                "definition": "Genuine and original"
+              },
+              {
+                "term": "cuisine",
+                "hu": "konyha",
+                "definition": "A style of cooking"
+              },
+              {
+                "term": "reservation",
+                "hu": "foglalás",
+                "definition": "An arrangement to hold something"
+              }
             ],
             "content": [
               "<p>(A) Cities around the world are growing rapidly. By 2050, it is estimated that nearly 70% of the world's population will live in urban areas. This rapid urbanization brings both opportunities and challenges. Metropolitan areas offer better employment prospects, healthcare, and education, but they also face problems like traffic congestion and housing shortages.</p>",
@@ -77,31 +206,73 @@
                 "type": "matching-info",
                 "instruction": "Which paragraph (A-H) contains the following information?",
                 "questions": [
-                  { "id": "q1", "text": "How cities are using technology to improve services", "answer": "E" },
-                  { "id": "q2", "text": "The impact of tourism on historic sites", "answer": "D" },
-                  { "id": "q3", "text": "Problems with finding affordable housing", "answer": "C" },
-                  { "id": "q4", "text": "Community participation in city planning", "answer": "G" },
-                  { "id": "q5", "text": "Environmental considerations for future development", "answer": "H" },
-                  { "id": "q6", "text": "Transportation challenges in urban areas", "answer": "B" },
-                  { "id": "q7", "text": "Population growth predictions", "answer": "A" },
-                  { "id": "q8", "text": "Benefits of cultural diversity in cities", "answer": "F" }
+                  {
+                    "id": "q1",
+                    "text": "How cities are using technology to improve services",
+                    "answer": "E"
+                  },
+                  {
+                    "id": "q2",
+                    "text": "The impact of tourism on historic sites",
+                    "answer": "D"
+                  },
+                  {
+                    "id": "q3",
+                    "text": "Problems with finding affordable housing",
+                    "answer": "C"
+                  },
+                  {
+                    "id": "q4",
+                    "text": "Community participation in city planning",
+                    "answer": "G"
+                  },
+                  {
+                    "id": "q5",
+                    "text": "Environmental considerations for future development",
+                    "answer": "H"
+                  },
+                  {
+                    "id": "q6",
+                    "text": "Transportation challenges in urban areas",
+                    "answer": "B"
+                  },
+                  {
+                    "id": "q7",
+                    "text": "Population growth predictions",
+                    "answer": "A"
+                  },
+                  {
+                    "id": "q8",
+                    "text": "Benefits of cultural diversity in cities",
+                    "answer": "F"
+                  }
                 ]
               },
               {
                 "type": "mcq",
                 "instruction": "Choose the correct letter.",
                 "questions": [
-                  { 
-                    "id": "q9", 
-                    "text": "What percentage of people will live in cities by 2050?", 
-                    "options": ["50%", "60%", "70%", "80%"], 
-                    "answer": "70%" 
+                  {
+                    "id": "q9",
+                    "text": "What percentage of people will live in cities by 2050?",
+                    "options": [
+                      "50%",
+                      "60%",
+                      "70%",
+                      "80%"
+                    ],
+                    "answer": "70%"
                   },
-                  { 
-                    "id": "q10", 
-                    "text": "What is 'mixed-use' development?", 
-                    "options": ["Building houses only", "Combining residential and commercial spaces", "Using land for farming", "Creating protected areas"], 
-                    "answer": "Combining residential and commercial spaces" 
+                  {
+                    "id": "q10",
+                    "text": "What is 'mixed-use' development?",
+                    "options": [
+                      "Building houses only",
+                      "Combining residential and commercial spaces",
+                      "Using land for farming",
+                      "Creating protected areas"
+                    ],
+                    "answer": "Combining residential and commercial spaces"
                   }
                 ]
               },
@@ -109,9 +280,21 @@
                 "type": "trinary",
                 "instruction": "Write TRUE, FALSE or NOT GIVEN.",
                 "questions": [
-                  { "id": "q11", "text": "Public transport systems are cheap to build and maintain.", "answer": "FALSE" },
-                  { "id": "q12", "text": "Smart traffic lights can help reduce traffic jams.", "answer": "TRUE" },
-                  { "id": "q13", "text": "Rental prices are the highest in European cities.", "answer": "NOT GIVEN" }
+                  {
+                    "id": "q11",
+                    "text": "Public transport systems are cheap to build and maintain.",
+                    "answer": "FALSE"
+                  },
+                  {
+                    "id": "q12",
+                    "text": "Smart traffic lights can help reduce traffic jams.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "q13",
+                    "text": "Rental prices are the highest in European cities.",
+                    "answer": "NOT GIVEN"
+                  }
                 ]
               }
             ]
@@ -141,31 +324,88 @@
                 "type": "short-answer",
                 "instruction": "Write NO MORE THAN THREE WORDS.",
                 "questions": [
-                  { "id": "q14", "text": "What does active listening involve besides hearing?", "answer": "asking clarifying questions" },
-                  { "id": "q15", "text": "What must you check before you send an email?", "answer": "spelling and grammar" },
-                  { "id": "q16", "text": "What should be prepared before a meeting starts?", "answer": "an agenda" }
+                  {
+                    "id": "q14",
+                    "text": "What does active listening involve besides hearing?",
+                    "answer": "asking clarifying questions"
+                  },
+                  {
+                    "id": "q15",
+                    "text": "What must you check before you send an email?",
+                    "answer": "spelling and grammar"
+                  },
+                  {
+                    "id": "q16",
+                    "text": "What should be prepared before a meeting starts?",
+                    "answer": "an agenda"
+                  }
                 ]
               },
               {
                 "type": "short-answer",
                 "instruction": "Answer the questions using NO MORE THAN THREE WORDS.",
                 "questions": [
-                  { "id": "q17", "text": "What does clear communication help prevent at work?", "answer": "misunderstandings", "wordLimit": 3 },
-                  { "id": "q18", "text": "What does active listening require a person to be on the speaker?", "answer": "concentrating", "wordLimit": 3 },
-                  { "id": "q19", "text": "What two qualities should emails have?", "answer": "professional and concise", "wordLimit": 3 },
-                  { "id": "q20", "text": "What can networking help an employee achieve?", "answer": "career advancement", "wordLimit": 3 },
-                  { "id": "q21", "text": "What should be avoided when handling conflict?", "answer": "assigning blame", "wordLimit": 3 }
+                  {
+                    "id": "q17",
+                    "text": "What does clear communication help prevent at work?",
+                    "answer": "misunderstandings",
+                    "wordLimit": 3
+                  },
+                  {
+                    "id": "q18",
+                    "text": "What does active listening require a person to be on the speaker?",
+                    "answer": "concentrating",
+                    "wordLimit": 3
+                  },
+                  {
+                    "id": "q19",
+                    "text": "What two qualities should emails have?",
+                    "answer": "professional and concise",
+                    "wordLimit": 3
+                  },
+                  {
+                    "id": "q20",
+                    "text": "What can networking help an employee achieve?",
+                    "answer": "career advancement",
+                    "wordLimit": 3
+                  },
+                  {
+                    "id": "q21",
+                    "text": "What should be avoided when handling conflict?",
+                    "answer": "assigning blame",
+                    "wordLimit": 3
+                  }
                 ]
               },
               {
                 "type": "trinary",
                 "instruction": "Write TRUE, FALSE or NOT GIVEN.",
                 "questions": [
-                  { "id": "q22", "text": "Summarizing helps ensure you understood the speaker.", "answer": "TRUE" },
-                  { "id": "q23", "text": "You should use a casual tone when emailing external contacts.", "answer": "FALSE" },
-                  { "id": "q24", "text": "Productive meetings require staying focused on the agenda.", "answer": "TRUE" },
-                  { "id": "q25", "text": "Most professional organizations have high membership fees.", "answer": "NOT GIVEN" },
-                  { "id": "q26", "text": "Conflict should only be handled by managers.", "answer": "FALSE" }
+                  {
+                    "id": "q22",
+                    "text": "Summarizing helps ensure you understood the speaker.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "q23",
+                    "text": "You should use a casual tone when emailing external contacts.",
+                    "answer": "FALSE"
+                  },
+                  {
+                    "id": "q24",
+                    "text": "Productive meetings require staying focused on the agenda.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "q25",
+                    "text": "Most professional organizations have high membership fees.",
+                    "answer": "NOT GIVEN"
+                  },
+                  {
+                    "id": "q26",
+                    "text": "Conflict should only be handled by managers.",
+                    "answer": "FALSE"
+                  }
                 ]
               }
             ]
@@ -194,33 +434,94 @@
                 "type": "trinary",
                 "instruction": "Write TRUE, FALSE or NOT GIVEN.",
                 "questions": [
-                  { "id": "q27", "text": "Cuisine is influenced by the weather of a region.", "answer": "TRUE" },
-                  { "id": "q28", "text": "The Mediterranean diet prohibits the consumption of meat.", "answer": "NOT GIVEN" },
-                  { "id": "q29", "text": "Street food is generally very expensive.", "answer": "FALSE" },
-                  { "id": "q30", "text": "Japanese food focuses on how the dish looks.", "answer": "TRUE" }
+                  {
+                    "id": "q27",
+                    "text": "Cuisine is influenced by the weather of a region.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "q28",
+                    "text": "The Mediterranean diet prohibits the consumption of meat.",
+                    "answer": "NOT GIVEN"
+                  },
+                  {
+                    "id": "q29",
+                    "text": "Street food is generally very expensive.",
+                    "answer": "FALSE"
+                  },
+                  {
+                    "id": "q30",
+                    "text": "Japanese food focuses on how the dish looks.",
+                    "answer": "TRUE"
+                  }
                 ]
               },
               {
                 "type": "matching-features",
                 "instruction": "Match the cuisine to the characteristic.",
                 "questions": [
-                  { "id": "q31", "text": "Known for balancing four distinct flavors.", "answer": "Thai" },
-                  { "id": "q32", "text": "Famous for dim sum.", "answer": "Cantonese" },
-                  { "id": "q33", "text": "Associated with rice and rich sauces in the north.", "answer": "Italian" },
-                  { "id": "q34", "text": "Known for highly spicy dishes.", "answer": "Sichuan" }
+                  {
+                    "id": "q31",
+                    "text": "Known for balancing four distinct flavors.",
+                    "answer": "Thai"
+                  },
+                  {
+                    "id": "q32",
+                    "text": "Famous for dim sum.",
+                    "answer": "Cantonese"
+                  },
+                  {
+                    "id": "q33",
+                    "text": "Associated with rice and rich sauces in the north.",
+                    "answer": "Italian"
+                  },
+                  {
+                    "id": "q34",
+                    "text": "Known for highly spicy dishes.",
+                    "answer": "Sichuan"
+                  }
                 ],
-                "options": ["Thai", "Cantonese", "Italian", "Sichuan"]
+                "options": [
+                  "Thai",
+                  "Cantonese",
+                  "Italian",
+                  "Sichuan"
+                ]
               },
               {
-                "type": "summary-completion",
+                "type": "sentence-complete",
                 "instruction": "Complete the summary. Choose NO MORE THAN TWO WORDS from the text.",
                 "questions": [
-                  { "id": "q35", "text": "A region's cuisine is a reflection of its history and ______.", "answer": "available ingredients" },
-                  { "id": "q36", "text": "Southern Italy is specifically known for its use of ______.", "answer": "olive oil" },
-                  { "id": "q37", "text": "Japanese cooking places high importance on using ______.", "answer": "fresh ingredients" },
-                  { "id": "q38", "text": "Street food provides a source of ______ for many people.", "answer": "income" },
-                  { "id": "q39", "text": "Street food in Mexico is represented by ______.", "answer": "tacos" },
-                  { "id": "q40", "text": "Sharing food is a method used worldwide to build ______.", "answer": "relationships" }
+                  {
+                    "id": "q35",
+                    "text": "A region's cuisine is a reflection of its history and ______.",
+                    "answer": "available ingredients"
+                  },
+                  {
+                    "id": "q36",
+                    "text": "Southern Italy is specifically known for its use of ______.",
+                    "answer": "olive oil"
+                  },
+                  {
+                    "id": "q37",
+                    "text": "Japanese cooking places high importance on using ______.",
+                    "answer": "fresh ingredients"
+                  },
+                  {
+                    "id": "q38",
+                    "text": "Street food provides a source of ______ for many people.",
+                    "answer": "income"
+                  },
+                  {
+                    "id": "q39",
+                    "text": "Street food in Mexico is represented by ______.",
+                    "answer": "tacos"
+                  },
+                  {
+                    "id": "q40",
+                    "text": "Sharing food is a method used worldwide to build ______.",
+                    "answer": "relationships"
+                  }
                 ]
               }
             ]
@@ -229,7 +530,6 @@
       }
     ]
   },
-
   "writing": {
     "title": "Writing",
     "time": 60,
@@ -266,7 +566,6 @@
       }
     ]
   },
-
   "listening": {
     "title": "Listening",
     "time": 30,
@@ -282,27 +581,87 @@
         "context": "Conversation between two speakers - social situation",
         "type": "LISTENING",
         "skill": "listening",
-        "questions": [
+        "subTasks": [
           {
             "type": "short-answer",
             "instruction": "Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
             "questions": [
-              { "id": 1, "text": "Guest name:", "answer": "Michael Johnson", "wordLimit": 2, "allowNumber": true },
-              { "id": 2, "text": "Number of nights:", "answer": "3", "wordLimit": 1, "allowNumber": true },
-              { "id": 3, "text": "Room type:", "answer": "double room", "wordLimit": 2, "allowNumber": false },
-              { "id": 4, "text": "Arrival date:", "answer": "22nd March", "wordLimit": 2, "allowNumber": true },
-              { "id": 5, "text": "Special request:", "answer": "quiet room", "wordLimit": 2, "allowNumber": false }
+              {
+                "id": 1,
+                "text": "Guest name:",
+                "answer": "Michael Johnson",
+                "wordLimit": 2,
+                "allowNumber": true
+              },
+              {
+                "id": 2,
+                "text": "Number of nights:",
+                "answer": "3",
+                "wordLimit": 1,
+                "allowNumber": true
+              },
+              {
+                "id": 3,
+                "text": "Room type:",
+                "answer": "double room",
+                "wordLimit": 2,
+                "allowNumber": false
+              },
+              {
+                "id": 4,
+                "text": "Arrival date:",
+                "answer": "22nd March",
+                "wordLimit": 2,
+                "allowNumber": true
+              },
+              {
+                "id": 5,
+                "text": "Special request:",
+                "answer": "quiet room",
+                "wordLimit": 2,
+                "allowNumber": false
+              }
             ]
           },
           {
             "type": "short-answer",
             "instruction": "Answer the questions below. Write NO MORE THAN TWO WORDS for each answer.",
             "questions": [
-              { "id": 6, "text": "What is included in the price?", "answer": "breakfast", "wordLimit": 2, "allowNumber": false },
-              { "id": 7, "text": "What time is check-in?", "answer": "2 pm", "wordLimit": 2, "allowNumber": true },
-              { "id": 8, "text": "Is parking available?", "answer": "yes", "wordLimit": 1, "allowNumber": false },
-              { "id": 9, "text": "What is the hotel's phone number?", "answer": "0171 555 8922", "wordLimit": 2, "allowNumber": true },
-              { "id": 10, "text": "How will the guest pay?", "answer": "credit card", "wordLimit": 2, "allowNumber": false }
+              {
+                "id": 6,
+                "text": "What is included in the price?",
+                "answer": "breakfast",
+                "wordLimit": 2,
+                "allowNumber": false
+              },
+              {
+                "id": 7,
+                "text": "What time is check-in?",
+                "answer": "2 pm",
+                "wordLimit": 2,
+                "allowNumber": true
+              },
+              {
+                "id": 8,
+                "text": "Is parking available?",
+                "answer": "yes",
+                "wordLimit": 1,
+                "allowNumber": false
+              },
+              {
+                "id": 9,
+                "text": "What is the hotel's phone number?",
+                "answer": "0171 555 8922",
+                "wordLimit": 2,
+                "allowNumber": true
+              },
+              {
+                "id": 10,
+                "text": "How will the guest pay?",
+                "answer": "credit card",
+                "wordLimit": 2,
+                "allowNumber": false
+              }
             ]
           }
         ]
@@ -317,77 +676,126 @@
         "context": "Monologue - information about local facilities",
         "type": "LISTENING",
         "skill": "listening",
-        "questions": [
+        "subTasks": [
           {
-            "id": 11,
             "type": "mcq",
             "instruction": "Choose the correct letter, A, B or C.",
-            "question": "The tour starts from",
-            "options": ["the main station", "the tourist office", "the museum"],
-            "answer": "B"
+            "id": 11,
+            "text": "The tour starts from",
+            "options": [
+              "the main station",
+              "the tourist office",
+              "the museum"
+            ],
+            "answer": "the tourist office"
           },
           {
+            "type": "mcq",
+            "instruction": "",
             "id": 12,
-            "type": "mcq",
-            "question": "How long does the walking tour last?",
-            "options": ["one hour", "two hours", "three hours"],
-            "answer": "B"
+            "text": "How long does the walking tour last?",
+            "options": [
+              "one hour",
+              "two hours",
+              "three hours"
+            ],
+            "answer": "two hours"
           },
           {
+            "type": "mcq",
+            "instruction": "",
             "id": 13,
-            "type": "mcq",
-            "question": "What is included in the tour price?",
-            "options": ["lunch", "entrance fees", "drinks"],
-            "answer": "B"
+            "text": "What is included in the tour price?",
+            "options": [
+              "lunch",
+              "entrance fees",
+              "drinks"
+            ],
+            "answer": "entrance fees"
           },
           {
+            "type": "mcq",
+            "instruction": "",
             "id": 14,
-            "type": "mcq",
-            "question": "What should visitors bring?",
-            "options": ["a camera", "comfortable shoes", "a map"],
-            "answer": "B"
+            "text": "What should visitors bring?",
+            "options": [
+              "a camera",
+              "comfortable shoes",
+              "a map"
+            ],
+            "answer": "comfortable shoes"
           },
           {
+            "type": "mcq",
+            "instruction": "",
             "id": 15,
-            "type": "mcq",
-            "question": "When does the tour run?",
-            "options": ["daily", "weekends only", "certain days"],
-            "answer": "C"
+            "text": "When does the tour run?",
+            "options": [
+              "daily",
+              "weekends only",
+              "certain days"
+            ],
+            "answer": "certain days"
           },
           {
+            "type": "mcq",
+            "instruction": "",
             "id": 16,
-            "type": "mcq",
-            "question": "How much does the tour cost per person?",
-            "options": ["£15", "£20", "£25"],
-            "answer": "C"
+            "text": "How much does the tour cost per person?",
+            "options": [
+              "£15",
+              "£20",
+              "£25"
+            ],
+            "answer": "£25"
           },
           {
+            "type": "mcq",
+            "instruction": "",
             "id": 17,
-            "type": "mcq",
-            "question": "What is the maximum group size?",
-            "options": ["10 people", "15 people", "20 people"],
-            "answer": "B"
+            "text": "What is the maximum group size?",
+            "options": [
+              "10 people",
+              "15 people",
+              "20 people"
+            ],
+            "answer": "15 people"
           },
           {
+            "type": "mcq",
+            "instruction": "",
             "id": 18,
-            "type": "mcq",
-            "question": "Which landmark is not included in the tour?",
-            "options": ["the cathedral", "the castle", "the stadium"],
-            "answer": "C"
+            "text": "Which landmark is not included in the tour?",
+            "options": [
+              "the cathedral",
+              "the castle",
+              "the stadium"
+            ],
+            "answer": "the stadium"
           },
           {
+            "type": "mcq",
+            "instruction": "",
             "id": 19,
-            "type": "mcq",
-            "question": "What language options are available?",
-            "options": ["English only", "English and French", "multiple languages"],
-            "answer": "C"
+            "text": "What language options are available?",
+            "options": [
+              "English only",
+              "English and French",
+              "multiple languages"
+            ],
+            "answer": "multiple languages"
           },
           {
-            "id": 20,
             "type": "mcq",
-            "question": "How far in advance should visitors book?",
-            "options": ["same day", "24 hours", "48 hours"],
-            "answer": "B"
+            "instruction": "",
+            "id": 20,
+            "text": "How far in advance should visitors book?",
+            "options": [
+              "same day",
+              "24 hours",
+              "48 hours"
+            ],
+            "answer": "24 hours"
           }
         ]
       },
@@ -401,64 +809,116 @@
         "context": "Conversation between two speakers - academic context",
         "type": "LISTENING",
         "skill": "listening",
-        "questions": [
+        "subTasks": [
           {
-            "id": 21,
             "type": "mcq",
             "instruction": "Choose the correct letter, A, B or C.",
-            "question": "What is the main topic of the project?",
-            "options": ["climate change", "urban planning", "water conservation"],
-            "answer": "C"
+            "id": 21,
+            "text": "What is the main topic of the project?",
+            "options": [
+              "climate change",
+              "urban planning",
+              "water conservation"
+            ],
+            "answer": "water conservation"
           },
           {
+            "type": "mcq",
+            "instruction": "",
             "id": 22,
-            "type": "mcq",
-            "question": "What does the supervisor suggest adding?",
-            "options": ["more interviews", "statistical data", "photographs"],
-            "answer": "B"
+            "text": "What does the supervisor suggest adding?",
+            "options": [
+              "more interviews",
+              "statistical data",
+              "photographs"
+            ],
+            "answer": "statistical data"
           },
           {
+            "type": "mcq",
+            "instruction": "",
             "id": 23,
-            "type": "mcq",
-            "question": "When is the first draft due?",
-            "options": ["next Friday", "in two weeks", "end of month"],
-            "answer": "A"
+            "text": "When is the first draft due?",
+            "options": [
+              "next Friday",
+              "in two weeks",
+              "end of month"
+            ],
+            "answer": "next Friday"
           },
           {
+            "type": "mcq",
+            "instruction": "",
             "id": 24,
-            "type": "mcq",
-            "question": "What is the minimum word count required?",
-            "options": ["2000 words", "3000 words", "4000 words"],
-            "answer": "B"
+            "text": "What is the minimum word count required?",
+            "options": [
+              "2000 words",
+              "3000 words",
+              "4000 words"
+            ],
+            "answer": "3000 words"
           },
           {
+            "type": "mcq",
+            "instruction": "",
             "id": 25,
-            "type": "mcq",
-            "question": "Where should the student conduct the survey?",
-            "options": ["the library", "the local community", "online"],
-            "answer": "B"
+            "text": "Where should the student conduct the survey?",
+            "options": [
+              "the library",
+              "the local community",
+              "online"
+            ],
+            "answer": "the local community"
           },
           {
+            "type": "mcq",
+            "instruction": "",
             "id": 26,
-            "type": "mcq",
-            "question": "What software is recommended for analysis?",
-            "options": ["Excel", "SPSS", "Python"],
-            "answer": "B"
+            "text": "What software is recommended for analysis?",
+            "options": [
+              "Excel",
+              "SPSS",
+              "Python"
+            ],
+            "answer": "SPSS"
           },
           {
-            "id": 27,
             "type": "mcq",
-            "question": "How many interviews are required?",
-            "options": ["5-10", "10-15", "15-20"],
-            "answer": "C"
+            "instruction": "",
+            "id": 27,
+            "text": "How many interviews are required?",
+            "options": [
+              "5-10",
+              "10-15",
+              "15-20"
+            ],
+            "answer": "15-20"
           },
           {
             "type": "short-answer",
             "instruction": "Answer the questions below. Write NO MORE THAN TWO WORDS for each answer.",
             "questions": [
-              { "id": 28, "text": "What is the title of the project?", "answer": "Water Conservation", "wordLimit": 2, "allowNumber": false },
-              { "id": 29, "text": "Who will approve the final report?", "answer": "the supervisor", "wordLimit": 2, "allowNumber": false },
-              { "id": 30, "text": "When is the final presentation?", "answer": "next month", "wordLimit": 2, "allowNumber": false }
+              {
+                "id": 28,
+                "text": "What is the title of the project?",
+                "answer": "Water Conservation",
+                "wordLimit": 2,
+                "allowNumber": false
+              },
+              {
+                "id": 29,
+                "text": "Who will approve the final report?",
+                "answer": "the supervisor",
+                "wordLimit": 2,
+                "allowNumber": false
+              },
+              {
+                "id": 30,
+                "text": "When is the final presentation?",
+                "answer": "next month",
+                "wordLimit": 2,
+                "allowNumber": false
+              }
             ]
           }
         ]
@@ -473,55 +933,113 @@
         "context": "Monologue - educational talk",
         "type": "LISTENING",
         "skill": "listening",
-        "questions": [
+        "subTasks": [
           {
             "type": "short-answer",
             "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
             "questions": [
-              { "id": 31, "text": "Solar energy comes from the:", "answer": "sun", "wordLimit": 2, "allowNumber": false },
-              { "id": 32, "text": "Wind turbines convert wind energy into:", "answer": "electricity", "wordLimit": 2, "allowNumber": false },
-              { "id": 33, "text": "Hydroelectric power uses flowing:", "answer": "water", "wordLimit": 2, "allowNumber": false },
-              { "id": 34, "text": "Geothermal energy comes from:", "answer": "the earth", "wordLimit": 2, "allowNumber": false },
-              { "id": 35, "text": "Biomass energy is derived from:", "answer": "organic materials", "wordLimit": 2, "allowNumber": false }
+              {
+                "id": 31,
+                "text": "Solar energy comes from the:",
+                "answer": "sun",
+                "wordLimit": 2,
+                "allowNumber": false
+              },
+              {
+                "id": 32,
+                "text": "Wind turbines convert wind energy into:",
+                "answer": "electricity",
+                "wordLimit": 2,
+                "allowNumber": false
+              },
+              {
+                "id": 33,
+                "text": "Hydroelectric power uses flowing:",
+                "answer": "water",
+                "wordLimit": 2,
+                "allowNumber": false
+              },
+              {
+                "id": 34,
+                "text": "Geothermal energy comes from:",
+                "answer": "the earth",
+                "wordLimit": 2,
+                "allowNumber": false
+              },
+              {
+                "id": 35,
+                "text": "Biomass energy is derived from:",
+                "answer": "organic materials",
+                "wordLimit": 2,
+                "allowNumber": false
+              }
             ]
           },
           {
             "type": "mcq",
             "instruction": "Choose the correct letter, A, B or C.",
-            "question": "Which renewable source has the highest efficiency?",
-            "options": ["solar", "wind", "hydroelectric"],
-            "answer": "C"
+            "text": "Which renewable source has the highest efficiency?",
+            "options": [
+              "solar",
+              "wind",
+              "hydroelectric"
+            ],
+            "answer": "hydroelectric"
           },
           {
             "type": "mcq",
-            "question": "What is the main advantage of wind energy?",
-            "options": ["low cost", "no pollution", "reliable"],
-            "answer": "B"
+            "instruction": "",
+            "text": "What is the main advantage of wind energy?",
+            "options": [
+              "low cost",
+              "no pollution",
+              "reliable"
+            ],
+            "answer": "no pollution"
           },
           {
             "type": "mcq",
-            "question": "Which country is a leader in solar energy?",
-            "options": ["Germany", "China", "Japan"],
-            "answer": "A"
+            "instruction": "",
+            "text": "Which country is a leader in solar energy?",
+            "options": [
+              "Germany",
+              "China",
+              "Japan"
+            ],
+            "answer": "Germany"
           },
           {
             "type": "mcq",
-            "question": "What is the main challenge for renewable energy?",
-            "options": ["cost", "storage", "availability"],
-            "answer": "B"
+            "instruction": "",
+            "text": "What is the main challenge for renewable energy?",
+            "options": [
+              "cost",
+              "storage",
+              "availability"
+            ],
+            "answer": "storage"
           },
           {
             "type": "matching",
             "instruction": "Match the energy source with its primary use. Write the correct letter, A, B, C or D.",
             "questions": [
-              { "id": 40, "text": "Solar panels -", "options": ["electricity generation", "heating", "transportation", "industrial use"], "answer": "A" }
+              {
+                "id": 40,
+                "text": "Solar panels -",
+                "options": [
+                  "electricity generation",
+                  "heating",
+                  "transportation",
+                  "industrial use"
+                ],
+                "answer": "A"
+              }
             ]
           }
         ]
       }
     ]
   },
-
   "speaking": {
     "title": "Speaking",
     "time": 15,
@@ -536,10 +1054,22 @@
           {
             "topic": "Transport",
             "questions": [
-              { "id": "p1q5", "text": "What form of transport do you most often use?" },
-              { "id": "p1q6", "text": "Do you prefer public or private transport? (Why?)" },
-              { "id": "p1q7", "text": "How could transport be improved in your city?" },
-              { "id": "p1q8", "text": "Did you learn to ride a bike as a child?" }
+              {
+                "id": "p1q5",
+                "text": "What form of transport do you most often use?"
+              },
+              {
+                "id": "p1q6",
+                "text": "Do you prefer public or private transport? (Why?)"
+              },
+              {
+                "id": "p1q7",
+                "text": "How could transport be improved in your city?"
+              },
+              {
+                "id": "p1q8",
+                "text": "Did you learn to ride a bike as a child?"
+              }
             ]
           }
         ]
@@ -561,8 +1091,14 @@
             "explain why this skill was useful"
           ],
           "roundingQuestions": [
-            { "id": "r1", "text": "Do you think children should learn practical skills at school?" },
-            { "id": "r2", "text": "What other skills are important for children to learn?" }
+            {
+              "id": "r1",
+              "text": "Do you think children should learn practical skills at school?"
+            },
+            {
+              "id": "r2",
+              "text": "What other skills are important for children to learn?"
+            }
           ]
         }
       },
@@ -576,10 +1112,22 @@
           {
             "topic": "Learning Skills",
             "questions": [
-              { "id": "p3q1", "text": "What skills are important for success in the modern workplace?" },
-              { "id": "p3q2", "text": "Should companies train their employees or hire experienced workers?" },
-              { "id": "p3q3", "text": "How has technology changed the way we learn new skills?" },
-              { "id": "p3q4", "text": "Do you think traditional skills are still valuable in today's world?" }
+              {
+                "id": "p3q1",
+                "text": "What skills are important for success in the modern workplace?"
+              },
+              {
+                "id": "p3q2",
+                "text": "Should companies train their employees or hire experienced workers?"
+              },
+              {
+                "id": "p3q3",
+                "text": "How has technology changed the way we learn new skills?"
+              },
+              {
+                "id": "p3q4",
+                "text": "Do you think traditional skills are still valuable in today's world?"
+              }
             ]
           }
         ]

@@ -24,6 +24,8 @@ const ListeningBlock = ({
   setIsReviewMode,
   availableSkills = []
 }) => {
+  // Extract listening data from full mock or direct
+  const listeningData = data.listening || data;
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const audioRef = useRef(null);
@@ -41,40 +43,34 @@ const ListeningBlock = ({
     setProgress((audioRef.current.currentTime / audioRef.current.duration) * 100);
   };
 
-  // 2. Question Flattening
-  // Listening often needs "One Slide Per Question" (flattening blocks into individual items)
-  const getAllQs = () => {
-    const rawItems = data.sections || data.questions || [];
+  // 2. Question Flattening - NOT flattening all parts together
+  // We keep the structure: each listening part is a separate "passage"
+  // The QuestionCarousel will handle navigation between parts
+  const listeningSections = listeningData.sections || [];
+  
+  // Get current part's data
+  const currentPart = listeningSections[activeSectionIndex];
+  const currentAudioUrl = currentPart?.audioUrl || listeningData.audioUrl;
+  const currentTitle = currentPart?.title;
+  const currentSubtitle = currentPart?.subtitle;
+  const currentDescription = currentPart?.description;
+  
+  // Get questions for current part only (based on activeSectionIndex)
+  const getQsForPart = (partIndex) => {
+    const section = listeningSections[partIndex];
+    if (!section) return [];
+    
+    const rawItems = section.subTasks || section.questions || [];
+    const selfContainedTypes = ['sentence-matching', 'diagram-label', 'flowchart', 'heading-match', 'sentence-complete', 'gap-fill', 'short-answer'];
+    
     const flattened = [];
-
     rawItems.forEach(item => {
-      // If it's a block with sub-questions (like MCQ groups or Short Answer groups)
-      if (item.questions && Array.isArray(item.questions)) {
+      if (selfContainedTypes.includes(item.type) && (!item.questions || !Array.isArray(item.questions))) {
+        flattened.push({ ...item });
+      }
+      else if (item.questions && Array.isArray(item.questions)) {
         item.questions.forEach(q => flattened.push({ ...q, type: q.type || item.type }));
-      } 
-      // If it's a Diagram/Map - expand each label into a slide
-      else if (item.type === 'diagram-label' && item.labels) {
-        item.labels.forEach(l => flattened.push({
-          ...l,
-          type: 'short-answer', // Labels in listening act like short-answers
-          instruction: item.instruction,
-          diagram: item.diagram
-        }));
       }
-      // If it's Notes - expand each gap into a slide
-      else if (item.type === 'notes-completion' && item.notes) {
-        item.notes.forEach(n => {
-          if (n.type === 'gap') {
-            flattened.push({
-              ...n,
-              type: 'short-answer',
-              text: n.label,
-              instruction: item.instruction || "Complete the notes."
-            });
-          }
-        });
-      }
-      // Otherwise, just push the task as is
       else if (item.type) {
         flattened.push(item);
       }
@@ -82,24 +78,69 @@ const ListeningBlock = ({
     return flattened;
   };
 
-  const allQs = getAllQs();
+  // For the carousel, use the current part's questions only
+  const allQs = getQsForPart(activeSectionIndex);
   const totalQs = allQs.length;
+
+  // Inside ListeningBlock component, before getQuestionRange
+const extractIds = (items) => {
+  const ids = [];
+  items.forEach(item => {
+    if (item.questions) { // Check if it's a subtask with nested questions
+      item.questions.forEach(q => {
+        const numId = parseInt(String(q.id).replace(/\D/g, ''), 10);
+        if (!isNaN(numId)) ids.push(numId);
+      });
+    } else if (item.id) { // Direct question or subtask with single ID
+      const numId = parseInt(String(item.id).replace(/\D/g, ''), 10);
+      if (!isNaN(numId)) ids.push(numId);
+    }
+    // Add similar logic for 'labels' if listening questions also use them
+    else if (item.labels) {
+       item.labels.forEach(l => {
+         const numId = parseInt(String(l.id).replace(/\D/g, ''), 10);
+         if (!isNaN(numId)) ids.push(numId);
+       });
+    }
+  });
+  return ids.filter(id => !isNaN(id));
+};
+  
+  // Replace your current getQuestionRange in ListeningBlock with this:
+const getQuestionRange = () => {
+  if (allQs.length === 0) return 'Questions';
+
+  const ids = extractIds(allQs).sort((a, b) => a - b);
+  
+  if (ids.length === 0) return 'Questions'; // Fallback if no valid IDs found
+
+  const minId = ids[0];
+  const maxId = ids[ids.length - 1];
+
+  return ids.length > 1 ? `Questions ${minId}–${maxId}` : `Question ${minId}`;
+};
 
   return (
     <div className="listening-container">
       <SplitPane
         content={
           <>
-            {/* Header Section */}
-            {data.title && (
+            {/* Header Section - Show current part info */}
+            {(currentTitle || currentSubtitle || currentDescription) ? (
                <div className="invictus-content-header">
-                {data.subtitle && <p className="invictus-content-subtitle">{data.subtitle}</p>}
-                <h2 className="invictus-content-title">{data.title}</h2>
-                {data.description && <p className="listening-description">{data.description}</p>}
+                 {currentSubtitle && <p className="invictus-content-subtitle">{currentSubtitle}</p>}
+                 {currentTitle && <h2 className="invictus-content-title">{currentTitle}</h2>}
+                 {currentDescription && <p className="listening-description">{currentDescription}</p>}
+               </div>
+            ) : listeningData.title ? (
+              <div className="invictus-content-header">
+                {listeningData.subtitle && <p className="invictus-content-subtitle">{listeningData.subtitle}</p>}
+                <h2 className="invictus-content-title">{listeningData.title}</h2>
+                {listeningData.description && <p className="listening-description">{listeningData.description}</p>}
               </div>
-            )}
+            ) : null}
 
-            {/* Sticky Audio Player */}
+            {/* Sticky Audio Player - Use current part's audio */}
             <div className="audio-sticky-bar">
               <div className="player-controls">
                 <button className="play-btn" onClick={isPlaying ? handlePause : handlePlay}>
@@ -111,7 +152,7 @@ const ListeningBlock = ({
                 <Headphones size={18} className="headphones-icon" />
                 <audio 
                   ref={audioRef} 
-                  src={data.audioUrl} 
+                  src={currentAudioUrl}
                   onTimeUpdate={handleTimeUpdate} 
                   onEnded={() => setIsPlaying(false)}
                 />
@@ -119,11 +160,15 @@ const ListeningBlock = ({
             </div>
 
             {/* Visual Aids (Maps/Diagrams) */}
-            {data.imageUrl && (
+            {currentPart?.imageUrl ? (
               <div className="listening-diagram">
-                <img src={data.imageUrl} alt="Exam Visual" />
+                <img src={currentPart.imageUrl} alt="Exam Visual" />
               </div>
-            )}
+            ) : listeningData.imageUrl ? (
+              <div className="listening-diagram">
+                <img src={listeningData.imageUrl} alt="Exam Visual" />
+              </div>
+            ) : null}
 
             {/* Training Context */}
             <div className="protip-box">
@@ -138,14 +183,12 @@ const ListeningBlock = ({
         exercise={
           <div className="listening-exercise-panel">
             <div className="exercise-header">
-              <h2 className="exercise-title">
-                Questions {data.questionStart || 1}–{data.questionStart ? data.questionStart + totalQs - 1 : totalQs}
-              </h2>
+              <h2 className="exercise-title">{getQuestionRange()}</h2>
             </div>
 
             {/* Core Interaction */}
             <QuestionCarousel 
-              key={allQs.map(q => q.id).join('-')}
+              key={`${activeSectionIndex}-${allQs.map(q => q.id).join('-')}`}
               questions={allQs} 
               renderQuestion={(q) => (
                 <QuestionDispatcher 
@@ -166,6 +209,8 @@ const ListeningBlock = ({
               setActivePassageIndex={setActivePassageIndex}
               setIsReviewMode={setIsReviewMode}
               availableSkills={availableSkills}
+              hasNextPassage={activeSectionIndex < listeningSections.length - 1}
+              hasNextSection={false}
             />
           </div>
         }

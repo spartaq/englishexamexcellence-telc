@@ -111,19 +111,6 @@ const FlowChartCompletionBlock = ({
     return (
       <React.Fragment key={step.id}>
         <div className={stepClassName}>
-          {/* Question number badge - only show for gaps */}
-          {isGap && (
-            <div className="step-badge step-badge-number">
-              {step.id}
-            </div>
-          )}
-          {/* Step label for non-gap steps */}
-          {!isGap && (
-            <div className="step-badge step-label">
-              Step
-            </div>
-          )}
-
           {/* Step content */}
           <div className="step-content">
             {isGap ? (
@@ -132,6 +119,7 @@ const FlowChartCompletionBlock = ({
                 {/* Show step text for gaps (e.g., "Step 1: ______ the pin.") */}
                 {step.text && (
                   <p className="step-text gap-text">
+                    <span className="question-label">{String(step.id).replace(/^q/, '')}.</span>
                     {step.text}
                   </p>
                 )}

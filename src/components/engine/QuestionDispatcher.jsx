@@ -43,6 +43,8 @@ const QuestionDispatcher = ({
   // Standardize the ID and Type
   const qId = data.id;
   const qType = data.type?.toLowerCase();
+  
+  console.log('[QuestionDispatcher] Rendering question with id:', qId, 'type:', qType);
 
   // Helper to get current value for this specific question
   const currentValue = userAnswers[qId];
@@ -53,8 +55,8 @@ const QuestionDispatcher = ({
       return (
         <MCQBlock 
           data={data} 
-          selectedAnswer={currentValue}
-          onUpdate={(val) => onUpdate(qId, val)}
+          userAnswers={userAnswers}
+          onUpdate={onUpdate}
           isReviewMode={isReviewMode}
         />
       );

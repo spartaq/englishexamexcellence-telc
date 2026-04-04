@@ -25,9 +25,10 @@ const Engine = ({
   availableSkills = [],
   onNavigateToMyWords
 }) => {
+  console.log('!!! ENGINE COMPONENT RENDERING !!!');
 
   // 1. Resolve Data hierarchy
-  const sections = activeLesson?.sections || [];
+  const sections = activeLesson?.sections || availableSections || [];
   const currentSection = sections[activeSectionIndex] || activeLesson;
   const passages = currentSection?.passages || [];
   const currentPassage = passages[activePassageIndex] || currentSection;
@@ -41,9 +42,13 @@ const Engine = ({
    * We delegate the actual rendering to specialized "Shell" components.
    */
   const renderLayout = () => {
+    console.log('[Engine] activeLesson:', activeLesson?.id, 'activeSectionIndex:', activeSectionIndex);
+    console.log('[Engine] currentSection:', currentSection?.id, currentSection?.title);
+    console.log('[Engine] skill:', skill, 'lessonType:', lessonType);
     
-    // A. READING LAYOUT (IELTS / TOEFL / Reading Drills)
-    if (lessonType === 'ielts-complex' || lessonType === 'READING' || skill === 'reading' || lessonType === 'reading-practice') {
+    // A. READING LAYOUT (IELTS / TOEFL / Reading Drills / Full Mocks reading sections)
+    const isFullMockReading = lessonType === 'full-mock' && currentSection?.skill === 'reading';
+    if (lessonType === 'ielts-complex' || isFullMockReading || lessonType === 'READING' || skill === 'reading' || lessonType === 'reading-practice') {
       return (
         <ReadingBlock 
           data={currentPassage} 
@@ -64,11 +69,14 @@ const Engine = ({
       );
     }
 
-    // B. LISTENING LAYOUT
-    if (lessonType === 'LISTENING' || skill === 'listening') {
+    // B. LISTENING LAYOUT (including full-mock listening sections)
+    const isFullMockListening = lessonType === 'full-mock' && currentSection?.skill === 'listening';
+    if (lessonType === 'LISTENING' || skill === 'listening' || isFullMockListening) {
+      // For full-mocks, need to pass the full lesson so ListeningBlock can access activeLesson.listening
+      const listeningData = isFullMockListening ? activeLesson : currentSection;
       return (
         <ListeningBlock 
-          data={currentSection} 
+          data={listeningData} 
           userAnswers={userAnswers}
           onUpdate={onUpdateAnswers}
           onCheckAnswers={onCheckAnswers}
@@ -86,8 +94,9 @@ const Engine = ({
       );
     }
 
-    // C. WRITING LAYOUT
-    if (lessonType === 'WRITING' || skill === 'writing' || lessonType === 'writing-mock') {
+    // C. WRITiNG LAYOUT (including full-mock writing sections)
+    const isFullMockWriting = lessonType === 'full-mock' && currentSection?.skill === 'writing';
+    if (lessonType === 'WRITING' || skill === 'writing' || lessonType === 'writing-mock' || isFullMockWriting) {
       // Merge task-specific data if nested sections exist
       const writingTask = currentSection?.sections?.length > 0
         ? { ...currentSection, ...currentSection.sections[activeSectionIndex] || currentSection.sections[0] }
@@ -108,8 +117,9 @@ const Engine = ({
       );
     }
 
-    // D. SPEAKING LAYOUT
-    if (lessonType === 'SPEAKING' || skill === 'speaking' || lessonType === 'ielts-speaking') {
+    // D. SPEAKING LAYOUT (including full-mock speaking sections)
+    const isFullMockSpeaking = lessonType === 'full-mock' && currentSection?.skill === 'speaking';
+    if (lessonType === 'SPEAKING' || skill === 'speaking' || lessonType === 'ielts-speaking' || isFullMockSpeaking) {
       return (
         <SpeakingBlock 
           data={currentSection} 
@@ -125,8 +135,9 @@ const Engine = ({
       );
     }
 
-   // E. VOCAB / FLASHCARDS
-if (lessonType === 'VOCAB' || lessonType === 'VOCAB_FLASHCARDS' || skill === 'vocab') {
+   // E. VOCAB / FLASHCARDS (including full-mock vocab sections)
+   const isFullMockVocab = lessonType === 'full-mock' && currentSection?.skill === 'vocab';
+   if (lessonType === 'VOCAB' || lessonType === 'VOCAB_FLASHCARDS' || skill === 'vocab' || isFullMockVocab) {
   // If the data came from a passage's vocabList, 
   // ensure we pass the correct array to the FlashcardBlock
   const vocabData = currentSection.vocabList ? { ...currentSection, questions: currentSection.vocabList } : currentSection;

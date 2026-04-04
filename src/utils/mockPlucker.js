@@ -616,18 +616,8 @@ export const pluckRandomFullMock = (testType = null) => {
     });
   }
   
-  // Combine into a full mock test
-  const fullMock = {
-    id: `full-mock-${testType || 'random'}-${Date.now()}`,
-    title: mockTitle,
-    type: 'full-mock',
-    testType: testType,
-    mockNumber: mock.mockNumber,
-    xp: 2000,
-    sections: sections
-  };
-  
-  return fullMock;
+  // Combine into a full mock test - return the RAW mock, not built object
+  return mock; // Return RAW mock for createFullMockFromMock to process
 };
 
 /**
@@ -722,7 +712,7 @@ export const pluckFullMock1 = (testType = null) => {
   
   // Combine into a full mock test
   const fullMock = {
-    id: `full-mock-${testType || 'random'}-1`,
+    id: `mock-${testType}-1`,
     title: mockTitle,
     type: 'full-mock',
     testType: testType,

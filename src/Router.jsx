@@ -47,36 +47,6 @@ const Router = () => {
           <App initialView="ielts-academic-mini-test" />
         </ProtectedRoute>
       } />
-      <Route path="/ielts/reading-academic" element={
-        <ProtectedRoute>
-          <App initialView="reading_academic" />
-        </ProtectedRoute>
-      } />
-      <Route path="/ielts/reading-general" element={
-        <ProtectedRoute>
-          <App initialView="reading_general" />
-        </ProtectedRoute>
-      } />
-      <Route path="/ielts/writing-academic" element={
-        <ProtectedRoute>
-          <App initialView="writing_academic" />
-        </ProtectedRoute>
-      } />
-      <Route path="/ielts/writing-general" element={
-        <ProtectedRoute>
-          <App initialView="writing_general" />
-        </ProtectedRoute>
-      } />
-      <Route path="/ielts/listening" element={
-        <ProtectedRoute>
-          <App initialView="listening" />
-        </ProtectedRoute>
-      } />
-      <Route path="/ielts/speaking" element={
-        <ProtectedRoute>
-          <App initialView="speaking" />
-        </ProtectedRoute>
-      } />
       <Route path="/ielts/vocabulary" element={
         <ProtectedRoute>
           <App initialView="vocabulary" />

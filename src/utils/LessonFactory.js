@@ -18,6 +18,8 @@ export const LessonFactory = {
   // 1. TRANSFORMER: The "Chef" logic you just provided
   // Converts a raw Mock object into a structured "Full Test" for the Engine
   createFullMockFromMock: (mock, testType) => {
+    console.log('[LessonFactory] createFullMockFromMock START:', { mockId: mock?.id, mockTitle: mock?.title, mockHasReading: !!mock?.reading, testType });
+    console.log('[LessonFactory] mock.reading:', mock?.reading);
     if (!mock) return null;
     
     const sections = [];
@@ -79,8 +81,10 @@ export const LessonFactory = {
       });
     }
     
+    console.log('[LessonFactory] sections built:', { count: sections.length, sections: sections.map(s => ({ skill: s.skill, type: s.type, title: s.title })) });
+    
     return {
-      id: `full-mock-${mock.id}`,
+      id: `mock-${testType}-${Date.now()}`,
       title: mock.title,
       type: 'full-mock',
       testType: testType,
@@ -92,6 +96,7 @@ export const LessonFactory = {
 
   // 2. RESOLVER: Logic to find which mock to use based on path/type
   prepareFullTest: (testType, path = null) => {
+    console.log('[LessonFactory] prepareFullTest:', { testType, path });
     let specificMock = null;
 
     // Resolve specific mock from path if provided
@@ -106,7 +111,9 @@ export const LessonFactory = {
 
     // Fallback to random if no specific mock found
     const type = testType.includes('general') ? 'general' : 'academic';
+    console.log('[LessonFactory] type resolved:', type);
     const mockData = specificMock || pluckRandomFullMock(type);
+    console.log('[LessonFactory] mockData:', mockData);
     
     // Transform and return
     return LessonFactory.createFullMockFromMock(mockData, type);
@@ -178,10 +185,14 @@ export const LessonFactory = {
 
       // Random Full Mock - Quick Start button
       if (taskMetadata.id === 'random-mock') {
-        console.log('[LessonFactory] Matched random-mock');
+        console.log('[LessonFactory] Matched random-mock, taskMetadata:', taskMetadata);
         const type = taskMetadata.testType || 'general';
+        console.log('[LessonFactory] random-mock type:', type);
         const rawMock = pluckRandomFullMock(type);
-        return LessonFactory.createFullMockFromMock(rawMock);
+        console.log('[LessonFactory] rawMock:', rawMock);
+        const result = LessonFactory.createFullMockFromMock(rawMock, type);
+        console.log('[LessonFactory] random-mock result:', result);
+        return result;
       }
     }
 
