@@ -342,7 +342,7 @@ const handleUpdateAnswer = useCallback((qId, val) => {
         onNavigateToMyWords={() => navigateToView('mywords')}
       >
         <main className="invictus-main-content">
-          <div className="invictus-main-container workspace-container">
+          <div className="invictus-main-container workspace-container style-scrollbar">
 
          
 
