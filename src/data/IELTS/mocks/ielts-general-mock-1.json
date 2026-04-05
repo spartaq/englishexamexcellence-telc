@@ -848,32 +848,30 @@
             ]
           },
           {
-            "type": "mcq",
-            "instruction": "Choose the correct letter, A, B or C.",
-            "id": 16,
-            "text": "The museum was originally built as a",
-            "options": [
-              "a private residence",
-              "a government building",
-              "a factory"
-            ],
-            "answer": "A"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "id": 17,
-            "text": "The museum's collection focuses mainly on",
-            "options": [
-              "ancient artefacts",
-              "local history",
-              "modern art"
-            ],
-            "answer": "B"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
+                "type": "mcq",
+                "instruction": "Choose the correct answer",
+                "questions": [
+                  {
+                  "id": 16,
+                  "text": "The museum was originally built as a",
+                  "options": [
+                    "a private residence",
+                    "a government building",
+                    "a factory"
+                  ],
+                    "answer": "a private residence"
+                  },
+                  {
+                    "id": 17,
+                    "text": "The museum's collection focuses mainly on",
+                    "options": [
+                      "ancient artefacts",
+                      "local history",
+                      "modern art"
+                    ],
+                  "answer": "local history"
+                  },
+                  {
             "id": 18,
             "text": "The guided tours last approximately",
             "options": [
@@ -881,11 +879,9 @@
               "1 hour",
               "90 minutes"
             ],
-            "answer": "B"
+            "answer": "1 hour"
           },
           {
-            "type": "mcq",
-            "instruction": "",
             "id": 19,
             "text": "The restaurant can serve",
             "options": [
@@ -893,11 +889,9 @@
               "100 people",
               "200 people"
             ],
-            "answer": "C"
+            "answer": "200 people"
           },
           {
-            "type": "mcq",
-            "instruction": "",
             "id": 20,
             "text": "What is free for members?",
             "options": [
@@ -905,8 +899,10 @@
               "guides",
               "coffee"
             ],
-            "answer": "B"
-          }
+            "answer": "guides"
+           }
+          ]
+         }
         ]
       },
       {
@@ -920,83 +916,82 @@
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
-          {
-            "type": "mcq",
-            "instruction": "Choose the correct letter, A, B or C.",
-            "text": "The student is studying",
-            "options": [
-              "Business",
-              "Computer Science",
-              "Engineering"
-            ],
-            "answer": "A"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "What is the main concern about the assignment?",
-            "options": [
-              "the topic",
-              "the deadline",
-              "the length"
-            ],
-            "answer": "B"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "When is the assignment due?",
-            "options": [
-              "next week",
-              "in two weeks",
-              "in three weeks"
-            ],
-            "answer": "C"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "What does the advisor suggest about the research?",
-            "options": [
-              "visit the library",
-              "use online databases",
-              "interview professors"
-            ],
-            "answer": "B"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "How many sources are required for the bibliography?",
-            "options": [
-              "5",
-              "10",
-              "15"
-            ],
-            "answer": "B"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "What format should the essay follow?",
-            "options": [
-              "APA",
-              "MLA",
-              "Harvard"
-            ],
-            "answer": "C"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "Who will review the first draft?",
-            "options": [
-              "the advisor",
-              "peer students",
-              "external examiner"
-            ],
-            "answer": "A"
-          },
+                  {
+                    "type": "mcq",
+                    "instruction": "Choose the correct answer",
+                    "questions": [
+                    {
+                    "id": 21,
+                    "text": "The student is studying",
+                    "options": [
+                      "Business",
+                      "Computer Science",
+                      "Engineering"
+                    ],
+                    "answer": "A"
+                  },
+                  {
+                  "id": 22,
+                    "text": "What is the main concern about the assignment?",
+                    "options": [
+                      "the topic",
+                      "the deadline",
+                      "the length"
+                    ],
+                    "answer": "B"
+                  },
+                  {
+            "id": 23,
+                    "text": "When is the assignment due?",
+                    "options": [
+                      "next week",
+                      "in two weeks",
+                      "in three weeks"
+                    ],
+                    "answer": "C"
+                  },
+                  {
+            "id": 24,
+                    "text": "What does the advisor suggest about the research?",
+                    "options": [
+                      "visit the library",
+                      "use online databases",
+                      "interview professors"
+                    ],
+                    "answer": "B"
+                  },
+                  {
+            "id": 25,
+                    "text": "How many sources are required for the bibliography?",
+                    "options": [
+                      "5",
+                      "10",
+                      "15"
+                    ],
+                    "answer": "B"
+                  },
+                  {
+            "id": 26,
+                    "text": "What format should the essay follow?",
+                    "options": [
+                      "APA",
+                      "MLA",
+                      "Harvard"
+                    ],
+                    "answer": "C"
+                  },
+                  {
+            "id": 27,
+                    "text": "Who will review the first draft?",
+                    "options": [
+                      "the advisor",
+                      "peer students",
+                      "external examiner"
+                    ],
+                    "answer": "A"          
+                  }
+          ]
+         },
           {
             "type": "short-answer",
             "instruction": "Answer the questions below. Write NO MORE THAN TWO WORDS for each answer.",
