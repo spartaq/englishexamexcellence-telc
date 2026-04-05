@@ -9,7 +9,7 @@
 /* Mobile: Ensure panels have independent scrolling */
 @media (max-width: 768px) {
   .listening-container {
-    height: calc(100vh - 48px);
+    height: calc(100vh - 53px);
   }
   
   .listening-container .invictus-split-pane-layout {
@@ -76,7 +76,7 @@
 .progress-track {
   flex: 1;
   height: 6px;
-  background: var(--surface-dim);
+  background: var(--bg-app);
   border-radius: 3px;
   overflow: hidden;
 }

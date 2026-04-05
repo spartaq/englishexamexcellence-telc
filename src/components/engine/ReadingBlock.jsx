@@ -1,8 +1,9 @@
 import React from 'react';
 import QuestionCarousel from './QuestionCarousel';
 import SplitPane from './SplitPane';
-import QuestionDispatcher from './QuestionDispatcher'; // The new universal waiter
+import QuestionDispatcher from './QuestionDispatcher';
 import './ReadingBlock.css';
+import './engine.css';
 
 const ReadingBlock = ({ 
   data, 
@@ -75,16 +76,15 @@ const ReadingBlock = ({
   };
 
   return (
-    <div className="invictus-reading-layout">
+    <div className="invictus-reading-layout reading-wrapper">
       <SplitPane
-        content={
-          <div className="invictus-content-column">
-            {(title || subtitle) && (
-              <div className="invictus-passage-header">
-                {subtitle && <p className="invictus-passage-subtitle">{subtitle}</p>}
-                {title && <h2 className="invictus-passage-title">{title}</h2>}
-              </div>
-            )}
+        content={<>
+          {(title || subtitle) && (
+            <div className="invictus-content-header">
+              {subtitle && <p className="invictus-content-subtitle">{subtitle}</p>}
+              {title && <h2 className="invictus-content-title">{title}</h2>}
+            </div>
+          )}
 
             {/* Passage Content Rendering */}
             {typeof content === 'string' ? (
@@ -101,15 +101,13 @@ const ReadingBlock = ({
                 );
               })
             ) : null}
-          </div>
-        }
+        </>}
 
         exercise={
-          <div className="reading-exercise-panel">
-            <div className="invictus-question-column">
-              <h2 className="invictus-total-range">{getQuestionRange()}</h2>
-              
-              {flatQuestions.length > 0 && (
+          <div className="invictus-question-column">
+            <h2 className="invictus-total-range">{getQuestionRange()}</h2>
+            
+            {flatQuestions.length > 0 && (
                 useCarousel ? (
                   <QuestionCarousel
                     key={flatQuestions.map(q => q.id).join('-')}
@@ -155,11 +153,10 @@ const ReadingBlock = ({
                 )
               )}
             </div>
-          </div>
-        }
-      />
-    </div>
-  );
-};
+          }
+        />
+      </div>
+    );
+  };
 
 export default ReadingBlock;

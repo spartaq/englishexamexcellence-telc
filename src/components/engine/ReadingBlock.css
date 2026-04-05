@@ -2,9 +2,18 @@
 
 /* Reading Layout */
 .invictus-reading-layout {
-  font-family: var(--invictus-font);
+  display: flex;
+  flex-direction: column;
   background: var(--surface-container-lowest);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-y: auto;
   height: 100%;
+}
+
+
+  
+.reading-wrapper {
+  overflow: hidden;
 }
 
 /* Exercise Panel */
@@ -16,10 +25,6 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
-
-
-
-
 
 /* Paragraph wrapper for inline letters */
 .invictus-paragraph-wrapper {
@@ -46,34 +51,10 @@
   flex-shrink: 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Mobile styles */
 @media (max-width: 768px) {
   .invictus-reading-layout {
-    height: calc(100vh - 48px);
+    height: calc(100vh - 53px);
   }
   
   .invictus-reading-layout .invictus-split-pane-layout {
@@ -119,7 +100,7 @@
 /* Mobile (400px target) */
 @media (max-width: 480px) {
   .invictus-reading-layout {
-    height: calc(100vh - 48px);
+    height: calc(100vh - 53px);
   }
   
   .invictus-reading-layout .invictus-split-pane-layout {

@@ -106,6 +106,9 @@ const Engine = ({
         <WritingBlock 
           data={writingTask} 
           onComplete={onCheckAnswers}
+          onCheckAnswers={onCheckAnswers}
+          isReviewMode={isReviewMode}
+          showCheckAnswers={showCheckAnswers}
           sections={availableSections}
           activeSkillTab={activeSkillTab}
           activeSectionIndex={activeSectionIndex}
@@ -124,6 +127,9 @@ const Engine = ({
         <SpeakingBlock 
           data={currentSection} 
           onComplete={onCheckAnswers}
+          onCheckAnswers={onCheckAnswers}
+          isReviewMode={isReviewMode}
+          showCheckAnswers={showCheckAnswers}
           sections={availableSections}
           activeSkillTab={activeSkillTab}
           activeSectionIndex={activeSectionIndex}

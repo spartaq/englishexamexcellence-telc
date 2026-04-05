@@ -4,9 +4,8 @@
 /* Main Container */
 .short-answer-container {
   padding: 24px;
-  background: white;
+  background: var(--surface-white);
   border-radius: 12px;
-  border: 1px solid #e2e8f0;
 }
 
 /* Instruction Box */

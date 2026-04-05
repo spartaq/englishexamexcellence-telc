@@ -170,21 +170,12 @@ const getQuestionRange = () => {
               </div>
             ) : null}
 
-            {/* Training Context */}
-            <div className="protip-box">
-              <div className="protip-icon"><span className="material-symbols-outlined">lightbulb</span></div>
-              <div className="protip-content">
-                <h4 className="protip-title">Listening Focus</h4>
-                <p className="protip-text">Answers usually appear in the order they are heard. Keep your eyes on the next question while listening.</p>
-              </div>
-            </div>
+           
           </>
         }
         exercise={
-          <div className="listening-exercise-panel">
-            <div className="exercise-header">
-              <h2 className="exercise-title">{getQuestionRange()}</h2>
-            </div>
+          <div className="invictus-question-column">
+            <h2 className="invictus-total-range">{getQuestionRange()}</h2>
 
             {/* Core Interaction */}
             <QuestionCarousel 

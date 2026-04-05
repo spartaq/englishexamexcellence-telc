@@ -2,14 +2,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mic, Square, Play, RefreshCw, Info, Sparkles } from 'lucide-react';
 import { useExamStore } from '../../store/useExamStore';
+import QuestionCarousel from './QuestionCarousel';
 import SplitPane from './SplitPane';
 import './SpeakingBlock.css';
 import './engine.css';
 
-const SpeakingBlock = ({ 
-  data, 
-  onComplete, 
+const SpeakingBlock = ({
+  data,
+  onComplete,
   isMiniTest = false,
+  showCheckAnswers = false,
+  onCheckAnswers,
+  isReviewMode = false,
   // Parts tabs props
   sections = [],
   activeSkillTab = 0,
@@ -19,7 +23,7 @@ const SpeakingBlock = ({
   setIsReviewMode,
   availableSkills = []
 }) => {
-   
+
   // --- NEW STATES FOR AI ANALYSIS ---
   const [audioBlob, setAudioBlob] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -28,26 +32,21 @@ const SpeakingBlock = ({
   // Data is now a single section (part) - no internal tab management needed
   // App.jsx handles the passage tabs
   const currentPart = data;
-   
+
   // Determine if this is a topicCard exercise (Part 2 style) - check for topicCard or part4 ID
   const isTopicCardExercise = currentPart.topicCard || currentPart.id === 'part4' || currentPart.type === 'long-turn';
-   
+
   // Existing states
-  const [mode, setMode] = useState(isTopicCardExercise ? 'prep' : 'recording'); 
+  const [mode, setMode] = useState(isTopicCardExercise ? 'prep' : 'recording');
   const [timeLeft, setTimeLeft] = useState(isTopicCardExercise ? 60 : 120);
   const [isRecording, setIsRecording] = useState(false);
   const [audioUrl, setAudioUrl] = useState(null);
-   
+
   const mediaRecorder = useRef(null);
   const audioChunks = useRef([]);
   const audioPreviewRef = useRef(null);
 
   const isActive = useExamStore(state => state.isActive);
-
-  // Calculate parts tabs visibility - use current section's skill
-  const currentSkill = data?.skill || availableSkills[activeSkillTab];
-  const skillSections = sections.filter(s => s.skill === currentSkill);
-  const showPartsTabs = skillSections.length > 1;
 
   // Reset state when data changes (switching between parts via App.jsx)
   useEffect(() => {
@@ -79,7 +78,7 @@ const SpeakingBlock = ({
       // Use webm for better compatibility with Gemini API
       mediaRecorder.current = new MediaRecorder(stream, { mimeType: 'audio/webm' });
       audioChunks.current = [];
-       
+
       mediaRecorder.current.ondataavailable = (e) => {
         if (e.data.size > 0) audioChunks.current.push(e.data);
       };
@@ -93,7 +92,7 @@ const SpeakingBlock = ({
       mediaRecorder.current.start();
       setIsRecording(true);
       setMode('recording');
-      setTimeLeft(120); 
+      setTimeLeft(120);
     } catch (err) {
       alert("Microphone access required.");
     }
@@ -115,13 +114,13 @@ const SpeakingBlock = ({
 
     const formData = new FormData();
     formData.append('audio', audioBlob, 'recording.webm');
-    
+
     // Provide context to the AI so it knows what the student is supposed to talk about
-    const context = currentPart.topicCard?.topic || 
-                    (currentPart.prompts?.[0]?.topic || (typeof currentPart.prompts?.[0] === 'string' ? currentPart.prompts[0] : null)) ||
-                    currentPart.candidateInfo?.theme || 
-                    currentPart.topics?.[0]?.topic ||
-                    "General Task";
+    const context = currentPart.topicCard?.topic ||
+      (currentPart.prompts?.[0]?.topic || (typeof currentPart.prompts?.[0] === 'string' ? currentPart.prompts[0] : null)) ||
+      currentPart.candidateInfo?.theme ||
+      currentPart.topics?.[0]?.topic ||
+      "General Task";
     formData.append('prompt', context);
 
     try {
@@ -146,7 +145,7 @@ const SpeakingBlock = ({
         content={
           <>
             {/* Task Header - Inside SplitPane like ReadingBlock */}
-             {data.title && (
+            {data.title && (
               <div className="invictus-content-header">
                 <p className="invictus-content-subtitle">{data.subtitle}</p>
                 <h2 className="invictus-content-title">{data.title}</h2>
@@ -187,7 +186,7 @@ const SpeakingBlock = ({
                 <motion.div key="topics" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="topics-list">
                   {currentPart.topics.map((t, i) => (
                     <div key={i} className="speaking-topic-item">
-                      <span className="speaking-topic-label">TOPIC {i+1}</span>
+                      <span className="speaking-topic-label">TOPIC {i + 1}</span>
                       <p className="speaking-topic-title">{t.topic}</p>
                       {t.questions?.map((q, qi) => (
                         <div key={qi} className="speaking-topic-question">
@@ -204,7 +203,7 @@ const SpeakingBlock = ({
                 <motion.div key="scenarios" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="scenarios-list">
                   {currentPart.scenarios.map((s, i) => (
                     <div key={i} className="speaking-scenario-item">
-                      <span className="speaking-scenario-label">SITUATION {i+1}</span>
+                      <span className="speaking-scenario-label">SITUATION {i + 1}</span>
                       <p style={{ margin: '5px 0', fontSize: '14px' }}><strong>Context:</strong> {s.context}</p>
                       <p style={{ margin: '5px 0', color: 'var(--primary)' }}><strong>They say:</strong> "{s.interlocutorLine}"</p>
                     </div>
@@ -275,94 +274,90 @@ const SpeakingBlock = ({
           </>
         }
         exercise={
-          <div className="invictus-question-column speaking-exercise-panel">
-            <AnimatePresence>
-              {/* Common Recording UI */}
-              {mode === 'recording' && (
-                <motion.div key="recording" initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ textAlign: 'center', width: '100%' }}>
-                    <div className="mic-shell" style={{ margin: '20px auto' }}>
-                        <button className={`mic-button ${isRecording ? 'recording' : ''}`} onClick={isRecording ? handleStopRecording : handleStartRecording}>
+          <div className="invictus-question-column">
+            <h2 className="invictus-total-range">Speaking Task</h2>
+            <QuestionCarousel
+              questions={[data]}
+              showInstruction={false}
+              showCheckAnswers={showCheckAnswers}
+              onCheckAnswers={onCheckAnswers}
+              isReviewMode={isReviewMode}
+              sections={sections}
+              activeSkillTab={activeSkillTab}
+              activeSectionIndex={activeSectionIndex}
+              setActiveSectionIndex={setActiveSectionIndex}
+              setActivePassageIndex={setActivePassageIndex}
+              setIsReviewMode={setIsReviewMode}
+              availableSkills={availableSkills}
+              renderQuestion={(speakingData) => (
+                <div className="speaking-exercise-panel">
+                  <AnimatePresence>
+                    {/* Common Recording UI */}
+                    {mode === 'recording' && (
+                      <motion.div key="recording" initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ textAlign: 'center', width: '100%' }}>
+                        <div className="mic-shell" style={{ margin: '20px auto' }}>
+                          <button className={`mic-button ${isRecording ? 'recording' : ''}`} onClick={isRecording ? handleStopRecording : handleStartRecording}>
                             {isRecording ? <Square fill="white" size={24} /> : <Mic fill="white" size={32} />}
-                        </button>
-                    </div>
-                    <p className="speaking-recording-status">{isRecording ? "Recording Answer..." : "Click Mic to Begin"}</p>
-                </motion.div>
-              )}
-
-              {mode === 'review' ? (
-          <>
-            <button className="btn-secondary" style={{ flex: 1, marginTop: 30 }} onClick={() => { setMode('recording'); setFeedback(null); }}><RefreshCw size={16} /> Retry</button>
-            <button className="btn-primary" style={{ flex: 2 }} onClick={onComplete}>Save Response</button>
-          </>
-        ) : (
-          <button className="btn-primary" style={{ width: '100%', marginTop: 30 }} disabled={mode === 'prep'} onClick={handleStopRecording}>
-            {mode === 'prep' ? 'Preparation Time...' : 'Stop Recording'}
-          </button>
-        )}
-
-              {/* Review Mode + AI Results */}
-              {mode === 'review' && (
-                <motion.div key="review" initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ textAlign: 'center', width: '100%' }}>
-                    <button className="review-circle" onClick={() => audioPreviewRef.current.play()} style={{ width: '80px', height: '80px', borderRadius: '50%', border: 'none', background: 'var(--lab-indigo)', color: 'white', cursor: 'pointer', marginBottom: '15px' }}>
-                        <Play fill="white" size={32} />
-                    </button>
-                    <h3>Review Recording</h3>
-                    <audio ref={audioPreviewRef} src={audioUrl} />
-
-                    {/* AI FEEDBACK SECTION */}
-                    <div className="speaking-ai-feedback">
-                       {isAnalyzing ? (
-                          <div className="speaking-ai-loading">
-                            <RefreshCw className="spinner" style={{ margin: '0 auto 10px' }} />
-                            <p>AI Examiner is listening and grading your response...</p>
-                          </div>
-                       ) : feedback ? (
-                          <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="feedback-result">
-                            <div className="speaking-feedback-header">
-                              <h4>AI Performance Analysis</h4>
-                              <span className="speaking-band-badge">Band {feedback.score}</span>
-                            </div>
-                            <div className="speaking-feedback-details">
-                               <p><strong>Fluency:</strong> {feedback.fluency}</p>
-                               <p><strong>Pronunciation:</strong> {feedback.pronunciation}</p>
-                               <p><strong>Grammar/Vocab:</strong> {feedback.grammar}</p>
-                            </div>
-                          </motion.div>
-                       ) : (
-                          <button className="btn-ai-analyze" onClick={handleAnalyzeSpeaking} style={{ width: '100%', padding: '15px', background: '#059669', color: 'white', border: 'none', borderRadius: '12px', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-                            <Sparkles size={18} /> Analyze with AI Examiner
                           </button>
-                       )}
-                    </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                        </div>
+                        <p className="speaking-recording-status">{isRecording ? "Recording Answer..." : "Click Mic to Begin"}</p>
+                      </motion.div>
+                    )}
 
-            {/* Parts tabs - shown below recording controls */}
-            {showPartsTabs && (
-              <div className="carousel-parts-tabs" style={{ marginTop: '20px', justifyContent: 'center' }}>
-                {skillSections.map((s, idx) => {
-                  const sidx = sections.findIndex(sec => sec === s);
-                  return (
-                    <button 
-                      key={idx} 
-                      onClick={() => { 
-                        if (setActiveSectionIndex) setActiveSectionIndex(sidx); 
-                        if (setActivePassageIndex) setActivePassageIndex(0); 
-                        if (setIsReviewMode) setIsReviewMode(false); 
-                      }} 
-                      className={`carousel-part-tab ${activeSectionIndex === sidx ? 'active' : ''}`}>
-                      {idx + 1}
-                    </button>
-                  );
-                })}
-              </div>
-            )}
+                    {mode === 'review' ? (
+                      <>
+                        <button className="btn-secondary" style={{ flex: 1, marginTop: 30 }} onClick={() => { setMode('recording'); setFeedback(null); }}><RefreshCw size={16} /> Retry</button>
+                        <button className="btn-primary" style={{ flex: 2 }} onClick={onComplete}>Save Response</button>
+                      </>
+                    ) : (
+                      <button className="btn-primary" style={{ width: '100%', marginTop: 30 }} disabled={mode === 'prep'} onClick={handleStopRecording}>
+                        {mode === 'prep' ? 'Preparation Time...' : 'Stop Recording'}
+                      </button>
+                    )}
+
+                    {/* Review Mode + AI Results */}
+                    {mode === 'review' && (
+                      <motion.div key="review" initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ textAlign: 'center', width: '100%' }}>
+                        <button className="review-circle" onClick={() => audioPreviewRef.current.play()} style={{ width: '80px', height: '80px', borderRadius: '50%', border: 'none', background: 'var(--lab-indigo)', color: 'white', cursor: 'pointer', marginBottom: '15px' }}>
+                          <Play fill="white" size={32} />
+                        </button>
+                        <h3>Review Recording</h3>
+                        <audio ref={audioPreviewRef} src={audioUrl} />
+
+                        {/* AI FEEDBACK SECTION */}
+                        <div className="speaking-ai-feedback">
+                          {isAnalyzing ? (
+                            <div className="speaking-ai-loading">
+                              <RefreshCw className="spinner" style={{ margin: '0 auto 10px' }} />
+                              <p>AI Examiner is listening and grading your response...</p>
+                            </div>
+                          ) : feedback ? (
+                            <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="feedback-result">
+                              <div className="speaking-feedback-header">
+                                <h4>AI Performance Analysis</h4>
+                                <span className="speaking-band-badge">Band {feedback.score}</span>
+                              </div>
+                              <div className="speaking-feedback-details">
+                                <p><strong>Fluency:</strong> {feedback.fluency}</p>
+                                <p><strong>Pronunciation:</strong> {feedback.pronunciation}</p>
+                                <p><strong>Grammar/Vocab:</strong> {feedback.grammar}</p>
+                              </div>
+                            </motion.div>
+                          ) : (
+                            <button className="btn-ai-analyze" onClick={handleAnalyzeSpeaking} style={{ width: '100%', padding: '15px', background: '#059669', color: 'white', border: 'none', borderRadius: '12px', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+                              <Sparkles size={18} /> Analyze with AI Examiner
+                            </button>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )}
+            />
           </div>
         }
       />
-
-     
     </div>
   );
 };

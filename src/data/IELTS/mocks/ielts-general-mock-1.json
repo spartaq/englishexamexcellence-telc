@@ -209,7 +209,7 @@
             "subTasks": [
               {
                 "type": "matching-info",
-                "instruction": "Type 4 - Matching Information: Which paragraph (A-H) contains the following information?",
+                "instruction": "Which paragraph (A-H) contains the following information?",
                 "questions": [
                   {
                     "id": "1",
@@ -258,7 +258,7 @@
               },
               {
                 "type": "trinary",
-                "instruction": "Type 2 - Identifying Information (True/False/Not Given): Write TRUE, FALSE or NOT GIVEN.",
+                "instruction": "Write TRUE, FALSE or NOT GIVEN.",
                 "questions": [
                   {
                     "id": "6",
@@ -279,7 +279,7 @@
               },
               {
                 "type": "heading-match",
-                "instruction": "Type 5 - Matching Headings: Choose the correct heading (i-ix) for each paragraph.",
+                "instruction": "Choose the correct heading for each paragraph.",
                 "questions": [
                   {
                     "id": "9",
@@ -322,6 +322,7 @@
           {
             "id": "p2",
             "title": "Company Profiles",
+            "subtitle": "Reading Passage 2",
             "type": "ielts-complex",
             "content": [
               { "id": "A", "text": "The Vitamin Shoppe has 1,946 part-time openings. This New Jersey-based retailer of nutritional supplements also operates stores in Canada under the name 'VitaPath'. The company provides approximately 8,000 different products through its retail stores and over 20,000 through its online websites. Employees have noted good growth opportunities, progressive policies, and above-average pay." },
@@ -354,7 +355,7 @@
               },
               {
                 "type": "matching-features",
-                "instruction": "Matching Features: Match the company to the statement. Write the correct letter, A-E.",
+                "instruction": "Match the company to the statement. Write the correct letter, A-E.",
                 "questions": [
                   {
                     "id": "15",
@@ -412,7 +413,7 @@
               },
               {
                 "type": "trinary",
-                "instruction": "Type 3 - Identifying Writer's Views (Yes/No/Not Given): Write YES, NO or NOT GIVEN.",
+                "instruction": "Write YES, NO or NOT GIVEN.",
                 "questions": [
                   {
                     "id": "23",
@@ -444,6 +445,7 @@
           {
             "id": "p3",
             "title": "Fire Safety",
+            "subtitle": "Reading Passage 3",
             "type": "ielts-complex",
             "content": [
               { "id": "A", "text": "Fire drills are a big part of being safe in school: They prepare you for what you need to do in case of a fire. But what if there was a fire where you live? Would you know what to do? Talking about fires can be scary because no one likes to think about people getting hurt or their things getting burned. But you can feel less worried if you are prepared." },
@@ -484,7 +486,7 @@
               },
               {
                 "type": "sentence-matching",
-                "instruction": "Type 7 - Matching Sentence Endings: Match the sentence beginnings (A-F) with the correct endings (i-vi).",
+                "instruction": " Match the sentence beginnings (A-F) with the correct endings (i-vi).",
                 "questions": [
                   {
                     "id": "30",
@@ -796,8 +798,8 @@
       {
         "id": "part2",
         "part": 2,
-        "title": "Part 2: Listening",
-        "subtitle": "Tour of a Museum Complex",
+        "title": "Tour of a Museum Complex",
+        "subtitle": "Part 2: Listening",
         "description": "You will hear a guide giving a tour of a museum complex. First, you have some time to look at questions 11-20.",
         "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
         "context": "Monologue - information about local facilities",
@@ -908,8 +910,8 @@
       {
         "id": "part3",
         "part": 3,
-        "title": "",
-        "subtitle": "Discussion about University Course",
+        "title": "Discussion about University Course",
+        "subtitle": "Part 3: Listening",
         "description": "You will hear a discussion between a student and an academic advisor. First, you have some time to look at questions 21-30.",
         "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
         "context": "Conversation between two speakers - academic context",
@@ -928,7 +930,7 @@
                       "Computer Science",
                       "Engineering"
                     ],
-                    "answer": "A"
+                    "answer": "Business"
                   },
                   {
                   "id": 22,
@@ -938,7 +940,7 @@
                       "the deadline",
                       "the length"
                     ],
-                    "answer": "B"
+                    "answer": "the deadline"
                   },
                   {
             "id": 23,
@@ -948,7 +950,7 @@
                       "in two weeks",
                       "in three weeks"
                     ],
-                    "answer": "C"
+                    "answer": "next week"
                   },
                   {
             "id": 24,
@@ -958,7 +960,7 @@
                       "use online databases",
                       "interview professors"
                     ],
-                    "answer": "B"
+                    "answer": "use online databases"
                   },
                   {
             "id": 25,
@@ -968,7 +970,7 @@
                       "10",
                       "15"
                     ],
-                    "answer": "B"
+                    "answer": "15"
                   },
                   {
             "id": 26,
@@ -978,7 +980,7 @@
                       "MLA",
                       "Harvard"
                     ],
-                    "answer": "C"
+                    "answer": "APA"
                   },
                   {
             "id": 27,
@@ -988,7 +990,7 @@
                       "peer students",
                       "external examiner"
                     ],
-                    "answer": "A"          
+                    "answer": "external examiner"          
                   }
           ]
          },
@@ -1024,8 +1026,8 @@
       {
         "id": "part4",
         "part": 4,
-        "title": "",
-        "subtitle": "Lecture on Animal Behavior",
+        "title": "Lecture on Animal Behavior",
+        "subtitle": "Part 4: Listening",
         "description": "You will hear a lecture about animal behavior. First, you have some time to look at questions 31-40.",
         "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
         "context": "Monologue - educational talk",
@@ -1075,51 +1077,49 @@
           },
           {
             "type": "mcq",
-            "instruction": "Choose the correct letter, A, B or C.",
-            "id": 36,
-            "text": "According to the lecture, what triggers the warning behavior?",
-            "options": [
-              "food availability",
-              "predator presence",
-              "weather changes"
-            ],
-            "answer": "B"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "id": 37,
-            "text": "How many species were studied in total?",
-            "options": [
-              "12",
-              "25",
-              "30"
-            ],
-            "answer": "C"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "id": 38,
-            "text": "What was surprising about the results?",
-            "options": [
-              "the complexity of communication",
-              "the speed of adaptation",
-              "the memory capacity"
-            ],
-            "answer": "A"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "id": 39,
-            "text": "The funding for the research came from",
-            "options": [
-              "government grants",
-              "private donations",
-              "university funds"
-            ],
-            "answer": "A"
+            "instruction": "Choose the correct answer",
+            "questions": [
+              {
+                "id": 36,
+                "text": "According to the lecture, what triggers the warning behavior?",
+                "options": [
+                  "food availability",
+                  "predator presence",
+                  "weather changes"
+                ],
+                "answer": "predator presence"
+              },
+              {
+                "id": 37,
+                "text": "How many species were studied in total?",
+                "options": [
+                  "12",
+                  "25",
+                  "30"
+                ],
+                "answer": "30"
+              },
+              {
+                "id": 38,
+                "text": "What was surprising about the results?",
+                "options": [
+                  "the complexity of communication",
+                  "the speed of adaptation",
+                  "the memory capacity"
+                ],
+                "answer": "the complexity of communication"
+              },
+              {
+                "id": 39,
+                "text": "The funding for the research came from",
+                "options": [
+                  "government grants",
+                  "private donations",
+                  "university funds"
+                ],
+                "answer": "government grants"
+              }
+            ]
           },
           {
             "type": "matching",
@@ -1148,7 +1148,7 @@
     "parts": [
       {
         "id": "part1",
-        "title": "Part 1: Introduction and Interview",
+        "title": "Introduction and Interview",
         "subtitle": "Part 1: Speaking",
         "type": "interview",
         "duration": "4-5 minutes",
@@ -1179,7 +1179,7 @@
       },
       {
         "id": "part2",
-        "title": "Part 2: Long Turn",
+        "title": "Long Turn",
         "subtitle": "Part 2: Speaking",
         "type": "long-turn",
         "duration": "3-4 minutes",
@@ -1208,7 +1208,7 @@
       },
       {
         "id": "part3",
-        "title": "Part 3: Discussion",
+        "title": "Discussion",
         "subtitle": "Part 3: Speaking",
         "type": "discussion",
         "duration": "4-5 minutes",

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useExamStore } from '../../store/useExamStore';
+import QuestionCarousel from './QuestionCarousel';
 import SplitPane from './SplitPane';
 import './WritingBlock.css';
 import './engine.css';
@@ -8,6 +9,9 @@ const WritingBlock = ({
   data, 
   onComplete, 
   isMiniTest = false,
+  showCheckAnswers = false, 
+  onCheckAnswers,
+  isReviewMode = false,
   // Parts tabs props
   sections = [],
   activeSkillTab = 0,
@@ -21,7 +25,7 @@ const WritingBlock = ({
   const [wordCount, setWordCount] = useState(0);
   const [isChecking, setIsChecking] = useState(false);
   const [feedback, setFeedback] = useState(null);
-  const [fontSize, setFontSize] = useState(18);
+  const [fontSize, setFontSize] = useState(15);
 
   const isActive = useExamStore((state) => state.isActive);
 
@@ -55,11 +59,6 @@ const WritingBlock = ({
 
   const progressPercentage = Math.min((wordCount / (data.targetWords || 150)) * 100, 100);
   const isMinimumMet = wordCount >= (data.targetWords || 150);
-
-  // Calculate parts tabs visibility - use current section's skill
-  const currentSkill = data?.skill || availableSkills[activeSkillTab];
-  const skillSections = sections.filter(s => s.skill === currentSkill);
-  const showPartsTabs = skillSections.length > 1;
 
   return (
     <div className="writing-container">
@@ -100,100 +99,92 @@ const WritingBlock = ({
           </>
         }
         exercise={
-          <div className="writing-exercise-panel">
-          <div className="invictus-question-column">
-            {/* Rich Text Editor Toolbar */}
-            <div className="editor-toolbar">
-              <button className="toolbar-btn" title="Bold">
-                <span className="material-symbols-outlined">format_bold</span>
-              </button>
-              <button className="toolbar-btn" title="Italic">
-                <span className="material-symbols-outlined">format_italic</span>
-              </button>
-              <button className="toolbar-btn" title="Underline">
-                <span className="material-symbols-outlined">format_underlined</span>
-              </button>
-              <div className="toolbar-divider"></div>
-              <button className="toolbar-btn" title="Bullet List">
-                <span className="material-symbols-outlined">format_list_bulleted</span>
-              </button>
-              <button className="toolbar-btn" title="Undo">
-                <span className="material-symbols-outlined">undo</span>
-              </button>
-              <div className="toolbar-spacer"></div>
-              <button className="toolbar-btn" onClick={() => setFontSize(prev => Math.min(prev + 2, 28))} title="Increase Font Size">
-                <span className="material-symbols-outlined">text_increase</span>
-              </button>
-              <button className="toolbar-btn" onClick={() => setFontSize(prev => Math.max(prev - 2, 14))} title="Decrease Font Size">
-                <span className="material-symbols-outlined">text_decrease</span>
-              </button>
-            </div>
-
-            {/* Text Area */}
-            <textarea
-              className="writing-textarea"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-              disabled={isChecking}
-              placeholder="Start typing your response here..."
-              spellCheck="false"
-              style={{ fontSize: `${fontSize}px` }}
-            />
-            
-            {/* Editor Footer */}
-            <div className="editor-footer">
-              <div className="word-count-indicator">
-                <span className={`status-dot ${isMinimumMet ? 'status-good' : 'status-warning'}`}></span>
-                <span className="word-count-label">Word Count: {wordCount}</span>
-              </div>
-              <span className="minimum-label">Minimum {data.targetWords || 150} Words</span>
-              {!feedback ? (
-          <button 
-            className="submit-btn"
-            disabled={wordCount < 10 || isChecking}
-            onClick={handleCheckWriting}
-          >
-            {isChecking ? 'Checking...' : 'Get AI to Check My Writing'}
-          </button>
-        ) : (
-          <button className="submit-btn primary" onClick={() => onComplete(text)}>
-            Submit Response
-          </button>
-        )}
-            </div>
-
-            {/* Parts tabs */}
-            {showPartsTabs && (
-              <div className="carousel-parts-tabs">
-                {skillSections.map((s, idx) => {
-                  const sidx = sections.findIndex(sec => sec === s);
-                  return (
-                    <button 
-                      key={idx} 
-                      onClick={() => { 
-                        if (setActiveSectionIndex) setActiveSectionIndex(sidx); 
-                        if (setActivePassageIndex) setActivePassageIndex(0); 
-                        if (setIsReviewMode) setIsReviewMode(false); 
-                      }} 
-                      className={`carousel-part-tab ${activeSectionIndex === sidx ? 'active' : ''}`}>
-                      {idx + 1}
-                    </button>
-                  );
-                })}
-              </div>
-            )}
-
-            {isChecking && (
-              <div className="loading-overlay">
-                <div className="loading-content">
-                  <div className="loading-spinner"></div>
-                  <span>Analyzing your writing...</span>
+          <QuestionCarousel
+            questions={[data]}
+            renderQuestion={(writingData) => (
+              <div className="invictus-question-column">
+                {/* Rich Text Editor Toolbar */}
+                <div className="editor-toolbar">
+                  <button className="toolbar-btn" title="Bold">
+                    <span className="material-symbols-outlined">format_bold</span>
+                  </button>
+                  <button className="toolbar-btn" title="Italic">
+                    <span className="material-symbols-outlined">format_italic</span>
+                  </button>
+                  <button className="toolbar-btn" title="Underline">
+                    <span className="material-symbols-outlined">format_underlined</span>
+                  </button>
+                  <div className="toolbar-divider"></div>
+                  <button className="toolbar-btn" title="Bullet List">
+                    <span className="material-symbols-outlined">format_list_bulleted</span>
+                  </button>
+                  <button className="toolbar-btn" title="Undo">
+                    <span className="material-symbols-outlined">undo</span>
+                  </button>
+                  <div className="toolbar-spacer"></div>
+                  <button className="toolbar-btn" onClick={() => setFontSize(prev => Math.min(prev + 2, 28))} title="Increase Font Size">
+                    <span className="material-symbols-outlined">text_increase</span>
+                  </button>
+                  <button className="toolbar-btn" onClick={() => setFontSize(prev => Math.max(prev - 2, 14))} title="Decrease Font Size">
+                    <span className="material-symbols-outlined">text_decrease</span>
+                  </button>
                 </div>
+
+                {/* Text Area */}
+                <textarea
+                  className="writing-textarea"
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  disabled={isChecking}
+                  placeholder="Start typing your response here..."
+                  spellCheck="false"
+                  style={{ fontSize: `${fontSize}px` }}
+                />
+                
+                {/* Editor Footer */}
+                <div className="editor-footer">
+                  <div className="word-count-indicator">
+                    <span className={`status-dot ${isMinimumMet ? 'status-good' : 'status-warning'}`}></span>
+                    <span className="word-count-label">Word Count: {wordCount}</span>
+                  </div>
+                  <span className="minimum-label">Minimum {writingData.targetWords || 150} Words</span>
+                  {!feedback ? (
+                    <button 
+                      className="submit-btn"
+                      disabled={wordCount < 10 || isChecking}
+                      onClick={handleCheckWriting}
+                    >
+                      {isChecking ? 'Checking...' : 'Get AI to Check My Writing'}
+                    </button>
+                  ) : (
+                    <button className="submit-btn primary" onClick={() => onComplete(text)}>
+                      Submit Response
+                    </button>
+                  )}
+                </div>
+
+                {isChecking && (
+                  <div className="loading-overlay">
+                    <div className="loading-content">
+                      <div className="loading-spinner"></div>
+                      <span>Analyzing your writing...</span>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
-          </div></div>
-
-          
+            showInstruction={false}
+            showCheckAnswers={showCheckAnswers}
+            onCheckAnswers={onCheckAnswers}
+            isReviewMode={isReviewMode}
+            sections={sections}
+            activeSkillTab={activeSkillTab}
+            activeSectionIndex={activeSectionIndex}
+            setActiveSectionIndex={setActiveSectionIndex}
+            setActivePassageIndex={setActivePassageIndex}
+            setIsReviewMode={setIsReviewMode}
+            availableSkills={availableSkills}
+          />
         }
       />
 
