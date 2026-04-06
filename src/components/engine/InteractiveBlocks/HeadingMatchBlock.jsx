@@ -26,7 +26,7 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
           <h4 className="hm-headings-title">
             List of Headings
           </h4>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <div className="hm-flex-col">
             {headings.map((heading, idx) => (
               <div key={idx} className="hm-heading-item">
                 {idx + 1}. {heading}
@@ -38,7 +38,7 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
       
       <div className="hm-row-header">
         <span>Match Paragraph to Heading</span>
-        {isReviewMode && <span style={{ color: 'var(--lab-indigo)' }}>Review Mode</span>}
+        {isReviewMode && <span className="hm-review-mode">Review Mode</span>}
       </div>
       
       {questions.map((q) => {
@@ -52,9 +52,6 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
           <div 
             key={q.id} 
             className={`question-card ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''} ${isReviewMode ? 'review' : ''}`}
-            style={{ 
-              borderLeft: isCorrect ? '4px solid #10b981' : isIncorrect ? '4px solid #ef4444' : '4px solid transparent'
-            }}
           >
             <h3 className="hm-question">
               <span className="question-label">{String(q.id).replace(/^q/, '')}.</span>
@@ -67,18 +64,12 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
               )}
             </h3>
             
-            <div className="select-wrapper" style={{ minWidth: '180px' }}>
+            <div className="select-wrapper">
               <select 
                 className={`answer-input ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''}`}
                 value={userAnswers[q.id] || ""}
                 disabled={isReviewMode}
                 onChange={(e) => handleSelect(q.id, e.target.value)}
-                style={{ 
-                  width: '100%',
-                  opacity: isReviewMode ? 0.8 : 1,
-                  cursor: isReviewMode ? 'default' : 'pointer',
-                  borderColor: isCorrect ? '#10b981' : isIncorrect ? '#ef4444' : '#cbd5e1'
-                }}
               >
                 <option value="" disabled>Select Heading...</option>
                 {headings.map((heading, idx) => (

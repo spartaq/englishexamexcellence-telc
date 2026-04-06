@@ -139,6 +139,37 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+/* Transcript Display */
+.listening-transcript {
+  padding: 0 32px 24px;
+}
+
+.listening-transcript .transcript-content {
+  background: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.listening-transcript h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.listening-transcript pre {
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--on-surface-variant);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+}
+
 /* Pro-tip Box */
 .protip-box {
   display: flex;
@@ -261,6 +292,14 @@
   .play-btn {
     width: 40px;
     height: 40px;
+  }
+  
+  .listening-diagram {
+    padding: 0 16px 16px;
+  }
+  
+  .listening-transcript {
+    padding: 0 16px 16px;
   }
 }
 

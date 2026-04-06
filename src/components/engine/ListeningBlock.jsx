@@ -54,6 +54,7 @@ const ListeningBlock = ({
   const currentTitle = currentPart?.title;
   const currentSubtitle = currentPart?.subtitle;
   const currentDescription = currentPart?.description;
+  const currentTranscript = currentPart?.transcript;
   
   // Get questions for current part only (based on activeSectionIndex)
   const getQsForPart = (partIndex) => {
@@ -167,6 +168,16 @@ const getQuestionRange = () => {
             ) : listeningData.imageUrl ? (
               <div className="listening-diagram">
                 <img src={listeningData.imageUrl} alt="Exam Visual" />
+              </div>
+            ) : null}
+
+            {/* Transcript Display */}
+            {currentTranscript ? (
+              <div className="listening-transcript">
+                <div className="transcript-content">
+                  <h4>Transcript</h4>
+                  <pre>{currentTranscript}</pre>
+                </div>
               </div>
             ) : null}
 

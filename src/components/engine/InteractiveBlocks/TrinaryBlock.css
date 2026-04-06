@@ -3,16 +3,14 @@
 .trinary-container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin: 20px 0;
-  padding: 1rem;
-  background: var(--invictus-red-pale);
+  gap: 1rem;
   border-radius: 8px;
 }
 
 .trinary-row {
   border-bottom: 1px solid #edf2f7;
   padding-bottom: 1.5rem;
+  background: var(--invictus-red-pale);
 }
 
 .trinary-row:last-child {
@@ -96,7 +94,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1rem;
 }
 
 /* Row Backgrounds */
@@ -168,91 +165,5 @@
 
   .trinary-q {
     font-size: 14px;
-  }
-}
-
-/* ============================================
-   DARK MODE STYLES
-   ============================================ */
-@media (prefers-color-scheme: dark) {
-  .trinary-container {
-    background: var(--surface-white);
-  }
-  
-  .trinary-row {
-    border-bottom-color: var(--border-color);
-  }
-  
-  .trinary-q {
-    color: #F3F4F6;
-  }
-  
-  .trinary-btn {
-    background-color: var(--surface-white);
-    color: #9CA3AF;
-    border-color: var(--border-color);
-  }
-  
-  /* Hover effect for interactive buttons */
-  .trinary-btn:not(:disabled):hover {
-    border-color: #6B7280;
-    background-color: var(--bg-app);
-    color: #F3F4F6;
-  }
-  
-  /* Review Mode / Disabled states */
-  .trinary-btn:disabled {
-    cursor: default;
-    opacity: 0.7;
-  }
-  
-  /* Specific styling for Review Mode when NOT active */
-  .trinary-btn:disabled:not(.active) {
-    background-color: var(--bg-app);
-    border-color: var(--border-color);
-    color: #6B7280;
-  }
-  
-  /* Row Backgrounds */
-  .trinary-row.row-correct {
-    background-color: rgba(16, 185, 129, 0.1);
-    border-left: 5px solid #10b981;
-  }
-  
-  .trinary-row.row-incorrect {
-    background-color: rgba(239, 68, 68, 0.1);
-    border-left: 5px solid #ef4444;
-  }
-  
-  /* Button Feedback States */
-  .trinary-btn.btn-correct {
-    background-color: #10b981 !important;
-    border-color: #10b981 !important;
-    color: white !important;
-  }
-  
-  .trinary-btn.btn-wrong {
-    background-color: #ef4444 !important;
-    border-color: #ef4444 !important;
-    color: white !important;
-  }
-  
-  .trinary-btn.btn-should-have-been {
-    border: 2px dashed #10b981 !important;
-    background-color: rgba(16, 185, 129, 0.15) !important;
-    color: #4ade80 !important;
-  }
-  
-  /* Style the question number */
-  .q-number {
-    color: var(--invictus-red);
-  }
-  
-  /* Keep non-selected/non-correct buttons faded during review */
-  .trinary-btn:disabled:not(.btn-correct):not(.btn-wrong):not(.btn-should-have-been) {
-    opacity: 0.4;
-    background-color: var(--bg-app);
-    color: #6B7280;
-    border-color: var(--border-color);
   }
 }

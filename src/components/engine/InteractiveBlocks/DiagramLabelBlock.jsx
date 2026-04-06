@@ -88,8 +88,8 @@ const DiagramLabelBlock = ({
 
   // Render labels with letter buttons
   const renderLabels = () => {
-    // Get all available letters from labels
-    const availableLetters = labels.map(l => l.letter || l.id);
+    // Get all available letters from data.options if available, otherwise from labels
+    const availableLetters = data.options || labels.map(l => l.letter || l.id);
     
     return (
       <div className="labels-container">
@@ -108,9 +108,6 @@ const DiagramLabelBlock = ({
               {/* Label Text with Question Number */}
               <div className="label-text-container">
                 <span className="label-question-number">{labelToQuestionMap[label.id] || label.id}.</span>
-                <span className="label-description">
-                  {label.description || label.text || `Label ${label.id}`}
-                </span>
                 {isReviewMode && (
                   <span className="status-icon">
                     {isCorrect ? <CheckCircle size={18} color="#10b981" /> : <XCircle size={18} color="#ef4444" />}

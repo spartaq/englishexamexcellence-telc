@@ -3,7 +3,7 @@
 
 /* Main Container */
 .short-answer-container {
-  padding: 24px;
+  padding: 0px;
   background: var(--surface-white);
   border-radius: 12px;
 }

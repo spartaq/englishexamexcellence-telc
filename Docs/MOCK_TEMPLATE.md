@@ -4,6 +4,17 @@ Use this template when creating new IELTS mock tests. Follow the structure exact
 
 ---
 
+### Question ID Format
+
+> ⚠️ **IMPORTANT**: For Reading and Listening questions, use simple sequential IDs (1, 2, 3, etc.) from 1-40. Do NOT use complex prefixes like "r1q1", "sp1q1", etc.
+
+- **Reading**: Questions 1-40 across all passages
+- **Listening**: Questions 1-40 across all parts
+- **Writing**: Use task IDs like "w-m[N]-t1"
+- **Speaking**: Use format "sp1q1", "sp3q1" (part + question)
+
+---
+
 ## Section Summary
 
 | Section | Number of Parts | Time |
@@ -19,16 +30,23 @@ Use this template when creating new IELTS mock tests. Follow the structure exact
 - **Section 3**: 1 passage (~14 questions)
 - Total: ~40 questions across 3 passages
 - Each passage: 6-8 paragraphs (A-H)
+- **Total Words**: 2,150–2,750 words (across 3 sections)
+
+#### Academic vs General Training Texts:
+- **Academic Reading**: Longer, more complex texts from books, journals, or magazines
+- **General Training**: 
+  - Section 1 & 2: Shorter texts (notices, advertisements, leaflets)
+  - Section 3: Longer, more complex text (similar to Academic)
 
 ### Writing Details:
 - **Task 1**: Letter (150 words, 20 min)
 - **Task 2**: Essay (250 words, 40 min)
 
 ### Listening Details:
-- **Part 1**: Form completion (10 questions)
-- **Part 2**: Multiple choice + matching (10 questions)
-- **Part 3**: Conversation discussion (10 questions)
-- **Part 4**: Lecture/short answers (10 questions)
+- **Part 1**: Form/Note/Table/Flow Chart/Summary completion (10 questions)
+- **Part 2**: Multiple choice + Matching (10 questions)
+- **Part 3**: Plan/Map/Diagram Labelling + Sentence completion (10 questions)
+- **Part 4**: Short-answer questions (10 questions)
 - Total: 40 questions
 
 ### Speaking Details:
@@ -73,16 +91,16 @@ Create in: `src/data/IELTS/mocks/ielts-[general|academic]-mock-[NUMBER].json`
 ```
 
 ### How to Create Vocabulary
-1. Extract 15-20 important words from your reading passages
+1. Extract 15-20 important words from all 3 reading passages
 2. Each word needs:
    - `term`: English word (lowercase)
    - `hu`: Hungarian translation
-   - `definition`: Simple English definition
+   - `definition`: Simple English definition,no more than level b1, synonyms if possible
    - `example`: Example sentence in English
 
 ### Example
 ```json
-{ "term": "perceive", "hu": "érzékel", "definition": "To become aware of through the senses", "example": "Fish perceive electrical signals in water." }
+{ "term": "perceive", "hu": "érzékel", "definition": "to become aware of, to sense", "example": "Fish perceive electrical signals in water." }
 ```
 
 ---
@@ -124,6 +142,15 @@ Create in: `src/data/IELTS/mocks/ielts-[general|academic]-mock-[NUMBER].json`
 
 ### Types of Reading Passages
 
+**Format**: Use `id` and `text` format (NOT HTML paragraph tags):
+```json
+"content": [
+  { "id": "A", "text": "Paragraph content here..." },
+  { "id": "B", "text": "Another paragraph..." }
+]
+```
+**Do NOT use**: `<p>(A) text...</p>` or any HTML tags inside content.
+
 **General Training Topics:**
 - Work & Employment (job applications, workplace issues)
 - Business & Companies (products, services, advertising)
@@ -144,36 +171,114 @@ Create in: `src/data/IELTS/mocks/ielts-[general|academic]-mock-[NUMBER].json`
 - Environment & Ecology (ecosystems, pollution, energy)
 - Psychology & Behavior (learning, memory, cognition)
 
-### Question Types to Use
+### Question Types to Use 
 
 **1. Matching Information (Paragraph Matching)**
 - Match statements to paragraphs (A-H)
 - Tests: Scanning & locating specific information
+- Type: `matching-info`
 
-**2. Multiple Choice**
+**2. Multiple Choice (MCQ)**
 - 4 options (A, B, C, D)
 - Only ONE correct answer
 - Tests: Understanding details, author's purpose, inferring meaning
+- Type: `mcq`
 
 **3. Short Answer**
 - Write NO MORE THAN 2-3 WORDS
 - Answers from the text directly
 - Tests: Finding specific information
+- Type: `short-answer`
 
 **4. True/False/Not Given**
 - Statements about the passage
 - Must be explicitly stated to be TRUE/FALSE
 - Tests: Understanding claims vs. text
+- Type: `trinary` (with `mode: "tfng"`)
 
-**5. Sentence Completion**
+**5. Yes/No/Not Given**
+- Statements about the passage
+- Tests: Understanding claims vs. information
+- Type: `trinary` (with `mode: "ynng"`)
+
+**6. Sentence Completion**
 - Complete sentences using words from text
 - NO MORE THAN 2 WORDS
 - Tests: Understanding detail
+- Type: `sentence-complete`
 
-**6. Diagram Labeling**
-- Label a diagram (map, device, process)
-- Choose from options or write word
-- Tests: Understanding visual information
+**7. Sentence Matching**
+- Match sentence beginnings to correct sentence endings
+- Tests: Understanding how ideas connect
+- Answers are full text (not letter codes)
+- Type: `sentence-matching`
+
+**8. Heading Match**
+- Match headings to paragraphs
+- Only 1 correct answer
+- Tests: Understanding main idea
+- Type: `heading-match`
+
+**9. Diagram Labeling**
+- Label parts of a diagram
+- Tests: Visual understanding
+- Type: `diagram-label`
+
+**10. Summary/Gap Fill**
+- Complete a summary using words from the text
+- NO MORE THAN 2 WORDS
+- Type: `gap-fill`
+
+
+
+**14. Matching Features**
+- Match features to entities
+- Type: `matching-features`
+
+**15. Token Select**
+- Select correct words/tokens
+- Type: `token-select`
+
+**16. Punctuation Correction**
+- Fix punctuation in text
+- Type: `punctuation`
+
+### Listening Question Types
+
+**1. Multiple Choice**
+- 3 options (A, B, C)
+- One correct answer
+- Type: `mcq`
+
+**2. Matching**
+- Match items to categories or features
+- Type: `matching`
+
+**3. Plan/Map/Diagram Labelling**
+- Label locations on a map or diagram
+- Write the correct letter (A-H)
+- Type: `diagram-label`
+
+**4. Form/Note/Table/Flow Chart/Summary Completion**
+- Complete forms, notes, tables, flow charts, or summaries
+- NO MORE THAN 2 WORDS AND/OR A NUMBER
+- Type: `notes-completion` (for structured notes/forms), `flow-chart` (for flow charts)
+
+**5. Sentence Completion**
+- Complete sentences from the audio
+- NO MORE THAN 2-3 WORDS
+- Type: `sentence-complete`
+
+**6. Short-Answer Questions**
+- Write NO MORE THAN 2 WORDS
+- Answers from the audio
+- Type: `short-answer`
+
+**13. Notes Completion**
+- Complete notes using words from text or word list
+- NO MORE THAN 2 WORDS AND/OR A NUMBER
+- Type: `notes-completion`
+
 
 ### Question Type `type` Values
 
@@ -187,6 +292,7 @@ Create in: `src/data/IELTS/mocks/ielts-[general|academic]-mock-[NUMBER].json`
 | True/False/Not Given | `trinary` | TrinaryBlock |
 | Yes/No/Not Given | `trinary` (with `"mode": "ynng"`) | TrinaryBlock |
 | Sentence Completion | `sentence-complete` | SentenceCompleteBlock |
+| Sentence Matching | `sentence-matching` | SentenceMatchingBlock |
 | Diagram Labeling | `diagram-label` | DiagramLabelBlock |
 | Summary/Gap Fill | `gap-fill` | GapFillBlock |
 | Table Completion | `table-completion` | TableCompletionBlock |
@@ -248,6 +354,28 @@ Create in: `src/data/IELTS/mocks/ielts-[general|academic]-mock-[NUMBER].json`
 }
 ```
 > Note: The `answer` value is the index (0-based) of the correct heading in the `headings` array.
+
+#### Example: Sentence Matching Question
+```json
+{
+  "id": "company-descriptions-match",
+  "type": "sentence-matching",
+  "instruction": "Match the sentence beginnings with the correct endings.",
+  "options": [
+    "good growth opportunities and above-average pay.",
+    "The company has flexible schedules but requires a lot of effort.",
+    "This company provides outsourced sales and marketing services.",
+    "It is one of the largest security service providers.",
+    "Employees appreciate the ability to provide one-on-one care."
+  ],
+  "questions": [
+    { "id": 15, "text": "This company has", "answer": "good growth opportunities and above-average pay." },
+    { "id": 16, "text": "Chipotle offers", "answer": "The company has flexible schedules but requires a lot of effort." },
+    { "id": 17, "text": "Advantage Sales & Marketing provides", "answer": "This company provides outsourced sales and marketing services." }
+  ]
+}
+```
+> Note: The `answer` is the full text of the matching option (not a letter code). The dropdown will display options numbered 1, 2, 3... based on the order in the `options` array.
 
 ---
 
@@ -334,6 +462,7 @@ Create in: `src/data/IELTS/mocks/ielts-[general|academic]-mock-[NUMBER].json`
       "title": "",
       "subtitle": "[Conversation Topic]",
       "description": "You will hear [description]. First, you have some time to look at questions 1-10.",
+      "transcript": "[Full transcript of the audio recording - written in dialogue format with speaker labels. The transcript should contain ALL the information needed to answer the questions correctly. Write it so an AI can derive the answers from it.]",
       "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-[1-16].mp3",
       "context": "Conversation between two speakers - social situation",
       "type": "LISTENING",
@@ -343,6 +472,26 @@ Create in: `src/data/IELTS/mocks/ielts-[general|academic]-mock-[NUMBER].json`
       ]
     }
   ]
+}
+```
+
+### Transcript Guidelines
+
+**IMPORTANT**: The `transcript` field is required for AI-generated content. When creating new listening parts:
+
+1. **Write the transcript FIRST** before creating questions
+2. The transcript must contain ALL information needed to answer every question
+3. Base the answer keys directly on what is stated in the transcript
+4. Write in clear dialogue format with speaker labels
+
+**Transcript Structure Example:**
+```json
+{
+  "id": "part1",
+  "title": "Booking a Holiday Cottage",
+  "description": "You will hear a conversation between a travel agent and a customer...",
+  "transcript": "Travel Agent: Good morning, Lake District Holidays. How can I help you?\n\nCustomer: Good morning. I'm interested in booking a holiday cottage in the Lake District.\n\nTravel Agent: Of course. May I take your name?\n\nCustomer: Yes, it's Sarah Mitchell. S-A-R-A-H M-I-T-C-H-E-L-L.",
+  ...
 }
 ```
 
@@ -377,27 +526,33 @@ Use SoundHelix free MP3s: `https://www.soundhelix.com/examples/mp3/SoundHelix-So
 
 ### Listening Question Types
 
-**1. Form/Table Completion:**
-- Complete application forms
-- Fill in tables with details
-- Write NO MORE THAN 2 WORDS
-
-**2. Multiple Choice:**
+**1. Multiple Choice**
 - 3 options (A, B, C)
 - One correct answer
+- Type: `mcq`
 
-**3. Short Answer:**
+**2. Matching**
+- Match items to categories or features
+- Type: `matching`
+
+**3. Plan/Map/Diagram Labelling**
+- Label locations on a map or diagram
+- Write the correct letter (A-H)
+- Type: `diagram-label`
+
+**4. Form/Note/Table/Flow Chart/Summary Completion**
+- Complete forms, notes, tables, flow charts, or summaries
+- NO MORE THAN 2 WORDS AND/OR A NUMBER
+- Type: `notes-completion`
+
+**5. Sentence Completion**
+- Complete sentences from the audio
+- NO MORE THAN 2-3 WORDS
+- Type: `sentence-complete`
+
+**6. Short-Answer Questions**
 - Write NO MORE THAN 2 WORDS
-- Answers from the audio
-
-**4. Sentence Completion:**
-- Complete sentences
-- Word limit: 2-3 words
-
-**5. Map/Diagram Labeling:**
-- Label locations on a map
-- Label parts of a device or process
-- Choose from options (A-H)
+- Type: `short-answer`
 
 ---
 
@@ -454,7 +609,7 @@ Use SoundHelix free MP3s: `https://www.soundhelix.com/examples/mp3/SoundHelix-So
     "id": "task1",
     "topic": "Describe something...",
     "description": "You should say:",
-    "bulletPoints": [
+    "bullets": [
       "what it is",
       "how you got it",
       "what you use it for",
@@ -657,17 +812,28 @@ For hub routes to work correctly (Reading Academic, Reading General, Writing Aca
 | Multiple Choice | Understanding details, inference | A/B/C/D |
 | Short Answer | Finding specific info | 1-3 words |
 | True/False/Not Given | Checking claims | TRUE/FALSE/NOT GIVEN |
-| Sentence Completion | Detail understanding | 1-3 words |
-| Diagram Labeling | Visual understanding | Letter or word |
+| Yes/No/Not Given | Checking information | YES/NO/NOT GIVEN |
+| Sentence Completion | Detail understanding | 1-2 words |
+| Sentence Matching | Matching beginnings to endings | Full text |
+| Heading Match | Main idea of paragraphs | 0-3 (index) |
+| Diagram Labeling | Visual understanding | A-H letters |
+| Summary/Gap Fill | Summary completion | 1-2 words |
+| Table Completion | Table completion | 1-2 words |
+| Flow Chart Completion | Process understanding | 1 word |
+| Notes Completion | Notes completion | 1-2 words/numbers |
+| Matching Features | Feature matching | A-D letters |
+| Token Select | Word selection | Token selection |
+| Punctuation Correction | Punctuation fixing | Corrected text |
 
 ### Listening
 | Type | Tests | Answer Format |
 |------|-------|----------------|
-| Form Completion | Detail recording | 1-2 words/numbers |
 | Multiple Choice | Understanding details | A/B/C |
-| Short Answer | Finding specific info | 1-2 words |
-| Map/Diagram | Spatial understanding | A-H letters |
+| Matching | Match items | A-D letters |
+| Plan/Map/Diagram Labelling | Spatial understanding | A-H letters |
+| Form/Note/Table/Flow Chart/Summary Completion | Detail recording | 1-2 words/numbers |
 | Sentence Completion | Detail understanding | 1-3 words |
+| Short-Answer Questions | Finding specific info | 1-2 words |
 
 ---
 
@@ -684,6 +850,8 @@ For hub routes to work correctly (Reading Academic, Reading General, Writing Aca
 - [ ] Add vocabulary to appropriate category in `vocabulary.js`
 - [ ] Create 2 writing tasks (letter + essay)
 - [ ] Create 4 listening parts with questions
+- [ ] Add `transcript` field to each listening part with the full audio script
+- [ ] Ensure all question answers can be derived from the transcript
 - [ ] Create 3 speaking parts (interview, long turn, discussion)
 - [ ] Register mock in `src/data/IELTS/mocks/index.js`
 - [ ] Test the mock loads correctly

@@ -6,133 +6,86 @@
   "description": "Complete IELTS Academic test with all 4 skills",
   "xpReward": 5000,
   "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
   "vocabulary": {
     "id": "vocab-academic-1",
     "title": "Test Vocabulary",
     "level": "C1",
     "words": [
-      {
-        "term": "perceive",
-        "hu": "érzékel",
-        "definition": "To become aware of through the senses",
-        "example": "Fish perceive electrical signals in water."
-      },
-      {
-        "term": "stimuli",
-        "hu": "ingerek",
-        "definition": "Things that cause a response",
-        "example": "The fish responds to electrical stimuli."
-      },
-      {
-        "term": "conductor",
-        "hu": "vezető",
-        "definition": "A material that allows electricity to pass through",
-        "example": "Water is an efficient conductor of electricity."
-      },
-      {
-        "term": "predator",
-        "hu": "ragadozó",
-        "definition": "An animal that hunts other animals for food",
-        "example": "Sharks are top predators in the ocean."
-      },
-      {
-        "term": "mechanism",
-        "hu": "mechanizmus",
-        "definition": "A natural or man-made process",
-        "example": "The jamming avoidance response is a fascinating mechanism."
-      },
-      {
-        "term": "proximity",
-        "hu": "közelség",
-        "definition": "The state of being near",
-        "example": "As the shark reaches proximity to its prey, it attacks."
-      }
+      { "term": "perceive", "hu": "érzékel", "definition": "to become aware of, to sense", "example": "Fish perceive electrical signals in water." },
+      { "term": "stimuli", "hu": "ingerek", "definition": "things that cause a response", "example": "The fish responds to electrical stimuli." },
+      { "term": "conductor", "hu": "vezető", "definition": "a material that allows electricity to pass through", "example": "Water is an efficient conductor of electricity." },
+      { "term": "predator", "hu": "ragadozó", "definition": "an animal that hunts other animals for food", "example": "Sharks are top predators in the ocean." },
+      { "term": "mechanism", "hu": "mechanizmus", "definition": "a natural or man-made process", "example": "The jamming avoidance response is a fascinating mechanism." },
+      { "term": "proximity", "hu": "közelség", "definition": "the state of being near", "example": "As the shark reaches proximity to its prey, it attacks." },
+      { "term": "prerequisite", "hu": "előfeltétel", "definition": "something required beforehand", "example": "A degree is a prerequisite for many jobs." },
+      { "term": "autonomy", "hu": "autonómia", "definition": "freedom to make decisions", "example": "Academic autonomy allows universities to set their own curricula." },
+      { "term": "innovation", "hu": "innováció", "definition": "new ideas or methods", "example": "Universities drive innovation through research." },
+      { "term": "mitigation", "hu": "enyhítés", "definition": "the action of reducing severity", "example": "Climate mitigation strategies are essential." },
+      { "term": "adaptation", "hu": "alkalmazkodás", "definition": "adjusting to new conditions", "example": "Farmers must adapt to changing weather." },
+      { "term": "sustainable", "hu": "fenntartható", "definition": "able to be maintained", "example": "Sustainable farming practices protect the soil." }
     ]
   },
   "reading": {
     "title": "Reading",
     "time": 60,
+    "type": "READING",
     "sections": [
       {
         "id": "reading-section-1",
         "section": 1,
         "title": "Electroreception",
-        "description": "Questions 1-13 based on Passage 1",
+        "description": "Questions 1-11 based on Passage 1",
         "passages": [
           {
             "id": "reading-passage-1",
-            "title": "Electroreception",
+            "title": "Electroreception in Fish",
             "type": "ielts-complex",
-            "vocabId": "v_academic_1",
-            "vocabList": [
-              {
-                "term": "perceive",
-                "hu": "érzékel",
-                "definition": "To become aware of through the senses",
-                "example": "Fish perceive electrical signals in water."
-              },
-              {
-                "term": "stimuli",
-                "hu": "ingerek",
-                "definition": "Things that cause a response",
-                "example": "The fish responds to electrical stimuli."
-              },
-              {
-                "term": "conductor",
-                "hu": "vezető",
-                "definition": "A material that allows electricity to pass through",
-                "example": "Water is an efficient conductor of electricity."
-              },
-              {
-                "term": "predator",
-                "hu": "ragadozó",
-                "definition": "An animal that hunts other animals for food",
-                "example": "Sharks are top predators in the ocean."
-              },
-              {
-                "term": "mechanism",
-                "hu": "mechanizmus",
-                "definition": "A natural or man-made process",
-                "example": "The jamming avoidance response is a fascinating mechanism."
-              },
-              {
-                "term": "proximity",
-                "hu": "közelség",
-                "definition": "The state of being near",
-                "example": "As the shark reaches proximity to its prey, it attacks."
-              }
-            ],
             "content": [
-              "<p>A Open your eyes in sea water and it is difficult to see much more than a murky, bleary green colour. Sounds, too, are garbled and difficult to comprehend. Without specialised equipment humans would be lost in these deep sea habitats, so how do fish make it seem so easy? Much of this is due to a biological phenomenon known as electroreception – the ability to perceive and act upon electrical stimuli as part of the overall senses. This ability is only found in aquatic or amphibian species because water is an efficient conductor of electricity.</p>",
-              "<p>B Electroreception comes in two variants. While all animals (including humans) generate electric signals, because they are emitted by the nervous system, some animals have the ability – known as passive electroreception – to receive and decode electric signals generated by other animals in order to sense their location.</p>",
-              "<p>C Other creatures can go further still. However, animals with active electroreception possess bodily organs that generate special electric signals on cue. These can be used for mating signals and territorial displays as well as locating objects in the water.</p>"
+              { "id": "A", "text": "Open your eyes in sea water and it is difficult to see much more than a murky, bleary green colour. Sounds, too, are garbled and difficult to comprehend. Without specialised equipment humans would be lost in these deep sea habitats, so how do fish make it seem so easy? Much of this is due to a biological phenomenon known as electroreception – the ability to perceive and act upon electrical stimuli as part of the overall senses." },
+              { "id": "B", "text": "Electroreception comes in two variants. While all animals generate electric signals because they are emitted by the nervous system, some animals have the ability – known as passive electroreception – to receive and decode electric signals generated by other animals in order to sense their location, size and even their health status." },
+              { "id": "C", "text": "Other creatures can go further still. Animals with active electroreception possess bodily organs that generate special electric signals on cue. These can be used for mating signals and territorial displays as well as locating objects in the water through a process similar to echolocation used by bats." },
+              { "id": "D", "text": "The best-known examples are sharks and their relatives, which possess specialised organs called ampullae of Lorenzini. These detect the tiny electrical fields produced by the muscle contractions of potential prey." },
+              { "id": "E", "text": "Research has shown that some species can even use electroreception for navigation. Migratory fish may detect the Earth's magnetic field, which is naturally accompanied by weak electric currents." },
+              { "id": "F", "text": "Interestingly, some freshwater fish have also developed this ability despite the lower conductivity of fresh water compared to salt water. This suggests that electroreception evolved independently in different species." },
+              { "id": "G", "text": "Scientists are now investigating potential applications of this phenomenon. Understanding how fish perceive electrical signals could lead to developments in medical imaging technology." },
+              { "id": "H", "text": "However, this remarkable ability also has its limitations. Strong artificial electrical fields, such as those produced by fishing equipment or pollution, can interfere with a fish's natural electroreception." }
             ],
             "subTasks": [
               {
                 "type": "matching-info",
                 "instruction": "Which paragraph contains the following information?",
                 "questions": [
-                  {
-                    "id": "r1q1",
-                    "text": "how electroreception can be used to help fish reproduce",
-                    "answer": "C"
-                  },
-                  {
-                    "id": "r1q2",
-                    "text": "a possible use for electroreception that will benefit humans",
-                    "answer": "C"
-                  }
+                  { "id": 1, "text": "how electroreception can be used for mating signals", "answer": "C" },
+                  { "id": 2, "text": "a possible use for electroreception that will benefit humans", "answer": "G" },
+                  { "id": 3, "text": "how fish can navigate during migration", "answer": "E" },
+                  { "id": 4, "text": "the name of the organs sharks use for electroreception", "answer": "D" }
                 ]
               },
               {
                 "type": "short-answer",
                 "instruction": "Complete the summary. NO MORE THAN TWO WORDS.",
                 "questions": [
-                  {
-                    "id": "r1q3",
-                    "text": "Electroreception is found mainly in ___ creatures.",
-                    "answer": "aquatic"
-                  }
+                  { "id": 5, "text": "Electroreception is found mainly in ___ creatures.", "answer": "aquatic" },
+                  { "id": 6, "text": "The organs used by sharks are called ampullae of ___.", "answer": "Lorenzini" }
+                ]
+              },
+              {
+                "type": "trinary",
+                "mode": "tfng",
+                "instruction": "Do the following statements agree with the views of the writer?",
+                "questions": [
+                  { "id": 7, "text": "All animals have some degree of electroreception.", "answer": "FALSE" },
+                  { "id": 8, "text": "Freshwater fish cannot detect electrical signals.", "answer": "FALSE" },
+                  { "id": 9, "text": "Pollution can interfere with fish electroreception.", "answer": "TRUE" }
+                ]
+              },
+              {
+                "type": "sentence-complete",
+                "instruction": "Complete the sentences below. NO MORE THAN TWO WORDS.",
+                "questions": [
+                  { "id": 10, "text": "Active electroreception can be used for locating objects through a process similar to ___ used by bats.", "answer": "echolocation" },
+                  { "id": 11, "text": "The Earth's magnetic field is accompanied by weak ___.", "answer": "electric currents" }
                 ]
               }
             ]
@@ -143,56 +96,21 @@
         "id": "reading-section-2",
         "section": 2,
         "title": "The Role of Universities",
-        "description": "Questions 14-27 based on Passage 2",
+        "description": "Questions 12-22 based on Passage 2",
         "passages": [
           {
             "id": "reading-passage-2",
             "title": "The Role of Universities in Modern Society",
             "type": "ielts-complex",
-            "vocabId": "v_academic_2",
-            "vocabList": [
-              {
-                "term": "prerequisite",
-                "hu": "előfeltétel",
-                "definition": "Something required beforehand",
-                "example": "A degree is a prerequisite for many jobs."
-              },
-              {
-                "term": "cater",
-                "hu": "kiszolgál",
-                "definition": "To provide what is needed",
-                "example": "Universities must cater to diverse student needs."
-              },
-              {
-                "term": "autonomy",
-                "hu": "autonómia",
-                "definition": "Freedom to make decisions",
-                "example": "Academic autonomy allows universities to set their own curricula."
-              },
-              {
-                "term": "innovation",
-                "hu": "innováció",
-                "definition": "New ideas or methods",
-                "example": "Universities drive innovation through research."
-              },
-              {
-                "term": "scrutinize",
-                "hu": "vizsgál",
-                "definition": "To examine carefully",
-                "example": "Government bodies scrutinize university funding."
-              },
-              {
-                "term": "revenue",
-                "hu": "bevétel",
-                "definition": "Income generated",
-                "example": "Tuition fees are a major revenue source."
-              }
-            ],
             "content": [
-              "<p>A Universities have traditionally been seen as institutions dedicated primarily to the transmission of knowledge and the preparation of students for professional careers. However, in recent decades, their role has expanded considerably to include research, community service, and economic development.</p>",
-              "<p>B The modern university is expected to fulfill multiple functions. It must provide high-quality education while simultaneously producing cutting-edge research. This dual mission sometimes creates tensions, as faculty members must balance teaching responsibilities with research demands.</p>",
-              "<p>C Another significant change has been the dramatic increase in university enrollment rates worldwide. What was once an elite privilege available to a small percentage of the population is now becoming a mass phenomenon. This expansion has raised questions about quality maintenance and the value of degrees in the job market.</p>",
-              "<p>D Funding models have also evolved. While traditional public universities relied heavily on government subsidies, many now derive substantial revenue from private sources, including tuition fees, corporate partnerships, and research grants. This shift has implications for institutional autonomy and academic freedom.</p>"
+              { "id": "A", "text": "Universities have traditionally been seen as institutions dedicated primarily to the transmission of knowledge and the preparation of students for professional careers. However, in recent decades, their role has expanded considerably to include research, community service, and economic development." },
+              { "id": "B", "text": "The modern university is expected to fulfill multiple functions. It must provide high-quality education while simultaneously producing cutting-edge research. This dual mission sometimes creates tensions, as faculty members must balance teaching responsibilities with research demands." },
+              { "id": "C", "text": "Another significant change has been the dramatic increase in university enrollment rates worldwide. What was once an elite privilege available to a small percentage of the population is now becoming a mass phenomenon." },
+              { "id": "D", "text": "Funding models have also evolved. While traditional public universities relied heavily on government subsidies, many now derive substantial revenue from private sources, including tuition fees, corporate partnerships, and research grants." },
+              { "id": "E", "text": "International collaboration has become increasingly important in higher education. Universities form partnerships with institutions abroad to share knowledge, exchange students, and conduct joint research projects." },
+              { "id": "F", "text": "Technology is transforming how universities deliver education. Online learning platforms, virtual classrooms, and massive open online courses (MOOCs) have expanded access to higher education." },
+              { "id": "G", "text": "Critics argue that the commercialization of higher education threatens academic integrity. When universities depend on corporate funding, they may be pressured to prioritize research that benefits their sponsors." },
+              { "id": "H", "text": "Despite these challenges, universities remain essential institutions for societal progress. They produce the skilled workers, innovative thinkers, and informed citizens that economies need." }
             ],
             "subTasks": [
               {
@@ -204,55 +122,35 @@
                   "Funding challenges",
                   "Global enrollment trends",
                   "Teaching versus research",
-                  "Student enrollment statistics",
                   "International partnerships",
-                  "Campus facilities",
-                  "Quality control measures",
-                  "Access to higher education",
-                  "Faculty responsibilities",
-                  "Career services",
-                  "Government regulations",
-                  "Sources of university funding",
-                  "Student support programs",
-                  "Alumni relations"
+                  "Technology in education",
+                  "Concerns about commercialization"
                 ],
                 "questions": [
-                  {
-                    "id": "r2q1",
-                    "text": "Paragraph A",
-                    "answer": 0
-                  },
-                  {
-                    "id": "r2q2",
-                    "text": "Paragraph B",
-                    "answer": 1
-                  },
-                  {
-                    "id": "r2q3",
-                    "text": "Paragraph C",
-                    "answer": 9
-                  },
-                  {
-                    "id": "r2q4",
-                    "text": "Paragraph D",
-                    "answer": 13
-                  }
+                  { "id": 12, "text": "Paragraph A", "answer": 0 },
+                  { "id": 13, "text": "Paragraph B", "answer": 4 },
+                  { "id": 14, "text": "Paragraph C", "answer": 3 },
+                  { "id": 15, "text": "Paragraph D", "answer": 2 },
+                  { "id": 16, "text": "Paragraph E", "answer": 5 },
+                  { "id": 17, "text": "Paragraph F", "answer": 6 }
                 ]
               },
               {
                 "type": "trinary",
+                "mode": "tfng",
                 "instruction": "Do the following statements agree with the views of the writer?",
                 "questions": [
-                  {
-                    "id": "r2q5",
-                    "text": "Universities only need to focus on teaching nowadays.",
-                    "answer": "False"
-                  },
-                  {
-                    "id": "r2q6",
-                    "text": "More people attend university than ever before.",
-                    "answer": "True"
-                  }
+                  { "id": 18, "text": "Universities only need to focus on teaching nowadays.", "answer": "FALSE" },
+                  { "id": 19, "text": "More people attend university than ever before.", "answer": "TRUE" },
+                  { "id": 20, "text": "Technology has reduced the importance of traditional campuses.", "answer": "NOT GIVEN" }
+                ]
+              },
+              {
+                "type": "short-answer",
+                "instruction": "Answer the questions below. NO MORE THAN TWO WORDS.",
+                "questions": [
+                  { "id": 21, "text": "What three sources do universities now derive revenue from? (1)", "answer": "tuition fees" },
+                  { "id": 22, "text": "What three sources do universities now derive revenue from? (2)", "answer": "corporate partnerships" }
                 ]
               }
             ]
@@ -263,105 +161,63 @@
         "id": "reading-section-3",
         "section": 3,
         "title": "Climate Change and Agriculture",
-        "description": "Questions 28-40 based on Passage 3",
+        "description": "Questions 23-40 based on Passage 3",
         "passages": [
           {
             "id": "reading-passage-3",
             "title": "Climate Change Impacts on Global Agriculture",
             "type": "ielts-complex",
-            "vocabId": "v_academic_3",
-            "vocabList": [
-              {
-                "term": "mitigation",
-                "hu": "enyhítés",
-                "definition": "The action of reducing severity",
-                "example": "Climate mitigation strategies are essential."
-              },
-              {
-                "term": "adaptation",
-                "hu": "alkalmazkodás",
-                "definition": "Adjusting to new conditions",
-                "example": "Farmers must adapt to changing weather."
-              },
-              {
-                "term": "sustainable",
-                "hu": "fenntartható",
-                "definition": "Able to be maintained",
-                "example": "Sustainable farming practices protect the soil."
-              },
-              {
-                "term": "yield",
-                "hu": "hozam",
-                "definition": "The amount produced",
-                "example": "Drought can reduce crop yields significantly."
-              },
-              {
-                "term": "vulnerable",
-                "hu": "sebezhető",
-                "definition": "Susceptible to harm",
-                "example": "Developing nations are most vulnerable."
-              },
-              {
-                "term": "devastating",
-                "hu": "romboló",
-                "definition": "Causing severe damage",
-                "example": "Floods can have devastating effects."
-              }
-            ],
             "content": [
-              "<p>A Climate change poses significant challenges to agricultural systems worldwide. Rising temperatures, changing precipitation patterns, and increasing frequency of extreme weather events are affecting crop yields and food security across the globe. These changes require fundamental adjustments in farming practices and agricultural policies.</p>",
-              "<p>B The impacts vary significantly by region. In some areas, warming temperatures may extend growing seasons and allow new crops to be cultivated. However, in many tropical and subtropical regions, higher temperatures combined with reduced rainfall are likely to decrease productivity and threaten food supplies for millions of people.</p>",
-              "<p>C Adaptation strategies include developing heat-tolerant crop varieties, improving irrigation efficiency, and diversifying agricultural systems. Additionally, farmers can adopt conservation agriculture practices that help soils retain moisture and nutrients. These approaches can help maintain productivity even under challenging conditions.</p>",
-              "<p>D Mitigation efforts in agriculture focus on reducing greenhouse gas emissions while also enhancing carbon sequestration in soils and biomass. Sustainable practices such as agroforestry, cover cropping, and improved fertilizer management can contribute to both climate mitigation and adaptation goals.</p>"
+              { "id": "A", "text": "Climate change poses significant challenges to agricultural systems worldwide. Rising temperatures, changing precipitation patterns, and increasing frequency of extreme weather events are affecting crop yields and food security across the globe." },
+              { "id": "B", "text": "The impacts vary significantly by region. In some areas, warming temperatures may extend growing seasons and allow new crops to be cultivated. However, in many tropical and subtropical regions, higher temperatures combined with reduced rainfall are likely to decrease productivity." },
+              { "id": "C", "text": "Adaptation strategies include developing heat-tolerant crop varieties, improving irrigation efficiency, and diversifying agricultural systems. Additionally, farmers can adopt conservation agriculture practices that help soils retain moisture and nutrients." },
+              { "id": "D", "text": "Mitigation efforts in agriculture focus on reducing greenhouse gas emissions while also enhancing carbon sequestration in soils and biomass. Sustainable practices such as agroforestry, cover cropping, and improved fertilizer management can contribute to both climate mitigation and adaptation goals." },
+              { "id": "E", "text": "Water scarcity is becoming an increasing concern for agriculture. As temperatures rise, evaporation rates increase, and traditional water sources become less reliable." },
+              { "id": "F", "text": "The economic impacts of climate change on agriculture are profound. Farmers face increasing costs as they adapt to new conditions, purchase new equipment, and develop new skills. These costs can be particularly burdensome for small-scale farmers in developing countries." },
+              { "id": "G", "text": "Insurance mechanisms are emerging as important risk management tools. Crop insurance programs can help farmers recover from climate-related losses, but these schemes require government support to remain viable." },
+              { "id": "H", "text": "Ultimately, addressing climate change in agriculture requires coordinated global action. International agreements, technology transfer, and financial support for developing nations are essential components of an effective response." }
             ],
             "subTasks": [
               {
                 "type": "short-answer",
                 "instruction": "Complete the sentences below. NO MORE THAN TWO WORDS.",
                 "questions": [
-                  {
-                    "id": "r3q1",
-                    "text": "Climate change affects ___ patterns and crop yields.",
-                    "answer": "precipitation"
-                  },
-                  {
-                    "id": "r3q2",
-                    "text": "Tropical regions may experience ___ in productivity due to heat.",
-                    "answer": "decrease"
-                  },
-                  {
-                    "id": "r3q3",
-                    "text": "___ agriculture helps soils retain moisture.",
-                    "answer": "Conservation"
-                  }
+                  { "id": 23, "text": "Climate change affects ___ patterns and crop yields.", "answer": "precipitation" },
+                  { "id": 24, "text": "Tropical regions may experience ___ in productivity due to heat.", "answer": "decrease" },
+                  { "id": 25, "text": "___ agriculture helps soils retain moisture.", "answer": "Conservation" },
+                  { "id": 26, "text": "Small-scale farmers face increasing ___ due to climate change.", "answer": "costs" }
                 ]
               },
               {
                 "type": "mcq",
                 "instruction": "Choose the correct letter, A, B, C, or D.",
                 "questions": [
-                  {
-                    "id": "r3q4",
-                    "text": "What is mentioned as a potential benefit of warming temperatures in some areas?",
-                    "options": [
-                      "Longer growing seasons",
-                      "Less rainfall",
-                      "Fewer pests",
-                      "Better soil quality"
-                    ],
-                    "answer": 0
-                  },
-                  {
-                    "id": "r3q5",
-                    "text": "Which practice helps both mitigation and adaptation?",
-                    "options": [
-                      "Agroforestry",
-                      "Increased fertilization",
-                      "Mono-cropping",
-                      "Heavy irrigation"
-                    ],
-                    "answer": 0
-                  }
+                  { "id": 27, "text": "What is mentioned as a potential benefit of warming in some areas?", "options": ["Longer growing seasons", "Less rainfall", "Fewer pests", "Better soil quality"], "answer": 0 },
+                  { "id": 28, "text": "Which practice helps both mitigation and adaptation?", "options": ["Agroforestry", "Increased fertilization", "Mono-cropping", "Heavy irrigation"], "answer": 0 },
+                  { "id": 29, "text": "What is an emerging risk management tool for farmers?", "options": ["Insurance", "Banking", "Investment", "Trading"], "answer": 0 },
+                  { "id": 30, "text": "Which regions face the greatest food security risks?", "options": ["Tropical areas", "Northern countries", "Coastal regions", "Desert areas"], "answer": 0 }
+                ]
+              },
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph contains the following information?",
+                "questions": [
+                  { "id": 31, "text": "economic challenges for small farmers", "answer": "F" },
+                  { "id": 32, "text": "crop insurance programs", "answer": "G" },
+                  { "id": 33, "text": "need for international cooperation", "answer": "H" },
+                  { "id": 34, "text": "water scarcity concerns", "answer": "E" },
+                  { "id": 35, "text": "new crop varieties development", "answer": "C" }
+                ]
+              },
+              {
+                "type": "gap-fill",
+                "instruction": "Complete the summary below. NO MORE THAN TWO WORDS.",
+                "questions": [
+                  { "id": 36, "text": "As temperatures rise, ___ rates increase.", "answer": "evaporation" },
+                  { "id": 37, "text": "Agriculture needs coordinated global ___ to address climate change.", "answer": "action" },
+                  { "id": 38, "text": "Extreme weather events will become more frequent.", "answer": "frequent" },
+                  { "id": 39, "text": "Developing nations need financial support.", "answer": "support" },
+                  { "id": 40, "text": "The future of food security depends on cooperation.", "answer": "cooperation" }
                 ]
               }
             ]
@@ -373,6 +229,7 @@
   "writing": {
     "title": "Writing",
     "time": 60,
+    "type": "WRITING",
     "sections": [
       {
         "id": "w-m1-t1",
@@ -382,29 +239,8 @@
         "targetWords": 150,
         "xp": 250,
         "prompt": "Summarize the information by selecting and reporting the main features, and make comparisons where relevant.",
-        "bullets": [
-          "Select and describe the main features",
-          "Make comparisons where relevant",
-          "Write at least 150 words"
-        ],
-        "data": {
-          "type": "bar-chart",
-          "title": "Population growth in three countries (1950-2000)",
-          "dataPoints": [
-            {
-              "label": "1950",
-              "USA": 150,
-              "China": 550,
-              "India": 370
-            },
-            {
-              "label": "2000",
-              "USA": 280,
-              "China": 1250,
-              "India": 1050
-            }
-          ]
-        },
+        "bullets": ["Select and describe the main features", "Make comparisons where relevant", "Write at least 150 words"],
+        "data": { "type": "bar-chart", "title": "Population growth in three countries (1950-2000)", "dataPoints": [{ "label": "1950", "USA": 150, "China": 550, "India": 370 }, { "label": "2000", "USA": 280, "China": 1250, "India": 1050 }] },
         "type": "report"
       },
       {
@@ -415,10 +251,7 @@
         "targetWords": 250,
         "xp": 500,
         "prompt": "Some people believe that unpaid community service should be a compulsory part of high school programs. To what extent do you agree or disagree?",
-        "bullets": [
-          "Give reasons for your answer",
-          "Include relevant examples from your knowledge or experience"
-        ],
+        "bullets": ["Give reasons for your answer", "Include relevant examples from your knowledge or experience"],
         "type": "essay"
       }
     ]
@@ -426,225 +259,63 @@
   "listening": {
     "title": "Listening",
     "time": 30,
-    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 4 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "type": "LISTENING",
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear.",
     "sections": [
       {
-        "id": "part1",
-        "part": 1,
-        "title": "",
-        "subtitle": "Booking a Holiday Cottage",
-        "description": "You will hear a conversation between a travel agent and a customer who wants to book a holiday cottage. First, you have some time to look at questions 1-10.",
+        "id": "part1", "part": 1, "title": "", "subtitle": "Booking a Holiday Cottage",
+        "description": "You will hear a conversation between a travel agent and a customer who wants to book a holiday cottage.",
+        "transcript": "Travel Agent: Good morning, Lake District Holidays. How can I help you?\n\nCustomer: Good morning. I'm interested in booking a holiday cottage in the Lake District.\n\nTravel Agent: Of course. May I take your name?\n\nCustomer: Yes, it's Sarah Mitchell. S-A-R-A-H M-I-T-C-H-E-L-L.\n\nTravel Agent: Thank you, Sarah. And may I have your telephone number?\n\nCustomer: It's 07788 456321.\n\nTravel Agent: 07788 456321. Perfect. Now, do you have a preferred location in the Lake District?\n\nCustomer: We're happy to be anywhere in the Lake District, but we'd prefer somewhere quiet.\n\nTravel Agent: I understand. How many people will be staying?\n\nCustomer: There will be four adults and two children.\n\nTravel Agent: Four adults and two children. What's your budget per week?\n\nCustomer: We're looking at around 800 pounds per week maximum.\n\nTravel Agent: And are there any facilities you particularly need?\n\nCustomer: Yes, we have a dog, so we need a garden.",
         "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
         "context": "Conversation between two speakers - social situation",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
           {
-            "type": "short-answer",
+            "type": "notes-completion",
             "instruction": "Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
             "questions": [
-              {
-                "id": 1,
-                "text": "Customer name:",
-                "answer": "Sarah Mitchell",
-                "wordLimit": 2,
-                "allowNumber": true
-              },
-              {
-                "id": 2,
-                "text": "Contact telephone:",
-                "answer": "07788 456321",
-                "wordLimit": 1,
-                "allowNumber": true
-              },
-              {
-                "id": 3,
-                "text": "Preferred location:",
-                "answer": "Lake District",
-                "wordLimit": 2,
-                "allowNumber": false
-              },
-              {
-                "id": 4,
-                "text": "Number of adults:",
-                "answer": "4",
-                "wordLimit": 1,
-                "allowNumber": true
-              },
-              {
-                "id": 5,
-                "text": "Number of children:",
-                "answer": "2",
-                "wordLimit": 1,
-                "allowNumber": true
-              }
+              { "id": 1, "text": "Customer name:", "answer": "Sarah Mitchell", "wordLimit": 2, "allowNumber": true },
+              { "id": 2, "text": "Contact telephone:", "answer": "07788 456321", "wordLimit": 1, "allowNumber": true },
+              { "id": 3, "text": "Preferred location:", "answer": "Lake District", "wordLimit": 2, "allowNumber": false },
+              { "id": 4, "text": "Number of adults:", "answer": "4", "wordLimit": 1, "allowNumber": true },
+              { "id": 5, "text": "Number of children:", "answer": "2", "wordLimit": 1, "allowNumber": true }
             ]
           },
           {
             "type": "short-answer",
             "instruction": "Answer the questions below. Write NO MORE THAN TWO WORDS for each answer.",
             "questions": [
-              {
-                "id": 6,
-                "text": "What is the maximum budget per week?",
-                "answer": "800 pounds",
-                "wordLimit": 2,
-                "allowNumber": true
-              },
-              {
-                "id": 7,
-                "text": "Which facility must the cottage have?",
-                "answer": "garden",
-                "wordLimit": 2,
-                "allowNumber": false
-              },
-              {
-                "id": 8,
-                "text": "What date does the customer want to arrive?",
-                "answer": "15th July",
-                "wordLimit": 2,
-                "allowNumber": true
-              },
-              {
-                "id": 9,
-                "text": "What is the customer's main concern about the cottage?",
-                "answer": "parking",
-                "wordLimit": 2,
-                "allowNumber": false
-              },
-              {
-                "id": 10,
-                "text": "What does the customer ask to be sent?",
-                "answer": "brochure",
-                "wordLimit": 2,
-                "allowNumber": false
-              }
+              { "id": 6, "text": "What is the maximum budget per week?", "answer": "800 pounds", "wordLimit": 2, "allowNumber": true },
+              { "id": 7, "text": "Which facility must the cottage have?", "answer": "garden", "wordLimit": 2, "allowNumber": false }
             ]
           }
         ]
       },
       {
-        "id": "part2",
-        "part": 2,
-        "title": "",
-        "subtitle": "Tour of a Museum Complex",
-        "description": "You will hear a guide giving a tour of a museum complex. First, you have some time to look at questions 11-20.",
+        "id": "part2", "part": 2, "title": "", "subtitle": "Museum Tour",
+        "description": "You will hear a guide giving a tour of a museum complex.",
+        "transcript": "Guide: Welcome to Whitby Museum. I'm your guide today. The main building was originally constructed in 1847 as a private residence for a wealthy shipping family. In 1920, it was donated to the town and became the museum.",
         "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
         "context": "Monologue - information about local facilities",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
           {
-            "id": 11,
-            "type": "diagram-label",
-            "instruction": "Label the map below. Write the correct letter, A-H, next to Questions 11-15.",
-            "labels": [
-              {
-                "id": "11",
-                "text": "Ticket Office",
-                "answer": "A"
-              },
-              {
-                "id": "12",
-                "text": "Café",
-                "answer": "D"
-              },
-              {
-                "id": "13",
-                "text": "Gift Shop",
-                "answer": "F"
-              },
-              {
-                "id": "14",
-                "text": "Main Exhibition Hall",
-                "answer": "C"
-              },
-              {
-                "id": "15",
-                "text": "Children's Activity Centre",
-                "answer": "H"
-              }
-            ],
-            "wordLimit": 1,
-            "options": [
-              "A",
-              "B",
-              "C",
-              "D",
-              "E",
-              "F",
-              "G",
-              "H"
-            ]
-          },
-          {
             "type": "mcq",
             "instruction": "Choose the correct letter, A, B or C.",
-            "id": 16,
-            "text": "The museum was originally built as a",
-            "options": [
-              "a private residence",
-              "a government building",
-              "a factory"
-            ],
-            "answer": "a private residence"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "id": 17,
-            "text": "The museum's collection focuses mainly on",
-            "options": [
-              "ancient artefacts",
-              "local history",
-              "modern art"
-            ],
-            "answer": "local history"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "id": 18,
-            "text": "The guided tours last approximately",
-            "options": [
-              "45 minutes",
-              "1 hour",
-              "90 minutes"
-            ],
-            "answer": "1 hour"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "id": 19,
-            "text": "The restaurant can serve",
-            "options": [
-              "50 people",
-              "100 people",
-              "200 people"
-            ],
-            "answer": "200 people"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "id": 20,
-            "text": "What is free for members?",
-            "options": [
-              "parking",
-              "guides",
-              "coffee"
-            ],
-            "answer": "guides"
+            "questions": [
+              { "id": 11, "text": "The museum was originally built as a", "options": ["a private residence", "a government building", "a factory"], "answer": "a private residence" },
+              { "id": 12, "text": "The museum's collection focuses mainly on", "options": ["ancient artefacts", "local history", "modern art"], "answer": "local history" },
+              { "id": 13, "text": "The guided tours last approximately", "options": ["45 minutes", "1 hour", "90 minutes"], "answer": "1 hour" }
+            ]
           }
         ]
       },
       {
-        "id": "part3",
-        "part": 3,
-        "title": "",
-        "subtitle": "Discussion about University Course",
-        "description": "You will hear a discussion between a student and an academic advisor. First, you have some time to look at questions 21-30.",
+        "id": "part3", "part": 3, "title": "", "subtitle": "University Discussion",
+        "description": "You will hear a discussion between a student and an academic advisor.",
+        "transcript": "Advisor: Good afternoon. Come in, take a seat. I've been looking at your request to discuss your assignment.\n\nStudent: Thank you for seeing me, Dr. Harrison. I'm a bit worried about the research project for Business Management.",
         "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
         "context": "Conversation between two speakers - academic context",
         "type": "LISTENING",
@@ -653,220 +324,57 @@
           {
             "type": "mcq",
             "instruction": "Choose the correct letter, A, B or C.",
-            "text": "The student is studying",
-            "options": [
-              "Business",
-              "Computer Science",
-              "Engineering"
-            ],
-            "answer": "Business"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "What is the main concern about the assignment?",
-            "options": [
-              "the topic",
-              "the deadline",
-              "the length"
-            ],
-            "answer": "the deadline"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "When is the assignment due?",
-            "options": [
-              "next week",
-              "in two weeks",
-              "in three weeks"
-            ],
-            "answer": "in three weeks"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "What does the advisor suggest about the research?",
-            "options": [
-              "visit the library",
-              "use online databases",
-              "interview professors"
-            ],
-            "answer": "use online databases"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "How many sources are required for the bibliography?",
-            "options": [
-              "5",
-              "10",
-              "15"
-            ],
-            "answer": "10"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "What format should the essay follow?",
-            "options": [
-              "APA",
-              "MLA",
-              "Harvard"
-            ],
-            "answer": "Harvard"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "Who will review the first draft?",
-            "options": [
-              "the advisor",
-              "peer students",
-              "external examiner"
-            ],
-            "answer": "the advisor"
+            "questions": [
+              { "id": 21, "text": "The student is studying", "options": ["Business", "Computer Science", "Engineering"], "answer": "Business" },
+              { "id": 22, "text": "What is the main concern about the assignment?", "options": ["the topic", "the deadline", "the length"], "answer": "the deadline" },
+              { "id": 23, "text": "When is the assignment due?", "options": ["next week", "in two weeks", "in three weeks"], "answer": "in three weeks" }
+            ]
           },
           {
             "type": "short-answer",
             "instruction": "Answer the questions below. Write NO MORE THAN TWO WORDS for each answer.",
             "questions": [
-              {
-                "id": 28,
-                "text": "What is the minimum word count for the essay?",
-                "answer": "3000 words",
-                "wordLimit": 2,
-                "allowNumber": true
-              },
-              {
-                "id": 29,
-                "text": "What software is recommended for formatting?",
-                "answer": "Word",
-                "wordLimit": 1,
-                "allowNumber": false
-              },
-              {
-                "id": 30,
-                "text": "When are the office hours for the advisor?",
-                "answer": "Tuesday afternoon",
-                "wordLimit": 2,
-                "allowNumber": false
-              }
+              { "id": 28, "text": "What is the minimum word count for the essay?", "answer": "3000 words", "wordLimit": 2, "allowNumber": true },
+              { "id": 29, "text": "What software is recommended for formatting?", "answer": "Word", "wordLimit": 1, "allowNumber": false }
             ]
           }
         ]
       },
       {
-        "id": "part4",
-        "part": 4,
-        "title": "",
-        "subtitle": "Lecture on Animal Behavior",
-        "description": "You will hear a lecture about animal behavior. First, you have some time to look at questions 31-40.",
+        "id": "part4", "part": 4, "title": "", "subtitle": "Lecture on Animal Behavior",
+        "description": "You will hear a lecture about animal behavior.",
+        "transcript": "lecturer: Today I'd like to present the findings of our five-year research project on animal behavior in the wild. Our study focused on how various species communicate with each other.",
         "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
         "context": "Monologue - educational talk",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
           {
-            "type": "short-answer",
+            "type": "notes-completion",
             "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
             "questions": [
-              {
-                "id": 31,
-                "text": "The study focuses on animal behavior in",
-                "answer": "the wild",
-                "wordLimit": 2,
-                "allowNumber": false
-              },
-              {
-                "id": 32,
-                "text": "The main finding is that animals",
-                "answer": "communicate",
-                "wordLimit": 2,
-                "allowNumber": false
-              },
-              {
-                "id": 33,
-                "text": "Future research will examine",
-                "answer": "social behavior",
-                "wordLimit": 2,
-                "allowNumber": false
-              },
-              {
-                "id": 34,
-                "text": "The research was conducted over a period of",
-                "answer": "five years",
-                "wordLimit": 2,
-                "allowNumber": true
-              },
-              {
-                "id": 35,
-                "text": "The main method used was",
-                "answer": "observation",
-                "wordLimit": 2,
-                "allowNumber": false
-              }
+              { "id": 31, "text": "The study focuses on animal behavior in", "answer": "the wild", "wordLimit": 2, "allowNumber": false },
+              { "id": 32, "text": "The main finding is that animals", "answer": "communicate", "wordLimit": 2, "allowNumber": false },
+              { "id": 33, "text": "Future research will examine", "answer": "social behavior", "wordLimit": 2, "allowNumber": false },
+              { "id": 34, "text": "The research was conducted over a period of", "answer": "five years", "wordLimit": 2, "allowNumber": true },
+              { "id": 35, "text": "The main method used was", "answer": "observation", "wordLimit": 2, "allowNumber": false }
             ]
           },
           {
             "type": "mcq",
             "instruction": "Choose the correct letter, A, B or C.",
-            "text": "According to the lecture, what triggers the warning behavior?",
-            "options": [
-              "food availability",
-              "predator presence",
-              "weather changes"
-            ],
-            "answer": "predator presence"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "How many species were studied in total?",
-            "options": [
-              "12",
-              "25",
-              "30"
-            ],
-            "answer": "30"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "What was surprising about the results?",
-            "options": [
-              "the complexity of communication",
-              "the speed of adaptation",
-              "the memory capacity"
-            ],
-            "answer": "the complexity of communication"
-          },
-          {
-            "type": "mcq",
-            "instruction": "",
-            "text": "The funding for the research came from",
-            "options": [
-              "government grants",
-              "private donations",
-              "university funds"
-            ],
-            "answer": "government grants"
+            "questions": [
+              { "id": 36, "text": "According to the lecture, what triggers the warning behavior?", "options": ["food availability", "predator presence", "weather changes"], "answer": "predator presence" },
+              { "id": 37, "text": "How many species were studied in total?", "options": ["12", "25", "30"], "answer": "30" },
+              { "id": 38, "text": "What was surprising about the results?", "options": ["the complexity of communication", "the speed of adaptation", "the memory capacity"], "answer": "the complexity of communication" },
+              { "id": 39, "text": "The funding for the research came from", "options": ["government grants", "private donations", "university funds"], "answer": "government grants" }
+            ]
           },
           {
             "type": "matching",
             "instruction": "Match the animal species with their communication method. Write the correct letter, A, B, C or D.",
             "questions": [
-              {
-                "id": 40,
-                "text": "Dolphins -",
-                "options": [
-                  "vocal calls",
-                  "body movements",
-                  "chemical signals",
-                  "electrical signals"
-                ],
-                "answer": "A"
-              }
+              { "id": 40, "text": "Dolphins -", "options": ["vocal calls", "body movements", "chemical signals", "electrical signals"], "answer": "vocal calls" }
             ]
           }
         ]
@@ -876,6 +384,7 @@
   "speaking": {
     "title": "Speaking",
     "time": 15,
+    "type": "SPEAKING",
     "parts": [
       {
         "id": "speaking-part-1",
@@ -884,36 +393,8 @@
         "duration": "4-5 minutes",
         "instruction": "Answer the examiner's questions about familiar topics.",
         "topics": [
-          {
-            "topic": "Your Home Town or Village",
-            "questions": [
-              {
-                "id": "sp1q1",
-                "text": "What kind of place is it?"
-              },
-              {
-                "id": "sp1q2",
-                "text": "What's the most interesting part of your town/village?"
-              },
-              {
-                "id": "sp1q3",
-                "text": "Would you say it's a good place to live? (Why?)"
-              }
-            ]
-          },
-          {
-            "topic": "Accommodation",
-            "questions": [
-              {
-                "id": "sp1q4",
-                "text": "Tell me about the kind of accommodation you live in."
-              },
-              {
-                "id": "sp1q5",
-                "text": "How long have you lived there?"
-              }
-            ]
-          }
+          { "topic": "Your Home Town or Village", "questions": [{ "id": "sp1q1", "text": "What kind of place is it?" }, { "id": "sp1q2", "text": "What's the most interesting part of your town/village?" }, { "id": "sp1q3", "text": "Would you say it's a good place to live? (Why?)" }] },
+          { "topic": "Accommodation", "questions": [{ "id": "sp1q4", "text": "Tell me about the kind of accommodation you live in." }, { "id": "sp1q5", "text": "How long have you lived there?" }] }
         ]
       },
       {
@@ -926,22 +407,8 @@
           "id": "task1",
           "topic": "Describe a skill you learned when you were a child.",
           "description": "You should say:",
-          "bulletPoints": [
-            "What the skill was",
-            "Who taught you this skill",
-            "How you learned it",
-            "And explain why this skill was useful to you"
-          ],
-          "roundingQuestions": [
-            {
-              "id": "r1",
-              "text": "Is it valuable to you now?"
-            },
-            {
-              "id": "r2",
-              "text": "Would it be easy to learn this skill now if you didn't already know it?"
-            }
-          ]
+          "bullets": ["What the skill was", "Who taught you this skill", "How you learned it", "And explain why this skill was useful to you"],
+          "roundingQuestions": [{ "id": "r1", "text": "Is it valuable to you now?" }, { "id": "r2", "text": "Would it be easy to learn this skill now if you didn't already know it?" }]
         }
       },
       {
@@ -951,19 +418,7 @@
         "duration": "4-5 minutes",
         "instruction": "Discuss more abstract related topics with the examiner.",
         "topics": [
-          {
-            "topic": "Learning skills in childhood",
-            "questions": [
-              {
-                "id": "sp3q1",
-                "text": "What skills do you think are important for children to learn?"
-              },
-              {
-                "id": "sp3q2",
-                "text": "Do you think children learn better from teachers or from their parents?"
-              }
-            ]
-          }
+          { "topic": "Learning skills in childhood", "questions": [{ "id": "sp3q1", "text": "What skills do you think are important for children to learn?" }, { "id": "sp3q2", "text": "Do you think children learn better from teachers or from their parents?" }] }
         ]
       }
     ]
