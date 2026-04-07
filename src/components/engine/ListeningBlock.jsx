@@ -62,11 +62,15 @@ const ListeningBlock = ({
     if (!section) return [];
     
     const rawItems = section.subTasks || section.questions || [];
-    const selfContainedTypes = ['sentence-matching', 'diagram-label', 'flowchart', 'heading-match', 'sentence-complete', 'gap-fill', 'short-answer'];
+    const selfContainedTypes = ['sentence-matching', 'diagram-label', 'flowchart', 'heading-match', 'sentence-complete', 'gap-fill', 'short-answer', 'notes-completion'];
     
     const flattened = [];
     rawItems.forEach(item => {
-      if (selfContainedTypes.includes(item.type) && (!item.questions || !Array.isArray(item.questions))) {
+      // Notes-completion should always be treated as self-contained, don't flatten
+      if (item.type === 'notes-completion') {
+        flattened.push({ ...item });
+      }
+      else if (selfContainedTypes.includes(item.type) && (!item.questions || !Array.isArray(item.questions))) {
         flattened.push({ ...item });
       }
       else if (item.questions && Array.isArray(item.questions)) {

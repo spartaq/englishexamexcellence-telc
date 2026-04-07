@@ -17,10 +17,23 @@ const NotesCompletionBlock = ({
   const { 
     title,
     notes = [], 
+    questions = [], // Support questions array directly for listening format
     wordLimit = 2,
     wordList = null, // If provided, uses dropdown instead of text input
     instruction = `Complete the notes below. Write NO MORE THAN ${wordLimit} WORDS AND/OR A NUMBER for each answer.`
   } = data;
+
+  // Support questions array - convert to notes format for compatibility
+  const normalizedNotes = questions.length > 0 && notes.length === 0
+    ? questions.map((q, idx) => ({
+        id: String(q.id || idx + 1),
+        type: 'gap',
+        label: q.text,
+        answer: q.answer,
+        wordLimit: q.wordLimit || wordLimit,
+        allowNumber: q.allowNumber !== undefined ? q.allowNumber : true
+      }))
+    : notes;
 
   // Word count validation
   const countWords = (text) => {
@@ -29,8 +42,8 @@ const NotesCompletionBlock = ({
     return words.length;
   };
 
-  const isOverLimit = (text) => {
-    return countWords(text) > wordLimit;
+  const isOverLimit = (text, limit = wordLimit) => {
+    return countWords(text) > limit;
   };
 
   // Normalize answer for comparison
@@ -52,7 +65,8 @@ const NotesCompletionBlock = ({
     const isCorrect = normalizeAnswer(userAnswer) === normalizeAnswer(correctAnswer);
     const isWrong = userAnswer && !isCorrect;
     const isMissing = isReviewMode && !userAnswer;
-    const overLimit = isOverLimit(userAnswer);
+    const noteWordLimit = note.wordLimit || wordLimit;
+    const overLimit = isOverLimit(userAnswer, noteWordLimit);
 
     // Indentation for nested items
     const indentStyle = {
@@ -200,7 +214,7 @@ const NotesCompletionBlock = ({
                         marginTop: '4px',
                         textAlign: 'right'
                       }}>
-                        {countWords(userAnswer)}/{wordLimit} words
+                        {countWords(userAnswer)}/{noteWordLimit} words
                       </div>
                     )}
                   </div>
@@ -291,7 +305,7 @@ const NotesCompletionBlock = ({
   };
 
   // Check if notes is a flat array of items or array of sections
-  const isFlatArray = notes.length > 0 && notes[0].type !== undefined && notes[0].items === undefined;
+  const isFlatArray = normalizedNotes.length > 0 && normalizedNotes[0].type !== undefined && normalizedNotes[0].items === undefined;
 
   return (
     <div className="notes-completion-block" style={{
@@ -379,8 +393,8 @@ const NotesCompletionBlock = ({
       {/* Notes sections */}
       <div className="notes-container">
         {isFlatArray 
-          ? notes.map((note, index) => renderSection(note, index))
-          : notes.map((section, index) => renderSection(section, index))
+          ? normalizedNotes.map((note, index) => renderSection(note, index))
+          : normalizedNotes.map((section, index) => renderSection(section, index))
         }
       </div>
     </div>

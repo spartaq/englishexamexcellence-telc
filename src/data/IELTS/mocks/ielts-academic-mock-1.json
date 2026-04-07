@@ -303,7 +303,7 @@
         "subTasks": [
           {
             "type": "mcq",
-            "instruction": "Choose the correct letter, A, B or C.",
+            "instruction": "Choose the correct answer",
             "questions": [
               { "id": 11, "text": "The museum was originally built as a", "options": ["a private residence", "a government building", "a factory"], "answer": "a private residence" },
               { "id": 12, "text": "The museum's collection focuses mainly on", "options": ["ancient artefacts", "local history", "modern art"], "answer": "local history" },
