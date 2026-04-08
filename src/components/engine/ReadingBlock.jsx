@@ -44,7 +44,8 @@ const ReadingBlock = ({
   }) : []);
 
   const flatQuestions = questions;
-  const useCarousel = flatQuestions.length > 1;
+  // Always use carousel to ensure parts tabs are shown (consistent with Listening/Writing)
+  const useCarousel = true;
 
 // 3. Helper to calculate question range (e.g. "Questions 1-5")
   const getQuestionRange = () => {

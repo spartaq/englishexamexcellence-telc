@@ -101,7 +101,7 @@ export const LessonFactory = {
 
     // Resolve specific mock from path if provided
     if (path) {
-        if (path.startsWith('ielts-general-mock-') || path.startsWith('ielts-academic-mock-')) {
+        if (path.startsWith('ielts-general-mock-') || path.startsWith('ielts-academic-mock-') || path.startsWith('telc-b2-mock-')) {
             specificMock = getMockById(path);
         } else if (path.includes('full-test-')) {
             const mockId = path.split('full-test-').pop();

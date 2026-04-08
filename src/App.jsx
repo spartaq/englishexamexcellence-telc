@@ -354,8 +354,8 @@ const handleUpdateAnswer = useCallback((qId, val) => {
               onSelectModule={handleSelectModule}
               onOpenPaywall={() => setShowPaywall(true)}
               onSelectPath={(path, skill) => {
-                // Check if path is a mock ID (e.g., 'ielts-general-mock-1' or 'ielts-academic-mock-1')
-                if (path && (path.startsWith('ielts-general-mock-') || path.startsWith('ielts-academic-mock-'))) {
+                // Check if path is a mock ID (e.g., 'telc-b2-mock-1', 'ielts-general-mock-2', or 'ielts-academic-mock-1')
+                if (path && (path.startsWith('telc-b2-mock-') || path.startsWith('ielts-general-mock-') || path.startsWith('ielts-academic-mock-'))) {
                   const testType = path.startsWith('ielts-academic-mock-') ? 'academic' : 'general';
                   handleFullTestSelection(testType, path);
                 } else if (path === 'skill-tests') {

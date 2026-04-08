@@ -49,7 +49,7 @@ const LandingPage = () => {
 
         <header className="hero">
           <div className="hero-content">
-            <div className="hero-badge">IELTS • TOEFL • TELC</div>
+            <div className="hero-badge">TELC</div>
             <h1>
               English Exam Lab <br />
               <span className="text-gradient">Really learn.</span>
@@ -63,13 +63,13 @@ const LandingPage = () => {
             {/* THE FORK IN THE ROAD */}
             <div className="hero-selection-cards">
               <div className="selection-card">
-                <h3>IELTS</h3>
+                <h3>TELC</h3>
                 <p>General & Academic</p>
                 <button 
                   className="btn-primary full-width"
                   onClick={() => handleStartTraining()}
                 >
-                  START IELTS MOCK
+                  GO TO TELC HUB
                 </button>
               </div>
               

@@ -459,6 +459,122 @@
   to { transform: rotate(360deg); }
 }
 
+/* Topic Selection for Part 1 */
+.topic-selection-container {
+  margin: 20px 0;
+  padding: 20px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid var(--outline-variant);
+}
+
+.topic-selection-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--on-surface);
+  margin-bottom: 16px;
+}
+
+.topic-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.topic-option {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  border: 2px solid var(--outline-variant);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--surface);
+}
+
+.topic-option:hover {
+  border-color: var(--primary);
+  background: var(--surface-container-low);
+}
+
+.topic-option.selected {
+  border-color: var(--primary);
+  background: var(--primary-container);
+}
+
+.topic-option-radio {
+  font-size: 20px;
+  color: var(--primary);
+  margin-right: 12px;
+  line-height: 1;
+}
+
+.topic-option-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.topic-option-title {
+  font-weight: 600;
+  color: var(--on-surface);
+  margin-bottom: 4px;
+}
+
+.topic-option-hint {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+}
+
+/* Magazine Text Display for TELC B2 Part 2 */
+.speaking-magazine-text {
+  margin: 20px 0;
+  padding: 24px;
+  background: white;
+  border: 1px solid var(--outline-variant);
+  border-radius: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.speaking-text-content {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--on-surface);
+}
+
+.speaking-text-paragraph {
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+.speaking-text-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.topic-option-radio {
+  font-size: 20px;
+  color: var(--primary);
+  margin-right: 12px;
+  min-width: 24px;
+}
+
+.topic-option-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.topic-option-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--on-surface);
+}
+
+.topic-option-hint {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+}
+
 /* Dark mode styles for SpeakingBlock */
 @media (prefers-color-scheme: dark) {
   .speaking-container {

@@ -43,7 +43,7 @@ const BrandTestHub = ({
       <header className="ielts-hero-banner">
         <div className="hero-content">
           <span className="hero-badge">IELTS PRactice Tests</span>
-          <h1 className="hero-title">{activeTest?.title || 'IELTS Hub'}</h1>
+          <h1 className="hero-title">{activeTest?.title || 'TELC Hub'}</h1>
           <p className="hero-subtitle">
             Stop practicing. Start training. Build skills daily with Atoms, 
             or test your stamina with our full mock exam archive.

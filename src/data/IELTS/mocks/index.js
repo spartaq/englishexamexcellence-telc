@@ -3,20 +3,20 @@
 // This index provides access to all mocks for the application
 
 import academicMock1 from './ielts-academic-mock-1.json';
-import generalMock1 from './ielts-general-mock-1.json';
+import telcMock1 from './telc-b2-mock-1.json';
 import generalMock2 from './ielts-general-mock-2.json';
 
 // All mocks combined
 const allMocks = [
   academicMock1,
-  generalMock1,
+  telcMock1,
   generalMock2
 ];
 
 // Export as object for easy lookup by ID
 export const ieltsMocks = {
   'ielts-academic-mock-1': academicMock1,
-  'ielts-general-mock-1': generalMock1,
+  'telc-b2-mock-1': telcMock1,
   'ielts-general-mock-2': generalMock2
 };
 
@@ -27,7 +27,7 @@ export const academicMocks = {
 
 // General Training mocks
 export const generalMocks = {
-  'ielts-general-mock-1': generalMock1,
+  'telc-b2-mock-1': telcMock1,
   'ielts-general-mock-2': generalMock2
 };
 

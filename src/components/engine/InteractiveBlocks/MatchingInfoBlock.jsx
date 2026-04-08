@@ -25,15 +25,18 @@ export default function MatchingInfoBlock({
 }) {
   // Logic to determine available options (A, B, C, D...)
   const getOptions = () => {
+    // 0. Check parentContent (passed from QuestionDispatcher from passage level)
+    const contentSource = data.parentContent || data.content;
+    
     // 1. If content is provided as array of objects with id and text
-    if (data.content && Array.isArray(data.content)) {
-      const ids = data.content
+    if (contentSource && Array.isArray(contentSource)) {
+      const ids = contentSource
         .filter(item => typeof item === 'object' && item !== null && item.id)
         .map(item => item.id);
       if (ids.length > 0) return ids;
       
       // Fallback: try to extract from strings
-      return data.content.map((item, index) => {
+      return contentSource.map((item, index) => {
         // Match parentheses like (A), (B), etc. in the content
         const match = String(item).match(/\(([A-Z])\)/);
         return match ? match[1] : String.fromCharCode(65 + index); // Fallback to A, B, C...
@@ -50,6 +53,7 @@ export default function MatchingInfoBlock({
   
   // Get passage content (handle array, objects with text, or string)
   const getContentHtml = () => {
+    // Check parentContent first (passed from QuestionDispatcher from passage level)
     const content = data.parentContent || data.content;
     console.log('[MatchingInfoBlock] getContentHtml content:', content);
     if (!content) {

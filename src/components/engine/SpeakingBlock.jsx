@@ -35,12 +35,18 @@ const SpeakingBlock = ({
 
   // Determine if this is a topicCard exercise (Part 2 style) - check for topicCard or part4 ID
   const isTopicCardExercise = currentPart.topicCard || currentPart.id === 'part4' || currentPart.type === 'long-turn';
+  
+  // NEW: Check if this is Part 1 with multiple topic choices
+  const isPart1WithChoice = currentPart.topics && currentPart.topics.length > 1 && currentPart.type === 'interview';
 
   // Existing states
   const [mode, setMode] = useState(isTopicCardExercise ? 'prep' : 'recording');
   const [timeLeft, setTimeLeft] = useState(isTopicCardExercise ? 60 : 120);
   const [isRecording, setIsRecording] = useState(false);
   const [audioUrl, setAudioUrl] = useState(null);
+  
+  // NEW: State for selected topic in Part 1
+  const [selectedTopicIndex, setSelectedTopicIndex] = useState(null);
 
   const mediaRecorder = useRef(null);
   const audioChunks = useRef([]);
@@ -116,9 +122,11 @@ const SpeakingBlock = ({
     formData.append('audio', audioBlob, 'recording.webm');
 
     // Provide context to the AI so it knows what the student is supposed to talk about
+    const selectedTopic = selectedTopicIndex !== null ? currentPart.topics?.[selectedTopicIndex]?.topic : null;
     const context = currentPart.topicCard?.topic ||
       (currentPart.prompts?.[0]?.topic || (typeof currentPart.prompts?.[0] === 'string' ? currentPart.prompts[0] : null)) ||
       currentPart.candidateInfo?.theme ||
+      selectedTopic ||
       currentPart.topics?.[0]?.topic ||
       "General Task";
     formData.append('prompt', context);
@@ -161,7 +169,7 @@ const SpeakingBlock = ({
             )}
 
             <AnimatePresence>
-              {/* UI for PART 1: General Questions */}
+              {/* UI for PART 1: General Questions with topic choices */}
               {currentPart.prompts && mode !== 'review' && (
                 <motion.div key="prompts" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="prompts-list">
                   {currentPart.prompts.map((p, i) => (
@@ -181,6 +189,32 @@ const SpeakingBlock = ({
                 </motion.div>
               )}
 
+              {/* NEW: UI for Part 1 topic selection when multiple topics available */}
+              {isPart1WithChoice && mode !== 'review' && (
+                <motion.div key="topicSelection" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="topic-selection-container">
+                  <h4 className="topic-selection-title">Choose a topic to talk about:</h4>
+                  <div className="topic-options">
+                    {currentPart.topics.map((topic, tIndex) => (
+                      <div 
+                        key={tIndex} 
+                        className={`topic-option ${selectedTopicIndex === tIndex ? 'selected' : ''}`}
+                        onClick={() => setSelectedTopicIndex(tIndex)}
+                      >
+                        <div className="topic-option-radio">
+                          {selectedTopicIndex === tIndex ? '●' : '○'}
+                        </div>
+                        <div className="topic-option-content">
+                          <span className="topic-option-title">{topic.topic}</span>
+                          {topic.questions && topic.questions[0] && (
+                            <span className="topic-option-hint">{topic.questions[0].text}</span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
               {/* UI for IELTS Part 3: Discussion topics */}
               {currentPart.topics && mode !== 'review' && (
                 <motion.div key="topics" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="topics-list">
@@ -195,6 +229,17 @@ const SpeakingBlock = ({
                       ))}
                     </div>
                   ))}
+                </motion.div>
+              )}
+
+              {/* UI for TELC B2 Part 2: Magazine Text */}
+              {currentPart.text && mode !== 'review' && (
+                <motion.div key="magazineText" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="speaking-magazine-text">
+                  <div className="speaking-text-content">
+                    {currentPart.text.split('\n\n').map((para, i) => (
+                      <p key={i} className="speaking-text-paragraph">{para}</p>
+                    ))}
+                  </div>
                 </motion.div>
               )}
 

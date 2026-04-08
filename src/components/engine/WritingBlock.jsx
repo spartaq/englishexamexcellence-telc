@@ -72,29 +72,15 @@ const WritingBlock = ({
                 <h2 className="invictus-content-title">{data.title}</h2>
                 {data.description && <p className="invictus-content-description">{data.description}</p>}
               </div>
-            )}
-
-            <div className="writing-header">
-              <div className="header-meta">
-                <span className="task-label">IELTS Writing Task {data.taskType}</span>
-                <span className={`word-count ${isMinimumMet ? 'goal-reached' : ''}`}>
-                  {wordCount} / {data.targetWords || 150} Words
-                </span>
-              </div>
-              <div className="momentum-track">
-                <div className="momentum-fill" style={{ width: `${progressPercentage}%` }} />
-              </div>
-            </div>
-
+            )}  
+           <div className="prompt-text">{data.intro}</div>
             <div className="prompt-section">
-              <div className="prompt-text">{data.prompt}</div>
-              {data.bullets && (
-                <ul className="prompt-bullets">
-                  {data.bullets?.map((bullet, idx) => (
-                    <li key={idx}>{bullet}</li>
-                  ))}
-                </ul>
+              {data.context && (
+                <div className="context-text">{data.context}</div>
               )}
+              {data.instruction && (
+                <div className="instruction-text">{data.instruction}</div>
+              )}  
             </div>
           </>
         }

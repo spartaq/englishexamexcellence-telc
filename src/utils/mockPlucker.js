@@ -265,8 +265,8 @@ export const pluckRandom = (skill) => {
   if (skill === 'reading_general') {
     // Pull only General Reading passages
     const generalReadingPassages = getAllReadingPassages().filter(p => {
-      // Check if passage is from general mock (new format uses 'ielts-general-mock-1')
-      return p.mockId === 'ielts-general-mock-1' || p.testType === 'general';
+      // Check if passage is from general mock (supports both 'telc-b2-mock-1' and 'ielts-general-mock-2')
+      return p.mockId === 'telc-b2-mock-1' || p.mockId === 'ielts-general-mock-2' || p.testType === 'general';
     });
     
     const passage = getRandomItem(generalReadingPassages);
@@ -297,8 +297,8 @@ export const pluckRandom = (skill) => {
   if (skill === 'writing_general') {
     // Pull only General Writing tasks (letter writing, informal/semi-formal)
     const generalWritingTasks = getAllWritingTasks().filter(t => {
-      // Check if task is from general mock (new format uses 'ielts-general-mock-1')
-      return t.mockId === 'ielts-general-mock-1' || t.testType === 'general';
+      // Check if task is from general mock (supports both 'telc-b2-mock-1' and 'ielts-general-mock-2')
+      return t.mockId === 'telc-b2-mock-1' || t.mockId === 'ielts-general-mock-2' || t.testType === 'general';
     });
     
     const task = getRandomItem(generalWritingTasks);
