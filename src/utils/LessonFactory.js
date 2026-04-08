@@ -61,6 +61,42 @@ export const LessonFactory = {
       });
     }
     
+    // Add language elements sections (for TELC tests)
+    // Add as a single section with subTasks, not separate sections
+    if (mock.languageElements?.sections && mock.languageElements.sections.length > 0) {
+      console.log('[LessonFactory] Found languageElements sections:', mock.languageElements.sections.length);
+      // Collect all subTasks from all language element sections
+      let allSubTasks = [];
+      mock.languageElements.sections.forEach((section, sectionIdx) => {
+        if (section.subTasks && section.subTasks.length > 0) {
+          section.subTasks.forEach(st => {
+            allSubTasks.push({
+              ...st,
+              // Ensure type is gap-fill-tokens for rendering
+              type: st.type || 'gap-fill-tokens'
+            });
+          });
+        } else {
+          // If no subTasks, treat the section itself as a task
+          allSubTasks.push({
+            ...section,
+            type: section.type || 'gap-fill-tokens'
+          });
+        }
+      });
+      
+      sections.push({
+        id: 'language-elements',
+        title: mock.languageElements.title || 'Language Elements',
+        skill: 'language-elements',
+        type: 'LANGUAGE_ELEMENTS',
+        subTasks: allSubTasks
+      });
+      console.log('[LessonFactory] Added language elements as single section with', allSubTasks.length, 'subTasks');
+    }
+    
+    console.log('[LessonFactory] Final sections:', sections.map(s => ({ skill: s.skill, type: s.type, title: s.title })));
+    
     // Add speaking parts
     if (mock.speaking?.parts) {
       mock.speaking.parts.forEach(part => {

@@ -20,12 +20,15 @@ const LessonHeaderTabs = ({
 }) => {
   if (!activeLesson) return null;
 
+  console.log('[LessonHeaderTabs] Render - activeLesson:', activeLesson?.title);
+  console.log('[LessonHeaderTabs] Sections:', activeLesson?.sections?.map(s => ({ skill: s.skill, type: s.type, title: s.title })));
+  
   const sections = activeLesson.sections || activeLesson.passages || [];
   const hasMultipleSkills = sections.some(s => s.skill);
 
   // Combined flow: Vocab, Reading, Writing, Speaking, Listening
   if (hasMultipleSkills) {
-    const skillOrder = ['vocab', 'reading', 'writing', 'speaking', 'listening'];
+    const skillOrder = ['vocab', 'reading', 'writing', 'speaking', 'listening', 'language-elements'];
     const availableSkills = skillOrder.filter(skill => 
       sections.some(s => s.skill === skill)
     );
@@ -54,6 +57,8 @@ const LessonHeaderTabs = ({
               <><PenTool size={14} /></>
             ) : skill === 'speaking' ? (
               <><Mic size={14} /></>
+            ) : skill === 'language-elements' ? (
+              <><PenTool size={14} /></>
             ) : (
               skill
             )}
@@ -79,6 +84,8 @@ const LessonHeaderTabs = ({
           >
             {s.skill === 'vocab' ? (
               <><Zap size={14} /> Vocab</>
+            ) : s.skill === 'language-elements' ? (
+              <><PenTool size={14} /></>
             ) : s.skill === 'reading' ? (
               <><BookOpen size={14} /></>
             ) : s.skill === 'listening' ? (
@@ -99,6 +106,8 @@ const LessonHeaderTabs = ({
               <><Headset size={14} /> Listening</>
             ) : s.type === 'WRITING' ? (
               <><PenTool size={14} /> Writing</>
+            ) : s.type === 'LANGUAGE_ELEMENTS' ? (
+              <><PenTool size={14} /></>
             ) : s.type === 'VOCAB' ? (
               <><Zap size={14} /> Vocab</>
             ) : (s.type && (s.type.includes('reading') || s.type === 'reading-practice' || s.type.includes('ielts'))) ? (

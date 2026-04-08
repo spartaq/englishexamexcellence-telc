@@ -20,7 +20,9 @@ const QuestionCarousel = ({
   setActiveSectionIndex,
   setActivePassageIndex,
   setIsReviewMode,
-  availableSkills = []
+  availableSkills = [],
+  // Force show parts tabs (for Language Elements)
+  showPartsTabs = false
 }) => {
   console.log('QuestionCarousel props:', { questionsLength: questions?.length, showCheckAnswers, hasNextPassage, hasNextSection, hasOnCheckAnswers: !!onCheckAnswers });
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -59,10 +61,11 @@ const QuestionCarousel = ({
   const isLastQuestion = currentIndex === questions.length - 1;
   const showNextPart = isLastQuestion && (hasNextPassage || hasNextSection);
   
-  // Calculate parts tabs visibility - use current section's skill
+  // Calculate parts tabs visibility - use prop or calculate from sections
   const currentSkill = sections[activeSectionIndex]?.skill || availableSkills[activeSkillTab];
   const skillSections = sections.filter(s => s.skill === currentSkill);
-  const showPartsTabs = skillSections.length > 1;
+  const computedShowPartsTabs = skillSections.length > 1 || questions.length > 1;
+  const shouldShowPartsTabs = showPartsTabs || computedShowPartsTabs;
 
   const handleScroll = (e) => {
     const scrollLeft = e.target.scrollLeft;
@@ -93,22 +96,28 @@ const QuestionCarousel = ({
       </div>
       
       {/* Footer with parts tabs and check answers button */}
-      {(onCheckAnswers || showPartsTabs) && (
+      {(onCheckAnswers || shouldShowPartsTabs) && (
         <div className="carousel-nav-footer">
           {/* Parts tabs */}
-          {showPartsTabs && (
+          {shouldShowPartsTabs && (
             <div className="carousel-parts-tabs">
-              {skillSections.map((s, idx) => {
-                const sidx = sections.findIndex(sec => sec === s);
+              {(skillSections.length > 0 ? skillSections : questions).map((s, idx) => {
+                const sidx = sections.length > 0 ? sections.findIndex(sec => sec === s) : idx;
                 return (
                   <button 
                     key={idx} 
                     onClick={() => { 
                       if (setActiveSectionIndex) setActiveSectionIndex(sidx); 
                       if (setActivePassageIndex) setActivePassageIndex(0); 
-                      if (setIsReviewMode) setIsReviewMode(false); 
+                      if (setIsReviewMode) setIsReviewMode(false);
+                      setCurrentIndex(idx);
+                      // Scroll to the question slide horizontally
+                      if (carouselRef.current) {
+                        const slideWidth = carouselRef.current.clientWidth || 300;
+                        carouselRef.current.scrollTo({ left: idx * slideWidth, behavior: 'smooth' });
+                      }
                     }} 
-                    className={`carousel-part-tab ${activeSectionIndex === sidx ? 'active' : ''}`}>
+                    className={`carousel-part-tab ${currentIndex === idx ? 'active' : ''}`}>
                     {idx + 1}
                   </button>
                 );

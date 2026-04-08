@@ -79,6 +79,28 @@ export const getAllWritingTasks = () => {
   });
 };
 
+// Helper to get all language elements from all mocks
+export const getAllLanguageElements = () => {
+  return allMocks.flatMap(mock => {
+    const sections = [];
+    
+    if (mock.languageElements?.sections) {
+      mock.languageElements.sections.forEach(section => {
+        sections.push({
+          ...section,
+          mockId: mock.id,
+          mockTitle: mock.title,
+          mockNumber: mock.mockNumber,
+          testType: mock.type,
+          skill: 'language-elements'
+        });
+      });
+    }
+    
+    return sections;
+  });
+};
+
 // Helper to get all listening sections from all mocks
 export const getAllListeningSections = () => {
   return allMocks.flatMap(mock => {

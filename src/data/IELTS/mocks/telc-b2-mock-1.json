@@ -13,26 +13,126 @@
     "title": "Test Vocabulary",
     "level": "B2",
     "words": [
-      { "term": "femininity", "hu": "nőiesesség", "definition": "the quality of being female or having qualities considered typical of women", "example": "High heels were seen as a symbol of femininity." },
-      { "term": "professionalism", "hu": "szakértelem", "definition": "the competence or skill expected of a professional", "example": "High heels were seen as a symbol of professionalism in business." },
-      { "term": "regulation", "hu": "szabályozás", "definition": "an official rule or directive", "example": "Unfair regulation was introduced." },
-      { "term": "petrol", "hu": "üzemanyag", "definition": "liquid fuel used in internal combustion engines", "example": "When filling up with petrol, keep an eye on the time." },
-      { "term": "CCTV", "hu": "kamerarendszer", "definition": "closed-circuit television for surveillance", "example": "Companies installed CCTV cameras at entrances." },
-      { "term": "motorist", "hu": "autós", "definition": "a person who drives a car", "example": "Many motorists complained about the time constraint." },
-      { "term": "luxury", "hu": "luxus", "definition": "great comfort and wealth", "example": "In luxury hotels, mattresses have become a temptation." },
-      { "term": "solist", "hu": "szólista", "definition": "a musician who performs a solo", "example": "Stephen Morris has played as soloist in concerts." },
-      { "term": "textbook", "hu": "tankönyv", "definition": "a book used for studying a particular subject", "example": "He stole textbooks from universities." },
-      { "term": "entrepreneur", "hu": "vállalkozó", "definition": "a person who starts their own business", "example": "They tracked down the criminal entrepreneur." },
-      { "term": "invasive", "hu": "invazív", "definition": "tending to spread and cause damage", "example": "Non-native invasive plants are dangerous." },
-      { "term": "species", "hu": "faj", "definition": "a type of plant or animal", "example": "Japanese knotweed is one of the world's worst invasive species." },
-      { "term": "volcanic", "hu": "vulkanikus", "definition": "relating to volcanoes", "example": "Japanese knotweed grows naturally on volcano sides." },
-      { "term": "botanist", "hu": "botanikus", "definition": "a scientist who studies plants", "example": "Philippe von Siebold was a botanist." },
-      { "term": "sap", "hu": "nedv", "definition": "the liquid in a plant", "example": "The problem is the liquid inside the giant hogweed, known as the sap." },
-      { "term": "blister", "hu": "hólyag", "definition": "a small bubble on the skin", "example": "You will receive blistering burns." },
-      { "term": "enigma", "hu": "rejtély", "definition": "something mysterious or puzzling", "example": "The word 'enigma' means something that is mysterious." },
-      { "term": "variation", "hu": "változat", "definition": "a change or difference", "example": "Elgar experimented with the tune, playing different versions." },
-      { "term": "orchestra", "hu": "zenekar", "definition": "a large group of musicians", "example": "Elgar had his first big success with the Enigma Variations for orchestra." },
-      { "term": "grant", "hu": "támogatás", "definition": "money given by an organization", "example": "Our grants can provide finances to get a group up and running." }
+      {
+        "term": "femininity",
+        "hu": "nőiesesség",
+        "definition": "the quality of being female or having qualities considered typical of women",
+        "example": "High heels were seen as a symbol of femininity."
+      },
+      {
+        "term": "professionalism",
+        "hu": "szakértelem",
+        "definition": "the competence or skill expected of a professional",
+        "example": "High heels were seen as a symbol of professionalism in business."
+      },
+      {
+        "term": "regulation",
+        "hu": "szabályozás",
+        "definition": "an official rule or directive",
+        "example": "Unfair regulation was introduced."
+      },
+      {
+        "term": "petrol",
+        "hu": "üzemanyag",
+        "definition": "liquid fuel used in internal combustion engines",
+        "example": "When filling up with petrol, keep an eye on the time."
+      },
+      {
+        "term": "CCTV",
+        "hu": "kamerarendszer",
+        "definition": "closed-circuit television for surveillance",
+        "example": "Companies installed CCTV cameras at entrances."
+      },
+      {
+        "term": "motorist",
+        "hu": "autós",
+        "definition": "a person who drives a car",
+        "example": "Many motorists complained about the time constraint."
+      },
+      {
+        "term": "luxury",
+        "hu": "luxus",
+        "definition": "great comfort and wealth",
+        "example": "In luxury hotels, mattresses have become a temptation."
+      },
+      {
+        "term": "solist",
+        "hu": "szólista",
+        "definition": "a musician who performs a solo",
+        "example": "Stephen Morris has played as soloist in concerts."
+      },
+      {
+        "term": "textbook",
+        "hu": "tankönyv",
+        "definition": "a book used for studying a particular subject",
+        "example": "He stole textbooks from universities."
+      },
+      {
+        "term": "entrepreneur",
+        "hu": "vállalkozó",
+        "definition": "a person who starts their own business",
+        "example": "They tracked down the criminal entrepreneur."
+      },
+      {
+        "term": "invasive",
+        "hu": "invazív",
+        "definition": "tending to spread and cause damage",
+        "example": "Non-native invasive plants are dangerous."
+      },
+      {
+        "term": "species",
+        "hu": "faj",
+        "definition": "a type of plant or animal",
+        "example": "Japanese knotweed is one of the world's worst invasive species."
+      },
+      {
+        "term": "volcanic",
+        "hu": "vulkanikus",
+        "definition": "relating to volcanoes",
+        "example": "Japanese knotweed grows naturally on volcano sides."
+      },
+      {
+        "term": "botanist",
+        "hu": "botanikus",
+        "definition": "a scientist who studies plants",
+        "example": "Philippe von Siebold was a botanist."
+      },
+      {
+        "term": "sap",
+        "hu": "nedv",
+        "definition": "the liquid in a plant",
+        "example": "The problem is the liquid inside the giant hogweed, known as the sap."
+      },
+      {
+        "term": "blister",
+        "hu": "hólyag",
+        "definition": "a small bubble on the skin",
+        "example": "You will receive blistering burns."
+      },
+      {
+        "term": "enigma",
+        "hu": "rejtély",
+        "definition": "something mysterious or puzzling",
+        "example": "The word 'enigma' means something that is mysterious."
+      },
+      {
+        "term": "variation",
+        "hu": "változat",
+        "definition": "a change or difference",
+        "example": "Elgar experimented with the tune, playing different versions."
+      },
+      {
+        "term": "orchestra",
+        "hu": "zenekar",
+        "definition": "a large group of musicians",
+        "example": "Elgar had his first big success with the Enigma Variations for orchestra."
+      },
+      {
+        "term": "grant",
+        "hu": "támogatás",
+        "definition": "money given by an organization",
+        "example": "Our grants can provide finances to get a group up and running."
+      }
     ]
   },
   "reading": {
@@ -50,32 +150,38 @@
             "subtitle": "Short Texts 1-5",
             "title": "Various texts",
             "type": "ielts-complex",
-            "vocabList": ["femininity", "professionalism", "regulation", "petrol", "luxury", "solist", "textbook"],
-            "content": [							  
-                  {
-                    "id": "1",
-                    "text": "In the 18th century, high heels were standard for both men and women but lost popularity after the French Revolution. When they returned again in the 20th century, they were seen as a symbol of femininity in the fashion world and of professionalism in the business world. As women gained more freedom and power, high heels became higher, thinner and harder to walk on than ever before. Some women love their high heels and would not go without them, but many others would prefer to do without the discomfort they cause. Unfortunately, high heels are often necessary for a woman if she wishes to be taken seriously in the workplace in certain cultures. In Japan, for example, high heels are compulsory at many companies. A petition protesting against this regulation was even turned down by Japan's Minister of Health and Labour saying this practice was 'necessary and appropriate'."
-								 
-                  },
-                  {
-                    "id": "2",
-                    "text": "When you are filling up with petrol, using the car wash or drinking a coffee, keep an eye on the time if you wish to avoid a penalty. There may be a 30-minute or even only a 20-minute maximum stay limit. Several petrol companies in the UK have installed CCTV cameras at the entrances and exits to fuel stations in order to enforce the new rule. Any driver who overstays the limit may be fined up to £100. Many motorists have complained about the unrealistic time constraint and think that 45 minutes would be much more reasonable. If there is a queue at the pump or at the till or if you have to wait to use the car wash, it is highly probable that you will need more time than is allowed. What makes things worse is that few drivers are aware of this new rule. Warning signs at the petrol station can easily be missed, especially after dark."
-								 
-                  },
-                  {
-                    "id": "3",
-                    "text": "It is not unusual for hotel guests to take shower gel and other toiletries with them when they leave. They might also take towels or coat hangers or even the iron. However, these are minor incidents compared to the new trend – that of disappearing mattresses, especially in luxury hotels. Many hotel mattresses are of such high quality that they have become a real temptation for thieves. The method of getting someone to distract staff at reception and sneaking an object out while no-one is looking is not the most efficient in these cases. Instead, mattresses usually disappear during the night in hotels that have an elevator directly connected to the underground car park. But other incidents have also made the headlines. For example, one hotel was recently robbed of its grand piano by a group of men in overalls claiming that the piano was due to be collected for repair."
-                  },		  
-                  {
-                    "id": "4",
-                    "text": "A missing 310-year-old violin worth £250,000 has been returned to its owner with help coming from an unexpected place. Stephen Morris, who has played as soloist in concerts and recorded with several famous singers, left his instrument on a luggage rack by mistake when getting off his train in south-east London. After he reported the loss, police examined CCTV footage from the journey which showed a man taking the violin and then leaving the train. The image of the man was released to the public and Morris appealed for help stating that the loss was 'like having my arm cut off'. In a moment of guilt, the thief contacted Morris and personally handed the violin back to him in a carpark with his sincere apologies. Morris sent out a tweet thanking the public for their support and saying he was happy that he could sleep again now that he had his beloved instrument back."		   
-                  },
-                  {
-                    "id": "5",
-                    "text": "A man has been jailed for stealing more than 7,000 books from Scottish universities and then selling them online to make an amazing amount of money. The textbooks he stole were in demand from students studying subjects such as marketing, business studies and nursing. His illegal business was detected by Douglas, a PhD student who wanted to borrow a specific textbook from his university library. The book was not available, but Douglas later found it and another book online. He became suspicious when the books arrived, because they had originated from his university library but had a fake 'withdrawn' stamp on the cover. When the university and police investigated, they discovered that over 4,000 books in the system were missing. With the help of intelligent software, they were able to track down the criminal entrepreneur. He had used a visitor reader's ticket and simply removed the books in his rucksack. It was also discovered that he had stolen books from several other universities too."	  
-                  }
-                ],
-            "subTasks": [              
+            "vocabList": [
+              "femininity",
+              "professionalism",
+              "regulation",
+              "petrol",
+              "luxury",
+              "solist",
+              "textbook"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "In the 18th century, high heels were standard for both men and women but lost popularity after the French Revolution. When they returned again in the 20th century, they were seen as a symbol of femininity in the fashion world and of professionalism in the business world. As women gained more freedom and power, high heels became higher, thinner and harder to walk on than ever before. Some women love their high heels and would not go without them, but many others would prefer to do without the discomfort they cause. Unfortunately, high heels are often necessary for a woman if she wishes to be taken seriously in the workplace in certain cultures. In Japan, for example, high heels are compulsory at many companies. A petition protesting against this regulation was even turned down by Japan's Minister of Health and Labour saying this practice was 'necessary and appropriate'."
+              },
+              {
+                "id": "2",
+                "text": "When you are filling up with petrol, using the car wash or drinking a coffee, keep an eye on the time if you wish to avoid a penalty. There may be a 30-minute or even only a 20-minute maximum stay limit. Several petrol companies in the UK have installed CCTV cameras at the entrances and exits to fuel stations in order to enforce the new rule. Any driver who overstays the limit may be fined up to £100. Many motorists have complained about the unrealistic time constraint and think that 45 minutes would be much more reasonable. If there is a queue at the pump or at the till or if you have to wait to use the car wash, it is highly probable that you will need more time than is allowed. What makes things worse is that few drivers are aware of this new rule. Warning signs at the petrol station can easily be missed, especially after dark."
+              },
+              {
+                "id": "3",
+                "text": "It is not unusual for hotel guests to take shower gel and other toiletries with them when they leave. They might also take towels or coat hangers or even the iron. However, these are minor incidents compared to the new trend – that of disappearing mattresses, especially in luxury hotels. Many hotel mattresses are of such high quality that they have become a real temptation for thieves. The method of getting someone to distract staff at reception and sneaking an object out while no-one is looking is not the most efficient in these cases. Instead, mattresses usually disappear during the night in hotels that have an elevator directly connected to the underground car park. But other incidents have also made the headlines. For example, one hotel was recently robbed of its grand piano by a group of men in overalls claiming that the piano was due to be collected for repair."
+              },
+              {
+                "id": "4",
+                "text": "A missing 310-year-old violin worth £250,000 has been returned to its owner with help coming from an unexpected place. Stephen Morris, who has played as soloist in concerts and recorded with several famous singers, left his instrument on a luggage rack by mistake when getting off his train in south-east London. After he reported the loss, police examined CCTV footage from the journey which showed a man taking the violin and then leaving the train. The image of the man was released to the public and Morris appealed for help stating that the loss was 'like having my arm cut off'. In a moment of guilt, the thief contacted Morris and personally handed the violin back to him in a carpark with his sincere apologies. Morris sent out a tweet thanking the public for their support and saying he was happy that he could sleep again now that he had his beloved instrument back."
+              },
+              {
+                "id": "5",
+                "text": "A man has been jailed for stealing more than 7,000 books from Scottish universities and then selling them online to make an amazing amount of money. The textbooks he stole were in demand from students studying subjects such as marketing, business studies and nursing. His illegal business was detected by Douglas, a PhD student who wanted to borrow a specific textbook from his university library. The book was not available, but Douglas later found it and another book online. He became suspicious when the books arrived, because they had originated from his university library but had a fake 'withdrawn' stamp on the cover. When the university and police investigated, they discovered that over 4,000 books in the system were missing. With the help of intelligent software, they were able to track down the criminal entrepreneur. He had used a visitor reader's ticket and simply removed the books in his rucksack. It was also discovered that he had stolen books from several other universities too."
+              }
+            ],
+            "subTasks": [
               {
                 "type": "heading-match",
                 "instruction": "Choose the correct heading for each paragraph.",
@@ -104,7 +210,7 @@
                     "id": "5",
                     "text": "Paragraph 5",
                     "answer": 7
-                  }					  
+                  }
                 ],
                 "headings": [
                   "Police find goods",
@@ -119,13 +225,10 @@
                   "Unfair regulation introduced"
                 ]
               }
-              
             ]
           }
         ]
       },
-
-
       {
         "id": "s2",
         "section": 2,
@@ -138,67 +241,82 @@
             "subtitle": "Reading Passage 2",
             "type": "ielts-complex",
             "content": [
-              { "id": "A", "text": "Not every beautiful plant growing in your garden or in the countryside is a welcome sight. We are not talking about normal weeds - plants which are not wanted, but can be removed with a bit of hard work. This article features another category: species, often from overseas, that grow where they do not belong and are dangerous for humans and even buildings. These non-native plants invade new areas, spread rapidly and are difficult to remove. As a result, they are called non-native invasive plants." },
-              { "id": "B", "text": "Not growing in their home country, the problem with many of these plants is that they often have no natural enemies to keep them under control. A good example of non-native invasive plants is Japanese knotweed. The World Conservation Union lists this plant as one of the world's worst invasive species, because it can grow through hard surfaces, such as roads and walls. In the UK, it is already causing massive damage to roads and affecting property values. Japanese knotweed originally came from Asia and grows naturally on the sides of volcanoes, where volcanic ash keeps it from spreading. It was introduced to the West by the botanist Philippe von Siebold, who sent it to the Royal Botanical Gardens Kew in August 1850 in a parcel of plants. The attractive plant, which reaches a height of three to four metres, was much admired and quickly became very popular with the Victorians. Garden centres sold it commercially and it was deliberately planted all over the UK. Since 1981 it has been a crime to plant or grow Japanese knotweed in the wild. This includes moving polluted soil or plant cuttings. If you are caught doing so, you can be fined or even sent to prison for up to two years." },
-              { "id": "C", "text": "It is not illegal to have this plant on your property, but you as the landowner have the legal responsibility to ensure that it does not spread to your neighbours' land. Anyone wishing to sell a house with Japanese knotweed within seven metres of their property has a problem. Many banks will refuse to give potential buyers a loan and insurance companies will not bear the cost of damage caused by this plant. Additionally, neighbours could take legal action because their properties are also in danger indirectly. Japanese knotweed is incredibly difficult and expensive to remove. It grows very quickly and aggressively, with roots three metres deep and seven metres across. You can try and dig it out yourself, but because it spreads underground, it is almost impossible to ensure all the roots have been removed. Consequently, the plant will soon appear again. Also, this plant is classified as special waste, so you have to take it to a place that has permission to dispose of it, which may mean you have to pay a huge fee. Alternatively, the plant can be treated with a chemical weed killer. This takes about three years to be effective and is slightly cheaper than removing it manually. Considering the seriousness of the situation, professional help is the most effective and sensible way to solve the problem." },
-              { "id": "D", "text": "Another invasive species is the giant hogweed which comes from Central Asia. It was first introduced to European gardens in the middle of the 19th century because of its impressive white flowers which are grouped together on umbrella-like heads. It can have a height of up to five metres and grows at riversides and anywhere else where the soil is moist. The problem with this plant is the liquid inside it, known as the sap. If you come into contact with it, and are then exposed to sunlight, you will receive blistering burns that sometimes stay for several weeks and may well leave a scar. If you touch this plant, clean the skin area with lots of soap and water and then consult a doctor. The problem is that a victim, not being aware of the danger, does not notice anything is wrong until a few days later. And the biggest issue with this plant is that children are tempted to play with it due to its large leaves and exciting hollow stalks. There have been many cases of hospitalisation." },
-              { "id": "E", "text": "These are just two examples, but they have something in common. They started their invasion as a beautiful plant specimen brought home from a far-away country without anyone being aware of the consequences of this action. Due to today's globalisation, we have a new responsibility: to protect location-specific environments and not move native plants from country to country." }
+              {
+                "id": "A",
+                "text": "Not every beautiful plant growing in your garden or in the countryside is a welcome sight. We are not talking about normal weeds - plants which are not wanted, but can be removed with a bit of hard work. This article features another category: species, often from overseas, that grow where they do not belong and are dangerous for humans and even buildings. These non-native plants invade new areas, spread rapidly and are difficult to remove. As a result, they are called non-native invasive plants."
+              },
+              {
+                "id": "B",
+                "text": "Not growing in their home country, the problem with many of these plants is that they often have no natural enemies to keep them under control. A good example of non-native invasive plants is Japanese knotweed. The World Conservation Union lists this plant as one of the world's worst invasive species, because it can grow through hard surfaces, such as roads and walls. In the UK, it is already causing massive damage to roads and affecting property values. Japanese knotweed originally came from Asia and grows naturally on the sides of volcanoes, where volcanic ash keeps it from spreading. It was introduced to the West by the botanist Philippe von Siebold, who sent it to the Royal Botanical Gardens Kew in August 1850 in a parcel of plants. The attractive plant, which reaches a height of three to four metres, was much admired and quickly became very popular with the Victorians. Garden centres sold it commercially and it was deliberately planted all over the UK. Since 1981 it has been a crime to plant or grow Japanese knotweed in the wild. This includes moving polluted soil or plant cuttings. If you are caught doing so, you can be fined or even sent to prison for up to two years."
+              },
+              {
+                "id": "C",
+                "text": "It is not illegal to have this plant on your property, but you as the landowner have the legal responsibility to ensure that it does not spread to your neighbours' land. Anyone wishing to sell a house with Japanese knotweed within seven metres of their property has a problem. Many banks will refuse to give potential buyers a loan and insurance companies will not bear the cost of damage caused by this plant. Additionally, neighbours could take legal action because their properties are also in danger indirectly. Japanese knotweed is incredibly difficult and expensive to remove. It grows very quickly and aggressively, with roots three metres deep and seven metres across. You can try and dig it out yourself, but because it spreads underground, it is almost impossible to ensure all the roots have been removed. Consequently, the plant will soon appear again. Also, this plant is classified as special waste, so you have to take it to a place that has permission to dispose of it, which may mean you have to pay a huge fee. Alternatively, the plant can be treated with a chemical weed killer. This takes about three years to be effective and is slightly cheaper than removing it manually. Considering the seriousness of the situation, professional help is the most effective and sensible way to solve the problem."
+              },
+              {
+                "id": "D",
+                "text": "Another invasive species is the giant hogweed which comes from Central Asia. It was first introduced to European gardens in the middle of the 19th century because of its impressive white flowers which are grouped together on umbrella-like heads. It can have a height of up to five metres and grows at riversides and anywhere else where the soil is moist. The problem with this plant is the liquid inside it, known as the sap. If you come into contact with it, and are then exposed to sunlight, you will receive blistering burns that sometimes stay for several weeks and may well leave a scar. If you touch this plant, clean the skin area with lots of soap and water and then consult a doctor. The problem is that a victim, not being aware of the danger, does not notice anything is wrong until a few days later. And the biggest issue with this plant is that children are tempted to play with it due to its large leaves and exciting hollow stalks. There have been many cases of hospitalisation."
+              },
+              {
+                "id": "E",
+                "text": "These are just two examples, but they have something in common. They started their invasion as a beautiful plant specimen brought home from a far-away country without anyone being aware of the consequences of this action. Due to today's globalisation, we have a new responsibility: to protect location-specific environments and not move native plants from country to country."
+              }
             ],
             "subTasks": [
               {
                 "type": "mcq",
                 "instruction": "Choose the correct answer",
                 "questions": [
-                {
-                  "id": "6",
-                  "text": "Invasive plants are covering increasingly large areas because",
-                  "options": [
-                  "it is not possible to get rid of them.",
-                  "the climate of a non-native country suits them better.",
-                  "they don't have to defend themselves against anything."
-                  ],
-                  "answer": "the climate of a non-native country suits them better."
-                },
-                {
-                  "id": "7",
-                  "text": "Japanese knotweed",
-                  "options": [
-                  "cultivation can result in serious punishment.",
-                  "has spread all over Britain accidentally.",
-                  "is still available commercially."
-                  ],
-                  "answer": "cultivation can result in serious punishment."
-                },
-                {
-                  "id": "8",
-                  "text": "Having Japanese knotweed on your property means you",
-                  "options": [
-                  "can only successfully sell your house via a bank.",
-                  "may have a serious dispute with your neighbour.",
-                  "need to take out additional insurance."
-                  ],
-                  "answer": "may have a serious dispute with your neighbour."
-                },
-                {
-                  "id": "9",
-                  "text": "To get rid of Japanese knotweed, the author recommends",
-                  "options": [
-                  "choosing the slower more inexpensive method.",
-                  "letting experts take on the responsibility.",
-                  "working very carefully on your own."
-                  ],
-                  "answer": "letting experts take on the responsibility."
-                },
-                {
-                  "id": "10",
-                  "text": "Contact with the giant hogweed",
-                  "options": [
-                  "always has immediate visible effects.",
-                  "can cause permanent damage.",
-                  "cleans your skin thoroughly."
-                  ],
-                  "answer": "can cause permanent damage."
-                }
+                  {
+                    "id": "6",
+                    "text": "Invasive plants are covering increasingly large areas because",
+                    "options": [
+                      "it is not possible to get rid of them.",
+                      "the climate of a non-native country suits them better.",
+                      "they don't have to defend themselves against anything."
+                    ],
+                    "answer": "the climate of a non-native country suits them better."
+                  },
+                  {
+                    "id": "7",
+                    "text": "Japanese knotweed",
+                    "options": [
+                      "cultivation can result in serious punishment.",
+                      "has spread all over Britain accidentally.",
+                      "is still available commercially."
+                    ],
+                    "answer": "cultivation can result in serious punishment."
+                  },
+                  {
+                    "id": "8",
+                    "text": "Having Japanese knotweed on your property means you",
+                    "options": [
+                      "can only successfully sell your house via a bank.",
+                      "may have a serious dispute with your neighbour.",
+                      "need to take out additional insurance."
+                    ],
+                    "answer": "may have a serious dispute with your neighbour."
+                  },
+                  {
+                    "id": "9",
+                    "text": "To get rid of Japanese knotweed, the author recommends",
+                    "options": [
+                      "choosing the slower more inexpensive method.",
+                      "letting experts take on the responsibility.",
+                      "working very carefully on your own."
+                    ],
+                    "answer": "letting experts take on the responsibility."
+                  },
+                  {
+                    "id": "10",
+                    "text": "Contact with the giant hogweed",
+                    "options": [
+                      "always has immediate visible effects.",
+                      "can cause permanent damage.",
+                      "cleans your skin thoroughly."
+                    ],
+                    "answer": "can cause permanent damage."
+                  }
                 ]
               }
             ]
@@ -217,21 +335,56 @@
             "subtitle": "Reading Passage 3",
             "type": "ielts-complex",
             "content": [
-              { "id": "A", "text": "Argentine Tango - 'There are short cuts to happiness and dancing is one of them.' Why not learn Argentine tango and get to know its fascinating culture? We have a big collection of authentic South American music. Group classes, workshops and private classes possible. No partner needed. No previous dance experience required. All ages welcome. New complete beginner courses starting every two months." },
-              { "id": "B", "text": "Breathe In Sing Out - Fun singing and improved breathing for people diagnosed with a lung condition. Anyone with a persistent breathing difficulty is welcome to come along and try it out. No need to consider yourself a singer. Group session Thursdays 10.00 to 11.00am, £4 or whatever contribution you can afford." },
-              { "id": "C", "text": "Contemporary Textiles - One-day courses in felting techniques, covering ways of making a wide variety of items, from pictures to jewellery and decorations. Make a pair of felt slippers in a day. Workshops including lunch and materials cost £70 and run from 10am – 4pm." },
-              { "id": "D", "text": "The University of the Third Age - Learn, laugh and live. Come and find out about the activities we have to offer for the over 50s at our general meeting on the second Tuesday of each month at the Town Hall at 10a.m. Joining the U3A is an excellent way of making new friends and gaining new skills and interests." },
-              { "id": "E", "text": "A spark can light a fire - Strengthening communities. Do you have a hobby or skill that you could share with other people where you live? Would you like to have the opportunity to enrich other people's lives and pass on your knowledge? Our grants can provide finances to get a group up and running." },
-              { "id": "F", "text": "Bramble Farm - Bring learning to life on our fantastic rural skills courses. Whether you're thinking about having your own hens, learning how to build a wall, laying a hedge, or collecting berries or mushrooms in the wild for your next meal, our hands-on outdoor courses will give you the knowledge and confidence to get started." },
-              { "id": "G", "text": "The magic of words - Friendly, peer-learning poetry group for poets of all abilities. Develop your love of rhyming and expressing ideas through poetry. We offer useful feedback, tutorials, discussions, handouts, prompts and opportunities to get your work heard. Regular meetings in members' houses." },
-              { "id": "H", "text": "Forest Keepers - Our primary purpose is to provide information on all aspects of beekeeping to our members, regardless of experience. Beginners and interested members of the public of any age are welcome. We provide hands-on teaching, with practical demonstrations." },
-              { "id": "I", "text": "Paradise on Earth - Create fantastic flowerbeds and borders for your garden. Make your garden into a place of colour and fragrance. This six-week course covers optimising growing conditions for plants, colour theory and design principles, with lots of hands-on practical workshops." },
-              { "id": "J", "text": "The music of success - Established in 2003 for teenagers, the Malvern Wind Band has had lots of success over the years, including several performances at well-known concert halls. If you play brass, woodwind or percussion at any level, please contact us." },
-              { "id": "K", "text": "Helping those less fortunate - Our vision is to enrich the lives of all disabled people through horses. Established in 1990, Forest Riding offers riding lessons to all local disabled children and adults. Volunteers are always needed, especially people able to do heavy work in the stables." },
-              { "id": "L", "text": "Early Birds - Start your week in the best way possible - harmoniously at the Community Centre, Mondays 9.30 – 11.00am. Come and sing for pleasure with a group of other music lovers. New members are always welcome - any age, no experience necessary." }
+              {
+                "id": "A",
+                "text": "Argentine Tango - 'There are short cuts to happiness and dancing is one of them.' Why not learn Argentine tango and get to know its fascinating culture? We have a big collection of authentic South American music. Group classes, workshops and private classes possible. No partner needed. No previous dance experience required. All ages welcome. New complete beginner courses starting every two months."
+              },
+              {
+                "id": "B",
+                "text": "Breathe In Sing Out - Fun singing and improved breathing for people diagnosed with a lung condition. Anyone with a persistent breathing difficulty is welcome to come along and try it out. No need to consider yourself a singer. Group session Thursdays 10.00 to 11.00am, £4 or whatever contribution you can afford."
+              },
+              {
+                "id": "C",
+                "text": "Contemporary Textiles - One-day courses in felting techniques, covering ways of making a wide variety of items, from pictures to jewellery and decorations. Make a pair of felt slippers in a day. Workshops including lunch and materials cost £70 and run from 10am – 4pm."
+              },
+              {
+                "id": "D",
+                "text": "The University of the Third Age - Learn, laugh and live. Come and find out about the activities we have to offer for the over 50s at our general meeting on the second Tuesday of each month at the Town Hall at 10a.m. Joining the U3A is an excellent way of making new friends and gaining new skills and interests."
+              },
+              {
+                "id": "E",
+                "text": "A spark can light a fire - Strengthening communities. Do you have a hobby or skill that you could share with other people where you live? Would you like to have the opportunity to enrich other people's lives and pass on your knowledge? Our grants can provide finances to get a group up and running."
+              },
+              {
+                "id": "F",
+                "text": "Bramble Farm - Bring learning to life on our fantastic rural skills courses. Whether you're thinking about having your own hens, learning how to build a wall, laying a hedge, or collecting berries or mushrooms in the wild for your next meal, our hands-on outdoor courses will give you the knowledge and confidence to get started."
+              },
+              {
+                "id": "G",
+                "text": "The magic of words - Friendly, peer-learning poetry group for poets of all abilities. Develop your love of rhyming and expressing ideas through poetry. We offer useful feedback, tutorials, discussions, handouts, prompts and opportunities to get your work heard. Regular meetings in members' houses."
+              },
+              {
+                "id": "H",
+                "text": "Forest Keepers - Our primary purpose is to provide information on all aspects of beekeeping to our members, regardless of experience. Beginners and interested members of the public of any age are welcome. We provide hands-on teaching, with practical demonstrations."
+              },
+              {
+                "id": "I",
+                "text": "Paradise on Earth - Create fantastic flowerbeds and borders for your garden. Make your garden into a place of colour and fragrance. This six-week course covers optimising growing conditions for plants, colour theory and design principles, with lots of hands-on practical workshops."
+              },
+              {
+                "id": "J",
+                "text": "The music of success - Established in 2003 for teenagers, the Malvern Wind Band has had lots of success over the years, including several performances at well-known concert halls. If you play brass, woodwind or percussion at any level, please contact us."
+              },
+              {
+                "id": "K",
+                "text": "Helping those less fortunate - Our vision is to enrich the lives of all disabled people through horses. Established in 1990, Forest Riding offers riding lessons to all local disabled children and adults. Volunteers are always needed, especially people able to do heavy work in the stables."
+              },
+              {
+                "id": "L",
+                "text": "Early Birds - Start your week in the best way possible - harmoniously at the Community Centre, Mondays 9.30 – 11.00am. Come and sing for pleasure with a group of other music lovers. New members are always welcome - any age, no experience necessary."
+              }
             ],
             "subTasks": [
-
               {
                 "type": "matching-info",
                 "instruction": "Which paragraph (A-H) contains the following information?",
@@ -449,71 +602,52 @@
       {
         "id": "part1",
         "part": 1,
-        "title": "Booking a Holiday Cottage",
+        "title": "News Items",
         "subtitle": "Part 1: Listening",
-        "description": "You will hear a conversation between a travel agent and a customer who wants to book a holiday cottage. First, you have some time to look at questions 1-10.",
-        "transcript": "Travel Agent: Good morning, Lake District Holidays. How can I help you?\n\nCustomer: Good morning. I'm interested in booking a holiday cottage in the Lake District. Could you give me some information?\n\nTravel Agent: Of course. May I take your name?\n\nCustomer: Yes, it's Sarah Mitchell. S-A-R-A-H M-I-T-C-H-E-L-L.\n\nTravel Agent: Thank you, Ms Mitchell. And may I have your contact telephone number?\n\nCustomer: It's 07788 456321.\n\nTravel Agent: 07788 456321. Got it. Now, what location in the Lake District are you looking for?\n\nCustomer: I'd preferably like somewhere near Windermere if possible.\n\nTravel Agent: Windermere is a beautiful area. How many people will be staying at the cottage?\n\nCustomer: There will be four adults and two children.\n\nTravel Agent: Four adults and two children. And do you have a maximum budget per week?\n\nCustomer: We'd prefer to stay under 800 pounds per week if we can.\n\nTravel Agent: Under 800 pounds. Any particular facilities you require?\n\nCustomer: A garden is important as the children like to play outside.\n\nTravel Agent: A garden, noted. When were you thinking of arriving?\n\nCustomer: We're hoping to arrive on the 15th of July.\n\nTravel Agent: 15th July. Is there anything else that's important to you?\n\nCustomer: Well, we're bringing the car, so parking is a main concern. I'd like to make sure there's adequate parking available.\n\nTravel Agent: I understand. We have several properties with good parking facilities. Would you like me to send you a brochure with details of suitable properties?\n\nCustomer: Yes, that would be very helpful.\n\nTravel Agent: I'll put one in the post to you today. Thank you for calling, Ms Mitchell.\n\nCustomer: Thank you. Goodbye.",
+        "description": "You will hear five news items. You will hear each item only once.\nDecide which headline a–f goes with each news item.\nMark your answers on the answer sheet.\nNow you will have 45 seconds to read the headlines.",
+        "transcript": "[Five news item transcripts to be matched with headlines]",
         "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-        "context": "Conversation between two speakers - social situation",
+        "context": "Five short news items",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
           {
-            "type": "short-answer",
-            "instruction": "Complete the form below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
+            "type": "heading-match",
+            "instruction": "Which headline (a-f) corresponds to each news item?",
             "questions": [
               {
-                "id": 1,
-                "text": "Customer name:",
-                "answer": "Sarah Mitchell",
-                "wordLimit": 2,
-                "allowNumber": true
+                "id": 41,
+                "text": "News Item 1",
+                "answer": "a"
               },
               {
-                "id": 2,
-                "text": "Contact telephone:",
-                "answer": "07788 456321",
-                "wordLimit": 1,
-                "allowNumber": true
+                "id": 42,
+                "text": "News Item 2",
+                "answer": "b"
               },
               {
-                "id": 3,
-                "text": "Preferred location:",
-                "answer": "Lake District",
-                "wordLimit": 2,
-                "allowNumber": false
+                "id": 43,
+                "text": "News Item 3",
+                "answer": "c"
               },
               {
-                "id": 4,
-                "text": "Number of adults:",
-                "answer": "4",
-                "wordLimit": 1,
-                "allowNumber": true
+                "id": 44,
+                "text": "News Item 4",
+                "answer": "d"
               },
               {
-                "id": 5,
-                "text": "Number of children:",
-                "answer": "2",
-                "wordLimit": 1,
-                "allowNumber": true
+                "id": 45,
+                "text": "News Item 5",
+                "answer": "e"
               }
-            ]
-          },
-          {
-            "type": "notes-completion",
-            "instruction": "Complete the booking notes below. Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.",
-            "wordLimit": 2,
-            "notes": [
-              {
-                "heading": "Customer Requirements",
-                "items": [
-                  { "id": "6", "type": "gap", "label": "Maximum budget per week:", "answer": "800 pounds" },
-                  { "id": "7", "type": "gap", "label": "Required facility:", "answer": "garden" },
-                  { "id": "8", "type": "gap", "label": "Arrival date:", "answer": "15th July" },
-                  { "id": "9", "type": "gap", "label": "Main concern:", "answer": "parking" },
-                  { "id": "10", "type": "gap", "label": "Request:", "answer": "brochure" }
-                ]
-              }
+            ],
+            "headings": [
+              "a Clear proof of climate change",
+              "b Controversial solution to a challenging situation",
+              "c International rules urgently required",
+              "d Too many for safety",
+              "e Unexpected developments at sea",
+              "f Variety could be the key to survival"
             ]
           }
         ]
@@ -521,352 +655,245 @@
       {
         "id": "part2",
         "part": 2,
-        "title": "Tour of a Museum Complex",
+        "title": "Radio Interview: University Life",
         "subtitle": "Part 2: Listening",
-        "description": "You will hear a guide giving a tour of a museum complex. First, you have some time to look at questions 11-20.",
-        "transcript": "Guide: Good afternoon, everyone, and welcome to the Riverside Museum Complex. My name is Emma, and I'll be your guide today. Before we begin our tour, let me give you an overview of what you'll see.\n\nThis building was originally a private residence, built in 1890 by the wealthy Thompson family. In 1952, it was donated to the city and converted into a museum. The building has been carefully restored to maintain its original Victorian features while housing our modern exhibits.\n\nNow, let's start with the ground floor. As you can see on your map, the Ticket Office is at the entrance, marked with the letter A. Once you've purchased your tickets, you can either head straight to the Main Exhibition Hall, which is location C in the centre of the building, or stop by our Café, which is marked D, for a refreshment before your tour.\n\nThe Main Exhibition Hall houses our permanent collection, which focuses primarily on local history. You'll find displays covering the region's industrial heritage, from the textile mills of the 18th century to the railway expansion in the 1850s. We also have rotating exhibitions that change every three months.\n\nIf you continue down this corridor, you'll reach the Gift Shop, marked with F. It's open throughout the day and stocks a wonderful range of locally produced crafts and souvenirs.\n\nFor families with children, I'm pleased to tell you about our Children's Activity Centre, which is at location H on the upper floor. This hands-on discovery area is perfect for kids aged 5 to 12, where they can dress up in period costumes and try traditional crafts.\n\nNow, regarding our dining facilities: our restaurant can serve up to 200 people at any one time, and we recommend booking if you're planning to eat here during peak hours. The restaurant is open from 11 am to 4 pm daily.\n\nFor those of you who are museum members, I'm happy to announce that guided tours are completely free for members. We offer three tours daily, at 11 am, 2 pm, and 3:30 pm, each lasting approximately one hour. Non-members can join a tour for £5 per person.\n\nParking is available in the car park behind the museum, with 150 spaces. Members park free of charge. If you have any questions, please don't hesitate to ask. Enjoy your visit!",
+        "description": "You will hear a radio interview. First you will have one minute to read the introduction and the items. Then you will hear the interview. You will hear the interview only once. Decide if the statement for each of the items is true (+) or not true (–) and mark your answers on the answer sheet.",
+        "transcript": "[Radio interview transcript about university life - containing the information needed to answer questions 46-55]",
         "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-        "context": "Monologue - information about local facilities",
+        "context": "Interview - university context",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
           {
-            "id": 11,
-            "type": "diagram-label",
-            "instruction": "Label the map below. Write the correct letter, A-H, next to Questions 11-15.",
-            "labels": [
-              {
-                "id": "11",
-                "text": "Ticket Office",
-                "answer": "A"
-              },
-              {
-                "id": "12",
-                "text": "Café",
-                "answer": "D"
-              },
-              {
-                "id": "13",
-                "text": "Gift Shop",
-                "answer": "F"
-              },
-              {
-                "id": "14",
-                "text": "Main Exhibition Hall",
-                "answer": "C"
-              },
-              {
-                "id": "15",
-                "text": "Children's Activity Centre",
-                "answer": "H"
-              }
-            ],
-            "diagram": {
-                "src": "/images/building-diagram1.png",
-                "alt": "Museum map"
-              },
-            "wordLimit": 1,
-            "options": [
-              "A",
-              "B",
-              "C",
-              "D",
-              "E",
-              "F",
-              "G",
-              "H"
-            ]
-          },
-          {
-                "type": "mcq",
-                "instruction": "Choose the correct answer",
-                "questions": [
-                  {
-                  "id": 16,
-                  "text": "The museum was originally built as a",
-                  "options": [
-                    "a private residence",
-                    "a government building",
-                    "a factory"
-                  ],
-                    "answer": "a private residence"
-                  },
-                  {
-                    "id": 17,
-                    "text": "The museum's collection focuses mainly on",
-                    "options": [
-                      "ancient artefacts",
-                      "local history",
-                      "modern art"
-                    ],
-                  "answer": "local history"
-                  },
-                  {
-            "id": 18,
-            "text": "The guided tours last approximately",
-            "options": [
-              "45 minutes",
-              "1 hour",
-              "90 minutes"
-            ],
-            "answer": "1 hour"
-          },
-          {
-            "id": 19,
-            "text": "The restaurant can serve",
-            "options": [
-              "50 people",
-              "100 people",
-              "200 people"
-            ],
-            "answer": "200 people"
-          },
-          {
-            "id": 20,
-            "text": "What is free for members?",
-            "options": [
-              "parking",
-              "guides",
-              "coffee"
-            ],
-            "answer": "guides"
-           }
-          ]
-         }
-        ]
-      },
-      {
-        "id": "part3",
-        "part": 3,
-        "title": "Discussion about University Course",
-        "subtitle": "Part 3: Listening",
-        "description": "You will hear a discussion between a student and an academic advisor. First, you have some time to look at questions 21-30.",
-        "transcript": "Advisor: Hello, James. Please, have a seat. I've been looking through your request form. You want to discuss your final year assignment, is that right?\n\nStudent: Yes, thank you for seeing me, Dr. Roberts. I'm a bit worried about it, to be honest. It's for the Business Strategy module.\n\nAdvisor: I see. You're studying Business, correct?\n\nStudent: That's right. I'm in my final year, specializing in Management.\n\nAdvisor: Good. Now, I can see here that you've chosen to write about competitive strategy in the retail sector. That's an interesting topic. What seems to be the problem?\n\nStudent: Well, I'm concerned about the deadline. The form says it's due next week, but I thought we had more time.\n\nAdvisor: Let me check... Yes, the deadline is indeed in one week's time - that's the 15th of March. The assignment brief was clear about this from the beginning of the semester.\n\nStudent: I see. I must have misread the dates. So it's due in one week, not two. That's very soon!\n\nAdvisor: It is, but it's still doable. I understand you're also working part-time, which can make things challenging. Let's discuss how you can manage this. First, have you started any research?\n\nStudent: I've done some initial reading, but not much. I know I'll need to use the university's online databases for academic sources.\n\nAdvisor: That's a good start. Yes, I'd strongly recommend using our online databases - you'll find plenty of peer-reviewed articles there. For this assignment, you'll need a minimum of 15 sources in your bibliography.\n\nStudent: Fifteen! That's a lot.\n\nAdvisor: It is, but quality matters more than quantity. Make sure they're recent - preferably published within the last five years. Now, regarding the format, are you familiar with APA style?\n\nStudent: I think so. Is that the one with the author-date in-text citations?\n\nAdvisor: Exactly. APA style is required for this module. Also, the essay must be a minimum of 3000 words. I recommend using Word for formatting - it has excellent referencing tools that will save you time.\n\nStudent: Good to know. Dr. Roberts, I was wondering - would you be able to look at a first draft before I submit?\n\nAdvisor: I'm afraid I won't have time to review drafts - I'm away at a conference next week. However, I can recommend that you submit your draft to the peer review system. There should be an external examiner available to give you feedback. Alternatively, you could ask some fellow students in your study group to review it.\n\nStudent: I didn't know about the peer review system. I'll definitely use that. One more question - when are your office hours? I might need more guidance.\n\nAdvisor: My office hours are Tuesday afternoon, from 2 to 4 pm. You're welcome to drop in, but I'd appreciate if you could book an appointment through the online system first, as it can get quite busy.\n\nStudent: Thank you so much, Dr. Roberts. I feel much clearer about what I need to do now.\n\nAdvisor: You're welcome, James. Good luck with it. Remember, the key is to start writing as soon as possible. Bye now.\n\nStudent: Goodbye.",
-        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-        "context": "Conversation between two speakers - academic context",
-        "type": "LISTENING",
-        "skill": "listening",
-        "subTasks": [
-                  {
-                    "type": "mcq",
-                    "instruction": "Choose the correct answer",
-                    "questions": [
-                    {
-                    "id": 21,
-                    "text": "The student is studying",
-                    "options": [
-                      "Business",
-                      "Computer Science",
-                      "Engineering"
-                    ],
-                    "answer": "Business"
-                  },
-                  {
-                  "id": 22,
-                    "text": "What is the main concern about the assignment?",
-                    "options": [
-                      "the topic",
-                      "the deadline",
-                      "the length"
-                    ],
-                    "answer": "the deadline"
-                  },
-                  {
-            "id": 23,
-                    "text": "When is the assignment due?",
-                    "options": [
-                      "next week",
-                      "in two weeks",
-                      "in three weeks"
-                    ],
-                    "answer": "next week"
-                  },
-                  {
-            "id": 24,
-                    "text": "What does the advisor suggest about the research?",
-                    "options": [
-                      "visit the library",
-                      "use online databases",
-                      "interview professors"
-                    ],
-                    "answer": "use online databases"
-                  },
-                  {
-            "id": 25,
-                    "text": "How many sources are required for the bibliography?",
-                    "options": [
-                      "5",
-                      "10",
-                      "15"
-                    ],
-                    "answer": "15"
-                  },
-                  {
-            "id": 26,
-                    "text": "What format should the essay follow?",
-                    "options": [
-                      "APA",
-                      "MLA",
-                      "Harvard"
-                    ],
-                    "answer": "APA"
-                  },
-                  {
-            "id": 27,
-                    "text": "Who will review the first draft?",
-                    "options": [
-                      "the advisor",
-                      "peer students",
-                      "external examiner"
-                    ],
-                    "answer": "external examiner"          
-                  }
-          ]
-         },
-          {
-            "type": "short-answer",
-            "instruction": "Answer the questions below. Write NO MORE THAN TWO WORDS for each answer.",
+            "type": "trinary",
+            "instruction": "Decide if the statement for each of the items is true (+) or not true (–).",
             "questions": [
               {
-                "id": 28,
-                "text": "What is the minimum word count for the essay?",
-                "answer": "3000 words",
-                "wordLimit": 2,
-                "allowNumber": true
+                "id": 46,
+                "text": "When Harry started at university, he was anxious that he would not cope with having to work independently.",
+                "answer": "TRUE"
               },
               {
-                "id": 29,
-                "text": "What software is recommended for formatting?",
-                "answer": "Word",
-                "wordLimit": 1,
-                "allowNumber": false
+                "id": 47,
+                "text": "Harry selected Southampton because the course they offer suits his interests best.",
+                "answer": "NOT GIVEN"
               },
               {
-                "id": 30,
-                "text": "When are the office hours for the advisor?",
-                "answer": "Tuesday afternoon",
-                "wordLimit": 2,
-                "allowNumber": false
+                "id": 48,
+                "text": "Harry has individual sessions with his tutor at the same time each week.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 49,
+                "text": "Harry enjoys the more practical aspects of his studies.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 50,
+                "text": "The work done in the lab is based on the lectures on a specific concept heard previously.",
+                "answer": "NOT GIVEN"
+              },
+              {
+                "id": 51,
+                "text": "The assessment given for each lab session only depends on how well Harry has recorded things in his logbook.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 52,
+                "text": "To encourage students to keep fit, there are no lectures one afternoon a week.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 53,
+                "text": "The university expects new students to organise their own accommodation.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 54,
+                "text": "When you apply to stay in a Hall of Residence, you have some influence over which room you get.",
+                "answer": "NOT GIVEN"
+              },
+              {
+                "id": 55,
+                "text": "Harry refers to a challenge that can win you an attractive award.",
+                "answer": "TRUE"
               }
             ]
           }
         ]
       },
       {
-        "id": "part4",
-        "part": 4,
-        "title": "Lecture on Animal Behavior",
-        "subtitle": "Part 4: Listening",
-        "description": "You will hear a lecture about animal behavior. First, you have some time to look at questions 31-40.",
-        "transcript": "Professor: Good morning, everyone. Today I'd like to share with you the findings of our five-year research project on animal communication in the wild. This study was conducted across various ecosystems, and we examined over 30 different species to understand how animals communicate with each other.\n\nOur primary method was direct observation in natural habitats. We spent thousands of hours in the field, recording behaviors and analyzing patterns. What we found has truly remarkable implications for our understanding of animal intelligence.\n\nThe main finding of our research is that animals do indeed communicate with each other in complex ways. We documented over 200 distinct vocalizations across the species we studied. But it wasn't just about sounds - we also observed sophisticated body language and even chemical signaling in some species.\n\nOne of the most interesting discoveries was how animals use warning calls. For example, we found that predator presence triggers specific alarm calls in many species. These calls vary depending on the type of threat - whether it's a land predator or an aerial one. Some species even have different calls for different predators.\n\nWe were also surprised by the complexity of communication we observed. It wasn't just simple warnings or mating calls. Animals appear to be able to convey information about food sources, social hierarchies, and even emotional states. This complexity challenges our traditional view of animal cognition.\n\nLooking ahead, we're planning to examine social behavior in more detail. Our next phase will focus on how animals coordinate group activities and maintain social bonds. We want to understand the role of communication in group decision-making processes.\n\nThis research was made possible through government grants from the National Science Foundation. We also received support from several private donations, which helped fund our field research equipment.\n\nBefore I conclude, let me give you one more fascinating example: dolphins. They're known for their distinctive vocal calls, which they use for everything from locating each other to coordinating hunting activities. Each dolphin actually has its own unique signature whistle - essentially a name that other dolphins use to identify them.\n\nIn conclusion, our study demonstrates that animal communication is far more sophisticated than we previously thought. Thank you for your attention, and I'll be happy to take any questions.",
-        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
-        "context": "Monologue - educational talk",
+        "id": "part3-new",
+        "part": 3,
+        "title": "Short Conversations",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear five short texts. Decide which is the correct answer (a, b or c) for each question.",
+        "transcript": "",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+        "context": "Five short texts",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
-          {
-            "type": "short-answer",
-            "instruction": "Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
-            "questions": [
-              {
-                "id": 31,
-                "text": "The study focuses on animal behavior in",
-                "answer": "the wild",
-                "wordLimit": 2,
-                "allowNumber": false
-              },
-              {
-                "id": 32,
-                "text": "The main finding is that animals",
-                "answer": "communicate",
-                "wordLimit": 2,
-                "allowNumber": false
-              },
-              {
-                "id": 33,
-                "text": "Future research will examine",
-                "answer": "social behavior",
-                "wordLimit": 2,
-                "allowNumber": false
-              },
-              {
-                "id": 34,
-                "text": "The research was conducted over a period of",
-                "answer": "five years",
-                "wordLimit": 2,
-                "allowNumber": true
-              },
-              {
-                "id": 35,
-                "text": "The main method used was",
-                "answer": "observation",
-                "wordLimit": 2,
-                "allowNumber": false
-              }
-            ]
-          },
           {
             "type": "mcq",
             "instruction": "Choose the correct answer",
             "questions": [
               {
-                "id": 36,
-                "text": "According to the lecture, what triggers the warning behavior?",
+                "id": 56,
+                "text": "The theater production is especially suitable for",
                 "options": [
-                  "food availability",
-                  "predator presence",
-                  "weather changes"
+                  "kids that love watching fairy tales.",
+                  "families wishing to participate in the performance.",
+                  "people who are familiar with Wyesham."
                 ],
-                "answer": "predator presence"
+                "answer": "kids that love watching fairy tales."
               },
               {
-                "id": 37,
-                "text": "How many species were studied in total?",
+                "id": 57,
+                "text": "The ride at Death Tower can be attempted by",
                 "options": [
-                  "12",
-                  "25",
-                  "30"
+                  "anyone who likes scary experiences.",
+                  "people who have no loose items on them.",
+                  "visitors who like speeds of over 100 kph."
                 ],
-                "answer": "30"
+                "answer": "people who have no loose items on them."
               },
               {
-                "id": 38,
-                "text": "What was surprising about the results?",
+                "id": 58,
+                "text": "The items mentioned today are",
                 "options": [
-                  "the complexity of communication",
-                  "the speed of adaptation",
-                  "the memory capacity"
+                  "appealing for various groups of customers.",
+                  "attractive for families buying small amounts.",
+                  "interesting for people wishing to buy regional food."
                 ],
-                "answer": "the complexity of communication"
+                "answer": "appealing for various groups of customers."
               },
               {
-                "id": 39,
-                "text": "The funding for the research came from",
+                "id": 59,
+                "text": "After hearing this announcement visitors",
                 "options": [
-                  "government grants",
-                  "private donations",
-                  "university funds"
+                  "can enjoy all facilities for ten more minutes.",
+                  "must head for the changing rooms immediately.",
+                  "should exit the building in the next half-an-hour."
                 ],
-                "answer": "government grants"
+                "answer": "should exit the building in the next half-an-hour."
+              },
+              {
+                "id": 60,
+                "text": "The weather will be",
+                "options": [
+                  "calm on Wednesday.",
+                  "extreme on Thursday.",
+                  "unpleasant on Friday"
+                ],
+                "answer": "unpleasant on Friday"
               }
             ]
-          },
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "type": "LANGUAGE_ELEMENTS",
+    "title": "Language Elements",
+    "time": 90,
+    "instructions": "Read the following text and decide which word or phrase a, b or c is missing in each item. Mark your answers on the answer sheet.",
+    "sections": [
+      {
+        "id": "le-part1",
+        "part": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Read the following letter and decide which word or phrase a, b or c is missing in items 21–30.",
+        "type": "LANGUAGE_ELEMENTS",
+        "skill": "language-elements",
+        "subTasks": [
           {
             "type": "mcq",
-            "instruction": "Answer",
+            "id": "le-p1-mcq-1",
+            "title": "Language Elements Part 1",
+            "instruction": "Choose the correct word (a, b, or c) to complete each sentence.",
             "questions": [
               {
-                "id": 40,
-                "text": "Dolphins are known for their ",
-                "options": [
-                  "vocal calls",
-                  "body movements",
-                  "chemical signals",
-                  "electrical signals"
-                ],
-                "answer": "vocal calls"
+                "id": "21",
+                "text": "I'm sure I'll find good use ____ it.",
+                "options": ["a for", "b from", "c of"],
+                "answer": 0
+              },
+              {
+                "id": "22",
+                "text": "While most other people thankfully ____ me financial gifts too,",
+                "options": ["a are giving", "b gave", "c has given"],
+                "answer": 1
+              },
+              {
+                "id": "23",
+                "text": "whose identities remain ____ connected in some way.",
+                "options": ["a suspect", "b suspicious", "c suspiciously"],
+                "answer": 1
+              },
+              {
+                "id": "24",
+                "text": "My little brother decided ____ all our gifts differently without telling us.",
+                "options": ["a distributing", "b in distributing", "c to distribute"],
+                "answer": 2
+              },
+              {
+                "id": "25",
+                "text": "The past term has been ____ as before,",
+                "options": ["a alike", "b similar", "c the same"],
+                "answer": 1
+              },
+              {
+                "id": "26",
+                "text": "and isn't right ____ to a noisy bar.",
+                "options": ["a nearby", "b nearly", "c next"],
+                "answer": 2
+              },
+              {
+                "id": "27",
+                "text": "there was a university-wide strike ____ the last week of term,",
+                "options": ["a at", "b in", "c on"],
+                "answer": 1
+              },
+              {
+                "id": "28",
+                "text": "I'm in my second year and the past ____ has been challenging.",
+                "options": ["a year", "b year's", "c years"],
+                "answer": 1
+              },
+              {
+                "id": "29",
+                "text": "This Christmas break was a week shorter ____ it usually is,",
+                "options": ["a as", "b like", "c than"],
+                "answer": 2
+              },
+              {
+                "id": "30",
+                "text": "____ there are things about the coming term I'm looking forward to,",
+                "options": ["a All in all", "b Despite", "c Even though"],
+                "answer": 2
               }
             ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "part": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text and decide which of the words or phrases a–o is missing in items 31–40.",
+        "type": "LANGUAGE_ELEMENTS",
+        "skill": "language-elements",
+        "subTasks": [
+          {
+            "type": "gap-fill-tokens",
+            "id": "le-p2-gap-1",
+            "title": "Language Elements Part 2",
+            "instruction": "Choose the correct word (a-o) to complete each sentence.",
+            "passage": "Sir Edward William Elgar is a 19th century English composer known worldwide. Pomp and Circumstance, for example, is one of Elgar's most famous pieces and one of Britain's biggest cultural ____(31)____. Elgar was born in 1857 in a village in ____(32)____ England. His father had a music shop in Worcester and so Elgar had access to many different kinds of instruments and music. Surprisingly, he ____(33)____ music college and was mainly a self-taught composer. It was in 1899, when Elgar was 42, that he had his first big success with the Enigma Variations for orchestra. It came into being almost by chance. Elgar ____(34)____ the evening when he sat down at the piano to play after dinner:* 'Suddenly my wife ____(35)____ by saying: Edward, that's a good tune.' I ____(36)____ from my creative dream. 'Tune? What tune?' And she said, 'Play it again, I like that tune.' I played and strummed, and played, and then she exclaimed: 'That sounds of ____(37)____, what is that?' I answered, 'Nothing - but something might be made of it.' For fun, Elgar then ____(38)____ with the tune, playing different versions. Each was typical of someone they knew. That was the beginning of the Enigma Variations, which he dedicated to his friends. For its title, each of the 14 parts has the ____(39)____ of a person's name. The word 'enigma' means something that is ____(40)____, and perhaps the puzzle hidden in the piece gives it that extra charm that has made it so popular.",
+            "tokens": ["a APPROVAL", "b ATTEND", "c AWOKE", "d EDGE", "e EXCEPTION", "f EXPERIMENTED", "g EXPORTS", "h FAR", "i FASHION", "j INITIALS", "k INTERRUPTED", "l MYSTERIOUS", "m PUBLICITY", "n RECALLS", "o RURAL"],
+            "answers": ["m PUBLICITY", "o RURAL", "b ATTEND", "f EXPERIMENTED", "c AWOKE", "k INTERRUPTED", "l MYSTERIOUS", "f EXPERIMENTED", "j INITIALS", "l MYSTERIOUS"]
           }
         ]
       }

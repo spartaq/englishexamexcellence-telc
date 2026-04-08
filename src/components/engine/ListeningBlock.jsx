@@ -28,34 +28,67 @@ const ListeningBlock = ({
   const listeningData = data.listening || data;
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [activeAudioIndex, setActiveAudioIndex] = useState(0);
   const audioRef = useRef(null);
   const isActive = useExamStore(state => state.isActive);
 
-  // 1. Audio Logic
-  useEffect(() => {
-    if (!isActive && isPlaying) handlePause();
-  }, [isActive]);
-
-  const handlePlay = () => { if (audioRef.current) { audioRef.current.play(); setIsPlaying(true); } };
-  const handlePause = () => { if (audioRef.current) { audioRef.current.pause(); setIsPlaying(false); } };
-  const handleTimeUpdate = () => {
-    if (!audioRef.current?.duration) return;
-    setProgress((audioRef.current.currentTime / audioRef.current.duration) * 100);
-  };
-
-  // 2. Question Flattening - NOT flattening all parts together
+  // 1. Question Flattening
   // We keep the structure: each listening part is a separate "passage"
   // The QuestionCarousel will handle navigation between parts
   const listeningSections = listeningData.sections || [];
   
   // Get current part's data
   const currentPart = listeningSections[activeSectionIndex];
-  const currentAudioUrl = currentPart?.audioUrl || listeningData.audioUrl;
+
+  // Get audio files array - support both single audioUrl and multiple audioFiles
+  const getAudioUrls = (part) => {
+    if (part?.audioFiles && Array.isArray(part.audioFiles)) {
+      return part.audioFiles;
+    }
+    if (part?.audioUrl) {
+      return [part.audioUrl];
+    }
+    return [];
+  };
+
+  const audioUrls = getAudioUrls(currentPart);
+  const hasMultipleAudios = audioUrls.length > 1;
+  const currentAudioUrl = audioUrls[activeAudioIndex] || audioUrls[0];
+  const currentAudioLabel = hasMultipleAudios ? `Item ${activeAudioIndex + 1} of ${audioUrls.length}` : '';
   const currentTitle = currentPart?.title;
   const currentSubtitle = currentPart?.subtitle;
   const currentDescription = currentPart?.description;
   const currentTranscript = currentPart?.transcript;
-  
+
+  // 2. Audio Logic
+  useEffect(() => {
+    if (!isActive && isPlaying) handlePause();
+  }, [isActive]);
+
+  // Reset audio index when section changes
+  useEffect(() => {
+    setActiveAudioIndex(0);
+    setProgress(0);
+  }, [activeSectionIndex]);
+
+  const handlePlay = () => { if (audioRef.current) { audioRef.current.play(); setIsPlaying(true); } };
+  const handlePause = () => { if (audioRef.current) { audioRef.current.pause(); setIsPlaying(false); } };
+  const handleNextAudio = () => { if (activeAudioIndex < audioUrls.length - 1) { setActiveAudioIndex(prev => prev + 1); setProgress(0); } };
+  const handlePrevAudio = () => { if (activeAudioIndex > 0) { setActiveAudioIndex(prev => prev - 1); setProgress(0); } };
+
+  // Auto-advance to next audio when one ends (optional feature)
+  const handleAudioEnded = () => {
+    setIsPlaying(false);
+    if (hasMultipleAudios && activeAudioIndex < audioUrls.length - 1) {
+      // Optional: auto-advance. Currently disabled - user manually advances
+      // handleNextAudio();
+    }
+  };
+  const handleTimeUpdate = () => {
+    if (!audioRef.current?.duration) return;
+    setProgress((audioRef.current.currentTime / audioRef.current.duration) * 100);
+  };
+
   // Get questions for current part only (based on activeSectionIndex)
   const getQsForPart = (partIndex) => {
     const section = listeningSections[partIndex];
@@ -66,8 +99,8 @@ const ListeningBlock = ({
     
     const flattened = [];
     rawItems.forEach(item => {
-      // Notes-completion should always be treated as self-contained, don't flatten
-      if (item.type === 'notes-completion') {
+      // Notes-completion and heading-match should always be treated as self-contained, don't flatten
+      if (item.type === 'notes-completion' || item.type === 'heading-match') {
         flattened.push({ ...item });
       }
       else if (selfContainedTypes.includes(item.type) && (!item.questions || !Array.isArray(item.questions))) {
@@ -154,12 +187,31 @@ const getQuestionRange = () => {
                 <div className="progress-track">
                   <div className="progress-fill" style={{ width: `${progress}%` }} />
                 </div>
+                {hasMultipleAudios && (
+                  <div className="audio-nav-controls">
+                    <button 
+                      className="audio-nav-btn" 
+                      onClick={handlePrevAudio}
+                      disabled={activeAudioIndex === 0}
+                    >
+                      ‹
+                    </button>
+                    <span className="audio-item-label">{currentAudioLabel}</span>
+                    <button 
+                      className="audio-nav-btn" 
+                      onClick={handleNextAudio}
+                      disabled={activeAudioIndex === audioUrls.length - 1}
+                    >
+                      ›
+                    </button>
+                  </div>
+                )}
                 <Headphones size={18} className="headphones-icon" />
                 <audio 
                   ref={audioRef} 
                   src={currentAudioUrl}
                   onTimeUpdate={handleTimeUpdate} 
-                  onEnded={() => setIsPlaying(false)}
+                  onEnded={handleAudioEnded}
                 />
               </div>
             </div>

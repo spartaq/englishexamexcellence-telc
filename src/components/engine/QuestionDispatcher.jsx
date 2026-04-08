@@ -16,6 +16,7 @@ import FlowChartCompletionBlock from './InteractiveBlocks/FlowChartCompletionBlo
 import NotesCompletionBlock from './InteractiveBlocks/NotesCompletionBlock';
 import PunctuationCorrectionBlock from './InteractiveBlocks/PunctuationCorrectionBlock';
 import SentenceMatchingBlock from './InteractiveBlocks/SentenceMatchingBlock';
+import LanguageElementsBlock from './LanguageElementsBlock';
 
 /**
  * The Universal Question Dispatcher
@@ -44,7 +45,9 @@ const QuestionDispatcher = ({
   const qId = data.id;
   const qType = data.type?.toLowerCase();
   
-  console.log('[QuestionDispatcher] Rendering question with id:', qId, 'type:', qType);
+  console.log('[QuestionDispatcher] Rendering question with id:', qId, 'type:', qType, 'data.type raw:', data.type);
+  console.log('[QuestionDispatcher] Data keys:', Object.keys(data));
+  console.log('[QuestionDispatcher] subTasks:', data.subTasks);
 
   // Helper to get current value for this specific question
   const currentValue = userAnswers[qId];
@@ -89,6 +92,33 @@ const QuestionDispatcher = ({
           userAnswers={userAnswers} 
           onUpdate={onUpdate}
           isReviewMode={isReviewMode}
+        />
+      );
+
+    case 'language_elements':
+      // Language Elements - Check if it's MCQ format or legacy gap-fill format
+      if (data.questions && data.questions.length > 0) {
+        // MCQ format - use MCQBlock directly
+        return (
+          <MCQBlock
+            data={data}
+            userAnswers={userAnswers}
+            onUpdate={onUpdate}
+            onCheckAnswers={onCheckAnswers}
+            isReviewMode={isReviewMode}
+            showCheckAnswers={showCheckAnswers}
+          />
+        );
+      }
+      // Legacy gap-fill format - use the dedicated block
+      return (
+        <LanguageElementsBlock
+          data={data}
+          userAnswers={userAnswers}
+          onUpdate={onUpdate}
+          onCheckAnswers={onCheckAnswers}
+          isReviewMode={isReviewMode}
+          showCheckAnswers={showCheckAnswers}
         />
       );
 

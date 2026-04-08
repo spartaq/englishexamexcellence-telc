@@ -522,8 +522,15 @@
 /* --- ENGINE FALLBACK CONTAINER --- */
 .engine-fallback-container {
   padding: 24px;
-  max-width: 900px;
+  width: 100%;
+  max-width: none;
   margin: 0 auto;
+}
+
+/* Language Elements uses full width - no container restriction */
+.invictus-engine-root .engine-fallback-container:has(.language-elements-container) {
+  max-width: none;
+  padding: 0;
 }
 
 @media (max-width: 768px) {

@@ -5,6 +5,8 @@ import WritingBlock from './WritingBlock';
 import SpeakingBlock from './SpeakingBlock';
 import FlashcardBlock from './FlashcardBlock';
 import QuestionDispatcher from './QuestionDispatcher';
+import LanguageElementsBlock from './LanguageElementsBlock';
+import './engine.css';
 import './engine.css';
 
 const Engine = ({
@@ -44,7 +46,7 @@ const Engine = ({
   const renderLayout = () => {
     console.log('[Engine] activeLesson:', activeLesson?.id, 'activeSectionIndex:', activeSectionIndex);
     console.log('[Engine] currentSection:', currentSection?.id, currentSection?.title);
-    console.log('[Engine] skill:', skill, 'lessonType:', lessonType);
+    console.log('[Engine] skill:', skill, 'lessonType:', lessonType, 'currentSection.type:', currentSection?.type);
     
     // A. READING LAYOUT (IELTS / TOEFL / Reading Drills / Full Mocks reading sections)
     const isFullMockReading = lessonType === 'full-mock' && currentSection?.skill === 'reading';
@@ -156,6 +158,24 @@ const Engine = ({
     />
   );
 }
+
+    // E2. LANGUAGE ELEMENTS (TELC B2 specific - MCQ format handled by QuestionDispatcher)
+    // Use QuestionDispatcher to handle the MCQ questions in Language Elements
+    const isFullMockLanguageElements = lessonType === 'full-mock' && currentSection?.skill === 'language-elements';
+    if (lessonType === 'LANGUAGE_ELEMENTS' || skill === 'language-elements' || isFullMockLanguageElements) {
+      return (
+        <div className="engine-fallback-container language-elements-container">
+          <QuestionDispatcher 
+            data={currentSection}
+            userAnswers={userAnswers}
+            onUpdate={onUpdateAnswers}
+            onCheckAnswers={onCheckAnswers}
+            isReviewMode={isReviewMode}
+            showCheckAnswers={showCheckAnswers}
+          />
+        </div>
+      );
+    }
 
     // F. FALLBACK: STANDALONE QUESTION DISPATCHER
     // Use this if the lesson doesn't fit a major skill layout (e.g. a simple grammar drill)

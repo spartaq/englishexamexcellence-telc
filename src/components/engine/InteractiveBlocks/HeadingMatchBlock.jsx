@@ -6,6 +6,22 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
   const questions = data.questions || [];
   const headings = data.headings || [];
 
+  // Helper to format heading label - support both "a Clear proof" and "1. Clear proof" formats
+  const getHeadingLabel = (heading, idx) => {
+    // Check if heading already starts with a letter prefix like "a Clear proof"
+    const letterMatch = heading.match(/^([a-z])\s+(.+)/i);
+    if (letterMatch) {
+      return `${letterMatch[1].toLowerCase()}. ${letterMatch[2]}`;
+    }
+    // Check if heading starts with number prefix like "1. Clear proof"
+    const numMatch = heading.match(/^(\d+)\s*\.\s*(.+)/);
+    if (numMatch) {
+      return `${numMatch[1]}. ${numMatch[2]}`;
+    }
+    // Default to numeric label
+    return `${idx + 1}. ${heading}`;
+  };
+
   const handleSelect = (qId, value) => {
     if (isReviewMode) return;
     if (onUpdate) onUpdate(qId, value);
@@ -29,15 +45,16 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
           <div className="hm-flex-col">
             {headings.map((heading, idx) => (
               <div key={idx} className="hm-heading-item">
-                {idx + 1}. {heading}
+                {getHeadingLabel(heading, idx)}
               </div>
             ))}
           </div>
         </div>
       )}
       
+      {/* Row Header - only show if no instruction, or show a generic prompt */}
       <div className="hm-row-header">
-        <span>Match Paragraph to Heading</span>
+        <span>{data.instruction ? 'Select your answers' : 'Match to Heading'}</span>
         {isReviewMode && <span className="hm-review-mode">Review Mode</span>}
       </div>
       
@@ -74,15 +91,17 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
                 <option value="" disabled>Select Heading...</option>
                 {headings.map((heading, idx) => (
                   <option key={idx} value={idx}>
-                    {idx + 1}. {heading}
+                    {getHeadingLabel(heading, idx)}
                   </option>
                 ))}
               </select>
 
-              {(isIncorrect || isMissing) && correctChoice !== undefined && (
-                <div className="correct-answer-hint">
-                </div>
-              )}
+              {isIncorrect || isMissing ? (
+                correctChoice !== undefined ? (
+                  <div className="correct-answer-hint">
+                  </div>
+                ) : null
+              ) : null}
             </div>
           </div>
         );
@@ -92,4 +111,3 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
 };
 
 export default HeadingMatchBlock;
-
