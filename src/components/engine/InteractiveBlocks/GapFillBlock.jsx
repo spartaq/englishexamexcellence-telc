@@ -22,7 +22,7 @@ import './GapFillBlock.css';
  * }
  */
 
-const GapFillBlock = ({ data, onUpdate, isReviewMode = false }) => {
+const GapFillBlock = ({ data, onUpdate, isReviewMode = false, showPassage = true }) => {
   const {
     title = 'Fill in the Blanks',
     instruction,
@@ -146,7 +146,8 @@ const GapFillBlock = ({ data, onUpdate, isReviewMode = false }) => {
         <p className="gap-fill-instruction">{instruction}</p>
       )}
 
-      {/* Passage with gaps */}
+      {/* Passage with gaps - only show if showPassage is true */}
+      {showPassage && (
       <div className="gap-fill-passage">
         {parts.map((part, index) => {
           // Even indices are text, odd indices are gap numbers
@@ -169,6 +170,7 @@ const GapFillBlock = ({ data, onUpdate, isReviewMode = false }) => {
           );
         })}
       </div>
+      )}
 
       {/* Token bank */}
       <div className="gap-fill-tokens">

@@ -3,7 +3,8 @@ import { Play, Pause, Headphones } from 'lucide-react';
 import { useExamStore } from '../../store/useExamStore';
 import QuestionCarousel from './QuestionCarousel';
 import SplitPane from './SplitPane';
-import QuestionDispatcher from './QuestionDispatcher'; // Universal Waiter
+import QuestionDispatcher from './QuestionDispatcher';
+import { flattenQuestions } from '../../utils/questionFlattener';
 import './ListeningBlock.css';
 import './engine.css';
 
@@ -90,30 +91,11 @@ const ListeningBlock = ({
   };
 
   // Get questions for current part only (based on activeSectionIndex)
+  // Uses centralized flattenQuestions utility
   const getQsForPart = (partIndex) => {
     const section = listeningSections[partIndex];
     if (!section) return [];
-    
-    const rawItems = section.subTasks || section.questions || [];
-    const selfContainedTypes = ['sentence-matching', 'diagram-label', 'flowchart', 'heading-match', 'sentence-complete', 'gap-fill', 'short-answer', 'notes-completion'];
-    
-    const flattened = [];
-    rawItems.forEach(item => {
-      // Notes-completion and heading-match should always be treated as self-contained, don't flatten
-      if (item.type === 'notes-completion' || item.type === 'heading-match') {
-        flattened.push({ ...item });
-      }
-      else if (selfContainedTypes.includes(item.type) && (!item.questions || !Array.isArray(item.questions))) {
-        flattened.push({ ...item });
-      }
-      else if (item.questions && Array.isArray(item.questions)) {
-        item.questions.forEach(q => flattened.push({ ...q, type: q.type || item.type }));
-      }
-      else if (item.type) {
-        flattened.push(item);
-      }
-    });
-    return flattened;
+    return flattenQuestions(section.subTasks || section.questions || []);
   };
 
   // For the carousel, use the current part's questions only

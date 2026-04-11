@@ -1,0 +1,927 @@
+{
+  "id": "telc-b2-mock-1",
+  "level": "b2",
+  "mockNumber": 1,
+  "title": "TELC B2 Mock Test 1",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B2 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-1",
+    "title": "Test Vocabulary",
+    "level": "B2",
+    "words": [
+      {
+        "term": "femininity",
+        "hu": "nőiesesség",
+        "definition": "the quality of being female or having qualities considered typical of women",
+        "example": "High heels were seen as a symbol of femininity."
+      },
+      {
+        "term": "professionalism",
+        "hu": "szakértelem",
+        "definition": "the competence or skill expected of a professional",
+        "example": "High heels were seen as a symbol of professionalism in business."
+      },
+      {
+        "term": "regulation",
+        "hu": "szabályozás",
+        "definition": "an official rule or directive",
+        "example": "Unfair regulation was introduced."
+      },
+      {
+        "term": "petrol",
+        "hu": "üzemanyag",
+        "definition": "liquid fuel used in internal combustion engines",
+        "example": "When filling up with petrol, keep an eye on the time."
+      },
+      {
+        "term": "CCTV",
+        "hu": "kamerarendszer",
+        "definition": "closed-circuit television for surveillance",
+        "example": "Companies installed CCTV cameras at entrances."
+      },
+      {
+        "term": "motorist",
+        "hu": "autós",
+        "definition": "a person who drives a car",
+        "example": "Many motorists complained about the time constraint."
+      },
+      {
+        "term": "luxury",
+        "hu": "luxus",
+        "definition": "great comfort and wealth",
+        "example": "In luxury hotels, mattresses have become a temptation."
+      },
+      {
+        "term": "solist",
+        "hu": "szólista",
+        "definition": "a musician who performs a solo",
+        "example": "Stephen Morris has played as soloist in concerts."
+      },
+      {
+        "term": "textbook",
+        "hu": "tankönyv",
+        "definition": "a book used for studying a particular subject",
+        "example": "He stole textbooks from universities."
+      },
+      {
+        "term": "entrepreneur",
+        "hu": "vállalkozó",
+        "definition": "a person who starts their own business",
+        "example": "They tracked down the criminal entrepreneur."
+      },
+      {
+        "term": "invasive",
+        "hu": "invazív",
+        "definition": "tending to spread and cause damage",
+        "example": "Non-native invasive plants are dangerous."
+      },
+      {
+        "term": "species",
+        "hu": "faj",
+        "definition": "a type of plant or animal",
+        "example": "Japanese knotweed is one of the world's worst invasive species."
+      },
+      {
+        "term": "volcanic",
+        "hu": "vulkanikus",
+        "definition": "relating to volcanoes",
+        "example": "Japanese knotweed grows naturally on volcano sides."
+      },
+      {
+        "term": "botanist",
+        "hu": "botanikus",
+        "definition": "a scientist who studies plants",
+        "example": "Philippe von Siebold was a botanist."
+      },
+      {
+        "term": "sap",
+        "hu": "nedv",
+        "definition": "the liquid in a plant",
+        "example": "The problem is the liquid inside the giant hogweed, known as the sap."
+      },
+      {
+        "term": "blister",
+        "hu": "hólyag",
+        "definition": "a small bubble on the skin",
+        "example": "You will receive blistering burns."
+      },
+      {
+        "term": "enigma",
+        "hu": "rejtély",
+        "definition": "something mysterious or puzzling",
+        "example": "The word 'enigma' means something that is mysterious."
+      },
+      {
+        "term": "variation",
+        "hu": "változat",
+        "definition": "a change or difference",
+        "example": "Elgar experimented with the tune, playing different versions."
+      },
+      {
+        "term": "orchestra",
+        "hu": "zenekar",
+        "definition": "a large group of musicians",
+        "example": "Elgar had his first big success with the Enigma Variations for orchestra."
+      },
+      {
+        "term": "grant",
+        "hu": "támogatás",
+        "definition": "money given by an organization",
+        "example": "Our grants can provide finances to get a group up and running."
+      }
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "ielts-complex",
+            "vocabList": [
+              "femininity",
+              "professionalism",
+              "regulation",
+              "petrol",
+              "luxury",
+              "solist",
+              "textbook"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "In the 18th century, high heels were standard for both men and women but lost popularity after the French Revolution. When they returned again in the 20th century, they were seen as a symbol of femininity in the fashion world and of professionalism in the business world. As women gained more freedom and power, high heels became higher, thinner and harder to walk on than ever before. Some women love their high heels and would not go without them, but many others would prefer to do without the discomfort they cause. Unfortunately, high heels are often necessary for a woman if she wishes to be taken seriously in the workplace in certain cultures. In Japan, for example, high heels are compulsory at many companies. A petition protesting against this regulation was even turned down by Japan's Minister of Health and Labour saying this practice was 'necessary and appropriate'."
+              },
+              {
+                "id": "2",
+                "text": "When you are filling up with petrol, using the car wash or drinking a coffee, keep an eye on the time if you wish to avoid a penalty. There may be a 30-minute or even only a 20-minute maximum stay limit. Several petrol companies in the UK have installed CCTV cameras at the entrances and exits to fuel stations in order to enforce the new rule. Any driver who overstays the limit may be fined up to £100. Many motorists have complained about the unrealistic time constraint and think that 45 minutes would be much more reasonable. If there is a queue at the pump or at the till or if you have to wait to use the car wash, it is highly probable that you will need more time than is allowed. What makes things worse is that few drivers are aware of this new rule. Warning signs at the petrol station can easily be missed, especially after dark."
+              },
+              {
+                "id": "3",
+                "text": "It is not unusual for hotel guests to take shower gel and other toiletries with them when they leave. They might also take towels or coat hangers or even the iron. However, these are minor incidents compared to the new trend – that of disappearing mattresses, especially in luxury hotels. Many hotel mattresses are of such high quality that they have become a real temptation for thieves. The method of getting someone to distract staff at reception and sneaking an object out while no-one is looking is not the most efficient in these cases. Instead, mattresses usually disappear during the night in hotels that have an elevator directly connected to the underground car park. But other incidents have also made the headlines. For example, one hotel was recently robbed of its grand piano by a group of men in overalls claiming that the piano was due to be collected for repair."
+              },
+              {
+                "id": "4",
+                "text": "A missing 310-year-old violin worth £250,000 has been returned to its owner with help coming from an unexpected place. Stephen Morris, who has played as soloist in concerts and recorded with several famous singers, left his instrument on a luggage rack by mistake when getting off his train in south-east London. After he reported the loss, police examined CCTV footage from the journey which showed a man taking the violin and then leaving the train. The image of the man was released to the public and Morris appealed for help stating that the loss was 'like having my arm cut off'. In a moment of guilt, the thief contacted Morris and personally handed the violin back to him in a carpark with his sincere apologies. Morris sent out a tweet thanking the public for their support and saying he was happy that he could sleep again now that he had his beloved instrument back."
+              },
+              {
+                "id": "5",
+                "text": "A man has been jailed for stealing more than 7,000 books from Scottish universities and then selling them online to make an amazing amount of money. The textbooks he stole were in demand from students studying subjects such as marketing, business studies and nursing. His illegal business was detected by Douglas, a PhD student who wanted to borrow a specific textbook from his university library. The book was not available, but Douglas later found it and another book online. He became suspicious when the books arrived, because they had originated from his university library but had a fake 'withdrawn' stamp on the cover. When the university and police investigated, they discovered that over 4,000 books in the system were missing. With the help of intelligent software, they were able to track down the criminal entrepreneur. He had used a visitor reader's ticket and simply removed the books in his rucksack. It was also discovered that he had stolen books from several other universities too."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  {
+                    "id": "1",
+                    "text": "Paragraph 1",
+                    "answer": 6
+                  },
+                  {
+                    "id": "2",
+                    "text": "Paragraph 2",
+                    "answer": 2
+                  },
+                  {
+                    "id": "3",
+                    "text": "Paragraph 4",
+                    "answer": 0
+                  },
+                  {
+                    "id": "4",
+                    "text": "Paragraph 4",
+                    "answer": 3
+                  },
+                  {
+                    "id": "5",
+                    "text": "Paragraph 5",
+                    "answer": 7
+                  }
+                ],
+                "headings": [
+                  "Police find goods",
+                  "Ambitious thefts increase",
+                  "Complaints about queues",
+                  "Thieves attack hotels",
+                  "A black-market business",
+                  "Action deeply regretted",
+                  "Pain or success?",
+                  "Reader destroys books",
+                  "Tough new legislation",
+                  "Unfair regulation introduced"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about invasive plants and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "A Losing Battle - Invasive Plants",
+            "subtitle": "Reading Passage 2",
+            "type": "ielts-complex",
+            "content": [
+              {
+                "id": "A",
+                "text": "Not every beautiful plant growing in your garden or in the countryside is a welcome sight. We are not talking about normal weeds - plants which are not wanted, but can be removed with a bit of hard work. This article features another category: species, often from overseas, that grow where they do not belong and are dangerous for humans and even buildings. These non-native plants invade new areas, spread rapidly and are difficult to remove. As a result, they are called non-native invasive plants."
+              },
+              {
+                "id": "B",
+                "text": "Not growing in their home country, the problem with many of these plants is that they often have no natural enemies to keep them under control. A good example of non-native invasive plants is Japanese knotweed. The World Conservation Union lists this plant as one of the world's worst invasive species, because it can grow through hard surfaces, such as roads and walls. In the UK, it is already causing massive damage to roads and affecting property values. Japanese knotweed originally came from Asia and grows naturally on the sides of volcanoes, where volcanic ash keeps it from spreading. It was introduced to the West by the botanist Philippe von Siebold, who sent it to the Royal Botanical Gardens Kew in August 1850 in a parcel of plants. The attractive plant, which reaches a height of three to four metres, was much admired and quickly became very popular with the Victorians. Garden centres sold it commercially and it was deliberately planted all over the UK. Since 1981 it has been a crime to plant or grow Japanese knotweed in the wild. This includes moving polluted soil or plant cuttings. If you are caught doing so, you can be fined or even sent to prison for up to two years."
+              },
+              {
+                "id": "C",
+                "text": "It is not illegal to have this plant on your property, but you as the landowner have the legal responsibility to ensure that it does not spread to your neighbours' land. Anyone wishing to sell a house with Japanese knotweed within seven metres of their property has a problem. Many banks will refuse to give potential buyers a loan and insurance companies will not bear the cost of damage caused by this plant. Additionally, neighbours could take legal action because their properties are also in danger indirectly. Japanese knotweed is incredibly difficult and expensive to remove. It grows very quickly and aggressively, with roots three metres deep and seven metres across. You can try and dig it out yourself, but because it spreads underground, it is almost impossible to ensure all the roots have been removed. Consequently, the plant will soon appear again. Also, this plant is classified as special waste, so you have to take it to a place that has permission to dispose of it, which may mean you have to pay a huge fee. Alternatively, the plant can be treated with a chemical weed killer. This takes about three years to be effective and is slightly cheaper than removing it manually. Considering the seriousness of the situation, professional help is the most effective and sensible way to solve the problem."
+              },
+              {
+                "id": "D",
+                "text": "Another invasive species is the giant hogweed which comes from Central Asia. It was first introduced to European gardens in the middle of the 19th century because of its impressive white flowers which are grouped together on umbrella-like heads. It can have a height of up to five metres and grows at riversides and anywhere else where the soil is moist. The problem with this plant is the liquid inside it, known as the sap. If you come into contact with it, and are then exposed to sunlight, you will receive blistering burns that sometimes stay for several weeks and may well leave a scar. If you touch this plant, clean the skin area with lots of soap and water and then consult a doctor. The problem is that a victim, not being aware of the danger, does not notice anything is wrong until a few days later. And the biggest issue with this plant is that children are tempted to play with it due to its large leaves and exciting hollow stalks. There have been many cases of hospitalisation."
+              },
+              {
+                "id": "E",
+                "text": "These are just two examples, but they have something in common. They started their invasion as a beautiful plant specimen brought home from a far-away country without anyone being aware of the consequences of this action. Due to today's globalisation, we have a new responsibility: to protect location-specific environments and not move native plants from country to country."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer",
+                "questions": [
+                  {
+                    "id": "6",
+                    "text": "Invasive plants are covering increasingly large areas because",
+                    "options": [
+                      "it is not possible to get rid of them.",
+                      "the climate of a non-native country suits them better.",
+                      "they don't have to defend themselves against anything."
+                    ],
+                    "answer": "they don't have to defend themselves against anything."
+                  },
+                  {
+                    "id": "7",
+                    "text": "Japanese knotweed",
+                    "options": [
+                      "cultivation can result in serious punishment.",
+                      "has spread all over Britain accidentally.",
+                      "is still available commercially."
+                    ],
+                    "answer": "cultivation can result in serious punishment."
+                  },
+                  {
+                    "id": "8",
+                    "text": "Having Japanese knotweed on your property means you",
+                    "options": [
+                      "can only successfully sell your house via a bank.",
+                      "may have a serious dispute with your neighbour.",
+                      "need to take out additional insurance."
+                    ],
+                    "answer": "may have a serious dispute with your neighbour."
+                  },
+                  {
+                    "id": "9",
+                    "text": "To get rid of Japanese knotweed, the author recommends",
+                    "options": [
+                      "choosing the slower more inexpensive method.",
+                      "letting experts take on the responsibility.",
+                      "working very carefully on your own."
+                    ],
+                    "answer": "letting experts take on the responsibility."
+                  },
+                  {
+                    "id": "10",
+                    "text": "Contact with the giant hogweed",
+                    "options": [
+                      "always has immediate visible effects.",
+                      "can cause permanent damage.",
+                      "cleans your skin thoroughly."
+                    ],
+                    "answer": "can cause permanent damage."
+                  }
+                ]
+
+
+                
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Activities and Groups",
+            "subtitle": "Reading Passage 3",
+            "type": "ielts-complex",
+            "content": [
+              {
+                "id": "A",
+                "text": "Argentine Tango - 'There are short cuts to happiness and dancing is one of them.' Why not learn Argentine tango and get to know its fascinating culture? We have a big collection of authentic South American music. Group classes, workshops and private classes possible. No partner needed. No previous dance experience required. All ages welcome. New complete beginner courses starting every two months."
+              },
+              {
+                "id": "B",
+                "text": "Breathe In Sing Out - Fun singing and improved breathing for people diagnosed with a lung condition. Anyone with a persistent breathing difficulty is welcome to come along and try it out. No need to consider yourself a singer. Group session Thursdays 10.00 to 11.00am, £4 or whatever contribution you can afford."
+              },
+              {
+                "id": "C",
+                "text": "Contemporary Textiles - One-day courses in felting techniques, covering ways of making a wide variety of items, from pictures to jewellery and decorations. Make a pair of felt slippers in a day. Workshops including lunch and materials cost £70 and run from 10am – 4pm."
+              },
+              {
+                "id": "D",
+                "text": "The University of the Third Age - Learn, laugh and live. Come and find out about the activities we have to offer for the over 50s at our general meeting on the second Tuesday of each month at the Town Hall at 10a.m. Joining the U3A is an excellent way of making new friends and gaining new skills and interests."
+              },
+              {
+                "id": "E",
+                "text": "A spark can light a fire - Strengthening communities. Do you have a hobby or skill that you could share with other people where you live? Would you like to have the opportunity to enrich other people's lives and pass on your knowledge? Our grants can provide finances to get a group up and running."
+              },
+              {
+                "id": "F",
+                "text": "Bramble Farm - Bring learning to life on our fantastic rural skills courses. Whether you're thinking about having your own hens, learning how to build a wall, laying a hedge, or collecting berries or mushrooms in the wild for your next meal, our hands-on outdoor courses will give you the knowledge and confidence to get started."
+              },
+              {
+                "id": "G",
+                "text": "The magic of words - Friendly, peer-learning poetry group for poets of all abilities. Develop your love of rhyming and expressing ideas through poetry. We offer useful feedback, tutorials, discussions, handouts, prompts and opportunities to get your work heard. Regular meetings in members' houses."
+              },
+              {
+                "id": "H",
+                "text": "Forest Keepers - Our primary purpose is to provide information on all aspects of beekeeping to our members, regardless of experience. Beginners and interested members of the public of any age are welcome. We provide hands-on teaching, with practical demonstrations."
+              },
+              {
+                "id": "I",
+                "text": "Paradise on Earth - Create fantastic flowerbeds and borders for your garden. Make your garden into a place of colour and fragrance. This six-week course covers optimising growing conditions for plants, colour theory and design principles, with lots of hands-on practical workshops."
+              },
+              {
+                "id": "J",
+                "text": "The music of success - Established in 2003 for teenagers, the Malvern Wind Band has had lots of success over the years, including several performances at well-known concert halls. If you play brass, woodwind or percussion at any level, please contact us."
+              },
+              {
+                "id": "K",
+                "text": "Helping those less fortunate - Our vision is to enrich the lives of all disabled people through horses. Established in 1990, Forest Riding offers riding lessons to all local disabled children and adults. Volunteers are always needed, especially people able to do heavy work in the stables."
+              },
+              {
+                "id": "L",
+                "text": "Early Birds - Start your week in the best way possible - harmoniously at the Community Centre, Mondays 9.30 – 11.00am. Come and sing for pleasure with a group of other music lovers. New members are always welcome - any age, no experience necessary."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  {
+                    "id": 11,
+                    "text": "You have written some songs and are looking for a group of musicians willing to try them out.",
+                    "answer": "E"
+                  },
+                  {
+                    "id": 12,
+                    "text": "Your friend Jema loves dancing but has given up because she is always short of breath.",
+                    "answer": "B"
+                  },
+                  {
+                    "id": 13,
+                    "text": "You would occasionally like to do some physical work that would keep you fit but also be for a good cause.",
+                    "answer": "K"
+                  },
+                  {
+                    "id": 14,
+                    "text": "Your friend and his dad play several wind instruments and are looking for an opportunity to spend time together.",
+                    "answer": "J"
+                  },
+                  {
+                    "id": 15,
+                    "text": "Your uncle has just retired to a new town and would like to find out what groups he could join.",
+                    "answer": "D"
+                  },
+                  {
+                    "id": 16,
+                    "text": "You enjoy writing short stories and are looking for a group to share your texts with and get feedback.",
+                    "answer": "G"
+                  },
+                  {
+                    "id": 17,
+                    "text": "Your aunt would like to show friends and neighbours how to make jewellery and needs guidance on how to start a group.",
+                    "answer": "E"
+                  },
+                  {
+                    "id": 18,
+                    "text": "Your mum is very unhappy with the grounds at the back of the house and would like to make them more attractive.",
+                    "answer": "I"
+                  },
+                  {
+                    "id": 19,
+                    "text": "You would like to get practical tips for finding things to eat out in the countryside",
+                    "answer": "F"
+                  },
+                  {
+                    "id": 20,
+                    "text": "You are looking for an interesting topic for a natural science presentation.",
+                    "answer": "H"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m1-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter",
+        "subtitle": "Part 1: Writing",
+        "intro": "You see this advert online",
+        "instruction": "Write a letter to go with the recipe that you are submitting. In your letter write in detail about\n\na) at least three of the following points\nor\nb) at least two of the following points plus one other aspect related to the topic:\n• Background information on the dish\n• What makes your recipe so special\n• When the recipe was last used\n• The importance of good cooking\n\nBefore you start writing, decide on the order of the points. Use a suitable greeting and complimentary closing. Start your letter with a few opening sentences and end the letter politely with one or two closing sentences.\n\nPlease write at least 150 words.",
+        "context": "Favourite Recipes Contest\nWin a Place on a Cookery Course with our Three-Star Chef - Anna Capelli\n\nDo you have a special recipe? One that you've come up with or a traditional recipe that has been in your family for generations?\n\nWe don't just want the recipe; we want to publish an accompanying letter with the whole story behind the dish.\n\nClick on Submit to upload your recipe and accompanying letter by the end of the month.\nWe will select the five best recipes and our chefs will cook the meals. The lucky winner will join Anna Capelli on our exclusive cookery course.\n\nJane Denny and team",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a letter to go with your recipe submission.",
+        "bullets": [
+          "Background information on the dish",
+          "What makes your recipe so special",
+          "When the recipe was last used",
+          "The importance of good cooking"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m1-t2",
+        "taskType": 2,
+        "title": "Task 2: Letter",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Please write at least 80 words.",
+        "context": "Your friend Rick doesn’t want to do anything special for his 18th birthday. Write to Rick to say why you think celebrating is important and give him some ideas as to how he could celebrate.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Your friend Rick doesn’t want to do anything special for his 18th birthday. Write to Rick to say why you think celebrating is important and give him some ideas as to how he could celebrate.",
+        "bullets": [
+          "Please write at least 80 words."
+        ],
+        "type": "letter"
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "parts": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You are expected to give a short presentation to your partner(s) on one of the following topics. (The prompts in brackets may help you.) Your presentation should take about 90 seconds and you should answer your partner’s questions afterwards. While your partner is giving his/her presentation, listen and think of the questions you would like to ask. You should not interrupt your partner during the presentation",
+        "topics": [
+          {
+            "topic": "A city that you particularly like",
+            "questions": [
+              {
+                "id": "p1q1",
+                "text": "Why you like it (facts about the city, your experiences, etc.)"
+              }
+            ]
+          },
+          {
+            "topic": "Music that you often listen to",
+            "questions": [
+              {
+                "id": "p1q2",
+                "text": "What, when, how, why, etc."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following text from a magazine. Discuss the content of the text with your partner(s). Tell them your opinions; give reasons and personal examples to support your ideas. Talk about your own experience with the problems mentioned and possible solutions.",
+        "text": "Helping local people in need. Every Friday, 65-year-old Holly MacNamara makes her way down the streets of suburban Manchester to her local foodbank. Here she stands in line to receive a 3-day emergency ration without which, she says, survival would be impossible. In the past, before her husband Bernard passed away, she would never have dreamt of ever needing a foodbank. The hardest part was asking for help, she admits. Most of Holly's life was spent as mother and housewife, so she only receives a very small state pension and needs help to cope with everyday expenses. She is by far not the only one, vicar and foodbank manager, Robert Swanson tells us. We have people coming here from all stages of life - from recently graduated university students that cannot find a job, to people who cannot work because of illness or misfortune.",
+        "topics": [
+          {
+            "topic": "Foodbanks and Poverty",
+            "questions": [
+              {
+                "id": "p2q1",
+                "text": "Why do you think foodbanks have become necessary in many European countries?"
+              },
+              {
+                "id": "p2q2",
+                "text": "What role do volunteers play in helping those in need?"
+              },
+              {
+                "id": "p2q3",
+                "text": "Have you ever had experience with foodbanks or similar support systems?"
+              },
+              {
+                "id": "p2q4",
+                "text": "What solutions could help reduce poverty and the need for foodbanks?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "You and your partner have joined the school committee. Next year the school building will be modernised and you have been asked to make a presentation together with suggestions as to what should be done and why.\n\nFirstly, think of some ideas to include in the presentation.\n\nThen, discuss your ideas with your partner(s) and try to agree on a constructive and informative presentation.",
+        "topics": [
+          {
+            "topic": "School Modernisation",
+            "suggestions": [
+              "Improve classroom technology (computers, projectors, smart boards)",
+              "Upgrade sports facilities (gym equipment, outdoor sports areas)",
+              "Create additional study spaces and library improvements",
+              "Energy-efficient changes (solar panels, better insulation)",
+              "Enhanced safety features (security cameras, better lighting)",
+              "Modernise canteen and food service areas",
+              "Accessibility improvements (ramps, elevators)",
+              "Renovate bathrooms and welfare facilities"
+            ],
+            "questions": [
+              {
+                "id": "p3q1",
+                "text": "What improvements would benefit students most?"
+              },
+              {
+                "id": "p3q2",
+                "text": "How can these changes support learning?"
+              },
+              {
+                "id": "p3q3",
+                "text": "Which suggestions are most cost-effective?"
+              },
+              {
+                "id": "p3q4",
+                "text": "What priorities should the school consider first?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 4 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "News Items",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear five news items. You will hear each item only once.\nDecide which headline a–f goes with each news item.\nMark your answers on the answer sheet.\nNow you will have 45 seconds to read the headlines.",
+        "transcript": "[Five news item transcripts to be matched with headlines]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "context": "Five short news items",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (a-f) corresponds to each news item?",
+            "questions": [
+              {
+                "id": 41,
+                "text": "News Item 1",
+                "answer": "a"
+              },
+              {
+                "id": 42,
+                "text": "News Item 2",
+                "answer": "b"
+              },
+              {
+                "id": 43,
+                "text": "News Item 3",
+                "answer": "c"
+              },
+              {
+                "id": 44,
+                "text": "News Item 4",
+                "answer": "d"
+              },
+              {
+                "id": 45,
+                "text": "News Item 5",
+                "answer": "e"
+              }
+            ],
+            "headings": [
+              "a Clear proof of climate change",
+              "b Controversial solution to a challenging situation",
+              "c International rules urgently required",
+              "d Too many for safety",
+              "e Unexpected developments at sea",
+              "f Variety could be the key to survival"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Radio Interview: University Life",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear a radio interview. First you will have one minute to read the introduction and the items. Then you will hear the interview. You will hear the interview only once. Decide if the statement for each of the items is true (+) or not true (–) and mark your answers on the answer sheet.",
+        "transcript": "[Radio interview transcript about university life - containing the information needed to answer questions 46-55]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+        "context": "Interview - university context",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "instruction": "Decide if the statement for each of the items is true (+) or not true (–).",
+            "questions": [
+              {
+                "id": 46,
+                "text": "When Harry started at university, he was anxious that he would not cope with having to work independently.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 47,
+                "text": "Harry selected Southampton because the course they offer suits his interests best.",
+                "answer": "NOT GIVEN"
+              },
+              {
+                "id": 48,
+                "text": "Harry has individual sessions with his tutor at the same time each week.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 49,
+                "text": "Harry enjoys the more practical aspects of his studies.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 50,
+                "text": "The work done in the lab is based on the lectures on a specific concept heard previously.",
+                "answer": "NOT GIVEN"
+              },
+              {
+                "id": "51",
+                "text": "The assessment given for each lab session only depends on how well Harry has recorded things in his logbook.",
+                "answer": "FALSE"
+              },
+              {
+                "id": "52",
+                "text": "To encourage students to keep fit, there are no lectures one afternoon a week.",
+                "answer": "TRUE"
+              },
+              {
+                "id": "53",
+                "text": "The university expects new students to organise their own accommodation.",
+                "answer": "FALSE"
+              },
+              {
+                "id": "54",
+                "text": "When you apply to stay in a Hall of Residence, you have some influence over which room you get.",
+                "answer": "NOT GIVEN"
+              },
+              {
+                "id": "55",
+                "text": "Harry refers to a challenge that can win you an attractive award.",
+                "answer": "TRUE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3-new",
+        "part": 3,
+        "title": "Short Conversations",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear five short texts. Decide which is the correct answer (a, b or c) for each question.",
+        "transcript": "",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+        "context": "Five short texts",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "Choose the correct answer",
+            "questions": [
+              {
+                "id": 56,
+                "text": "The theater production is especially suitable for",
+                "options": [
+                  "kids that love watching fairy tales.",
+                  "families wishing to participate in the performance.",
+                  "people who are familiar with Wyesham."
+                ],
+                "answer": "kids that love watching fairy tales."
+              },
+              {
+                "id": 57,
+                "text": "The ride at Death Tower can be attempted by",
+                "options": [
+                  "anyone who likes scary experiences.",
+                  "people who have no loose items on them.",
+                  "visitors who like speeds of over 100 kph."
+                ],
+                "answer": "people who have no loose items on them."
+              },
+              {
+                "id": 58,
+                "text": "The items mentioned today are",
+                "options": [
+                  "appealing for various groups of customers.",
+                  "attractive for families buying small amounts.",
+                  "interesting for people wishing to buy regional food."
+                ],
+                "answer": "appealing for various groups of customers."
+              },
+              {
+                "id": 59,
+                "text": "After hearing this announcement visitors",
+                "options": [
+                  "can enjoy all facilities for ten more minutes.",
+                  "must head for the changing rooms immediately.",
+                  "should exit the building in the next half-an-hour."
+                ],
+                "answer": "should exit the building in the next half-an-hour."
+              },
+              {
+                "id": 60,
+                "text": "The weather will be",
+                "options": [
+                  "calm on Wednesday.",
+                  "extreme on Thursday.",
+                  "unpleasant on Friday"
+                ],
+                "answer": "unpleasant on Friday"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Read the following letter.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "ielts-complex",
+            "content": [
+              {
+                "id": "1",
+                "text": "January 3rd\n\nDear Auntie Sam,\nI hope you had a good Christmas and thank you very much for the money you sent me. I'm sure I'll find good use ____(21)____ it. While most other people thankfully ____(22)____ me financial gifts too, I also received some rather strange gifts from Father Christmas and my parents, whose identities remain ____(23)____ connected in some way. My little brother, who was not at all happy with his presents, decided ____(24)____ all our gifts differently without telling us. He managed to eat an extra-large box of Belgian chocolates that wasn't his before we could stop him.\n\nI'm in my second year at university and the past ____(25)____ has been ____(26)____ as before, except I have a different room. It's slightly smaller than the last and I still don't have my own shower, but at least it has proper heating and isn't right ____(27)____ to a noisy bar.\n\nOther than that, there was a university-wide strike ____(28)____ the last week of term, but it didn't really affect me. I hardly noticed it except there were loads of annoying emails from people asking for my support.\n\nThis Christmas break was a week shorter ____(29)____ it usually is, and it really felt like it. All the essays I had to write, which took me ages to do, didn't help either. ____(30)____ there are things about the coming term I'm looking forward to, I think I still would have preferred the additional week of holiday.\n\nThanks again,\nLots of love\nRoy"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {
+                    "id": "21",
+                    "text": "I'm sure I'll find good use ____(21)____ it.",
+                    "options": ["a for", "b from", "c of"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "22",
+                    "text": "While most other people thankfully ____(22)____ me financial gifts too,",
+                    "options": ["a are giving", "b gave", "c has given"],
+                    "answer": 1
+                  },
+                  {
+                    "id": "23",
+                    "text": "whose identities remain ____(23)____ connected in some way.",
+                    "options": ["a suspect", "b suspicious", "c suspiciously"],
+                    "answer": 1
+                  },
+                  {
+                    "id": "24",
+                    "text": "My little brother, who was not at all happy with his presents, decided ____(24)____ all our gifts differently",
+                    "options": ["a arrange", "b arranging", "c to arrange"],
+                    "answer": 2
+                  },
+                  {
+                    "id": "25",
+                    "text": "I'm in my second year at university and the past ____(25)____ has been ____(26)____ as before,",
+                    "options": ["a semester", "b year", "c term"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "26",
+                    "text": "I'm in my second year at university and the past ____(25)____ has been ____(26)____ as before,",
+                    "options": ["a the same", "b similar", "c alike"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "27",
+                    "text": "It's slightly smaller than the last and I still don't have my own shower, but at least it has proper heating and isn't right ____(27)____ to a noisy bar.",
+                    "options": ["a next", "b beside", "c nearby"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "28",
+                    "text": "Other than that, there was a university-wide strike ____(28)____ the last week of term,",
+                    "options": ["a at", "b in", "c on"],
+                    "answer": 2
+                  },
+                  {
+                    "id": "29",
+                    "text": "This Christmas break was a week shorter ____(29)____ it usually is,",
+                    "options": ["a than", "b then", "c as"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "30",
+                    "text": "____(30)____ there are things about the coming term I'm looking forward to, I think I still would have preferred the additional week of holiday.",
+                    "options": ["a Although", "b Despite", "c However"],
+                    "answer": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+
+
+
+        {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following",
+        "passages": [
+		{
+            "id": "p3",
+            "subtitle": "Ssomething",
+            "title": "else",
+            "type": "ielts-complex",
+            "content": [
+            {
+		     "id":"1",
+			"passage": "Sir Edward William Elgar is a 19th century English composer known worldwide. Pomp and Circumstance, for example, is one of Elgar's most famous pieces and one of Britain's biggest cultural ____(31)____. Elgar was born in 1857 in a village in ____(32)____ England. His father had a music shop in Worcester and so Elgar had access to many different kinds of instruments and music. Surprisingly, he ____(33)____ music college and was mainly a self-taught composer. It was in 1899, when Elgar was 42, that he had his first big success with the Enigma Variations for orchestra. It came into being almost by chance. Elgar ____(34)____ the evening when he sat down at the piano to play after dinner: 'Suddenly my wife ____(35)____ by saying: Edward, that's a good tune.' I ____(36)____ from my creative dream. 'Tune? What tune?' And she said, 'Play it again, I like that tune.' I played and strummed, and played, and then she exclaimed: 'That sounds of ____(37)____, what is that?' I answered, 'Nothing - but something might be made of it.' For fun, Elgar then ____(38)____ with the tune, playing different versions. Each was typical of someone they knew. That was the beginning of the Enigma Variations, which he dedicated to his friends. For its title, each of the 14 parts has the ____(39)____ of a person's name. The word 'enigma' means something that is ____(40)____, and perhaps the puzzle hidden in the piece gives it that extra charm that has made it so popular."
+			}			
+			],
+		"subTasks": [
+          {
+            "type": "gap-fill-tokens",
+            "instruction": "Choose the correct word (a-o) to complete each sentence.",
+            "tokens": ["a APPROVAL", "b ATTEND", "c AWOKE", "d EDGE", "e EXCEPTION", "f EXPERIMENTED", "g EXPORTS", "h FAR", "i FASHION", "j INITIALS", "k INTERRUPTED", "l MYSTERIOUS", "m PUBLICITY", "n RECALLS", "o RURAL"],
+            "answers": ["g EXPORTS", "o RURAL", "b ATTEND", "n RECALLS", "k INTERRUPTED", "c AWOKE", "l MYSTERIOUS", "f EXPERIMENTED", "j INITIALS", "l MYSTERIOUS"]
+			      }
+          ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

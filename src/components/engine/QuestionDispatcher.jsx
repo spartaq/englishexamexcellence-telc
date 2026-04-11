@@ -88,29 +88,18 @@ const QuestionDispatcher = ({
     case 'gap-fill-tokens':
       return (
         <GapFillBlock 
-          data={data} 
+          data={{ ...data, passage: passageContent || data.passage }} 
           userAnswers={userAnswers} 
           onUpdate={onUpdate}
           isReviewMode={isReviewMode}
+          showPassage={false}
         />
       );
 
     case 'language_elements':
-      // Language Elements - Check if it's MCQ format or legacy gap-fill format
-      if (data.questions && data.questions.length > 0) {
-        // MCQ format - use MCQBlock directly
-        return (
-          <MCQBlock
-            data={data}
-            userAnswers={userAnswers}
-            onUpdate={onUpdate}
-            onCheckAnswers={onCheckAnswers}
-            isReviewMode={isReviewMode}
-            showCheckAnswers={showCheckAnswers}
-          />
-        );
-      }
-      // Legacy gap-fill format - use the dedicated block
+      // Language Elements - Use LanguageElementsBlock for both MCQ and gap-fill formats
+      // LanguageElementsBlock handles the SplitPane layout and carousel navigation
+      console.log('[QuestionDispatcher] Using LanguageElementsBlock for language_elements');
       return (
         <LanguageElementsBlock
           data={data}
@@ -119,6 +108,13 @@ const QuestionDispatcher = ({
           onCheckAnswers={onCheckAnswers}
           isReviewMode={isReviewMode}
           showCheckAnswers={showCheckAnswers}
+          sections={sections}
+          activeSkillTab={activeSkillTab}
+          activeSectionIndex={activeSectionIndex}
+          setActiveSectionIndex={setActiveSectionIndex}
+          setActivePassageIndex={setActivePassageIndex}
+          setIsReviewMode={setIsReviewMode}
+          availableSkills={availableSkills}
         />
       );
 

@@ -3,14 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen, Headset, PenTool, Mic, Info } from 'lucide-react';
 import './BrandTestHub.css';
 
-/**
- * ExamDescription - Shows detailed information about the exam format
- * 
- * Contains the "Four Pillars" content previously in ExamStrategy
- * Accessible from the BrandTestHub via info button, or directly via /ielts-info route
- */
 const ExamDescription = ({ activeTest, onBack }) => {
-  // Determine if we have a back handler (internal app navigation) or need to use Link
   const hasBackHandler = typeof onBack === 'function';
   
   return (
@@ -28,14 +21,14 @@ const ExamDescription = ({ activeTest, onBack }) => {
           </button>
         ) : (
           <Link 
-            to="/ielts" 
+            to="/telc/b2" 
             className="btn-back-link" 
             style={{ marginBottom: '16px', cursor: 'pointer', textDecoration: 'none', color: '#2563eb' }}
           >
-            <ArrowLeft size={24} /> Back to IELTS Hub
+            <ArrowLeft size={24} /> Back to TELC Hub
           </Link>
         )}
-        <h1>About the {activeTest?.title || 'IELTS'}</h1>
+        <h1>About the {activeTest?.title || 'TELC'}</h1>
         <p>
           Understanding the exam structure is the first step to mastering it.
           Here's what you need to know about each section.
@@ -68,7 +61,7 @@ const ExamDescription = ({ activeTest, onBack }) => {
               <Headset color="#16a34a" />
             </div>
             <div className="pillar-content">
-              <h4>Listening (30 Mins)</h4>
+              <h4>Listening (40 Mins)</h4>
               <p>
                 The audio only plays <strong>once</strong>. You need to write while you listen. 
               </p>
@@ -94,9 +87,9 @@ const ExamDescription = ({ activeTest, onBack }) => {
               <Mic color="#9333ea" />
             </div>
             <div className="pillar-content">
-              <h4>Speaking (11-14 Mins)</h4>
+              <h4>Speaking (15 Mins)</h4>
               <p>
-                Focus on <strong>fluency and range</strong>. Practice "The Long Turn" to speak for 2 minutes straight.
+                Focus on <strong>fluency and range</strong>. Practice to speak for 2 minutes straight.
               </p>
             </div>
           </div>

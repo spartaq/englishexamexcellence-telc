@@ -82,7 +82,7 @@ export const useExamStore = create(
       setIsActive: (status) => set({ isActive: status }),
 
       // Current view for ScrollToTop component
-      currentView: 'ieltsHub',
+      currentView: 'telc-b2-hub',
       setCurrentView: (view) => set({ currentView: view }),
       
       // SRS Test Mode controls

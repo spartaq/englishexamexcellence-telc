@@ -36,7 +36,7 @@ const AppShell = ({
         <aside className="invictus-sidebar">
           <div className="invictus-brand">
             <h2 className="invictus-brand-title">
-              IELTSHub
+              TELCHub
             </h2>
             <p className="invictus-brand-subtext">
               {activeTest ? activeTest.title.toUpperCase() : 'SELECT EXAM'}
@@ -45,12 +45,12 @@ const AppShell = ({
           <nav className="invictus-nav">
             <button 
               onClick={() => { 
-                onNavigateToView('ieltsHub'); 
+                onNavigateToView('telc-b2-hub'); 
                 if (setActiveTest) setActiveTest(null); 
               }} 
-              className={`invictus-nav-item ${view === 'ieltsHub' ? 'active' : ''}`}
+              className={`invictus-nav-item ${view === 'telc-b2-hub' ? 'active' : ''}`}
             >
-              <LayoutDashboard size={18} /> IELTSHub
+              <LayoutDashboard size={18} /> TELCHub
             </button>
 
             <button 

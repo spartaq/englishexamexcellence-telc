@@ -27,13 +27,26 @@ const Engine = ({
   availableSkills = [],
   onNavigateToMyWords
 }) => {
-  console.log('!!! ENGINE COMPONENT RENDERING !!!');
+console.log('!!! ENGINE COMPONENT RENDERING !!!');
 
   // 1. Resolve Data hierarchy
   const sections = activeLesson?.sections || availableSections || [];
   const currentSection = sections[activeSectionIndex] || activeLesson;
   const passages = currentSection?.passages || [];
   const currentPassage = passages[activePassageIndex] || currentSection;
+
+  // DEBUG: Log section data structure
+  console.log('[Engine] Sections array:', sections.length);
+  if (sections.length > 0) {
+    console.log('[Engine] Section at index', activeSectionIndex, ':', {
+      keys: Object.keys(sections[activeSectionIndex] || {}),
+      hasSubTasks: !!sections[activeSectionIndex]?.subTasks,
+      subTasksCount: sections[activeSectionIndex]?.subTasks?.length,
+      hasSections: !!sections[activeSectionIndex]?.sections,
+      sectionsCount: sections[activeSectionIndex]?.sections?.length,
+      title: sections[activeSectionIndex]?.title
+    });
+  }
 
   // 2. Identify the Task Type
   const lessonType = activeLesson?.type;
@@ -159,19 +172,48 @@ const Engine = ({
   );
 }
 
-    // E2. LANGUAGE ELEMENTS (TELC B2 specific - MCQ format handled by QuestionDispatcher)
-    // Use QuestionDispatcher to handle the MCQ questions in Language Elements
+    // E2. LANGUAGE ELEMENTS (TELC B2 specific - similar to Reading, uses LanguageElementsBlock)
+    // For full-mocks with transformed data, currentSection contains the languageElements structure
     const isFullMockLanguageElements = lessonType === 'full-mock' && currentSection?.skill === 'language-elements';
+    console.log('[Engine] Checking Language Elements:', {
+      lessonType,
+      skill,
+      isFullMockLanguageElements,
+      currentSectionSkill: currentSection?.skill,
+      hasSections: !!currentSection?.sections,
+      sectionsCount: currentSection?.sections?.length
+    });
     if (lessonType === 'LANGUAGE_ELEMENTS' || skill === 'language-elements' || isFullMockLanguageElements) {
+      // currentSection now has .sections with the LE passages
+      const leSections = currentSection?.sections || [];
+      
+      // For LE, use the actual activeSectionIndex from state to allow tab switching
+      const leActiveSectionIndex = activeSectionIndex;
+      
+      console.log('[Engine] Rendering LanguageElementsBlock with:', {
+        dataKeys: Object.keys(currentSection || {}),
+        hasPassage: !!currentSection?.passage,
+        hasContent: !!currentSection?.content,
+        hasSubTasks: !!currentSection?.subTasks,
+        subTasksCount: currentSection?.subTasks?.length
+      });
+      
       return (
         <div className="engine-fallback-container language-elements-container">
-          <QuestionDispatcher 
+          <LanguageElementsBlock 
             data={currentSection}
             userAnswers={userAnswers}
             onUpdate={onUpdateAnswers}
             onCheckAnswers={onCheckAnswers}
             isReviewMode={isReviewMode}
             showCheckAnswers={showCheckAnswers}
+            sections={leSections}
+            activeSkillTab={activeSkillTab}
+            activeSectionIndex={leActiveSectionIndex}
+            setActiveSectionIndex={setActiveSectionIndex}
+            setActivePassageIndex={setActivePassageIndex}
+            setIsReviewMode={setIsReviewMode}
+            availableSkills={availableSkills}
           />
         </div>
       );

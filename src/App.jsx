@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 // Navigation & Structure Components
 import BrandTestHub from './components/ui/BrandTestHub';
-import ExamDescription from './components/ui/IELTSExamDescription';
+import ExamDescription from './components/ui/TELCExamDescription';
 import VocabHub from './components/ui/VocabHub';
 import MyWords from './components/ui/MyWords';
 import DrillsHub from './components/ui/DrillsHub';
@@ -32,7 +32,6 @@ import { useExamStore } from './store/useExamStore';
 import ScrollToTop from './scrollToTop';
 import { pluckRandomFullMock, pluckRandom } from './utils/mockPlucker';
 import { resolvePath, resolveSection } from './utils/NavigationResolver';
-import { getMockById } from './data/IELTS/mocks';
 import { LessonFactory } from './utils/LessonFactory';
 
 // Layout Shell Components
@@ -69,8 +68,8 @@ function App({ initialView }) {
   // ============================================================
   
   // Navigation State
-  const [view, setView] = useState(initialView || 'ieltsHub');
-  const [viewHistory, setViewHistory] = useState([initialView || 'ieltsHub']);
+  const [view, setView] = useState(initialView || 'telc-b2-hub');
+  const [viewHistory, setViewHistory] = useState([initialView || 'telc-b2-hub']);
   const [activeTest, setActiveTest] = useState(null);       
   const [activeCategory, setActiveCategory] = useState(null); 
   const [activeSection, setActiveSection] = useState(null);   
@@ -116,21 +115,25 @@ const handleUpdateAnswer = useCallback((qId, val) => {
       
       // Update URL based on previous view
       if (previousView === 'landing') {
-        navigate('/ielts');
-      } else if (previousView === 'ieltsHub') {
-        navigate('/ielts');
+        navigate('/telc/b2');
+      } else if (previousView === 'telc-b2-hub') {
+        navigate('/telc/b2');
+      } else if (previousView === 'telc-b1-hub') {
+        navigate('/telc/b1');
+      } else if (previousView === 'telc-c1-hub') {
+        navigate('/telc/c1');
       } else if (previousView === 'drillsHub') {
-        navigate('/ielts');
+        navigate('/telc/drillshub');
       } else if (previousView === 'selection') {
-        navigate('/ielts');
+        navigate('/telc/b2');
       } else if (previousView === 'mywords') {
-        navigate('/ielts/mywords');
+        navigate('/telc/mywords');
       }
     } else {
-      // If we're at the root view or directly accessed, go to ieltsHub
-      setView('ieltsHub');
-      setCurrentView('ieltsHub'); // Update Zustand store for ScrollToTop
-      navigate('/ielts');
+      // If we're at the root view or directly accessed, go to telc-b2-hub
+      setView('telc-b2-hub');
+      setCurrentView('telc-b2-hub'); // Update Zustand store for ScrollToTop
+      navigate('/telc/b2');
     }
   };      
 
@@ -198,10 +201,10 @@ const handleUpdateAnswer = useCallback((qId, val) => {
   // The orchestrator that handles the click event
   const handleCheckAnswers = (drillAnswers = null) => {
     // 1. Get the math from the hook
-    const { results, ieltsScore } = checkAnswers(drillAnswers);
+    const { results, telcScore } = checkAnswers(drillAnswers);
     
-    // 2. Combine results with IELTS score if it exists
-    const finalResults = ieltsScore ? { ...results, ieltsScore } : results;
+    // 2. Combine results with TELC score if it exists
+    const finalResults = telcScore ? { ...results, telcScore } : results;
 
     // 3. Save to state and enter review mode
     setLessonResults(finalResults);
@@ -215,7 +218,7 @@ const handleUpdateAnswer = useCallback((qId, val) => {
 
   const handleSelectModule = (hubKey) => {
     // Simply navigate to the route - let the Resolver handle state updates
-    const hubPath = `/ielts/${hubKey.replaceAll('_', '-')}`;
+    const hubPath = `/telc/${hubKey.replaceAll('_', '-')}`;
     navigate(hubPath);
   };
 
@@ -278,7 +281,7 @@ const handleUpdateAnswer = useCallback((qId, val) => {
 
   const handleFinalClaim = () => {
     claimXp(lessonResults.earnedXP || activeLesson.xpReward || activeLesson.xp || 0);
-    navigateToView('ieltsHub');
+    navigateToView('telc-b2-hub');
     setActiveLesson(null);
   };  
 
@@ -344,29 +347,66 @@ const handleUpdateAnswer = useCallback((qId, val) => {
         <main className="invictus-main-content">
           <div className="invictus-main-container workspace-container style-scrollbar">
 
-         
-
-          {/* IELTSHUB VIEW - Uses BrandTestHub */}
-          {view === 'ieltsHub' && (
+                   {/* TELC B1 HUB VIEW */}
+          {view === 'telc-b1-hub' && (
             <BrandTestHub 
-              activeTest={activeTest}
+              activeTest={{ title: 'TELC B1' }}
+              level="b1"
               EXTRA_TOOLS={EXTRA_TOOLS}
               onSelectModule={handleSelectModule}
               onOpenPaywall={() => setShowPaywall(true)}
               onSelectPath={(path, skill) => {
-                // Check if path is a mock ID (e.g., 'telc-b2-mock-1', 'ielts-general-mock-2', or 'ielts-academic-mock-1')
-                if (path && (path.startsWith('telc-b2-mock-') || path.startsWith('ielts-general-mock-') || path.startsWith('ielts-academic-mock-'))) {
-                  const testType = path.startsWith('ielts-academic-mock-') ? 'academic' : 'general';
-                  handleFullTestSelection(testType, path);
+                if (path && path.startsWith('telc-')) {
+                  handleFullTestSelection(path.split('-')[1], path);
                 } else if (path === 'skill-tests') {
-                  // Navigate to skill tests view
                   navigateToView('skillTests');
                 } else {
-                  // All other paths are handled by LessonFactory
                   handleStartTask({ id: path, skill });
                 }
               }}
-               onShowDescription={() => navigateToView('description')}
+              onShowDescription={() => navigateToView('description')}
+            />
+          )}
+
+          {/* TELC B2 HUB VIEW */}
+          {view === 'telc-b2-hub' && (
+            <BrandTestHub 
+              activeTest={{ title: 'TELC B2' }}
+              level="b2"
+              EXTRA_TOOLS={EXTRA_TOOLS}
+              onSelectModule={handleSelectModule}
+              onOpenPaywall={() => setShowPaywall(true)}
+              onSelectPath={(path, skill) => {
+                if (path && path.startsWith('telc-')) {
+                  handleFullTestSelection(path.split('-')[1], path);
+                } else if (path === 'skill-tests') {
+                  navigateToView('skillTests');
+                } else {
+                  handleStartTask({ id: path, skill });
+                }
+              }}
+              onShowDescription={() => navigateToView('description')}
+            />
+          )}
+
+          {/* TELC C1 HUB VIEW */}
+          {view === 'telc-c1-hub' && (
+            <BrandTestHub 
+              activeTest={{ title: 'TELC C1' }}
+              level="c1"
+              EXTRA_TOOLS={EXTRA_TOOLS}
+              onSelectModule={handleSelectModule}
+              onOpenPaywall={() => setShowPaywall(true)}
+              onSelectPath={(path, skill) => {
+                if (path && path.startsWith('telc-')) {
+                  handleFullTestSelection(path.split('-')[1], path);
+                } else if (path === 'skill-tests') {
+                  navigateToView('skillTests');
+                } else {
+                  handleStartTask({ id: path, skill });
+                }
+              }}
+              onShowDescription={() => navigateToView('description')}
             />
           )}
 

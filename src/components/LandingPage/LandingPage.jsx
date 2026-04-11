@@ -8,15 +8,9 @@ const LandingPage = () => {
   const navigate = useNavigate();
   const { isSignedIn } = useUser();
   
-  // Navigate to brand hub
-  const handleStartTraining = (testType) => {
-    if (testType === 'toefl') {
-      // TOEFL hub requires authentication, redirect to sign in first
-      navigate('/dashboard/toefl-hub');
-    } else {
-      // IELTS hub requires authentication, redirect to sign in first
-      navigate('/ielts');
-    }
+  // Navigate to TELC level hub
+  const handleStartTraining = (level) => {
+    navigate(`/telc/${level}`);
   };
 
   // Navigate to free mock (no authentication required)
@@ -27,7 +21,7 @@ const LandingPage = () => {
   return (
     <>
       <title>The Exam Lab - Stop Practicing, Start Training</title>
-      <meta name="description" content="Prepare for IELTS and TOEFL with 15-minute 'atom' training sessions. Build real skills daily instead of just taking practice tests." />
+      <meta name="description" content="Prepare for TELC B1, B2, and C1 exams with 15-minute training sessions. Build real skills daily instead of just taking practice tests." />
       
       <div className="landing-container">
         <nav className="navbar">
@@ -60,27 +54,29 @@ const LandingPage = () => {
               or dive into full-length simulated exams.
             </p>
 
-            {/* THE FORK IN THE ROAD */}
+            {/* THE FORK IN THE ROAD - TELC Level Selection */}
             <div className="hero-selection-cards">
-              <div className="selection-card">
-                <h3>TELC</h3>
-                <p>General & Academic</p>
-                <button 
-                  className="btn-primary full-width"
-                  onClick={() => handleStartTraining()}
-                >
-                  GO TO TELC HUB
+              <div className="selection-card" onClick={() => handleStartTraining('b1')}>
+                <h3>TELC B1</h3>
+                <p>Foundation Level</p>
+                <button className="btn-primary full-width">
+                  START B1
                 </button>
               </div>
               
-              <div className="selection-card">
-                <h3>TOEFL</h3>
-                <p>iBT Preparation</p>
-                <button 
-                  className="btn-secondary full-width"
-                  onClick={() => handleStartTraining()}
-                >
-                  START TOEFL MOCK
+              <div className="selection-card" onClick={() => handleStartTraining('b2')}>
+                <h3>TELC B2</h3>
+                <p>Upper Intermediate</p>
+                <button className="btn-primary full-width">
+                  START B2
+                </button>
+              </div>
+              
+              <div className="selection-card" onClick={() => handleStartTraining('c1')}>
+                <h3>TELC C1</h3>
+                <p>Advanced</p>
+                <button className="btn-secondary full-width">
+                  START C1
                 </button>
               </div>
             </div>
@@ -91,7 +87,7 @@ const LandingPage = () => {
           <div className="hero-visual">
             <div className="hero-cta-box">
               <h3>Ready to test your skills?</h3>
-              <p>Take our free IELTS General Mini Mock and see where you stand.</p>
+              <p>Take our free TELC B2 Mini Mock and see where you stand.</p>
               <button 
                 className="btn-primary"
                 onClick={() => navigate('/free-mock')}
@@ -147,7 +143,7 @@ const LandingPage = () => {
             <h4>A quick word from the teacher:</h4>
             <p>
               "Preparation should be a marathon, not a sprint. Give me 15 minutes a day, 
-              and I’ll give you the confidence to walk into that exam room and win."
+              and I'll give you the confidence to walk into that exam room and win."
             </p>
           </div>
         </section>

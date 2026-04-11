@@ -68,10 +68,10 @@ const useCheckAnswers = ({
     const currentPassage = passages[activePassageIndex] || currentSection;
 
     let results = { accuracy: 0, earnedXP: 0, isPerfect: false };
-    let ieltsScore = null;
+    let telcScore = null;
 
-    // IELTS Metadata
-    const isIELTS = activeTest?.id === 'ielts' || activeLesson.type?.includes('ielts') || activeLesson.type === 'full-mock';
+    // TELC Metadata
+    const isTELC = activeTest?.platform === 'telc' || activeTest?.id === 'telc' || activeLesson.type?.includes('telc') || activeLesson.type === 'full-mock';
     const isReading = activeLesson.skill === 'reading' || activeLesson.type === 'READING' || currentSection?.type === 'READING';
     const isGeneralTraining = activeLesson.type === 'general-training' || activeLesson.id?.includes('general');
 
@@ -120,16 +120,38 @@ const useCheckAnswers = ({
       results = { accuracy, earnedXP: Math.round((activeLesson.xpReward || activeLesson.xp || 500) * (accuracy / 100)), isPerfect: accuracy >= 100 };
     }
 
-    // Apply IELTS Band Score math if applicable
-    if (isIELTS && isReading) {
-      const scaledMarks = results.isPerfect ? 40 : Math.round((results.accuracy / 100) * 40);
-      const thresholds = isGeneralTraining ? [0, 4, 6, 9, 12, 16, 20, 23, 27, 30] : [0, 3, 5, 8, 11, 15, 19, 22, 26, 29];
-      let band = 0;
-      for (let i = 9; i >= 0; i--) { if (scaledMarks >= thresholds[i]) { band = i; break; } }
-      ieltsScore = { band, marks: scaledMarks, maxMarks: 40 };
-    }
+    // Apply TELC Score calculation if applicable
+if (isTELC) {
+  const skillResults = {};
+  
+  // Get skill type from lesson
+  const skill = activeLesson.skill || currentSection?.skill || 'reading';
+  
+  // Calculate simple TELC score for this skill
+  const questionsToGrade = isTELC && currentPassage 
+    ? getFlattenedQuestions(currentPassage) 
+    : getFlattenedQuestions(activeLesson);
+  
+  const correctCount = questionsToGrade.filter(q => {
+    const userVal = getAnyStoredAnswer(q.id);
+    const correctVal = q.answer ?? q.correctIndex;
+    return String(userVal || "").trim().toLowerCase() === String(correctVal || "").trim().toLowerCase();
+  }).length;
+  
+  // Use simple TELC scoring
+  telcScore = {
+    skill: skill,
+    correct: correctCount,
+    total: questionsToGrade.length,
+    ...require('../../utils/scoring/telcScoring').calculateSimpleTELCScore(
+      correctCount, 
+      questionsToGrade.length, 
+      skill
+    )
+  };
+}
 
-    return { results, ieltsScore };
+    return { results, telcScore };
   }, [activeLesson, activeSectionIndex, activePassageIndex, userAnswers, activeTest, getFlattenedQuestions, getAnyStoredAnswer]);
 
   return {

@@ -7,15 +7,14 @@
  */
 
 import { HUBS } from '../data/index';
-import { ATOM_HUB } from '../data/IELTS/atoms';
 import { getAtomsFromMocks } from './mockPlucker';
 
 /**
  * Resolve a path/initialView into a navigation plan
  * 
- * @param {string} path - The route path (e.g., 'reading-academic', 'reading-drills', 'vocab-flashcards')
+ * @param {string} path - The route path (e.g., 'telc_b1_reading', 'drillshub', 'vocab-flashcards')
  * @returns {object} plan - The navigation plan
- * @returns {string} plan.view - The view to set ('ieltsHub', 'drillsHub', 'selection', 'lesson')
+ * @returns {string} plan.view - The view to set ('telc-b1-hub', 'drillsHub', 'selection', 'lesson')
  * @returns {string[]} plan.viewHistory - The view history to set
  * @returns {object|null} plan.activeCategory - The active category/hub to set
  * @returns {object|null} plan.activeSection - The active section to set
@@ -23,17 +22,17 @@ import { getAtomsFromMocks } from './mockPlucker';
  * @returns {object|null} plan.triggerFullTest - If present, call handleFullTestSelection with this
  */
 export const resolvePath = (path) => {
-  // Default plan - go to ieltsHub
+  // Default plan - go to telc-b2-hub
   const defaultPlan = {
-    view: 'ieltsHub',
-    viewHistory: ['ieltsHub'],
+    view: 'telc-b2-hub',
+    viewHistory: ['telc-b2-hub'],
     activeCategory: null,
     activeSection: null,
     triggerTask: null,
     triggerFullTest: null,
   };
 
-  if (!path || path === 'ieltsHub') {
+  if (!path || path === 'telc-b2-hub' || path === 'telcHub') {
     return defaultPlan;
   }
 
@@ -45,6 +44,74 @@ export const resolvePath = (path) => {
       activeCategory: null,
       activeSection: null,
       triggerTask: null,
+      triggerFullTest: null,
+    };
+  }
+
+  // TELC Level Hub routes
+  if (path === 'telc-b1-hub') {
+    return {
+      view: 'telc-b1-hub',
+      viewHistory: ['telc-b1-hub'],
+      activeCategory: null,
+      activeSection: null,
+      triggerTask: null,
+      triggerFullTest: null,
+    };
+  }
+
+  if (path === 'telc-b2-hub') {
+    return {
+      view: 'telc-b2-hub',
+      viewHistory: ['telc-b2-hub'],
+      activeCategory: null,
+      activeSection: null,
+      triggerTask: null,
+      triggerFullTest: null,
+    };
+  }
+
+  if (path === 'telc-c1-hub') {
+    return {
+      view: 'telc-c1-hub',
+      viewHistory: ['telc-c1-hub'],
+      activeCategory: null,
+      activeSection: null,
+      triggerTask: null,
+      triggerFullTest: null,
+    };
+  }
+
+  // Mini test routes for each level
+  if (path === 'telc-b1-mini-test') {
+    return {
+      view: 'lesson',
+      viewHistory: ['lesson'],
+      activeCategory: null,
+      activeSection: null,
+      triggerTask: { id: 'telc-b1-mini-test', skill: 'mini-test', level: 'b1' },
+      triggerFullTest: null,
+    };
+  }
+
+  if (path === 'telc-b2-mini-test') {
+    return {
+      view: 'lesson',
+      viewHistory: ['lesson'],
+      activeCategory: null,
+      activeSection: null,
+      triggerTask: { id: 'telc-b2-mini-test', skill: 'mini-test', level: 'b2' },
+      triggerFullTest: null,
+    };
+  }
+
+  if (path === 'telc-c1-mini-test') {
+    return {
+      view: 'lesson',
+      viewHistory: ['lesson'],
+      activeCategory: null,
+      activeSection: null,
+      triggerTask: { id: 'telc-c1-mini-test', skill: 'mini-test', level: 'c1' },
       triggerFullTest: null,
     };
   }
@@ -79,19 +146,6 @@ export const resolvePath = (path) => {
     };
   }
 
-  // Check if it's a mini test route (skillCategories in ATOM_HUB)
-  const taskMetadata = ATOM_HUB.skillCategories[path];
-  if (taskMetadata) {
-    return {
-      view: 'lesson',
-      viewHistory: ['lesson'],
-      activeCategory: null,
-      activeSection: null,
-      triggerTask: taskMetadata,
-      triggerFullTest: null,
-    };
-  }
-
   // Check for reading-drills or listening-drills
   if (path === 'reading-drills' || path === 'listening-drills') {
     const hydratedSection = getAtomsFromMocks(path);
@@ -105,12 +159,7 @@ export const resolvePath = (path) => {
     };
   }
 
-  // Check for VOCAB_FLASHCARDS or TASK types
-  // These are section objects that should trigger immediate task starting
-  // Note: This is handled in handleSelectSection, not in resolvePath
-  // because we need the actual section object, not just a path string
-
-  // For any other route not matching known patterns, go to ieltsHub
+  // For any other route not matching known patterns, go to telc-b2-hub
   return defaultPlan;
 };
 
@@ -169,7 +218,7 @@ export const resolveSection = (section, activeCategory) => {
     };
   }
   
-  // If this is an 'atom' section from ATOM_HUB, go pluck the tasks from the mocks
+  // If this is an 'atom' section, go pluck the tasks from the mocks
   if (section.id === 'reading-drills' || section.id === 'listening-drills') {
     const hydratedSection = getAtomsFromMocks(section.id);
     return {

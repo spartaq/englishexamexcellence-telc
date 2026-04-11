@@ -1,34 +1,36 @@
-// IELTS Mocks - Single Source of Truth
+// TELC Mocks - Single Source of Truth
 // All mock tests are stored as JSON files
 // This index provides access to all mocks for the application
 
-import academicMock1 from './ielts-academic-mock-1.json';
-import telcMock1 from './telc-b2-mock-1.json';
-import generalMock2 from './ielts-general-mock-2.json';
+import telcB1Mock1 from './telc-b1-mock-1.json';
+import telcB2Mock1 from './telc-b2-mock-1.json';
+import telcC1Mock1 from './telc-c1-mock-1.json';
 
 // All mocks combined
 const allMocks = [
-  academicMock1,
-  telcMock1,
-  generalMock2
+  telcB1Mock1,
+  telcB2Mock1,
+  telcC1Mock1
 ];
 
 // Export as object for easy lookup by ID
-export const ieltsMocks = {
-  'ielts-academic-mock-1': academicMock1,
-  'telc-b2-mock-1': telcMock1,
-  'ielts-general-mock-2': generalMock2
+export const telcMocks = {
+  'telc-b1-mock-1': telcB1Mock1,
+  'telc-b2-mock-1': telcB2Mock1,
+  'telc-c1-mock-1': telcC1Mock1
 };
 
-// Academic mocks
-export const academicMocks = {
-  'ielts-academic-mock-1': academicMock1
+// Export by level
+export const b1Mocks = {
+  'telc-b1-mock-1': telcB1Mock1
 };
 
-// General Training mocks
-export const generalMocks = {
-  'telc-b2-mock-1': telcMock1,
-  'ielts-general-mock-2': generalMock2
+export const b2Mocks = {
+  'telc-b2-mock-1': telcB2Mock1
+};
+
+export const c1Mocks = {
+  'telc-c1-mock-1': telcC1Mock1
 };
 
 // Helper to get all reading passages from all mocks
@@ -46,6 +48,7 @@ export const getAllReadingPassages = () => {
               mockTitle: mock.title,
               mockNumber: mock.mockNumber,
               testType: mock.type,
+              level: mock.level,
               skill: 'reading'
             });
           });
@@ -70,6 +73,7 @@ export const getAllWritingTasks = () => {
           mockTitle: mock.title,
           mockNumber: mock.mockNumber,
           testType: mock.type,
+          level: mock.level,
           skill: 'writing'
         });
       });
@@ -92,6 +96,7 @@ export const getAllLanguageElements = () => {
           mockTitle: mock.title,
           mockNumber: mock.mockNumber,
           testType: mock.type,
+          level: mock.level,
           skill: 'language-elements'
         });
       });
@@ -114,6 +119,7 @@ export const getAllListeningSections = () => {
           mockTitle: mock.title,
           mockNumber: mock.mockNumber,
           testType: mock.type,
+          level: mock.level,
           skill: 'listening'
         });
       });
@@ -136,6 +142,7 @@ export const getAllSpeakingParts = () => {
           mockTitle: mock.title,
           mockNumber: mock.mockNumber,
           testType: mock.type,
+          level: mock.level,
           skill: 'speaking'
         });
       });
@@ -155,6 +162,7 @@ export const getAllVocab = () => {
         mockTitle: mock.title,
         mockNumber: mock.mockNumber,
         testType: mock.type,
+        level: mock.level,
         skill: 'vocabulary'
       }));
     }
@@ -162,22 +170,26 @@ export const getAllVocab = () => {
   });
 };
 
-// Get random mock by type
-export const getRandomMock = (type = 'academic') => {
-  const filtered = allMocks.filter(m => m.type === type);
-  if (filtered.length === 0) return allMocks[0];
-  return filtered[Math.floor(Math.random() * filtered.length)];
+// Get random mock by level
+export const getRandomMock = (level = null) => {
+  if (level) {
+    const filtered = allMocks.filter(m => m.level === level);
+    if (filtered.length === 0) return allMocks[0];
+    return filtered[Math.floor(Math.random() * filtered.length)];
+  }
+  return allMocks[Math.floor(Math.random() * allMocks.length)];
 };
 
 // Get mock by ID
 export const getMockById = (id) => {
-  return ieltsMocks[id] || null;
+  return telcMocks[id] || null;
 };
 
 export default {
-  ieltsMocks,
-  academicMocks,
-  generalMocks,
+  telcMocks,
+  b1Mocks,
+  b2Mocks,
+  c1Mocks,
   getAllReadingPassages,
   getAllWritingTasks,
   getAllListeningSections,

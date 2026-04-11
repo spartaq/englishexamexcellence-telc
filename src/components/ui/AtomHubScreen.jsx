@@ -1,5 +1,5 @@
 import React from 'react';
-import { ATOM_HUB } from '../../data/IELTS/atoms';
+import { ATOM_HUB } from '../../data/TELC/atoms';
 import './hub.css';
 
 const AtomHubScreen = ({ onBack, onSelectTask }) => {

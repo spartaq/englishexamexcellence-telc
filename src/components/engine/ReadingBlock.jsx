@@ -2,6 +2,7 @@ import React from 'react';
 import QuestionCarousel from './QuestionCarousel';
 import SplitPane from './SplitPane';
 import QuestionDispatcher from './QuestionDispatcher';
+import { flattenQuestions } from '../../utils/questionFlattener';
 import './ReadingBlock.css';
 import './engine.css';
 
@@ -29,21 +30,8 @@ const ReadingBlock = ({
   const subtitle = data?.subtitle;
 
   // 2. Flatten questions for the Carousel
-  // We keep this logic here because the Carousel needs a flat array to navigate slides
-  const questions = data?.questions || (data?.subTasks ? data.subTasks.flatMap(st => {
-    // These types are "Self-Contained" (one block handles multiple questions itself)
-    const selfContainedTypes = ['sentence-matching', 'diagram-label', 'flow-chart', 'flowchart', 'heading-match', 'sentence-complete', 'gap-fill', 'short-answer', 'mcq', 'trinary', 'matching-info', 'matching-features'];
-    
-    if (selfContainedTypes.includes(st.type)) {
-      // Keep the entire subTask as-is - the block handles grouping internally
-      return [st];
-    }
-    
-    // Otherwise, treat subtasks as a collection of individual questions
-    return (st.questions || []).map(q => ({...q, type: st.type}));
-  }) : []);
-
-  const flatQuestions = questions;
+  // Uses centralized flattenQuestions utility
+  const flatQuestions = flattenQuestions(data?.subTasks || []);
   // Always use carousel to ensure parts tabs are shown (consistent with Listening/Writing)
   const useCarousel = true;
 

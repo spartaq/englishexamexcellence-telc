@@ -1,15 +1,15 @@
-// Mock Plucker - Dynamically pulls content from IELTS full mocks
+// Mock Plucker - Dynamically pulls content from TELC full mocks
 // This is the "source of truth" for generating atom tests
 
 // Import from JSON mocks (single source of truth)
 import { 
-  ieltsMocks,
+  telcMocks,
   getAllReadingPassages as jsonGetReading,
   getAllWritingTasks as jsonGetWriting,
   getAllListeningSections as jsonGetListening,
   getAllSpeakingParts as jsonGetSpeaking,
   getAllVocab as jsonGetVocab
-} from '../data/IELTS/mocks';
+} from '../data/TELC/mocks';
 
 // Import vocab hub for fallback
 import { VOCAB_HUB } from '../data/vocabulary';
@@ -40,16 +40,16 @@ export const getVocabById = (vocabId) => {
 };
 
 // All reading mocks combined (from JSON)
-const allReadingMocks = ieltsMocks;
+const allReadingMocks = telcMocks;
 
 // All speaking mocks combined (from JSON)
-const allSpeakingMocks = ieltsMocks;
+const allSpeakingMocks = telcMocks;
 
 // All listening mocks combined (from JSON)
-const allListeningMocks = ieltsMocks;
+const allListeningMocks = telcMocks;
 
 // All writing mocks combined (from JSON)
-const allWritingMocks = ieltsMocks;
+const allWritingMocks = telcMocks;
 
 /**
  * Extract all reading passages from all reading mocks
@@ -82,12 +82,15 @@ const getAllWritingTasks = () => {
 /**
  * Pluck a random exercise by skill type
  * This is the main function used by atoms to generate content
+ * @param {string} skill - The skill type (reading, writing, listening, speaking, vocabulary)
+ * @param {string} level - Optional level filter (b1, b2, c1)
  */
-export const pluckRandom = (skill) => {
+export const pluckRandom = (skill, level = null) => {
   
   if (skill === 'reading') {
     const allPassages = getAllReadingPassages();
-    const passage = getRandomItem(allPassages);
+    const passages = level ? allPassages.filter(p => p.level === level) : allPassages;
+    const passage = getRandomItem(passages);
     if (passage) {
       return {
         ...passage,
@@ -99,7 +102,8 @@ export const pluckRandom = (skill) => {
   if (skill === 'vocabulary') {
     // Pick a random reading passage first
     const allPassages = getAllReadingPassages();
-    const randomPassage = getRandomItem(allPassages);
+    const passages = level ? allPassages.filter(p => p.level === level) : allPassages;
+    const randomPassage = getRandomItem(passages);
     
     // Get vocabulary - check passage vocabList first, then vocabId from categories
     let vocabData = null;
@@ -173,7 +177,8 @@ export const pluckRandom = (skill) => {
   if (skill === 'writing') {
     // Pull a random writing task from writing mocks
     const allWritingTasks = getAllWritingTasks();
-    const randomTask = getRandomItem(allWritingTasks);
+    const tasks = level ? allWritingTasks.filter(t => t.level === level) : allWritingTasks;
+    const randomTask = getRandomItem(tasks);
     
     if (randomTask) {
       return {
@@ -196,7 +201,8 @@ export const pluckRandom = (skill) => {
   if (skill === 'listening') {
     // Pull a random listening section from listening mocks
     const allListeningSections = getAllListeningSections();
-    const randomSection = getRandomItem(allListeningSections);
+    const sections = level ? allListeningSections.filter(s => s.level === level) : allListeningSections;
+    const randomSection = getRandomItem(sections);
     
     if (randomSection) {
       return {
@@ -216,9 +222,11 @@ export const pluckRandom = (skill) => {
   }
   
   if (skill === 'speaking') {
-    // Pick a random speaking mock from the values of ieltsMocks
+    // Pick a random speaking mock from the values of telcMocks
     const mockValues = Object.values(allSpeakingMocks);
-    const randomMock = getRandomItem(mockValues);
+    // Filter by level if specified
+    const filteredMocks = level ? mockValues.filter(m => m.level === level) : mockValues;
+    const randomMock = getRandomItem(filteredMocks.length > 0 ? filteredMocks : mockValues);
     
     // Access speaking parts from the new JSON structure
     const speakingData = randomMock?.speaking;
@@ -231,7 +239,8 @@ export const pluckRandom = (skill) => {
       return {
         id: `speaking-${randomMock.id}`,
         title: randomMock.title,
-        type: 'ielts-speaking',
+        level: randomMock.level,
+        type: 'telc-speaking',
         xp: 150,
         sections: speakingData.parts.map(part => ({
           ...part,
@@ -245,7 +254,7 @@ export const pluckRandom = (skill) => {
     return {
       id: 'speaking-quick',
       title: 'Quick Speaking Task',
-      type: 'ielts-speaking',
+      type: 'telc-speaking',
       xp: 150,
       sections: [
         {
@@ -262,14 +271,10 @@ export const pluckRandom = (skill) => {
     };
   }
   
-  if (skill === 'reading_general') {
-    // Pull only General Reading passages
-    const generalReadingPassages = getAllReadingPassages().filter(p => {
-      // Check if passage is from general mock (supports both 'telc-b2-mock-1' and 'ielts-general-mock-2')
-      return p.mockId === 'telc-b2-mock-1' || p.mockId === 'ielts-general-mock-2' || p.testType === 'general';
-    });
-    
-    const passage = getRandomItem(generalReadingPassages);
+  // Level-specific reading filters
+  if (skill === 'reading_b1') {
+    const b1ReadingPassages = getAllReadingPassages().filter(p => p.level === 'b1');
+    const passage = getRandomItem(b1ReadingPassages);
     if (passage) {
       return {
         ...passage,
@@ -278,14 +283,9 @@ export const pluckRandom = (skill) => {
     }
   }
   
-  if (skill === 'reading_academic') {
-    // Pull only Academic Reading passages
-    const academicReadingPassages = getAllReadingPassages().filter(p => {
-      // Check if passage is from academic mock (new format uses 'ielts-academic-mock-1')
-      return p.mockId === 'ielts-academic-mock-1' || p.testType === 'academic';
-    });
-    
-    const passage = getRandomItem(academicReadingPassages);
+  if (skill === 'reading_b2') {
+    const b2ReadingPassages = getAllReadingPassages().filter(p => p.level === 'b2');
+    const passage = getRandomItem(b2ReadingPassages);
     if (passage) {
       return {
         ...passage,
@@ -294,14 +294,21 @@ export const pluckRandom = (skill) => {
     }
   }
   
-  if (skill === 'writing_general') {
-    // Pull only General Writing tasks (letter writing, informal/semi-formal)
-    const generalWritingTasks = getAllWritingTasks().filter(t => {
-      // Check if task is from general mock (supports both 'telc-b2-mock-1' and 'ielts-general-mock-2')
-      return t.mockId === 'telc-b2-mock-1' || t.mockId === 'ielts-general-mock-2' || t.testType === 'general';
-    });
-    
-    const task = getRandomItem(generalWritingTasks);
+  if (skill === 'reading_c1') {
+    const c1ReadingPassages = getAllReadingPassages().filter(p => p.level === 'c1');
+    const passage = getRandomItem(c1ReadingPassages);
+    if (passage) {
+      return {
+        ...passage,
+        type: passage.type || 'reading-practice'
+      };
+    }
+  }
+  
+  // Level-specific writing filters
+  if (skill === 'writing_b1') {
+    const b1WritingTasks = getAllWritingTasks().filter(t => t.level === 'b1');
+    const task = getRandomItem(b1WritingTasks);
     if (task) {
       return {
         ...task,
@@ -310,25 +317,19 @@ export const pluckRandom = (skill) => {
       };
     }
     
-    // Fallback to general-specific writing task
+    // Fallback to B1-specific writing task
     return {
-      id: 'writing-general-quick',
-      title: 'General Writing Task',
+      id: 'writing-b1-quick',
+      title: 'B1 Writing Task',
       type: 'WRITING',
-      prompt: 'You recently moved to a new city. Write a letter to a friend telling them about your new home and inviting them to visit.',
-      bullets: ['Describe your new home', 'Explain what you like about the area', 'Suggest when they could visit'],
+      prompt: 'Write a short email to a friend about your weekend plans.',
       xp: 150
     };
   }
   
-  if (skill === 'writing_academic') {
-    // Pull only Academic Writing tasks
-    const academicWritingTasks = getAllWritingTasks().filter(t => {
-      // Check if task is from academic mock (new format uses 'ielts-academic-mock-1')
-      return t.mockId === 'ielts-academic-mock-1' || t.testType === 'academic';
-    });
-    
-    const task = getRandomItem(academicWritingTasks);
+  if (skill === 'writing_b2') {
+    const b2WritingTasks = getAllWritingTasks().filter(t => t.level === 'b2');
+    const task = getRandomItem(b2WritingTasks);
     if (task) {
       return {
         ...task,
@@ -337,10 +338,31 @@ export const pluckRandom = (skill) => {
       };
     }
     
-    // Fallback to academic-specific writing task
+    // Fallback to B2-specific writing task
     return {
-      id: 'writing-academic-quick',
-      title: 'Academic Writing Task',
+      id: 'writing-b2-quick',
+      title: 'B2 Writing Task',
+      type: 'WRITING',
+      prompt: 'Write a semi-formal letter to your landlord about a repair issue.',
+      xp: 150
+    };
+  }
+  
+  if (skill === 'writing_c1') {
+    const c1WritingTasks = getAllWritingTasks().filter(t => t.level === 'c1');
+    const task = getRandomItem(c1WritingTasks);
+    if (task) {
+      return {
+        ...task,
+        type: 'WRITING',
+        xp: task.xp || 150
+      };
+    }
+    
+    // Fallback to C1-specific writing task
+    return {
+      id: 'writing-c1-quick',
+      title: 'C1 Writing Task',
       type: 'WRITING',
       prompt: 'Discuss both views and give your opinion on the role of technology in education.',
       xp: 150
@@ -438,8 +460,10 @@ export const findVocabFromReading = (readingExercise) => {
  * Pluck a single speaking part (for mini tests)
  * Returns just one part instead of all 3 parts
  */
-export const pluckSingleSpeakingPart = () => {
-  const randomMock = getRandomItem(Object.values(allSpeakingMocks));
+export const pluckSingleSpeakingPart = (level = null) => {
+  const mockValues = Object.values(allSpeakingMocks);
+  const filteredMocks = level ? mockValues.filter(m => m.level === level) : mockValues;
+  const randomMock = getRandomItem(filteredMocks.length > 0 ? filteredMocks : mockValues);
   
   if (randomMock && randomMock.speaking?.parts && randomMock.speaking.parts.length > 0) {
     // Pick a random part from the speaking mock
@@ -448,7 +472,8 @@ export const pluckSingleSpeakingPart = () => {
     return {
       id: `speaking-part-${randomPart.id || Date.now()}`,
       title: `Speaking: ${randomPart.title || 'Practice'}`,
-      type: 'ielts-speaking',
+      level: randomMock.level,
+      type: 'telc-speaking',
       xp: 50,
       sections: [{
         ...randomPart,
@@ -462,7 +487,7 @@ export const pluckSingleSpeakingPart = () => {
   return {
     id: 'speaking-quick',
     title: 'Quick Speaking Task',
-    type: 'ielts-speaking',
+    type: 'telc-speaking',
     xp: 50,
     sections: [
       {
@@ -482,19 +507,20 @@ export const pluckSingleSpeakingPart = () => {
 /**
  * Generate a complete mini-test atom with all 4 skills plus vocab
  * This is used by the "Mini Test" atom type
+ * @param {string} level - Optional level filter (b1, b2, c1)
  */
-export const generateMiniTest = () => {
+export const generateMiniTest = (level = null) => {
   return {
     id: `mini-test-${Date.now()}`,
     type: 'mini-test',
-    title: 'IELTS Mini Test',
+    title: 'TELC Mini Test',
     description: 'A quick blast of all 4 skills plus vocab',
     skills: {
-      vocab: pluckRandom('vocabulary'),
-      reading: pluckRandom('reading'),
-      listening: pluckRandom('listening'),
-      speaking: pluckSingleSpeakingPart(), // Only one speaking part for mini tests
-      writing: pluckRandom('writing')
+      vocab: pluckRandom('vocabulary', level),
+      reading: pluckRandom('reading', level),
+      listening: pluckRandom('listening', level),
+      speaking: pluckSingleSpeakingPart(level),
+      writing: pluckRandom('writing', level)
     }
   };
 };
@@ -502,12 +528,13 @@ export const generateMiniTest = () => {
 /**
  * Get all available reading passages for drill selection
  */
-export const getAllReadingDrills = () => {
+export const getAllReadingDrills = (level = null) => {
   const allPassages = getAllReadingPassages();
+  const passages = level ? allPassages.filter(p => p.level === level) : allPassages;
   return {
     id: 'plucked-reading',
     title: 'Reading Passages',
-    tasks: allPassages.map(p => ({
+    tasks: passages.map(p => ({
       ...p,
       xp: 500,
       tier: 'bronze',
@@ -529,16 +556,16 @@ export const getAtomsFromMocks = (type) => {
 /**
  * Get a random full mock test (complete exam with all sections)
  * Returns a combined mock with reading, listening, writing, speaking sections
- * @param {string} testType - 'general' or 'academic' to filter mocks by type
+ * @param {string} level - 'b1', 'b2', or 'c1' to filter mocks by level
  */
-export const pluckRandomFullMock = (testType = null) => {
+export const pluckRandomFullMock = (level = null) => {
   // Get all mocks
-  const mockValues = Object.values(ieltsMocks);
+  const mockValues = Object.values(telcMocks);
   
-  // Filter by test type if specified
+  // Filter by level if specified
   let filteredMocks = mockValues;
-  if (testType) {
-    filteredMocks = mockValues.filter(m => m.type === testType);
+  if (level) {
+    filteredMocks = mockValues.filter(m => m.level === level);
   }
   
   // Get a random mock
@@ -548,13 +575,6 @@ export const pluckRandomFullMock = (testType = null) => {
     console.error('No mock found for full test');
     return null;
   }
-  
-  // Determine title based on test type - include Mock number
-  const mockTitle = testType === 'general' 
-    ? `IELTS General Training Full Mock - Mock ${mock.mockNumber || 1}` 
-    : testType === 'academic' 
-      ? `IELTS Academic Full Mock - Mock ${mock.mockNumber || 1}` 
-      : `IELTS Full Mock Test - Mock ${mock.mockNumber || 1}`;
   
   // Build sections from the new JSON structure
   const sections = [];
@@ -617,22 +637,22 @@ export const pluckRandomFullMock = (testType = null) => {
   }
   
   // Combine into a full mock test - return the RAW mock, not built object
-  return mock; // Return RAW mock for createFullMockFromMock to process
+  return mock;
 };
 
 /**
  * Get Mock 1 specifically for full test (not random)
  * This ensures users start with Mock 1 and can refresh to retry
- * @param {string} testType - 'general' or 'academic' to filter mocks by type
+ * @param {string} level - 'b1', 'b2', or 'c1' to filter mocks by level
  */
-export const pluckFullMock1 = (testType = null) => {
+export const pluckFullMock1 = (level = null) => {
   // Get all mocks
-  const mockValues = Object.values(ieltsMocks);
+  const mockValues = Object.values(telcMocks);
   
-  // Filter by test type if specified
+  // Filter by level if specified
   let filteredMocks = mockValues;
-  if (testType) {
-    filteredMocks = mockValues.filter(m => m.type === testType);
+  if (level) {
+    filteredMocks = mockValues.filter(m => m.level === level);
   }
   
   // Always get the first mock (mock 1)
@@ -643,13 +663,6 @@ export const pluckFullMock1 = (testType = null) => {
     return null;
   }
   
-  // Determine title based on test type - include Mock number
-  const mockTitle = testType === 'general' 
-    ? 'IELTS General Training Full Mock - Mock 1' 
-    : testType === 'academic' 
-      ? 'IELTS Academic Full Mock - Mock 1' 
-      : 'IELTS Full Mock Test - Mock 1';
-
   // Build sections from the new JSON structure
   const sections = [];
   
@@ -667,7 +680,7 @@ export const pluckFullMock1 = (testType = null) => {
       }
     });
   }
-
+ 
   // Add writing sections (from mock.writing.sections)
   if (mock.writing?.sections) {
     mock.writing.sections.forEach(section => {
@@ -678,7 +691,7 @@ export const pluckFullMock1 = (testType = null) => {
       });
     });
   }
-
+ 
   // Add listening sections (from mock.listening.sections)
   if (mock.listening?.sections) {
     mock.listening.sections.forEach(section => {
@@ -689,7 +702,7 @@ export const pluckFullMock1 = (testType = null) => {
       });
     });
   }
-
+ 
   // Add speaking parts (from mock.speaking.parts)
   if (mock.speaking?.parts) {
     mock.speaking.parts.forEach(part => {
@@ -712,10 +725,10 @@ export const pluckFullMock1 = (testType = null) => {
   
   // Combine into a full mock test
   const fullMock = {
-    id: `mock-${testType}-1`,
-    title: mockTitle,
+    id: `mock-${level}-1`,
+    title: `TELC ${level?.toUpperCase()} Mock Test 1`,
     type: 'full-mock',
-    testType: testType,
+    level: level,
     mockNumber: 1,
     xp: 2000,
     sections: sections

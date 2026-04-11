@@ -5,7 +5,7 @@ import './ResultScreen.css';
 
 const ResultScreen = ({ lesson, results, userAnswers = {}, onClaim, activeSectionIndex = 0, activePassageIndex = 0 }) => {
   const [showReview, setShowReview] = useState(false);
-  const hasIELTSScore = results.ieltsScore !== undefined && results.ieltsScore !== null;
+  const hasTELCScore = results.telcScore !== undefined && results.telcScore !== null;
   
   // Function to extract all questions from the lesson for review
   const getQuestionsForReview = () => {
@@ -184,25 +184,36 @@ const ResultScreen = ({ lesson, results, userAnswers = {}, onClaim, activeSectio
       <div className="results-card">
         <h2 className="results-title">{results.accuracy === 100 ? 'Perfect!' : 'Complete!'}</h2>
         
-        {/* IELTS Band Score Display */}
-        {hasIELTSScore && (
-          <div className="ielts-band-display">
-            <div className="ielts-band-header">
+        {/* TELC Score Display */}
+        {hasTELCScore && (
+          <div className="telc-score-display">
+            <div className="telc-score-header">
               <Star size={20} fill="#fbbf24" color="#fbbf24" />
-              <span>IELTS Band Score</span>
+              <span>TELC Score</span>
             </div>
-            <div className="ielts-band-value">
-              {results.ieltsScore.band}
-              {results.ieltsScore.isHalfBand && <span className="half-band">.5</span>}
+            
+            <div className="telc-total-score">
+              {results.telcScore.points} <span className="telc-max">/ {results.telcScore.max}</span>
             </div>
-            <div className="ielts-band-description">
-              {results.ieltsScore.description}
+            
+            <div className="telc-percent">
+              {results.telcScore.percent}% {results.telcScore.passed ? '✓' : '✗'}
             </div>
-            <div className="ielts-marks">
-              {results.ieltsScore.rawMarks} / {results.ieltsScore.totalMarks} correct
-              <span className="ielts-test-type">
-                ({results.ieltsScore.testType === 'general' ? 'General Training' : 'Academic'})
-              </span>
+            
+            <div className="telc-breakdown">
+              <div className="telc-skill-row">
+                <span className="telc-skill-name">{results.telcScore.skill}</span>
+                <span className="telc-skill-correct">
+                  {results.telcScore.correct}/{results.telcScore.total} correct
+                </span>
+                <span className={`telc-skill-status ${results.telcScore.passed ? 'passed' : 'failed'}`}>
+                  {results.telcScore.passed ? 'PASSED' : 'NEEDS IMPROVEMENT'}
+                </span>
+              </div>
+            </div>
+            
+            <div className="telc-requirements">
+              <small>Passing: 60% ({Math.round(results.telcScore.max * 0.6)}/{results.telcScore.max} points)</small>
             </div>
           </div>
         )}

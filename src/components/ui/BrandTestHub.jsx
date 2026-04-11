@@ -6,10 +6,8 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// Import your registry
-import { ieltsMocks } from '../../data/IELTS/mocks';
+import { telcMocks } from '../../data/TELC/mocks';
 
-// Import the Stitch Stylesheet
 import './BrandTestHub.css';
 
 const BrandTestHub = ({ 
@@ -17,7 +15,8 @@ const BrandTestHub = ({
     onSelectPath, 
     onSelectModule, 
     EXTRA_TOOLS,
-    onOpenPaywall
+    onOpenPaywall,
+    level = null  // 'b1', 'b2', 'c1', or null for all
   }) => {
 
   const { user, isSignedIn } = useUser();
@@ -36,23 +35,34 @@ const BrandTestHub = ({
     return false;
   };
 
+  // Filter mocks by level if specified
+  const filteredMocks = level 
+    ? Object.values(telcMocks).filter(m => m.level === level)
+    : Object.values(telcMocks);
+
+  // Level-specific title and badge
+  const levelTitle = level ? `TELC ${level.toUpperCase()}` : 'TELC';
+  const levelBadge = level ? `TELC ${level.toUpperCase()}` : 'TELC';
+  const miniTestPath = level ? `telc-${level}-mini-test` : 'telc-b2-mini-test';
+  const levelHubKey = level ? `telc_${level}_reading` : 'telc_b2_reading';
+
   return (
     <div className="ielts-hub-container">
 
       {/* --- 1. WELCOME HERO SECTION --- */}
       <header className="ielts-hero-banner">
         <div className="hero-content">
-          <span className="hero-badge">IELTS PRactice Tests</span>
-          <h1 className="hero-title">{activeTest?.title || 'TELC Hub'}</h1>
+          <span className="hero-badge">{levelBadge}</span>
+          <h1 className="hero-title">{activeTest?.title || `${levelTitle} Hub`}</h1>
           <p className="hero-subtitle">
             Stop practicing. Start training. Build skills daily with Atoms, 
             or test your stamina with our full mock exam archive.
           </p>
           <div className="hero-actions">
-            <button className="btn-white" onClick={() => onSelectPath('random-mock')}>
+            <button className="btn-white" onClick={() => onSelectPath(miniTestPath)}>
               Quick Start
             </button>
-            <Link to="/ielts-info" className="btn-outline-white" style={{ textDecoration: 'none' }}>
+            <Link to="/telc-info" className="btn-outline-white" style={{ textDecoration: 'none' }}>
               Exam Info
             </Link>
           </div>
@@ -79,18 +89,18 @@ const BrandTestHub = ({
       </div>
 
       <div className="quick-start-grid">
-        <div className="quick-card" onClick={() => onSelectPath('ielts-general-mini-test')}>
+        <div className="quick-card" onClick={() => onSelectPath(miniTestPath)}>
           <div className="quick-icon-box"><Shuffle size={24} /></div>
-          <h3 className="exam-title">General Random</h3>
+          <h3 className="exam-title">{level ? `${level.toUpperCase()} Random` : 'Random Mix'}</h3>
           <p className="exam-meta">15 MIN • ALL SKILLS</p>
           <p className="exam-description">A randomized mix of questions across all four skills to keep you sharp and adaptable.</p>
         </div>
 
-        <div className="quick-card" onClick={() => onSelectPath('ielts-academic-mini-test')}>
+        <div className="quick-card" onClick={() => onSelectModule(levelHubKey)}>
           <div className="quick-icon-box"><BookOpen size={24} /></div>
-          <h3 className="exam-title">Academic Random</h3>
-          <p className="exam-meta">15 MIN • ALL SKILLS</p>
-          <p className="exam-description">Academic-focused questions designed to simulate real exam conditions and challenge your knowledge.</p>
+          <h3 className="exam-title">Reading Practice</h3>
+          <p className="exam-meta">READING</p>
+          <p className="exam-description">Practice reading comprehension passages.</p>
         </div>
 
         <div className="quick-card" onClick={() => onSelectPath('skill-tests')}>
@@ -120,14 +130,7 @@ const BrandTestHub = ({
         </div>
 
         <div className="exam-list">
-          {Object.values(ieltsMocks)
-            .filter(mock => {
-              // If activeTest is null, show all mocks
-              if (!activeTest?.id) return true;
-              // Otherwise filter by test type
-              return mock.type === activeTest.id || (activeTest.id === 'ielts' && (mock.type === 'general' || mock.type === 'academic'));
-            })
-            .map(mock => {
+          {filteredMocks.map(mock => {
               const hasAccess = canAccess(mock.tier);
               
               return (
@@ -147,7 +150,6 @@ const BrandTestHub = ({
                     onClick={() => {
                       console.log('[BrandTestHub] Start Mock button clicked', { mockId: mock.id, mockType: mock.type, hasAccess });
                       if (hasAccess) {
-                        // Pass the mock ID directly - it already contains the full identifier
                         const path = mock.id;
                         console.log('[BrandTestHub] Calling onSelectPath with path:', path);
                         onSelectPath(path);

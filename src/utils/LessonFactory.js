@@ -1,7 +1,7 @@
-import { ieltsMocks } from '../data/IELTS/mocks';
+import { telcMocks } from '../data/TELC/mocks';
 import { lessonDatabase } from '../data/index';
 import { loadFullLesson } from './lessonLoader';
-import { getMockById } from '../data/IELTS/mocks';
+import { getMockById } from '../data/TELC/mocks';
 import { 
   pluckRandom, 
   pluckRandomFullMock, 
@@ -62,37 +62,18 @@ export const LessonFactory = {
     }
     
     // Add language elements sections (for TELC tests)
-    // Add as a single section with subTasks, not separate sections
+    // Preserve the original structure with passages and content for LanguageElementsBlock
     if (mock.languageElements?.sections && mock.languageElements.sections.length > 0) {
       console.log('[LessonFactory] Found languageElements sections:', mock.languageElements.sections.length);
-      // Collect all subTasks from all language element sections
-      let allSubTasks = [];
-      mock.languageElements.sections.forEach((section, sectionIdx) => {
-        if (section.subTasks && section.subTasks.length > 0) {
-          section.subTasks.forEach(st => {
-            allSubTasks.push({
-              ...st,
-              // Ensure type is gap-fill-tokens for rendering
-              type: st.type || 'gap-fill-tokens'
-            });
-          });
-        } else {
-          // If no subTasks, treat the section itself as a task
-          allSubTasks.push({
-            ...section,
-            type: section.type || 'gap-fill-tokens'
-          });
-        }
-      });
       
+      // Add the entire languageElements object as a section, preserving nested structure
       sections.push({
+        ...mock.languageElements,  // Preserve: title, time, sections with passages
         id: 'language-elements',
-        title: mock.languageElements.title || 'Language Elements',
         skill: 'language-elements',
-        type: 'LANGUAGE_ELEMENTS',
-        subTasks: allSubTasks
+        type: 'LANGUAGE_ELEMENTS'
       });
-      console.log('[LessonFactory] Added language elements as single section with', allSubTasks.length, 'subTasks');
+      console.log('[LessonFactory] Added language elements section with', mock.languageElements.sections.length, 'sub-sections');
     }
     
     console.log('[LessonFactory] Final sections:', sections.map(s => ({ skill: s.skill, type: s.type, title: s.title })));
@@ -234,7 +215,7 @@ export const LessonFactory = {
 
     // Mock sections (from Hubs)
     if (taskMetadata.mockId) {
-        const mock = ieltsMocks[taskMetadata.mockId];
+        const mock = telcMocks[taskMetadata.mockId];
         switch (taskMetadata.skill) {
             case 'reading':
                 return { ...mock.reading, skill: 'reading', passages: mock.reading.sections.flatMap(s => s.passages) };

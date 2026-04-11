@@ -24,7 +24,6 @@ const QuestionCarousel = ({
   // Force show parts tabs (for Language Elements)
   showPartsTabs = false
 }) => {
-  console.log('QuestionCarousel props:', { questionsLength: questions?.length, showCheckAnswers, hasNextPassage, hasNextSection, hasOnCheckAnswers: !!onCheckAnswers });
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
   const prevQuestionsRef = useRef(null);
@@ -40,8 +39,7 @@ const QuestionCarousel = ({
       if (carouselRef.current) {
         carouselRef.current.scrollTo({ left: 0, behavior: 'auto' });
       }
-      // Notify parent of index change
-      if (onIndexChange) onIndexChange(0);
+      // Don't call onIndexChange here - it causes parent to reset part index
     }
     
     prevQuestionsRef.current = questions;
@@ -101,7 +99,8 @@ const QuestionCarousel = ({
           {/* Parts tabs */}
           {shouldShowPartsTabs && (
             <div className="carousel-parts-tabs">
-              {(skillSections.length > 0 ? skillSections : questions).map((s, idx) => {
+              {/* When showPartsTabs is explicitly true OR skillSections is empty but sections exist, use sections directly */}
+              {((showPartsTabs && sections.length > 0) || skillSections.length > 0 ? (skillSections.length > 0 ? skillSections : sections) : questions).map((s, idx) => {
                 const sidx = sections.length > 0 ? sections.findIndex(sec => sec === s) : idx;
                 return (
                   <button 
@@ -111,13 +110,12 @@ const QuestionCarousel = ({
                       if (setActivePassageIndex) setActivePassageIndex(0); 
                       if (setIsReviewMode) setIsReviewMode(false);
                       setCurrentIndex(idx);
-                      // Scroll to the question slide horizontally
                       if (carouselRef.current) {
                         const slideWidth = carouselRef.current.clientWidth || 300;
                         carouselRef.current.scrollTo({ left: idx * slideWidth, behavior: 'smooth' });
                       }
                     }} 
-                    className={`carousel-part-tab ${currentIndex === idx ? 'active' : ''}`}>
+                    className={`carousel-part-tab ${activeSectionIndex === sidx ? 'active' : ''}`}>
                     {idx + 1}
                   </button>
                 );

@@ -1,10 +1,11 @@
 {
-  "id": "telc-b2-mock-1",
+  "id": "telc-c1-mock-1",
+  "level": "c1",
   "mockNumber": 1,
-  "title": "TELC B2 Mock Test 1",
+  "title": "TELC C1 Mock Test 1",
   "testBrand": "telc",
   "type": "general",
-  "description": "Complete TELC B2 test with all 4 skills",
+  "description": "Complete TELC C1 test with all 4 skills",
   "xpReward": 5000,
   "tier": "bronze",
   "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
@@ -14,124 +15,10 @@
     "level": "B2",
     "words": [
       {
-        "term": "femininity",
-        "hu": "nőiesesség",
-        "definition": "the quality of being female or having qualities considered typical of women",
-        "example": "High heels were seen as a symbol of femininity."
-      },
-      {
         "term": "professionalism",
         "hu": "szakértelem",
         "definition": "the competence or skill expected of a professional",
         "example": "High heels were seen as a symbol of professionalism in business."
-      },
-      {
-        "term": "regulation",
-        "hu": "szabályozás",
-        "definition": "an official rule or directive",
-        "example": "Unfair regulation was introduced."
-      },
-      {
-        "term": "petrol",
-        "hu": "üzemanyag",
-        "definition": "liquid fuel used in internal combustion engines",
-        "example": "When filling up with petrol, keep an eye on the time."
-      },
-      {
-        "term": "CCTV",
-        "hu": "kamerarendszer",
-        "definition": "closed-circuit television for surveillance",
-        "example": "Companies installed CCTV cameras at entrances."
-      },
-      {
-        "term": "motorist",
-        "hu": "autós",
-        "definition": "a person who drives a car",
-        "example": "Many motorists complained about the time constraint."
-      },
-      {
-        "term": "luxury",
-        "hu": "luxus",
-        "definition": "great comfort and wealth",
-        "example": "In luxury hotels, mattresses have become a temptation."
-      },
-      {
-        "term": "solist",
-        "hu": "szólista",
-        "definition": "a musician who performs a solo",
-        "example": "Stephen Morris has played as soloist in concerts."
-      },
-      {
-        "term": "textbook",
-        "hu": "tankönyv",
-        "definition": "a book used for studying a particular subject",
-        "example": "He stole textbooks from universities."
-      },
-      {
-        "term": "entrepreneur",
-        "hu": "vállalkozó",
-        "definition": "a person who starts their own business",
-        "example": "They tracked down the criminal entrepreneur."
-      },
-      {
-        "term": "invasive",
-        "hu": "invazív",
-        "definition": "tending to spread and cause damage",
-        "example": "Non-native invasive plants are dangerous."
-      },
-      {
-        "term": "species",
-        "hu": "faj",
-        "definition": "a type of plant or animal",
-        "example": "Japanese knotweed is one of the world's worst invasive species."
-      },
-      {
-        "term": "volcanic",
-        "hu": "vulkanikus",
-        "definition": "relating to volcanoes",
-        "example": "Japanese knotweed grows naturally on volcano sides."
-      },
-      {
-        "term": "botanist",
-        "hu": "botanikus",
-        "definition": "a scientist who studies plants",
-        "example": "Philippe von Siebold was a botanist."
-      },
-      {
-        "term": "sap",
-        "hu": "nedv",
-        "definition": "the liquid in a plant",
-        "example": "The problem is the liquid inside the giant hogweed, known as the sap."
-      },
-      {
-        "term": "blister",
-        "hu": "hólyag",
-        "definition": "a small bubble on the skin",
-        "example": "You will receive blistering burns."
-      },
-      {
-        "term": "enigma",
-        "hu": "rejtély",
-        "definition": "something mysterious or puzzling",
-        "example": "The word 'enigma' means something that is mysterious."
-      },
-      {
-        "term": "variation",
-        "hu": "változat",
-        "definition": "a change or difference",
-        "example": "Elgar experimented with the tune, playing different versions."
-      },
-      {
-        "term": "orchestra",
-        "hu": "zenekar",
-        "definition": "a large group of musicians",
-        "example": "Elgar had his first big success with the Enigma Variations for orchestra."
-      },
-      {
-        "term": "grant",
-        "hu": "támogatás",
-        "definition": "money given by an organization",
-        "example": "Our grants can provide finances to get a group up and running."
       }
     ]
   },
@@ -199,12 +86,12 @@
                   {
                     "id": "3",
                     "text": "Paragraph 4",
-                    "answer": 3
+                    "answer": 0
                   },
                   {
                     "id": "4",
                     "text": "Paragraph 4",
-                    "answer": 0
+                    "answer": 3
                   },
                   {
                     "id": "5",
@@ -275,7 +162,7 @@
                       "the climate of a non-native country suits them better.",
                       "they don't have to defend themselves against anything."
                     ],
-                    "answer": "the climate of a non-native country suits them better."
+                    "answer": "they don't have to defend themselves against anything."
                   },
                   {
                     "id": "7",
@@ -397,37 +284,37 @@
                   {
                     "id": 12,
                     "text": "Your friend Jema loves dancing but has given up because she is always short of breath.",
-                    "answer": "D"
+                    "answer": "B"
                   },
                   {
                     "id": 13,
                     "text": "You would occasionally like to do some physical work that would keep you fit but also be for a good cause.",
-                    "answer": "C"
+                    "answer": "K"
                   },
                   {
                     "id": 14,
                     "text": "Your friend and his dad play several wind instruments and are looking for an opportunity to spend time together.",
-                    "answer": "G"
+                    "answer": "J"
                   },
                   {
                     "id": 15,
                     "text": "Your uncle has just retired to a new town and would like to find out what groups he could join.",
-                    "answer": "H"
+                    "answer": "D"
                   },
                   {
                     "id": 16,
                     "text": "You enjoy writing short stories and are looking for a group to share your texts with and get feedback.",
-                    "answer": "B"
+                    "answer": "G"
                   },
                   {
                     "id": 17,
                     "text": "Your aunt would like to show friends and neighbours how to make jewellery and needs guidance on how to start a group.",
-                    "answer": "A"
+                    "answer": "E"
                   },
                   {
                     "id": 18,
                     "text": "Your mum is very unhappy with the grounds at the back of the house and would like to make them more attractive.",
-                    "answer": "F"
+                    "answer": "I"
                   },
                   {
                     "id": 19,
@@ -437,7 +324,7 @@
                   {
                     "id": 20,
                     "text": "You are looking for an interesting topic for a natural science presentation.",
-                    "answer": "F"
+                    "answer": "H"
                   }
                 ]
               }
@@ -694,27 +581,27 @@
                 "answer": "NOT GIVEN"
               },
               {
-                "id": 51,
+                "id": "51",
                 "text": "The assessment given for each lab session only depends on how well Harry has recorded things in his logbook.",
                 "answer": "FALSE"
               },
               {
-                "id": 52,
+                "id": "52",
                 "text": "To encourage students to keep fit, there are no lectures one afternoon a week.",
                 "answer": "TRUE"
               },
               {
-                "id": 53,
+                "id": "53",
                 "text": "The university expects new students to organise their own accommodation.",
                 "answer": "FALSE"
               },
               {
-                "id": 54,
+                "id": "54",
                 "text": "When you apply to stay in a Hall of Residence, you have some influence over which room you get.",
                 "answer": "NOT GIVEN"
               },
               {
-                "id": 55,
+                "id": "55",
                 "text": "Harry refers to a challenge that can win you an attractive award.",
                 "answer": "TRUE"
               }
@@ -795,108 +682,129 @@
     ]
   },
   "languageElements": {
-    "type": "LANGUAGE_ELEMENTS",
     "title": "Language Elements",
     "time": 90,
-    "instructions": "Read the following text and decide which word or phrase a, b or c is missing in each item. Mark your answers on the answer sheet.",
     "sections": [
       {
         "id": "le-part1",
-        "part": 1,
+        "section": 1,
         "title": "Language Elements, Part 1",
-        "description": "Read the following letter and decide which word or phrase a, b or c is missing in items 21–30.",
-        "type": "LANGUAGE_ELEMENTS",
-        "skill": "language-elements",
-        "subTasks": [
+        "description": "Read the following letter.",
+        "passages": [
           {
-            "type": "mcq",
-            "id": "le-p1-mcq-1",
-            "title": "Language Elements Part 1",
-            "instruction": "Choose the correct word (a, b, or c) to complete each sentence.",
-            "questions": [
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "ielts-complex",
+            "content": [
               {
-                "id": "21",
-                "text": "I'm sure I'll find good use ____ it.",
-                "options": ["a for", "b from", "c of"],
-                "answer": 0
-              },
+                "id": "1",
+                "text": "January 3rd\n\nDear Auntie Sam,\nI hope you had a good Christmas and thank you very much for the money you sent me. I'm sure I'll find good use ____(21)____ it. While most other people thankfully ____(22)____ me financial gifts too, I also received some rather strange gifts from Father Christmas and my parents, whose identities remain ____(23)____ connected in some way. My little brother, who was not at all happy with his presents, decided ____(24)____ all our gifts differently without telling us. He managed to eat an extra-large box of Belgian chocolates that wasn't his before we could stop him.\n\nI'm in my second year at university and the past ____(25)____ has been ____(26)____ as before, except I have a different room. It's slightly smaller than the last and I still don't have my own shower, but at least it has proper heating and isn't right ____(27)____ to a noisy bar.\n\nOther than that, there was a university-wide strike ____(28)____ the last week of term, but it didn't really affect me. I hardly noticed it except there were loads of annoying emails from people asking for my support.\n\nThis Christmas break was a week shorter ____(29)____ it usually is, and it really felt like it. All the essays I had to write, which took me ages to do, didn't help either. ____(30)____ there are things about the coming term I'm looking forward to, I think I still would have preferred the additional week of holiday.\n\nThanks again,\nLots of love\nRoy"
+              }
+            ],
+            "subTasks": [
               {
-                "id": "22",
-                "text": "While most other people thankfully ____ me financial gifts too,",
-                "options": ["a are giving", "b gave", "c has given"],
-                "answer": 1
-              },
-              {
-                "id": "23",
-                "text": "whose identities remain ____ connected in some way.",
-                "options": ["a suspect", "b suspicious", "c suspiciously"],
-                "answer": 1
-              },
-              {
-                "id": "24",
-                "text": "My little brother decided ____ all our gifts differently without telling us.",
-                "options": ["a distributing", "b in distributing", "c to distribute"],
-                "answer": 2
-              },
-              {
-                "id": "25",
-                "text": "The past term has been ____ as before,",
-                "options": ["a alike", "b similar", "c the same"],
-                "answer": 1
-              },
-              {
-                "id": "26",
-                "text": "and isn't right ____ to a noisy bar.",
-                "options": ["a nearby", "b nearly", "c next"],
-                "answer": 2
-              },
-              {
-                "id": "27",
-                "text": "there was a university-wide strike ____ the last week of term,",
-                "options": ["a at", "b in", "c on"],
-                "answer": 1
-              },
-              {
-                "id": "28",
-                "text": "I'm in my second year and the past ____ has been challenging.",
-                "options": ["a year", "b year's", "c years"],
-                "answer": 1
-              },
-              {
-                "id": "29",
-                "text": "This Christmas break was a week shorter ____ it usually is,",
-                "options": ["a as", "b like", "c than"],
-                "answer": 2
-              },
-              {
-                "id": "30",
-                "text": "____ there are things about the coming term I'm looking forward to,",
-                "options": ["a All in all", "b Despite", "c Even though"],
-                "answer": 2
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {
+                    "id": "21",
+                    "text": "I'm sure I'll find good use ____(21)____ it.",
+                    "options": ["a for", "b from", "c of"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "22",
+                    "text": "While most other people thankfully ____(22)____ me financial gifts too,",
+                    "options": ["a are giving", "b gave", "c has given"],
+                    "answer": 1
+                  },
+                  {
+                    "id": "23",
+                    "text": "whose identities remain ____(23)____ connected in some way.",
+                    "options": ["a suspect", "b suspicious", "c suspiciously"],
+                    "answer": 1
+                  },
+                  {
+                    "id": "24",
+                    "text": "My little brother, who was not at all happy with his presents, decided ____(24)____ all our gifts differently",
+                    "options": ["a arrange", "b arranging", "c to arrange"],
+                    "answer": 2
+                  },
+                  {
+                    "id": "25",
+                    "text": "I'm in my second year at university and the past ____(25)____ has been ____(26)____ as before,",
+                    "options": ["a semester", "b year", "c term"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "26",
+                    "text": "I'm in my second year at university and the past ____(25)____ has been ____(26)____ as before,",
+                    "options": ["a the same", "b similar", "c alike"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "27",
+                    "text": "It's slightly smaller than the last and I still don't have my own shower, but at least it has proper heating and isn't right ____(27)____ to a noisy bar.",
+                    "options": ["a next", "b beside", "c nearby"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "28",
+                    "text": "Other than that, there was a university-wide strike ____(28)____ the last week of term,",
+                    "options": ["a at", "b in", "c on"],
+                    "answer": 2
+                  },
+                  {
+                    "id": "29",
+                    "text": "This Christmas break was a week shorter ____(29)____ it usually is,",
+                    "options": ["a than", "b then", "c as"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "30",
+                    "text": "____(30)____ there are things about the coming term I'm looking forward to, I think I still would have preferred the additional week of holiday.",
+                    "options": ["a Although", "b Despite", "c However"],
+                    "answer": 0
+                  }
+                ]
               }
             ]
           }
         ]
       },
-      {
+
+
+
+        {
         "id": "le-part2",
-        "part": 2,
+        "section": 2,
         "title": "Language Elements, Part 2",
-        "description": "Read the following text and decide which of the words or phrases a–o is missing in items 31–40.",
-        "type": "LANGUAGE_ELEMENTS",
-        "skill": "language-elements",
-        "subTasks": [
+        "description": "Read the following",
+        "passages": [
+		{
+            "id": "p3",
+            "subtitle": "Ssomething",
+            "title": "else",
+            "type": "ielts-complex",
+            "content": [
+            {
+		     "id":"1",
+			"passage": "Sir Edward William Elgar is a 19th century English composer known worldwide. Pomp and Circumstance, for example, is one of Elgar's most famous pieces and one of Britain's biggest cultural ____(31)____. Elgar was born in 1857 in a village in ____(32)____ England. His father had a music shop in Worcester and so Elgar had access to many different kinds of instruments and music. Surprisingly, he ____(33)____ music college and was mainly a self-taught composer. It was in 1899, when Elgar was 42, that he had his first big success with the Enigma Variations for orchestra. It came into being almost by chance. Elgar ____(34)____ the evening when he sat down at the piano to play after dinner: 'Suddenly my wife ____(35)____ by saying: Edward, that's a good tune.' I ____(36)____ from my creative dream. 'Tune? What tune?' And she said, 'Play it again, I like that tune.' I played and strummed, and played, and then she exclaimed: 'That sounds of ____(37)____, what is that?' I answered, 'Nothing - but something might be made of it.' For fun, Elgar then ____(38)____ with the tune, playing different versions. Each was typical of someone they knew. That was the beginning of the Enigma Variations, which he dedicated to his friends. For its title, each of the 14 parts has the ____(39)____ of a person's name. The word 'enigma' means something that is ____(40)____, and perhaps the puzzle hidden in the piece gives it that extra charm that has made it so popular."
+			}			
+			],
+		"subTasks": [
           {
             "type": "gap-fill-tokens",
-            "id": "le-p2-gap-1",
-            "title": "Language Elements Part 2",
             "instruction": "Choose the correct word (a-o) to complete each sentence.",
-            "passage": "Sir Edward William Elgar is a 19th century English composer known worldwide. Pomp and Circumstance, for example, is one of Elgar's most famous pieces and one of Britain's biggest cultural ____(31)____. Elgar was born in 1857 in a village in ____(32)____ England. His father had a music shop in Worcester and so Elgar had access to many different kinds of instruments and music. Surprisingly, he ____(33)____ music college and was mainly a self-taught composer. It was in 1899, when Elgar was 42, that he had his first big success with the Enigma Variations for orchestra. It came into being almost by chance. Elgar ____(34)____ the evening when he sat down at the piano to play after dinner:* 'Suddenly my wife ____(35)____ by saying: Edward, that's a good tune.' I ____(36)____ from my creative dream. 'Tune? What tune?' And she said, 'Play it again, I like that tune.' I played and strummed, and played, and then she exclaimed: 'That sounds of ____(37)____, what is that?' I answered, 'Nothing - but something might be made of it.' For fun, Elgar then ____(38)____ with the tune, playing different versions. Each was typical of someone they knew. That was the beginning of the Enigma Variations, which he dedicated to his friends. For its title, each of the 14 parts has the ____(39)____ of a person's name. The word 'enigma' means something that is ____(40)____, and perhaps the puzzle hidden in the piece gives it that extra charm that has made it so popular.",
             "tokens": ["a APPROVAL", "b ATTEND", "c AWOKE", "d EDGE", "e EXCEPTION", "f EXPERIMENTED", "g EXPORTS", "h FAR", "i FASHION", "j INITIALS", "k INTERRUPTED", "l MYSTERIOUS", "m PUBLICITY", "n RECALLS", "o RURAL"],
-            "answers": ["m PUBLICITY", "o RURAL", "b ATTEND", "f EXPERIMENTED", "c AWOKE", "k INTERRUPTED", "l MYSTERIOUS", "f EXPERIMENTED", "j INITIALS", "l MYSTERIOUS"]
+            "answers": ["g EXPORTS", "o RURAL", "b ATTEND", "n RECALLS", "k INTERRUPTED", "c AWOKE", "l MYSTERIOUS", "f EXPERIMENTED", "j INITIALS", "l MYSTERIOUS"]
+			      }
+          ]
           }
         ]
       }
     ]
   }
 }
+

@@ -3,9 +3,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useUser } from '@clerk/react';
 import App from './App';
 import LandingPage from './components/LandingPage/LandingPage';
-import ExamDescription from './components/ui/IELTSExamDescription';
+import ExamDescription from './components/ui/TELCExamDescription';
 
-// Protected route wrapper - requires authentication
 const ProtectedRoute = ({ children }) => {
   const { isSignedIn, isLoaded } = useUser();
   
@@ -25,55 +24,129 @@ const Router = () => {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       
-      {/* Public route for SEO - IELTS Info page with "Four Pillars" content */}
-      <Route path="/ielts-info" element={<ExamDescription activeTest={{ title: 'IELTS' }} />} />
+      {/* Public route for SEO - TELC Info page */}
+      <Route path="/telc-info" element={<ExamDescription activeTest={{ title: 'TELC' }} />} />
       
       {/* Public route - Free mock without login */}
-      <Route path="/free-mock" element={<App initialView="ielts-general-mini-test" />} />
+      <Route path="/free-mock" element={<App initialView="telc-b2-mini-test" />} />
       
-      {/* IELTS routes - exam-based routing */}
-      <Route path="/ielts" element={
+      {/* TELC B1 routes */}
+      <Route path="/telc/b1" element={
         <ProtectedRoute>
-          <App initialView="ieltsHub" />
+          <App initialView="telc-b1-hub" />
         </ProtectedRoute>
       } />
-      <Route path="/ielts/general-mini-test" element={
+      <Route path="/telc/b1/mini-test" element={
         <ProtectedRoute>
-          <App initialView="ielts-general-mini-test" />
+          <App initialView="telc-b1-mini-test" />
         </ProtectedRoute>
       } />
-      <Route path="/ielts/academic-mini-test" element={
+      <Route path="/telc/b1/reading" element={
         <ProtectedRoute>
-          <App initialView="ielts-academic-mini-test" />
+          <App initialView="telc_b1_reading" />
         </ProtectedRoute>
       } />
-      <Route path="/ielts/vocabulary" element={
+      <Route path="/telc/b1/writing" element={
+        <ProtectedRoute>
+          <App initialView="telc_b1_writing" />
+        </ProtectedRoute>
+      } />
+      <Route path="/telc/b1/speaking" element={
+        <ProtectedRoute>
+          <App initialView="telc_b1_speaking" />
+        </ProtectedRoute>
+      } />
+      <Route path="/telc/b1/listening" element={
+        <ProtectedRoute>
+          <App initialView="telc_b1_listening" />
+        </ProtectedRoute>
+      } />
+      
+      {/* TELC B2 routes */}
+      <Route path="/telc/b2" element={
+        <ProtectedRoute>
+          <App initialView="telc-b2-hub" />
+        </ProtectedRoute>
+      } />
+      <Route path="/telc/b2/mini-test" element={
+        <ProtectedRoute>
+          <App initialView="telc-b2-mini-test" />
+        </ProtectedRoute>
+      } />
+      <Route path="/telc/b2/reading" element={
+        <ProtectedRoute>
+          <App initialView="telc_b2_reading" />
+        </ProtectedRoute>
+      } />
+      <Route path="/telc/b2/writing" element={
+        <ProtectedRoute>
+          <App initialView="telc_b2_writing" />
+        </ProtectedRoute>
+      } />
+      <Route path="/telc/b2/speaking" element={
+        <ProtectedRoute>
+          <App initialView="telc_b2_speaking" />
+        </ProtectedRoute>
+      } />
+      <Route path="/telc/b2/listening" element={
+        <ProtectedRoute>
+          <App initialView="telc_b2_listening" />
+        </ProtectedRoute>
+      } />
+      
+      {/* TELC C1 routes */}
+      <Route path="/telc/c1" element={
+        <ProtectedRoute>
+          <App initialView="telc-c1-hub" />
+        </ProtectedRoute>
+      } />
+      <Route path="/telc/c1/mini-test" element={
+        <ProtectedRoute>
+          <App initialView="telc-c1-mini-test" />
+        </ProtectedRoute>
+      } />
+      <Route path="/telc/c1/reading" element={
+        <ProtectedRoute>
+          <App initialView="telc_c1_reading" />
+        </ProtectedRoute>
+      } />
+      <Route path="/telc/c1/writing" element={
+        <ProtectedRoute>
+          <App initialView="telc_c1_writing" />
+        </ProtectedRoute>
+      } />
+      <Route path="/telc/c1/speaking" element={
+        <ProtectedRoute>
+          <App initialView="telc_c1_speaking" />
+        </ProtectedRoute>
+      } />
+      <Route path="/telc/c1/listening" element={
+        <ProtectedRoute>
+          <App initialView="telc_c1_listening" />
+        </ProtectedRoute>
+      } />
+      
+      {/* Shared routes (vocab, drills, my words) */}
+      <Route path="/telc/vocabulary" element={
         <ProtectedRoute>
           <App initialView="vocabulary" />
         </ProtectedRoute>
       } />
-      <Route path="/ielts/mywords" element={
+      <Route path="/telc/mywords" element={
         <ProtectedRoute>
           <App initialView="mywords" />
         </ProtectedRoute>
       } />
-      <Route path="/ielts/drillshub" element={
+      <Route path="/telc/drillshub" element={
         <ProtectedRoute>
           <App initialView="drillshub" />
         </ProtectedRoute>
       } />
       
-      {/* LangCert routes - exam-based routing */}
+      {/* LangCert routes */}
       <Route path="/langcert" element={
         <ProtectedRoute>
           <App initialView="langcert-hub" />
-        </ProtectedRoute>
-      } />
-      
-      {/* TOEFL routes - exam-based routing */}
-      <Route path="/toefl" element={
-        <ProtectedRoute>
-          <App initialView="toefl-hub" />
         </ProtectedRoute>
       } />
       
