@@ -20,7 +20,8 @@ export const SELF_CONTAINED_TYPES = [
   'trinary',
   'matching-info',
   'matching-features',
-  'notes-completion'
+  'notes-completion',
+  'sentence-insert'
 ];
 
 // Types that should always be kept as self-contained even if they have questions array

@@ -24,6 +24,7 @@ const Engine = ({
   setActiveSectionIndex,
   setActivePassageIndex,
   setIsReviewMode,
+  setActiveSkillTab,
   availableSkills = [],
   onNavigateToMyWords
 }) => {
@@ -79,15 +80,42 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
           setActiveSectionIndex={setActiveSectionIndex}
           setActivePassageIndex={setActivePassageIndex}
           setIsReviewMode={setIsReviewMode}
+          setActiveSkillTab={setActiveSkillTab}
           availableSkills={availableSkills}
+          allSections={availableSections}
         />
+      );
+    }
+
+    // E. LANGUAGE ELEMENTS (TELC B2 specific - similar to Reading, uses LanguageElementsBlock)
+    const isFullMockLanguageElements = lessonType === 'full-mock' && currentSection?.skill === 'language-elements';
+    if (lessonType === 'LANGUAGE_ELEMENTS' || skill === 'language-elements' || isFullMockLanguageElements) {
+      const leSections = currentSection?.sections || [];
+      const leActiveSectionIndex = activeSectionIndex;
+      return (
+          <LanguageElementsBlock 
+            data={currentSection}
+            userAnswers={userAnswers}
+            onUpdate={onUpdateAnswers}
+            onCheckAnswers={onCheckAnswers}
+            isReviewMode={isReviewMode}
+            showCheckAnswers={showCheckAnswers}
+            sections={leSections}
+            activeSkillTab={activeSkillTab}
+            activeSectionIndex={leActiveSectionIndex}
+            setActiveSectionIndex={setActiveSectionIndex}
+            setActivePassageIndex={setActivePassageIndex}
+            setIsReviewMode={setIsReviewMode}
+            setActiveSkillTab={setActiveSkillTab}
+            availableSkills={availableSkills}
+            allSections={availableSections}
+          />
       );
     }
 
     // B. LISTENING LAYOUT (including full-mock listening sections)
     const isFullMockListening = lessonType === 'full-mock' && currentSection?.skill === 'listening';
     if (lessonType === 'LISTENING' || skill === 'listening' || isFullMockListening) {
-      // For full-mocks, need to pass the full lesson so ListeningBlock can access activeLesson.listening
       const listeningData = isFullMockListening ? activeLesson : currentSection;
       return (
         <ListeningBlock 
@@ -104,7 +132,9 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
           setActiveSectionIndex={setActiveSectionIndex}
           setActivePassageIndex={setActivePassageIndex}
           setIsReviewMode={setIsReviewMode}
+          setActiveSkillTab={setActiveSkillTab}
           availableSkills={availableSkills}
+          allSections={availableSections}
         />
       );
     }
@@ -130,7 +160,9 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
           setActiveSectionIndex={setActiveSectionIndex}
           setActivePassageIndex={setActivePassageIndex}
           setIsReviewMode={setIsReviewMode}
+          setActiveSkillTab={setActiveSkillTab}
           availableSkills={availableSkills}
+          allSections={availableSections}
         />
       );
     }
@@ -151,12 +183,14 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
           setActiveSectionIndex={setActiveSectionIndex}
           setActivePassageIndex={setActivePassageIndex}
           setIsReviewMode={setIsReviewMode}
+          setActiveSkillTab={setActiveSkillTab}
           availableSkills={availableSkills}
+          allSections={availableSections}
         />
       );
     }
 
-   // E. VOCAB / FLASHCARDS (including full-mock vocab sections)
+   // F. VOCAB / FLASHCARDS (including full-mock vocab sections)
    const isFullMockVocab = lessonType === 'full-mock' && currentSection?.skill === 'vocab';
    if (lessonType === 'VOCAB' || lessonType === 'VOCAB_FLASHCARDS' || skill === 'vocab' || isFullMockVocab) {
   // If the data came from a passage's vocabList, 
@@ -168,56 +202,18 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
       data={vocabData} 
       onComplete={onCheckAnswers}
       onNavigateToMyWords={onNavigateToMyWords}
+      sections={availableSections}
+      activeSkillTab={activeSkillTab}
+      activeSectionIndex={activeSectionIndex}
+      setActiveSectionIndex={setActiveSectionIndex}
+      setActivePassageIndex={setActivePassageIndex}
+      setIsReviewMode={setIsReviewMode}
+      setActiveSkillTab={setActiveSkillTab}
+      availableSkills={availableSkills}
+      allSections={availableSections}
     />
   );
 }
-
-    // E2. LANGUAGE ELEMENTS (TELC B2 specific - similar to Reading, uses LanguageElementsBlock)
-    // For full-mocks with transformed data, currentSection contains the languageElements structure
-    const isFullMockLanguageElements = lessonType === 'full-mock' && currentSection?.skill === 'language-elements';
-    console.log('[Engine] Checking Language Elements:', {
-      lessonType,
-      skill,
-      isFullMockLanguageElements,
-      currentSectionSkill: currentSection?.skill,
-      hasSections: !!currentSection?.sections,
-      sectionsCount: currentSection?.sections?.length
-    });
-    if (lessonType === 'LANGUAGE_ELEMENTS' || skill === 'language-elements' || isFullMockLanguageElements) {
-      // currentSection now has .sections with the LE passages
-      const leSections = currentSection?.sections || [];
-      
-      // For LE, use the actual activeSectionIndex from state to allow tab switching
-      const leActiveSectionIndex = activeSectionIndex;
-      
-      console.log('[Engine] Rendering LanguageElementsBlock with:', {
-        dataKeys: Object.keys(currentSection || {}),
-        hasPassage: !!currentSection?.passage,
-        hasContent: !!currentSection?.content,
-        hasSubTasks: !!currentSection?.subTasks,
-        subTasksCount: currentSection?.subTasks?.length
-      });
-      
-      return (
-        <div className="engine-fallback-container language-elements-container">
-          <LanguageElementsBlock 
-            data={currentSection}
-            userAnswers={userAnswers}
-            onUpdate={onUpdateAnswers}
-            onCheckAnswers={onCheckAnswers}
-            isReviewMode={isReviewMode}
-            showCheckAnswers={showCheckAnswers}
-            sections={leSections}
-            activeSkillTab={activeSkillTab}
-            activeSectionIndex={leActiveSectionIndex}
-            setActiveSectionIndex={setActiveSectionIndex}
-            setActivePassageIndex={setActivePassageIndex}
-            setIsReviewMode={setIsReviewMode}
-            availableSkills={availableSkills}
-          />
-        </div>
-      );
-    }
 
     // F. FALLBACK: STANDALONE QUESTION DISPATCHER
     // Use this if the lesson doesn't fit a major skill layout (e.g. a simple grammar drill)

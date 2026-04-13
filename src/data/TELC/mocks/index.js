@@ -4,20 +4,26 @@
 
 import telcB1Mock1 from './telc-b1-mock-1.json';
 import telcB2Mock1 from './telc-b2-mock-1.json';
+import telcB2Mock2 from './telc-b2-mock-2.json';
 import telcC1Mock1 from './telc-c1-mock-1.json';
+import telcC1Mock2 from './telc-c1-mock-2.json';
 
 // All mocks combined
 const allMocks = [
   telcB1Mock1,
   telcB2Mock1,
-  telcC1Mock1
+  telcB2Mock2,
+  telcC1Mock1,
+  telcC1Mock2
 ];
 
 // Export as object for easy lookup by ID
 export const telcMocks = {
   'telc-b1-mock-1': telcB1Mock1,
   'telc-b2-mock-1': telcB2Mock1,
-  'telc-c1-mock-1': telcC1Mock1
+  'telc-b2-mock-2': telcB2Mock2,
+  'telc-c1-mock-1': telcC1Mock1,
+  'telc-c1-mock-2': telcC1Mock2
 };
 
 // Export by level
@@ -26,11 +32,13 @@ export const b1Mocks = {
 };
 
 export const b2Mocks = {
-  'telc-b2-mock-1': telcB2Mock1
+  'telc-b2-mock-1': telcB2Mock1,
+  'telc-b2-mock-2': telcB2Mock2
 };
 
 export const c1Mocks = {
-  'telc-c1-mock-1': telcC1Mock1
+  'telc-c1-mock-1': telcC1Mock1,
+  'telc-c1-mock-2': telcC1Mock2
 };
 
 // Helper to get all reading passages from all mocks

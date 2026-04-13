@@ -44,13 +44,13 @@ const BrandTestHub = ({
   const levelTitle = level ? `TELC ${level.toUpperCase()}` : 'TELC';
   const levelBadge = level ? `TELC ${level.toUpperCase()}` : 'TELC';
   const miniTestPath = level ? `telc-${level}-mini-test` : 'telc-b2-mini-test';
-  const levelHubKey = level ? `telc_${level}_reading` : 'telc_b2_reading';
+  const singleExercisePath = level ? `telc-${level}-single-exercise` : 'telc-b2-single-exercise';
 
   return (
-    <div className="ielts-hub-container">
+    <div className="hub-container">
 
       {/* --- 1. WELCOME HERO SECTION --- */}
-      <header className="ielts-hero-banner">
+      <header className="hero-banner">
         <div className="hero-content">
           <span className="hero-badge">{levelBadge}</span>
           <h1 className="hero-title">{activeTest?.title || `${levelTitle} Hub`}</h1>
@@ -59,7 +59,7 @@ const BrandTestHub = ({
             or test your stamina with our full mock exam archive.
           </p>
           <div className="hero-actions">
-            <button className="btn-white" onClick={() => onSelectPath(miniTestPath)}>
+            <button className="btn-white" onClick={() => onSelectPath(singleExercisePath)}>
               Quick Start
             </button>
             <Link to="/telc-info" className="btn-outline-white" style={{ textDecoration: 'none' }}>
@@ -68,24 +68,12 @@ const BrandTestHub = ({
           </div>
         </div>
 
-        {/* Level Indicator Card */}
-        <div className="level-card">
-          <p style={{ fontSize: '12px', fontWeight: '800', marginBottom: '8px', opacity: 0.8 }}>CURRENT STATUS</p>
-          <h3 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '4px' }}>
-            {userTier.toUpperCase()}
-          </h3>
-          <p style={{ fontSize: '13px', opacity: 0.9 }}>
-            {userTier === 'gold' ? 'Full Access Unlocked' : 'Upgrade to Gold for 30+ Mocks'}
-          </p>
-          <div className={`tier-badge ${userTier}`} style={{ marginTop: '16px' }}>
-             Active Plan
-          </div>
-        </div>
+        
       </header>
 
       {/* --- 2. QUICK START SECTION (ATOMS) --- */}
-      <div className="ielts-section-header">
-        <h2 className="ielts-section-title">Daily Skill Training (Atoms)</h2>
+      <div className="section-header">
+        <h2 className="section-title">Daily Skill Training (Atoms)</h2>
       </div>
 
       <div className="quick-start-grid">
@@ -94,13 +82,6 @@ const BrandTestHub = ({
           <h3 className="exam-title">{level ? `${level.toUpperCase()} Random` : 'Random Mix'}</h3>
           <p className="exam-meta">15 MIN • ALL SKILLS</p>
           <p className="exam-description">A randomized mix of questions across all four skills to keep you sharp and adaptable.</p>
-        </div>
-
-        <div className="quick-card" onClick={() => onSelectModule(levelHubKey)}>
-          <div className="quick-icon-box"><BookOpen size={24} /></div>
-          <h3 className="exam-title">Reading Practice</h3>
-          <p className="exam-meta">READING</p>
-          <p className="exam-description">Practice reading comprehension passages.</p>
         </div>
 
         <div className="quick-card" onClick={() => onSelectPath('skill-tests')}>
@@ -112,8 +93,8 @@ const BrandTestHub = ({
       </div>
 
       {/* --- 3. THE EXAM ARCHIVE (MOCK LIBRARY) --- */}
-      <div className="ielts-section-header">
-        <h2 className="ielts-section-title">Full Mock Exam Archive</h2>
+      <div className="section-header">
+        <h2 className="section-title">Full Mock Exam Archive</h2>
       </div>
 
       <div className="exam-archive-container">
@@ -167,8 +148,8 @@ const BrandTestHub = ({
       </div>
 
       {/* --- 4. PRECISION TRAINING (EXTRA TOOLS) --- */}
-      <div className="ielts-section-header">
-        <h2 className="ielts-section-title">Precision Training Labs</h2>
+      <div className="section-header">
+        <h2 className="section-title">Precision Training Labs</h2>
       </div>
 
       <div className="precision-grid">

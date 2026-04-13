@@ -567,6 +567,43 @@ DATA STRUCTURE:
 }
 
 ================================================================================
+18. SentenceInsertBlock.jsx
+================================================================================
+
+PURPOSE: Insert missing sentences into gaps in a text (TELC C1 Reading Part 1 style)
+
+PROPS:
+  - data: { instruction, passage, options, answers }
+  - userAnswers: object - { gapIndex: optionId }
+  - onUpdate: callback(gapIndex, optionId)
+  - isReviewMode: boolean
+
+LOGIC:
+  1. Parses passage with gap markers __(n)__ or ____(n)____
+  2. Displays option sentences (a, b, c...) in a list
+  3. Each gap shows a dropdown to select which sentence fits
+  4. In review mode:
+     - Green: correct selection
+     - Red: incorrect selection  
+     - Yellow: missing selection
+  5. Shows correct answer hint for wrong/missing
+
+DATA STRUCTURE:
+{
+  type: 'sentence-insert',
+  instruction: 'Which of the sentences a–h is missing in each gap?',
+  passage: 'Text with __(1)__ gap and __(2)__ another gap.',
+  options: [
+    { id: 'a', text: 'First sentence option' },
+    { id: 'b', text: 'Second sentence option' }
+  ],
+  answers: {
+    1: 'a',
+    2: 'c'
+  }
+}
+
+================================================================================
 COMMON PATTERNS ACROSS ALL BLOCKS
 ================================================================================
 
@@ -621,5 +658,6 @@ Drill Types (Non-IELTS):
 - PunctuationCorrectionBlock (Punctuation drills)
 - SmartInputBlock (Simple input validation)
 - ReorderingBlock (Sentence ordering)
+- SentenceInsertBlock (Sentence insertion - TELC style)
 
 ================================================================================

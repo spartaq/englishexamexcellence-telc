@@ -215,6 +215,17 @@ const SpeakingBlock = ({
                 </motion.div>
               )}
 
+              {/* UI for TELC B2 Part 2: Magazine Text */}
+              {currentPart.text && mode !== 'review' && (
+                <motion.div key="magazineText" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="speaking-magazine-text">
+                  <div className="speaking-text-content">
+                    {currentPart.text.split('\n\n').map((para, i) => (
+                      <p key={i} className="speaking-text-paragraph">{para}</p>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
               {/* UI for IELTS Part 3: Discussion topics */}
               {currentPart.topics && mode !== 'review' && (
                 <motion.div key="topics" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="topics-list">
@@ -229,17 +240,6 @@ const SpeakingBlock = ({
                       ))}
                     </div>
                   ))}
-                </motion.div>
-              )}
-
-              {/* UI for TELC B2 Part 2: Magazine Text */}
-              {currentPart.text && mode !== 'review' && (
-                <motion.div key="magazineText" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="speaking-magazine-text">
-                  <div className="speaking-text-content">
-                    {currentPart.text.split('\n\n').map((para, i) => (
-                      <p key={i} className="speaking-text-paragraph">{para}</p>
-                    ))}
-                  </div>
                 </motion.div>
               )}
 

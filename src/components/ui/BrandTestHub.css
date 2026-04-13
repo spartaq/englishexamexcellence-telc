@@ -2,19 +2,19 @@
    IELTS HUB STYLING
    ============================================================================= */
 
-.ielts-hub-container {
+.hub-container {
   margin: 0 auto;
   min-height: 100vh;
   padding: 20px 0px 80px 0px;
   background: var(--surface-white);
 }
 
-.ielts-hub-header {
+.hub-header {
   margin-bottom: 48px;
   text-align: center;
 }
 
-.ielts-hub-header h1 {
+.hub-header h1 {
   font-size: 42px;
   font-weight: 800;
   color: var(--invictus-slate);
@@ -22,7 +22,7 @@
   letter-spacing: -0.02em;
 }
 
-.ielts-hub-header p {
+.hub-header p {
   font-size: 18px;
   color: #64748b;
   max-width: 600px;
@@ -161,7 +161,7 @@
    IELTS HUB HERO & CATALOG LAYOUT
    ============================================================================= */
 
-.ielts-hero-banner {
+.hero-banner {
   background: var(--invictus-red);
   padding: 80px 60px;
   border-radius: 24px;
@@ -175,8 +175,8 @@
   box-shadow: 0 20px 40px rgba(211, 47, 47, 0.15);
 }
 
-.ielts-hero-banner::after {
-  content: "IELTS";
+.hero-banner::after {
+  content: "TELC";
   position: absolute;
   right: -20px;
   bottom: -40px;
@@ -257,7 +257,7 @@
 }
 
 /* --- Quick Start / Daily Atoms Section --- */
-.ielts-section-header {
+.section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -265,7 +265,7 @@
   margin-bottom: 24px;
 }
 
-.ielts-section-title {
+.section-title {
   font-size: 24px;
   font-weight: 800;
   color: var(--invictus-slate);
@@ -537,15 +537,15 @@
 
 /* Mobile Large (768px) */
 @media (max-width: 768px) {
-  .ielts-hub-container {
-    padding: 24px 16px;
+  .hub-container {
+    padding: 24px 0px;
   }
 
-  .ielts-hub-header h1 {
+  .hub-header h1 {
     font-size: 28px;
   }
 
-  .ielts-hub-header p {
+  .hub-header p {
     font-size: 16px;
   }
 
@@ -578,7 +578,7 @@
     font-size: 14px;
   }
 
-  .ielts-hero-banner {
+  .hero-banner {
     padding: 24px 16px;
     margin: 16px;
     border-radius: 16px;
@@ -613,7 +613,7 @@
     margin-top: 20px;
   }
 
-  .ielts-section-header {
+  .section-header {
     padding: 0 16px;
     margin-bottom: 16px;
     flex-direction: column;
@@ -621,7 +621,7 @@
     gap: 8px;
   }
 
-  .ielts-section-title {
+  .section-title {
     font-size: 18px;
   }
 
@@ -677,15 +677,11 @@
 
 /* Mobile Small (480px) */
 @media (max-width: 480px) {
-  .ielts-hub-container {
-    padding-bottom: 40px;
-  }
-
-  .ielts-hero-banner {
+  .hero-banner {
     margin: 16px;
   }
 
-  .ielts-hero-banner::after {
+  .hero-banner::after {
     font-size: 80px;
     right: -10px;
     bottom: -20px;

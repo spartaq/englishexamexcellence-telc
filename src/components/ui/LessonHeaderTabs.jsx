@@ -28,7 +28,7 @@ const LessonHeaderTabs = ({
 
   // Combined flow: Vocab, Reading, Writing, Speaking, Listening
   if (hasMultipleSkills) {
-    const skillOrder = ['vocab', 'reading', 'writing', 'speaking', 'listening', 'language-elements'];
+    const skillOrder = ['vocab', 'reading', 'language-elements', 'listening', 'speaking', 'writing'];
     const availableSkills = skillOrder.filter(skill => 
       sections.some(s => s.skill === skill)
     );

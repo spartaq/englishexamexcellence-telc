@@ -550,6 +550,7 @@ const handleUpdateAnswer = useCallback((qId, val) => {
       setActiveSectionIndex={setActiveSectionIndex}
       setActivePassageIndex={setActivePassageIndex}
       setIsReviewMode={setIsReviewMode}
+      setActiveSkillTab={setActiveSkillTab}
       availableSkills={activeLesson?.sections?.map(s => s.skill).filter(Boolean) || []}
       onNavigateToMyWords={() => navigateToView('mywords')}
     />

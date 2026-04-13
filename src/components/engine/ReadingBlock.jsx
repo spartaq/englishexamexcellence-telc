@@ -22,18 +22,30 @@ const ReadingBlock = ({
   setActiveSectionIndex,
   setActivePassageIndex,
   setIsReviewMode,
-  availableSkills = []
+  setActiveSkillTab,
+  availableSkills = [],
+  // Full sections for cross-skill nav
+  allSections = []
 }) => {
   // 1. Extract Passage Content
   const content = data?.content || data?.passage;
   const title = data?.title;
   const subtitle = data?.subtitle;
+  
+  // Check if subTasks contain sentence-insert (which renders its own passage)
+  const hasSentenceInsert = (data?.subTasks || []).some(st => st.type === 'sentence-insert');
 
   // 2. Flatten questions for the Carousel
   // Uses centralized flattenQuestions utility
   const flatQuestions = flattenQuestions(data?.subTasks || []);
+  console.log('[ReadingBlock] flatQuestions count:', flatQuestions.length, 'for section:', data?.title || data?.skill);
   // Always use carousel to ensure parts tabs are shown (consistent with Listening/Writing)
   const useCarousel = true;
+
+  // 3. Calculate navigation - is there a next section/skill?
+  const currentSectionIdx = allSections.findIndex(s => s.skill === data?.skill);
+  const hasNextSection = currentSectionIdx >= 0 && currentSectionIdx < allSections.length - 1;
+  const hasNextPassage = data?.passages?.length > 1;
 
 // 3. Helper to calculate question range (e.g. "Questions 1-5")
   const getQuestionRange = () => {
@@ -80,20 +92,26 @@ const ReadingBlock = ({
               <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: content }} />
             ) : Array.isArray(content) ? (
               content.map((item, index) => {
+                // For sentence-insert, use dangerouslySetInnerHTML to render gap markers as-is
                 const pId = typeof item === 'object' ? item.id : null;
                 const pText = typeof item === 'object' ? item.text : item;
                 return (
                   <div key={index} className="invictus-paragraph-wrapper">
                     {pId && <span className="invictus-paragraph-letter">{pId}</span>}
-                    <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: pText }} />
+                    {hasSentenceInsert ? (
+                      // For sentence-insert, render as plain text (gaps shown as markers)
+                      <div className="invictus-passage-text" style={{ whiteSpace: 'pre-wrap' }}>{pText}</div>
+                    ) : (
+                      <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: pText }} />
+                    )}
                   </div>
                 );
               })
             ) : null}
         </>}
 
-        exercise={
-          <div className="invictus-question-column">
+        exercise={<>
+          
             <h2 className="invictus-total-range">{getQuestionRange()}</h2>
             
             {flatQuestions.length > 0 && (
@@ -112,9 +130,8 @@ const ReadingBlock = ({
                     )}
                     showInstruction={true}
                     onIndexChange={onQuestionIndexChange}
-                    hasNextPassage={navigationProps?.hasNextPassage}
-                    hasNextSection={navigationProps?.hasNextSection}
-                    onNextPart={navigationProps?.onNextPart}
+                    hasNextPassage={hasNextPassage}
+                    hasNextSection={hasNextSection}
                     showCheckAnswers={showCheckAnswers}
                     onCheckAnswers={onCheckAnswers}
                     isReviewMode={isReviewMode}
@@ -124,7 +141,9 @@ const ReadingBlock = ({
                     setActiveSectionIndex={setActiveSectionIndex}
                     setActivePassageIndex={setActivePassageIndex}
                     setIsReviewMode={setIsReviewMode}
+                    setActiveSkillTab={setActiveSkillTab}
                     availableSkills={availableSkills}
+                    allSections={allSections}
                   />
                 ) : (
                   <div className="invictus-static-list">
@@ -141,8 +160,9 @@ const ReadingBlock = ({
                   </div>
                 )
               )}
-            </div>
-          }
+              
+            
+          </>}
         />
       </div>
     );

@@ -8,7 +8,8 @@ import {
   getAllWritingTasks as jsonGetWriting,
   getAllListeningSections as jsonGetListening,
   getAllSpeakingParts as jsonGetSpeaking,
-  getAllVocab as jsonGetVocab
+  getAllVocab as jsonGetVocab,
+  getAllLanguageElements as jsonGetLanguageElements
 } from '../data/TELC/mocks';
 
 // Import vocab hub for fallback
@@ -271,6 +272,27 @@ export const pluckRandom = (skill, level = null) => {
     };
   }
   
+  if (skill === 'language-elements') {
+    const allLanguageElements = jsonGetLanguageElements();
+    const elements = level ? allLanguageElements.filter(e => e.level === level) : allLanguageElements;
+    const randomElement = getRandomItem(elements);
+    
+    if (randomElement) {
+      return {
+        ...randomElement,
+        type: 'LANGUAGE_ELEMENTS',
+        xp: randomElement.xp || 150
+      };
+    }
+    
+    return {
+      id: 'language-elements-quick',
+      title: 'Quick Language Elements Task',
+      type: 'LANGUAGE_ELEMENTS',
+      xp: 100
+    };
+  }
+  
   // Level-specific reading filters
   if (skill === 'reading_b1') {
     const b1ReadingPassages = getAllReadingPassages().filter(p => p.level === 'b1');
@@ -514,13 +536,14 @@ export const generateMiniTest = (level = null) => {
     id: `mini-test-${Date.now()}`,
     type: 'mini-test',
     title: 'TELC Mini Test',
-    description: 'A quick blast of all 4 skills plus vocab',
+    description: 'A quick blast of all 5 skills plus vocab',
     skills: {
       vocab: pluckRandom('vocabulary', level),
       reading: pluckRandom('reading', level),
       listening: pluckRandom('listening', level),
       speaking: pluckSingleSpeakingPart(level),
-      writing: pluckRandom('writing', level)
+      writing: pluckRandom('writing', level),
+      'language-elements': pluckRandom('language-elements', level)
     }
   };
 };

@@ -36,7 +36,7 @@
             "id": "p1",
             "subtitle": "Short Texts 1-5",
             "title": "Various texts",
-            "type": "ielts-complex",
+            "type": "READING",
             "vocabList": [
               "femininity",
               "professionalism",
@@ -126,7 +126,7 @@
             "id": "p2",
             "title": "Adopt a Highway",
             "subtitle": "Reading Passage 2",
-            "type": "ielts-complex",
+            "type": "READING",
             "content": [
               {
                 "id": "A",
@@ -219,7 +219,7 @@
             "id": "p3",
             "title": "Activities and Groups",
             "subtitle": "Reading Passage 3",
-            "type": "ielts-complex",
+            "type": "READING",
             "content": [
               {
                 "id": "A",
@@ -696,7 +696,7 @@
             "id": "p1",
             "subtitle": "Short Texts 1-5",
             "title": "Various texts",
-            "type": "ielts-complex",
+            "type": "LANGUAGE-ELEMENTS",
             "content": [
               {
                 "id": "1",
@@ -787,7 +787,7 @@
             "id": "p3",
             "subtitle": "Ssomething",
             "title": "else",
-            "type": "ielts-complex",
+            "type": "LANGUAGE-ELEMENTS",
             "content": [
             {
 		     "id":"1",

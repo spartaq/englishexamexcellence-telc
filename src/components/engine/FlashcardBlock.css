@@ -1058,3 +1058,29 @@
   }
 }
 
+/* Nav Arrows */
+.carousel-nav-arrows {
+  display: flex;
+  gap: 4px;
+}
+
+.carousel-nav-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--outline-variant);
+  border-radius: 6px;
+  background: var(--surface-container-lowest);
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.carousel-nav-arrow:hover:not(:disabled) {
+  background: var(--surface-container-low);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+

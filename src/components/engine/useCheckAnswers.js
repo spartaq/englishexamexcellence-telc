@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-
+import { calculateSimpleTELCScore } from '../../utils/scoring/telcScoring';
 /**
  * Custom hook for handling check answers logic
  */
@@ -97,8 +97,8 @@ const useCheckAnswers = ({
     }
     // C. Standard Flow (MCQ, Short Answer, Gap Fill)
     else {
-      // For IELTS, we usually grade per passage. For drills, we grade the whole lesson.
-      const questionsToGrade = (isIELTS && currentPassage) 
+      // For full mocks (TELC/IELTS), we grade per passage. For drills, we grade the whole lesson.
+      const questionsToGrade = (isTELC && currentPassage) 
         ? getFlattenedQuestions(currentPassage) 
         : getFlattenedQuestions(activeLesson);
 
@@ -143,7 +143,7 @@ if (isTELC) {
     skill: skill,
     correct: correctCount,
     total: questionsToGrade.length,
-    ...require('../../utils/scoring/telcScoring').calculateSimpleTELCScore(
+    ...calculateSimpleTELCScore(
       correctCount, 
       questionsToGrade.length, 
       skill

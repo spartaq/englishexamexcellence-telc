@@ -16,6 +16,7 @@ import FlowChartCompletionBlock from './InteractiveBlocks/FlowChartCompletionBlo
 import NotesCompletionBlock from './InteractiveBlocks/NotesCompletionBlock';
 import PunctuationCorrectionBlock from './InteractiveBlocks/PunctuationCorrectionBlock';
 import SentenceMatchingBlock from './InteractiveBlocks/SentenceMatchingBlock';
+import SentenceInsertBlock from './InteractiveBlocks/SentenceInsertBlock';
 import LanguageElementsBlock from './LanguageElementsBlock';
 
 /**
@@ -230,6 +231,19 @@ const QuestionDispatcher = ({
           userAnswers={userAnswers}
           onUpdate={onUpdate}
           isReviewMode={isReviewMode}
+        />
+      );
+
+    case 'sentence-insert':
+      console.log('[QuestionDispatcher] sentence-insert, data:', Object.keys(data));
+      console.log('[QuestionDispatcher] passageContent:', passageContent);
+      return (
+        <SentenceInsertBlock 
+          data={data} 
+          userAnswers={userAnswers}
+          onUpdate={onUpdate}
+          isReviewMode={isReviewMode}
+          passageContent={passageContent}
         />
       );
 
