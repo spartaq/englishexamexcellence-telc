@@ -13,9 +13,9 @@ const LandingPage = () => {
     navigate(`/telc/${level}`);
   };
 
-  // Navigate to free mock (no authentication required)
-  const handleStartFreeMock = () => {
-    navigate('/free-mock');
+  // Navigate to free mock (no authentication required) - let user pick level
+  const handleStartFreeMock = (level) => {
+    navigate(`/free-mock/${level}`);
   };
 
   return (
@@ -81,38 +81,27 @@ const LandingPage = () => {
               </div>
             </div>
             
-            <p className="cta-hint">Free "Bronze" atoms available for everyone. No credit card required.</p>
+            
           </div>
 
           <div className="hero-visual">
             <div className="hero-cta-box">
               <h3>Ready to test your skills?</h3>
-              <p>Take our free TELC B2 Mini Mock and see where you stand.</p>
-              <button 
-                className="btn-primary"
-                onClick={() => navigate('/free-mock')}
-              >
-                <Play size={20} fill="white" />
-                Try a Free Mock
-              </button>
+              <p>Take a free TELC Mini Mock and see where you stand.</p>
+              <div className="free-mock-levels">
+                <button className="btn-level" onClick={() => handleStartFreeMock('b1')}>
+                  B1
+                </button>
+                <button className="btn-level" onClick={() => handleStartFreeMock('b2')}>
+                  B2
+                </button>
+                <button className="btn-level" onClick={() => handleStartFreeMock('c1')}>
+                  C1
+                </button>
+              </div>
             </div>
           </div>
         </header>
-
-        <section className="tiers-overview">
-            <div className="tier-info">
-                <span className="tier-tag bronze">BRONZE</span>
-                <p><strong>Free forever.</strong> Access to daily Atom exercises and Mock Test #1.</p>
-            </div>
-            <div className="tier-info">
-                <span className="tier-tag silver">SILVER</span>
-                <p><strong>Registered.</strong> Save your progress, track your XP, and see detailed analytics.</p>
-            </div>
-            <div className="tier-info">
-                <span className="tier-tag gold">GOLD</span>
-                <p><strong>Premium.</strong> Unlock all 30+ Mocks, AI Writing assessment, and Speaking labs.</p>
-            </div>
-        </section>
 
         <section className="features-grid">
           <div className="feature-card">

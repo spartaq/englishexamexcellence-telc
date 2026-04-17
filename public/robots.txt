@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://english-exam-excellence.com/sitemap.xml
+Sitemap: https://telc.englishexamexercises.com/sitemap.xml

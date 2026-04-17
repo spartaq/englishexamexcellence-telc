@@ -8,9 +8,22 @@ export const VOCAB_HUB = {
       description: 'Climate change, conservation, and ecosystems.',
       tasks: [
         {
+          id: 'v_env_b1',
+          type: 'VOCAB',
+          title: 'B1',
+          tier: 'bronze',
+          level: 'B1',
+          words: [
+            { term: 'Cave', hu: 'Barlang', definition: 'A hole in a mountain.', example: 'Bears live in caves.' },
+            { term: 'Farmer', hu: 'Farmer', definition: 'A person who grows food.', example: 'The farmer has sheep.' },
+            { term: 'Kangaroo', hu: 'Kenguru', definition: 'An Australian animal that jumps.', example: 'Kangaroos live in Australia.' },
+            { term: 'Wildlife', hu: 'Vadon élő állatok', definition: 'Animals that live in nature.', example: 'Wildlife is protected in parks.' }
+          ]
+        },
+        {
           id: 'v_env_b2',
           type: 'VOCAB',
-          title: 'Environment B2',
+          title: 'B2',
           tier: 'bronze',
           level: 'B2',
           words: [
@@ -35,7 +48,7 @@ export const VOCAB_HUB = {
         {
           id: 'v_env_c1',
           type: 'VOCAB',
-          title: 'Environment C1',
+          title: 'C1',
           tier: 'bronze',
           level: 'C1',
           words: [
@@ -63,9 +76,33 @@ export const VOCAB_HUB = {
       description: 'Human behavior, social structures, and the mind.',
       tasks: [
         {
+          id: 'v_soc_b1',
+          type: 'VOCAB',
+          title: 'B1',
+          tier: 'bronze',
+          level: 'B1',
+          words: [
+            { term: 'Family', hu: 'Család', definition: 'A group of related people.', example: 'My family is large.' },
+            { term: 'Friend', hu: 'Barát', definition: 'A person you like and know well.', example: 'She is my best friend.' },
+            { term: 'Group', hu: 'Csoport', definition: 'A number of people together.', example: 'A group of students.' },
+            { term: 'Person', hu: 'Személy', definition: 'A human being.', example: 'There is one person waiting.' },
+            { term: 'People', hu: 'Emberek', definition: 'More than one person.', example: 'Many people were there.' },
+            { term: 'Child', hu: 'Gyermek', definition: 'A young human.', example: 'The child is playing.' },
+            { term: 'Man', hu: 'Férfi', definition: 'An adult male human.', example: 'The man is tall.' },
+            { term: 'Woman', hu: 'Nő', definition: 'An adult female human.', example: 'The woman is kind.' },
+            { term: 'Boy', hu: 'Fiú', definition: 'A young male child.', example: 'The boy is clever.' },
+            { term: 'Girl', hu: 'Lány', definition: 'A young female child.', example: 'The girl is happy.' },
+            { term: 'Mind', hu: 'Elme', definition: 'The part of a person that thinks.', example: 'Keep it in your mind.' },
+            { term: 'Thought', hu: 'Gondolat', definition: 'An idea in your mind.', example: 'That is a good thought.' },
+            { term: 'Feeling', hu: 'Érzés', definition: 'An emotion.', example: 'I have a strange feeling.' },
+            { term: 'Fear', hu: 'Félelem', definition: 'Being afraid of something.', example: 'I feel no fear.' },
+            { term: 'Hope', hu: 'Remény', definition: 'Wanting something to happen.', example: 'I have hope for the future.' }
+          ]
+        },
+        {
           id: 'v_soc_b2',
           type: 'VOCAB',
-          title: 'Human Behavior B2',
+          title: 'B2',
           tier: 'bronze',
           level: 'B2',
           words: [
@@ -86,7 +123,7 @@ export const VOCAB_HUB = {
         {
           id: 'v_soc_c1',
           type: 'VOCAB',
-          title: 'Human Behavior C1',
+          title: 'C1',
           tier: 'bronze',
           level: 'C1',
           words: [
@@ -112,9 +149,33 @@ export const VOCAB_HUB = {
       description: 'Global trade, markets, and financial systems.',
       tasks: [
         {
+          id: 'v_bus_b1',
+          type: 'VOCAB',
+          title: 'B1',
+          tier: 'bronze',
+          level: 'B1',
+          words: [
+            { term: 'Money', hu: 'Pénz', definition: 'Something used to buy things.', example: 'I need more money.' },
+            { term: 'Price', hu: 'Ár', definition: 'How much something costs.', example: 'What is the price?' },
+            { term: 'Cost', hu: 'Költség', definition: 'The money needed to buy something.', example: 'The cost is very high.' },
+            { term: 'Pay', hu: 'Fizet', definition: 'To give money for something.', example: 'I will pay for the dinner.' },
+            { term: 'Buy', hu: 'Vásárol', definition: 'To get something with money.', example: 'I want to buy a car.' },
+            { term: 'Sell', hu: 'Elad', definition: 'To give something for money.', example: 'They sell books.' },
+            { term: 'Shop', hu: 'Üzlet', definition: 'A place where things are sold.', example: 'I go to the shop every day.' },
+            { term: 'Bank', hu: 'Bank', definition: 'A place that keeps money.', example: 'I put money in the bank.' },
+            { term: 'Card', hu: 'Kártya', definition: 'A small piece of plastic for payment.', example: 'I pay with a card.' },
+            { term: 'Cash', hu: 'Készpénz', definition: 'Money in the form of notes and coins.', example: 'Do you have any cash?' },
+            { term: 'Bill', hu: 'Számla', definition: 'A request for payment.', example: 'Here is your bill.' },
+            { term: 'Loan', hu: 'Kölcsön', definition: 'Money borrowed to be paid back.', example: 'I need a loan from the bank.' },
+            { term: 'Debt', hu: 'Tartozás', definition: 'Money that must be paid back.', example: 'I have a lot of debt.' },
+            { term: 'Save', hu: 'Megtakarít', definition: 'To keep money for later.', example: 'I save money every month.' },
+            { term: 'Spend', hu: 'Költ', definition: 'To use money to buy things.', example: 'I spend too much money.' }
+          ]
+        },
+        {
           id: 'v_bus_b2',
           type: 'VOCAB',
-          title: 'Economic Trends B2',
+          title: 'B2',
           tier: 'bronze',
           level: 'B2',
           words: [
@@ -185,9 +246,33 @@ export const VOCAB_HUB = {
       description: 'Innovation, Digital Age, and Computing',
       tasks: [
         {
+          id: 'v_tech_b1',
+          type: 'VOCAB',
+          title: 'B1',
+          tier: 'bronze',
+          level: 'B1',
+          words: [
+            { term: 'Computer', hu: 'Számítógép', definition: 'A machine for working with information.', example: 'I use a computer for work.' },
+            { term: 'Phone', hu: 'Telefon', definition: 'A device for making calls.', example: 'My phone is not working.' },
+            { term: 'Screen', hu: 'Képernyő', definition: 'The part of a device that shows pictures.', example: 'The screen is very small.' },
+            { term: 'Keyboard', hu: 'Billentyűzet', definition: 'The part used for typing.', example: 'My keyboard is not working.' },
+            { term: 'Mouse', hu: 'Egér', definition: 'A device to control the computer.', example: 'I need a new mouse.' },
+            { term: 'Internet', hu: 'Internet', definition: 'A system connecting computers worldwide.', example: 'The internet is not working.' },
+            { term: 'Email', hu: 'E-mail', definition: 'Messages sent electronically.', example: 'I sent an email yesterday.' },
+            { term: 'Message', hu: 'Üzenet', definition: 'Information sent to someone.', example: 'I got your message.' },
+            { term: 'Video', hu: 'Videó', definition: 'Moving pictures with sound.', example: 'I watched a video.' },
+            { term: 'Photo', hu: 'Fénykép', definition: 'A picture taken with a camera.', example: 'I took a photo.' },
+            { term: 'Camera', hu: 'Fényképezőgép', definition: 'A device for taking photos.', example: 'I need a new camera.' },
+            { term: 'Music', hu: 'Zene', definition: 'Sounds that are pleasant to listen to.', example: 'I like music.' },
+            { term: 'Game', hu: 'Játék', definition: 'Something played for fun.', example: 'This game is fun.' },
+            { term: 'App', hu: 'Alkalmazás', definition: 'A program on a phone.', example: 'I downloaded a new app.' },
+            { term: 'Button', hu: 'Gomb', definition: 'A thing you press to make something work.', example: 'Press the button please.' }
+          ]
+        },
+        {
           id: 'v_tech_b2',
           type: 'VOCAB',
-          title: 'Technology B2',
+          title: 'B2',
           tier: 'bronze',
           level: 'B2',
           words: [
@@ -234,9 +319,33 @@ export const VOCAB_HUB = {
       description: 'Academic Life and Lifelong Learning',
       tasks: [
         {
+          id: 'v_edu_b1',
+          type: 'VOCAB',
+          title: 'B1',
+          tier: 'bronze',
+          level: 'B1',
+          words: [
+            { term: 'School', hu: 'Iskola', definition: 'A place for learning.', example: 'My child goes to school.' },
+            { term: 'Class', hu: 'Óra', definition: 'A time for learning.', example: 'I have class at nine.' },
+            { term: 'Teacher', hu: 'Tanár', definition: 'A person who teaches.', example: 'The teacher is kind.' },
+            { term: 'Student', hu: 'Diák', definition: 'A person who learns.', example: 'The student is smart.' },
+            { term: 'Book', hu: 'Könyv', definition: 'Pages of written material.', example: 'I am reading a book.' },
+            { term: 'Read', hu: 'Olvas', definition: 'To look at written words.', example: 'I read every day.' },
+            { term: 'Write', hu: 'Ír', definition: 'To put words on paper.', example: 'I write with a pen.' },
+            { term: 'Learn', hu: 'Tanul', definition: 'To get new knowledge.', example: 'I want to learn English.' },
+            { term: 'Study', hu: 'Tanulmányoz', definition: 'To read and learn.', example: 'I study every evening.' },
+            { term: 'Test', hu: 'Teszt', definition: 'Questions to check knowledge.', example: 'The test was easy.' },
+            { term: 'Exam', hu: 'Vizsga', definition: 'An important test.', example: 'I have an exam tomorrow.' },
+            { term: 'Question', hu: 'Kérdés', definition: 'Something asked to get an answer.', example: 'I have a question.' },
+            { term: 'Answer', hu: 'Válasz', definition: 'What you say to a question.', example: 'Do you know the answer?' },
+            { term: 'Homework', hu: 'Házi feladat', definition: 'Work done at home for school.', example: 'I finished my homework.' },
+            { term: 'Lesson', hu: 'Lecke', definition: 'A time of teaching.', example: 'The lesson is interesting.' }
+          ]
+        },
+        {
           id: 'v_edu_b2',
           type: 'VOCAB',
-          title: 'Academic Study B2',
+          title: 'B2',
           tier: 'bronze',
           level: 'B2',
           words: [
@@ -282,6 +391,30 @@ export const VOCAB_HUB = {
       title: 'Health & Well-being',
       description: 'Medicine, Fitness, and Mental Health',
       tasks: [
+        {
+          id: 'v_health_b1',
+          type: 'VOCAB',
+          title: 'B1',
+          tier: 'bronze',
+          level: 'B1',
+          words: [
+            { term: 'Health', hu: 'Egészség', definition: 'The state of being well.', example: 'Health is important.' },
+            { term: 'Doctor', hu: 'Orvos', definition: 'A person who treats sick people.', example: 'I need to see a doctor.' },
+            { term: 'Hospital', hu: 'Kórház', definition: 'A place where sick people go.', example: 'The hospital is large.' },
+            { term: 'Medicine', hu: 'Gyógyszer', definition: 'Something that makes you better.', example: 'I need some medicine.' },
+            { term: 'Ill', hu: 'Beteg', definition: 'Not in good health.', example: 'I am ill today.' },
+            { term: 'Sick', hu: 'Rosszullét', definition: 'Feeling bad.', example: 'I feel sick.' },
+            { term: 'Pain', hu: 'Fájdalom', definition: 'Bad feeling in your body.', example: 'I have pain in my back.' },
+            { term: 'Hurt', hu: 'Sérül', definition: 'To cause pain or injury.', example: 'It hurts here.' },
+            { term: 'Blood', hu: 'Vér', definition: 'The red liquid in your body.', example: 'Blood is red.' },
+            { term: 'Body', hu: 'Test', definition: 'The physical form of a person.', example: 'Exercise is good for your body.' },
+            { term: 'Head', hu: 'Fej', definition: 'The top part of your body.', example: 'My head hurts.' },
+            { term: 'Eye', hu: 'Szem', definition: 'The part you see with.', example: 'Her eyes are blue.' },
+            { term: 'Hand', hu: 'Kéz', definition: 'The part at the end of your arm.', example: 'I broke my hand.' },
+            { term: 'Foot', hu: 'Láb', definition: 'The part you walk on.', example: 'My foot hurts.' },
+            { term: 'Better', hu: 'Jobb', definition: 'More good.', example: 'I am feeling better.' }
+          ]
+        },
         {
           id: 'v_health_b2',
           type: 'VOCAB',
@@ -329,6 +462,30 @@ export const VOCAB_HUB = {
       title: 'Science & Nature',
       description: 'Biological Phenomena and Natural Sciences',
       tasks: [
+        {
+          id: 'v_science_b1',
+          type: 'VOCAB',
+          title: 'B1',
+          tier: 'bronze',
+          level: 'B1',
+          words: [
+            { term: 'Science', hu: 'Tudomány', definition: 'Knowledge about the world.', example: 'Science is interesting.' },
+            { term: 'Experiment', hu: 'Kísérlet', definition: 'A test to find something out.', example: 'We did an experiment.' },
+            { term: 'Discovery', hu: 'Felfedezés', definition: 'Finding something new.', example: 'It was a great discovery.' },
+            { term: 'Research', hu: 'Kutatás', definition: 'Studying to find information.', example: 'The research took years.' },
+            { term: 'Theory', hu: 'Elmélet', definition: 'An idea about how things work.', example: 'The theory is proven.' },
+            { term: 'Fact', hu: 'Tény', definition: 'Something that is true.', example: 'It is a fact.' },
+            { term: 'Force', hu: 'Erő', definition: 'Power that moves things.', example: 'The force is strong.' },
+            { term: 'Energy', hu: 'Energia', definition: 'Power to do work.', example: 'Solar energy is clean.' },
+            { term: 'Matter', hu: 'Anyag', definition: 'Something that takes up space.', example: 'All matter has weight.' },
+            { term: 'Atom', hu: 'Atom', definition: 'The smallest part of something.', example: 'An atom is very small.' },
+            { term: 'Cell', hu: 'Sejt', definition: 'The smallest part of living things.', example: 'The human body has cells.' },
+            { term: 'Grow', hu: 'Nő', definition: 'To get bigger.', example: 'Plants grow in soil.' },
+            { term: 'Change', hu: 'Változás', definition: 'Something that becomes different.', example: 'There was a change.' },
+            { term: 'Shape', hu: 'Alak', definition: 'The form of something.', example: 'What shape is it?' },
+            { term: 'Size', hu: 'Méret', definition: 'How big something is.', example: 'What size is it?' }
+          ]
+        },
         {
           id: 'v_science_b2',
           type: 'VOCAB',
@@ -394,6 +551,30 @@ export const VOCAB_HUB = {
       description: 'Olympics, Competitions, and Major Events',
       tasks: [
         {
+          id: 'v_sports_b1',
+          type: 'VOCAB',
+          title: 'B1',
+          tier: 'bronze',
+          level: 'B1',
+          words: [
+            { term: 'Sport', hu: 'Sport', definition: 'Physical activity for fun.', example: 'I like sport.' },
+            { term: 'Game', hu: 'Játék', definition: 'A competition with rules.', example: 'The game starts at three.' },
+            { term: 'Play', hu: 'Játék', definition: 'To take part in a game.', example: 'Do you want to play?' },
+            { term: 'Win', hu: 'Nyert', definition: 'To be first in a competition.', example: 'We won the game.' },
+            { term: 'Lose', hu: 'Vesztett', definition: 'To not win.', example: 'We lost the game.' },
+            { term: 'Team', hu: 'Csapat', definition: 'A group that plays together.', example: 'Our team is good.' },
+            { term: 'Player', hu: 'Játékos', definition: 'A person who plays.', example: 'He is a good player.' },
+            { term: 'Goal', hu: 'Cél', definition: 'Points scored in a game.', example: 'We scored a goal.' },
+            { term: 'Score', hu: 'Pont', definition: 'The number of points.', example: 'What is the score?' },
+            { term: 'Ball', hu: 'Labda', definition: 'A round thing used in games.', example: 'Kick the ball.' },
+            { term: 'Goal', hu: 'Kapu', definition: 'The place where you score.', example: 'The ball went in the goal.' },
+            { term: 'Race', hu: 'Verseny', definition: 'A competition to see who is fastest.', example: 'I won the race.' },
+            { term: 'Run', hu: 'Fut', definition: 'To move fast on foot.', example: 'I run every morning.' },
+            { term: 'Swim', hu: 'Úszik', definition: 'To move in water.', example: 'I swim every day.' },
+            { term: 'Dance', hu: 'Táncol', definition: 'To move to music.', example: 'I love to dance.' }
+          ]
+        },
+        {
           id: 'v_sports_b2',
           type: 'VOCAB',
           title: 'Sports Basics B2',
@@ -442,6 +623,30 @@ export const VOCAB_HUB = {
       title: 'Physics & Time',
       description: 'Time Travel, Relativity, and Theoretical Physics',
       tasks: [
+        {
+          id: 'v_physics_b1',
+          type: 'VOCAB',
+          title: 'B1',
+          tier: 'bronze',
+          level: 'B1',
+          words: [
+            { term: 'Light', hu: 'Fény', definition: 'Something that lets you see.', example: 'The light is bright.' },
+            { term: 'Dark', hu: 'Sötét', definition: 'Without light.', example: 'It is dark outside.' },
+            { term: 'Shadow', hu: 'Árnyék', definition: 'The dark shape something makes.', example: 'The tree makes a shadow.' },
+            { term: 'Heat', hu: 'Hő', definition: ' warmth.', example: 'The heat is too much.' },
+            { term: 'Cold', hu: 'Hideg', definition: 'Not warm.', example: 'It is cold today.' },
+            { term: 'Hot', hu: 'Forró', definition: 'Very warm.', example: 'The coffee is hot.' },
+            { term: 'Warm', hu: 'Meleg', definition: 'A nice temperature.', example: 'The weather is warm.' },
+            { term: 'Sound', hu: 'Hang', definition: 'Something you hear.', example: 'I heard a sound.' },
+            { term: 'Noise', hu: 'Zaj', definition: 'A loud sound.', example: 'The noise is too loud.' },
+            { term: 'Quiet', hu: 'Csend', definition: 'Without sound.', example: 'Please be quiet.' },
+            { term: 'Fast', hu: 'Gyors', definition: 'Moving quickly.', example: 'The car is fast.' },
+            { term: 'Slow', hu: 'Lassú', definition: 'Moving not quickly.', example: 'The bus is slow.' },
+            { term: 'Strong', hu: 'Erős', definition: 'Having much power.', example: 'He is very strong.' },
+            { term: 'Weak', hu: 'Gyenge', definition: 'Not having much power.', example: 'I feel weak today.' },
+            { term: 'Heavy', hu: 'Nehéz', definition: 'Weighing a lot.', example: 'The box is heavy.' }
+          ]
+        },
         {
           id: 'v_physics_b2',
           type: 'VOCAB',
@@ -492,6 +697,30 @@ export const VOCAB_HUB = {
       title: 'Community & Facilities',
       description: 'Public Services, Buildings, and Community Resources',
       tasks: [
+        {
+          id: 'v_community_b1',
+          type: 'VOCAB',
+          title: 'B1',
+          tier: 'bronze',
+          level: 'B1',
+          words: [
+            { term: 'House', hu: 'Ház', definition: 'A building to live in.', example: 'I live in a house.' },
+            { term: 'Home', hu: 'Otthon', definition: 'The place where you live.', example: 'Home is important.' },
+            { term: 'Building', hu: 'Épület', definition: 'A structure made of bricks.', example: 'The building is tall.' },
+            { term: 'Room', hu: 'Szoba', definition: 'A part of a building.', example: 'I have my own room.' },
+            { term: 'Door', hu: 'Ajtó', definition: 'The entry to a room.', example: 'Open the door.' },
+            { term: 'Window', hu: 'Ablak', definition: 'The part that lets light in.', example: 'Open the window.' },
+            { term: 'Floor', hu: 'Padló', definition: 'The part you walk on inside.', example: 'The floor is clean.' },
+            { term: 'Wall', hu: 'Fal', definition: 'The part around a room.', example: 'The wall is white.' },
+            { term: 'Street', hu: 'Utca', definition: 'A road in a town.', example: 'The street is busy.' },
+            { term: 'Road', hu: 'Út', definition: 'A way to travel.', example: 'This road is long.' },
+            { term: 'Town', hu: 'Város', definition: 'A place with many buildings.', example: 'This town is small.' },
+            { term: 'City', hu: 'Nagyváros', definition: 'A very big town.', example: 'The city is large.' },
+            { term: 'Village', hu: 'Falu', definition: 'A small place in the countryside.', example: 'The village is quiet.' },
+            { term: 'Place', hu: 'Hely', definition: 'A spot.', example: 'This is a good place.' },
+            { term: 'Area', hu: 'Terület', definition: 'A part of a place.', example: 'This is a nice area.' }
+          ]
+        },
         {
           id: 'v_community_b2',
           type: 'VOCAB',
@@ -553,6 +782,30 @@ export const VOCAB_HUB = {
       description: 'Jobs, Careers, and Workplace Policies',
       tasks: [
         {
+          id: 'v_employment_b1',
+          type: 'VOCAB',
+          title: 'B1',
+          tier: 'bronze',
+          level: 'B1',
+          words: [
+            { term: 'Job', hu: 'Munka', definition: 'Work you do for money.', example: 'I have a good job.' },
+            { term: 'Work', hu: 'Munka', definition: 'Something you do to earn money.', example: 'I have a lot of work.' },
+            { term: ' Employer', hu: 'Munkáltató', definition: 'A person who gives work.', example: 'My employer is kind.' },
+            { term: 'Employee', hu: 'Alkalmazott', definition: 'A person who does work.', example: 'She is an employee.' },
+            { term: 'Office', hu: 'Iroda', definition: 'A place where you work.', example: 'I work in an office.' },
+            { term: 'Meeting', hu: 'Találkozó', definition: 'When people talk about work.', example: 'I have a meeting now.' },
+            { term: 'Boss', hu: 'Főnök', definition: 'The person in charge.', example: 'My boss is nice.' },
+            { term: 'Colleague', hu: 'Kolléga', definition: 'A person you work with.', example: 'My colleague helps me.' },
+            { term: 'Salary', hu: 'Fizetés', definition: 'Money you get for work.', example: 'My salary is good.' },
+            { term: 'Raise', hu: 'Fizetésemelés', definition: 'More money for work.', example: 'I got a raise.' },
+            { term: 'Hire', hu: 'Felvesz', definition: 'To give someone a job.', example: 'They hired new people.' },
+            { term: 'Fire', hu: 'Elbocsát', definition: 'To end someones job.', example: 'They fired him.' },
+            { term: 'Resume', hu: 'Önéletrajz', definition: 'A paper about your work.', example: 'Send your resume.' },
+            { term: 'Interview', hu: 'Beszélgetés', definition: 'A meeting to get a job.', example: 'I have an interview.' },
+            { term: 'Career', hu: 'Karrier', definition: 'Your working life.', example: 'She has a good career.' }
+          ]
+        },
+        {
           id: 'v_employment_b2',
           type: 'VOCAB',
           title: 'Employment Basics B2',
@@ -603,6 +856,30 @@ export const VOCAB_HUB = {
       description: 'Historical Events, Postal Services, and Communication Systems',
       tasks: [
         {
+          id: 'v_history_b1',
+          type: 'VOCAB',
+          title: 'B1',
+          tier: 'bronze',
+          level: 'B1',
+          words: [
+            { term: 'History', hu: 'Történelem', definition: 'Events from the past.', example: 'I study history.' },
+            { term: 'Past', hu: 'Múlt', definition: 'Time before now.', example: 'In the past, life was different.' },
+            { term: 'Year', hu: 'Év', definition: 'Twelve months.', example: 'This year is 2024.' },
+            { term: 'Century', hu: 'Század', definition: 'One hundred years.', example: 'The last century was important.' },
+            { term: 'War', hu: 'Háború', definition: 'Fighting between countries.', example: 'The war ended.' },
+            { term: 'Peace', hu: 'Béke', definition: 'No fighting.', example: 'We want peace.' },
+            { term: 'King', hu: 'Király', definition: 'A male ruler.', example: 'The king lived here.' },
+            { term: 'Queen', hu: 'Királynő', definition: 'A female ruler.', example: 'The queen is kind.' },
+            { term: 'Country', hu: 'Ország', definition: 'A place with its own government.', example: 'This country is large.' },
+            { term: 'World', hu: 'Világ', definition: 'The whole earth.', example: 'The world is large.' },
+            { term: 'People', hu: 'Népek', definition: 'Large groups of humans.', example: 'Peoples of the world.' },
+            { term: 'Life', hu: 'Élet', definition: 'Time between birth and death.', example: 'Life is good.' },
+            { term: 'Death', hu: 'Halál', definition: 'The end of life.', example: 'Death comes to all.' },
+            { term: 'Birth', hu: 'Születés', definition: 'The start of life.', example: 'When is your birth?' },
+            { term: 'Story', hu: 'Történet', definition: 'Something told about the past.', example: 'That is an interesting story.' }
+          ]
+        },
+        {
           id: 'v_history_b2',
           type: 'VOCAB',
           title: 'History Basics B2',
@@ -645,6 +922,27 @@ export const VOCAB_HUB = {
             { term: 'Retrospective', hu: 'Visszatekintő', definition: 'Looking back on past events.', example: 'The exhibition took a retrospective view.' },
             { term: 'Provenance', hu: 'Eredet', definition: 'The origin or source of something.', example: 'The provenance of the artifact is unknown.' },
             { term: 'Epistemology', hu: 'Ismeretelmélet', definition: 'The study of knowledge and how we know things.', example: 'Epistemology questions what we can truly know.' }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'topic-general',
+      title: 'General & Misc',
+      description: 'General vocabulary and uncategorized words.',
+      tasks: [
+        {
+          id: 'v_gen_b1',
+          type: 'VOCAB',
+          title: 'B1',
+          tier: 'bronze',
+          level: 'B1',
+          words: [
+            { term: 'Silence', hu: 'Csend', definition: 'No sound or noise.', example: 'The room was in silence.' },
+            { term: 'Pirate', hu: 'Kalóz', definition: 'A person who steals from ships.', example: 'Pirates lived on ships.' },
+            { term: 'Treasure', hu: 'Kincs', definition: 'Very valuable things.', example: 'They found treasure in the cave.' },
+            { term: 'Tattoo', hu: 'Tetoválás', definition: 'A picture on your skin.', example: 'She has a tattoo on her arm.' },
+            { term: 'Artist', hu: 'Művész', definition: 'A person who makes art.', example: 'The artist painted a picture.' }
           ]
         }
       ]

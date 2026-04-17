@@ -307,6 +307,41 @@
   margin-bottom: 24px;
 }
 
+/* --- Inline Skill Grid (Practice Atoms) --- */
+.inline-skill-grid {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 16px 0 24px;
+}
+
+.inline-skill-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 16px;
+  background: var(--surface-white);
+  border: 1px solid var(--invictus-gray-200);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 80px;
+}
+
+.inline-skill-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  border-color: var(--invictus-blue);
+}
+
+.inline-skill-btn span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--invictus-slate);
+}
+
 /* --- Skill Tests Grid (Specific Skills) --- */
 .skill-tests-grid {
   display: grid;

@@ -10,16 +10,25 @@
   "tier": "bronze",
   "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
   "vocabulary": {
-    "id": "vocab-general-1",
+    "id": "vocab-b1-mock-1",
     "title": "Test Vocabulary",
-    "level": "B2",
+    "level": "B1",
     "words": [
-      {
-        "term": "femininity",
-        "hu": "nőiesesség",
-        "definition": "the quality of being female or having qualities considered typical of women",
-        "example": "High heels were seen as a symbol of femininity."
-      }
+      { "term": "Restaurant", "hu": "Étterem", "definition": "A place where people eat food.", "example": "Let's go to the restaurant." },
+      { "term": "Silence", "hu": "Csend", "definition": "No sound or noise.", "example": "The room was in silence." },
+      { "term": "Owner", "hu": "Tulajdonos", "definition": "A person who owns something.", "example": "The owner of the shop is kind." },
+      { "term": "Farmer", "hu": "Farmer", "definition": "A person who grows food.", "example": "The farmer has sheep." },
+      { "term": "Sheepdog", "hu": "Juhászkutya", "definition": "A dog that works with sheep.", "example": "The sheepdog is very clever." },
+      { "term": "Cave", "hu": "Barlang", "definition": "A hole in a mountain.", "example": "Bears live in caves." },
+      { "term": "Teacher", "hu": "Tanár", "definition": "A person who teaches.", "example": "My teacher is very good." },
+      { "term": "Pirate", "hu": "Kalóz", "definition": "A person who steals from ships.", "example": "Pirates lived on ships." },
+      { "term": "Treasure", "hu": "Kincs", "definition": "Very valuable things.", "example": "They found treasure in the cave." },
+      { "term": "Kangaroo", "hu": "Kenguru", "definition": "An Australian animal that jumps.", "example": "Kangaroos live in Australia." },
+      { "term": "Butcher", "hu": "Hentes", "definition": "A person who sells meat.", "example": "The butcher sells pork." },
+      { "term": "Wildlife", "hu": "Vadon élő állatok", "definition": "Animals that live in nature.", "example": "Wildlife is protected in parks." },
+      { "term": "Tattoo", "hu": "Tetoválás", "definition": "A picture on your skin.", "example": "She has a tattoo on her arm." },
+      { "term": "Fair", "hu": "Vásár", "definition": "A public event with things for sale.", "example": "Let's go to the fair." },
+      { "term": "Artist", "hu": "Művész", "definition": "A person who makes art.", "example": "The artist painted a picture." }
     ]
   },
   "reading": {
@@ -38,13 +47,13 @@
             "title": "Various texts",
             "type": "READING",
             "vocabList": [
-              "femininity",
-              "professionalism",
-              "regulation",
-              "petrol",
-              "luxury",
-              "solist",
-              "textbook"
+              "Restaurant",
+              "Silence",
+              "Owner",
+              "Farmer",
+              "Sheepdog",
+              "Cave",
+              "Teacher"
             ],
             "content": [
               {
@@ -378,7 +387,7 @@
   "speaking": {
     "title": "Speaking",
     "time": 15,
-    "parts": [
+    "sections": [
       {
         "id": "part1",
         "title": "Introduction and Interview",

@@ -31,6 +31,7 @@
   display: flex;
   align-items: flex-start;
   margin-bottom: 12px;
+  flex-direction: row;
 }
 
 /* Paragraph letter (A, B, C...) - red box with pink background */
@@ -90,6 +91,11 @@
     padding: 12px 16px;
     margin-bottom: 12px;
   }
+
+  
+.invictus-paragraph-wrapper {
+  flex-direction: column;
+}
   
   .invictus-paragraph-id {
     font-size: 12px;

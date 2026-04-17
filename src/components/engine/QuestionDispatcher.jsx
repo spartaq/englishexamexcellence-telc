@@ -87,9 +87,22 @@ const QuestionDispatcher = ({
       );
 
     case 'gap-fill-tokens':
+      // Normalize passageContent to a string if it's an array (from structured content)
+      let normalizedPassage = data.passage;
+      if (passageContent) {
+        if (Array.isArray(passageContent)) {
+          // Extract text from content objects and join
+          normalizedPassage = passageContent.map(item => 
+            typeof item === 'object' ? (item.text || item.passage || '') : item
+          ).join('\n\n');
+        } else if (typeof passageContent === 'string') {
+          normalizedPassage = passageContent;
+        }
+        // If passageContent is truthy but not string/array, fall back to data.passage
+      }
       return (
         <GapFillBlock 
-          data={{ ...data, passage: passageContent || data.passage }} 
+          data={{ ...data, passage: normalizedPassage }} 
           userAnswers={userAnswers} 
           onUpdate={onUpdate}
           isReviewMode={isReviewMode}

@@ -90,6 +90,12 @@ const FlashcardBlock = ({
             <label className="config-label">Target Proficiency</label>
             <div className="level-selector">
               <button 
+                className={`level-btn ${selectedLevel === 'B1' ? 'active' : ''}`}
+                onClick={() => handleLevelSelect('B1')}
+              >
+                B1 INTERMEDIATE
+              </button>
+              <button 
                 className={`level-btn ${selectedLevel === 'B2' ? 'active' : ''}`}
                 onClick={() => handleLevelSelect('B2')}
               >

@@ -15,121 +15,121 @@
     "level": "B2",
     "words": [
       {
-        "term": "commute",
+        "term": "Commute",
         "hu": "ingázik",
         "definition": "to travel regularly to and from work",
         "example": "Many people commute to the city for work."
       },
       {
-        "term": "congestion",
+        "term": "Congestion",
         "hu": "torlódás",
         "definition": "too much traffic in a place",
         "example": "Traffic congestion is a major problem in cities."
       },
       {
-        "term": "residential",
+        "term": "Residential",
         "hu": "lakó-",
         "definition": "designed for people to live in",
         "example": "The residential area is very quiet."
       },
       {
-        "term": "heritage",
+        "term": "Heritage",
         "hu": "örökség",
         "definition": "something from the past that is important",
         "example": "The old building is part of our cultural heritage."
       },
       {
-        "term": "renovate",
+        "term": "Renovate",
         "hu": "felújít",
         "definition": "to repair and improve a building",
         "example": "They plan to renovate the old house."
       },
       {
-        "term": "sustainable",
+        "term": "Sustainable",
         "hu": "fenntartható",
         "definition": "able to continue over time without damage",
         "example": "We need sustainable solutions to environmental problems."
       },
       {
-        "term": "incentive",
+        "term": "Incentive",
         "hu": "ösztönző",
         "definition": "something that encourages action",
         "example": "Tax breaks are an incentive for businesses."
       },
       {
-        "term": "carbon",
+        "term": "Carbon",
         "hu": "szén",
         "definition": "a chemical element found in fuels",
         "example": "Carbon emissions contribute to climate change."
       },
       {
-        "term": "emission",
+        "term": "Emission",
         "hu": "kibocsátás",
         "definition": "the release of gases into the air",
         "example": "The factory reduced its emissions."
       },
       {
-        "term": "renewable",
+        "term": "Renewable",
         "hu": "megújuló",
         "definition": "able to be replaced naturally",
         "example": "Solar energy is a renewable resource."
       },
       {
-        "term": "subscriber",
+        "term": "Subscriber",
         "hu": "előfizető",
         "definition": "a person who pays for a service",
         "example": "The newspaper has thousands of subscribers."
       },
       {
-        "term": "headline",
+        "term": "Headline",
         "hu": "cím",
         "definition": "the title of a news article",
         "example": "The headline caught my attention."
       },
       {
-        "term": "circulation",
+        "term": "Circulation",
         "hu": "példányszám",
         "definition": "the number of copies sold",
         "example": "The magazine's circulation has increased."
       },
       {
-        "term": "journalist",
+        "term": "Journalist",
         "hu": "újságíró",
         "definition": "a person who writes news articles",
         "example": "She works as a journalist for a local paper."
       },
       {
-        "term": "editorial",
+        "term": "Editorial",
         "hu": "vezércikk",
         "definition": "an article expressing the editor's opinion",
         "example": "The editorial criticized the new policy."
       },
       {
-        "term": "chronic",
+        "term": "Chronic",
         "hu": "krónikus",
         "definition": "continuing for a long time",
         "example": "He suffers from chronic back pain."
       },
       {
-        "term": "symptom",
+        "term": "Symptom",
         "hu": "tünet",
         "definition": "a sign of illness",
         "example": "Common symptoms include fever and cough."
       },
       {
-        "term": "diagnosis",
+        "term": "Diagnosis",
         "hu": "diagnózis",
         "definition": "identifying an illness",
         "example": "The doctor made a quick diagnosis."
       },
       {
-        "term": "prescribe",
+        "term": "Prescribe",
         "hu": "felír",
         "definition": "to recommend medicine",
         "example": "The doctor will prescribe antibiotics."
       },
       {
-        "term": "therapy",
+        "term": "Therapy",
         "hu": "terápia",
         "definition": "treatment for an illness",
         "example": "Physical therapy helps with recovery."
@@ -143,7 +143,7 @@
       {
         "id": "s1",
         "section": 1,
-        "title": "Part 1: Global Understanding",
+        "title": "B2 Mock 2 Part 1: Global Understanding",
         "description": "Questions 1-5",
         "passages": [
           {
@@ -152,10 +152,10 @@
             "title": "Various texts",
             "type": "READING",
             "vocabList": [
-              "commute",
-              "congestion",
-              "residential",
-              "heritage"
+              "Commute",
+              "Congestion",
+              "Residential",
+              "Heritage"
             ],
             "content": [
               {
@@ -228,7 +228,7 @@
       {
         "id": "s2",
         "section": 2,
-        "title": "Part 2: Detailed Understanding",
+        "title": "B2 Mock 2 Part 2: Detailed Understanding",
         "description": "Read the article about remote work and answer the multiple-choice questions.",
         "passages": [
           {
@@ -327,7 +327,7 @@
       {
         "id": "s3",
         "section": 3,
-        "title": "Part 3: Selective Understanding",
+        "title": "B2 Mock 2 Part 3: Selective Understanding",
         "description": "Questions",
         "passages": [
           {
@@ -466,11 +466,11 @@
   "speaking": {
     "title": "Speaking",
     "time": 15,
-    "parts": [
+    "sections": [
       {
         "id": "part1",
         "title": "Introduction and Interview",
-        "subtitle": "Part 1: Speaking",
+        "subtitle": "B2 Mock 2 Part 1: Speaking",
         "type": "interview",
         "duration": "4-5 minutes",
         "instruction": "You are expected to give a short presentation to your partner(s) on one of the following topics. (The prompts in brackets may help you.) Your presentation should take about 90 seconds and you should answer your partner's questions afterwards. While your partner is giving his/her presentation, listen and think of the questions you would like to ask. You should not interrupt your partner during the presentation",
@@ -498,7 +498,7 @@
       {
         "id": "part2",
         "title": "Discussion",
-        "subtitle": "Part 2: Speaking",
+        "subtitle": "B2 Mock 2 Part 2: Speaking",
         "type": "discussion",
         "duration": "3-4 minutes",
         "instruction": "Read the following text from a magazine. Discuss the content of the text with your partner(s). Tell them your opinions; give reasons and personal examples to support your ideas. Talk about your own experience with the problems mentioned and possible solutions.",
@@ -773,7 +773,7 @@
       {
         "id": "le-part1",
         "section": 1,
-        "title": "Language Elements, Part 1",
+        "title": "B2 Mock 2 Language Elements, Part 1",
         "description": "Read the following email.",
         "passages": [
           {
@@ -861,7 +861,7 @@
       {
         "id": "le-part2",
         "section": 2,
-        "title": "Language Elements, Part 2",
+        "title": "B2 Mock 2 Language Elements, Part 2",
         "description": "Read the following text and complete the gaps.",
         "passages": [
           {

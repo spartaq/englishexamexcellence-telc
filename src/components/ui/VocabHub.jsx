@@ -41,13 +41,16 @@ const VocabHub = ({ data, onSelectSection, onNavigateToMyWords }) => {
 
   const categories = hub.categories || [];
   
-  // Calculate completion for each category
-  const b2Completion = categories[0]?.tasks?.[0]?.words 
-    ? calculateCompletion(categories[0].tasks[0].words, vocabProgress) 
-    : 0;
-  const c1Completion = categories[1]?.tasks?.[0]?.words 
-    ? calculateCompletion(categories[1].tasks[0].words, vocabProgress) 
-    : 0;
+  // Get all tasks flattened
+  const allTasks = categories.flatMap(c => c.tasks || []);
+  const b1Words = allTasks.filter(t => t.level === 'B1').flatMap(t => t.words || []);
+  const b2Words = allTasks.filter(t => t.level === 'B2').flatMap(t => t.words || []);
+  const c1Words = allTasks.filter(t => t.level === 'C1').flatMap(t => t.words || []);
+  
+  // Calculate completion for each level
+  const b1Completion = b1Words.length > 0 ? calculateCompletion(b1Words, vocabProgress) : 0;
+  const b2Completion = b2Words.length > 0 ? calculateCompletion(b2Words, vocabProgress) : 0;
+  const c1Completion = c1Words.length > 0 ? calculateCompletion(c1Words, vocabProgress) : 0;
   
   // Calculate due words count across all categories
   const totalDueWords = categories.reduce((sum, cat) => {
@@ -81,8 +84,9 @@ const VocabHub = ({ data, onSelectSection, onNavigateToMyWords }) => {
             <p>Initiate high-intensity randomized sessions across 12,000 academic tokens.</p>
             <div className="hero-buttons">
               <button className="btn-hero" onClick={() => {
-                const c1Task = categories[0]?.tasks?.find(t => t.level === 'C1') || categories[0]?.tasks?.[1] || categories[0]?.tasks?.[0];
-                onSelectSection(c1Task ? { ...c1Task, type: 'VOCAB_FLASHCARDS', isRandomMix: true } : { type: 'VOCAB_FLASHCARDS', level: 'C1', tier: 'bronze' });
+                const allTasks = categories.flatMap(c => c.tasks);
+                const randomTask = allTasks[Math.floor(Math.random() * allTasks.length)];
+                onSelectSection(randomTask ? { ...randomTask, type: 'VOCAB_FLASHCARDS', isRandomMix: true } : { type: 'VOCAB_FLASHCARDS', level: 'B1', tier: 'bronze' });
               }}>
                 START RANDOM PRACTICE <Layers size={18} />
               </button>
@@ -140,16 +144,41 @@ const VocabHub = ({ data, onSelectSection, onNavigateToMyWords }) => {
       {/* PROFICIENCY TRACKS GRID */}
       <div className="proficiency-grid">
         
-        {/* TRACK 1: GENERAL */}
+        {/* TRACK 1: B1 */}
         <section className="track-column">
           <div className="track-header">
-            <h2 className="track-title">IELTS GENERAL (B2)</h2>
+            <h2 className="track-title">B1</h2>
             <span className="track-lvl">LVL. 08/12</span>
           </div>
 
           <div className="card-stack">
             <div className="prof-card active" onClick={() => {
-              const b2Task = categories[0]?.tasks?.find(t => t.level === 'B2') || categories[0]?.tasks?.[0];
+              const b1Task = categories.flatMap(c => c.tasks).find(t => t.level === 'B1');
+              onSelectSection(b1Task ? { ...b1Task, type: 'VOCAB_FLASHCARDS' } : { type: 'VOCAB_FLASHCARDS', level: 'B1', tier: 'bronze' });
+            }}>
+              <div className="card-top">
+                <div>
+                  <h3>Spaced-Repetition Flashcards</h3>
+                  <p>Essential vocabulary for intermediate learners.</p>
+                </div>
+                <span className="xp-label featured">850 XP</span>
+              </div>
+              <div className="bar-bg"><div className="bar-fill" style={{width: `${b1Completion}%`}}></div></div>
+              <div className="status-meta"><span>COMPLETION</span><span>{b1Completion}%</span></div>
+            </div>
+          </div>
+        </section>
+
+        {/* TRACK 2: B2 */}
+        <section className="track-column">
+          <div className="track-header">
+            <h2 className="track-title">B2</h2>
+            <span className="track-lvl">LVL. 08/12</span>
+          </div>
+
+          <div className="card-stack">
+            <div className="prof-card active" onClick={() => {
+              const b2Task = categories.flatMap(c => c.tasks).find(t => t.level === 'B2');
               onSelectSection(b2Task ? { ...b2Task, type: 'VOCAB_FLASHCARDS' } : { type: 'VOCAB_FLASHCARDS', level: 'B2', tier: 'bronze' });
             }}>
               <div className="card-top">
@@ -162,31 +191,19 @@ const VocabHub = ({ data, onSelectSection, onNavigateToMyWords }) => {
               <div className="bar-bg"><div className="bar-fill" style={{width: `${b2Completion}%`}}></div></div>
               <div className="status-meta"><span>COMPLETION</span><span>{b2Completion}%</span></div>
             </div>
-
-            <div className="prof-card" onClick={() => onSelectSection(categories[0])}>
-              <div className="card-top">
-                <div>
-                  <h3>Synonym Matching Matrix</h3>
-                  <p>Cross-referencing semantic clusters.</p>
-                </div>
-                <span className="xp-label">420 XP</span>
-              </div>
-              <div className="bar-bg"><div className="bar-fill" style={{width: `${b2Completion}%`}}></div></div>
-              <div className="status-meta"><span>COMPLETION</span><span>{b2Completion}%</span></div>
-            </div>
           </div>
         </section>
 
-        {/* TRACK 2: ACADEMIC */}
+        {/* TRACK 3: C1 */}
         <section className="track-column">
           <div className="track-header">
-            <h2 className="track-title">IELTS ACADEMIC (C1)</h2>
+            <h2 className="track-title">C1</h2>
             <span className="track-lvl">LVL. 02/12</span>
           </div>
 
           <div className="card-stack">
             <div className="prof-card active" onClick={() => {
-              const c1Task = categories[1]?.tasks?.find(t => t.level === 'C1') || categories[1]?.tasks?.[0];
+              const c1Task = categories.flatMap(c => c.tasks).find(t => t.level === 'C1');
               onSelectSection(c1Task ? { ...c1Task, type: 'VOCAB_FLASHCARDS' } : { type: 'VOCAB_FLASHCARDS', level: 'C1', tier: 'bronze' });
             }}>
               <div className="card-top">
@@ -198,17 +215,6 @@ const VocabHub = ({ data, onSelectSection, onNavigateToMyWords }) => {
               </div>
               <div className="bar-bg"><div className="bar-fill" style={{width: `${c1Completion}%`}}></div></div>
               <div className="status-meta"><span>COMPLETION</span><span>{c1Completion}%</span></div>
-            </div>
-
-            <div className="prof-card locked">
-              <div className="card-top">
-                <div>
-                  <h3>Usage Drills</h3>
-                  <p>Syntactic synthesis in high-stakes scenarios.</p>
-                </div>
-                <Lock size={16} />
-              </div>
-              <p className="lock-text">REQUIRES LEVEL 05 AUTHORIZATION</p>
             </div>
           </div>
         </section>
@@ -225,8 +231,18 @@ const VocabHub = ({ data, onSelectSection, onNavigateToMyWords }) => {
                 <span className="topic-name">{cat.title.toUpperCase()}</span>
               </div>
               <div className="topic-actions">
-                <button onClick={() => onSelectSection(cat)}>B2</button>
-                <button className="accent" onClick={() => onSelectSection(cat)}>C1</button>
+                <button className="level-b1" onClick={() => {
+                  const task = cat.tasks?.find(t => t.level === 'B1') || cat.tasks?.[0];
+                  onSelectSection(task ? { ...task, type: 'VOCAB_FLASHCARDS' } : { type: 'VOCAB_FLASHCARDS', level: 'B1', tier: 'bronze' });
+                }}>B1</button>
+                <button onClick={() => {
+                  const task = cat.tasks?.find(t => t.level === 'B2') || cat.tasks?.[0];
+                  onSelectSection(task ? { ...task, type: 'VOCAB_FLASHCARDS' } : { type: 'VOCAB_FLASHCARDS', level: 'B2', tier: 'bronze' });
+                }}>B2</button>
+                <button className="accent" onClick={() => {
+                  const task = cat.tasks?.find(t => t.level === 'C1') || cat.tasks?.[0];
+                  onSelectSection(task ? { ...task, type: 'VOCAB_FLASHCARDS' } : { type: 'VOCAB_FLASHCARDS', level: 'C1', tier: 'bronze' });
+                }}>C1</button>
               </div>
             </div>
           ))}

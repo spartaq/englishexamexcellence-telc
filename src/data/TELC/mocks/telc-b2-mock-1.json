@@ -15,25 +15,25 @@
     "level": "B2",
     "words": [
       {
-        "term": "femininity",
+        "term": "Femininity",
         "hu": "nőiesesség",
         "definition": "the quality of being female or having qualities considered typical of women",
         "example": "High heels were seen as a symbol of femininity."
       },
       {
-        "term": "professionalism",
+        "term": "Professionalism",
         "hu": "szakértelem",
         "definition": "the competence or skill expected of a professional",
         "example": "High heels were seen as a symbol of professionalism in business."
       },
       {
-        "term": "regulation",
+        "term": "Regulation",
         "hu": "szabályozás",
         "definition": "an official rule or directive",
         "example": "Unfair regulation was introduced."
       },
       {
-        "term": "petrol",
+        "term": "Petrol",
         "hu": "üzemanyag",
         "definition": "liquid fuel used in internal combustion engines",
         "example": "When filling up with petrol, keep an eye on the time."
@@ -45,91 +45,91 @@
         "example": "Companies installed CCTV cameras at entrances."
       },
       {
-        "term": "motorist",
+        "term": "Motorist",
         "hu": "autós",
         "definition": "a person who drives a car",
         "example": "Many motorists complained about the time constraint."
       },
       {
-        "term": "luxury",
+        "term": "Luxury",
         "hu": "luxus",
         "definition": "great comfort and wealth",
         "example": "In luxury hotels, mattresses have become a temptation."
       },
       {
-        "term": "solist",
+        "term": "Solist",
         "hu": "szólista",
         "definition": "a musician who performs a solo",
         "example": "Stephen Morris has played as soloist in concerts."
       },
       {
-        "term": "textbook",
+        "term": "Textbook",
         "hu": "tankönyv",
         "definition": "a book used for studying a particular subject",
         "example": "He stole textbooks from universities."
       },
       {
-        "term": "entrepreneur",
+        "term": "Entrepreneur",
         "hu": "vállalkozó",
         "definition": "a person who starts their own business",
         "example": "They tracked down the criminal entrepreneur."
       },
       {
-        "term": "invasive",
+        "term": "Invasive",
         "hu": "invazív",
         "definition": "tending to spread and cause damage",
         "example": "Non-native invasive plants are dangerous."
       },
       {
-        "term": "species",
+        "term": "Species",
         "hu": "faj",
         "definition": "a type of plant or animal",
         "example": "Japanese knotweed is one of the world's worst invasive species."
       },
       {
-        "term": "volcanic",
+        "term": "Volcanic",
         "hu": "vulkanikus",
         "definition": "relating to volcanoes",
         "example": "Japanese knotweed grows naturally on volcano sides."
       },
       {
-        "term": "botanist",
+        "term": "Botanist",
         "hu": "botanikus",
         "definition": "a scientist who studies plants",
         "example": "Philippe von Siebold was a botanist."
       },
       {
-        "term": "sap",
+        "term": "Sap",
         "hu": "nedv",
         "definition": "the liquid in a plant",
         "example": "The problem is the liquid inside the giant hogweed, known as the sap."
       },
       {
-        "term": "blister",
+        "term": "Blister",
         "hu": "hólyag",
         "definition": "a small bubble on the skin",
         "example": "You will receive blistering burns."
       },
       {
-        "term": "enigma",
+        "term": "Enigma",
         "hu": "rejtély",
         "definition": "something mysterious or puzzling",
         "example": "The word 'enigma' means something that is mysterious."
       },
       {
-        "term": "variation",
+        "term": "Variation",
         "hu": "változat",
         "definition": "a change or difference",
         "example": "Elgar experimented with the tune, playing different versions."
       },
       {
-        "term": "orchestra",
+        "term": "Orchestra",
         "hu": "zenekar",
         "definition": "a large group of musicians",
         "example": "Elgar had his first big success with the Enigma Variations for orchestra."
       },
       {
-        "term": "grant",
+        "term": "Grant",
         "hu": "támogatás",
         "definition": "money given by an organization",
         "example": "Our grants can provide finances to get a group up and running."
@@ -145,20 +145,20 @@
         "section": 1,
         "title": "Part 1: Global Understanding",
         "description": "Questions 1-5",
-        "passages": [
+        "sections": [
           {
             "id": "p1",
             "subtitle": "Short Texts 1-5",
             "title": "Various texts",
             "type": "READING",
             "vocabList": [
-              "femininity",
-              "professionalism",
-              "regulation",
-              "petrol",
-              "luxury",
-              "solist",
-              "textbook"
+              "Femininity",
+              "Professionalism",
+              "Regulation",
+              "Petrol",
+              "Luxury",
+              "Solist",
+              "Textbook"
             ],
             "content": [
               {
@@ -235,7 +235,7 @@
         "section": 2,
         "title": "Part 2: Detailed Understanding",
         "description": "Read the article about invasive plants and answer the multiple-choice questions.",
-        "passages": [
+        "sections": [
           {
             "id": "p2",
             "title": "A Losing Battle - Invasive Plants",
@@ -332,7 +332,7 @@
         "section": 3,
         "title": "Part 3: Selective Understanding",
         "description": "Questions",
-        "passages": [
+        "sections": [
           {
             "id": "p3",
             "title": "Activities and Groups",
@@ -495,7 +495,7 @@
   "speaking": {
     "title": "Speaking",
     "time": 15,
-    "parts": [
+    "sections": [
       {
         "id": "part1",
         "title": "Introduction and Interview",
@@ -799,14 +799,14 @@
       }
     ]
   },
-  "languageElements": {
+"languageElements": {
     "title": "Language Elements",
     "time": 90,
     "sections": [
       {
         "id": "le-part1",
         "section": 1,
-        "title": "Language Elements, Part 1",
+        "title": "B2 Mock 1 Language Elements, Part 1",
         "description": "Read the following letter.",
         "passages": [
           {
@@ -891,34 +891,31 @@
           }
         ]
       },
-
-
-
-        {
+      {
         "id": "le-part2",
         "section": 2,
-        "title": "Language Elements, Part 2",
+        "title": "B2 Mock 1 Language Elements, Part 2",
         "description": "Read the following",
         "passages": [
-		{
+          {
             "id": "p3",
             "subtitle": "Something",
             "title": "else",
             "type": "LANGUAGE-ELEMENTS",
             "content": [
-            {
-		     "id":"1",
-			"passage": "Sir Edward William Elgar is a 19th century English composer known worldwide. Pomp and Circumstance, for example, is one of Elgar's most famous pieces and one of Britain's biggest cultural ____(31)____. Elgar was born in 1857 in a village in ____(32)____ England. His father had a music shop in Worcester and so Elgar had access to many different kinds of instruments and music. Surprisingly, he ____(33)____ music college and was mainly a self-taught composer. It was in 1899, when Elgar was 42, that he had his first big success with the Enigma Variations for orchestra. It came into being almost by chance. Elgar ____(34)____ the evening when he sat down at the piano to play after dinner: 'Suddenly my wife ____(35)____ by saying: Edward, that's a good tune.' I ____(36)____ from my creative dream. 'Tune? What tune?' And she said, 'Play it again, I like that tune.' I played and strummed, and played, and then she exclaimed: 'That sounds of ____(37)____, what is that?' I answered, 'Nothing - but something might be made of it.' For fun, Elgar then ____(38)____ with the tune, playing different versions. Each was typical of someone they knew. That was the beginning of the Enigma Variations, which he dedicated to his friends. For its title, each of the 14 parts has the ____(39)____ of a person's name. The word 'enigma' means something that is ____(40)____, and perhaps the puzzle hidden in the piece gives it that extra charm that has made it so popular."
-			}			
-			],
-		"subTasks": [
-          {
-            "type": "gap-fill-tokens",
-            "instruction": "Choose the correct word (a-o) to complete each sentence.",
-            "tokens": ["a APPROVAL", "b ATTEND", "c AWOKE", "d EDGE", "e EXCEPTION", "f EXPERIMENTED", "g EXPORTS", "h FAR", "i FASHION", "j INITIALS", "k INTERRUPTED", "l MYSTERIOUS", "m PUBLICITY", "n RECALLS", "o RURAL"],
-            "answers": ["g EXPORTS", "o RURAL", "b ATTEND", "n RECALLS", "k INTERRUPTED", "c AWOKE", "l MYSTERIOUS", "f EXPERIMENTED", "j INITIALS", "l MYSTERIOUS"]
-			      }
-          ]
+              {
+                "id": "1",
+                "text": "Sir Edward William Elgar is a 19th century English composer known worldwide. Pomp and Circumstance, for example, is one of Elgar's most famous pieces and one of Britain's biggest cultural ____(31)____. Elgar was born in 1857 in a village in ____(32)____ England. His father had a music shop in Worcester and so Elgar had access to many different kinds of instruments and music. Surprisingly, he ____(33)____ music college and was mainly a self-taught composer. It was in 1899, when Elgar was 42, that he had his first big success with the Enigma Variations for orchestra. It came into being almost by chance. Elgar ____(34)____ the evening when he sat down at the piano to play after dinner: 'Suddenly my wife ____(35)____ by saying: Edward, that's a good tune.' I ____(36)____ from my creative dream. 'Tune? What tune?' And she said, 'Play it again, I like that tune.' I played and strummed, and played, and then she exclaimed: 'That sounds of ____(37)____, what is that?' I answered, 'Nothing - but something might be made of it.' For fun, Elgar then ____(38)____ with the tune, playing different versions. Each was typical of someone they knew. That was the beginning of the Enigma Variations, which he dedicated to his friends. For its title, each of the 14 parts has the ____(39)____ of a person's name. The word 'enigma' means something that is ____(40)____, and perhaps the puzzle hidden in the piece gives it that extra charm that has made it so popular."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-o) to complete each sentence.",
+                "tokens": ["a APPROVAL", "b ATTEND", "c AWOKE", "d EDGE", "e EXCEPTION", "f EXPERIMENTED", "g EXPORTS", "h FAR", "i FASHION", "j INITIALS", "k INTERRUPTED", "l MYSTERIOUS", "m PUBLICITY", "n RECALLS", "o RURAL"],
+                "answers": ["g EXPORTS", "o RURAL", "b ATTEND", "n RECALLS", "k INTERRUPTED", "c AWOKE", "l MYSTERIOUS", "f EXPERIMENTED", "j INITIALS", "l MYSTERIOUS"]
+              }
+            ]
           }
         ]
       }

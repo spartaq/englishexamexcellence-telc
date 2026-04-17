@@ -27,19 +27,21 @@ const ListeningBlock = ({
 }) => {
   // Extract listening data from full mock or direct
   const listeningData = data.listening || data;
+  
+  // Normalize sections array: support both wrapper format (has sections) and direct part format (no sections)
+  const listeningSections = Array.isArray(listeningData?.sections) 
+    ? listeningData.sections 
+    : [listeningData];
+  
+  // Get current part's data
+  const currentPart = listeningSections[activeSectionIndex] || listeningSections[0];
+
+  // Audio state
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [activeAudioIndex, setActiveAudioIndex] = useState(0);
   const audioRef = useRef(null);
   const isActive = useExamStore(state => state.isActive);
-
-  // 1. Question Flattening
-  // We keep the structure: each listening part is a separate "passage"
-  // The QuestionCarousel will handle navigation between parts
-  const listeningSections = listeningData.sections || [];
-  
-  // Get current part's data
-  const currentPart = listeningSections[activeSectionIndex];
 
   // Get audio files array - support both single audioUrl and multiple audioFiles
   const getAudioUrls = (part) => {

@@ -60,7 +60,7 @@ const getAllReadingPassages = () => {
 };
 
 /**
- * Extract all speaking parts from all speaking mocks
+ * Extract all speaking sections from all speaking mocks
  */
 const getAllSpeakingParts = () => {
   return jsonGetSpeaking();
@@ -202,22 +202,31 @@ export const pluckRandom = (skill, level = null) => {
   if (skill === 'listening') {
     // Pull a random listening section from listening mocks
     const allListeningSections = getAllListeningSections();
+    console.log('[pluckRandom listening] allListeningSections count:', allListeningSections.length);
     const sections = level ? allListeningSections.filter(s => s.level === level) : allListeningSections;
+    console.log('[pluckRandom listening] filtered sections count:', sections.length);
     const randomSection = getRandomItem(sections);
+    console.log('[pluckRandom listening] randomSection:', randomSection?.id);
     
     if (randomSection) {
+      // Return wrapped with sections array (like full-mock format)
       return {
-        ...randomSection,
+        title: 'Listening',
+        time: 30,
+        sections: [randomSection],  // The listening part becomes a section in the wrapper
+        skill: 'listening',
         type: 'LISTENING',
-        xp: randomSection.xp || 150
+        xp: randomSection.xp || 150,
+        ...randomSection  // Spread listening part properties too
       };
     }
     
     // Fallback
     return {
       id: 'listening-quick',
-      title: 'Quick Listening Task',
+      title: 'Quick Listening',
       type: 'LISTENING',
+      skill: 'listening',
       xp: 100
     };
   }
@@ -229,25 +238,18 @@ export const pluckRandom = (skill, level = null) => {
     const filteredMocks = level ? mockValues.filter(m => m.level === level) : mockValues;
     const randomMock = getRandomItem(filteredMocks.length > 0 ? filteredMocks : mockValues);
     
-    // Access speaking parts from the new JSON structure
+    // Access speaking sections from the normalized JSON structure
     const speakingData = randomMock?.speaking;
     
-    if (speakingData && speakingData.parts && speakingData.parts.length > 0) {
-      console.log('Plucking speaking test:', randomMock.title);
-      console.log('Number of parts:', speakingData.parts.length);
-      
-      // Return speaking test with parts as sections for App.jsx tab system
+    if (speakingData && speakingData.sections && speakingData.sections.length > 0) {
+      // Return first section directly (like reading)
+      const firstSection = speakingData.sections[0];
       return {
-        id: `speaking-${randomMock.id}`,
-        title: randomMock.title,
-        level: randomMock.level,
-        type: 'telc-speaking',
+        ...firstSection,
+        skill: 'speaking',
+        type: 'SPEAKING',
         xp: 150,
-        sections: speakingData.parts.map(part => ({
-          ...part,
-          skill: 'speaking',
-          type: 'SPEAKING'
-        }))
+        level: randomMock.level
       };
     }
     
@@ -255,40 +257,44 @@ export const pluckRandom = (skill, level = null) => {
     return {
       id: 'speaking-quick',
       title: 'Quick Speaking Task',
-      type: 'telc-speaking',
+      type: 'SPEAKING',
+      skill: 'speaking',
       xp: 150,
-      sections: [
-        {
-          id: 'part1',
-          title: 'Part 1: Introduction',
-          skill: 'speaking',
-          type: 'SPEAKING',
-          prompts: [
-            'Tell me about your hometown.',
-            'What do you like to do in your free time?'
-          ]
-        }
+      prompts: [
+        'Tell me about your hometown.',
+        'What do you like to do in your free time?'
       ]
     };
   }
   
-  if (skill === 'language-elements') {
+if (skill === 'language-elements') {
     const allLanguageElements = jsonGetLanguageElements();
+    console.log('[pluckRandom language-elements] allLanguageElements count:', allLanguageElements.length);
     const elements = level ? allLanguageElements.filter(e => e.level === level) : allLanguageElements;
+    console.log('[pluckRandom language-elements] filtered elements count:', elements.length);
     const randomElement = getRandomItem(elements);
+    console.log('[pluckRandom language-elements] randomElement:', randomElement?.id);
     
     if (randomElement) {
-      return {
-        ...randomElement,
+      // Return wrapped with sections array (like full-mock format)
+      // This matches how Engine passes leSections to LanguageElementsBlock
+      const result = {
+        ...randomElement,  // Spread LE part properties first
+        title: randomElement.title || 'Language Elements',
+        time: 90,
+        sections: [randomElement],  // The LE part becomes a section in the wrapper
+        skill: 'language-elements',
         type: 'LANGUAGE_ELEMENTS',
         xp: randomElement.xp || 150
       };
+      return result;
     }
     
     return {
       id: 'language-elements-quick',
-      title: 'Quick Language Elements Task',
+      title: 'Quick Language Elements',
       type: 'LANGUAGE_ELEMENTS',
+      skill: 'language-elements',
       xp: 100
     };
   }
@@ -487,18 +493,18 @@ export const pluckSingleSpeakingPart = (level = null) => {
   const filteredMocks = level ? mockValues.filter(m => m.level === level) : mockValues;
   const randomMock = getRandomItem(filteredMocks.length > 0 ? filteredMocks : mockValues);
   
-  if (randomMock && randomMock.speaking?.parts && randomMock.speaking.parts.length > 0) {
-    // Pick a random part from the speaking mock
-    const randomPart = getRandomItem(randomMock.speaking.parts);
+  if (randomMock && randomMock.speaking?.sections && randomMock.speaking.sections.length > 0) {
+    // Pick a random section from the speaking mock
+    const randomSection = getRandomItem(randomMock.speaking.sections);
     
     return {
-      id: `speaking-part-${randomPart.id || Date.now()}`,
-      title: `Speaking: ${randomPart.title || 'Practice'}`,
+      id: `speaking-part-${randomSection.id || Date.now()}`,
+      title: `Speaking: ${randomSection.title || 'Practice'}`,
       level: randomMock.level,
       type: 'telc-speaking',
       xp: 50,
       sections: [{
-        ...randomPart,
+        ...randomSection,
         skill: 'speaking',
         type: 'SPEAKING'
       }]
@@ -541,7 +547,7 @@ export const generateMiniTest = (level = null) => {
       vocab: pluckRandom('vocabulary', level),
       reading: pluckRandom('reading', level),
       listening: pluckRandom('listening', level),
-      speaking: pluckSingleSpeakingPart(level),
+      speaking: pluckRandom('speaking', level),
       writing: pluckRandom('writing', level),
       'language-elements': pluckRandom('language-elements', level)
     }
@@ -639,11 +645,11 @@ export const pluckRandomFullMock = (level = null) => {
     });
   }
   
-  // Add speaking parts (from mock.speaking.parts)
-  if (mock.speaking?.parts) {
-    mock.speaking.parts.forEach(part => {
+  // Add speaking sections (from mock.speaking.sections)
+  if (mock.speaking?.sections) {
+    mock.speaking.sections.forEach(section => {
       sections.push({
-        ...part,
+        ...section,
         skill: 'speaking',
         type: 'SPEAKING'
       });
@@ -726,11 +732,11 @@ export const pluckFullMock1 = (level = null) => {
     });
   }
  
-  // Add speaking parts (from mock.speaking.parts)
-  if (mock.speaking?.parts) {
-    mock.speaking.parts.forEach(part => {
+  // Add speaking sections (from mock.speaking.sections)
+  if (mock.speaking?.sections) {
+    mock.speaking.sections.forEach(section => {
       sections.push({
-        ...part,
+        ...section,
         skill: 'speaking',
         type: 'SPEAKING'
       });

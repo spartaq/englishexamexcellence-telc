@@ -15,91 +15,91 @@
     "level": "C1",
     "words": [
       {
-        "term": "autonomous",
+        "term": "Autonomous",
         "hu": "autonóm",
         "definition": "independent, self-governing",
         "example": "Autonomous vehicles will transform transportation."
       },
       {
-        "term": "algorithm",
+        "term": "Algorithm",
         "hu": "algoritmus",
         "definition": "a set of rules for solving problems",
         "example": "Social media uses algorithms to show relevant content."
       },
       {
-        "term": "surveillance",
+        "term": "Surveillance",
         "hu": "megfigyelés",
         "definition": "close observation of people or places",
         "example": "CCTV surveillance is common in city centres."
       },
       {
-        "term": "encryption",
+        "term": "Encryption",
         "hu": "titkosítás",
         "definition": "converting data into a secret code",
         "example": "Encryption protects sensitive information."
       },
       {
-        "term": "proliferation",
+        "term": "Proliferation",
         "hu": "elterjedés",
         "definition": "rapid increase in number or spread",
         "example": "The proliferation of smartphones has changed communication."
       },
       {
-        "term": "mitigate",
+        "term": "Mitigate",
         "hu": "enyhít",
         "definition": "to make less severe or serious",
         "example": "We must take steps to mitigate climate change."
       },
       {
-        "term": "resilient",
+        "term": "Resilient",
         "hu": "ellenálló",
         "definition": "able to recover quickly from difficulties",
         "example": "Children are often more resilient than adults realise."
       },
       {
-        "term": "paradigm",
+        "term": "Paradigm",
         "hu": "paradigma",
         "definition": "a typical example or pattern",
         "example": "This represents a paradigm shift in thinking."
       },
       {
-        "term": "ubiquitous",
+        "term": "Ubiquitous",
         "hu": "mindenhová jelenlévő",
         "definition": "present everywhere",
         "example": "Smartphones have become ubiquitous in modern society."
       },
       {
-        "term": "innovative",
+        "term": "Innovative",
         "hu": "innovatív",
         "definition": "featuring new methods or ideas",
         "example": "The company is known for its innovative products."
       },
       {
-        "term": "credential",
+        "term": "Credential",
         "hu": "hitelesítés",
         "definition": "qualification or background",
         "example": "She has the right credentials for the job."
       },
       {
-        "term": "manifest",
+        "term": "Manifest",
         "hu": "megnyilvánul",
         "definition": "to display or show clearly",
         "example": "His talent manifested at an early age."
       },
       {
-        "term": "cohesive",
+        "term": "Cohesive",
         "hu": "kohéziós",
         "definition": "well united and integrated",
         "example": "A cohesive team is more effective."
       },
       {
-        "term": "redundant",
+        "term": "Redundant",
         "hu": "felesleges",
         "definition": "not or no longer needed",
         "example": "Technology has made some jobs redundant."
       },
       {
-        "term": "scrutinise",
+        "term": "Scrutinise",
         "hu": "megvizsgál",
         "definition": "to examine closely",
         "example": "The proposal was scrutinised by experts."
@@ -733,7 +733,7 @@
   "speaking": {
     "title": "Speaking",
     "time": 15,
-    "parts": [
+    "sections": [
       {
         "id": "part1",
         "title": "Presentation",

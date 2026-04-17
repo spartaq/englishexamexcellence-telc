@@ -159,6 +159,29 @@ h1 {
   gap: 8px;
 }
 
+.free-mock-levels {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.free-mock-levels .btn-level {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid var(--invictus-red);
+  background: transparent;
+  color: var(--invictus-red);
+}
+
+.free-mock-levels .btn-level:hover {
+  background: var(--invictus-red);
+  color: white;
+}
+
 
 
 /* Feature Cards - Using Invictus card utility */
@@ -215,6 +238,14 @@ h1 {
   border-radius: var(--radius-md);
   flex: 1;
   text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.selection-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--invictus-red);
+  transform: translateY(-2px);
 }
 
 .full-width {

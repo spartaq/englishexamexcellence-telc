@@ -5,8 +5,7 @@ import { getMockById } from '../data/TELC/mocks';
 import { 
   pluckRandom, 
   pluckRandomFullMock, 
-  findVocabFromReading, 
-  pluckSingleSpeakingPart 
+  findVocabFromReading
 } from './mockPlucker';
 
 /**
@@ -18,8 +17,6 @@ export const LessonFactory = {
   // 1. TRANSFORMER: The "Chef" logic you just provided
   // Converts a raw Mock object into a structured "Full Test" for the Engine
   createFullMockFromMock: (mock, testType) => {
-    console.log('[LessonFactory] createFullMockFromMock START:', { mockId: mock?.id, mockTitle: mock?.title, mockHasReading: !!mock?.reading, testType });
-    console.log('[LessonFactory] mock.reading:', mock?.reading);
     if (!mock) return null;
     
     const sections = [];
@@ -51,10 +48,10 @@ export const LessonFactory = {
     }
     
     // Add speaking sections (for TELC tests)
-    if (mock.speaking?.parts && mock.speaking.parts.length > 0) {
-      mock.speaking.parts.forEach(part => {
+    if (mock.speaking?.sections) {
+      mock.speaking.sections.forEach(section => {
         sections.push({
-          ...part,
+          ...section,
           skill: 'speaking',
           type: 'SPEAKING'
         });
@@ -75,8 +72,6 @@ export const LessonFactory = {
     // Add language elements sections (for TELC tests)
     // Preserve the original structure with passages and content for LanguageElementsBlock
     if (mock.languageElements?.sections && mock.languageElements.sections.length > 0) {
-      console.log('[LessonFactory] Found languageElements sections:', mock.languageElements.sections.length);
-      
       // Add the entire languageElements object as a section, preserving nested structure
       sections.push({
         ...mock.languageElements,  // Preserve: title, time, sections with passages
@@ -84,12 +79,7 @@ export const LessonFactory = {
         skill: 'language-elements',
         type: 'LANGUAGE_ELEMENTS'
       });
-      console.log('[LessonFactory] Added language elements section with', mock.languageElements.sections.length, 'sub-sections');
     }
-    
-    console.log('[LessonFactory] Final sections:', sections.map(s => ({ skill: s.skill, type: s.type, title: s.title })));
-    
-
     
     // Add vocabulary
     if (mock.vocabulary) {
@@ -99,8 +89,6 @@ export const LessonFactory = {
         type: 'VOCAB'
       });
     }
-    
-    console.log('[LessonFactory] sections built:', { count: sections.length, sections: sections.map(s => ({ skill: s.skill, type: s.type, title: s.title })) });
     
     return {
       id: `mock-${testType}-${Date.now()}`,
@@ -115,7 +103,6 @@ export const LessonFactory = {
 
   // 2. RESOLVER: Logic to find which mock to use based on path/type
   prepareFullTest: (testType, path = null) => {
-    console.log('[LessonFactory] prepareFullTest:', { testType, path });
     let specificMock = null;
 
     // Resolve specific mock from path if provided
@@ -129,10 +116,8 @@ export const LessonFactory = {
     }
 
     // Fallback to random if no specific mock found
-    const type = testType.includes('general') ? 'general' : 'academic';
-    console.log('[LessonFactory] type resolved:', type);
+    const type = testType.match(/b1|b2|c1/i)?.[1]?.toLowerCase() || 'b2';
     const mockData = specificMock || pluckRandomFullMock(type);
-    console.log('[LessonFactory] mockData:', mockData);
     
     // Transform and return
     return LessonFactory.createFullMockFromMock(mockData, type);
@@ -140,81 +125,49 @@ export const LessonFactory = {
 
   // 3. MAIN ENTRY POINT: Used by App.jsx handleStartTask
   create: (taskMetadata) => {
-    console.log('[LessonFactory] Preparing task:', taskMetadata.type || taskMetadata.id);
-
     // Standalone Vocab
     if (taskMetadata.type === 'VOCAB' || taskMetadata.type === 'VOCAB_FLASHCARDS') {
       return {
         ...taskMetadata,
-        questions: taskMetadata.questions || taskMetadata.vocabList || []
-      };
-    }
-
-    // Mini-test Flows
-    if (taskMetadata.type === 'flow' || taskMetadata.id === 'mini-test-flow') {
-      const readingExercise = pluckRandom('reading');
-      const vocabExercise = findVocabFromReading(readingExercise);
-      return {
-        id: 'dynamic-flow-' + Date.now(),
-        title: 'Daily Mini Test',
-        type: 'mixed-flow',
-        xpReward: 1500,
-        sections: [
-          { ...vocabExercise, skill: 'vocab' },
-          { ...readingExercise, skill: 'reading' },
-          { ...pluckRandom('listening'), skill: 'listening' },
-          { ...(pluckSingleSpeakingPart()?.sections?.[0]), skill: 'speaking' },
-          { ...pluckRandom('writing'), skill: 'writing' }
-        ].filter(Boolean)
+        questions: taskMetadata.questions || taskMetadata.vocabList || taskMetadata.words || []
       };
     }
 
     // Command-style strings for mini-tests and random exercises
     if (taskMetadata.id) {
-      console.log('[LessonFactory] Checking command-style id:', taskMetadata.id);
-      
-
       // Atom Skill - random exercise for specific skill
       if (taskMetadata.id === 'atom-skill') {
-        console.log('[LessonFactory] Matched atom-skill');
         return LessonFactory.createAtomSkill(taskMetadata.skill);
       }
 
       // Random Full Mock - Quick Start button
       if (taskMetadata.id === 'random-mock') {
-        console.log('[LessonFactory] Matched random-mock, taskMetadata:', taskMetadata);
-        const type = taskMetadata.testType || 'general';
-        console.log('[LessonFactory] random-mock type:', type);
+        const type = taskMetadata.testType || 'b2';
         const rawMock = pluckRandomFullMock(type);
-        console.log('[LessonFactory] rawMock:', rawMock);
-        const result = LessonFactory.createFullMockFromMock(rawMock, type);
-        console.log('[LessonFactory] random-mock result:', result);
-        return result;
+        return LessonFactory.createFullMockFromMock(rawMock, type);
       }
 
       // Mini-test with single random exercise (from BrandTestHub Quick Start)
       if (taskMetadata.id && taskMetadata.id.includes('single-exercise')) {
-        console.log('[LessonFactory] Matched single-exercise:', taskMetadata.id);
         const level = taskMetadata.id.match(/telc-(b1|b2|c1)/)?.[1] || 'b2';
         return LessonFactory.createMiniTest(level);
       }
 
-      // Mini-test with multiple exercises (full random test with all skills)
+      // Mini-test with ALL skills (from free-mock /free-mock route)
       if (taskMetadata.id && taskMetadata.id.includes('mini-test')) {
-        console.log('[LessonFactory] Matched mini-test (full):', taskMetadata.id);
         const type = taskMetadata.id.match(/telc-(b1|b2|c1)/)?.[1] || 'b2';
         const readingExercise = pluckRandom('reading', type);
         const vocabExercise = findVocabFromReading(readingExercise);
         return {
           id: `mini-test-full-${Date.now()}`,
-          title: type === 'general' ? 'General Mini Test' : 'Academic Mini Test',
+          title: `${type.toUpperCase()} Mini Test`,
           type: 'mixed-flow',
           xpReward: 1500,
           sections: [
             { ...vocabExercise, skill: 'vocab' },
             { ...readingExercise, skill: 'reading' },
             { ...pluckRandom('listening', type), skill: 'listening' },
-            { ...(pluckSingleSpeakingPart(type)?.sections?.[0]), skill: 'speaking' },
+            { ...pluckRandom('speaking', type), skill: 'speaking' },
             { ...pluckRandom('writing', type), skill: 'writing' },
             { ...pluckRandom('language-elements', type), skill: 'language-elements' }
           ].filter(Boolean)
@@ -245,59 +198,62 @@ export const LessonFactory = {
   },
 
   // 4. HELPER: Create a mini-test with a single random exercise
-  createMiniTest: (testType) => {
-    console.log('[LessonFactory] Creating mini-test for:', testType);
+  createMiniTest: (level) => {
     const skillTypes = ['vocab', 'reading', 'listening', 'writing', 'speaking', 'language-elements'];
     const randomSkill = skillTypes[Math.floor(Math.random() * skillTypes.length)];
-    console.log('[LessonFactory] Random skill selected:', randomSkill);
     
     let singleExercise = null;
     
     if (randomSkill === 'vocab') {
-      const readingExercise = pluckRandom(`reading_${testType}`);
-      console.log('[LessonFactory] Reading exercise for vocab:', readingExercise);
+      const readingExercise = pluckRandom('reading', level);
       singleExercise = findVocabFromReading(readingExercise);
     } else if (randomSkill === 'reading') {
-      singleExercise = pluckRandom(`reading_${testType}`);
+      singleExercise = pluckRandom('reading', level);
     } else if (randomSkill === 'writing') {
-      singleExercise = pluckRandom(`writing_${testType}`);
+      singleExercise = pluckRandom('writing', level);
     } else if (randomSkill === 'speaking') {
-      const speakingWrapper = pluckSingleSpeakingPart();
-      singleExercise = speakingWrapper?.sections?.[0] || {
-        id: 'speaking-fallback',
-        title: 'Speaking Practice',
-        type: 'SPEAKING',
-        xp: 200,
-        prompts: ['Tell me about your hometown.', 'What do you like to do in your free time?']
-      };
+      singleExercise = pluckRandom('speaking', level);
     } else if (randomSkill === 'listening') {
-      singleExercise = pluckRandom('listening');
+      singleExercise = pluckRandom('listening', level);
     } else if (randomSkill === 'language-elements') {
-      singleExercise = pluckRandom('language-elements');
+      singleExercise = pluckRandom('language-elements', level);
     }
     
-    console.log('[LessonFactory] Single exercise:', singleExercise);
+    // Fallback if any skill returns null
+    if (!singleExercise) {
+      singleExercise = LessonFactory.getFallbackExercise(randomSkill);
+    }
     
     // Create a mini-test flow with only ONE random exercise
     const miniTest = {
-      id: `mini-test-${testType}-${Date.now()}`,
-      title: testType === 'general' ? 'General Mini Test' : 'Academic Mini Test',
+      id: `mini-test-${level}-${Date.now()}`,
+      title: `${level.toUpperCase()} Mini Test`,
       type: 'mini-test-flow',
       xp: singleExercise?.xp || 200,
       sections: [{ ...singleExercise, skill: randomSkill }].filter(Boolean)
     };
     
-    console.log('[LessonFactory] Mini-test created:', miniTest);
     return miniTest.sections.length > 0 ? miniTest : null;
+  },
+  
+  // 4b. HELPER: Fallback exercise for any skill
+  getFallbackExercise: (skill) => {
+    const fallbacks = {
+      vocab: { id: 'vocab-fallback', title: 'Quick Vocab Drill', type: 'VOCAB', xp: 100, words: [] },
+      reading: { id: 'reading-fallback', title: 'Quick Reading', type: 'reading-practice', xp: 150 },
+      writing: { id: 'writing-fallback', title: 'Quick Writing', type: 'WRITING', xp: 150, prompt: 'Write a short paragraph.' },
+      speaking: { id: 'speaking-fallback', title: 'Speaking Practice', type: 'SPEAKING', xp: 200, prompts: ['Tell me about your hometown.'] },
+      listening: { id: 'listening-fallback', title: 'Quick Listening', type: 'LISTENING', xp: 150 },
+      'language-elements': { id: 'le-fallback', title: 'Quick Language Elements', type: 'LANGUAGE_ELEMENTS', xp: 150 }
+    };
+    return fallbacks[skill] || null;
   },
 
   // 5. HELPER: Create an atom skill exercise for a specific skill
   createAtomSkill: (skill) => {
     const skillMap = {
-      'reading-ac': 'reading',
-      'reading-gt': 'reading',
-      'writing-ac': 'writing',
-      'writing-gt': 'writing',
+      'reading': 'reading',
+      'writing': 'writing',
       'listening': 'listening',
       'speaking': 'speaking',
       'language-elements': 'language-elements'

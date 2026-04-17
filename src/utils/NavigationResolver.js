@@ -48,6 +48,18 @@ export const resolvePath = (path) => {
     };
   }
 
+  // Handle vocabulary hub route
+  if (path === 'vocabulary') {
+    return {
+      view: 'drillsHub',
+      viewHistory: ['drillsHub'],
+      activeCategory: HUBS.vocabulary,
+      activeSection: null,
+      triggerTask: null,
+      triggerFullTest: null,
+    };
+  }
+
   // TELC Level Hub routes
   if (path === 'telc-b1-hub') {
     return {

@@ -27,7 +27,7 @@ const LanguageElementsBlock = ({
   // For LE structure:
   // data = languageElements object { title, time, sections: [le-part1, le-part2] }
   // sections = le-part array (part1, part2) - passed from Engine via leSections
-  // 
+// 
   // NOTE: ReadingBlock uses data=currentPassage and sections=full availableSections array
   // For LE, we use sections prop which already contains [part1, part2]
   // So we don't extract from data.sections again
@@ -50,14 +50,11 @@ const LanguageElementsBlock = ({
       setLocalLeIndex(activeSectionIndex);
     }
   }, [activeSectionIndex, leParts.length]);
-  
+
   // Wrap onUpdate to handle both formats: object from GapFillBlock or key-value from other blocks
   const handleLeUpdate = (updates) => {
-    console.log('[LE] handleLeUpdate called with:', updates);
     if (typeof updates === 'object' && !Array.isArray(updates)) {
-      // GapFillBlock passes { 1: "token1", 2: "token2" } - need to spread into userAnswers
       Object.entries(updates).forEach(([key, val]) => {
-        console.log('[LE] calling onUpdate:', key, val);
         onUpdate(key, val);
       });
     } else {
@@ -65,23 +62,18 @@ const LanguageElementsBlock = ({
     }
   };
   
-  // Extract content and questions from the current LE part
-  const passages = currentPart?.passages || [];
-  const currentPassage = passages[0] || {};
-  // Handle array of content objects with .passage property (Part 2) vs string content (Part 1)
-  const rawContent = currentPassage?.content || currentPassage?.passage || data?.content;
-const content = Array.isArray(rawContent) ? 
-    (rawContent[0]?.passage || rawContent[0]?.text || rawContent.join(' ')) : 
-    rawContent;
-  const title = currentPart?.title || data?.title;
-  const subtitle = currentPassage?.subtitle || currentPassage?.subtitle || data?.subtitle;
+  // Content can be in passages[0] (full-mock) or directly on currentPart (practice atoms)
+  const currentPassage = currentPart?.passages?.[0] || currentPart || {};
+  const content = currentPassage?.content || data?.content;
   
-  // For LE Part 1: subTasks inside passage, for Part 2: subTasks in the part itself
+  const title = currentPart?.title || data?.title;
+  const subtitle = currentPassage?.subtitle || data?.subtitle;
+  
+  // For LE: subTasks can be in passages[0] (full-mock) or directly on currentPart (practice atoms)
   const subTasks = currentPassage?.subTasks || currentPart?.subTasks || [];
   
   // Check if this is gap-fill-tokens format (needs interactive gaps in content pane)
   const isGapFillTokens = subTasks[0]?.type === 'gap-fill-tokens';
-  console.log('[LE] isGapFillTokens:', isGapFillTokens, 'subTasks[0]:', subTasks[0], 'hasMarker:', content?.includes('____(31)____'));
   const tokens = subTasks[0]?.tokens || [];
   const answers = subTasks[0]?.answers || [];
   
@@ -91,7 +83,6 @@ const content = Array.isArray(rawContent) ?
     
     // Parse text and replace ____(n)____ with interactive elements
     const parts = text.split(/____\((\d+)\)____/g);
-    console.log('[LE] renderInteractiveGaps userAnswers:', userAnswers);
     return (
       <div className="invictus-passage-text">
         {parts.map((part, idx) => {
@@ -103,7 +94,6 @@ const content = Array.isArray(rawContent) ?
           const answerKey = gapNum <= 30 ? gapNum : gapNum - 30;
           // Handle both selection formats: numeric index (from GapFillBlock) or direct key
           const selectedToken = userAnswers?.[answerKey] || userAnswers?.[String(answerKey)];
-          console.log('[LE] gapNum:', gapNum, 'answerKey:', answerKey, 'selectedToken:', selectedToken);
           return (
             <span
               key={idx}
@@ -118,18 +108,7 @@ const content = Array.isArray(rawContent) ?
   };
   
   // DEBUG: Log the structure
-  console.log('[LanguageElementsBlock] Structure:', {
-    lePartsCount: leParts.length,
-    activeSectionIndex,
-    localLeIndex,
-    effectiveIndex,
-    currentPartTitle: currentPart?.title,
-    passagesCount: passages.length,
-    hasContent: !!content,
-    subTasksCount: subTasks.length,
-    subTasksType: subTasks[0]?.type
-  });
-
+  
   // 2. Flatten questions for the Carousel
   const flatQuestions = flattenQuestions(subTasks);
   const useCarousel = true;
@@ -142,24 +121,20 @@ const content = Array.isArray(rawContent) ?
       items.forEach(item => {
         if (item.questions) item.questions.forEach(q => {
           const numId = parseInt(String(q.id).replace(/\D/g, ''), 10);
-          console.log('[LanguageElementsBlock] Question id:', q.id, '-> parsed:', numId);
           ids.push(numId);
         });
         else if (item.labels) item.labels.forEach(l => {
           const numId = parseInt(String(l.id).replace(/\D/g, ''), 10);
-          console.log('[LanguageElementsBlock] Label id:', l.id, '-> parsed:', numId);
           ids.push(numId);
         });
         else if (item.id) {
           const numId = parseInt(String(item.id).replace(/\D/g, ''), 10);
-          console.log('[LanguageElementsBlock] Item id:', item.id, '-> parsed:', numId);
           ids.push(numId);
         }
       });
       return ids.filter(id => !isNaN(id));
     };
     const ids = extractIds(flatQuestions).sort((a, b) => a - b);
-    console.log('[LanguageElementsBlock] All extracted IDs:', ids);
     return ids.length ? `Questions ${ids[0]}${ids.length > 1 ? `-${ids[ids.length-1]}` : ''}` : 'Questions';
   };
 
@@ -174,13 +149,12 @@ const content = Array.isArray(rawContent) ?
             </div>
           )}
 
-            {/* Passage Content Rendering */}
+            {/* Passage Content Rendering - exactly like ReadingBlock */}
             {typeof content === 'string' ? (
               isGapFillTokens ? renderInteractiveGaps(content) : <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: content }} />
             ) : Array.isArray(content) ? (
               content.map((item, index) => {
                 const pId = typeof item === 'object' ? item.id : null;
-                // Part 1 uses .text, Part 2 uses .passage
                 const pText = typeof item === 'object' ? (item.text || item.passage) : item;
                 return (
                   <div key={index} className="invictus-paragraph-wrapper">
@@ -189,7 +163,9 @@ const content = Array.isArray(rawContent) ?
                   </div>
                 );
               })
-            ) : null}
+            ) : (
+              <div className="invictus-passage-text">No content available</div>
+            )}
         </>}
 
         exercise={

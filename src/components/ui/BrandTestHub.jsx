@@ -2,7 +2,8 @@ import React from 'react';
 import { useUser } from '@clerk/react';
 import { 
   Zap, Clock, BookOpen, Info, List, Shuffle, 
-  Timer, Library, GraduationCap, Lock, Search 
+  Timer, Library, GraduationCap, Lock, Search, 
+  Mic, Headset, PenTool, FileText
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -14,6 +15,7 @@ const BrandTestHub = ({
     activeTest, 
     onSelectPath, 
     onSelectModule, 
+    onStartSkill,  // NEW: Handler for direct skill start
     EXTRA_TOOLS,
     onOpenPaywall,
     level = null  // 'b1', 'b2', 'c1', or null for all
@@ -73,31 +75,11 @@ const BrandTestHub = ({
 
       {/* --- 2. QUICK START SECTION (ATOMS) --- */}
       <div className="section-header">
-        <h2 className="section-title">Daily Skill Training (Atoms)</h2>
+        <h2 className="section-title">Practice Tests</h2>
       </div>
 
       <div className="quick-start-grid">
-        <div className="quick-card" onClick={() => onSelectPath(miniTestPath)}>
-          <div className="quick-icon-box"><Shuffle size={24} /></div>
-          <h3 className="exam-title">{level ? `${level.toUpperCase()} Random` : 'Random Mix'}</h3>
-          <p className="exam-meta">15 MIN • ALL SKILLS</p>
-          <p className="exam-description">A randomized mix of questions across all four skills to keep you sharp and adaptable.</p>
-        </div>
-
-        <div className="quick-card" onClick={() => onSelectPath('skill-tests')}>
-          <div className="quick-icon-box"><List size={24} /></div>
-          <h3 className="exam-title">Specific Skills</h3>
-          <p className="exam-meta">CHOOSE YOUR ATOM</p>
-          <p className="exam-description">Target individual skills with focused practice sessions tailored to your weak areas.</p>
-        </div>
-      </div>
-
-      {/* --- 3. THE EXAM ARCHIVE (MOCK LIBRARY) --- */}
-      <div className="section-header">
-        <h2 className="section-title">Full Mock Exam Archive</h2>
-      </div>
-
-      <div className="exam-archive-container">
+<div className="quick-card">
         <div className="archive-controls">
           <div className="search-input-wrapper">
             <Search size={20} style={{ position: 'absolute', left: '16px', top: '18px', color: '#94a3b8' }} />
@@ -147,9 +129,81 @@ const BrandTestHub = ({
         </div>
       </div>
 
+
+       {/* <div className="quick-card" onClick={() => onSelectPath(miniTestPath)}>
+          <div className="quick-icon-box"><Shuffle size={24} /></div>
+          <h3 className="exam-title">{level ? `${level.toUpperCase()} Random` : 'Random Mix'}</h3>
+          <p className="exam-meta">15 MIN • ALL SKILLS</p>
+          <p className="exam-description">A randomized mix of questions across all four skills to keep you sharp and adaptable.</p>
+        </div> */}
+
+        {/* NEW: Inline Skill Grid - REVERT by uncommenting below and removing this block */}
+        <div className="quick-card">
+          <h3 className="exam-title">Practice Atoms</h3>
+          <p className="exam-meta">CHOOSE YOUR ATOM</p>
+          
+          <div className="inline-skill-grid">
+            <button 
+              className="inline-skill-btn"
+              onClick={() => onStartSkill && onStartSkill('reading', level)}
+            >
+              <BookOpen size={20} />
+              <span>Reading</span>
+            </button>
+            <button 
+              className="inline-skill-btn"
+              onClick={() => onStartSkill && onStartSkill('language-elements', level)}
+            >
+              <FileText size={20} />
+              <span>Lang. Elements</span>
+            </button>
+            <button 
+              className="inline-skill-btn"
+              onClick={() => onStartSkill && onStartSkill('listening', level)}
+            >
+              <Headset size={20} />
+              <span>Listening</span>
+            </button>
+            <button 
+              className="inline-skill-btn"
+              onClick={() => onStartSkill && onStartSkill('speaking', level)}
+            >
+              <Mic size={20} />
+              <span>Speaking</span>
+            </button>
+            <button 
+              className="inline-skill-btn"
+              onClick={() => onStartSkill && onStartSkill('writing', level)}
+            >
+              <PenTool size={20} />
+              <span>Writing</span>
+            </button>
+          </div>
+          
+          <p className="exam-description">Target individual skills with focused practice sessions tailored to your weak areas.</p>
+        </div>
+        
+        {/* OLD: Skill Tests View - REVERT by uncommenting this and removing the block above */}
+        {/* 
+        <div className="quick-card" onClick={() => onSelectPath('skill-tests')}>
+          <div className="quick-icon-box"><List size={24} /></div>
+          <h3 className="exam-title">Specific Skills</h3>
+          <p className="exam-meta">CHOOSE YOUR ATOM</p>
+          <p className="exam-description">Target individual skills with focused practice sessions tailored to your weak areas.</p>
+        </div>
+        */}
+      </div>
+
+      {/* --- 3. THE EXAM ARCHIVE (MOCK LIBRARY) --- 
+      <div className="section-header">
+        <h2 className="section-title">Full Mock Exam Archive</h2>
+      </div>*/}
+
+      
+
       {/* --- 4. PRECISION TRAINING (EXTRA TOOLS) --- */}
       <div className="section-header">
-        <h2 className="section-title">Precision Training Labs</h2>
+        <h2 className="section-title">Practice Exercises</h2>
       </div>
 
       <div className="precision-grid">

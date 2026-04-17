@@ -35,15 +35,18 @@ const GapFillBlock = ({ data, onUpdate, isReviewMode = false, showPassage = true
   // Track user's selections: { gapIndex: selectedWord }
   const [selections, setSelections] = useState({});
 
+  // Ensure passage is a string before using split
+  const passageString = typeof passage === 'string' ? passage : '';
+
   // Parse passage to find gap markers ____(n)____
   const parsePassage = () => {
     const regex = /____\((\d+)\)____/g;
-    const parts = passage.split(regex);
+    const parts = passageString.split(regex);
     // parts: [text, gap1Index, text, gap2Index, text, ...]
     return parts;
   };
 
-  const parts = passage.split(/____\((\d+)\)____/g);
+  const parts = passageString.split(/____\((\d+)\)____/g);
 
   // Handle token selection - fills first empty gap
   const handleTokenSelect = (token) => {

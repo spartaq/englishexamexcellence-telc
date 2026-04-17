@@ -27,8 +27,11 @@ const Router = () => {
       {/* Public route for SEO - TELC Info page */}
       <Route path="/telc-info" element={<ExamDescription activeTest={{ title: 'TELC' }} />} />
       
-      {/* Public route - Free mock without login */}
+      {/* Public route - Free mock without login (level selection) */}
       <Route path="/free-mock" element={<App initialView="telc-b2-mini-test" />} />
+      <Route path="/free-mock/b1" element={<App initialView="telc-b1-mini-test" />} />
+      <Route path="/free-mock/b2" element={<App initialView="telc-b2-mini-test" />} />
+      <Route path="/free-mock/c1" element={<App initialView="telc-c1-mini-test" />} />
       
       {/* TELC B1 routes */}
       <Route path="/telc/b1" element={

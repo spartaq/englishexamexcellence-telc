@@ -79,6 +79,12 @@ function App({ initialView }) {
   const [activeSkillTab, setActiveSkillTab] = useState(0); // For unified skill tabs: Vocab(mini), Reading, Writing, Speaking, Listening 
   const [showPaywall, setShowPaywall] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [lessonOrigin, setLessonOrigin] = useState(null); // Track which hub the lesson was started from
+
+  // Learning & Result State (moved before handleUpdateAnswer)
+  const [userAnswers, setUserAnswers] = useState({});
+  const [lessonResults, setLessonResults] = useState({ accuracy: 0, earnedXP: 0, isPerfect: false });
+  const [isReviewMode, setIsReviewMode] = useState(false);    
 
   // Loading effect - set loading to false after initial render
   useEffect(() => {
@@ -89,9 +95,9 @@ function App({ initialView }) {
   }, []);
 
   // handle update answer
-const handleUpdateAnswer = useCallback((qId, val) => {
-  setUserAnswers(prev => ({ ...prev, [qId]: val }));
-}, []);
+  const handleUpdateAnswer = useCallback((qId, val) => {
+    setUserAnswers(prev => ({ ...prev, [qId]: val }));
+  }, []);
 
   // Helper to set view with history tracking
   const navigateToView = (newView) => {
@@ -102,16 +108,34 @@ const handleUpdateAnswer = useCallback((qId, val) => {
     }
   };
 
-  // Helper to go back to previous view
+// Helper to go back to previous view
   const navigateBack = () => {
-    // If we have history, go back
+    console.log('[navigateBack] view:', view, 'lessonOrigin:', lessonOrigin, 'viewHistory:', viewHistory);
+    
+    // If we have history with more than just 'lesson' entries, find the first non-lesson view
     if (viewHistory.length > 1) {
-      const newHistory = [...viewHistory];
+      let newHistory = [...viewHistory];
       newHistory.pop(); // Remove current view
-      const previousView = newHistory[newHistory.length - 1];
+      
+      // Skip backwards over any 'lesson' entries to find the actual hub
+      let previousView = newHistory[newHistory.length - 1];
+      while (newHistory.length > 1 && previousView === 'lesson') {
+        newHistory.pop();
+        previousView = newHistory[newHistory.length - 1];
+      }
+      
+      console.log('[navigateBack] going to previousView:', previousView);
       setViewHistory(newHistory);
       setView(previousView);
-      setCurrentView(previousView); // Update Zustand store for ScrollToTop
+      setCurrentView(previousView);
+      
+      // Handle special case - clean up lesson state when going back from results
+      if (previousView !== 'lesson' && view === 'results') {
+        setActiveLesson(null);
+      }
+      
+      // Update URL based on previous view + check if coming from Vocab Hub (stored in activeCategory)
+      const isVocabHub = activeCategory?.title === 'Vocab Lab';
       
       // Update URL based on previous view
       if (previousView === 'landing') {
@@ -123,24 +147,53 @@ const handleUpdateAnswer = useCallback((qId, val) => {
       } else if (previousView === 'telc-c1-hub') {
         navigate('/telc/c1');
       } else if (previousView === 'drillsHub') {
-        navigate('/telc/drillshub');
+        // If coming from Vocab Hub, go to /telc/vocabulary, else go to /telc/drillshub
+        if (isVocabHub) {
+          navigate('/telc/vocabulary');
+        } else {
+          navigate('/telc/drillshub');
+        }
       } else if (previousView === 'selection') {
         navigate('/telc/b2');
       } else if (previousView === 'mywords') {
         navigate('/telc/mywords');
       }
+      return;
+    }
+    
+    // No history, use lessonOrigin or go to default
+    if (lessonOrigin) {
+      console.log('[navigateBack] no history, using lessonOrigin:', lessonOrigin);
+      // Check if coming from Vocab Hub (stored in activeCategory)
+      const isVocabHub = activeCategory?.title === 'Vocab Lab';
+      
+      if (lessonOrigin === 'telc-b1-hub') {
+        navigate('/telc/b1');
+      } else if (lessonOrigin === 'telc-b2-hub') {
+        navigate('/telc/b2');
+      } else if (lessonOrigin === 'telc-c1-hub') {
+        navigate('/telc/c1');
+      } else if (lessonOrigin === 'drillsHub') {
+        // If coming from Vocab Hub, go to /telc/vocabulary, else go to /telc/drillshub
+        if (isVocabHub) {
+          navigate('/telc/vocabulary');
+        } else {
+          navigate('/telc/drillshub');
+        }
+      } else if (lessonOrigin === 'skillTests') {
+        navigate('/telc/b2');
+      } else {
+        navigate('/telc/b2');
+      }
+      setLessonOrigin(null);
+      setActiveLesson(null);
     } else {
       // If we're at the root view or directly accessed, go to telc-b2-hub
       setView('telc-b2-hub');
-      setCurrentView('telc-b2-hub'); // Update Zustand store for ScrollToTop
+      setCurrentView('telc-b2-hub');
       navigate('/telc/b2');
     }
-  };      
-
-  // Learning & Result State
-  const [userAnswers, setUserAnswers] = useState({});
-  const [lessonResults, setLessonResults] = useState({ accuracy: 0, earnedXP: 0, isPerfect: false });
-  const [isReviewMode, setIsReviewMode] = useState(false);    
+  };
 
   // Router Navigate
   const navigate = useNavigate();
@@ -171,9 +224,14 @@ const handleUpdateAnswer = useCallback((qId, val) => {
     setActiveSection(plan.activeSection);
     setCurrentView(plan.view); // Update Zustand store for ScrollToTop
     
-    // If the plan contains a triggerTask, call handleStartTask
+    // Handle triggerTask if present
     if (plan.triggerTask) {
       handleStartTask(plan.triggerTask);
+    }
+    
+    // Handle triggerFullTest if present
+    if (plan.triggerFullTest) {
+      handleFullTestSelection(plan.triggerFullTest.testType, plan.triggerFullTest.path);
     }
   }, [initialView]);     
 
@@ -216,12 +274,59 @@ const handleUpdateAnswer = useCallback((qId, val) => {
   // ============================================================
   const handleGetStarted = () => navigateToView('landing');
 
+  // Handler to select a section (used by DrillsHub, VocabHub)
+  const handleSelectSection = (section) => {
+    if (!section) return;
+    
+    console.log('[handleSelectSection] Selecting section:', section);
+    
+    // Use the Resolver to figure out the navigation plan
+    const plan = resolveSection(section, activeCategory);
+    
+    if (plan) {
+      navigateToView(plan.view);
+      setActiveCategory(plan.activeCategory);
+      setActiveSection(plan.activeSection);
+      setCurrentView(plan.view);
+      
+      // Handle triggerTask if present (start the lesson)
+      if (plan.triggerTask) {
+        handleStartTask(plan.triggerTask);
+      }
+    }
+  };
+
   const handleSelectModule = (hubKey) => {
     // Simply navigate to the route - let the Resolver handle state updates
     const hubPath = `/telc/${hubKey.replaceAll('_', '-')}`;
     navigate(hubPath);
   };
-
+  
+  // Handler to start a task/exercise (used by BrandTestHub, DrillsHub, TaskSelection)
+  const handleStartTask = (taskMetadata) => {
+    if (!taskMetadata || !taskMetadata.id) {
+      console.error('[handleStartTask] Invalid taskMetadata:', taskMetadata);
+      return;
+    }
+    
+    console.log('[handleStartTask] Creating lesson for:', taskMetadata.id);
+    
+    // Use LessonFactory to create the lesson from task metadata
+    const lesson = LessonFactory.create(taskMetadata);
+    
+    if (lesson) {
+      // Track origin for proper back navigation
+      console.log('[handleStartTask] Setting lessonOrigin to:', view);
+      setLessonOrigin(view);
+      setActiveLesson(lesson);
+      setActiveSectionIndex(0);
+      setActiveSkillTab(0);
+      navigateToView('lesson');
+    } else {
+      console.error('[handleStartTask] Failed to create lesson for:', taskMetadata.id);
+    }
+  };
+  
   
   // Helper function to start a full test (used by routes and onSelectPath)
   const handleFullTestSelection = (testType, path = null) => {
@@ -229,51 +334,13 @@ const handleUpdateAnswer = useCallback((qId, val) => {
     const fullMock = LessonFactory.prepareFullTest(testType, path);
     
     if (fullMock) {
+      // Track origin for proper back navigation
+      console.log('[handleFullTestSelection] Setting lessonOrigin to:', view);
+      setLessonOrigin(view);
       setActiveLesson(fullMock);
       setActiveSectionIndex(0);
       setActiveSkillTab(0);
-      setView('lesson');
-      setCurrentView('lesson'); // Update Zustand store for ScrollToTop
-    }
-  };
-
-   const handleSelectSection = (section) => {
-     // Use NavigationResolver to determine the navigation plan
-     const plan = resolveSection(section, activeCategory);
-     
-     // Apply the plan to the states
-     setView(plan.view);
-     setViewHistory(plan.viewHistory);
-     setActiveCategory(plan.activeCategory);
-     setActiveSection(plan.activeSection);
-     setCurrentView(plan.view); // Update Zustand store for ScrollToTop
-     
-     // If the plan contains a triggerTask, call handleStartTask
-     if (plan.triggerTask) {
-       handleStartTask(plan.triggerTask);
-     }
-  };
-
-  const handleStartTask = (taskMetadata) => {
-    // 1. Check Permissions (only if tier is specified)
-    if (taskMetadata.tier && taskMetadata.tier !== 'bronze' && !isPremium) { 
-      setShowPaywall(true); 
-      return; 
-    }
-    
-    // 2. Clear previous session state
-    setUserAnswers({});
-    setIsReviewMode(false);
-    setActiveSectionIndex(0);
-    setActivePassageIndex(0);
-
-    // 3. Prepare the Lesson using the Factory
-    const preparedLesson = LessonFactory.create(taskMetadata);
-    if (preparedLesson) {
-      setActiveLesson(preparedLesson);
-      setView('lesson'); // Navigate to Engine
-      setCurrentView('lesson'); // Update Zustand store for ScrollToTop
-    } else {
+      navigateToView('lesson');
     }
   };
 
@@ -281,8 +348,23 @@ const handleUpdateAnswer = useCallback((qId, val) => {
 
   const handleFinalClaim = () => {
     claimXp(lessonResults.earnedXP || activeLesson.xpReward || activeLesson.xp || 0);
-    navigateToView('telc-b2-hub');
+    // Use lessonOrigin to go back to the correct hub
+    const targetHub = lessonOrigin || 'telc-b2-hub';
     setActiveLesson(null);
+    setLessonOrigin(null);
+    
+    // Navigate to the appropriate hub
+    if (targetHub === 'telc-b1-hub') {
+      navigate('/telc/b1');
+    } else if (targetHub === 'telc-b2-hub') {
+      navigate('/telc/b2');
+    } else if (targetHub === 'telc-c1-hub') {
+      navigate('/telc/c1');
+    } else if (targetHub === 'drillsHub') {
+      navigate('/telc/drillshub');
+    } else {
+      navigate('/telc/b2');
+    }
   };  
 
   // ============================================================
@@ -356,12 +438,24 @@ const handleUpdateAnswer = useCallback((qId, val) => {
               onSelectModule={handleSelectModule}
               onOpenPaywall={() => setShowPaywall(true)}
               onSelectPath={(path, skill) => {
-                if (path && path.startsWith('telc-')) {
+                if (path && path.includes('single-exercise')) {
+                  handleStartTask({ id: path, skill });
+                } else if (path && path.startsWith('telc-')) {
                   handleFullTestSelection(path.split('-')[1], path);
                 } else if (path === 'skill-tests') {
                   navigateToView('skillTests');
                 } else {
                   handleStartTask({ id: path, skill });
+                }
+              }}
+              onStartSkill={(skill, level) => {
+                console.log('[onStartSkill] skill:', skill, 'level:', level);
+                const exercise = pluckRandom(skill, level);
+                console.log('[onStartSkill] exercise:', exercise?.id, exercise?.title, 'type:', exercise?.type);
+                if (exercise) {
+                  setActiveLesson(exercise);
+                  setActiveSectionIndex(0);
+                  navigateToView('lesson');
                 }
               }}
               onShowDescription={() => navigateToView('description')}
@@ -377,12 +471,22 @@ const handleUpdateAnswer = useCallback((qId, val) => {
               onSelectModule={handleSelectModule}
               onOpenPaywall={() => setShowPaywall(true)}
               onSelectPath={(path, skill) => {
-                if (path && path.startsWith('telc-')) {
+                if (path && path.includes('single-exercise')) {
+                  handleStartTask({ id: path, skill });
+                } else if (path && path.startsWith('telc-')) {
                   handleFullTestSelection(path.split('-')[1], path);
                 } else if (path === 'skill-tests') {
                   navigateToView('skillTests');
                 } else {
                   handleStartTask({ id: path, skill });
+                }
+              }}
+              onStartSkill={(skill, level) => {
+                const exercise = pluckRandom(skill, level);
+                if (exercise) {
+                  setActiveLesson(exercise);
+                  setActiveSectionIndex(0);
+                  navigateToView('lesson');
                 }
               }}
               onShowDescription={() => navigateToView('description')}
@@ -398,12 +502,22 @@ const handleUpdateAnswer = useCallback((qId, val) => {
               onSelectModule={handleSelectModule}
               onOpenPaywall={() => setShowPaywall(true)}
               onSelectPath={(path, skill) => {
-                if (path && path.startsWith('telc-')) {
+                if (path && path.includes('single-exercise')) {
+                  handleStartTask({ id: path, skill });
+                } else if (path && path.startsWith('telc-')) {
                   handleFullTestSelection(path.split('-')[1], path);
                 } else if (path === 'skill-tests') {
                   navigateToView('skillTests');
                 } else {
                   handleStartTask({ id: path, skill });
+                }
+              }}
+              onStartSkill={(skill, level) => {
+                const exercise = pluckRandom(skill, level);
+                if (exercise) {
+                  setActiveLesson(exercise);
+                  setActiveSectionIndex(0);
+                  navigateToView('lesson');
                 }
               }}
               onShowDescription={() => navigateToView('description')}
@@ -419,8 +533,8 @@ const handleUpdateAnswer = useCallback((qId, val) => {
 
           {/* SKILL TESTS VIEW */}
           {view === 'skillTests' && (
-            <div className="ielts-hub-container">
-              <header className="ielts-hub-header">
+            <div className="telc-hub-container">
+              <header className="telc-hub-header">
                 <h1>Skill Tests</h1>
                 <p>Choose a specific skill to practice with a random exercise.</p>
               </header>
@@ -519,6 +633,25 @@ const handleUpdateAnswer = useCallback((qId, val) => {
                   <h3>Vocabulary</h3>
                   <p>Learn new words</p>
                   <span className="skill-xp-badge">+150 XP</span>
+                </button>
+
+                <button 
+                  className="skill-test-card"
+                  onClick={() => {
+                    const exercise = pluckRandom('language-elements');
+                    if (exercise) {
+                      setActiveLesson(exercise);
+                      setActiveSectionIndex(0);
+                      navigateToView('lesson');
+                    }
+                  }}
+                >
+                  <div className="skill-icon-wrapper language-elements">
+                    <Zap size={24} color="#0891b2" />
+                  </div>
+                  <h3>Language Elements</h3>
+                  <p>Practice grammar & vocab</p>
+                  <span className="skill-xp-badge">+200 XP</span>
                 </button>
               </div>
             </div>

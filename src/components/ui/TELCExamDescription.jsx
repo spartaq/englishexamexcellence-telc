@@ -7,9 +7,9 @@ const ExamDescription = ({ activeTest, onBack }) => {
   const hasBackHandler = typeof onBack === 'function';
   
   return (
-    <div className="ielts-hub-container">
+    <div className="telc-hub-container">
       
-      <header className="ielts-hub-header">
+      <header className="telc-hub-header">
         {hasBackHandler ? (
           <button 
             type="button"

@@ -15,7 +15,7 @@
     "level": "B2",
     "words": [
       {
-        "term": "professionalism",
+        "term": "Professionalism",
         "hu": "szakértelem",
         "definition": "the competence or skill expected of a professional",
         "example": "High heels were seen as a symbol of professionalism in business."
@@ -760,7 +760,7 @@
   "speaking": {
     "title": "Speaking",
     "time": 15,
-    "parts": [
+    "sections": [
       {
         "id": "part1",
         "title": "Presentation",

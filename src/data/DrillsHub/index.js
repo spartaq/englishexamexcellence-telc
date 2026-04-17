@@ -1,7 +1,7 @@
-import { findPassive1Data } from './find/find-passive-1';
-import { findPresentPerfect1Data } from './find/find-presperf-1';
-import { findNoun1Data } from './find/find-noun-1';
-import { commaDrill1Data, commaDrill2Data, commaDrill3Data } from './grammar/comma-drill-1';
+import { findPassive1Data } from './reading/find-passive-1';
+import { findPresentPerfect1Data } from './reading/find-presperf-1';
+import { findNoun1Data } from './reading/find-noun-1';
+import { commaDrill1Data, commaDrill2Data, commaDrill3Data } from './writing/comma-drill-1';
 
 // 1. Lookup Table for Exercises
 export const drillsData = {
@@ -28,8 +28,8 @@ export const DRILLS_HUB = {
       ]
     },
     {
-      id: 'grammar-drills',
-      title: 'Grammar & Structure',
+      id: 'writing-drills',
+      title: 'Writing Skills',
       tasks: [
         { id: 'comma-drill-1', title: 'Commas: Introductory Elements', xp: 100, type: 'punctuation-correction', tier: 'bronze' },
         { id: 'comma-drill-2', title: 'Commas: Compound Sentences', xp: 100, type: 'punctuation-correction', tier: 'bronze' },

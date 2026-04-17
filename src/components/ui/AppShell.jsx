@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { LayoutDashboard, LogOut, ArrowRight } from 'lucide-react';
+import { LogOut, ArrowRight, Home } from 'lucide-react';
 import { useUser, useSignIn, UserButton } from '@clerk/react';
+import { useNavigate } from 'react-router-dom';
 import XPBadge from '../gamified/XPBadge';
 import './AppShell.css';
 
@@ -24,9 +25,14 @@ const AppShell = ({
 }) => {
   const { user, isLoaded } = useUser();
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
     window.location.href = '/';
+  };
+
+  const handleGoHome = () => {
+    navigate('/');
   };
 
   return (
@@ -44,18 +50,15 @@ const AppShell = ({
           </div>
           <nav className="invictus-nav">
             <button 
-              onClick={() => { 
-                onNavigateToView('telc-b2-hub'); 
-                if (setActiveTest) setActiveTest(null); 
-              }} 
-              className={`invictus-nav-item ${view === 'telc-b2-hub' ? 'active' : ''}`}
+              onClick={handleGoHome}
+              className="invictus-nav-item"
             >
-              <LayoutDashboard size={18} /> TELCHub
+              <Home size={18} /> TELCHub
             </button>
 
             <button 
               className="invictus-nav-item invictus-nav-item-exit" 
-              onClick={() => onNavigateToView('landing')}
+              onClick={handleSignOut}
             >
               <LogOut size={18} /> Exit Lab
             </button>

@@ -137,15 +137,15 @@ export const getAllListeningSections = () => {
   });
 };
 
-// Helper to get all speaking parts from all mocks
+// Helper to get all speaking sections from all mocks
 export const getAllSpeakingParts = () => {
   return allMocks.flatMap(mock => {
-    const parts = [];
+    const sections = [];
     
-    if (mock.speaking?.parts) {
-      mock.speaking.parts.forEach(part => {
-        parts.push({
-          ...part,
+    if (mock.speaking?.sections) {
+      mock.speaking.sections.forEach(section => {
+        sections.push({
+          ...section,
           mockId: mock.id,
           mockTitle: mock.title,
           mockNumber: mock.mockNumber,
@@ -156,7 +156,7 @@ export const getAllSpeakingParts = () => {
       });
     }
     
-    return parts;
+    return sections;
   });
 };
 
@@ -203,6 +203,7 @@ export default {
   getAllListeningSections,
   getAllSpeakingParts,
   getAllVocab,
+  getAllLanguageElements,
   getRandomMock,
   getMockById
 };
