@@ -45,7 +45,6 @@ const BrandTestHub = ({
   // Level-specific title and badge
   const levelTitle = level ? `TELC ${level.toUpperCase()}` : 'TELC';
   const levelBadge = level ? `TELC ${level.toUpperCase()}` : 'TELC';
-  const miniTestPath = level ? `telc-${level}-mini-test` : 'telc-b2-mini-test';
   const singleExercisePath = level ? `telc-${level}-single-exercise` : 'telc-b2-single-exercise';
 
   return (
@@ -144,36 +143,46 @@ const BrandTestHub = ({
           
           <div className="inline-skill-grid">
             <button 
-              className="inline-skill-btn"
+              className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
               onClick={() => onStartSkill && onStartSkill('reading', level)}
+              disabled={!onStartSkill}
+              aria-disabled={!onStartSkill}
             >
               <BookOpen size={20} />
               <span>Reading</span>
             </button>
             <button 
-              className="inline-skill-btn"
+              className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
               onClick={() => onStartSkill && onStartSkill('language-elements', level)}
+              disabled={!onStartSkill}
+              aria-disabled={!onStartSkill}
             >
               <FileText size={20} />
               <span>Lang. Elements</span>
             </button>
             <button 
-              className="inline-skill-btn"
+              className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
               onClick={() => onStartSkill && onStartSkill('listening', level)}
+              disabled={!onStartSkill}
+              aria-disabled={!onStartSkill}
             >
               <Headset size={20} />
               <span>Listening</span>
             </button>
             <button 
-              className="inline-skill-btn"
+              className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
               onClick={() => onStartSkill && onStartSkill('speaking', level)}
+              disabled={!onStartSkill}
+              aria-disabled={!onStartSkill}
             >
               <Mic size={20} />
               <span>Speaking</span>
             </button>
             <button 
-              className="inline-skill-btn"
+              className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
               onClick={() => onStartSkill && onStartSkill('writing', level)}
+              disabled={!onStartSkill}
+              aria-disabled={!onStartSkill}
             >
               <PenTool size={20} />
               <span>Writing</span>

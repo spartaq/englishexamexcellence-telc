@@ -1,1 +1,1 @@
-<p>This is where they are encouraged to remember specific topic stories</p>
+export default <p>This is where they are encouraged to remember specific topic stories</p>;

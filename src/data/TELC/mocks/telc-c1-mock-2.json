@@ -152,15 +152,13 @@
                 "type": "sentence-insert",
                 "instruction": "Which of the sentences a–h is missing in each gap? There is only one correct answer for each item. Two sentences do not fit into any of the gaps.",
                 "options": [
-                  { "id": "z", "text": "This means that many children never get to experience the natural world in the way their parents and grandparents did" },
                   { "id": "a", "text": "While some worry about the implications, others see it as an inevitable evolution." },
                   { "id": "b", "text": "Despite the promise of increased safety, experts warn that full autonomy remains years away." },
                   { "id": "c", "text": "Critics argue that these technologies pose significant risks to individual privacy." },
                   { "id": "d", "text": "Such applications have the potential to revolutionise numerous industries." },
                   { "id": "e", "text": "When implemented thoughtfully, AI has the power to transform society for the better." },
                   { "id": "f", "text": "Although concerns about job losses are valid, the reality is more nuanced." },
-                  { "id": "g", "text": "These systems are becoming increasingly sophisticated and ubiquitous." },
-                  { "id": "h", "text": "They argue that being outside will cause illness and that too much walking, climbing and outdoor play leads to physical exhaustion." }
+                  { "id": "g", "text": "These systems are becoming increasingly sophisticated and ubiquitous." }
                 ],
                 "answers": {
                   "1": "g",

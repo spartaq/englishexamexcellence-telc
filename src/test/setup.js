@@ -16,8 +16,8 @@ vi.mock('../components/engine/QuestionCarousel', () => ({
 vi.mock('../components/engine/SplitPane', () => ({
   default: ({ content, exercise }) => {
     return React.createElement('div', null, [
-      React.createElement('div', { 'data-testid': 'split-pane-content' }, content),
-      React.createElement('div', { 'data-testid': 'split-pane-exercise' }, exercise)
+      React.createElement('div', { key: 'split-pane-content', 'data-testid': 'split-pane-content' }, content),
+      React.createElement('div', { key: 'split-pane-exercise', 'data-testid': 'split-pane-exercise' }, exercise)
     ])
   }
 }))

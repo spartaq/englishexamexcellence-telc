@@ -453,7 +453,8 @@ function App({ initialView }) {
                 const exercise = pluckRandom(skill, level);
                 console.log('[onStartSkill] exercise:', exercise?.id, exercise?.title, 'type:', exercise?.type);
                 if (exercise) {
-                  setActiveLesson(exercise);
+                  setLessonOrigin('telc-b1-hub');
+                  setActiveLesson({ ...exercise, lessonOrigin: { source: 'telc-b1-hub', skill, level } });
                   setActiveSectionIndex(0);
                   navigateToView('lesson');
                 }
@@ -484,7 +485,8 @@ function App({ initialView }) {
               onStartSkill={(skill, level) => {
                 const exercise = pluckRandom(skill, level);
                 if (exercise) {
-                  setActiveLesson(exercise);
+                  setLessonOrigin('telc-b2-hub');
+                  setActiveLesson({ ...exercise, lessonOrigin: { source: 'telc-b2-hub', skill, level } });
                   setActiveSectionIndex(0);
                   navigateToView('lesson');
                 }

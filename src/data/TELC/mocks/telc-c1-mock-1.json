@@ -68,7 +68,6 @@
                 "type": "sentence-insert",
                 "instruction": "Which of the sentences a–h is missing in each gap? There is only one correct answer for each item. Two sentences do not fit into any of the gaps.",
                 "options": [
-                  { "id": "z", "text": "This means that many children never get to experience the natural world in the way their parents and grandparents did" },                  
                   { "id": "a", "text": "For this reason, child carers are often sceptic of the benefits of forest education for children's health." },
                   { "id": "b", "text": "Furthermore, parents can participate and help the children build toys and prepare their own meals." },
                   { "id": "c", "text": "Girls in particular are said to profit from their outdoor experience." },
@@ -79,13 +78,12 @@
                   { "id": "h", "text": "They argue that being outside will cause illness and that too much walking, climbing and outdoor play leads to physical exhaustion." }
                 ],
                 "answers": {
-                  "1": "z",
-                  "2": "f",
+                  "1": "a",
+                  "2": "g",
                   "3": "g",
-                  "4": "d",
+                  "4": "f",
                   "5": "e",
-                  "6": "c",
-                  "7": "b"
+                  "6": "c"
                 }
               }
             ]
@@ -343,7 +341,7 @@
                     "id": "26",
                     "text": "Many people complete a route as a form of spiritual journey or retreat for their spiritual ____(26)____",
                     "options": ["a grow", "b growing", "c grows", "d growth"],
-                    "answer": 2
+                    "answer": 3
                   },
                   {
                     "id": "27",
@@ -367,7 +365,7 @@
                     "id": "30",
                     "text": "The main route, the Camino Frances, takes, ____(30)____ average five weeks, passing through...",
                     "options": ["a for", "b in", "c on", "d with"],
-                    "answer": 0
+                    "answer": 2
                   },
                   {
                     "id": "31",
@@ -391,7 +389,7 @@
                     "id": "34",
                     "text": "whose remains are ____(34)____ buried on the site of what is now the city's cathedral.",
                     "options": ["a believed to have been", "b known for having", "c perceiving to be", "d thought to have"],
-                    "answer": 3
+                    "answer": 0
                   },
                   {
                     "id": "35",
@@ -451,7 +449,7 @@
                     "id": "44",
                     "text": "The challenge of spending a few ____(44)____ walking and the sense of achievement...",
                     "options": ["a week of", "b week's", "c weeks", "d weeks in"],
-                    "answer": 1
+                    "answer": 2
                   },
                   {
                     "id": "45",
@@ -762,7 +760,7 @@
     "time": 15,
     "sections": [
       {
-        "id": "part1",
+        "id": "speaking-part1",
         "title": "Presentation",
         "subtitle": "Part 1: Speaking",
         "type": "presentation",
@@ -790,7 +788,7 @@
         ]
       },
       {
-        "id": "part2",
+        "id": "speaking-part2",
         "title": "Discussion",
         "subtitle": "Part 2: Discussion",
         "type": "discussion",

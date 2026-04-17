@@ -43,7 +43,7 @@ export const commaDrill1Data = {
     {
       id: 's6',
       text: 'To be honest I disagree with your assessment.',
-      correctPositions: [1], // Comma after "honest"
+      correctPositions: [2], // Comma after "honest"
       explanation: 'Use a comma after introductory infinitive phrases used as modifiers.'
     },
     {
@@ -81,7 +81,7 @@ export const commaDrill2Data = {
     {
       id: 's2',
       text: 'I wanted to buy the book but I did not have enough money.',
-      correctPositions: [4], // Comma before "but"
+      correctPositions: [5], // Comma before "but"
       explanation: 'Use a comma before "but" when it connects two complete sentences.'
     },
     {
@@ -129,7 +129,7 @@ export const commaDrill3Data = {
     {
       id: 's2',
       text: 'The recipe calls for flour sugar eggs and butter.',
-      correctPositions: [3, 4, 5], // After "flour", "sugar", "eggs"
+      correctPositions: [4, 5, 6], // After "flour", "sugar", "eggs"
       explanation: 'Separate all items in a list with commas, including before the final "and."'
     },
     {

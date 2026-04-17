@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LogOut, ArrowRight, Home } from 'lucide-react';
-import { useUser, useSignIn, UserButton } from '@clerk/react';
+import { useUser, useSignIn, useClerk } from '@clerk/react';
 import { useNavigate } from 'react-router-dom';
 import XPBadge from '../gamified/XPBadge';
 import './AppShell.css';
@@ -24,11 +24,18 @@ const AppShell = ({
   onNavigateToMyWords
 }) => {
   const { user, isLoaded } = useUser();
+  const { signOut } = useClerk();
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const navigate = useNavigate();
 
-  const handleSignOut = () => {
-    window.location.href = '/';
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      window.location.href = '/';
+    } catch (error) {
+      console.error('Sign out failed:', error);
+      window.location.href = '/';
+    }
   };
 
   const handleGoHome = () => {

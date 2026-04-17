@@ -45,7 +45,7 @@ const ReadingBlock = ({
   // 3. Calculate navigation - is there a next section/skill?
   const currentSectionIdx = allSections.findIndex(s => s.skill === data?.skill);
   const hasNextSection = currentSectionIdx >= 0 && currentSectionIdx < allSections.length - 1;
-  const hasNextPassage = data?.passages?.length > 1;
+  const hasNextPassage = activeSectionIndex < (data?.passages?.length - 1);
 
 // 3. Helper to calculate question range (e.g. "Questions 1-5")
   const getQuestionRange = () => {
@@ -92,7 +92,8 @@ const ReadingBlock = ({
               <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: content }} />
             ) : Array.isArray(content) ? (
               content.map((item, index) => {
-                // For sentence-insert, use dangerouslySetInnerHTML to render gap markers as-is
+                // For sentence-insert, render as plain text (gaps shown as markers)
+                // For non-sentence-insert, use dangerouslySetInnerHTML
                 const pId = typeof item === 'object' ? item.id : null;
                 const pText = typeof item === 'object' ? item.text : item;
                 return (

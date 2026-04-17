@@ -30,8 +30,8 @@ Use this template when creating new TELC mock tests (B1, B2, C1). Follow the str
 
 ### File Location
 ```
-B1: src/data/TELC/Mocks/telc-b1-mock-[N].json
-B2: src/data/TELC/Mocks/telc-b2-mock-[N].json
+B1: src/data/TELC/mocks/telc-b1-mock-[N].json
+B2: src/data/TELC/mocks/telc-b2-mock-[N].json
 C1: src/data/TELC/mocks/telc-c1-mock-[N].json
 ```
 
@@ -436,7 +436,7 @@ https://www.soundhelix.com/examples/mp3/SoundHelix-Song-[1-16].mp3
 
 ---
 
-## 10. Register the Mock
+## 9. Register the Mock
 
 After creating the mock JSON file, you must register it in `src/data/TELC/mocks/index.js`:
 
@@ -474,8 +474,8 @@ export const b2Mocks = {
 ```
 
 ### File Paths by Level
-- B1: `src/data/TELC/Mocks/telc-b1-mock-[N].json`
-- B2: `src/data/TELC/Mocks/telc-b2-mock-[N].json`
+- B1: `src/data/TELC/mocks/telc-b1-mock-[N].json`
+- B2: `src/data/TELC/mocks/telc-b2-mock-[N].json`
 - C1: `src/data/TELC/mocks/telc-c1-mock-[N].json`
 
 ---
@@ -484,7 +484,7 @@ export const b2Mocks = {
 
 ---
 
-## 9. Content Creation Guide
+## 10. Content Creation Guide
 
 ### Reading Passages
 

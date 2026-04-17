@@ -116,7 +116,7 @@ export const LessonFactory = {
     }
 
     // Fallback to random if no specific mock found
-    const type = testType.match(/b1|b2|c1/i)?.[1]?.toLowerCase() || 'b2';
+    const type = testType.match(/(b1|b2|c1)/i)?.[1]?.toLowerCase() || 'b2';
     const mockData = specificMock || pluckRandomFullMock(type);
     
     // Transform and return
@@ -158,19 +158,23 @@ export const LessonFactory = {
         const type = taskMetadata.id.match(/telc-(b1|b2|c1)/)?.[1] || 'b2';
         const readingExercise = pluckRandom('reading', type);
         const vocabExercise = findVocabFromReading(readingExercise);
+        const sections = [];
+        if (vocabExercise) sections.push({ ...vocabExercise, skill: 'vocab' });
+        if (readingExercise) sections.push({ ...readingExercise, skill: 'reading' });
+        const listening = pluckRandom('listening', type);
+        if (listening) sections.push({ ...listening, skill: 'listening' });
+        const speaking = pluckRandom('speaking', type);
+        if (speaking) sections.push({ ...speaking, skill: 'speaking' });
+        const writing = pluckRandom('writing', type);
+        if (writing) sections.push({ ...writing, skill: 'writing' });
+        const langElem = pluckRandom('language-elements', type);
+        if (langElem) sections.push({ ...langElem, skill: 'language-elements' });
         return {
           id: `mini-test-full-${Date.now()}`,
           title: `${type.toUpperCase()} Mini Test`,
           type: 'mixed-flow',
           xpReward: 1500,
-          sections: [
-            { ...vocabExercise, skill: 'vocab' },
-            { ...readingExercise, skill: 'reading' },
-            { ...pluckRandom('listening', type), skill: 'listening' },
-            { ...pluckRandom('speaking', type), skill: 'speaking' },
-            { ...pluckRandom('writing', type), skill: 'writing' },
-            { ...pluckRandom('language-elements', type), skill: 'language-elements' }
-          ].filter(Boolean)
+          sections
         };
       }
     }
@@ -188,7 +192,7 @@ export const LessonFactory = {
             case 'speaking':
                 return { ...mock.speaking, skill: 'speaking' };
             case 'language-elements':
-                return { ...mock.languageElements, skill: 'language-elements', sections: mock.languageElements?.sections };
+                return mock.languageElements ? { ...mock.languageElements, skill: 'language-elements', sections: mock.languageElements.sections } : { skill: 'language-elements', sections: [] };
             default: return mock;
         }
     }

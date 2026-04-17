@@ -566,6 +566,73 @@
   }
 }
 
+/* Options for optional tasks */
+.options-section {
+  margin-top: 16px;
+}
+
+.options-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--on-surface);
+  margin-bottom: 12px;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-item {
+  background: white;
+  border: 2px solid var(--outline-variant);
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option-item:hover {
+  border-color: var(--primary);
+  background: var(--surface-container-low);
+}
+
+.option-item:focus-visible {
+  border-color: var(--primary);
+  background: var(--surface-container-low);
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.option-item.selected {
+  border-color: var(--primary);
+  background: var(--primary-container);
+}
+
+.option-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.option-radio {
+  font-size: 16px;
+  color: var(--primary);
+}
+
+.option-label {
+  font-weight: 600;
+  color: var(--on-surface);
+}
+
+.option-context {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  line-height: 1.5;
+}
+
 /* Mobile (400px target) */
 @media (max-width: 480px) {
   .writing-container {
@@ -666,65 +733,5 @@
 .corrections-table th,
 .corrections-table td {
   padding: 6px;
-}
-
-/* Options for optional tasks */
-.options-section {
-  margin-top: 16px;
-}
-
-.options-title {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--on-surface);
-  margin-bottom: 12px;
-}
-
-.options-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.option-item {
-  background: white;
-  border: 2px solid var(--outline-variant);
-  border-radius: 12px;
-  padding: 16px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.option-item:hover {
-  border-color: var(--primary);
-  background: var(--surface-container-low);
-}
-
-.option-item.selected {
-  border-color: var(--primary);
-  background: var(--primary-container);
-}
-
-.option-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.option-radio {
-  font-size: 16px;
-  color: var(--primary);
-}
-
-.option-label {
-  font-weight: 600;
-  color: var(--on-surface);
-}
-
-.option-context {
-  font-size: 14px;
-  color: var(--on-surface-variant);
-  line-height: 1.5;
 }
 }

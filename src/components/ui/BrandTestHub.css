@@ -336,6 +336,19 @@
   border-color: var(--invictus-blue);
 }
 
+.inline-skill-btn:focus-visible,
+.inline-skill-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
+  border-color: var(--invictus-blue);
+}
+
+.inline-skill-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .inline-skill-btn span {
   font-size: 12px;
   font-weight: 600;

@@ -221,7 +221,6 @@ languageElements: {
     ]
   }
 }
-}
 ```
 
 ### 3.3 Key Functions (mockPlucker.js)

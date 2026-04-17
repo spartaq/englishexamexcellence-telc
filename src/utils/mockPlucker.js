@@ -8,7 +8,6 @@ import {
   getAllWritingTasks as jsonGetWriting,
   getAllListeningSections as jsonGetListening,
   getAllSpeakingParts as jsonGetSpeaking,
-  getAllVocab as jsonGetVocab,
   getAllLanguageElements as jsonGetLanguageElements
 } from '../data/TELC/mocks';
 
@@ -202,11 +201,8 @@ export const pluckRandom = (skill, level = null) => {
   if (skill === 'listening') {
     // Pull a random listening section from listening mocks
     const allListeningSections = getAllListeningSections();
-    console.log('[pluckRandom listening] allListeningSections count:', allListeningSections.length);
     const sections = level ? allListeningSections.filter(s => s.level === level) : allListeningSections;
-    console.log('[pluckRandom listening] filtered sections count:', sections.length);
     const randomSection = getRandomItem(sections);
-    console.log('[pluckRandom listening] randomSection:', randomSection?.id);
     
     if (randomSection) {
       // Return wrapped with sections array (like full-mock format)
@@ -269,11 +265,8 @@ export const pluckRandom = (skill, level = null) => {
   
 if (skill === 'language-elements') {
     const allLanguageElements = jsonGetLanguageElements();
-    console.log('[pluckRandom language-elements] allLanguageElements count:', allLanguageElements.length);
     const elements = level ? allLanguageElements.filter(e => e.level === level) : allLanguageElements;
-    console.log('[pluckRandom language-elements] filtered elements count:', elements.length);
     const randomElement = getRandomItem(elements);
-    console.log('[pluckRandom language-elements] randomElement:', randomElement?.id);
     
     if (randomElement) {
       // Return wrapped with sections array (like full-mock format)

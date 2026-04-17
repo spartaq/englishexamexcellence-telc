@@ -57,7 +57,7 @@
         "example": "In luxury hotels, mattresses have become a temptation."
       },
       {
-        "term": "Solist",
+        "term": "Soloist",
         "hu": "szólista",
         "definition": "a musician who performs a solo",
         "example": "Stephen Morris has played as soloist in concerts."
@@ -157,7 +157,7 @@
               "Regulation",
               "Petrol",
               "Luxury",
-              "Solist",
+              "Soloist",
               "Textbook"
             ],
             "content": [
@@ -899,8 +899,8 @@
         "passages": [
           {
             "id": "p3",
-            "subtitle": "Something",
-            "title": "else",
+            "subtitle": "Language Elements Passage 3",
+            "title": "Elgar's Life and Music",
             "type": "LANGUAGE-ELEMENTS",
             "content": [
               {

@@ -232,15 +232,15 @@ const VocabHub = ({ data, onSelectSection, onNavigateToMyWords }) => {
               </div>
               <div className="topic-actions">
                 <button className="level-b1" onClick={() => {
-                  const task = cat.tasks?.find(t => t.level === 'B1') || cat.tasks?.[0];
+                  const task = cat.tasks?.find(t => t.level === 'B1');
                   onSelectSection(task ? { ...task, type: 'VOCAB_FLASHCARDS' } : { type: 'VOCAB_FLASHCARDS', level: 'B1', tier: 'bronze' });
                 }}>B1</button>
                 <button onClick={() => {
-                  const task = cat.tasks?.find(t => t.level === 'B2') || cat.tasks?.[0];
+                  const task = cat.tasks?.find(t => t.level === 'B2');
                   onSelectSection(task ? { ...task, type: 'VOCAB_FLASHCARDS' } : { type: 'VOCAB_FLASHCARDS', level: 'B2', tier: 'bronze' });
                 }}>B2</button>
                 <button className="accent" onClick={() => {
-                  const task = cat.tasks?.find(t => t.level === 'C1') || cat.tasks?.[0];
+                  const task = cat.tasks?.find(t => t.level === 'C1');
                   onSelectSection(task ? { ...task, type: 'VOCAB_FLASHCARDS' } : { type: 'VOCAB_FLASHCARDS', level: 'C1', tier: 'bronze' });
                 }}>C1</button>
               </div>

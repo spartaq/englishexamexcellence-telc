@@ -88,6 +88,6 @@ hasNextSection={hasNextSection}
 | Issue | Cause | Fix |
 |-------|-------|-----|
 | Tabs don't navigate | Missing `setActiveSectionIndex()` call | Call parent state setter |
-| Only 1 tab shows | `heading-match` in ALWAYS_SELF_CONTAINED | Remove it from that array |
+| Only 1 tab shows | Expected for multi-passage `heading-match` (see IMPORTANT section) | No fix needed |
 | Tabs always show 1,2,3 same content | `questions.length === 1` | Check data structure |
 | Arrows don't go to next section | `hasNextSection` not passed | Calculate and pass prop |

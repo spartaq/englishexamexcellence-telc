@@ -110,7 +110,7 @@
   flex-direction: column;
   width: 100%;
   min-width: 0;
-  height: calc(100vh - 53px);
+  height: calc(100vh - 64px);
   background: var(--bg-app);
   /*grid-column: 2;*/
   grid-row: 2;
@@ -480,7 +480,7 @@
   }
 
   .invictus-main-content {
-    height: calc(100vh - 53px);
+    height: calc(100vh - 64px);
   }
 
   .invictus-app-shell > * {

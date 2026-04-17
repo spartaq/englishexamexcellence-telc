@@ -97,7 +97,7 @@ const useCheckAnswers = ({
     }
     // C. Standard Flow (MCQ, Short Answer, Gap Fill)
     else {
-      // For full mocks (TELC/IELTS), we grade per passage. For drills, we grade the whole lesson.
+      // For full mocks (TELC), we grade per passage. For drills, we grade the whole lesson.
       const questionsToGrade = (isTELC && currentPassage) 
         ? getFlattenedQuestions(currentPassage) 
         : getFlattenedQuestions(activeLesson);

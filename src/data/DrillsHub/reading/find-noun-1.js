@@ -1,4 +1,4 @@
-// src/data/DrillsHub/find/find-noun-1.js
+// src/data/DrillsHub/reading/find-noun-1.js
 
 export const findNoun1Data = {
   id: 'find-noun-1',

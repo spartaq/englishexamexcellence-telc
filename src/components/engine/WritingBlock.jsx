@@ -38,6 +38,12 @@ const WritingBlock = ({
     setWordCount(words.length);
   }, [text]);
 
+  useEffect(() => {
+    if (data?.options && selectedOption !== null && selectedOption >= data.options.length) {
+      setSelectedOption(null);
+    }
+  }, [data, selectedOption]);
+
   const handleCheckWriting = async () => {
     setIsChecking(true);
     try {
@@ -89,12 +95,21 @@ const WritingBlock = ({
             {data.options && data.options.length > 0 && (
               <div className="options-section">
                 <div className="options-title">Choose one of the following tasks:</div>
-                <div className="options-list">
+                <div className="options-list" role="radiogroup">
                   {data.options.map((opt, idx) => (
                     <div 
                       key={opt.id || idx}
                       className={`option-item ${selectedOption === idx ? 'selected' : ''}`}
                       onClick={() => setSelectedOption(idx)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          setSelectedOption(idx);
+                        }
+                      }}
+                      role="radio"
+                      tabIndex={0}
+                      aria-checked={selectedOption === idx}
                     >
                       <div className="option-header">
                         <span className="option-radio">

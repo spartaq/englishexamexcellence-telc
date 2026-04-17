@@ -93,7 +93,7 @@ const QuestionDispatcher = ({
         if (Array.isArray(passageContent)) {
           // Extract text from content objects and join
           normalizedPassage = passageContent.map(item => 
-            typeof item === 'object' ? (item.text || item.passage || '') : item
+            item && typeof item === 'object' ? (item.text || item.passage || '') : item
           ).join('\n\n');
         } else if (typeof passageContent === 'string') {
           normalizedPassage = passageContent;

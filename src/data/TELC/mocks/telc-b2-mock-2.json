@@ -192,7 +192,7 @@
                   {
                     "id": "2",
                     "text": "Paragraph 2",
-                    "answer": 5
+                    "answer": 4
                   },
                   {
                     "id": "3",
@@ -202,12 +202,12 @@
                   {
                     "id": "4",
                     "text": "Paragraph 4",
-                    "answer": 7
+                    "answer": 5
                   },
                   {
                     "id": "5",
                     "text": "Paragraph 5",
-                    "answer": 1
+                    "answer": 0
                   }
                 ],
                 "headings": [
@@ -381,7 +381,7 @@
                   },
                   {
                     "id": 12,
-                    "text": "You need to see a doctor about a persistent health issue.",
+                    "text": "You want to visit a hospital that has expanded its emergency department.",
                     "answer": "A"
                   },
                   {
@@ -638,7 +638,7 @@
         "subTasks": [
           {
             "type": "trinary",
-            "instruction": "Decide if the statement for each of the items is true (+) or not true (–).",
+            "instruction": "Decide if the statement for each of the items is true (+), not true (–), or NOT GIVEN (⊘).",
             "questions": [
               {
                 "id": 46,
@@ -807,7 +807,7 @@
                   {
                     "id": "23",
                     "text": "She ____(23)____ there for two years now and keeps telling me how amazing it is.",
-                    "options": ["a lives", "b lived", "c living"],
+                    "options": ["a has lived", "b lived", "c living"],
                     "answer": 0
                   },
                   {
@@ -825,32 +825,20 @@
                   {
                     "id": "26",
                     "text": "I know you ____(26)____ been to Spain before, so it would be nice to show you around.",
-                    "options": ["a has", "b have", "c having"],
+                    "options": ["a has", "b haven't", "c having"],
                     "answer": 1
                   },
                   {
                     "id": "27",
                     "text": "If you're interested, I'll look ____(27)____ flights and hotels.",
                     "options": ["a for", "b at", "c up"],
-                    "answer": 2
+                    "answer": 0
                   },
                   {
                     "id": "28",
                     "text": "P.S. I ____(28)____ to book the accommodation yet, so there's no pressure!",
-                    "options": ["a haven't", "b don't", "c not"],
+                    "options": ["a haven't managed", "b don't", "c not"],
                     "answer": 0
-                  },
-                  {
-                    "id": "29",
-                    "text": "We could share the cost of the accommodation and it would be much more fun ____(25)____ a friend to travel with.",
-                    "options": ["a have", "b to have", "c having"],
-                    "answer": 2
-                  },
-                  {
-                    "id": "30",
-                    "text": "Let me know what you think. If you're interested, I'll look ____(27)____ flights and hotels.",
-                    "options": ["a after", "b into", "c at"],
-                    "answer": 2
                   }
                 ]
               }
@@ -878,8 +866,8 @@
               {
                 "type": "gap-fill-tokens",
                 "instruction": "Choose the correct word (a-o) to complete each sentence.",
-                "tokens": ["a BREW", "b CONSUME", "c EXPORT", "d FIERCE", "e GROWN", "f HARSH", "bitter", "g PURE", "h REFINED", "i REJECTED", "j STRONG", "k VARIED", "l VOLATILE", "m WAS", "n WERE", "o WILL"],
-                "answers": ["b CONSUME", "d FIERCE", "e GROWN", "a WAS", "g PURE", "c EXPORT", "f HARSH", "l VOLATILE", "k VARIED", "j STRONG"]
+                "tokens": ["a BREW", "b CONSUME", "c EXPORT", "d FIERCE", "e GROWN", "f HARSH", "g PURE", "h REFINED", "i REJECTED", "j STRONG", "k VARIED", "l VOLATILE", "m WAS", "n WERE", "o WILL"],
+                "answers": ["b CONSUME", "d FIERCE", "e GROWN", "m WAS", "g PURE", "c EXPORT", "f HARSH", "l VOLATILE", "k VARIED", "j STRONG"]
               }
             ]
           }

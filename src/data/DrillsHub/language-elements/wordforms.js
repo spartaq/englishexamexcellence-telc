@@ -1,1 +1,1 @@
-<p>They identify the word formsand put the correct words forms in gap fils</p>
+<p>They identify the word forms and put the correct word forms in gap fills</p>
