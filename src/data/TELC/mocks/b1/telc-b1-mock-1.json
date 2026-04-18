@@ -1,0 +1,820 @@
+{
+  "id": "telc-b1-mock-1",
+  "level": "b1",
+  "mockNumber": 1,
+  "title": "TELC B1 Mock Test 1",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-b1-mock-1",
+    "title": "Test Vocabulary",
+    "level": "B1",
+    "words": [
+      { "term": "Restaurant", "hu": "Étterem", "definition": "A place where people eat food.", "example": "Let's go to the restaurant." },
+      { "term": "Silence", "hu": "Csend", "definition": "No sound or noise.", "example": "The room was in silence." },
+      { "term": "Owner", "hu": "Tulajdonos", "definition": "A person who owns something.", "example": "The owner of the shop is kind." },
+      { "term": "Farmer", "hu": "Farmer", "definition": "A person who grows food.", "example": "The farmer has sheep." },
+      { "term": "Sheepdog", "hu": "Juhászkutya", "definition": "A dog that works with sheep.", "example": "The sheepdog is very clever." },
+      { "term": "Cave", "hu": "Barlang", "definition": "A hole in a mountain.", "example": "Bears live in caves." },
+      { "term": "Teacher", "hu": "Tanár", "definition": "A person who teaches.", "example": "My teacher is very good." },
+      { "term": "Pirate", "hu": "Kalóz", "definition": "A person who steals from ships.", "example": "Pirates lived on ships." },
+      { "term": "Treasure", "hu": "Kincs", "definition": "Very valuable things.", "example": "They found treasure in the cave." },
+      { "term": "Kangaroo", "hu": "Kenguru", "definition": "An Australian animal that jumps.", "example": "Kangaroos live in Australia." },
+      { "term": "Butcher", "hu": "Hentes", "definition": "A person who sells meat.", "example": "The butcher sells pork." },
+      { "term": "Wildlife", "hu": "Vadon élő állatok", "definition": "Animals that live in nature.", "example": "Wildlife is protected in parks." },
+      { "term": "Tattoo", "hu": "Tetoválás", "definition": "A picture on your skin.", "example": "She has a tattoo on her arm." },
+      { "term": "Fair", "hu": "Vásár", "definition": "A public event with things for sale.", "example": "Let's go to the fair." },
+      { "term": "Artist", "hu": "Művész", "definition": "A person who makes art.", "example": "The artist painted a picture." }
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "Restaurant",
+              "Silence",
+              "Owner",
+              "Farmer",
+              "Sheepdog",
+              "Cave",
+              "Teacher"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "London has a new restaurant called \"Silence\" where people are not allowed to talk while they are eating. Guests are also greeted and served in silence. The owner had the idea after visiting Mongolia. \"I could enjoy the food so much more\", he says. While some guests find it strange and miss the conversation, most people enjoy eating in peace."
+              },
+              {
+                "id": "2",
+                "text": "A farmer's sheepdog got stuck in a small cave near Ardfield, Cork. The dog entered the cave through a hole and couldn't get out again. He was finally saved by a local teacher, a particularly slim woman. She moved very carefully into the cave and was able to reach the dog after half an hour. They were both pulled out uninjured."
+              },
+              {
+                "id": "3",
+                "text": "Every pirate's dream came true for a group of friends from Mexico. They were diving to explore some shipwrecks that had sunk in a hurricane in 1715. They found gold coins and some jewellery in eight ships. The treasure is worth US$ 20,000 but it officially belongs to the state and will go to a museum in Yukatán."
+              },
+              {
+                "id": "4",
+                "text": "A butcher in Darwin, Australia, was very surprised when a kangaroo hopped into his shop. The animal had been hit by a car and its face and claws were injured. It was probably confused and looking for a safe place to hide. Wildlife officers shot the kangaroo with a special drug and took it to a local vet who saved it."
+              },
+              {
+                "id": "5",
+                "text": "Hong Kong will host the international tattoo fair this year. Tattoo artists from around the world will come together and show their works. Tattoos are still not well accepted in Hong Kong and can make it difficult, for example, for a person looking for a job. But who knows, the fair might lead to more people getting tattoos there in the future."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  {
+                    "id": "1",
+                    "text": "Paragraph 1",
+                    "answer": 2
+                  },
+                  {
+                    "id": "2",
+                    "text": "Paragraph 2",
+                    "answer": 6
+                  },
+                  {
+                    "id": "3",
+                    "text": "Paragraph 3",
+                    "answer": 8
+                  },
+                  {
+                    "id": "4",
+                    "text": "Paragraph 4",
+                    "answer": 1
+                  },
+                  {
+                    "id": "5",
+                    "text": "Paragraph 5",
+                    "answer": 0
+                  }
+                ],
+                "headings": [
+                  "Fair could make tattoos more popular",
+                  "Australia must shoot kangaroos",
+                  "Dining without speaking",
+                  "Mongolian food – a new experience",
+                  "An unexpected visitor",
+                  "An unusual way out",
+                  "Dog saves teacher",
+                  "Job opportunities for fair visitors",
+                  "Pirates on the Mexican coast",
+                  "These finders are no keepers"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about Adopt a Highway and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "Adopt a Highway",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "The \"Adopt a Highway\" program is an initiative for companies and other organizations which want to make a contribution to cleaner, greener and more enjoyable highways. Everybody can get involved and help to have a litter-free environment. The idea is very simple: Organizations adopt a section of a highway and promise to keep it free from trash and to plant bushes or trees alongside the road to make the landscape more beautiful. In exchange, they are allowed to install a sign with their name and advertising slogan in the section of the highway that they maintain. It's a classical win-win-situation: The companies get free advertising opportunities which millions of motorists will see, and everybody can enjoy a clean and well-maintained highway."
+              },
+              {
+                "id": "B",
+                "text": "How can an organization become an adopter? If organizations want to join the program, they can contact the Department of Transportation in their community and apply online. Once their application is approved, they will receive safety vests, trash bags and the appropriate training for their staff. The organization agrees to take charge of a two-mile stretch of the road and to look after it for a minimum of two years. They have to clean their highway section at least four times a year. Sometimes adopter organizations must work together with road and bridge construction companies to make sure that all road and maintenance activities are well coordinated."
+              },
+              {
+                "id": "C",
+                "text": "Participation is free of charge and organizations can keep the money they might earn from recycling the trash that they have collected. The only cost that a company must bear is to give its personnel time off for some occasional work during weekdays."
+              },
+              {
+                "id": "D",
+                "text": "The program was set up in 1985 by the Tyler Civitan Club, the first organization to adopt two miles along the US Route 69. At the time, the state of Texas didn't have enough money to look after its highways, and the club decided to help. Now the initiative is finding increasingly supporters in Canada, Great Britain, Japan, New Zealand, Australia and Mexico and the program is continuing to grow."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer",
+                "questions": [
+                  {
+                    "id": "6",
+                    "text": "The program attracts",
+                    "options": [
+                      "any firm wanting to support the community.",
+                      "mainly so-called \"green\" companies.",
+                      "mostly local advertising companies."
+                    ],
+                    "answer": "any firm wanting to support the community."
+                  },
+                  {
+                    "id": "7",
+                    "text": "The advantage for the companies is that they",
+                    "options": [
+                      "can use the highway for free.",
+                      "know that many people see their advertisement.",
+                      "receive money for looking after their adopted highway."
+                    ],
+                    "answer": "know that many people see their advertisement."
+                  },
+                  {
+                    "id": "8",
+                    "text": "Adopters must",
+                    "options": [
+                      "maintain their section for at least two years.",
+                      "sometimes help with the construction of roads.",
+                      "train their employees themselves."
+                    ],
+                    "answer": "maintain their section for at least two years."
+                  },
+                  {
+                    "id": "9",
+                    "text": "Organizations",
+                    "options": [
+                      "can only work on the highways at weekends.",
+                      "don't have to pay to join the program.",
+                      "must recycle all the trash they collect."
+                    ],
+                    "answer": "don't have to pay to join the program."
+                  },
+                  {
+                    "id": "10",
+                    "text": "The program",
+                    "options": [
+                      "is becoming more and more popular.",
+                      "receives money from the state.",
+                      "was started by the government."
+                    ],
+                    "answer": "is becoming more and more popular."
+                  }
+                ]
+
+
+
+              }
+            ]
+          }
+        ]
+      },
+{
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Activities and Groups",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "We offer individually designed workouts to improve your posture, develop your muscles and reduce your body fat. We are very centrally located between Lexington and Park Avenue on 134 E 57th Street, 10019 New York, N.Y. Tel (917) 523-5921"
+              },
+              {
+                "id": "B",
+                "text": "Bella Hair Bar - A ladies' refuge in the city center. Relaxing wash-blow-style treatments with the latest hair health products. Make-up and facials for a great night out. Book an appointment or buy a gift card on www.bellabar.com"
+              },
+              {
+                "id": "C",
+                "text": "Handsome in NYC - Hair and facial treatments using natural organic substances for the individual needs of every man. Feel super-confident with a new haircut and a facial using the latest non-perfumed products. No appointments necessary! On Broadway: Tel (646) 608 2410"
+              },
+              {
+                "id": "D",
+                "text": "Just 45 minutes away from the busy hub of New York City we offer ladies a fully equipped gym, yoga, aerobics and Pilates classes as well as a relaxing lounge area. Women only. Join us in Woodbury, NY www.fitnessandrecreation-woodbury.com"
+              },
+              {
+                "id": "E",
+                "text": "Ming's - Chinese and Japanese nail art. Basic manicure $15, pedicure $30. Add-ons: Glitter, stickers and jewels + $50 and up. Special nail makeover – the perfect present for all occasions! Chinatown, Civic Center, Tel. 212-902-1038"
+              },
+              {
+                "id": "F",
+                "text": "Happy Feet - Your foot is like the root of a tree – the most important part of your body! Enjoy Shiatsu, Acupressure & Acupuncture as well as traditional Chinese treatments on your feet. Near Canal Street NY, open Mo – Fr, 10am – 6:30pm. Call: 212 982-1951"
+              },
+              {
+                "id": "G",
+                "text": "Good Foot - Foot care products that help to keep your feet healthy. Organic foot creams, lotions and powders, nail clippers, shoes and sandals, and much more. Check out our total range at www.gf.com"
+              },
+              {
+                "id": "H",
+                "text": "Grand Fitness and Spa - We provide great service, innovative fitness programs and perfect wellness treatments. Our spacious locker rooms, relaxing spas, exclusive boutiques, and fun-filled kids' play area are all beautifully designed with attention to detail. Register today at www.grandfitnessgroup.com - A unique experience"
+              },
+              {
+                "id": "I",
+                "text": "Every girl can be a princess! Gift certificates for little girls and young teenage ladies. Haircut: $40 Manicure: $10 Wash n' blow dry: $30 Pedicure: $15 Braids & buns: $20. Visit us on www.be_a_princess.com"
+              },
+              {
+                "id": "J",
+                "text": "Salon K - Haircuts, hair repair treatment, colour applications. We work with certified organic products and offer the latest innovations of the beauty industry to our male and female clients. Find us in the heart of Harlem on 71 West 120th Street"
+              },
+              {
+                "id": "K",
+                "text": "Kids' Fitness Boot Camp - Over 10? Then come and join us! We offer programs to help children lose weight, develop their muscles, and overcome physical and health challenges. Check us out on www.kidsbootcamp.com"
+              },
+              {
+                "id": "L",
+                "text": "SICK OF BEING IN PAIN? Highly specialized physiotherapy team offers treatment and therapy for injuries of all kinds. Downtown New York, or in the privacy of your own home. Call 212 090-8070 for more details."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-L) contains the following information?",
+                "questions": [
+                  {
+                    "id": 11,
+                    "text": "You are looking for a workout place where your children can accompany you.",
+                    "answer": "K"
+                  },
+                  {
+                    "id": 12,
+                    "text": "You are looking for a place that does foot massage.",
+                    "answer": "F"
+                  },
+                  {
+                    "id": 13,
+                    "text": "Your neighbour has hurt his back and can't leave the house. You'd love to help him.",
+                    "answer": "L"
+                  },
+                  {
+                    "id": 14,
+                    "text": "Your friend lives in New York and is looking for fitness opportunities in the city centre.",
+                    "answer": "A"
+                  },
+                  {
+                    "id": 15,
+                    "text": "Your colleague would like to have her nails done for her wedding. You want to get her a gift voucher.",
+                    "answer": "E"
+                  },
+                  {
+                    "id": 16,
+                    "text": "Your daughter is looking for organic skin products for her face.",
+                    "answer": "x"
+                  },
+                  {
+                    "id": 17,
+                    "text": "Your son wants a change of style before starting his new job tomorrow.",
+                    "answer": "C"
+                  },
+                  {
+                    "id": 18,
+                    "text": "Your Chinese girlfriend is looking for traditional Asian hair products.",
+                    "answer": "x"
+                  },
+                  {
+                    "id": 19,
+                    "text": "Your daughter loves looking pretty and is turning 13 soon. You are looking for a special gift.",
+                    "answer": "I"
+                  },
+                  {
+                    "id": 20,
+                    "text": "Your sister is looking for a hairdresser's that uses natural products.",
+                    "answer": "J"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+            ]
+           
+          },
+
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m1-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter",
+        "subtitle": "Part 1: Writing",
+        "intro": "You see this advert online",
+        "instruction": "Write a letter to go with the recipe that you are submitting. In your letter write in detail about\n\na) at least three of the following points\nor\nb) at least two of the following points plus one other aspect related to the topic:\n• Background information on the dish\n• What makes your recipe so special\n• When the recipe was last used\n• The importance of good cooking\n\nBefore you start writing, decide on the order of the points. Use a suitable greeting and complimentary closing. Start your letter with a few opening sentences and end the letter politely with one or two closing sentences.\n\nPlease write at least 150 words.",
+        "context": "Favourite Recipes Contest\nWin a Place on a Cookery Course with our Three-Star Chef - Anna Capelli\n\nDo you have a special recipe? One that you've come up with or a traditional recipe that has been in your family for generations?\n\nWe don't just want the recipe; we want to publish an accompanying letter with the whole story behind the dish.\n\nClick on Submit to upload your recipe and accompanying letter by the end of the month.\nWe will select the five best recipes and our chefs will cook the meals. The lucky winner will join Anna Capelli on our exclusive cookery course.\n\nJane Denny and team",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a letter to go with your recipe submission.",
+        "bullets": [
+          "Background information on the dish",
+          "What makes your recipe so special",
+          "When the recipe was last used",
+          "The importance of good cooking"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m1-t2",
+        "taskType": 2,
+        "title": "Task 2: Letter",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Please write at least 80 words.",
+        "context": "Your friend Rick doesn’t want to do anything special for his 18th birthday. Write to Rick to say why you think celebrating is important and give him some ideas as to how he could celebrate.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Your friend Rick doesn’t want to do anything special for his 18th birthday. Write to Rick to say why you think celebrating is important and give him some ideas as to how he could celebrate.",
+        "bullets": [
+          "Please write at least 80 words."
+        ],
+        "type": "letter"
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You are expected to give a short presentation to your partner(s) on one of the following topics. (The prompts in brackets may help you.) Your presentation should take about 90 seconds and you should answer your partner’s questions afterwards. While your partner is giving his/her presentation, listen and think of the questions you would like to ask. You should not interrupt your partner during the presentation",
+        "topics": [
+          {
+            "topic": "A city that you particularly like",
+            "questions": [
+              {
+                "id": "p1q1",
+                "text": "Why you like it (facts about the city, your experiences, etc.)"
+              }
+            ]
+          },
+          {
+            "topic": "Music that you often listen to",
+            "questions": [
+              {
+                "id": "p1q2",
+                "text": "What, when, how, why, etc."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following text from a magazine. Discuss the content of the text with your partner(s). Tell them your opinions; give reasons and personal examples to support your ideas. Talk about your own experience with the problems mentioned and possible solutions.",
+        "text": "Helping local people in need. Every Friday, 65-year-old Holly MacNamara makes her way down the streets of suburban Manchester to her local foodbank. Here she stands in line to receive a 3-day emergency ration without which, she says, survival would be impossible. In the past, before her husband Bernard passed away, she would never have dreamt of ever needing a foodbank. The hardest part was asking for help, she admits. Most of Holly's life was spent as mother and housewife, so she only receives a very small state pension and needs help to cope with everyday expenses. She is by far not the only one, vicar and foodbank manager, Robert Swanson tells us. We have people coming here from all stages of life - from recently graduated university students that cannot find a job, to people who cannot work because of illness or misfortune.",
+        "topics": [
+          {
+            "topic": "Foodbanks and Poverty",
+            "questions": [
+              {
+                "id": "p2q1",
+                "text": "Why do you think foodbanks have become necessary in many European countries?"
+              },
+              {
+                "id": "p2q2",
+                "text": "What role do volunteers play in helping those in need?"
+              },
+              {
+                "id": "p2q3",
+                "text": "Have you ever had experience with foodbanks or similar support systems?"
+              },
+              {
+                "id": "p2q4",
+                "text": "What solutions could help reduce poverty and the need for foodbanks?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "You and your partner have joined the school committee. Next year the school building will be modernised and you have been asked to make a presentation together with suggestions as to what should be done and why.\n\nFirstly, think of some ideas to include in the presentation.\n\nThen, discuss your ideas with your partner(s) and try to agree on a constructive and informative presentation.",
+        "topics": [
+          {
+            "topic": "School Modernisation",
+            "suggestions": [
+              "Improve classroom technology (computers, projectors, smart boards)",
+              "Upgrade sports facilities (gym equipment, outdoor sports areas)",
+              "Create additional study spaces and library improvements",
+              "Energy-efficient changes (solar panels, better insulation)",
+              "Enhanced safety features (security cameras, better lighting)",
+              "Modernise canteen and food service areas",
+              "Accessibility improvements (ramps, elevators)",
+              "Renovate bathrooms and welfare facilities"
+            ],
+            "questions": [
+              {
+                "id": "p3q1",
+                "text": "What improvements would benefit students most?"
+              },
+              {
+                "id": "p3q2",
+                "text": "How can these changes support learning?"
+              },
+              {
+                "id": "p3q3",
+                "text": "Which suggestions are most cost-effective?"
+              },
+              {
+                "id": "p3q4",
+                "text": "What priorities should the school consider first?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 4 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "News Items",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear five news items. You will hear each item only once.\nDecide which headline a–f goes with each news item.\nMark your answers on the answer sheet.\nNow you will have 45 seconds to read the headlines.",
+        "transcript": "[Five news item transcripts to be matched with headlines]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "context": "Five short news items",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (a-f) corresponds to each news item?",
+            "questions": [
+              {
+                "id": 41,
+                "text": "News Item 1",
+                "answer": "a"
+              },
+              {
+                "id": 42,
+                "text": "News Item 2",
+                "answer": "b"
+              },
+              {
+                "id": 43,
+                "text": "News Item 3",
+                "answer": "c"
+              },
+              {
+                "id": 44,
+                "text": "News Item 4",
+                "answer": "d"
+              },
+              {
+                "id": 45,
+                "text": "News Item 5",
+                "answer": "e"
+              }
+            ],
+            "headings": [
+              "a Clear proof of climate change",
+              "b Controversial solution to a challenging situation",
+              "c International rules urgently required",
+              "d Too many for safety",
+              "e Unexpected developments at sea",
+              "f Variety could be the key to survival"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Radio Interview: University Life",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear a radio interview. First you will have one minute to read the introduction and the items. Then you will hear the interview. You will hear the interview only once. Decide if the statement for each of the items is true (+) or not true (–) and mark your answers on the answer sheet.",
+        "transcript": "[Radio interview transcript about university life - containing the information needed to answer questions 46-55]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+        "context": "Interview - university context",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "instruction": "Decide if the statement for each of the items is true (+) or not true (–).",
+            "questions": [
+              {
+                "id": 46,
+                "text": "When Harry started at university, he was anxious that he would not cope with having to work independently.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 47,
+                "text": "Harry selected Southampton because the course they offer suits his interests best.",
+                "answer": "NOT GIVEN"
+              },
+              {
+                "id": 48,
+                "text": "Harry has individual sessions with his tutor at the same time each week.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 49,
+                "text": "Harry enjoys the more practical aspects of his studies.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 50,
+                "text": "The work done in the lab is based on the lectures on a specific concept heard previously.",
+                "answer": "NOT GIVEN"
+              },
+              {
+                "id": "51",
+                "text": "The assessment given for each lab session only depends on how well Harry has recorded things in his logbook.",
+                "answer": "FALSE"
+              },
+              {
+                "id": "52",
+                "text": "To encourage students to keep fit, there are no lectures one afternoon a week.",
+                "answer": "TRUE"
+              },
+              {
+                "id": "53",
+                "text": "The university expects new students to organise their own accommodation.",
+                "answer": "FALSE"
+              },
+              {
+                "id": "54",
+                "text": "When you apply to stay in a Hall of Residence, you have some influence over which room you get.",
+                "answer": "NOT GIVEN"
+              },
+              {
+                "id": "55",
+                "text": "Harry refers to a challenge that can win you an attractive award.",
+                "answer": "TRUE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3-new",
+        "part": 3,
+        "title": "Short Conversations",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear five short texts. Decide which is the correct answer (a, b or c) for each question.",
+        "transcript": "",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+        "context": "Five short texts",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "Choose the correct answer",
+            "questions": [
+              {
+                "id": 56,
+                "text": "The theater production is especially suitable for",
+                "options": [
+                  "kids that love watching fairy tales.",
+                  "families wishing to participate in the performance.",
+                  "people who are familiar with Wyesham."
+                ],
+                "answer": "kids that love watching fairy tales."
+              },
+              {
+                "id": 57,
+                "text": "The ride at Death Tower can be attempted by",
+                "options": [
+                  "anyone who likes scary experiences.",
+                  "people who have no loose items on them.",
+                  "visitors who like speeds of over 100 kph."
+                ],
+                "answer": "people who have no loose items on them."
+              },
+              {
+                "id": 58,
+                "text": "The items mentioned today are",
+                "options": [
+                  "appealing for various groups of customers.",
+                  "attractive for families buying small amounts.",
+                  "interesting for people wishing to buy regional food."
+                ],
+                "answer": "appealing for various groups of customers."
+              },
+              {
+                "id": 59,
+                "text": "After hearing this announcement visitors",
+                "options": [
+                  "can enjoy all facilities for ten more minutes.",
+                  "must head for the changing rooms immediately.",
+                  "should exit the building in the next half-an-hour."
+                ],
+                "answer": "should exit the building in the next half-an-hour."
+              },
+              {
+                "id": 60,
+                "text": "The weather will be",
+                "options": [
+                  "calm on Wednesday.",
+                  "extreme on Thursday.",
+                  "unpleasant on Friday"
+                ],
+                "answer": "unpleasant on Friday"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Read the following letter.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "January 3rd\n\nDear Auntie Sam,\nI hope you had a good Christmas and thank you very much for the money you sent me. I'm sure I'll find good use ____(21)____ it. While most other people thankfully ____(22)____ me financial gifts too, I also received some rather strange gifts from Father Christmas and my parents, whose identities remain ____(23)____ connected in some way. My little brother, who was not at all happy with his presents, decided ____(24)____ all our gifts differently without telling us. He managed to eat an extra-large box of Belgian chocolates that wasn't his before we could stop him.\n\nI'm in my second year at university and the past ____(25)____ has been ____(26)____ as before, except I have a different room. It's slightly smaller than the last and I still don't have my own shower, but at least it has proper heating and isn't right ____(27)____ to a noisy bar.\n\nOther than that, there was a university-wide strike ____(28)____ the last week of term, but it didn't really affect me. I hardly noticed it except there were loads of annoying emails from people asking for my support.\n\nThis Christmas break was a week shorter ____(29)____ it usually is, and it really felt like it. All the essays I had to write, which took me ages to do, didn't help either. ____(30)____ there are things about the coming term I'm looking forward to, I think I still would have preferred the additional week of holiday.\n\nThanks again,\nLots of love\nRoy"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {
+                    "id": "21",
+                    "text": "I'm sure I'll find good use ____(21)____ it.",
+                    "options": ["a for", "b from", "c of"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "22",
+                    "text": "While most other people thankfully ____(22)____ me financial gifts too,",
+                    "options": ["a are giving", "b gave", "c has given"],
+                    "answer": 1
+                  },
+                  {
+                    "id": "23",
+                    "text": "whose identities remain ____(23)____ connected in some way.",
+                    "options": ["a suspect", "b suspicious", "c suspiciously"],
+                    "answer": 1
+                  },
+                  {
+                    "id": "24",
+                    "text": "My little brother, who was not at all happy with his presents, decided ____(24)____ all our gifts differently",
+                    "options": ["a arrange", "b arranging", "c to arrange"],
+                    "answer": 2
+                  },
+                  {
+                    "id": "25",
+                    "text": "I'm in my second year at university and the past ____(25)____ has been ____(26)____ as before,",
+                    "options": ["a semester", "b year", "c term"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "26",
+                    "text": "I'm in my second year at university and the past ____(25)____ has been ____(26)____ as before,",
+                    "options": ["a the same", "b similar", "c alike"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "27",
+                    "text": "It's slightly smaller than the last and I still don't have my own shower, but at least it has proper heating and isn't right ____(27)____ to a noisy bar.",
+                    "options": ["a next", "b beside", "c nearby"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "28",
+                    "text": "Other than that, there was a university-wide strike ____(28)____ the last week of term,",
+                    "options": ["a at", "b in", "c on"],
+                    "answer": 2
+                  },
+                  {
+                    "id": "29",
+                    "text": "This Christmas break was a week shorter ____(29)____ it usually is,",
+                    "options": ["a than", "b then", "c as"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "30",
+                    "text": "____(30)____ there are things about the coming term I'm looking forward to, I think I still would have preferred the additional week of holiday.",
+                    "options": ["a Although", "b Despite", "c However"],
+                    "answer": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+
+
+
+        {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following",
+        "passages": [
+		{
+            "id": "p3",
+            "subtitle": "Something",
+            "title": "else",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+            {
+		     "id":"1",
+			"passage": "Sir Edward William Elgar is a 19th century English composer known worldwide. Pomp and Circumstance, for example, is one of Elgar's most famous pieces and one of Britain's biggest cultural ____(31)____. Elgar was born in 1857 in a village in ____(32)____ England. His father had a music shop in Worcester and so Elgar had access to many different kinds of instruments and music. Surprisingly, he ____(33)____ music college and was mainly a self-taught composer. It was in 1899, when Elgar was 42, that he had his first big success with the Enigma Variations for orchestra. It came into being almost by chance. Elgar ____(34)____ the evening when he sat down at the piano to play after dinner: 'Suddenly my wife ____(35)____ by saying: Edward, that's a good tune.' I ____(36)____ from my creative dream. 'Tune? What tune?' And she said, 'Play it again, I like that tune.' I played and strummed, and played, and then she exclaimed: 'That sounds of ____(37)____, what is that?' I answered, 'Nothing - but something might be made of it.' For fun, Elgar then ____(38)____ with the tune, playing different versions. Each was typical of someone they knew. That was the beginning of the Enigma Variations, which he dedicated to his friends. For its title, each of the 14 parts has the ____(39)____ of a person's name. The word 'enigma' means something that is ____(40)____, and perhaps the puzzle hidden in the piece gives it that extra charm that has made it so popular."
+			}			
+			],
+		"subTasks": [
+          {
+            "type": "gap-fill-tokens",
+            "instruction": "Choose the correct word (a-o) to complete each sentence.",
+            "tokens": ["a APPROVAL", "b ATTEND", "c AWOKE", "d EDGE", "e EXCEPTION", "f EXPERIMENTED", "g EXPORTS", "h FAR", "i FASHION", "j INITIALS", "k INTERRUPTED", "l MYSTERIOUS", "m PUBLICITY", "n RECALLS", "o RURAL"],
+            "answers": ["g EXPORTS", "o RURAL", "b ATTEND", "n RECALLS", "k INTERRUPTED", "c AWOKE", "l MYSTERIOUS", "f EXPERIMENTED", "j INITIALS", "l MYSTERIOUS"]
+			      }
+          ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

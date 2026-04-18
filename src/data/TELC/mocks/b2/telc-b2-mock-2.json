@@ -1,0 +1,878 @@
+{
+  "id": "telc-b2-mock-2",
+  "level": "b2",
+  "mockNumber": 2,
+  "title": "TELC B2 Mock Test 2",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B2 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-2",
+    "title": "Test Vocabulary",
+    "level": "B2",
+    "words": [
+      {
+        "term": "Commute",
+        "hu": "ingázik",
+        "definition": "to travel regularly to and from work",
+        "example": "Many people commute to the city for work."
+      },
+      {
+        "term": "Congestion",
+        "hu": "torlódás",
+        "definition": "too much traffic in a place",
+        "example": "Traffic congestion is a major problem in cities."
+      },
+      {
+        "term": "Residential",
+        "hu": "lakó-",
+        "definition": "designed for people to live in",
+        "example": "The residential area is very quiet."
+      },
+      {
+        "term": "Heritage",
+        "hu": "örökség",
+        "definition": "something from the past that is important",
+        "example": "The old building is part of our cultural heritage."
+      },
+      {
+        "term": "Renovate",
+        "hu": "felújít",
+        "definition": "to repair and improve a building",
+        "example": "They plan to renovate the old house."
+      },
+      {
+        "term": "Sustainable",
+        "hu": "fenntartható",
+        "definition": "able to continue over time without damage",
+        "example": "We need sustainable solutions to environmental problems."
+      },
+      {
+        "term": "Incentive",
+        "hu": "ösztönző",
+        "definition": "something that encourages action",
+        "example": "Tax breaks are an incentive for businesses."
+      },
+      {
+        "term": "Carbon",
+        "hu": "szén",
+        "definition": "a chemical element found in fuels",
+        "example": "Carbon emissions contribute to climate change."
+      },
+      {
+        "term": "Emission",
+        "hu": "kibocsátás",
+        "definition": "the release of gases into the air",
+        "example": "The factory reduced its emissions."
+      },
+      {
+        "term": "Renewable",
+        "hu": "megújuló",
+        "definition": "able to be replaced naturally",
+        "example": "Solar energy is a renewable resource."
+      },
+      {
+        "term": "Subscriber",
+        "hu": "előfizető",
+        "definition": "a person who pays for a service",
+        "example": "The newspaper has thousands of subscribers."
+      },
+      {
+        "term": "Headline",
+        "hu": "cím",
+        "definition": "the title of a news article",
+        "example": "The headline caught my attention."
+      },
+      {
+        "term": "Circulation",
+        "hu": "példányszám",
+        "definition": "the number of copies sold",
+        "example": "The magazine's circulation has increased."
+      },
+      {
+        "term": "Journalist",
+        "hu": "újságíró",
+        "definition": "a person who writes news articles",
+        "example": "She works as a journalist for a local paper."
+      },
+      {
+        "term": "Editorial",
+        "hu": "vezércikk",
+        "definition": "an article expressing the editor's opinion",
+        "example": "The editorial criticized the new policy."
+      },
+      {
+        "term": "Chronic",
+        "hu": "krónikus",
+        "definition": "continuing for a long time",
+        "example": "He suffers from chronic back pain."
+      },
+      {
+        "term": "Symptom",
+        "hu": "tünet",
+        "definition": "a sign of illness",
+        "example": "Common symptoms include fever and cough."
+      },
+      {
+        "term": "Diagnosis",
+        "hu": "diagnózis",
+        "definition": "identifying an illness",
+        "example": "The doctor made a quick diagnosis."
+      },
+      {
+        "term": "Prescribe",
+        "hu": "felír",
+        "definition": "to recommend medicine",
+        "example": "The doctor will prescribe antibiotics."
+      },
+      {
+        "term": "Therapy",
+        "hu": "terápia",
+        "definition": "treatment for an illness",
+        "example": "Physical therapy helps with recovery."
+      }
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "B2 Mock 2 Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "Commute",
+              "Congestion",
+              "Residential",
+              "Heritage"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "The new cycle lanes on Smith Street have caused controversy among local residents and commuters alike. While cyclists celebrate the new safety measures, some drivers complain that the reduced road space has made traffic worse during rush hour. The city council argues that the long-term benefits to public health and the environment outweigh the short-term inconvenience. They point to studies showing a 15% increase in cycling since the lanes were introduced."
+              },
+              {
+                "id": "2",
+                "text": "Westfield Academy is now offering evening classes for adults who want to learn new skills. Subjects range from computer programming to ceramic art. Classes run from 6pm to 9pm on weekdays, with some weekend options available. The fees are reasonable, with discounts for seniors and the unemployed. Enrollment is open throughout the year, with new courses starting every month."
+              },
+              {
+                "id": "3",
+                "text": "The historic Riverside Theatre, which has been a landmark since 1923, faces an uncertain future after the building was damaged in last month's storms. The theatre's owner has launched an urgent appeal for funds to carry out essential repairs. Without immediate action, the venue could close permanently. Local heritage groups have expressed concern, noting that the theatre is an important part of the town's cultural identity."
+              },
+              {
+                "id": "4",
+                "text": "A new report from the Environment Agency suggests that recycling rates in the UK have reached an all-time high. The study attributes this success to better public education and improved collection services. However, the agency warns that more needs to be done to meet future targets. They recommend that manufacturers reduce packaging and that consumers think more carefully about what they buy."
+              },
+              {
+                "id": "5",
+                "text": "GreenTech Solutions is seeking entrepreneurs to join their sustainable business incubator programme. The company offers workspace, mentorship, and access to funding for businesses focused on environmental solutions. Previous participants have developed products ranging from biodegradable packaging to solar-powered home systems. Applications are open until the end of the month."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  {
+                    "id": "1",
+                    "text": "Paragraph 1",
+                    "answer": 2
+                  },
+                  {
+                    "id": "2",
+                    "text": "Paragraph 2",
+                    "answer": 4
+                  },
+                  {
+                    "id": "3",
+                    "text": "Paragraph 3",
+                    "answer": 3
+                  },
+                  {
+                    "id": "4",
+                    "text": "Paragraph 4",
+                    "answer": 5
+                  },
+                  {
+                    "id": "5",
+                    "text": "Paragraph 5",
+                    "answer": 0
+                  }
+                ],
+                "headings": [
+                  "Funding available for eco-startups",
+                  "New cultural venue opens",
+                  "Cycle lanes spark debate",
+                  "Historic building needs repairs",
+                  "Evening classes now available",
+                  "Recycling rates improve",
+                  "Traffic problems increase",
+                  "City expansion approved"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about remote work and answer the multiple-choice questions.",
+        "sections": [
+          {
+            "id": "p2",
+            "title": "The Rise of Remote Work",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "The concept of remote work has transformed dramatically over the past decade. What began as a privilege for a few has become a necessity for millions. Companies that once resisted flexible working arrangements have now embraced them, largely due to technological advances and changing employee expectations. The COVID-19 pandemic accelerated this trend, forcing businesses to adopt remote work policies virtually overnight."
+              },
+              {
+                "id": "B",
+                "text": "One of the main benefits of remote work is the elimination of daily commutes. Employees save both time and money by working from home. Studies show that the average worker spends over an hour commuting each day. This time can be redirected towards work, family, or personal interests. Additionally, reduced commuting decreases carbon emissions, contributing to environmental sustainability."
+              },
+              {
+                "id": "C",
+                "text": "However, remote work is not without its challenges. Many employees report feelings of isolation and difficulty maintaining work-life boundaries. The home environment can be full of distractions, from family members to household chores. Some workers also struggle with the lack of spontaneous interactions that occur in office settings, which can hinder collaboration and creativity."
+              },
+              {
+                "id": "D",
+                "text": "Employers have also had to adapt their management styles. Traditional supervision methods, which often rely on physical presence, need to be reimagined. Many companies are now focusing on outcomes rather than hours worked. This shift requires greater trust between managers and their teams, as well as new performance metrics that measure productivity rather than time spent at a desk."
+              },
+              {
+                "id": "E",
+                "text": "Looking to the future, experts predict that hybrid work models will become the norm. This approach combines the flexibility of remote work with the benefits of face-to-face collaboration. Companies are encouraged to develop clear policies that outline expectations for both remote and in-office days. The key is finding a balance that works for both the business and its employees."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer",
+                "questions": [
+                  {
+                    "id": "6",
+                    "text": "According to the article, what accelerated the adoption of remote work?",
+                    "options": [
+                      "government incentives",
+                      "technological advances",
+                      "the COVID-19 pandemic",
+                      "employee requests"
+                    ],
+                    "answer": "the COVID-19 pandemic"
+                  },
+                  {
+                    "id": "7",
+                    "text": "The article mentions that remote work helps the environment because",
+                    "options": [
+                      "companies use less electricity",
+                      "commuting is reduced",
+                      "more people cycle to work",
+                      "buildings are empty during the day"
+                    ],
+                    "answer": "commuting is reduced"
+                  },
+                  {
+                    "id": "8",
+                    "text": "One challenge of working from home mentioned in the article is",
+                    "options": [
+                      "faster internet speeds",
+                      "feelings of isolation",
+                      "lack of technology",
+                      "too many meetings"
+                    ],
+                    "answer": "feelings of isolation"
+                  },
+                  {
+                    "id": "9",
+                    "text": "According to the article, employers need to",
+                    "options": [
+                      "monitor employee hours more closely",
+                      "focus on outcomes rather than hours worked",
+                      "fire underperforming staff",
+                      "increase salaries"
+                    ],
+                    "answer": "focus on outcomes rather than hours worked"
+                  },
+                  {
+                    "id": "10",
+                    "text": "The article suggests that the future of work will be",
+                    "options": [
+                      "entirely remote",
+                      "entirely in-office",
+                      "a hybrid model",
+                      "flexible hours only"
+                    ],
+                    "answer": "a hybrid model"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions",
+        "sections": [
+          {
+            "id": "p3",
+            "title": "Health and Lifestyle Articles",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "City General Hospital has announced plans to expand its emergency department due to increasing patient numbers. The expansion will include new treatment rooms and state-of-the-art equipment. Construction is expected to begin next spring and will take approximately eighteen months to complete. The hospital has also hired additional staff to reduce waiting times."
+              },
+              {
+                "id": "B",
+                "text": "Sleep Smart - A new app that claims to improve your sleep quality by analyzing your patterns and offering personalized recommendations. The app tracks your sleep cycles using your phone's sensors and provides a detailed report each morning. Premium features include guided meditation and white noise sounds. Available now on iOS and Android."
+              },
+              {
+                "id": "C",
+                "text": "The Community Health Trust is offering free health screenings at various locations throughout the month. Tests available include blood pressure, cholesterol, and diabetes checks. No appointment is necessary - simply drop in between 9am and 5pm. Results are confidential and will be discussed with you on the spot."
+              },
+              {
+                "id": "D",
+                "text": "Mindful Moments - A new wellness centre opening next month will offer yoga, meditation, and alternative therapies. Classes are suitable for all ages and fitness levels. The centre aims to promote mental wellbeing alongside physical health. Special introductory rates are available for the first fifty members who sign up."
+              },
+              {
+                "id": "E",
+                "text": "Nutritionist's Corner - Eating a balanced diet is essential for good health. This weekly column will explore different food groups and their benefits. This week: understanding protein sources and how much you really need. Expert advice from qualified nutritionists to help you make informed choices about what you eat."
+              },
+              {
+                "id": "F",
+                "text": "The annual Charity Fun Run will take place in Richmond Park on the 15th of June. Participants can choose from 5k, 10k, or half-marathon distances. All proceeds will go to local children's hospitals. Registration is now open online, with early bird discounts available until the end of April."
+              },
+              {
+                "id": "G",
+                "text": "Dr. Sarah Mitchell, a local GP, will be giving a free presentation on managing stress in the modern workplace. The event will be held at the Community Centre on May 20th at 7pm. Topics covered will include recognizing symptoms of stress and practical techniques for maintaining mental wellbeing. All are welcome to attend."
+              },
+              {
+                "id": "H",
+                "text": "Fitness First gym has unveiled plans for a new rooftop workout area with stunning city views. The facility will include outdoor exercise equipment and a yoga studio. Members will be able to enjoy workouts in the fresh air while taking in the panorama. The new area is expected to open by summer."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  {
+                    "id": 11,
+                    "text": "You want to join a gym that offers outdoor exercise with views.",
+                    "answer": "H"
+                  },
+                  {
+                    "id": 12,
+                    "text": "You want to visit a hospital that has expanded its emergency department.",
+                    "answer": "A"
+                  },
+                  {
+                    "id": 13,
+                    "text": "You are looking for a free presentation about stress management.",
+                    "answer": "G"
+                  },
+                  {
+                    "id": 14,
+                    "text": "You want to improve your sleep with a smartphone app.",
+                    "answer": "B"
+                  },
+                  {
+                    "id": 15,
+                    "text": "You want to participate in a running event for charity.",
+                    "answer": "F"
+                  },
+                  {
+                    "id": 16,
+                    "text": "You are interested in learning about nutrition.",
+                    "answer": "E"
+                  },
+                  {
+                    "id": 17,
+                    "text": "You want a free health check without booking an appointment.",
+                    "answer": "C"
+                  },
+                  {
+                    "id": 18,
+                    "text": "You are interested in yoga and meditation classes.",
+                    "answer": "D"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m2-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter",
+        "subtitle": "Part 1: Writing",
+        "instruction": "Write a formal letter of complaint. In your letter write in detail about\na) at least three of the following points\nor\nb) at least two of the following points plus one other aspect related to the topic:\n• What you bought and when\n• What the problem was\n• How you tried to resolve the issue\n• What resolution you expect\n\nBefore you start writing, decide on the order of the points. Use a suitable greeting and complimentary closing. Start your letter with a few opening sentences and end the letter politely with one or two closing sentences.\n\nPlease write at least 150 words.",
+        "context": "Customer Services Manager\nElectroPlus Ltd\n123 High Street\nManchester M1 5AB\n\nDear Sir or Madam,\n\nI am writing to complain about a laptop I purchased from your store on 15th March. Within two weeks of purchase, the laptop began showing serious problems including frequent freezing, battery not charging properly, and unusual noises from the fan. I have tried restarting the device multiple times and have also attempted to run the troubleshooting software, but the issues persist.\n\nI returned to the store and spoke to a member of staff who told me the warranty had expired and that I would need to pay for any repairs. I believe this is unacceptable as the laptop was sold to me as a new product and should be working properly.\n\nI would like a full refund or a replacement laptop.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a formal letter of complaint about a faulty product.",
+        "bullets": [
+          "What you bought and when",
+          "What the problem was",
+          "How you tried to resolve the issue",
+          "What resolution you expect"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m2-t2",
+        "taskType": 2,
+        "title": "Task 2: Letter",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Please write at least 250 words.",
+        "context": "Your friend has just moved to a new city and feels lonely and homesick. Write a letter to your friend to give them advice on how to make friends in their new environment and how to deal with feeling homesick.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write a letter to a lonely friend giving advice on making friends and dealing with homesickness.",
+        "bullets": [
+          "Give advice on making new friends",
+          "Suggest activities to meet people",
+          "Offer tips on dealing with homesickness"
+        ],
+        "type": "letter"
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You are expected to give a short presentation to your partner(s) on one of the following topics. (The prompts in brackets may help you.) Your presentation should take about 90 seconds and you should answer your partner's questions afterwards. While your partner is giving his/her presentation, listen and think of the questions you would like to ask. You should not interrupt your partner during the presentation",
+        "topics": [
+          {
+            "topic": "A holiday destination you would recommend",
+            "questions": [
+              {
+                "id": "p1q1",
+                "text": "Why would you recommend this place?"
+              }
+            ]
+          },
+          {
+            "topic": "A job you would like to do in the future",
+            "questions": [
+              {
+                "id": "p1q2",
+                "text": "What qualifications would you need?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following text from a magazine. Discuss the content of the text with your partner(s). Tell them your opinions; give reasons and personal examples to support your ideas. Talk about your own experience with the problems mentioned and possible solutions.",
+        "text": "The use of smartphones among young people has become a growing concern for parents and educators alike. Studies show that teenagers spend an average of four hours per day on their devices, with many reporting feelings of anxiety when separated from their phones. While technology offers undeniable benefits, excessive use has been linked to sleep problems, reduced face-to-face social interaction, and decreased academic performance. Some schools have implemented phone-free zones, but is this enough?",
+        "topics": [
+          {
+            "topic": "Young People and Smartphones",
+            "questions": [
+              {
+                "id": "p2q1",
+                "text": "What are the benefits and drawbacks of smartphone use for young people?"
+              },
+              {
+                "id": "p2q2",
+                "text": "Should schools restrict phone usage? Why or why not?"
+              },
+              {
+                "id": "p2q3",
+                "text": "How can parents help their children develop healthy technology habits?"
+              },
+              {
+                "id": "p2q4",
+                "text": "What would you suggest to reduce problematic phone use?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "You and your partner have been asked to advise the local council on how to make the town centre more environmentally friendly.\n\nFirstly, think of some ideas to include in your presentation.\n\nThen, discuss your ideas with your partner(s) and try to agree on the three most important suggestions.",
+        "topics": [
+          {
+            "topic": "Making the Town Centre Greener",
+            "suggestions": [
+              "More trees and green spaces",
+              "Dedicated cycling lanes",
+              "Improved public transport",
+              "Bicycle sharing programme",
+              "Solar panels on public buildings",
+              "Plastic-free shopping zones",
+              "Electric vehicle charging points",
+              "Underground recycling bins"
+            ],
+            "questions": [
+              {
+                "id": "p3q1",
+                "text": "Which suggestions would have the biggest impact?"
+              },
+              {
+                "id": "p3q2",
+                "text": "What are the costs and benefits of each suggestion?"
+              },
+              {
+                "id": "p3q3",
+                "text": "Which three ideas should be prioritised?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 4 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "News Items",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear five news items. You will hear each item only once.\nDecide which headline a–f goes with each news item.\nMark your answers on the answer sheet.\nNow you will have 45 seconds to read the headlines.",
+        "transcript": "[Five news item transcripts to be matched with headlines]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        "context": "Five short news items",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (a-f) corresponds to each news item?",
+            "questions": [
+              {
+                "id": 41,
+                "text": "News Item 1",
+                "answer": "a"
+              },
+              {
+                "id": 42,
+                "text": "News Item 2",
+                "answer": "c"
+              },
+              {
+                "id": 43,
+                "text": "News Item 3",
+                "answer": "b"
+              },
+              {
+                "id": 44,
+                "text": "News Item 4",
+                "answer": "d"
+              },
+              {
+                "id": 45,
+                "text": "News Item 5",
+                "answer": "e"
+              }
+            ],
+            "headings": [
+              "a School meals programme expanded",
+              "b Historic bridge reopens after repairs",
+              "c Record numbers attend festival",
+              "d New hospital wing opens",
+              "e Emergency weather warning issued",
+              "f Railway services disrupted"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Radio Interview: Sustainable Living",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear a radio interview about sustainable living. First you will have one minute to read the introduction and the items. Then you will hear the interview. You will hear the interview only once. Decide if the statement for each of the items is true (+) or not true (–) and mark your answers on the answer sheet.",
+        "transcript": "[Radio interview transcript about sustainable living]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+        "context": "Interview - environmental topic",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "instruction": "Decide if the statement for each of the items is true (+), not true (–), or NOT GIVEN (⊘).",
+            "questions": [
+              {
+                "id": 46,
+                "text": "The guest has been living sustainably for over ten years.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 47,
+                "text": "She started her journey by installing solar panels.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 48,
+                "text": "Her electricity bills have decreased significantly.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 49,
+                "text": "She grows all her own vegetables in her garden.",
+                "answer": "NOT GIVEN"
+              },
+              {
+                "id": 50,
+                "text": "Her children are also committed to sustainable living.",
+                "answer": "TRUE"
+              },
+              {
+                "id": "51",
+                "text": "She believes individual actions make no difference.",
+                "answer": "FALSE"
+              },
+              {
+                "id": "52",
+                "text": "Community initiatives are important for change.",
+                "answer": "TRUE"
+              },
+              {
+                "id": "53",
+                "text": "She recommends starting with small changes.",
+                "answer": "NOT GIVEN"
+              },
+              {
+                "id": 54,
+                "text": "Electric cars are the best solution for transport.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 55,
+                "text": "She is optimistic about the future.",
+                "answer": "TRUE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Short Announcements",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear five short announcements. Decide which is the correct answer (a, b or c) for each question.",
+        "transcript": "",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
+        "context": "Five short announcements",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "Choose the correct answer",
+            "questions": [
+              {
+                "id": 56,
+                "text": "The library will be closed",
+                "options": [
+                  "for the whole weekend",
+                  "on Saturday morning",
+                  "for essential repairs"
+                ],
+                "answer": "for essential repairs"
+              },
+              {
+                "id": 57,
+                "text": "The bus service changes will affect",
+                "options": [
+                  "all routes in the city",
+                  "only evening services",
+                  "two specific routes"
+                ],
+                "answer": "two specific routes"
+              },
+              {
+                "id": 58,
+                "text": "The new parking regulations start",
+                "options": [
+                  "immediately",
+                  "at the beginning of next month",
+                  "after a trial period"
+                ],
+                "answer": "at the beginning of next month"
+              },
+              {
+                "id": 59,
+                "text": "The town hall exhibition is about",
+                "options": [
+                  "local history",
+                  "art and culture",
+                  "future plans for the city"
+                ],
+                "answer": "future plans for the city"
+              },
+              {
+                "id": 60,
+                "text": "To get the discount, customers need to",
+                "options": [
+                  "show a membership card",
+                  "buy before Friday",
+                  "spend over £50"
+                ],
+                "answer": "spend over £50"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Read the following email.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Email",
+            "title": "Email from a friend",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Hi Sarah,\n\nI hope you're doing well. I wanted to drop you a quick note to ask ____(21)____ your plans for the summer holidays. I remember you saying you wanted to travel somewhere, but I can't remember where.\n\nI ____(22)____ been thinking about visiting my cousin in Barcelona. She ____(23)____ there for two years now and keeps telling me how amazing it is. The weather is supposed to be brilliant and there seems ____(24)____ be so much to see and do.\n\nI was wondering whether you would like to come with me. We could share the cost of the accommodation and it would be much more fun ____(25)____ a friend to travel with. I know you ____(26)____ been to Spain before, so it would be nice to show you around.\n\nLet me know what you think. If you're interested, I'll look ____(27)____ flights and hotels.\n\nBest,\nEmma\n\nP.S. I ____(28)____ to book the accommodation yet, so there's no pressure!"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {
+                    "id": "21",
+                    "text": "I wanted to drop you a quick note to ask ____(21)____ your plans for the summer holidays.",
+                    "options": ["a about", "b to", "c for"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "22",
+                    "text": "I ____(22)____ been thinking about visiting my cousin in Barcelona.",
+                    "options": ["a have", "b has", "c having"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "23",
+                    "text": "She ____(23)____ there for two years now and keeps telling me how amazing it is.",
+                    "options": ["a has lived", "b lived", "c living"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "24",
+                    "text": "The weather is supposed to be brilliant and there seems ____(24)____ be so much to see and do.",
+                    "options": ["a for", "b to", "c at"],
+                    "answer": 1
+                  },
+                  {
+                    "id": "25",
+                    "text": "We could share the cost of the accommodation and it would be much more fun ____(25)____ a friend to travel with.",
+                    "options": ["a having", "b to have", "c have"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "26",
+                    "text": "I know you ____(26)____ been to Spain before, so it would be nice to show you around.",
+                    "options": ["a has", "b haven't", "c having"],
+                    "answer": 1
+                  },
+                  {
+                    "id": "27",
+                    "text": "If you're interested, I'll look ____(27)____ flights and hotels.",
+                    "options": ["a for", "b at", "c up"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "28",
+                    "text": "P.S. I ____(28)____ to book the accommodation yet, so there's no pressure!",
+                    "options": ["a haven't managed", "b don't", "c not"],
+                    "answer": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "B2 Mock 2 Language Elements, Part 2",
+        "description": "Read the following text and complete the gaps.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The History of Coffee",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Coffee is one of the world's most popular drinks, with millions of people ____(31)____ it every day. The story of coffee begins in Ethiopia, where it is said that a goat herder noticed his animals became very ____(32)____ after eating berries from a certain tree. From there, coffee spread to Arabia, where it ____(33)____ cultivated for the first time. By the 16th century, it had reached Persia, Egypt and Turkey.\n\nCoffee ____(34)____ to Europe in the 17th century, brought by Venetian traders. Initially, the Catholic Church considered banning the drink, but Pope Clement VIII declared it completely ____(35)____. The first coffee house opened in Venice in 1645.\n\nToday, Brazil is the world's largest coffee ____(36)____, producing about a third of the global supply. Vietnam and Colombia are also major producers. The coffee industry supports millions of farmers worldwide, though many face ____(37)____ challenges such as climate change and ____(38)____ prices.\n\nThe most commonly grown species are Arabica and Robusta. Arabica is considered to have a smoother, more ____(39)____ taste, while Robusta is stronger and contains more caffeine. Regardless of preference, coffee remains an integral part of daily life for billions of people around the world."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-o) to complete each sentence.",
+                "tokens": ["a BREW", "b CONSUME", "c EXPORT", "d FIERCE", "e GROWN", "f HARSH", "g PURE", "h REFINED", "i REJECTED", "j STRONG", "k VARIED", "l VOLATILE", "m WAS", "n WERE", "o WILL"],
+                "answers": ["b CONSUME", "d FIERCE", "e GROWN", "m WAS", "g PURE", "c EXPORT", "f HARSH", "l VOLATILE", "k VARIED", "j STRONG"]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

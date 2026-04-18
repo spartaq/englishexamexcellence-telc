@@ -1,0 +1,797 @@
+{
+  "id": "telc-c1-mock-2",
+  "level": "c1",
+  "mockNumber": 2,
+  "title": "TELC C1 Mock Test 2",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC C1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-2",
+    "title": "Test Vocabulary",
+    "level": "C1",
+    "words": [
+      {
+        "term": "Autonomous",
+        "hu": "autonóm",
+        "definition": "independent, self-governing",
+        "example": "Autonomous vehicles will transform transportation."
+      },
+      {
+        "term": "Algorithm",
+        "hu": "algoritmus",
+        "definition": "a set of rules for solving problems",
+        "example": "Social media uses algorithms to show relevant content."
+      },
+      {
+        "term": "Surveillance",
+        "hu": "megfigyelés",
+        "definition": "close observation of people or places",
+        "example": "CCTV surveillance is common in city centres."
+      },
+      {
+        "term": "Encryption",
+        "hu": "titkosítás",
+        "definition": "converting data into a secret code",
+        "example": "Encryption protects sensitive information."
+      },
+      {
+        "term": "Proliferation",
+        "hu": "elterjedés",
+        "definition": "rapid increase in number or spread",
+        "example": "The proliferation of smartphones has changed communication."
+      },
+      {
+        "term": "Mitigate",
+        "hu": "enyhít",
+        "definition": "to make less severe or serious",
+        "example": "We must take steps to mitigate climate change."
+      },
+      {
+        "term": "Resilient",
+        "hu": "ellenálló",
+        "definition": "able to recover quickly from difficulties",
+        "example": "Children are often more resilient than adults realise."
+      },
+      {
+        "term": "Paradigm",
+        "hu": "paradigma",
+        "definition": "a typical example or pattern",
+        "example": "This represents a paradigm shift in thinking."
+      },
+      {
+        "term": "Ubiquitous",
+        "hu": "mindenhová jelenlévő",
+        "definition": "present everywhere",
+        "example": "Smartphones have become ubiquitous in modern society."
+      },
+      {
+        "term": "Innovative",
+        "hu": "innovatív",
+        "definition": "featuring new methods or ideas",
+        "example": "The company is known for its innovative products."
+      },
+      {
+        "term": "Credential",
+        "hu": "hitelesítés",
+        "definition": "qualification or background",
+        "example": "She has the right credentials for the job."
+      },
+      {
+        "term": "Manifest",
+        "hu": "megnyilvánul",
+        "definition": "to display or show clearly",
+        "example": "His talent manifested at an early age."
+      },
+      {
+        "term": "Cohesive",
+        "hu": "kohéziós",
+        "definition": "well united and integrated",
+        "example": "A cohesive team is more effective."
+      },
+      {
+        "term": "Redundant",
+        "hu": "felesleges",
+        "definition": "not or no longer needed",
+        "example": "Technology has made some jobs redundant."
+      },
+      {
+        "term": "Scrutinise",
+        "hu": "megvizsgál",
+        "definition": "to examine closely",
+        "example": "The proposal was scrutinised by experts."
+      }
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 90,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Gapped Sentences",
+        "description": "Questions 1-6",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "The Rise of Artificial Intelligence",
+            "subtitle": "Reading Passage 1",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "Artificial Intelligence has moved from science fiction to everyday reality in remarkably short time. __(1)__ what once seemed like distant future technology is now embedded in our daily lives, from voice assistants to recommendation algorithms."
+              },
+              {
+                "id": "2",
+                "text": "The development of autonomous vehicles represents one of AI's most ambitious applications. __(2)__ the technology promises to reduce accidents caused by human error, significant challenges remain in developing systems that can handle complex real-world driving scenarios."
+              },
+              {
+                "id": "3",
+                "text": "However, the rise of AI has not been without controversy. Concerns about job displacement have led to widespread debate. __(3)__ while certain roles may become redundant, AI is also creating new employment opportunities in fields that did not exist a decade ago."
+              },
+              {
+                "id": "4",
+                "text": "Privacy advocates have raised alarms about the proliferation of surveillance technologies. __(4)__ facial recognition and data collection practices have prompted calls for stricter regulation across the globe."
+              },
+              {
+                "id": "5",
+                "text": "__(5)__ the debate continues, there is consensus that AI literacy should be incorporated into education systems. Understanding the fundamentals of how these systems work will be essential for future generations."
+              },
+              {
+                "id": "6",
+                "text": "Looking ahead, the most successful AI applications will be those that augment human capabilities rather than replace them. __(6)__ the technology serves as a tool for solving some of humanity's most pressing challenges, from healthcare to climate change."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "sentence-insert",
+                "instruction": "Which of the sentences a–h is missing in each gap? There is only one correct answer for each item. Two sentences do not fit into any of the gaps.",
+                "options": [
+                  { "id": "a", "text": "While some worry about the implications, others see it as an inevitable evolution." },
+                  { "id": "b", "text": "Despite the promise of increased safety, experts warn that full autonomy remains years away." },
+                  { "id": "c", "text": "Critics argue that these technologies pose significant risks to individual privacy." },
+                  { "id": "d", "text": "Such applications have the potential to revolutionise numerous industries." },
+                  { "id": "e", "text": "When implemented thoughtfully, AI has the power to transform society for the better." },
+                  { "id": "f", "text": "Although concerns about job losses are valid, the reality is more nuanced." },
+                  { "id": "g", "text": "These systems are becoming increasingly sophisticated and ubiquitous." }
+                ],
+                "answers": {
+                  "1": "g",
+                  "2": "b",
+                  "3": "f",
+                  "4": "c",
+                  "5": "a",
+                  "6": "e"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Selective Understanding",
+        "description": "Questions 7-12",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The Psychology of Remote Work",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "a",
+                "text": "The shift to remote work has been one of the most significant changes in modern labour history. What began as a necessity during the pandemic has evolved into a permanent fixture for millions of workers worldwide. Companies that once insisted on office presence have quietly embraced flexible arrangements, recognising that the talent pool is no longer geographically constrained."
+              },
+              {
+                "id": "b",
+                "text": "Psychologists have identified both benefits and drawbacks to this new way of working. On the positive side, employees report greater autonomy and improved work-life integration. The elimination of commuting saves an average of one hour daily, time that can be redirected toward productive work or personal life. However, the blurring of boundaries between professional and personal spheres has led to longer working hours for many."
+              },
+              {
+                "id": "c",
+                "text": "The impact on mental health remains a subject of ongoing research. Some studies suggest that remote workers experience increased feelings of isolation and disconnection from their colleagues. The absence of spontaneous interactions that occur in physical offices—conversations by the coffee machine, casual hallway chats—appears to affect team cohesion and collaborative creativity. organisations report challenges in maintaining a cohesive corporate culture."
+              },
+              {
+                "id": "d",
+                "text": "From an organisational perspective, managers face the challenge of overseeing distributed teams effectively. Traditional performance metrics based on physical presence must be reimagined. Leading companies have shifted toward outcome-based evaluation, focusing on deliverables rather than hours logged. This approach requires greater trust between managers and employees, as well as new frameworks for measuring productivity."
+              },
+              {
+                "id": "e",
+                "text": "Despite these challenges, the future of work appears to be hybrid. The most successful organisations will be those that thoughtfully design policies combining the flexibility of remote work with the benefits of in-person collaboration. The key lies in creating intentional opportunities for connection while respecting individual preferences for how and where work is performed."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "In which part of the text a–e can you find the information 7–12? There is only one correct answer for each item. Each part of the text may contain more than one of the pieces of information.",
+                "questions": [
+                  {
+                    "id": "7",
+                    "text": "mentions how remote work saves time on commuting?",
+                    "answer": "b"
+                  },
+                  {
+                    "id": "8",
+                    "text": "discusses the challenge of maintaining team cohesion?",
+                    "answer": "c"
+                  },
+                  {
+                    "id": "9",
+                    "text": "suggests outcome-based evaluation rather than time-based?",
+                    "answer": "d"
+                  },
+                  {
+                    "id": "10",
+                    "text": "explains that talent can now be accessed globally?",
+                    "answer": "a"
+                  },
+                  {
+                    "id": "11",
+                    "text": "recommends a hybrid approach for the future?",
+                    "answer": "e"
+                  },
+                  {
+                    "id": "12",
+                    "text": "notes potential negative effects on mental health?",
+                    "answer": "c"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3-reading",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 13-24",
+        "passages": [
+          {
+            "id": "p3-reading",
+            "title": "The Evolution of Space Exploration",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "Space exploration has undergone remarkable transformation since the launch of Sputnik in 1957. What began as a competition between superpowers has evolved into a collaborative international endeavour. The International Space Station, orbiting Earth since 1998, stands as a testament to what nations can achieve when they work together towards common scientific goals."
+              },
+              {
+                "id": "2",
+                "text": "The privatisation of space represents perhaps the most significant shift in recent decades. Companies like SpaceX and Blue Origin have dramatically reduced the cost of reaching orbit through innovative engineering. Reusable rocket technology, once considered technically impossible, has become routine, opening the final frontier to commercial ventures that were previously unthinkable."
+              },
+              {
+                "id": "3",
+                "text": "However, this new era brings unprecedented challenges. The proliferation of satellites has raised concerns about space debris. Currently, there are over 36,000 objects larger than 10 centimetres orbiting Earth, and the number is increasing rapidly. Scientists warn that collisions could trigger a cascade of impacts, rendering low Earth orbit unusable for future generations."
+              },
+              {
+                "id": "4",
+                "text": "Environmental considerations have also entered the space debate. The carbon footprint of rocket launches, while small compared to other industries, is growing as launch frequencies increase. Some researchers are exploring more sustainable propellants, while others question whether space exploration should be prioritised given pressing terrestrial concerns."
+              },
+              {
+                "id": "5",
+                "text": "Despite these challenges, the scientific returns from space investment remain substantial. Earth observation satellites provide crucial data on climate change, while probes to other planets expand our understanding of the solar system's history. Perhaps most inspiring is how space continues to capture human imagination, inspiring generations to pursue careers in science and engineering."
+              },
+              {
+                "id": "6",
+                "text": "Looking toward the future, missions to Mars dominate both scientific and public interest. The technical challenges are immense—radiation exposure, psychological effects of long-duration spaceflight, and the complexity of sustaining life on another planet—but the potential scientific discoveries and the profound philosophical questions about human existence make it an endeavour worth pursuing."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "trinary",
+                "instruction": "Read the following text and the statements 13–23 below. For each of the statements mark: (+) corresponds to the content, (–) does not correspond, (X) is not mentioned.",
+                "questions": [
+                  {
+                    "id": "13",
+                    "text": "The International Space Station symbolises international cooperation in space.",
+                    "answer": "+"
+                  },
+                  {
+                    "id": "14",
+                    "text": "Private companies have made space travel more expensive.",
+                    "answer": "–"
+                  },
+                  {
+                    "id": "15",
+                    "text": "Space debris is becoming a serious problem for orbital operations.",
+                    "answer": "+"
+                  },
+                  {
+                    "id": "16",
+                    "text": "Rocket launches have a larger carbon footprint than the aviation industry.",
+                    "answer": "X"
+                  },
+                  {
+                    "id": "17",
+                    "text": "Earth observation satellites help study climate change.",
+                    "answer": "+"
+                  },
+                  {
+                    "id": "18",
+                    "text": "Mars missions are currently underway with humans on board.",
+                    "answer": "X"
+                  },
+                  {
+                    "id": "19",
+                    "text": "The technical challenges of Mars missions are considered insurmountable by experts.",
+                    "answer": "–"
+                  },
+                  {
+                    "id": "20",
+                    "text": "Space exploration has always been a collaborative international effort.",
+                    "answer": "–"
+                  },
+                  {
+                    "id": "21",
+                    "text": "Reusable rockets have reduced the cost of reaching orbit.",
+                    "answer": "+"
+                  },
+                  {
+                    "id": "22",
+                    "text": "Space exploration primarily inspires young people to pursue science careers.",
+                    "answer": "X"
+                  },
+                  {
+                    "id": "23",
+                    "text": "Scientists are concerned about the possibility of collision cascades in orbit.",
+                    "answer": "+"
+                  }
+                ]
+              },
+              {
+                "type": "mcq",
+                "instruction": "Which title a, b or c best matches the article?",
+                "questions": [
+                  {
+                    "id": "24",
+                    "text": "",
+                    "options": [
+                      "a The new space race: private companies vs governments",
+                      "b The challenges and rewards of exploring the final frontier",
+                      "c How Mars missions will transform humanity"
+                    ],
+                    "answer": "b The challenges and rewards of exploring the final frontier"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Text 1",
+            "title": "Urban Planning in the 21st Century",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Modern cities face unprecedented challenges that require innovative approaches to urban planning. As populations continue to concentrate in urban areas, city planners must ____(21)____ creative solutions to issues ranging from transportation to housing. The concept of 'smart cities' has emerged as a way to ____(22)____ technology to improve urban living. By ____(23)____ data from sensors and devices, cities can optimise traffic flow, reduce energy consumption, and improve public services. However, the implementation of such systems raises important questions about privacy and ____(24)____. Who owns the data collected by these systems, and how should it be used? These are questions that ____(25)____ answered as the technology develops. Moreover, smart city initiatives must be ____(26)____ to ensure they benefit all residents, not just those with access to technology. There is also the challenge of ____(27)____ existing infrastructure with new systems. Many cities were designed ____(28)____ a very different era, and retrofitting them with modern technology can be prohibitively expensive. Despite these challenges, the potential benefits of smart city technology are ____(29)____. From reducing traffic congestion to improving air quality, the applications could transform urban life for millions. The key is to implement these solutions ____(30)____ while maintaining the character and charm that makes cities unique."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {
+                    "id": "21",
+                    "text": "city planners must ____(21)____ creative solutions",
+                    "options": ["a come up with", "b come across with", "c come into with", "d come forward with"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "22",
+                    "text": "The concept of 'smart cities' has emerged as a way to ____(22)____ technology",
+                    "options": ["a harness", "b launch", "c start", "d make"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "23",
+                    "text": "By ____(23)____ data from sensors",
+                    "options": ["a exploiting", "b harnessing", "c tapping", "d mining"],
+                    "answer": 2
+                  },
+                  {
+                    "id": "24",
+                    "text": "raise important questions about privacy and ____(24)____",
+                    "options": ["a safety", "b security", "c surveillance", "d monitoring"],
+                    "answer": 1
+                  },
+                  {
+                    "id": "25",
+                    "text": "These are questions that ____(25)____ answered",
+                    "options": ["a must be", "b have to be", "c need to be", "d will be"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "26",
+                    "text": "smart city initiatives must be ____(26)____ to ensure",
+                    "options": ["a carefully designed", "b carefully planning", "c carefully implementing", "d careful management"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "27",
+                    "text": "the challenge of ____(27)____ existing infrastructure",
+                    "options": ["a integrating", "b linking", "c connecting", "d combining"],
+                    "answer": 0
+                  },
+                  {
+                    "id": "28",
+                    "text": "Many cities were designed ____(28)____ a very different era",
+                    "options": ["a on", "b in", "c during", "d for"],
+                    "answer": 1
+                  },
+                  {
+                    "id": "29",
+                    "text": "the potential benefits are ____(29)____",
+                    "options": ["a enormous", "b tremendous", "c significant", "d vast"],
+                    "answer": 1
+                  },
+                  {
+                    "id": "30",
+                    "text": "implement these solutions ____(30)____ while maintaining",
+                    "options": ["a sensibly", "b carefully", "c thoughtfully", "d wisely"],
+                    "answer": 2
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Opinions about Technology",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear a radio programme with eight people giving their opinions on technology and society. You will hear each person once. While listening, decide which statement a–j best matches what the speaker says. You will only need eight of the ten statements.\nMark your answers for items 47–54 on Answer Sheet.",
+        "transcript": "[Radio programme transcript with eight speakers]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
+        "context": "Radio programme about technology opinions",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "matching-info",
+            "instruction": "Which statement a–j best matches what each speaker says?",
+            "questions": [
+              {
+                "id": 47,
+                "text": "Speaker 1",
+                "answer": "a"
+              },
+              {
+                "id": 48,
+                "text": "Speaker 2",
+                "answer": "b"
+              },
+              {
+                "id": 49,
+                "text": "Speaker 3",
+                "answer": "c"
+              },
+              {
+                "id": 50,
+                "text": "Speaker 4",
+                "answer": "d"
+              },
+              {
+                "id": 51,
+                "text": "Speaker 5",
+                "answer": "e"
+              },
+              {
+                "id": 52,
+                "text": "Speaker 6",
+                "answer": "f"
+              },
+              {
+                "id": 53,
+                "text": "Speaker 7",
+                "answer": "g"
+              },
+              {
+                "id": 54,
+                "text": "Speaker 8",
+                "answer": "h"
+              }
+            ],
+            "options": [
+              "a Technology has made communication easier but less personal.",
+              "b Social media has a negative impact on mental health.",
+              "c Technology companies should be more regulated.",
+              "d Online learning is as effective as traditional education.",
+              "e Automation will create more jobs than it eliminates.",
+              "f Digital privacy is a fundamental right that must be protected.",
+              "g Technology has improved access to information.",
+              "h Smart devices make everyday life more convenient.",
+              "i Video games can be educational and beneficial.",
+              "j Remote work has improved work-life balance."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Interview: Climate Change",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with an environmental scientist. You will hear the interview only once. While listening decide which answer fits best: a, b or c.\nMark your answers for items 55–64 on Answer Sheet.",
+        "transcript": "[Interview transcript about climate change]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
+        "context": "Interview about climate change",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "While listening decide which answer fits best: a, b or c.",
+            "questions": [
+              {
+                "id": "55",
+                "text": "According to the guest, the most urgent climate issue is",
+                "options": ["a rising sea levels.", "b extreme weather events.", "c biodiversity loss."],
+                "answer": "b extreme weather events."
+              },
+              {
+                "id": "56",
+                "text": "The guest believes that individual actions",
+                "options": ["a are insufficient on their own.", "b make the biggest difference.", "c should focus on recycling."],
+                "answer": "a are insufficient on their own."
+              },
+              {
+                "id": "57",
+                "text": "Renewable energy adoption is being slowed by",
+                "options": ["a high costs.", "b lack of public support.", "c infrastructure challenges."],
+                "answer": "c infrastructure challenges."
+              },
+              {
+                "id": "58",
+                "text": "The guest mentions that young people are",
+                "options": ["a more optimistic about the future.", "b driving change through activism.", "c most affected by climate change."],
+                "answer": "b driving change through activism."
+              },
+              {
+                "id": "59",
+                "text": "Carbon pricing is described as",
+                "options": ["a the most effective policy tool.", "b one of several approaches needed.", "c controversial and unpopular."],
+                "answer": "b one of several approaches needed."
+              },
+              {
+                "id": "60",
+                "text": "The guest says that climate education should",
+                "options": ["a start in primary school.", "b focus on practical solutions.", "c be mandatory in all schools."],
+                "answer": "a start in primary school."
+              },
+              {
+                "id": "61",
+                "text": "Regarding nuclear energy, the guest's position is",
+                "options": ["a strongly supportive.", "b cautious but open.", "c opposed due to waste."],
+                "answer": "b cautious but open."
+              },
+              {
+                "id": "62",
+                "text": "The most important change needed is in",
+                "options": ["a government policy.", "b individual behaviour.", "c economic systems."],
+                "answer": "c economic systems."
+              },
+              {
+                "id": "63",
+                "text": "The guest believes the private sector should",
+                "options": ["a be regulated more heavily.", "b invest in green technology.", "c lead climate initiatives."],
+                "answer": "b invest in green technology."
+              },
+              {
+                "id": "64",
+                "text": "Overall, the guest's message is",
+                "options": ["a pessimistic but realistic.", "b cautiously optimistic.", "c urgent and alarming."],
+                "answer": "b cautiously optimistic."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Lecture: Memory and Learning",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear a university lecture. For each item, complete the notes with a word or short phrase. You will hear the lecture only once.\nWrite no more than THREE words for each answer.",
+        "transcript": "[Lecture transcript about memory and learning]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
+        "context": "Academic lecture about memory",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "notes-completion",
+            "instruction": "Complete the notes with information from the lecture. Write no more than THREE words for each answer.",
+            "notes": [
+              {
+                "heading": "Types of Memory",
+                "items": [
+                  { "id": "65", "type": "gap", "label": "Short-term memory is also called", "answer": "working memory" },
+                  { "id": "66", "type": "gap", "label": "Capacity of short-term memory", "answer": "seven items" }
+                ]
+              },
+              {
+                "heading": "Memory Techniques",
+                "items": [
+                  { "id": "67", "type": "gap", "label": "First technique mentioned", "answer": "chunking" },
+                  { "id": "68", "type": "gap", "label": "Second technique mentioned", "answer": "elaborative rehearsal" }
+                ]
+              },
+              {
+                "heading": "Forgetting",
+                "items": [
+                  { "id": "69", "type": "gap", "label": "Primary reason for forgetting", "answer": "decay" },
+                  { "id": "70", "type": "gap", "label": "Theory that explains context-dependent forgetting", "answer": "encoding" }
+                ]
+              },
+              {
+                "heading": "Sleep and Memory",
+                "items": [
+                  { "id": "71", "type": "gap", "label": "Sleep stage important for procedural memory", "answer": "REM" },
+                  { "id": "72", "type": "gap", "label": "Process that consolidates memories during sleep", "answer": "reactivation" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m2-t1",
+        "taskType": 1,
+        "title": "Task 1: Compulsory",
+        "subtitle": "Part 1: Writing",
+        "instruction": "In this part of the examination you have to write two texts: the compulsory task and one of the optional tasks. You have a total of one hour to complete both tasks.\nRemember:\nThe texts you write should be well-structured and highlight the points that you think are most important for the reader. The structure of the text should have an appropriate degree of complexity with reference to the type of text specified and should also contain a number of complex sentence forms.\nWrite at least 200 words.",
+        "context": "Your university is considering replacing traditional lectures with online video courses. Some students support this idea while others strongly oppose it. The student newspaper has invited students to share their opinions.\n\nWrite a contribution to the newspaper stating your opinion on this proposal.",
+        "targetWords": 200,
+        "xp": 500,
+        "prompt": "Write to the student newspaper giving your opinion on replacing lectures with online videos.",
+        "type": "letter"
+      },
+      {
+        "id": "w-m2-t2",
+        "taskType": 2,
+        "title": "Task 2: Optional",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Choose one of the following four tasks and write at least 150 words.",
+        "options": [
+          {
+            "id": "optional-a",
+            "title": "A: Advice to Your Younger Self",
+            "context": "A popular podcast is collecting advice for teenagers from successful adults. Write a letter to yourself at age 15, offering words of wisdom about life, career, or relationships that you wish you had known then.\n\nWrite your contribution for the podcast.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "letter"
+          },
+          {
+            "id": "optional-b",
+            "title": "B: Community Club Advertisement",
+            "context": "Your local community centre is expanding its programmes and needs new members. You have been asked to write a promotional article for the local newspaper describing the centre and its activities.\n\nWrite the promotional article.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "informative"
+          },
+          {
+            "id": "optional-c",
+            "title": "C: Complaint to Airline",
+            "context": "You recently flew with SkyHigh Airlines and experienced several problems: your luggage was lost, your seat was different from what you booked, and the in-flight entertainment system did not work. You have already complained to the airline but received no satisfactory response.\n\nWrite a formal complaint to the airline's customer service director.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "letter"
+          },
+          {
+            "id": "optional-d",
+            "title": "D: Review for Language Learning App",
+            "context": "You have been using a language learning app called LinguaFlow for six months and have mixed feelings about it. While you have made progress, there are aspects you believe could be improved.\n\nWrite a review of the app for a technology magazine.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          }
+        ]
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Presentation",
+        "subtitle": "Part 1: Speaking",
+        "type": "presentation",
+        "duration": "3 minutes",
+        "instruction": "Choose one of the two topics and give a short presentation to your partner(s). Take a few seconds to prepare before you start speaking. Remember to give an introduction (example, own experience) and come to a conclusion at the end. You should talk for about three minutes. At the end you will be asked follow-up questions.",
+        "topics": [
+          {
+            "topic": "Should universities be free for all students?",
+            "questions": [
+              {
+                "id": "p1q1",
+                "text": "What are the arguments for and against free education?"
+              }
+            ]
+          },
+          {
+            "topic": "Is social media harmful to young people?",
+            "questions": [
+              {
+                "id": "p1q2",
+                "text": "What evidence supports your view?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Discussion",
+        "type": "discussion",
+        "duration": "6 minutes",
+        "instruction": "Discuss the following topic with your partner(s)",
+        "text": "\"The greatest danger to our planet is the belief that someone else will save it.\" Robert Swan, environmental activist",
+        "topics": [
+          {
+            "topic": "Environmental Responsibility",
+            "questions": [
+              {
+                "id": "p2q1",
+                "text": "What do you understand by this statement?"
+              },
+              {
+                "id": "p2q2",
+                "text": "To what extent do you agree or disagree with Robert Swan?"
+              },
+              {
+                "id": "p2q3",
+                "text": "What role should governments play in addressing environmental issues?"
+              },
+              {
+                "id": "p2q4",
+                "text": "How can individuals make a meaningful difference?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
