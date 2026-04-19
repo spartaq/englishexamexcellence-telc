@@ -2,130 +2,328 @@
 
 ## Overview
 
-This document analyzes the test flows in the TELC section of the application. The app supports B1, B2, and C1 level exams with various test types and entry points.
+This document describes the routing, data flow, and component architecture of the TELC exam practice application.
 
 ---
 
-## 1. ENTRY POINTS & HIERARCHY
+## 1. Routes Overview
 
-### 1.1 Main Navigation Flow
+### 1.1 Public Routes
+
+| Path | Component | Description |
+|------|-----------|-------------|
+| `/` | `LandingPage` | Main landing page |
+| `/telc-info` | `ExamDescription` | Public TELC info page (SEO) |
+| `/free-mock` | `App` | Free B2 mini test |
+| `/free-mock/b1` | `App` | Free B1 mini test |
+| `/free-mock/b2` | `App` | Free B2 mini test |
+| `/free-mock/c1` | `App` | Free C1 mini test |
+
+### 1.2 Protected Routes (Require Login)
+
+| Path | initialView | Description |
+|------|-------------|-------------|
+| `/telc/b1` | `telc-b1-hub` | B1 level hub |
+| `/telc/b1/mini-test` | `telc-b1-mini-test` | B1 mini test |
+| `/telc/b1/reading` | `telc_b1_reading` | B1 reading practice |
+| `/telc/b1/writing` | `telc_b1_writing` | B1 writing practice |
+| `/telc/b1/speaking` | `telc_b1_speaking` | B1 speaking practice |
+| `/telc/b1/listening` | `telc_b1_listening` | B1 listening practice |
+| `/telc/b2` | `telc-b2-hub` | B2 level hub |
+| `/telc/b2/mini-test` | `telc-b2-mini-test` | B2 mini test |
+| `/telc/b2/reading` | `telc_b2_reading` | B2 reading practice |
+| `/telc/b2/writing` | `telc_b2_writing` | B2 writing practice |
+| `/telc/b2/speaking` | `telc_b2_speaking` | B2 speaking practice |
+| `/telc/b2/listening` | `telc_b2_listening` | B2 listening practice |
+| `/telc/c1` | `telc-c1-hub` | C1 level hub |
+| `/telc/c1/mini-test` | `telc-c1-mini-test` | C1 mini test |
+| `/telc/c1/reading` | `telc_c1_reading` | C1 reading practice |
+| `/telc/c1/writing` | `telc_c1_writing` | C1 writing practice |
+| `/telc/c1/speaking` | `telc_c1_speaking` | C1 speaking practice |
+| `/telc/c1/listening` | `telc_c1_listening` | C1 listening practice |
+| `/telc/vocabulary` | `vocabulary` | Vocabulary hub |
+| `/telc/mywords` | `mywords` | Saved words |
+| `/telc/drillshub` | `drillshub` | Drills hub |
+| `/telc/langcert` | `langcert-hub` | Language cert hub |
+
+---
+
+## 2. Initial View System
+
+### 2.1 How It Works
+
+The `App` component accepts an `initialView` prop from the Router. This prop determines:
+- The initial view state
+- What data to load
+- How to navigate
+
+```jsx
+// Router.jsx passes initialView
+<Route path="/telc/b2" element={
+  <ProtectedRoute>
+    <App initialView="telc-b2-hub" />
+  </ProtectedRoute>
+} />
 ```
-Landing Page
-    ├── /telc/b1 → TELC B1 Hub
-    ├── /telc/b2 → TELC B2 Hub  
-    └── /telc/c1 → TELC C1 Hub
+
+### 2.2 InitialView Values
+
+| initialView | View State | Description |
+|-------------|------------|-------------|
+| `telc-b1-hub` | BrandTestHub | B1 hub with mock list |
+| `telc-b2-hub` | BrandTestHub | B2 hub with mock list |
+| `telc-c1-hub` | BrandTestHub | C1 hub with mock list |
+| `telc-b1-mini-test` | lesson | Start mini test immediately |
+| `telc-b2-mini-test` | lesson | Start mini test immediately |
+| `telc-c1-mini-test` | lesson | Start mini test immediately |
+| `telc_b1_reading` | lesson | B1 reading exercise |
+| `vocabulary` | drillsHub | Vocabulary hub |
+| `drillshub` | drillsHub | Drills hub |
+| `mywords` | mywords | Saved vocabulary |
+
+### 2.3 NavigationResolver Flow
+
+`NavigationResolver.resolvePath(initialView)` returns a plan object:
+
+```javascript
+{
+  view: 'telc-b2-hub',           // Main view to render
+  viewHistory: ['telc-b2-hub'],   // For back navigation
+  activeCategory: null,          // For drills/vocab hubs
+  activeSection: null,           // For task selection
+  triggerTask: null,             // If present, start this task
+  triggerFullTest: null          // If present, start full test
+}
 ```
 
-### 1.2 Free Mock (Landing Page)
-- **Entry:** "Ready to test your skills?" section on LandingPage
-- **Routes:** `/free-mock`, `/free-mock/b1`, `/free-mock/b2`, `/free-mock/c1`
-- **Flow:**
-  1. User clicks B1/B2/C1 button in free mock section
-  2. `handleStartFreeMock(level)` → navigates to `/free-mock/${level}`
-  3. Router passes `initialView="telc-{level}-mini-test"` to App
-  4. App resolves path → generates mini test via `resolvePath()`
-  5. `LessonFactory.create()` calls `generateMiniTest(level)`
-- **Public Access:** No login required - free tier users can access
-- **Content:** Mini test with all 5 skills pre-generated
+---
 
-### 1.3 Hub Components (BrandTestHub)
-Each level hub (B1/B2/C1) displays:
-- **Mock List** - All available mocks for that level with tier access control
-- **Specific Skills** - Opens Skill Tests view for individual skill practice
-- **Extra Tools** - Vocab Hub and Drills Hub
+## 3. App Component State & Props
+
+### 3.1 Main State Variables
+
+```javascript
+const [view, setView] = useState(initialView || 'telc-b2-hub');
+const [viewHistory, setViewHistory] = useState([initialView || 'telc-b2-hub']);
+const [activeTest, setActiveTest] = useState(null);
+const [activeCategory, setActiveCategory] = useState(null);
+const [activeSection, setActiveSection] = useState(null);
+const [activeLesson, setActiveLesson] = useState(null);
+const [activeSectionIndex, setActiveSectionIndex] = useState(0);
+const [activePassageIndex, setActivePassageIndex] = useState(0);
+const [activeSkillTab, setActiveSkillTab] = useState(0);
+const [userAnswers, setUserAnswers] = useState({});
+const [lessonResults, setLessonResults] = useState({ accuracy: 0, earnedXP: 0, isPerfect: false });
+const [isReviewMode, setIsReviewMode] = useState(false);
+```
+
+### 3.2 Key Handler Functions
+
+| Function | Purpose |
+|----------|---------|
+| `handleStartTask(taskMetadata)` | Creates lesson via LessonFactory and navigates to 'lesson' view |
+| `handleFullTestSelection(testType, path)` | Creates full mock test |
+| `handleCheckAnswers()` | Validates answers, calculates score |
+| `handleFinishLesson()` | Navigate to results |
+| `handleFinalClaim()` | Claim XP and navigate back to hub |
+
+### 3.3 BrandTestHub Props
+
+```jsx
+<BrandTestHub 
+  activeTest={{ title: 'TELC B2' }}  // Exam title for display
+  level="b2"                          // Current level
+  EXTRA_TOOLS={EXTRA_TOOLS}          // Array of extra practice tools
+  onSelectModule={handleSelectModule} // Navigate to vocab/drils hub
+  onOpenPaywall={() => setShowPaywall(true)} // Show paywall modal
+  onSelectPath={(path, skill) => {...}} // Handle mock/skill selection
+  onStartSkill={(skill, level) => {...}} // Start random skill exercise
+  onShowDescription={() => navigateToView('description')} // Show exam info
+/>
+```
 
 ---
 
-## 2. TEST FLOW TYPES
+## 4. Lesson Creation Flow
 
-### 2.1 Full Mock Test (Complete Exam)
-- **Entry:** Click "Start Mock" on any mock card in the hub
-- **Path:** `telc-b2-mock-1`, `telc-b1-mock-1`, `telc-c1-mock-1`, etc.
-- **Flow:**
-  1. User clicks mock card → `onSelectPath(mock.id)`
-  2. App checks `path.startsWith('telc-')` → calls `handleFullTestSelection(level, path)`
-  3. `LessonFactory.createFullMockFromMock()` processes the raw mock
-  4. Returns lesson with all 6 skills
-- **Sections:** 6 skills in sequence (vocab → reading → writing → listening → speaking → language-elements)
-- **XP Reward:** 5000 (mock.xpReward from JSON)
+### 4.1 LessonFactory.create()
 
-### 2.2 Quick Start (Hub Page)
-- **Entry:** "Quick Start" button in hero section of BrandTestHub
-- **Path:** `telc-b2-single-exercise` (or level-specific variant)
-- **Flow:**
-  1. User clicks "Quick Start" → `onSelectPath(singleExercisePath)`
-  2. `handleStartTask({ id: path })` is called
-  3. `LessonFactory.create()` matches task and calls `pluckRandomFullMock(level)`
-  4. Returns a full mock lesson (same structure as full test but initiated differently)
-- **Content:** Random mock with all 6 sections
+Central entry point for creating lessons:
 
-### 2.3 Skill Tests (Individual Skills)
-- **Entry:** "Specific Skills" card in hub
-- **View:** `skillTests`
-- **Flow:**
-  1. User clicks "Specific Skills" → `onSelectPath('skill-tests')`
-  2. App checks `path === 'skill-tests'` → `navigateToView('skillTests')`
-  3. SkillTests view renders 6 skill cards
-  4. User clicks a skill → `pluckRandom(skill)` → sets activeLesson → navigates to 'lesson'
-- **Skills Available:**
-  | Skill | Function | XP |
-  |-------|----------|-----|
-  | Reading | `pluckRandom('reading')` | +300 |
-  | Listening | `pluckRandom('listening')` | +250 |
-  | Writing | `pluckRandom('writing')` | +400 |
-  | Speaking | `pluckRandom('speaking')` | +350 |
-  | Vocabulary | `pluckRandom('vocabulary')` | +150 |
-  | Language Elements | `pluckRandom('language-elements')` | +200 |
+```javascript
+const lesson = LessonFactory.create(taskMetadata);
+```
 
-### 2.4 Mini Test (All Skills Combined)
-- **Path:** `telc-b2-mini-test` (or level-specific)
-- **Trigger:** Route `/free-mock` or `/free-mock/b2`
-- **Flow:**
-  1. Navigation to mini-test path
-  2. `resolvePath()` returns task with `triggerTask: { id: 'telc-b2-mini-test', skill: 'mini-test', level }`
-  3. `handleStartTask()` processes the trigger
-  4. `LessonFactory.create()` calls `generateMiniTest(level)`
-- **Content:** Returns object with all 6 skills pre-generated
-- **Structure:**
-  ```javascript
-  {
-    id: `mini-test-${Date.now()}`,
-    type: 'mini-test',
-    title: 'TELC Mini Test',
-    skills: {
-      vocab: pluckRandom('vocabulary', level),
-      reading: pluckRandom('reading', level),
-      listening: pluckRandom('listening', level),
-      speaking: pluckSingleSpeakingPart(level),
-      writing: pluckRandom('writing', level),
-      'language-elements': pluckRandom('language-elements', level)
-    }
-  }
-  ```
+**taskMetadata patterns:**
 
-### 2.5 Extra Tools (Vocab & Drills)
-- **Entry:** Cards in "Practice Exercises" section
-- **Flow:**
-  1. User clicks tool card → `onSelectModule(hubKey)`
-  2. `handleSelectModule(hubKey)` sets activeCategory and navigates to 'drillsHub'
-  3. VocabHub or DrillsHub renders based on hubKey
-- **Hub Keys:**
-  - `vocabulary` → VocabHub
-  - `drillshub` → DrillsHub
+| ID Pattern | Creates | Source |
+|------------|---------|--------|
+| `telc-b2-mini-test` | Full mini test with all 6 skills | `generateMiniTest()` |
+| `telc-b2-single-exercise` | Single random exercise | `createMiniTest()` |
+| `random-mock` | Full random mock | `pluckRandomFullMock()` |
+| `atom-skill` | Random skill exercise | `pluckRandom()` |
+
+### 4.2 Full Mock Creation
+
+```javascript
+handleFullTestSelection(path.split('-')[1], path);
+// path: 'telc-b2-mock-1'
+// Creates: Full mock with 6 skill sections
+```
+
+### 4.3 Section Order in Full Mock
+
+```javascript
+// LessonFactory.createFullMockFromMock()
+sections order:
+1. vocabulary (unshifted - appears first)
+2. reading passages (flattened)
+3. language-elements
+4. listening sections
+5. speaking sections
+6. writing sections
+```
 
 ---
 
-## 3. DATA FLOW & PROCESSING
+## 5. Engine Component & Skill Rendering
 
-### 3.1 Mock Data Sources
-Located in `src/data/TELC/mocks/`:
-- `telc-b1-mock-1.json`
-- `telc-b2-mock-1.json`
-- `telc-b2-mock-2.json`
-- `telc-c1-mock-1.json`
-- `telc-c1-mock-2.json`
+### 5.1 Engine Props
 
-### 3.2 Mock Structure (JSON)
+```jsx
+<Engine 
+  activeLesson={activeLesson}        // Current lesson object
+  activeSectionIndex={0}             // Current section index
+  activePassageIndex={0}             // Current passage index
+  userAnswers={userAnswers}          // User's answers { questionId: value }
+  onUpdateAnswers={handleUpdateAnswer} // Update single answer
+  onCheckAnswers={handleCheckAnswers}  // Submit/check all answers
+  isReviewMode={false}               // Review mode flag
+  availableSections={[]}             // All sections for nav
+  activeSkillTab={0}                 // Current skill tab
+  setActiveSectionIndex={fn}         // Navigate sections
+  setActivePassageIndex={fn}         // Navigate passages
+  setIsReviewMode={fn}               // Toggle review
+  setActiveSkillTab={fn}             // Switch skill tabs
+  availableSkills={[]}               // List of skills
+/>
+```
+
+### 5.2 Skill Detection Logic
+
+Engine determines which block to render based on:
+
+```javascript
+const skill = activeLesson?.skill || currentSection?.skill;
+const lessonType = activeLesson?.type;
+
+// Render priority:
+// 1. ReadingBlock: 'ielts-complex', 'full-mock' + reading, 'READING', skill='reading'
+// 2. LanguageElementsBlock: skill='language-elements', 'LANGUAGE_ELEMENTS'
+// 3. ListeningBlock: skill='listening', 'LISTENING'
+// 4. WritingBlock: skill='writing', 'WRITING'
+// 5. SpeakingBlock: skill='speaking', 'SPEAKING'
+// 6. FlashcardBlock: skill='vocab', 'VOCAB', 'VOCAB_FLASHCARDS'
+// 7. QuestionDispatcher: fallback for drills
+```
+
+### 5.3 Block-Specific Props
+
+**ReadingBlock / ListeningBlock:**
+```jsx
+<ReadingBlock 
+  data={currentPassage}           // Passage/question data
+  userAnswers={userAnswers}
+  onUpdate={onUpdateAnswers}
+  onCheckAnswers={onCheckAnswers}
+  isReviewMode={isReviewMode}
+  showCheckAnswers={true}
+  sections={availableSections}   // For section navigation
+  activeSkillTab={0}
+  activeSectionIndex={0}
+  setActiveSectionIndex={fn}
+  setActivePassageIndex={fn}
+  setIsReviewMode={fn}
+  setActiveSkillTab={fn}
+  availableSkills={[]}
+  allSections={availableSections}
+/>
+```
+
+**WritingBlock / SpeakingBlock:**
+```jsx
+<WritingBlock 
+  data={writingTask}              // Writing task with prompt
+  onComplete={onCheckAnswers}      // Submit response
+  onCheckAnswers={onCheckAnswers}
+  isReviewMode={isReviewMode}
+  showCheckAnswers={true}
+  sections={availableSections}
+  // ... navigation props
+/>
+```
+
+**FlashcardBlock:**
+```jsx
+<FlashcardBlock 
+  data={vocabData}                // Vocab with words array
+  onComplete={onCheckAnswers}
+  onNavigateToMyWords={fn}       // Save word to mywords
+  sections={availableSections}
+  // ... navigation props
+/>
+```
+
+---
+
+## 6. Data Flow Summary
+
+### 6.1 Free Mock Flow
+
+```
+/free-mock/b2 
+  → Router passes initialView="telc-b2-mini-test"
+  → App useEffect calls resolvePath("telc-b2-mini-test")
+  → Returns plan with triggerTask: { id: 'telc-b2-mini-test', skill: 'mini-test', level: 'b2' }
+  → handleStartTask(taskMetadata)
+  → LessonFactory.create() detects 'mini-test' in id
+  → generateMiniTest('b2') returns lesson with 6 sections
+  → setActiveLesson(lesson), navigateToView('lesson')
+  → Engine renders first section (vocab)
+```
+
+### 6.2 Hub to Skill Test Flow
+
+```
+BrandTestHub → click "Specific Skills"
+  → onSelectPath('skill-tests')
+  → navigateToView('skillTests')
+  → Render skillTests view with 6 skill cards
+  → click "Reading"
+  → pluckRandom('reading')
+  → setActiveLesson(exercise), navigateToView('lesson')
+  → Engine renders ReadingBlock
+```
+
+### 6.3 Full Mock Flow
+
+```
+BrandTestHub → click mock card "Start Mock"
+  → onSelectPath('telc-b2-mock-1')
+  → handleFullTestSelection('b2', 'telc-b2-mock-1')
+  → LessonFactory.prepareFullTest('b2', 'telc-b2-mock-1')
+  → getMockById('telc-b2-mock-1') → raw mock JSON
+  → createFullMockFromMock(mock, 'b2') → structured lesson
+  → setActiveLesson(fullMock), navigateToView('lesson')
+  → Engine renders with all 6 skills in tabs
+```
+
+---
+
+## 7. Mock Data Structure
+
+### 7.1 Mock JSON Schema
+
 ```javascript
 {
   id: "telc-b2-mock-1",
@@ -136,129 +334,125 @@ Located in `src/data/TELC/mocks/`:
   type: "general",
   xpReward: 5000,
   tier: "bronze", // bronze, silver, gold
+  
   vocabulary: { /* vocab words */ },
+  
   reading: {
     title: "Reading",
     time: 20,
-    sections: [ /* reading sections with passages */ ]
-  },
-  writing: {
-    title: "Writing", 
-    time: 60,
-    sections: [ /* writing tasks */ ]
-  },
-  listening: {
-    title: "Listening",
-    time: 30,
-    sections: [ /* listening parts */ ]
-  },
-  speaking: {
-    title: "Speaking",
-    time: 15,
-    parts: [ /* 3 speaking parts */ ]
-  },
-languageElements: {
-    title: "Language Elements",
-    time: 90,
     sections: [
       {
-        id: "le-part1",
-        section: 1,
-        title: "Part 1 Title",
-        description: "Read the following...",
+        id: "reading-part1",
         passages: [
           {
             id: "p1",
-            subtitle: "Subtitle",
             title: "Passage Title",
-            type: "LANGUAGE-ELEMENTS",
-            content: [
-              {
-                id: "1",
-                text: "Passage text with ____(21)____ gap markers..."
-              }
-            ],
+            type: "reading-practice",
+            content: [{ id: "1", text: "..." }],
             subTasks: [
               {
                 type: "mcq",
-                instruction: "Choose the correct answer...",
+                instruction: "...",
                 questions: [
-                  { id: "21", text: "Question text...", options: ["a", "b", "c"], answer: 0 }
+                  { id: "1", text: "?", options: ["a","b","c"], answer: 0 }
                 ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        id: "le-part2",
-        section: 2,
-        title: "Part 2 Title",
-        description: "Read the following...",
-        passages: [
-          {
-            id: "p2",
-            subtitle: "Subtitle",
-            title: "Passage Title",
-            type: "LANGUAGE-ELEMENTS",
-            content: [
-              {
-                id: "1",
-                text: "Passage text with ____(31)____ gap markers..."
-              }
-            ],
-            subTasks: [
-              {
-                type: "gap-fill-tokens",
-                instruction: "Choose correct word...",
-                tokens: ["a WORD", "b WORD", ...],
-                answers: ["a WORD", "b WORD", ...]
               }
             ]
           }
         ]
       }
     ]
+  },
+  
+  writing: {
+    title: "Writing",
+    time: 60,
+    sections: [
+      {
+        id: "writing-1",
+        title: "Task 1",
+        type: "WRITING",
+        prompt: "Write about..."
+      }
+    ]
+  },
+  
+  listening: {
+    title: "Listening",
+    time: 30,
+    sections: [
+      {
+        id: "listening-1",
+        audio: "url",
+        transcript: "...",
+        subTasks: [...]
+      }
+    ]
+  },
+  
+  speaking: {
+    title: "Speaking",
+    time: 15,
+    sections: [
+      { id: "s1", type: "interview", topics: [...] },
+      { id: "s2", type: "discussion", ... },
+      { id: "s3", type: "collaborative", ... }
+    ]
+  },
+  
+  languageElements: {
+    title: "Language Elements",
+    time: 90,
+    sections: [
+      {
+        id: "le-part1",
+        passages: [{
+          content: [{ id: "1", text: "text with ____(21)____ gaps" }],
+          subTasks: [{ type: "mcq", questions: [...] }]
+        }]
+      },
+      {
+        id: "le-part2",
+        passages: [{
+          content: [{ id: "1", text: "..." }],
+          subTasks: [{ type: "gap-fill-tokens", tokens: [...], answers: [...] }]
+        }]
+      }
+    ]
   }
 }
 ```
 
-### 3.3 Key Functions (mockPlucker.js)
+---
 
-| Function | Purpose | Returns |
-|----------|---------|---------|
-| `pluckRandom(skill, level)` | Get random exercise for a skill | Single exercise object |
-| `pluckRandomFullMock(level)` | Get random full mock | Raw mock object |
-| `pluckFullMock1(level)` | Get specific Mock 1 | Built full mock object |
-| `pluckSingleSpeakingPart(level)` | Get single speaking part | Single part object |
-| `generateMiniTest(level)` | Generate mini test with all skills | Object with skills property |
-| `findVocabFromReading(reading)` | Extract vocab from reading | Vocab exercise |
+## 8. Skill Types & XP Values
 
-### 3.4 Skill Types Supported
-- `reading` - Reading passages with subTasks
-- `writing` - Writing tasks with prompts
-- `listening` - Listening sections with audio
-- `speaking` - Speaking parts with prompts
-- `vocabulary` - Vocabulary word lists
-- `language-elements` - Grammar/vocab tests
+| Skill | Plucker Function | XP Reward | Block Component |
+|-------|------------------|-----------|-----------------|
+| Reading | `pluckRandom('reading', level)` | +300 | ReadingBlock |
+| Listening | `pluckRandom('listening', level)` | +250 | ListeningBlock |
+| Writing | `pluckRandom('writing', level)` | +400 | WritingBlock |
+| Speaking | `pluckRandom('speaking', level)` | +350 | SpeakingBlock |
+| Vocabulary | `pluckRandom('vocabulary', level)` | +150 | FlashcardBlock |
+| Language Elements | `pluckRandom('language-elements', level)` | +200 | LanguageElementsBlock |
 
 ---
 
-## 4. ACCESS CONTROL (TIER SYSTEM)
+## 9. Access Control (Tier System)
 
-### 4.1 User Tiers
-- **Bronze** - Free tier (default for non-signed-in users)
-- **Silver** - Basic tier (signed-in users)
-- **Gold** - Premium tier
+### 9.1 User Tiers
+- **Bronze**: Free tier (default for non-signed-in users)
+- **Silver**: Basic tier (signed-in users)
+- **Gold**: Premium tier
 
-### 4.2 Mock Tiers
-Each mock has a `tier` property: `bronze`, `silver`, or `gold`
+### 9.2 Mock Tiers
+Each mock has `tier: "bronze" | "silver" | "gold"`
 
-### 4.3 Access Logic
+### 9.3 Access Logic
 ```javascript
-const canAccess = (mockTier) => {
+const canAccess = (mockTier, userTier) => {
   if (mockTier === 'bronze') return true;
-  if (mockTier === 'silver' && (userTier === 'silver' || userTier === 'gold')) return true;
+  if (mockTier === 'silver' && ['silver', 'gold'].includes(userTier)) return true;
   if (mockTier === 'gold' && userTier === 'gold') return true;
   return false;
 };
@@ -266,34 +460,7 @@ const canAccess = (mockTier) => {
 
 ---
 
-## 5. ROUTING SUMMARY
-
-### Routes
-| Path | View | Description |
-|------|------|-------------|
-| `/` | LandingPage | Main landing page |
-| `/telc/b1` | telc-b1-hub | B1 level hub |
-| `/telc/b2` | telc-b2-hub | B2 level hub |
-| `/telc/c1` | telc-c1-hub | C1 level hub |
-| `/free-mock` | lesson (mini-test) | Free B2 mini test (default) |
-| `/free-mock/b1` | lesson (mini-test) | B1 mini test |
-| `/free-mock/b2` | lesson (mini-test) | B2 mini test |
-| `/free-mock/c1` | lesson (mini-test) | C1 mini test |
-
-### View States
-| View | Description |
-|------|-------------|
-| `telc-b1-hub` / `telc-b2-hub` / `telc-c1-hub` | Level-specific hub |
-| `skillTests` | Individual skill selection |
-| `drillsHub` | Vocab or Drills hub |
-| `mywords` | Saved vocabulary |
-| `selection` | Task selection within hub |
-| `lesson` | Active test/lesson |
-| `results` | Test results screen |
-
----
-
-## 6. SPEAKING PART TYPES
+## 10. Speaking Part Types
 
 | Part | Type | Structure |
 |------|------|-----------|
@@ -301,102 +468,6 @@ const canAccess = (mockTier) => {
 | Part 2 | `discussion` | Text + discussion questions |
 | Part 3 | `collaborative` | Topic with suggestions + questions |
 
----
-
-## 7. SPEAKING IN DIFFERENT CONTEXTS
-
-### Full Mock
-- Returns all 3 parts as sections
-- Engine renders Part 1/2/3 tabs
-- Type: `telc-speaking`
-
-### Mini Test / Skill Test
-- Returns single random part
-- Engine renders without tabs
-- Type: `telc-speaking`
-
----
-
-## 8. KEY DIFFERENCES: TEST TYPES
-
-| Feature | Full Mock | Quick Start | Skill Tests | Mini Test |
-|---------|-----------|-------------|-------------|------------|
-| Sections | All 6 skills | All 6 skills | Single skill | All 6 pre-generated |
-| Entry | Mock card click | Quick Start button | Specific Skills card | /free-mock route |
-| Skills | vocab, reading, writing, listening, speaking, language-elements | Same as Full Mock | User-selected | Same as Full Mock |
-| XP | 5000 | 5000 | 150-400 | Varies |
-| Data Source | Selected mock | Random full mock | Random single | generateMiniTest() |
-
----
-
-## 9. NOTABLE IMPLEMENTATION DETAILS
-
-### 9.1 LessonFactory Integration
-- `LessonFactory.createFullMockFromMock(rawMock, level)` - Processes raw JSON mock into lesson
-- `LessonFactory.create({ id, skill, level })` - Creates lessons from task definitions
-- Handles both full mocks and mini tests
-
-### 9.2 Speaking Section Handling
-- Full mocks: `sections` contains all 3 parts
-- Mini/Skill: `sections` contains single part (no tabs in UI)
-
-### 9.3 Tier-Based UI
-- Locked mocks show "Unlock Gold" button
-- Opens paywall modal for tier-gated content
-
-### 9.4 Language Elements Section
-- **Data Structure**: `languageElements.sections` contains LE parts (le-part1, le-part2)
-- **Each Part**: Has `passages` array with passage objects containing:
-  - `content`: Array of text objects with `id` and `text` properties
-  - `subTasks`: Array of question tasks
-- **Question Types**:
-  - `mcq`: Multiple choice questions for Part 1 (gaps 21-30)
-  - `gap-fill-tokens`: Token selection for Part 2 (gaps 31-40)
-- **Gap Markers**: Text contains `____(21)____` style markers for interactive gaps
-- **Engine Flow**: 
-  1. Full mock passes `languageElements` object as a section
-  2. Engine detects `skill === 'language-elements'` and renders LanguageElementsBlock
-  3. LanguageElementsBlock receives `sections` prop = [le-part1, le-part2]
-  4. Tabs for part switching, content from `passages[0].content`
-- **Practice Atoms Integration**:
-  - When `pluckRandom('language-elements')` is called (Skill Tests), it returns a single LE part (atom)
-  - The atom has the same structure: `passages[0].content` as array of text objects
-  - `QuestionDispatcher` normalizes `gap-fill-tokens` passage content:
-    - Receives `passageContent` as array `[{ id, text }]`
-    - Converts array to string by extracting `text` fields and joining with `\n\n`
-    - Passes string to `GapFillBlock` which expects `passage` prop for `.split()`
-  - `GapFillBlock` includes defensive check: `typeof passage === 'string' ? passage : ''` to prevent TypeErrors if malformed data is passed
-
-### 9.5 Data Normalization for Structured Content
-- **Problem**: Some question types (e.g., `gap-fill-tokens`) need a plain string passage, but LanguageElementsBlock provides structured `content` arrays
-- **Solution**: `QuestionDispatcher` normalizes structured data before passing to components:
-  ```javascript
-  // gap-fill-tokens case
-  let normalizedPassage = data.passage;
-  if (passageContent) {
-    if (Array.isArray(passageContent)) {
-      normalizedPassage = passageContent.map(item =>
-        typeof item === 'object' ? (item.text || item.passage || '') : item
-      ).join('\n\n');
-    } else if (typeof passageContent === 'string') {
-      normalizedPassage = passageContent;
-    }
-  }
-  ```
-- Applies similarly for `matching-info` with `parentContent` field
-- Ensures backward compatibility with both full mock (array) and practice atom (array) structures
-
-### 9.6 Listening Block Normalization
-- **Problem**: `ListeningBlock` expects `data` to have a `sections` array of parts. During practice atom flow, `pluckRandom('listening')` passes a listening part directly (no `sections` wrapper), causing `listeningSections` to be empty and resulting in missing audio/questions.
-- **Solution**: `ListeningBlock` normalizes the data shape:
-  ```javascript
-  const listeningData = data.listening || data;
-  const listeningSections = Array.isArray(listeningData?.sections)
-    ? listeningData.sections
-    : [listeningData]; // fallback to treat data itself as a single part
-  const currentPart = listeningSections[activeSectionIndex] || listeningSections[0];
-  ```
-- Covers both formats:
-  - **Full mock**: `data` is full mock → `listeningData = data.listening` (has sections array)
-  - **Practice atom**: `data` is raw listening part → fallback creates single-element array
-- This ensures audio, transcript, and subTasks are correctly displayed for practice atoms and skill tests.
+### Full Mock vs Mini Test
+- **Full Mock**: Returns all 3 parts, Engine renders with tabs
+- **Mini Test / Skill Test**: Returns single random part, no tabs

@@ -237,7 +237,7 @@
         "section": 2,
         "title": "Part 2: Detailed Understanding",
         "description": "Read the article about invasive plants and answer the multiple-choice questions.",
-        "sections": [
+        "passages": [
           {
             "id": "p2",
             "title": "A Losing Battle - Invasive Plants",
@@ -334,7 +334,7 @@
         "section": 3,
         "title": "Part 3: Selective Understanding",
         "description": "Questions",
-        "sections": [
+        "passages": [
           {
             "id": "p3",
             "title": "Activities and Groups",
@@ -483,62 +483,50 @@
                   {
                     "id": "21",
                     "text": "I'm sure I'll find good use ____(21)____ it.",
-                    "options": ["a for", "b from", "c of"],
-                    "answer": 0
+                    "options": ["for", "from", "of"],
+                    "answer": "for"
                   },
                   {
                     "id": "22",
                     "text": "While most other people thankfully ____(22)____ me financial gifts too,",
-                    "options": ["a are giving", "b gave", "c has given"],
-                    "answer": 1
+                    "options": ["are giving", "gave", "has given"],
+                    "answer": "gave"
                   },
                   {
                     "id": "23",
                     "text": "whose identities remain ____(23)____ connected in some way.",
-                    "options": ["a suspect", "b suspicious", "c suspiciously"],
-                    "answer": 1
+                    "options": ["suspect", "suspicious", "suspiciously"],
+                    "answer": "suspiciously"
                   },
                   {
                     "id": "24",
                     "text": "My little brother, who was not at all happy with his presents, decided ____(24)____ all our gifts differently",
-                    "options": ["a arrange", "b arranging", "c to arrange"],
-                    "answer": 2
+                    "options": ["arrange", "arranging", "to arrange"],
+                    "answer": "to arrange"
                   },
                   {
                     "id": "25",
-                    "text": "I'm in my second year at university and the past ____(25)____ has been ____(26)____ as before,",
-                    "options": ["a semester", "b year", "c term"],
-                    "answer": 0
+                    "text": "It's slightly smaller than the last and I still don't have my own shower, but at least it has proper heating and isn't right ____(27)____ to a noisy bar.",
+                    "options": ["next", "beside", "nearby"],
+                    "answer": "next"
                   },
                   {
                     "id": "26",
-                    "text": "I'm in my second year at university and the past ____(25)____ has been ____(26)____ as before,",
-                    "options": ["a the same", "b similar", "c alike"],
-                    "answer": 0
+                    "text": "Other than that, there was a university-wide strike ____(28)____ the last week of term,",
+                    "options": ["at", "in", "on"],
+                    "answer": "in"
                   },
                   {
                     "id": "27",
-                    "text": "It's slightly smaller than the last and I still don't have my own shower, but at least it has proper heating and isn't right ____(27)____ to a noisy bar.",
-                    "options": ["a next", "b beside", "c nearby"],
-                    "answer": 0
+                    "text": "This Christmas break was a week shorter ____(29)____ it usually is,",
+                    "options": ["than", "then", "as"],
+                    "answer": "than"
                   },
                   {
                     "id": "28",
-                    "text": "Other than that, there was a university-wide strike ____(28)____ the last week of term,",
-                    "options": ["a at", "b in", "c on"],
-                    "answer": 2
-                  },
-                  {
-                    "id": "29",
-                    "text": "This Christmas break was a week shorter ____(29)____ it usually is,",
-                    "options": ["a than", "b then", "c as"],
-                    "answer": 0
-                  },
-                  {
-                    "id": "30",
                     "text": "____(30)____ there are things about the coming term I'm looking forward to, I think I still would have preferred the additional week of holiday.",
-                    "options": ["a Although", "b Despite", "c However"],
-                    "answer": 0
+                    "options": ["Although", "Despite", "However"],
+                    "answer": "Although"
                   }
                 ]
               }
@@ -569,155 +557,6 @@
                 "instruction": "Choose the correct word (a-o) to complete each sentence.",
                 "tokens": ["a APPROVAL", "b ATTEND", "c AWOKE", "d EDGE", "e EXCEPTION", "f EXPERIMENTED", "g EXPORTS", "h FAR", "i FASHION", "j INITIALS", "k INTERRUPTED", "l MYSTERIOUS", "m PUBLICITY", "n RECALLS", "o RURAL"],
                 "answers": ["g EXPORTS", "o RURAL", "b ATTEND", "n RECALLS", "k INTERRUPTED", "c AWOKE", "l MYSTERIOUS", "f EXPERIMENTED", "j INITIALS", "l MYSTERIOUS"]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-
-  "writing": {
-    "title": "Writing",
-    "time": 60,
-    "sections": [
-      {
-        "id": "w-m1-t1",
-        "taskType": 1,
-        "title": "Task 1: Letter",
-        "subtitle": "Part 1: Writing",
-        "intro": "You see this advert online",
-        "instruction": "Write a letter to go with the recipe that you are submitting. In your letter write in detail about\n\na) at least three of the following points\nor\nb) at least two of the following points plus one other aspect related to the topic:\n• Background information on the dish\n• What makes your recipe so special\n• When the recipe was last used\n• The importance of good cooking\n\nBefore you start writing, decide on the order of the points. Use a suitable greeting and complimentary closing. Start your letter with a few opening sentences and end the letter politely with one or two closing sentences.\n\nPlease write at least 150 words.",
-        "context": "Favourite Recipes Contest\nWin a Place on a Cookery Course with our Three-Star Chef - Anna Capelli\n\nDo you have a special recipe? One that you've come up with or a traditional recipe that has been in your family for generations?\n\nWe don't just want the recipe; we want to publish an accompanying letter with the whole story behind the dish.\n\nClick on Submit to upload your recipe and accompanying letter by the end of the month.\nWe will select the five best recipes and our chefs will cook the meals. The lucky winner will join Anna Capelli on our exclusive cookery course.\n\nJane Denny and team",
-        "targetWords": 150,
-        "xp": 250,
-        "prompt": "Write a letter to go with your recipe submission.",
-        "bullets": [
-          "Background information on the dish",
-          "What makes your recipe so special",
-          "When the recipe was last used",
-          "The importance of good cooking"
-        ],
-        "type": "letter"
-      },
-      {
-        "id": "w-m1-t2",
-        "taskType": 2,
-        "title": "Task 2: Letter",
-        "subtitle": "Part 2: Writing",
-        "instruction": "Please write at least 250 words.",
-        "context": "Your friend Rick doesn’t want to do anything special for his 18th birthday. Write to Rick to say why you think celebrating is important and give him some ideas as to how he could celebrate.",
-        "targetWords": 250,
-        "xp": 500,
-        "prompt": "Your friend Rick doesn’t want to do anything special for his 18th birthday. Write to Rick to say why you think celebrating is important and give him some ideas as to how he could celebrate.",
-        "bullets": [
-          "Please write at least 80 words."
-        ],
-        "type": "letter"
-      }
-    ]
-  },
-  
-  "speaking": {
-    "title": "Speaking",
-    "time": 15,
-    "sections": [
-      {
-        "id": "part1",
-        "title": "Introduction and Interview",
-        "subtitle": "Part 1: Speaking",
-        "type": "interview",
-        "duration": "4-5 minutes",
-        "instruction": "You are expected to give a short presentation to your partner(s) on one of the following topics. (The prompts in brackets may help you.) Your presentation should take about 90 seconds and you should answer your partner’s questions afterwards. While your partner is giving his/her presentation, listen and think of the questions you would like to ask. You should not interrupt your partner during the presentation",
-        "topics": [
-          {
-            "topic": "A city that you particularly like",
-            "questions": [
-              {
-                "id": "p1q1",
-                "text": "Why you like it (facts about the city, your experiences, etc.)"
-              }
-            ]
-          },
-          {
-            "topic": "Music that you often listen to",
-            "questions": [
-              {
-                "id": "p1q2",
-                "text": "What, when, how, why, etc."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "part2",
-        "title": "Discussion",
-        "subtitle": "Part 2: Speaking",
-        "type": "discussion",
-        "duration": "3-4 minutes",
-        "instruction": "Read the following text from a magazine. Discuss the content of the text with your partner(s). Tell them your opinions; give reasons and personal examples to support your ideas. Talk about your own experience with the problems mentioned and possible solutions.",
-        "text": "Helping local people in need. Every Friday, 65-year-old Holly MacNamara makes her way down the streets of suburban Manchester to her local foodbank. Here she stands in line to receive a 3-day emergency ration without which, she says, survival would be impossible. In the past, before her husband Bernard passed away, she would never have dreamt of ever needing a foodbank. The hardest part was asking for help, she admits. Most of Holly's life was spent as mother and housewife, so she only receives a very small state pension and needs help to cope with everyday expenses. She is by far not the only one, vicar and foodbank manager, Robert Swanson tells us. We have people coming here from all stages of life - from recently graduated university students that cannot find a job, to people who cannot work because of illness or misfortune.",
-        "topics": [
-          {
-            "topic": "Foodbanks and Poverty",
-            "questions": [
-              {
-                "id": "p2q1",
-                "text": "Why do you think foodbanks have become necessary in many European countries?"
-              },
-              {
-                "id": "p2q2",
-                "text": "What role do volunteers play in helping those in need?"
-              },
-              {
-                "id": "p2q3",
-                "text": "Have you ever had experience with foodbanks or similar support systems?"
-              },
-              {
-                "id": "p2q4",
-                "text": "What solutions could help reduce poverty and the need for foodbanks?"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "part3",
-        "title": "Collaborative Task",
-        "subtitle": "Part 3: Speaking",
-        "type": "collaborative",
-        "duration": "4-5 minutes",
-        "instruction": "You and your partner have joined the school committee. Next year the school building will be modernised and you have been asked to make a presentation together with suggestions as to what should be done and why.\n\nFirstly, think of some ideas to include in the presentation.\n\nThen, discuss your ideas with your partner(s) and try to agree on a constructive and informative presentation.",
-        "topics": [
-          {
-            "topic": "School Modernisation",
-            "suggestions": [
-              "Improve classroom technology (computers, projectors, smart boards)",
-              "Upgrade sports facilities (gym equipment, outdoor sports areas)",
-              "Create additional study spaces and library improvements",
-              "Energy-efficient changes (solar panels, better insulation)",
-              "Enhanced safety features (security cameras, better lighting)",
-              "Modernise canteen and food service areas",
-              "Accessibility improvements (ramps, elevators)",
-              "Renovate bathrooms and welfare facilities"
-            ],
-            "questions": [
-              {
-                "id": "p3q1",
-                "text": "What improvements would benefit students most?"
-              },
-              {
-                "id": "p3q2",
-                "text": "How can these changes support learning?"
-              },
-              {
-                "id": "p3q3",
-                "text": "Which suggestions are most cost-effective?"
-              },
-              {
-                "id": "p3q4",
-                "text": "What priorities should the school consider first?"
               }
             ]
           }
@@ -923,6 +762,155 @@
             ]
           }
         ]
+      }
+    ]
+  },
+  
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You are expected to give a short presentation to your partner(s) on one of the following topics. (The prompts in brackets may help you.) Your presentation should take about 90 seconds and you should answer your partner’s questions afterwards. While your partner is giving his/her presentation, listen and think of the questions you would like to ask. You should not interrupt your partner during the presentation",
+        "topics": [
+          {
+            "topic": "A city that you particularly like",
+            "questions": [
+              {
+                "id": "p1q1",
+                "text": "Why you like it (facts about the city, your experiences, etc.)"
+              }
+            ]
+          },
+          {
+            "topic": "Music that you often listen to",
+            "questions": [
+              {
+                "id": "p1q2",
+                "text": "What, when, how, why, etc."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following text from a magazine. Discuss the content of the text with your partner(s). Tell them your opinions; give reasons and personal examples to support your ideas. Talk about your own experience with the problems mentioned and possible solutions.",
+        "text": "Helping local people in need. Every Friday, 65-year-old Holly MacNamara makes her way down the streets of suburban Manchester to her local foodbank. Here she stands in line to receive a 3-day emergency ration without which, she says, survival would be impossible. In the past, before her husband Bernard passed away, she would never have dreamt of ever needing a foodbank. The hardest part was asking for help, she admits. Most of Holly's life was spent as mother and housewife, so she only receives a very small state pension and needs help to cope with everyday expenses. She is by far not the only one, vicar and foodbank manager, Robert Swanson tells us. We have people coming here from all stages of life - from recently graduated university students that cannot find a job, to people who cannot work because of illness or misfortune.",
+        "topics": [
+          {
+            "topic": "Foodbanks and Poverty",
+            "questions": [
+              {
+                "id": "p2q1",
+                "text": "Why do you think foodbanks have become necessary in many European countries?"
+              },
+              {
+                "id": "p2q2",
+                "text": "What role do volunteers play in helping those in need?"
+              },
+              {
+                "id": "p2q3",
+                "text": "Have you ever had experience with foodbanks or similar support systems?"
+              },
+              {
+                "id": "p2q4",
+                "text": "What solutions could help reduce poverty and the need for foodbanks?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "You and your partner have joined the school committee. Next year the school building will be modernised and you have been asked to make a presentation together with suggestions as to what should be done and why.\n\nFirstly, think of some ideas to include in the presentation.\n\nThen, discuss your ideas with your partner(s) and try to agree on a constructive and informative presentation.",
+        "topics": [
+          {
+            "topic": "School Modernisation",
+            "suggestions": [
+              "Improve classroom technology (computers, projectors, smart boards)",
+              "Upgrade sports facilities (gym equipment, outdoor sports areas)",
+              "Create additional study spaces and library improvements",
+              "Energy-efficient changes (solar panels, better insulation)",
+              "Enhanced safety features (security cameras, better lighting)",
+              "Modernise canteen and food service areas",
+              "Accessibility improvements (ramps, elevators)",
+              "Renovate bathrooms and welfare facilities"
+            ],
+            "questions": [
+              {
+                "id": "p3q1",
+                "text": "What improvements would benefit students most?"
+              },
+              {
+                "id": "p3q2",
+                "text": "How can these changes support learning?"
+              },
+              {
+                "id": "p3q3",
+                "text": "Which suggestions are most cost-effective?"
+              },
+              {
+                "id": "p3q4",
+                "text": "What priorities should the school consider first?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m1-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter",
+        "subtitle": "Part 1: Writing",
+        "intro": "You see this advert online",
+        "instruction": "Write a letter to go with the recipe that you are submitting. In your letter write in detail about\n\na) at least three of the following points\nor\nb) at least two of the following points plus one other aspect related to the topic:\n• Background information on the dish\n• What makes your recipe so special\n• When the recipe was last used\n• The importance of good cooking\n\nBefore you start writing, decide on the order of the points. Use a suitable greeting and complimentary closing. Start your letter with a few opening sentences and end the letter politely with one or two closing sentences.\n\nPlease write at least 150 words.",
+        "context": "Favourite Recipes Contest\nWin a Place on a Cookery Course with our Three-Star Chef - Anna Capelli\n\nDo you have a special recipe? One that you've come up with or a traditional recipe that has been in your family for generations?\n\nWe don't just want the recipe; we want to publish an accompanying letter with the whole story behind the dish.\n\nClick on Submit to upload your recipe and accompanying letter by the end of the month.\nWe will select the five best recipes and our chefs will cook the meals. The lucky winner will join Anna Capelli on our exclusive cookery course.\n\nJane Denny and team",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a letter to go with your recipe submission.",
+        "bullets": [
+          "Background information on the dish",
+          "What makes your recipe so special",
+          "When the recipe was last used",
+          "The importance of good cooking"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m1-t2",
+        "taskType": 2,
+        "title": "Task 2: Letter",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Please write at least 250 words.",
+        "context": "Your friend Rick doesn’t want to do anything special for his 18th birthday. Write to Rick to say why you think celebrating is important and give him some ideas as to how he could celebrate.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Your friend Rick doesn’t want to do anything special for his 18th birthday. Write to Rick to say why you think celebrating is important and give him some ideas as to how he could celebrate.",
+        "bullets": [
+          "Please write at least 80 words."
+        ],
+        "type": "letter"
       }
     ]
   }

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { CheckCircle, XCircle } from 'lucide-react';
 import './GapFillBlock.css';
 
@@ -22,7 +22,15 @@ import './GapFillBlock.css';
  * }
  */
 
-const GapFillBlock = ({ data, onUpdate, isReviewMode = false, showPassage = true }) => {
+const GapFillBlock = ({ 
+  data, 
+  userAnswers = {}, 
+  onUpdate, 
+  isReviewMode = false, 
+  showPassage = true,
+  activeGap: controlledActiveGap,
+  onActiveGapChange 
+}) => {
   const {
     title = 'Fill in the Blanks',
     instruction,
@@ -32,8 +40,39 @@ const GapFillBlock = ({ data, onUpdate, isReviewMode = false, showPassage = true
     xpReward = 50
   } = data;
 
-  // Track user's selections: { gapIndex: selectedWord }
-  const [selections, setSelections] = useState({});
+  // Track user's selections: { gapIndex: selectedWord } - initialize from userAnswers if provided
+  const [selections, setSelections] = useState(() => {
+    // Convert userAnswers object to selections format if needed
+    if (userAnswers && Object.keys(userAnswers).length > 0) {
+      return userAnswers;
+    }
+    return {};
+  });
+
+  // Controlled/uncontrolled active gap state
+  const [internalActiveGap, setInternalActiveGap] = useState(null);
+  const isControlled = controlledActiveGap !== undefined;
+  const activeGap = isControlled ? controlledActiveGap : internalActiveGap;
+  const setActiveGap = (value) => {
+    if (isControlled) {
+      onActiveGapChange?.(value);
+    } else {
+      setInternalActiveGap(value);
+    }
+  };
+
+   // Sync selections when userAnswers changes from parent (e.g., restoring saved progress)
+   useEffect(() => {
+     if (userAnswers && Object.keys(userAnswers).length > 0) {
+       setSelections(prev => {
+         // Only update if different to avoid unnecessary re-renders
+         const needsUpdate = Object.keys(userAnswers).some(
+           key => userAnswers[key] !== prev[key]
+         );
+         return needsUpdate ? userAnswers : prev;
+       });
+     }
+   }, [userAnswers]);
 
   // Ensure passage is a string before using split
   const passageString = typeof passage === 'string' ? passage : '';
@@ -48,38 +87,66 @@ const GapFillBlock = ({ data, onUpdate, isReviewMode = false, showPassage = true
 
   const parts = passageString.split(/____\((\d+)\)____/g);
 
-  // Handle token selection - fills first empty gap
+  // Get the list of gap indices from the parsed passage
+  const getGapIndices = () => {
+    const indices = [];
+    const regex = /____\((\d+)\)____/g;
+    let match;
+    while ((match = regex.exec(passageString)) !== null) {
+      indices.push(parseInt(match[1]));
+    }
+    return indices;
+  };
+
+
+
+  // Handle token selection - fills the ACTIVE gap only (user must click gap first to select it)
   const handleTokenSelect = (token) => {
     if (isReviewMode) return;
+
+    // MUST have an active gap selected - token does nothing if no gap is active
+    if (!activeGap) return;
+
+    const newSelections = { ...selections, [activeGap]: token };
+    setSelections(newSelections);
+    if (onUpdate) onUpdate(newSelections);
+  };
+
+  // Handle gap click to toggle selection and set active gap
+  const handleGapClick = (gapIndex) => {
+    console.log('GapFillBlock: handleGapClick called with gapIndex:', gapIndex);
+    console.log('GapFillBlock: current activeGap:', activeGap);
+    console.log('GapFillBlock: current selections:', selections);
+    console.log('GapFillBlock: isReviewMode:', isReviewMode);
     
-    // Find first empty gap
-    for (let i = 1; i <= answers.length; i++) {
-      if (!selections[i]) {
-        const newSelections = {
-          ...selections,
-          [i]: token
-        };
+    if (isReviewMode) {
+      console.log('GapFillBlock: In review mode, ignoring click');
+      return;
+    }
+    
+    // If clicking the already active gap
+    if (activeGap === gapIndex) {
+      console.log('GapFillBlock: Clicking same active gap');
+      // If gap has content, clear it but keep active
+      if (selections[gapIndex]) {
+        console.log('GapFillBlock: Clearing selection for gap', gapIndex);
+        const newSelections = { ...selections };
+        delete newSelections[gapIndex];
         setSelections(newSelections);
-        // Sync with parent if onUpdate is provided
         if (onUpdate) {
           onUpdate(newSelections);
         }
-        return;
+      } else {
+        // Empty and active: deselect
+        console.log('GapFillBlock: Deselecting gap (was empty and active)');
+        setActiveGap(null);
       }
+      return;
     }
-  };
-
-  // Handle gap click to clear selection
-  const handleGapClick = (gapIndex) => {
-    if (isReviewMode) return;
     
-    const newSelections = { ...selections };
-    delete newSelections[gapIndex];
-    setSelections(newSelections);
-    // Sync with parent if onUpdate is provided
-    if (onUpdate) {
-      onUpdate(newSelections);
-    }
+    // Different gap clicked: set as active
+    console.log('GapFillBlock: Setting new active gap:', gapIndex);
+    setActiveGap(gapIndex);
   };
 
   // Shuffle tokens for display (only once on mount)
@@ -123,10 +190,12 @@ const GapFillBlock = ({ data, onUpdate, isReviewMode = false, showPassage = true
 
   // Determine gap styling based on state
   const getGapStyle = (gapIndex) => {
+    const isActive = activeGap === gapIndex;
     const userAnswer = selections[gapIndex];
     const correctAnswer = answers[gapIndex - 1];
     
     if (!isReviewMode) {
+      if (isActive) return 'active';
       return userAnswer ? 'filled' : 'empty';
     }
     
@@ -162,6 +231,8 @@ const GapFillBlock = ({ data, onUpdate, isReviewMode = false, showPassage = true
           const gapStyle = getGapStyle(gapIndex);
           const userAnswer = selections[gapIndex];
           
+          console.log(`GapFillBlock: Rendering gap index ${gapIndex}, style: ${gapStyle}, hasAnswer: ${!!userAnswer}, isActive: ${activeGap === gapIndex}`);
+          
           return (
             <span
               key={index}
@@ -182,7 +253,7 @@ const GapFillBlock = ({ data, onUpdate, isReviewMode = false, showPassage = true
           {displayTokens.map((token, idx) => {
             // Check if token is already used
             const isUsed = Object.values(selections).includes(token);
-            
+
             return (
               <button
                 key={idx}

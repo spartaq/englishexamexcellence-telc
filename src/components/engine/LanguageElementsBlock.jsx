@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import QuestionCarousel from './QuestionCarousel';
 import SplitPane from './SplitPane';
 import QuestionDispatcher from './QuestionDispatcher';
 import { flattenQuestions } from '../../utils/questionFlattener';
 import './LanguageElementsBlock.css';
 import './engine.css';
+import './InteractiveBlocks/SentenceCompleteBlock.css';
 
 const LanguageElementsBlock = ({
   data,
@@ -31,16 +32,15 @@ const LanguageElementsBlock = ({
   const localIndex = currentGlobalSection ? lePartIds.indexOf(currentGlobalSection.id) : 0;
   const currentPart = sections[localIndex] || sections[0] || {};
 
-  // Wrap onUpdate for both object and key-value formats
-  const handleLeUpdate = (updates) => {
-    if (typeof updates === 'object' && !Array.isArray(updates)) {
-      Object.entries(updates).forEach(([key, val]) => {
-        onUpdate(key, val);
-      });
-    } else {
-      onUpdate(updates);
-    }
-  };
+ const handleLeUpdate = (key, val) => {
+  if (typeof key === 'object' && !Array.isArray(key)) {
+    Object.entries(key).forEach(([k, v]) => {
+      onUpdate(k, v);
+    });
+  } else {
+    onUpdate(key, val);  // Now correctly passes both parameters
+  }
+};
 
   // Content resolution (full mock uses passages[0], atoms use direct)
   const currentPassage = currentPart?.passages?.[0] || currentPart || {};
@@ -49,27 +49,45 @@ const LanguageElementsBlock = ({
   const subtitle = currentPassage?.subtitle || data?.subtitle;
   const subTasks = currentPassage?.subTasks || currentPart?.subTasks || [];
 
-  // Gap-fill tokens
-  const isGapFillTokens = subTasks[0]?.type === 'gap-fill-tokens';
-  const renderInteractiveGaps = (text) => {
-    if (!text || !isGapFillTokens) return <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: text }} />;
-    const parts = text.split(/____\((\d+)\)____/g);
-    return (
-      <div className="invictus-passage-text">
-        {parts.map((part, idx) => {
-          if (idx % 2 === 0) return <span key={idx} dangerouslySetInnerHTML={{ __html: part }} />;
-          const gapNum = parseInt(part);
-          const answerKey = gapNum <= 30 ? gapNum : gapNum - 30;
-          const selectedToken = userAnswers?.[answerKey] || userAnswers?.[String(answerKey)];
-          return (
-            <span key={idx} className={`interactive-gap ${selectedToken ? 'filled' : 'empty'}`}>
-              {selectedToken || '____'}
-            </span>
-          );
-        })}
-      </div>
-    );
-  };
+   // Gap-fill tokens
+   const isGapFillTokens = subTasks[0]?.type === 'gap-fill-tokens';
+   const [activeGap, setActiveGap] = React.useState(null);
+   const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
+   
+   const renderInteractiveGaps = (text) => {
+     if (!text || !isGapFillTokens) return <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: text }} />;
+     const parts = text.split(/____\((\d+)\)____/g);
+     return (
+       <div className="invictus-passage-text">
+         {parts.map((part, idx) => {
+           if (idx % 2 === 0) return <span key={idx} dangerouslySetInnerHTML={{ __html: part }} />;
+           const gapNum = parseInt(part);
+           const selectedToken = userAnswers?.[gapNum] || userAnswers?.[String(gapNum)];
+           const isActive = activeGap === gapNum; // compare using raw gap number
+           return (
+             <span
+               key={idx}
+               className={`interactive-gap ${selectedToken ? 'filled' : 'empty'} ${isActive ? 'active' : ''}`}
+               onClick={() => {
+                 if (isReviewMode) return;
+                 if (isActive) {
+                   if (selectedToken) {
+                     handleLeUpdate(gapNum, '');
+                   } else {
+                     setActiveGap(null);
+                   }
+                 } else {
+                   setActiveGap(gapNum);
+                 }
+               }}
+             >
+               {selectedToken || '____'}
+             </span>
+           );
+         })}
+       </div>
+     );
+   };
 
   // Flatten questions
   const flatQuestions = flattenQuestions(subTasks);
@@ -99,6 +117,30 @@ const LanguageElementsBlock = ({
     const ids = extractIds(flatQuestions).sort((a, b) => a - b);
     return ids.length ? `Questions ${ids[0]}${ids.length > 1 ? `-${ids[ids.length-1]}` : ''}` : 'Questions';
   };
+
+  // Reset active gap when question index changes (carousel navigation)
+  const handleQuestionIndexChange = (newIndex) => {
+    if (newIndex !== currentQuestionIndex) {
+      setActiveGap(null);
+      setCurrentQuestionIndex(newIndex);
+    }
+    if (onQuestionIndexChange) {
+      onQuestionIndexChange(newIndex);
+    }
+  };
+
+  // Memoize renderQuestion to prevent unnecessary re-renders
+  const renderQuestion = useCallback((q) => (
+    <QuestionDispatcher
+      data={q}
+      userAnswers={userAnswers}
+      onUpdate={handleLeUpdate}
+      isReviewMode={isReviewMode}
+      passageContent={content}
+      activeGap={activeGap}
+      onActiveGapChange={setActiveGap}
+    />
+  ), [userAnswers, handleLeUpdate, isReviewMode, content, activeGap, setActiveGap]);
 
   return (
     <div className="invictus-language-elements-layout language-elements-wrapper">
@@ -136,19 +178,11 @@ const LanguageElementsBlock = ({
             {flatQuestions.length > 0 ? (
               useCarousel ? (
                 <QuestionCarousel
-                  key={flatQuestions.map(q => q.id).join('-')}
+                  key="gap-fill-carousel"
                   questions={flatQuestions}
-                  renderQuestion={(q) => (
-                    <QuestionDispatcher
-                      data={q}
-                      userAnswers={userAnswers}
-                      onUpdate={handleLeUpdate}
-                      isReviewMode={isReviewMode}
-                      passageContent={content}
-                    />
-                  )}
+                  renderQuestion={renderQuestion}
                   showInstruction={true}
-                  onIndexChange={onQuestionIndexChange}
+                  onIndexChange={handleQuestionIndexChange}
                   hasNextPassage={navigationProps?.hasNextPassage}
                   hasNextSection={navigationProps?.hasNextSection}
                   onNextPart={navigationProps?.onNextPart}
@@ -165,20 +199,22 @@ const LanguageElementsBlock = ({
                   sectionParts={sections}                 // only LE parts for tab rendering
                   showPartsTabs={sections.length > 1}
                 />
-              ) : (
-                <div className="invictus-static-list">
-                  {flatQuestions.map((q, idx) => (
-                    <QuestionDispatcher
-                      key={q.id || idx}
-                      data={q}
-                      userAnswers={userAnswers}
-                      onUpdate={handleLeUpdate}
-                      isReviewMode={isReviewMode}
-                      passageContent={content}
-                    />
-                  ))}
-                </div>
-              )
+               ) : (
+                 <div className="invictus-static-list">
+                   {flatQuestions.map((q, idx) => (
+                     <QuestionDispatcher
+                       key={q.id || idx}
+                       data={q}
+                       userAnswers={userAnswers}
+                       onUpdate={handleLeUpdate}
+                       isReviewMode={isReviewMode}
+                       passageContent={content}
+                       activeGap={activeGap}
+                       onActiveGapChange={setActiveGap}
+                     />
+                   ))}
+                 </div>
+               )
             ) : (
               <div className="no-questions-message">
                 <p>No questions available for this section.</p>

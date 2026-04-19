@@ -627,15 +627,61 @@ COMMON PATTERNS ACROSS ALL BLOCKS
    - Inline styles for dynamic state-based styling
    - Consistent color palette (green=#10b981, red=#ef4444, indigo=var(--lab-indigo))
 
-6. WORD LIMIT PATTERN:
-   - countWords() function for validation
-   - Real-time counter display
-   - Visual warning when over limit
-   - Hyphenated words count as one
+ 6. WORD LIMIT PATTERN:
+    - countWords() function for validation
+    - Real-time counter display
+    - Visual warning when over limit
+    - Hyphenated words count as one
 
-================================================================================
-DATA STRUCTURE TEMPLATES
-================================================================================
+ ================================================================================
+ GAP-FILL EXERCISE IMPLEMENTATION
+ ================================================================================
+
+ GapFillBlock - Token-Based Gap Fill Exercise
+ ==============================================
+
+ OVERVIEW:
+ - Displays a passage with numbered gaps (____(1)____, ____(2)____, etc.)
+ - Shows a bank of tokens (words/options) below the passage
+ - User must click a gap to activate it, then click a token to fill it
+ - Supports both standalone and integrated layouts (e.g., in LanguageElementsBlock)
+
+ COMPONENT INTERACTION:
+ - GapFillBlock: Handles token selection and gap filling logic
+ - LanguageElementsBlock: Renders clickable gaps in the passage (for integrated layouts)
+ - QuestionDispatcher: Routes 'gap-fill-tokens' to GapFillBlock with showPassage=false
+
+ STATE MANAGEMENT:
+ - activeGap: Tracks which gap is currently selected (controlled by parent when integrated)
+ - selections: Object mapping gap indices to selected tokens ({1: 'word', 2: 'another'})
+ - userAnswers: Prop for external state persistence, synced with selections
+
+ USER FLOW:
+ 1. User clicks a gap in the passage → gap becomes active (visual highlight)
+ 2. User clicks a token → token fills the active gap, token becomes disabled
+ 3. Clicking an active filled gap clears it (allows re-selection)
+ 4. Clicking an active empty gap deactivates it
+
+ INTEGRATION WITH LANGUAGE ELEMENTS:
+ - In LanguageElementsBlock, gaps are rendered as interactive spans in the left pane
+ - activeGap state is shared between left pane (gaps) and right pane (GapFillBlock token bank)
+ - Clicking a gap in left pane sets activeGap, allowing token selection in right pane
+ - Prevents passage duplication by setting showPassage=false in GapFillBlock
+
+ EDGE CASES HANDLED:
+ - Review mode: Gaps show correct/incorrect styling, no interaction
+ - Token reuse: Tokens can only be used once per exercise
+ - State sync: userAnswers prop updates selections when external changes occur
+ - Gap clearing: Double-click active gap or use clear action to remove token
+
+ STYLING:
+ - Gaps: .interactive-gap with states (empty, filled, active, correct, incorrect)
+ - Tokens: .token-button with disabled state when used
+ - CSS imported from SentenceCompleteBlock.css for consistent gap appearance
+
+ ================================================================================
+ DATA STRUCTURE TEMPLATES
+ ================================================================================
 
 GapFillBlock:
 {

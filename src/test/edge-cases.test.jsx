@@ -72,22 +72,27 @@ describe('GapFillBlock Edge Cases', () => {
     expect(gaps.length).toBe(2)
   })
 
-  it('renders tokens and allows selection', async () => {
-    const onUpdate = vi.fn()
-    const data = {
-      id: '1',
-      type: 'gap-fill-tokens',
-      passage: 'Fill the ____(1)____ gap',
-      tokens: ['word1', 'word2'],
-      answers: ['word1']
-    }
-    render(<GapFillBlock data={data} onUpdate={onUpdate} />)
-    
-    const tokenBtn = screen.getByRole('button', { name: 'word1' })
-    await act(async () => { tokenBtn.click() })
-    
-    expect(onUpdate).toHaveBeenCalledWith({ 1: 'word1' })
-  })
+   it('renders tokens and allows selection via gap-token interaction', async () => {
+     const onUpdate = vi.fn()
+     const data = {
+       id: '1',
+       type: 'gap-fill-tokens',
+       passage: 'Fill the ____(1)____ gap',
+       tokens: ['word1', 'word2'],
+       answers: ['word1']
+     }
+     render(<GapFillBlock data={data} onUpdate={onUpdate} />)
+     
+     // First, click the gap to activate it
+     const gap = document.querySelector('.gap-line')
+     await act(async () => { gap.click() })
+     
+     // Then click the token to fill the active gap
+     const tokenBtn = screen.getByRole('button', { name: 'word1' })
+     await act(async () => { tokenBtn.click() })
+     
+     expect(onUpdate).toHaveBeenCalledWith({ 1: 'word1' })
+   })
 })
 
 describe('ListeningBlock Practice Atom Normalization', () => {

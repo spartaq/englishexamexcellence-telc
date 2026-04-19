@@ -167,7 +167,7 @@ const MCQBlock = ({
                   ? (Array.isArray(qAnswer) && qAnswer.includes(idx))
                   : qAnswer === idx || qAnswer === option;
                 
-                let optionClasses = 'option-button';
+                let optionClasses = 'mcq-option';
                 if (isSelectedForQ) {
                   optionClasses += ' selected';
                   if (isMultiSelect) optionClasses += ' multiselect';

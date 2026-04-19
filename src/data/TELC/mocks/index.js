@@ -2,11 +2,11 @@
 // All mock tests are stored as JSON files
 // This index provides access to all mocks for the application
 
-import telcB1Mock1 from './telc-b1-mock-1.json';
-import telcB2Mock1 from './telc-b2-mock-1.json';
-import telcB2Mock2 from './telc-b2-mock-2.json';
-import telcC1Mock1 from './telc-c1-mock-1.json';
-import telcC1Mock2 from './telc-c1-mock-2.json';
+import telcB1Mock1 from './b1/telc-b1-mock-1.json';
+import telcB2Mock1 from './b2/telc-b2-mock-1.json';
+import telcB2Mock2 from './b2/telc-b2-mock-2.json';
+import telcC1Mock1 from './c1/telc-c1-mock-1.json';
+import telcC1Mock2 from './c1/telc-c1-mock-2.json';
 
 // All mocks combined
 const allMocks = [

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, XCircle } from 'lucide-react';
 import './SentenceCompleteBlock.css';
@@ -76,8 +76,25 @@ const SentenceCompleteBlock = ({
   }
 
   // Legacy: Old format with content and word bank
-  const [selections, setSelections] = useState({});
+  const [selections, setSelections] = useState(() => {
+    if (userAnswers && Object.keys(userAnswers).length > 0) {
+      return userAnswers;
+    }
+    return {};
+  });
   const [activeGap, setActiveGap] = useState(null);
+
+  // Sync selections when userAnswers changes from parent (e.g., restoring saved progress)
+  useEffect(() => {
+    if (userAnswers && Object.keys(userAnswers).length > 0) {
+      setSelections(prev => {
+        const needsUpdate = Object.keys(userAnswers).some(
+          key => userAnswers[key] !== prev[key]
+        );
+        return needsUpdate ? userAnswers : prev;
+      });
+    }
+  }, [userAnswers]);
 
   // Find all gap markers and their positions
   const gapMarkerRegex = /__+\((\d+)\)__+/g;

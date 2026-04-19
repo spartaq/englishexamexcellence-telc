@@ -10,6 +10,21 @@
   height: 100%;
 }
 
+/* Interactive gap styles - ensure clickability */
+.invictus-passage-text {
+  user-select: none;
+}
+
+.invictus-passage-text span {
+  user-select: none;
+}
+
+.invictus-passage-text .interactive-gap {
+  user-select: none;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
 .language-elements-wrapper {
   overflow: hidden;
 }
