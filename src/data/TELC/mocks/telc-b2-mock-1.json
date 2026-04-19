@@ -914,7 +914,7 @@
         "taskType": 2,
         "title": "Task 2: Letter",
         "subtitle": "Part 2: Writing",
-        "instruction": "Please write at least 80 words.",
+        "instruction": "Please write at least 250 words.",
         "context": "Your friend Rick doesn’t want to do anything special for his 18th birthday. Write to Rick to say why you think celebrating is important and give him some ideas as to how he could celebrate.",
         "targetWords": 250,
         "xp": 500,

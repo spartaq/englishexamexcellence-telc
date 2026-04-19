@@ -201,7 +201,7 @@
                   },
                   {
                     "id": "3",
-                    "text": "Paragraph 4",
+                    "text": "Paragraph 3",
                     "answer": 0
                   },
                   {
@@ -393,7 +393,7 @@
             "subTasks": [
               {
                 "type": "matching-info",
-                "instruction": "Which paragraph (A-H) contains the following information?",
+                "instruction": "Which paragraph (A-L) contains the following information?",
                 "questions": [
                   {
                     "id": 11,
@@ -605,7 +605,7 @@
         "taskType": 2,
         "title": "Task 2: Letter",
         "subtitle": "Part 2: Writing",
-        "instruction": "Please write at least 80 words.",
+        "instruction": "Please write at least 250 words.",
         "context": "Your friend Rick doesn’t want to do anything special for his 18th birthday. Write to Rick to say why you think celebrating is important and give him some ideas as to how he could celebrate.",
         "targetWords": 250,
         "xp": 500,
@@ -729,7 +729,7 @@
   "listening": {
     "title": "Listening",
     "time": 30,
-    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 4 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
     "sections": [
       {
         "id": "part1",

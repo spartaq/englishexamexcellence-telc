@@ -70,8 +70,10 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
     console.log('[Engine] activeLesson:', activeLesson?.id, 'activeSectionIndex:', activeSectionIndex);
     console.log('[Engine] currentSection:', currentSection?.id, currentSection?.title);
     console.log('[Engine] skill:', skill, 'lessonType:', lessonType, 'currentSection.type:', currentSection?.type);
-    console.log('activeLesson.sections:', activeLesson?.sections?.map(s => s.skill));
-console.log('availableSections:', availableSections?.map(s => s.skill));
+    if (process.env.NODE_ENV === 'development') {
+      console.log('activeLesson.sections:', activeLesson?.sections?.map(s => s.skill));
+      console.log('availableSections:', availableSections?.map(s => s.skill));
+    }
     
     // A. READING LAYOUT (IELTS / TOEFL / Reading Drills / Full Mocks reading sections)
     const isFullMockReading = lessonType === 'full-mock' && currentSection?.skill === 'reading';
@@ -99,38 +101,38 @@ console.log('availableSections:', availableSections?.map(s => s.skill));
     }
 
     // E. LANGUAGE ELEMENTS (TELC B2 specific - similar to Reading, uses LanguageElementsBlock)
-const isFullMockLanguageElements = lessonType === 'full-mock' && currentSection?.skill === 'language-elements';
-if (lessonType === 'LANGUAGE_ELEMENTS' || (lessonType === 'mini-test-flow' && skill === 'language-elements') || skill === 'language-elements' || isFullMockLanguageElements) {
-  // Gather all LE parts from the global flattened array
-  const leParts = availableSections.filter(s => s.skill === 'language-elements');
-  // Fallback: wrap nested parts with skill field (for legacy/atom cases)
-  const finalLeParts = leParts.length > 0 ? leParts : (
-    (currentSection?.sections || currentSection?.passages || []).map(part => ({
-      ...part,
-      skill: 'language-elements'
-    }))
-  );
-  
-  return (
-    <LanguageElementsBlock 
-      data={currentSection}
-      userAnswers={userAnswers}
-      onUpdate={onUpdateAnswers}
-      onCheckAnswers={onCheckAnswers}
-      isReviewMode={isReviewMode}
-      showCheckAnswers={showCheckAnswers}
-      sections={finalLeParts}
-      activeSkillTab={activeSkillTab}
-      activeSectionIndex={activeSectionIndex}
-      setActiveSectionIndex={setActiveSectionIndex}
-      setActivePassageIndex={setActivePassageIndex}
-      setIsReviewMode={setIsReviewMode}
-      setActiveSkillTab={setActiveSkillTab}
-      availableSkills={availableSkills}
-      allSections={availableSections}
-    />
-  );
-}
+    const isFullMockLanguageElements = lessonType === 'full-mock' && currentSection?.skill === 'language-elements';
+    if (lessonType === 'LANGUAGE_ELEMENTS' || (lessonType === 'mini-test-flow' && skill === 'language-elements') || skill === 'language-elements' || isFullMockLanguageElements) {
+      // Gather all LE parts from the global flattened array
+      const leParts = availableSections.filter(s => s.skill === 'language-elements');
+      // Fallback: wrap nested parts with skill field (for legacy/atom cases)
+      const finalLeParts = leParts.length > 0 ? leParts : (
+        (currentSection?.sections || currentSection?.passages || []).map(part => ({
+          ...part,
+          skill: 'language-elements'
+        }))
+      );
+      
+      return (
+        <LanguageElementsBlock 
+          data={currentSection}
+          userAnswers={userAnswers}
+          onUpdate={onUpdateAnswers}
+          onCheckAnswers={onCheckAnswers}
+          isReviewMode={isReviewMode}
+          showCheckAnswers={showCheckAnswers}
+          sections={finalLeParts}
+          activeSkillTab={activeSkillTab}
+          activeSectionIndex={activeSectionIndex}
+          setActiveSectionIndex={setActiveSectionIndex}
+          setActivePassageIndex={setActivePassageIndex}
+          setIsReviewMode={setIsReviewMode}
+          setActiveSkillTab={setActiveSkillTab}
+          availableSkills={availableSkills}
+          allSections={availableSections}
+        />
+      );
+    }
 
     // B. LISTENING LAYOUT (including full-mock listening sections)
     const isFullMockListening = lessonType === 'full-mock' && currentSection?.skill === 'listening';

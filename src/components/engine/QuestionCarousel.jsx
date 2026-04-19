@@ -18,7 +18,6 @@ const QuestionCarousel = ({
   sectionParts = [],
   activeSkillTab = 0,
   activeSectionIndex = 0,
-  activePartIndex = 0,
   setActiveSectionIndex,
   setActivePassageIndex,
   setActiveSkillTab,
@@ -60,8 +59,6 @@ const QuestionCarousel = ({
   const shouldShowPartsTabs = showPartsTabs || skillSections.length > 1 || questions.length > 1;
   const useSectionParts = sectionParts && sectionParts.length > 0;
   const partsToShow = useSectionParts ? sectionParts : (shouldShowPartsTabs ? (skillSections.length > 0 ? skillSections : sections) : []);
-
-  const totalSkills = availableSkills?.length || 0;
 
   const handlePrevArrow = () => {
     if (!setActiveSectionIndex || sections.length === 0) return;
@@ -156,9 +153,15 @@ if (newSkill && setActiveSkillTab) {
 
               {partsToShow.map((part, idx) => {
   // Find global index in full sections array for active state comparison and navigation
-  const globalIdxForPart = part.id
-  ? sections.findIndex(s => s.id === part.id && s.skill === part.skill)
-  : sections.findIndex(s => s.title === part.title && s.type === part.type && s.skill === part.skill);
+  let globalIdxForPart = -1;
+  if (part.id) {
+    globalIdxForPart = sections.findIndex(s => s.id === part.id && s.skill === part.skill);
+    if (globalIdxForPart === -1) {
+      globalIdxForPart = sections.findIndex(s => s.title === part.title && s.type === part.type && s.skill === part.skill);
+    }
+  } else {
+    globalIdxForPart = sections.findIndex(s => s.title === part.title && s.type === part.type && s.skill === part.skill);
+  }
   // Check if this part matches the currently active section
   const isActive = globalIdxForPart === activeSectionIndex;
   
@@ -198,7 +201,7 @@ if (newSkill && setActiveSkillTab) {
           
           {onCheckAnswers && (
             <button
-              onClick={() => { console.log('[QuestionCarousel] Check Answers button clicked'); onCheckAnswers(); }}
+              onClick={() => onCheckAnswers()}
               aria-label={isReviewMode ? "Hide Answers" : "Check Answers"}
               className="carousel-check-btn"
             >

@@ -47,7 +47,8 @@ const ReadingBlock = ({
 
   // 3. Calculate navigation
   const hasNextSection = activeSectionIndex < readingSections.length - 1;
-  const hasNextPassage = activeSectionIndex < (data?.passages?.length - 1);
+  const passageLength = data?.passages?.length ?? 0;
+  const hasNextPassage = activeSectionIndex < passageLength - 1;
 
 // 3. Helper to calculate question range (e.g. "Questions 1-5")
   const getQuestionRange = () => {

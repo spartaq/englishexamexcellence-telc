@@ -1,1 +1,1 @@
-export default <p>This would be where they get the topic to speak about and they write ideas on lines in</p>;
+export default <p>This would be where they get the topic to speak about and they write ideas on lines.</p>;

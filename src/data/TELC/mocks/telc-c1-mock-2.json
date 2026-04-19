@@ -150,7 +150,7 @@
             "subTasks": [
               {
                 "type": "sentence-insert",
-                "instruction": "Which of the sentences a–h is missing in each gap? There is only one correct answer for each item. Two sentences do not fit into any of the gaps.",
+                "instruction": "Which of the sentences a–g is missing in each gap? There is only one correct answer for each item. One sentence does not fit into any of the gaps.",
                 "options": [
                   { "id": "a", "text": "While some worry about the implications, others see it as an inevitable evolution." },
                   { "id": "b", "text": "Despite the promise of increased safety, experts warn that full autonomy remains years away." },
@@ -195,7 +195,7 @@
               },
               {
                 "id": "c",
-                "text": "The impact on mental health remains a subject of ongoing research. Some studies suggest that remote workers experience increased feelings of isolation and disconnection from their colleagues. The absence of spontaneous interactions that occur in physical offices—conversations by the coffee machine, casual hallway chats—appears to affect team cohesion and collaborative creativity. organisations report challenges in maintaining a cohesive corporate culture."
+                "text": "The impact on mental health remains a subject of ongoing research. Some studies suggest that remote workers experience increased feelings of isolation and disconnection from their colleagues. The absence of spontaneous interactions that occur in physical offices—conversations by the coffee machine, casual hallway chats—appears to affect team cohesion and collaborative creativity. Organisations report challenges in maintaining a cohesive corporate culture."
               },
               {
                 "id": "d",
