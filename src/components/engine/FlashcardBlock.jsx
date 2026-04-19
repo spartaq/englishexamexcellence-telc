@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useExamStore } from '../../store/useExamStore';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { VOCAB_HUB } from '../../data/vocabulary';
 import './FlashcardBlock.css';
 
@@ -45,7 +46,17 @@ const prioritizeWords = (words, progress) => {
 const FlashcardBlock = ({ 
   data, 
   onComplete,
-  onNavigateToMyWords
+  onNavigateToMyWords,
+  sections = [],
+  activeSkillTab = 0,
+  activeSectionIndex = 0,
+  setActiveSectionIndex,
+  setActivePassageIndex,
+  setIsReviewMode,
+  setActiveSkillTab,
+  totalSections,
+  availableSkills = [],
+  
  }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [flipStage, setFlipStage] = useState(0);
@@ -62,6 +73,56 @@ const FlashcardBlock = ({
   
   // Mobile menu state
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+const handlePrevArrow = () => {
+  let newSectionIndex;
+  
+  if (activeSectionIndex > 0) {
+    newSectionIndex = activeSectionIndex - 1;
+  } else if (sections.length > 1) {
+    newSectionIndex = sections.length - 1;
+  } else {
+    return;
+  }
+  
+  // Update activeSkillTab if skill changed
+  const newSection = sections[newSectionIndex];
+  const newSkill = newSection?.skill;
+  if (newSkill && setActiveSkillTab && availableSkills) {
+    const skillIndex = availableSkills.indexOf(newSkill);
+    if (skillIndex !== -1) setActiveSkillTab(skillIndex);
+  }
+  
+  if (setActiveSectionIndex) setActiveSectionIndex(newSectionIndex);
+  if (setActivePassageIndex) setActivePassageIndex(0);
+  if (setIsReviewMode) setIsReviewMode(false);
+  setCurrentIndex(0);
+};
+
+const handleNextArrow = () => {
+  let newSectionIndex;
+  
+  if (activeSectionIndex < sections.length - 1) {
+    newSectionIndex = activeSectionIndex + 1;
+  } else if (sections.length > 1) {
+    newSectionIndex = 0;
+  } else {
+    return;
+  }
+  
+  // Update activeSkillTab if skill changed
+  const newSection = sections[newSectionIndex];
+  const newSkill = newSection?.skill;
+  if (newSkill && setActiveSkillTab && availableSkills) {
+    const skillIndex = availableSkills.indexOf(newSkill);
+    if (skillIndex !== -1) setActiveSkillTab(skillIndex);
+  }
+  
+  if (setActiveSectionIndex) setActiveSectionIndex(newSectionIndex);
+  if (setActivePassageIndex) setActivePassageIndex(0);
+  if (setIsReviewMode) setIsReviewMode(false);
+  setCurrentIndex(0);
+};
 
   const SessionConfigForm = ({
     selectedLevel,
@@ -81,6 +142,14 @@ const FlashcardBlock = ({
     const sliderMin = Math.min(5, sliderMax);
     const safeSliderValue = Math.min(Math.max(wordCount, sliderMin), sliderMax);
     const isSliderDisabled = availableCount === 0;
+
+
+
+
+
+// Navigation arrows for full-mock
+const totalSections = availableSkills?.length || 0;
+const totalSkills = availableSkills?.length || 0;
 
     return (
       <>
@@ -501,11 +570,27 @@ const FlashcardBlock = ({
                 </button>
               </div>
 
+            
             </section>
+            
           </div>
+            {availableSkills?.length > 1 && (
+                <div className="carousel-nav-footer">
+                  <div className="carousel-nav-arrows">
+                    <button onClick={handlePrevArrow} className="carousel-nav-arrow">
+                      <ChevronLeft size={18} />
+                    </button>
+                    <button onClick={handleNextArrow} className="carousel-nav-arrow">
+                      <ChevronRight size={18} />
+                    </button>
+                  </div>
+                </div>
+              )}
         </div>
-      </main>
 
+
+
+      </main>
       
     </div>
   );

@@ -264,33 +264,31 @@ export const pluckRandom = (skill, level = null) => {
   }
   
 if (skill === 'language-elements') {
-    const allLanguageElements = jsonGetLanguageElements();
-    const elements = level ? allLanguageElements.filter(e => e.level === level) : allLanguageElements;
-    const randomElement = getRandomItem(elements);
-    
-    if (randomElement) {
-      // Return wrapped with sections array (like full-mock format)
-      // This matches how Engine passes leSections to LanguageElementsBlock
-      const result = {
-        ...randomElement,  // Spread LE part properties first
-        title: randomElement.title || 'Language Elements',
-        time: 90,
-        sections: [randomElement],  // The LE part becomes a section in the wrapper
-        skill: 'language-elements',
-        type: 'LANGUAGE_ELEMENTS',
-        xp: randomElement.xp || 150
-      };
-      return result;
-    }
-    
-    return {
-      id: 'language-elements-quick',
-      title: 'Quick Language Elements',
-      type: 'LANGUAGE_ELEMENTS',
+  const allLanguageElements = jsonGetLanguageElements();
+  const elements = level ? allLanguageElements.filter(e => e.level === level) : allLanguageElements;
+  const randomElement = getRandomItem(elements);
+
+  if (randomElement) {
+    const result = {
+      ...randomElement,
+      title: randomElement.title || 'Language Elements',
+      time: 90,
+      sections: [{ ...randomElement, skill: 'language-elements' }], // part as a section
       skill: 'language-elements',
-      xp: 100
+      type: 'LANGUAGE_ELEMENTS',
+      xp: randomElement.xp || 150
     };
+    return result;
   }
+
+  return {
+    id: 'language-elements-quick',
+    title: 'Quick Language Elements',
+    type: 'LANGUAGE_ELEMENTS',
+    skill: 'language-elements',
+    xp: 100
+  };
+}
   
   // Level-specific reading filters
   if (skill === 'reading_b1') {
@@ -598,7 +596,7 @@ export const pluckRandomFullMock = (level = null) => {
     return null;
   }
   
-  // Build sections from the new JSON structure
+// Build sections from the new JSON structure
   const sections = [];
   
   // Add reading sections (from mock.reading.sections)
@@ -615,14 +613,13 @@ export const pluckRandomFullMock = (level = null) => {
       }
     });
   }
-  
-  // Add writing sections (from mock.writing.sections)
-  if (mock.writing?.sections) {
-    mock.writing.sections.forEach(section => {
+  // Add language elements sections (flattened - each part is a section)
+  if (mock.languageElements?.sections) {
+    mock.languageElements.sections.forEach(part => {
       sections.push({
-        ...section,
-        skill: 'writing',
-        type: 'WRITING'
+        ...part,
+        skill: 'language-elements',
+        type: 'LANGUAGE_ELEMENTS'
       });
     });
   }
@@ -649,6 +646,17 @@ export const pluckRandomFullMock = (level = null) => {
     });
   }
   
+  // Add writing sections (from mock.writing.sections)
+  if (mock.writing?.sections) {
+    mock.writing.sections.forEach(section => {
+      sections.push({
+        ...section,
+        skill: 'writing',
+        type: 'WRITING'
+      });
+    });
+  }
+  
   // Add vocabulary
   if (mock.vocabulary) {
     sections.unshift({
@@ -658,8 +666,16 @@ export const pluckRandomFullMock = (level = null) => {
     });
   }
   
-  // Combine into a full mock test - return the RAW mock, not built object
-  return mock;
+ // Return a lesson-like object with flattened sections
+  return {
+    id: `mock-${level}-${Date.now()}`,
+    title: mock.title,
+    type: 'full-mock',
+    testType: level,
+    mockNumber: mock.mockNumber,
+    xp: 2000,
+    sections: sections
+  };
 };
 
 /**
@@ -685,7 +701,7 @@ export const pluckFullMock1 = (level = null) => {
     return null;
   }
   
-  // Build sections from the new JSON structure
+// Build sections from the new JSON structure
   const sections = [];
   
   // Add reading sections (from mock.reading.sections)
@@ -702,7 +718,18 @@ export const pluckFullMock1 = (level = null) => {
       }
     });
   }
- 
+
+// Add language elements sections (flattened)
+if (mock.languageElements?.sections) {
+  mock.languageElements.sections.forEach(part => {
+    sections.push({
+      ...part,
+      skill: 'language-elements',
+      type: 'LANGUAGE_ELEMENTS'
+    });
+  });
+}
+  
   // Add writing sections (from mock.writing.sections)
   if (mock.writing?.sections) {
     mock.writing.sections.forEach(section => {

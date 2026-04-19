@@ -27,6 +27,9 @@ const ReadingBlock = ({
   // Full sections for cross-skill nav
   allSections = []
 }) => {
+  // Get reading sections for tabs - filter all sections by reading skill
+  const readingSections = sections.filter(s => s.skill === 'reading');
+  
   // 1. Extract Passage Content
   const content = data?.content || data?.passage;
   const title = data?.title;
@@ -42,9 +45,8 @@ const ReadingBlock = ({
   // Always use carousel to ensure parts tabs are shown (consistent with Listening/Writing)
   const useCarousel = true;
 
-  // 3. Calculate navigation - is there a next section/skill?
-  const currentSectionIdx = allSections.findIndex(s => s.skill === data?.skill);
-  const hasNextSection = currentSectionIdx >= 0 && currentSectionIdx < allSections.length - 1;
+  // 3. Calculate navigation
+  const hasNextSection = activeSectionIndex < readingSections.length - 1;
   const hasNextPassage = activeSectionIndex < (data?.passages?.length - 1);
 
 // 3. Helper to calculate question range (e.g. "Questions 1-5")
@@ -137,6 +139,7 @@ const ReadingBlock = ({
                     onCheckAnswers={onCheckAnswers}
                     isReviewMode={isReviewMode}
                     sections={sections}
+                    showPartsTabs={readingSections.length > 1}
                     activeSkillTab={activeSkillTab}
                     activeSectionIndex={activeSectionIndex}
                     setActiveSectionIndex={setActiveSectionIndex}

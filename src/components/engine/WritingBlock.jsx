@@ -217,6 +217,7 @@ const WritingBlock = ({
             setActiveSectionIndex={setActiveSectionIndex}
             setActivePassageIndex={setActivePassageIndex}
             setIsReviewMode={setIsReviewMode}
+            setActiveSkillTab={setActiveSkillTab}
             availableSkills={availableSkills}
             allSections={allSections}
           />

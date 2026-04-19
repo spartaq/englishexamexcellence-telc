@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Mic, Headset, PenTool, Zap } from 'lucide-react';
+import { BookOpen, Mic, Headset, PenTool, Zap, FileText } from 'lucide-react';
 
 /**
  * LessonHeaderTabs Component
@@ -45,7 +45,7 @@ const LessonHeaderTabs = ({
               if (setActivePassageIndex) setActivePassageIndex(0); 
               setIsReviewMode(false); 
             }} 
-            className={`header-tab ${activeSkillTab === idx ? 'active' : ''}`}
+            className={`header-tab ${sections[activeSectionIndex]?.skill === skill ? 'active' : ''}`}
           >
             {skill === 'vocab' ? (
               <><Zap size={14} /></>
@@ -58,7 +58,7 @@ const LessonHeaderTabs = ({
             ) : skill === 'speaking' ? (
               <><Mic size={14} /></>
             ) : skill === 'language-elements' ? (
-              <><PenTool size={14} /></>
+              <><FileText size={14} /></>
             ) : (
               skill
             )}
@@ -80,7 +80,7 @@ const LessonHeaderTabs = ({
               if (setActivePassageIndex) setActivePassageIndex(0); 
               setIsReviewMode(false); 
             }} 
-            className={`header-tab ${activeSectionIndex === idx ? 'active' : ''}`}
+           className={`header-tab ${sections[activeSectionIndex]?.skill === skill ? 'active' : ''}`}
           >
             {s.skill === 'vocab' ? (
               <><Zap size={14} /> Vocab</>
@@ -94,8 +94,6 @@ const LessonHeaderTabs = ({
               <><PenTool size={14} /></>
             ) : s.skill === 'speaking' ? (
               <><Mic size={14} /></>
-            ) : s.type === 'ielts-speaking' ? (
-              <><Mic size={14} /> Speaking</>
             ) : s.type === 'discussion' ? (
               <><Mic size={14} /> Part 3</>
             ) : s.type === 'interview' ? (
@@ -107,7 +105,7 @@ const LessonHeaderTabs = ({
             ) : s.type === 'WRITING' ? (
               <><PenTool size={14} /> Writing</>
             ) : s.type === 'LANGUAGE_ELEMENTS' ? (
-              <><PenTool size={14} /></>
+              <><FileText size={14} /></>
             ) : s.type === 'VOCAB' ? (
               <><Zap size={14} /> Vocab</>
             ) : (s.type && (s.type.includes('reading') || s.type === 'reading-practice' || s.type.includes('ielts'))) ? (

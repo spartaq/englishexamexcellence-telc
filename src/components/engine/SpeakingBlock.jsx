@@ -21,6 +21,7 @@ const SpeakingBlock = ({
   setActiveSectionIndex,
   setActivePassageIndex,
   setIsReviewMode,
+  setActiveSkillTab={setActiveSkillTab},
   availableSkills = []
 }) => {
 
@@ -328,11 +329,14 @@ const SpeakingBlock = ({
               onCheckAnswers={onCheckAnswers}
               isReviewMode={isReviewMode}
               sections={sections}
+              sectionParts={sections.filter(s => s.skill === 'speaking')}
+              showPartsTabs={sections.filter(s => s.skill === 'speaking').length > 1}
               activeSkillTab={activeSkillTab}
               activeSectionIndex={activeSectionIndex}
               setActiveSectionIndex={setActiveSectionIndex}
               setActivePassageIndex={setActivePassageIndex}
               setIsReviewMode={setIsReviewMode}
+              setActiveSkillTab={setActiveSkillTab}
               availableSkills={availableSkills}
               renderQuestion={(speakingData) => (
                 <div className="speaking-exercise-panel">

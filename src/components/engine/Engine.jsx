@@ -39,14 +39,23 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
   // DEBUG: Log section data structure
   console.log('[Engine] Sections array:', sections.length);
   if (sections.length > 0) {
+    const sec = sections[activeSectionIndex];
     console.log('[Engine] Section at index', activeSectionIndex, ':', {
-      keys: Object.keys(sections[activeSectionIndex] || {}),
-      hasSubTasks: !!sections[activeSectionIndex]?.subTasks,
-      subTasksCount: sections[activeSectionIndex]?.subTasks?.length,
-      hasSections: !!sections[activeSectionIndex]?.sections,
-      sectionsCount: sections[activeSectionIndex]?.sections?.length,
-      title: sections[activeSectionIndex]?.title
+      keys: Object.keys(sec || {}),
+      hasSubTasks: !!sec?.subTasks,
+      subTasksCount: sec?.subTasks?.length,
+      hasSections: !!sec?.sections,
+      sectionsCount: sec?.sections?.length,
+      title: sec?.title,
+      passagesCount: sec?.passages?.length
     });
+    if (sec?.skill === 'reading') {
+      console.log('[Engine] Reading section details:', { 
+        hasNestedSections: !!sec.sections, 
+        nestedSectionsCount: sec.sections?.length,
+        nestedPassages: sec.sections?.[0]?.passages?.length
+      });
+    }
   }
 
   // 2. Identify the Task Type
@@ -61,6 +70,8 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
     console.log('[Engine] activeLesson:', activeLesson?.id, 'activeSectionIndex:', activeSectionIndex);
     console.log('[Engine] currentSection:', currentSection?.id, currentSection?.title);
     console.log('[Engine] skill:', skill, 'lessonType:', lessonType, 'currentSection.type:', currentSection?.type);
+    console.log('activeLesson.sections:', activeLesson?.sections?.map(s => s.skill));
+console.log('availableSections:', availableSections?.map(s => s.skill));
     
     // A. READING LAYOUT (IELTS / TOEFL / Reading Drills / Full Mocks reading sections)
     const isFullMockReading = lessonType === 'full-mock' && currentSection?.skill === 'reading';
@@ -88,31 +99,38 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
     }
 
     // E. LANGUAGE ELEMENTS (TELC B2 specific - similar to Reading, uses LanguageElementsBlock)
-    const isFullMockLanguageElements = lessonType === 'full-mock' && currentSection?.skill === 'language-elements';
-    if (lessonType === 'LANGUAGE_ELEMENTS' || (lessonType === 'mini-test-flow' && skill === 'language-elements') || skill === 'language-elements' || isFullMockLanguageElements) {
-      // LE parts can be in currentSection.sections (full-mock) or currentSection.passages (practice atoms)
-      const leSections = currentSection?.sections || currentSection?.passages || [];
-      const leActiveSectionIndex = activeSectionIndex;
-      return (
-          <LanguageElementsBlock 
-            data={currentSection}
-            userAnswers={userAnswers}
-            onUpdate={onUpdateAnswers}
-            onCheckAnswers={onCheckAnswers}
-            isReviewMode={isReviewMode}
-            showCheckAnswers={showCheckAnswers}
-            sections={leSections}
-            activeSkillTab={activeSkillTab}
-            activeSectionIndex={leActiveSectionIndex}
-            setActiveSectionIndex={setActiveSectionIndex}
-            setActivePassageIndex={setActivePassageIndex}
-            setIsReviewMode={setIsReviewMode}
-            setActiveSkillTab={setActiveSkillTab}
-            availableSkills={availableSkills}
-            allSections={availableSections}
-          />
-      );
-    }
+const isFullMockLanguageElements = lessonType === 'full-mock' && currentSection?.skill === 'language-elements';
+if (lessonType === 'LANGUAGE_ELEMENTS' || (lessonType === 'mini-test-flow' && skill === 'language-elements') || skill === 'language-elements' || isFullMockLanguageElements) {
+  // Gather all LE parts from the global flattened array
+  const leParts = availableSections.filter(s => s.skill === 'language-elements');
+  // Fallback: wrap nested parts with skill field (for legacy/atom cases)
+  const finalLeParts = leParts.length > 0 ? leParts : (
+    (currentSection?.sections || currentSection?.passages || []).map(part => ({
+      ...part,
+      skill: 'language-elements'
+    }))
+  );
+  
+  return (
+    <LanguageElementsBlock 
+      data={currentSection}
+      userAnswers={userAnswers}
+      onUpdate={onUpdateAnswers}
+      onCheckAnswers={onCheckAnswers}
+      isReviewMode={isReviewMode}
+      showCheckAnswers={showCheckAnswers}
+      sections={finalLeParts}
+      activeSkillTab={activeSkillTab}
+      activeSectionIndex={activeSectionIndex}
+      setActiveSectionIndex={setActiveSectionIndex}
+      setActivePassageIndex={setActivePassageIndex}
+      setIsReviewMode={setIsReviewMode}
+      setActiveSkillTab={setActiveSkillTab}
+      availableSkills={availableSkills}
+      allSections={availableSections}
+    />
+  );
+}
 
     // B. LISTENING LAYOUT (including full-mock listening sections)
     const isFullMockListening = lessonType === 'full-mock' && currentSection?.skill === 'listening';
@@ -170,7 +188,7 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
 
     // D. SPEAKING LAYOUT (including full-mock speaking sections)
     const isFullMockSpeaking = lessonType === 'full-mock' && currentSection?.skill === 'speaking';
-    if (lessonType === 'SPEAKING' || skill === 'speaking' || lessonType === 'ielts-speaking' || isFullMockSpeaking) {
+    if (lessonType === 'SPEAKING' || skill === 'speaking' || isFullMockSpeaking) {
       return (
         <SpeakingBlock 
           data={currentSection} 

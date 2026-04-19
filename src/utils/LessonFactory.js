@@ -21,7 +21,16 @@ export const LessonFactory = {
     
     const sections = [];
     
-    // Add reading sections
+    // Add vocabulary
+    if (mock.vocabulary) {
+      sections.unshift({
+        ...mock.vocabulary,
+        skill: 'vocab',
+        type: 'VOCAB'
+      });
+    }
+    
+    // Add reading sections (flattened - each passage is a section)
     if (mock.reading?.sections) {
       mock.reading.sections.forEach(section => {
         if (section.passages) {
@@ -34,15 +43,24 @@ export const LessonFactory = {
           });
         }
       });
-    }
-    
-    // Add writing sections
-    if (mock.writing?.sections) {
-      mock.writing.sections.forEach(section => {
+    }    
+         
+   if (mock.languageElements?.sections) {
+  mock.languageElements.sections.forEach(section => {
+    sections.push({
+      ...section,
+      skill: 'language-elements',
+      type: 'LANGUAGE_ELEMENTS'
+    });
+  });
+}
+    // Add listening sections
+    if (mock.listening?.sections) {
+      mock.listening.sections.forEach(section => {
         sections.push({
           ...section,
-          skill: 'writing',
-          type: 'WRITING'
+          skill: 'listening',
+          type: 'LISTENING'
         });
       });
     }
@@ -58,35 +76,14 @@ export const LessonFactory = {
       });
     }
     
-    // Add listening sections
-    if (mock.listening?.sections) {
-      mock.listening.sections.forEach(section => {
+    // Add writing sections
+    if (mock.writing?.sections) {
+      mock.writing.sections.forEach(section => {
         sections.push({
           ...section,
-          skill: 'listening',
-          type: 'LISTENING'
+          skill: 'writing',
+          type: 'WRITING'
         });
-      });
-    }
-    
-    // Add language elements sections (for TELC tests)
-    // Preserve the original structure with passages and content for LanguageElementsBlock
-    if (mock.languageElements?.sections && mock.languageElements.sections.length > 0) {
-      // Add the entire languageElements object as a section, preserving nested structure
-      sections.push({
-        ...mock.languageElements,  // Preserve: title, time, sections with passages
-        id: 'language-elements',
-        skill: 'language-elements',
-        type: 'LANGUAGE_ELEMENTS'
-      });
-    }
-    
-    // Add vocabulary
-    if (mock.vocabulary) {
-      sections.unshift({
-        ...mock.vocabulary,
-        skill: 'vocab',
-        type: 'VOCAB'
       });
     }
     

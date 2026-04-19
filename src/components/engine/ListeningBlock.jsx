@@ -23,6 +23,7 @@ const ListeningBlock = ({
   setActiveSectionIndex,
   setActivePassageIndex,
   setIsReviewMode,
+  setActiveSkillTab={setActiveSkillTab},
   availableSkills = []
 }) => {
   // Extract listening data from full mock or direct
@@ -250,6 +251,7 @@ const getQuestionRange = () => {
               setActiveSectionIndex={setActiveSectionIndex}
               setActivePassageIndex={setActivePassageIndex}
               setIsReviewMode={setIsReviewMode}
+              setActiveSkillTab={setActiveSkillTab}
               availableSkills={availableSkills}
               hasNextPassage={activeSectionIndex < listeningSections.length - 1}
               hasNextSection={false}

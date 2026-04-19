@@ -173,6 +173,7 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 20px 40px rgba(211, 47, 47, 0.15);
+  gap:100px;
 }
 
 .hero-banner::after {
@@ -224,6 +225,10 @@
   display: flex;
   gap: 16px;
 }
+.hero-text {
+  padding:24px;
+  background-color: #b45309;
+}
 
 .btn-white {
   background: var(--surface-white);
@@ -274,7 +279,7 @@
 
 .quick-start-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   padding: 0 40px;
   margin-bottom: 60px;
@@ -566,7 +571,7 @@
 /* --- Precision Training (Extra Tools) --- */
 .precision-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   padding: 0 40px;
   margin-bottom: 60px;

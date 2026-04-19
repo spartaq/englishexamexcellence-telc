@@ -72,6 +72,24 @@
      as it's generic, and 'invictus-question-number' etc., are also likely generic
      components used within the blocks. */
 
+  .invictus-question-column {
+    flex: 55;
+    padding: 0px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    min-width: 0;
+    min-height: 0;
+    border:1px darkred solid;
+    height: 100%;
+  }
+
+  @media (max-width: 480px) {
+    .invictus-question-column {
+      height: calc(100vh - 108px);
+    }
+  }
+
   .invictus-content-text {
     font-size: 15px;
     line-height: 1.7;
@@ -141,8 +159,12 @@
     margin-bottom: 10px;
   }
 
-  .invictus-paragraph-id {
-    font-size: 10px;
-    padding: 3px 6px;
-  }
-}
+   .invictus-paragraph-id {
+     font-size: 10px;
+     padding: 3px 6px;
+   }
+
+   .invictus-question-column {
+     height: calc(100vh - 108px);
+   }
+ }

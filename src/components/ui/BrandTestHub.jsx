@@ -69,6 +69,25 @@ const BrandTestHub = ({
           </div>
         </div>
 
+          <div className="hero-text">
+             <p>
+            Stop practicing. Start training. Build skills daily with Atoms, 
+            or test your stamina with our full mock exam archive. Stop practicing. Start training. Build skills daily with Atoms, 
+            or test your stamina with our full mock exam archive.
+          </p> <p>
+            Stop practicing. Start training. Build skills daily with Atoms, 
+            or test your stamina with our full mock exam archive.
+          </p> <p>
+            Stop practicing. Start training. Build skills daily with Atoms, 
+            or test your stamina with our full mock exam archive.
+          </p> <p>
+            Stop practicing. Start training. Build skills daily with Atoms, 
+            or test your stamina with our full mock exam archive.
+          </p> <p>
+            Stop practicing. Start training. Build skills daily with Atoms, 
+            or test your stamina with our full mock exam archive.
+          </p>
+          </div>
         
       </header>
 
