@@ -54,40 +54,51 @@ const LanguageElementsBlock = ({
    const [activeGap, setActiveGap] = React.useState(null);
    const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
    
-   const renderInteractiveGaps = (text) => {
-     if (!text || !isGapFillTokens) return <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: text }} />;
-     const parts = text.split(/____\((\d+)\)____/g);
-     return (
-       <div className="invictus-passage-text">
-         {parts.map((part, idx) => {
-           if (idx % 2 === 0) return <span key={idx} dangerouslySetInnerHTML={{ __html: part }} />;
-           const gapNum = parseInt(part);
-           const selectedToken = userAnswers?.[gapNum] || userAnswers?.[String(gapNum)];
-           const isActive = activeGap === gapNum; // compare using raw gap number
-           return (
-             <span
-               key={idx}
-               className={`interactive-gap ${selectedToken ? 'filled' : 'empty'} ${isActive ? 'active' : ''}`}
-               onClick={() => {
-                 if (isReviewMode) return;
-                 if (isActive) {
-                   if (selectedToken) {
-                     handleLeUpdate(gapNum, '');
-                   } else {
-                     setActiveGap(null);
-                   }
-                 } else {
-                   setActiveGap(gapNum);
-                 }
-               }}
-             >
-               {selectedToken || '____'}
-             </span>
-           );
-         })}
-       </div>
-     );
-   };
+const renderInteractiveGaps = (text) => {
+  if (!text || !isGapFillTokens) return <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: text }} />;
+  const answers = subTasks[0]?.answers || {};
+  const parts = text.split(/____\(([a-z])\)____/g);
+  return (
+    <div className="invictus-passage-text">
+      {parts.map((part, idx) => {
+        if (idx % 2 === 0) return <span key={idx} dangerouslySetInnerHTML={{ __html: part }} />;
+        const gapId = part; // Now a string letter like "b"
+        const selectedToken = userAnswers?.[gapId];
+        const isActive = activeGap === gapId;
+        let reviewClass = '';
+        if (isReviewMode) {
+          if (!selectedToken) {
+            reviewClass = 'missing';
+          } else {
+            const correctAnswer = answers[gapId];
+            const userWord = selectedToken?.split(' ')[1];
+            reviewClass = userWord?.toLowerCase() === correctAnswer?.toLowerCase() ? 'correct' : 'incorrect';
+          }
+        }
+        return (
+          <span
+            key={idx}
+            className={`interactive-gap ${selectedToken ? 'filled' : 'empty'} ${isActive ? 'active' : ''} ${reviewClass}`}
+            onClick={() => {
+              if (isReviewMode) return;
+              if (isActive) {
+                if (selectedToken) {
+                  handleLeUpdate(gapId, '');
+                } else {
+                  setActiveGap(null);
+                }
+              } else {
+                setActiveGap(gapId);
+              }
+            }}
+          >
+            {selectedToken || '____'}
+          </span>
+        );
+      })}
+    </div>
+  );
+};
 
   // Flatten questions
   const flatQuestions = flattenQuestions(subTasks);

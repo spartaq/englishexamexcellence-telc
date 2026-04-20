@@ -70,22 +70,21 @@ const BrandTestHub = ({
         </div>
 
           <div className="hero-text">
+            <h1>How to use this site effectively</h1> 
+          <p>
+            If you are serious about passing an English exam, you need to do some work. Usually 3months before the test, if you do somework everyday, you will definitely improve your passive vocabulary and grammar use. But just taking practice tests won't help you much if you are not learning. The best way to pass the test is to speak English fluently of course. Barring that, you should build your vocabulary and practice the grammar that is likely to be on the test.
+          </p> 
              <p>
-            Stop practicing. Start training. Build skills daily with Atoms, 
-            or test your stamina with our full mock exam archive. Stop practicing. Start training. Build skills daily with Atoms, 
-            or test your stamina with our full mock exam archive.
-          </p> <p>
-            Stop practicing. Start training. Build skills daily with Atoms, 
-            or test your stamina with our full mock exam archive.
-          </p> <p>
-            Stop practicing. Start training. Build skills daily with Atoms, 
-            or test your stamina with our full mock exam archive.
-          </p> <p>
-            Stop practicing. Start training. Build skills daily with Atoms, 
-            or test your stamina with our full mock exam archive.
-          </p> <p>
-            Stop practicing. Start training. Build skills daily with Atoms, 
-            or test your stamina with our full mock exam archive.
+            Take a section of each test part to get a feel for the test.
+          </p> 
+          <p>
+            Do vocab flashcards daily. (5 min)
+          </p> 
+          <p>
+            Do a reading everyday. (10-15 min)
+          </p>
+          <p>
+            Do one drill each day.  (5-10 min)
           </p>
           </div>
         

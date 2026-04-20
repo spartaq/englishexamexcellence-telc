@@ -145,7 +145,7 @@
       {
         "id": "s1",
         "section": 1,
-        "title": "Part 1: Global Understanding",
+        "title": "B2 Mock 1 Part 1: Global Understanding",
         "description": "Questions 1-5",
         "passages": [
           {
@@ -466,9 +466,9 @@
         "passages": [
           {
             "id": "p1",
-            "subtitle": "Short Texts 1-5",
-            "title": "Various texts",
-            "type": "READING",
+            "subtitle": "Language Elements",
+            "title": "Email to a relative",
+            "type": "LANGUAGE-ELEMENTS",
             "content": [
               {
                 "id": "1",
@@ -548,15 +548,26 @@
             "content": [
               {
                 "id": "1",
-                "text": "Sir Edward William Elgar is a 19th century English composer known worldwide. Pomp and Circumstance, for example, is one of Elgar's most famous pieces and one of Britain's biggest cultural ____(31)____. Elgar was born in 1857 in a village in ____(32)____ England. His father had a music shop in Worcester and so Elgar had access to many different kinds of instruments and music. Surprisingly, he ____(33)____ music college and was mainly a self-taught composer. It was in 1899, when Elgar was 42, that he had his first big success with the Enigma Variations for orchestra. It came into being almost by chance. Elgar ____(34)____ the evening when he sat down at the piano to play after dinner: 'Suddenly my wife ____(35)____ by saying: Edward, that's a good tune.' I ____(36)____ from my creative dream. 'Tune? What tune?' And she said, 'Play it again, I like that tune.' I played and strummed, and played, and then she exclaimed: 'That sounds of ____(37)____, what is that?' I answered, 'Nothing - but something might be made of it.' For fun, Elgar then ____(38)____ with the tune, playing different versions. Each was typical of someone they knew. That was the beginning of the Enigma Variations, which he dedicated to his friends. For its title, each of the 14 parts has the ____(39)____ of a person's name. The word 'enigma' means something that is ____(40)____, and perhaps the puzzle hidden in the piece gives it that extra charm that has made it so popular."
+                "text": "Sir Edward William Elgar is a 19th century English composer known worldwide. Pomp and Circumstance, for example, is one of Elgar's most famous pieces and one of Britain's biggest cultural ____(a)____. Elgar was born in 1857 in a village in ____(b)____ England. His father had a music shop in Worcester and so Elgar had access to many different kinds of instruments and music. Surprisingly, he ____(c)____ music college and was mainly a self-taught composer. It was in 1899, when Elgar was 42, that he had his first big success with the Enigma Variations for orchestra. It came into being almost by chance. Elgar ____(d)____ the evening when he sat down at the piano to play after dinner: 'Suddenly my wife ____(e)____ by saying: Edward, that's a good tune.' I ____(f)____ from my creative dream. 'Tune? What tune?' And she said, 'Play it again, I like that tune.' I played and strummed, and played, and then she exclaimed: 'That sounds of ____(g)____, what is that?' I answered, 'Nothing - but something might be made of it.' For fun, Elgar then ____(h)____ with the tune, playing different versions. Each was typical of someone they knew. That was the beginning of the Enigma Variations, which he dedicated to his friends. For its title, each of the 14 parts has the ____(i)____ of a person's name. The word 'enigma' means something that is ____(j)____, and perhaps the puzzle hidden in the piece gives it that extra charm that has made it so popular."
               }
             ],
             "subTasks": [
               {
                 "type": "gap-fill-tokens",
                 "instruction": "Choose the correct word (a-o) to complete each sentence.",
-                "tokens": ["a APPROVAL", "b ATTEND", "c AWOKE", "d EDGE", "e EXCEPTION", "f EXPERIMENTED", "g EXPORTS", "h FAR", "i FASHION", "j INITIALS", "k INTERRUPTED", "l MYSTERIOUS", "m PUBLICITY", "n RECALLS", "o RURAL"],
-                "answers": ["g EXPORTS", "o RURAL", "b ATTEND", "n RECALLS", "k INTERRUPTED", "c AWOKE", "l MYSTERIOUS", "f EXPERIMENTED", "j INITIALS", "l MYSTERIOUS"]
+                "tokens": ["APPROVAL", "ATTEND", "AWOKE", "EDGE", "EXCEPTION", "EXPERIMENTED", "EXPORTS", "FAR", "FASHION", "INITIALS", "INTERRUPTED", "MYSTERIOUS", "PUBLICITY", "RECALLS", "RURAL"],
+                "answers": {
+                  "a": "EXPORTS", 
+                  "b": "RURAL", 
+                  "c": "ATTEND", 
+                  "d": "RECALLS", 
+                  "e": "INTERRUPTED", 
+                  "f": "AWOKE", 
+                  "g": "MYSTERIOUS", 
+                  "h": "EXPERIMENTED", 
+                  "i": "INITIALS", 
+                  "j": "MYSTERIOUS"
+                }
               }
             ]
           }

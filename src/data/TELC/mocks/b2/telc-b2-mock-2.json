@@ -436,7 +436,7 @@
         "passages": [
           {
             "id": "p1",
-            "subtitle": "Email",
+            "subtitle": "Language Elements",
             "title": "Email from a friend",
             "type": "LANGUAGE-ELEMENTS",
             "content": [
@@ -504,33 +504,44 @@
           }
         ]
       },
-      {
-        "id": "le-part2",
-        "section": 2,
-        "title": "B2 Mock 2 Language Elements, Part 2",
-        "description": "Read the following text and complete the gaps.",
-        "passages": [
-          {
-            "id": "p2",
-            "title": "The History of Coffee",
-            "type": "LANGUAGE-ELEMENTS",
-            "content": [
-              {
-                "id": "1",
-                "text": "Coffee is one of the world's most popular drinks, with millions of people ____(31)____ it every day. The story of coffee begins in Ethiopia, where it is said that a goat herder noticed his animals became very ____(32)____ after eating berries from a certain tree. From there, coffee spread to Arabia, where it ____(33)____ cultivated for the first time. By the 16th century, it had reached Persia, Egypt and Turkey.\n\nCoffee ____(34)____ to Europe in the 17th century, brought by Venetian traders. Initially, the Catholic Church considered banning the drink, but Pope Clement VIII declared it completely ____(35)____. The first coffee house opened in Venice in 1645.\n\nToday, Brazil is the world's largest coffee ____(36)____, producing about a third of the global supply. Vietnam and Colombia are also major producers. The coffee industry supports millions of farmers worldwide, though many face ____(37)____ challenges such as climate change and ____(38)____ prices.\n\nThe most commonly grown species are Arabica and Robusta. Arabica is considered to have a smoother, more ____(39)____ taste, while Robusta is stronger and contains more caffeine. Regardless of preference, coffee remains an integral part of daily life for billions of people around the world."
-              }
-            ],
-            "subTasks": [
-              {
-                "type": "gap-fill-tokens",
-                "instruction": "Choose the correct word (a-o) to complete each sentence.",
-                "tokens": ["a BREW", "b CONSUME", "c EXPORT", "d FIERCE", "e GROWN", "f HARSH", "g PURE", "h REFINED", "i REJECTED", "j STRONG", "k VARIED", "l VOLATILE", "m WAS", "n WERE", "o WILL"],
-                "answers": ["b CONSUME", "d FIERCE", "e GROWN", "m WAS", "g PURE", "c EXPORT", "f HARSH", "l VOLATILE", "k VARIED", "j STRONG"]
-              }
-            ]
+{
+  "id": "le-part2",
+  "section": 2,
+  "title": "Language Elements, Part 2",
+  "description": "Read the following text and complete the gaps.",
+  "passages": [
+    {
+      "id": "p2",
+      "title": "The History of Coffee",
+      "type": "LANGUAGE-ELEMENTS",
+      "content": [
+        {
+          "id": "1",
+          "text": "Coffee is one of the world's most popular drinks, with millions of people ____(b)____ it every day. The story of coffee begins in Ethiopia, where it is said that a goat herder noticed his animals became very ____(d)____ after eating berries from a certain tree. From there, coffee spread to Arabia, where it ____(e)____ cultivated for the first time. By the 16th century, it had reached Persia, Egypt and Turkey.\n\nCoffee ____(m)____ in Europe in the 17th century, brought by Venetian traders. Initially, the Catholic Church considered banning the drink, but Pope Clement VIII declared it completely ____(g)____. The first coffee house opened in Venice in 1645.\n\nToday, Brazil is the world's largest coffee ____(c)____, producing about a third of the global supply. Vietnam and Colombia are also major producers. The coffee industry supports millions of farmers worldwide, though many face ____(f)____ challenges such as climate change and ____(l)____ prices.\n\nThe most commonly grown species are Arabica and Robusta. Arabica is considered to have a smoother, more ____(k)____ taste, while Robusta is ____(j)____ and contains more caffeine. Regardless of preference, coffee remains an integral part of daily life for billions of people around the world."
+        }
+      ],
+      "subTasks": [
+        {
+          "type": "gap-fill-tokens",
+          "instruction": "Choose the correct word (a-o) to complete each sentence.",
+          "tokens": ["BREW", "CONSUMING", "EXPORT", "FIERCE", "GROWN", "HARSH", "PURE", "REFINED", "REJECTED", "STRONG", "VARIED", "AGITATED", "ARRIVED", "WERE", "WILL"],
+          "answers": {
+            "b": "CONSUMING",
+            "d": "FIERCE",
+            "e": "GROWN",
+            "m": "ARRIVED",
+            "g": "PURE",
+            "c": "EXPORT",
+            "f": "HARSH",
+            "l": "AGITATED",
+            "k": "VARIED",
+            "j": "STRONG"
           }
-        ]
-      }
+        }
+      ]
+    }
+  ]
+}
     ]
   },
 

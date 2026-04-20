@@ -229,6 +229,9 @@
   padding:24px;
   background-color: #b45309;
 }
+.hero-text p {
+  margin-bottom: 15px;
+}
 
 .btn-white {
   background: var(--surface-white);

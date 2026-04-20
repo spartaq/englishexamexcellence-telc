@@ -49,9 +49,9 @@ const LandingPage = () => {
               <span className="text-gradient">Really learn.</span>
             </h1>
             <p className="hero-subtext">
-              Most students just measure their level with mock tests. We help you <strong>improve</strong> it. 
-              Break your preparation into 15-minute "Atoms" to build real skills daily, 
-              or dive into full-length simulated exams.
+              If you are serious about passing an English exam, you need to do some work. Usually 3months before the test, if you do somework everyday, you will definitely improve your passive vocabulary and grammar use. 
+            </p><p className="hero-subtext">
+             But just taking practice tests won't help you much if you are not learning. The best way to pass the test is to speak English fluently of course. Barring that, you should build your vocabulary and practice the grammar that is likely to be on the test.
             </p>
 
             {/* THE FORK IN THE ROAD - TELC Level Selection */}

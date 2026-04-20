@@ -2,26 +2,6 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { CheckCircle, XCircle } from 'lucide-react';
 import './GapFillBlock.css';
 
-/**
- * GapFillBlock - Traditional gap fill exercise
- * 
- * Shows a text with gap lines/spaces where users select words from a token bank below.
- * Different from SentenceCompleteBlock which uses clickable gaps in text.
- * 
- * Data structure:
- * {
- *   id: 'gap-fill-1',
- *   type: 'gap-fill',
- *   title: 'Fill in the Blanks',
- *   instruction: 'Complete the passage by selecting the correct words.',
- *   xpReward: 50,
- *   passage: 'The text with ____(1)____ gaps and ____(2)____ words to fill.',
- *   tokens: ['word1', 'word2', 'word3', 'distractor1', 'distractor2'],
- *   answers: ['word1', 'word2'], // correct answers in order
- *   distractors: ['distractor1', 'distractor2'] // optional, for mixing
- * }
- */
-
 const GapFillBlock = ({ 
   data, 
   userAnswers = {}, 
@@ -36,7 +16,7 @@ const GapFillBlock = ({
     instruction,
     passage = '',
     tokens = [],
-    answers = [],
+    answers = {},
     xpReward = 50
   } = data;
 
@@ -85,18 +65,18 @@ const GapFillBlock = ({
     return parts;
   };
 
-  const parts = passageString.split(/____\((\d+)\)____/g);
+  const parts = passageString.split(/____\(([a-z])\)____/g);
 
   // Get the list of gap indices from the parsed passage
-  const getGapIndices = () => {
-    const indices = [];
-    const regex = /____\((\d+)\)____/g;
-    let match;
-    while ((match = regex.exec(passageString)) !== null) {
-      indices.push(parseInt(match[1]));
-    }
-    return indices;
-  };
+ const getGapIndices = () => {
+  const indices = [];
+  const regex = /____\(([a-z])\)____/g;
+  let match;
+  while ((match = regex.exec(passageString)) !== null) {
+    indices.push(match[1]); // Already a letter like "a", "b"
+  }
+  return indices;
+};
 
 
 
@@ -155,32 +135,31 @@ const GapFillBlock = ({
   }, [tokens]);
 
   // Calculate results
-  const calculateResults = () => {
-    let correct = 0;
-    const gapResults = {};
-
-    answers.forEach((answer, index) => {
-      const gapIndex = index + 1;
-      const userAnswer = selections[gapIndex];
-      const isCorrect = userAnswer?.toLowerCase() === answer.toLowerCase();
-      
-      if (isCorrect) correct++;
-      
-      gapResults[gapIndex] = {
-        userAnswer: userAnswer || null,
-        correctAnswer: answer,
-        isCorrect
-      };
-    });
-
-    return {
-      correct,
-      total: answers.length,
-      accuracy: Math.round((correct / answers.length) * 100),
-      gapResults
+const calculateResults = () => {
+  let correct = 0;
+  const gapResults = {};
+  
+  Object.entries(answers).forEach(([gapKey, answer]) => {
+    const userAnswer = selections[gapKey];
+    const isCorrect = userAnswer?.toLowerCase() === answer.toLowerCase();
+    
+    if (isCorrect) correct++;
+    
+    gapResults[gapKey] = {
+      userAnswer: userAnswer || null,
+      correctAnswer: answer,
+      isCorrect
     };
+  });
+  
+  const total = Object.keys(answers).length;
+  return {
+    correct,
+    total,
+    accuracy: Math.round((correct / total) * 100),
+    gapResults
   };
-
+};
   const handleCheck = () => {
     const results = calculateResults();
     if (onComplete) {
@@ -189,20 +168,19 @@ const GapFillBlock = ({
   };
 
   // Determine gap styling based on state
-  const getGapStyle = (gapIndex) => {
-    const isActive = activeGap === gapIndex;
-    const userAnswer = selections[gapIndex];
-    const correctAnswer = answers[gapIndex - 1];
-    
-    if (!isReviewMode) {
-      if (isActive) return 'active';
-      return userAnswer ? 'filled' : 'empty';
-    }
-    
-    if (!userAnswer) return 'missing';
-    return userAnswer.toLowerCase() === correctAnswer.toLowerCase() ? 'correct' : 'incorrect';
-  };
-
+const getGapStyle = (gapIndex) => {
+  const isActive = activeGap === gapIndex;
+  const userAnswer = selections[gapIndex]; // gapIndex IS the letter key
+  const correctAnswer = answers[gapIndex];
+  
+  if (!isReviewMode) {
+    if (isActive) return 'active';
+    return userAnswer ? 'filled' : 'empty';
+  }
+  
+  if (!userAnswer) return 'missing';
+  return userAnswer.toLowerCase() === correctAnswer?.toLowerCase() ? 'correct' : 'incorrect';
+};
   return (
     <div className="gap-fill-block">
       {/* Header */}
@@ -227,7 +205,7 @@ const GapFillBlock = ({
             return <span key={index} className="passage-text">{part}</span>;
           }
           
-          const gapIndex = parseInt(part);
+          const gapIndex = part;
           const gapStyle = getGapStyle(gapIndex);
           const userAnswer = selections[gapIndex];
           
