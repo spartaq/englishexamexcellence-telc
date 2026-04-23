@@ -30,13 +30,13 @@ const ReadingBlock = ({
   // Get reading sections for tabs - filter all sections by reading skill
   const readingSections = sections.filter(s => s.skill === 'reading');
   
-  // 1. Extract Passage Content
-  const content = data?.content || data?.passage;
-  const title = data?.title;
-  const subtitle = data?.subtitle;
-  
-  // Check if subTasks contain sentence-insert (which renders its own passage)
-  const hasSentenceInsert = (data?.subTasks || []).some(st => st.type === 'sentence-insert');
+   // 1. Extract Passage Content
+   const content = data?.content || data?.passage;
+   const title = data?.title;
+   const subtitle = data?.subtitle;
+   
+   // Check if subTasks contain sentence-insert (which renders its own passage)
+   const hasSentenceInsert = (data?.subTasks || []).some(st => st.type === 'sentence-insert');
 
   // 2. Flatten questions for the Carousel
   // Uses centralized flattenQuestions utility
@@ -82,13 +82,18 @@ const ReadingBlock = ({
   return (
     <div className="invictus-reading-layout reading-wrapper">
       <SplitPane
-        content={<>
-          {(title || subtitle) && (
-            <div className="invictus-content-header">
-              {subtitle && <p className="invictus-content-subtitle">{subtitle}</p>}
-              {title && <h2 className="invictus-content-title">{title}</h2>}
-            </div>
-          )}
+         content={<>
+           {(title || subtitle) && (
+             <div className="invictus-content-header">
+               {subtitle && (
+                 <p className="invictus-content-subtitle">
+                   {data?.level ? `${data.level.toUpperCase()} Practice Test ${data.mockNumber} - ` : ''}
+                   {subtitle}
+                 </p>
+               )}
+               {title && <h2 className="invictus-content-title">{title}</h2>}
+             </div>
+           )}
 
             {/* Passage Content Rendering */}
             {typeof content === 'string' ? (

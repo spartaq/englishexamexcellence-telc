@@ -44,10 +44,10 @@ const LanguageElementsBlock = ({
 
   // Content resolution (full mock uses passages[0], atoms use direct)
   const currentPassage = currentPart?.passages?.[0] || currentPart || {};
-  const content = currentPassage?.content || data?.content;
-  const title = currentPart?.title || data?.title;
-  const subtitle = currentPassage?.subtitle || data?.subtitle;
-  const subTasks = currentPassage?.subTasks || currentPart?.subTasks || [];
+   const content = currentPassage?.content || data?.content;
+   const title = currentPassage?.title || data?.title;
+   const subtitle = currentPassage?.subtitle || data?.subtitle;
+   const subTasks = currentPassage?.subTasks || currentPart?.subTasks || [];
 
    // Gap-fill tokens
    const isGapFillTokens = subTasks[0]?.type === 'gap-fill-tokens';
@@ -158,12 +158,17 @@ const renderInteractiveGaps = (text) => {
       <SplitPane
         content={
           <>
-            {(title || subtitle) && (
-              <div className="invictus-content-header">
-                {subtitle && <p className="invictus-content-subtitle">{subtitle}</p>}
-                {title && <h2 className="invictus-content-title">{title}</h2>}
-              </div>
-            )}
+             {(title || subtitle) && (
+               <div className="invictus-content-header">
+                 {subtitle && (
+                   <p className="invictus-content-subtitle">
+                     {currentPassage?.level || data?.level ? `${(currentPassage?.level || data?.level).toUpperCase()} Practice Test ${currentPassage?.mockNumber || data?.mockNumber} - ` : ''}
+                     {subtitle}
+                   </p>
+                 )}
+                 {title && <h2 className="invictus-content-title">{title}</h2>}
+               </div>
+             )}
             {/* Passage content */}
             {typeof content === 'string' ? (
               isGapFillTokens ? renderInteractiveGaps(content) : <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: content }} />

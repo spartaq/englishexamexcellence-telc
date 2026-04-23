@@ -78,7 +78,10 @@ const WritingBlock = ({
             {/* Task Header */}
             {data.title && (
               <div className="invictus-content-header">
-                <p className="invictus-content-subtitle">{data.subtitle}</p>
+                <p className="invictus-content-subtitle">
+                  {data?.level ? `${data.level.toUpperCase()} Practice Test ${data.mockNumber} - ` : ''}
+                  {data.subtitle}
+                </p>
                 <h2 className="invictus-content-title">{data.title}</h2>
                 {data.description && <p className="invictus-content-description">{data.description}</p>}
               </div>

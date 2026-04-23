@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Headphones } from 'lucide-react';
+import { Play, Pause, Headphones, List } from 'lucide-react';
 import { useExamStore } from '../../store/useExamStore';
 import QuestionCarousel from './QuestionCarousel';
 import SplitPane from './SplitPane';
@@ -41,28 +41,29 @@ const ListeningBlock = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [activeAudioIndex, setActiveAudioIndex] = useState(0);
+  const [showTranscript, setShowTranscript] = useState(false);
   const audioRef = useRef(null);
   const isActive = useExamStore(state => state.isActive);
 
-  // Get audio files array - support both single audioUrl and multiple audioFiles
-  const getAudioUrls = (part) => {
-    if (part?.audioFiles && Array.isArray(part.audioFiles)) {
-      return part.audioFiles;
-    }
-    if (part?.audioUrl) {
-      return [part.audioUrl];
-    }
-    return [];
-  };
-
-  const audioUrls = getAudioUrls(currentPart);
-  const hasMultipleAudios = audioUrls.length > 1;
-  const currentAudioUrl = audioUrls[activeAudioIndex] || audioUrls[0];
-  const currentAudioLabel = hasMultipleAudios ? `Item ${activeAudioIndex + 1} of ${audioUrls.length}` : '';
-  const currentTitle = currentPart?.title;
-  const currentSubtitle = currentPart?.subtitle;
-  const currentDescription = currentPart?.description;
-  const currentTranscript = currentPart?.transcript;
+   // Get audio files array - support both single audioUrl and multiple audioFiles
+   const getAudioUrls = (part) => {
+     if (part?.audioFiles && Array.isArray(part.audioFiles)) {
+       return part.audioFiles;
+     }
+     if (part?.audioUrl) {
+       return [part.audioUrl];
+     }
+     return [];
+   };
+   
+   const audioUrls = getAudioUrls(currentPart);
+   const hasMultipleAudios = audioUrls.length > 1;
+   const currentAudioUrl = audioUrls[activeAudioIndex] || audioUrls[0];
+   const currentAudioLabel = hasMultipleAudios ? `Item ${activeAudioIndex + 1} of ${audioUrls.length}` : '';
+   const currentTitle = currentPart?.title;
+   const currentSubtitle = currentPart?.subtitle;
+   const currentDescription = currentPart?.description;
+   const currentTranscript = currentPart?.transcript;
 
   // 2. Audio Logic
   useEffect(() => {
@@ -150,18 +151,28 @@ const getQuestionRange = () => {
           <>
             {/* Header Section - Show current part info */}
             {(currentTitle || currentSubtitle || currentDescription) ? (
-               <div className="invictus-content-header">
-                 {currentSubtitle && <p className="invictus-content-subtitle">{currentSubtitle}</p>}
-                 {currentTitle && <h2 className="invictus-content-title">{currentTitle}</h2>}
-                 {currentDescription && <p className="listening-description">{currentDescription}</p>}
-               </div>
-            ) : listeningData.title ? (
-              <div className="invictus-content-header">
-                {listeningData.subtitle && <p className="invictus-content-subtitle">{listeningData.subtitle}</p>}
-                <h2 className="invictus-content-title">{listeningData.title}</h2>
-                {listeningData.description && <p className="listening-description">{listeningData.description}</p>}
-              </div>
-            ) : null}
+                <div className="invictus-content-header">
+                  {currentSubtitle && (
+                    <p className="invictus-content-subtitle">
+                      {(currentPart?.level || listeningData?.level) ? `${(currentPart?.level || listeningData?.level).toUpperCase()} Practice Test ${currentPart?.mockNumber || listeningData?.mockNumber} - ` : ''}
+                      {currentSubtitle}
+                    </p>
+                  )}
+                  {currentTitle && <h2 className="invictus-content-title">{currentTitle}</h2>}
+                  {currentDescription && <p className="listening-description">{currentDescription}</p>}
+                </div>
+              ) : listeningData.title ? (
+                <div className="invictus-content-header">
+                  {listeningData.subtitle && (
+                    <p className="invictus-content-subtitle">
+                      {listeningData?.level ? `${listeningData.level.toUpperCase()} Practice Test ${listeningData.mockNumber} - ` : ''}
+                      {listeningData.subtitle}
+                    </p>
+                  )}
+                  <h2 className="invictus-content-title">{listeningData.title}</h2>
+                  {listeningData.description && <p className="listening-description">{listeningData.description}</p>}
+                </div>
+              ) : null}
 
             {/* Sticky Audio Player - Use current part's audio */}
             <div className="audio-sticky-bar">
@@ -214,12 +225,19 @@ const getQuestionRange = () => {
 
             {/* Transcript Display */}
             {currentTranscript ? (
-              <div className="listening-transcript">
-                <div className="transcript-content">
-                  <h4>Transcript</h4>
-                  <pre>{currentTranscript}</pre>
-                </div>
-              </div>
+              <>
+                <button className="transcript-toggle-btn" onClick={() => setShowTranscript(!showTranscript)}>
+                  {showTranscript ? 'Hide Transcript' : 'Show Transcript'} <List size={16} />
+                </button>
+                {showTranscript && (
+                  <div className="listening-transcript">
+                    <div className="transcript-content">
+                      <h4>Transcript</h4>
+                      <pre>{currentTranscript}</pre>
+                    </div>
+                  </div>
+                )}
+              </>
             ) : null}
 
            

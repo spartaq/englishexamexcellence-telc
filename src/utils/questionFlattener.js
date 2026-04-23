@@ -25,7 +25,7 @@ export const SELF_CONTAINED_TYPES = [
 ];
 
 // Types that should always be kept as self-contained even if they have questions array
-export const ALWAYS_SELF_CONTAINED = ['heading-match', 'notes-completion'];
+export const ALWAYS_SELF_CONTAINED = ['heading-match', 'notes-completion', 'trinary'];
 
 /**
  * Flattens nested subTasks into a flat questions array for QuestionCarousel.

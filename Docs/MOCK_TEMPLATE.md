@@ -8,15 +8,15 @@ Use this template when creating new TELC mock tests (B1, B2, C1). Follow the str
 
 | Level | Parts | Time | Notes |
 |-------|-------|------|-------|
-| **B1** | 3 Reading, 2 Writing, 3 Speaking, 4 Listening, 2 Language Elements | 20/60/15/30/90 min | Standard structure |
-| **B2** | 3 Reading, 2 Writing, 3 Speaking, 4 Listening, 2 Language Elements | 20/60/15/30/90 min | Same as B1 |
+| **B1** | 3 Reading, 2 Writing, 3 Speaking, 3 Listening, 2 Language Elements | 20/60/15/30/90 min | Standard structure |
+| **B2** | 3 Reading, 2 Writing, 3 Speaking, 3 Listening, 2 Language Elements | 20/60/15/30/90 min | Same as B1 |
 | **C1** | 3 Reading, 2 Writing, 2 Speaking, 3 Listening, 1 Language Elements | 90/60/15/30/- | Different task types |
 
 ---
 
 ### Question ID Format
 
-> **IMPORTANT**: For Reading questions, use sequential IDs (1, 2, 3... through the parts). Language Elements uses IDs 21-30, 31-40, etc.
+> **IMPORTANT**: For Reading questions, use sequential IDs (1, 2, 3... through the parts). Language Elements uses IDs 21-30, 31-40, etc. Question IDs can be strings ("1", "2") or numbers (1, 2) - be consistent within each section.
 
 - **Reading**: Questions 1-20 across all 3 parts
 - **Language Elements**: Questions 21-30 (Part 1), 31-40 (Part 2)
@@ -24,15 +24,23 @@ Use this template when creating new TELC mock tests (B1, B2, C1). Follow the str
 - **Writing**: Use task IDs like "w-m[N]-t1", "w-m[N]-t2"
 - **Speaking**: Use "p1q1", "p2q1", etc. (part + question)
 
+### Answer Formats
+
+- **Listening MCQ**: Answers can be index (0, 1, 2) OR full text of the option
+- **Reading MCQ**: Answers can be index OR full text
+- **Matching Info**: Single letter "A", "B", etc.
+- **Heading Match**: Index number (0, 1, 2...)
+- **Trinary**: "TRUE", "FALSE", "NOT GIVEN" (not +, -, X)
+
 ---
 
 ## 1. Mock File Header
 
 ### File Location
 ```
-B1: src/data/TELC/mocks/telc-b1-mock-[N].json
-B2: src/data/TELC/mocks/telc-b2-mock-[N].json
-C1: src/data/TELC/mocks/telc-c1-mock-[N].json
+B1: src/data/TELC/mocks/b1/telc-b1-mock-[N].json
+B2: src/data/TELC/mocks/b2/telc-b2-mock-[N].json
+C1: src/data/TELC/mocks/c1/telc-c1-mock-[N].json
 ```
 
 ### Header Fields (All Levels)
@@ -88,6 +96,7 @@ C1: src/data/TELC/mocks/telc-c1-mock-[N].json
           "title": "Passage Title",
           "subtitle": "Reading Passage 1",
           "type": "READING",
+          "vocabList": ["word1", "word2"],
           "content": [
             { "id": "1", "text": "Paragraph content..." }
           ],
@@ -142,7 +151,7 @@ C1: src/data/TELC/mocks/telc-c1-mock-[N].json
       "title": "Task 1: [Type]",
       "subtitle": "Part 1: Writing",
       "instruction": "Write instructions...",
-      "context": "Task context...",
+      "context": "Full context/context for the task (shown to test-taker)...",
       "targetWords": 150,
       "xp": 250,
       "prompt": "What to write about",
@@ -155,7 +164,7 @@ C1: src/data/TELC/mocks/telc-c1-mock-[N].json
       "title": "Task 2: [Type]",
       "subtitle": "Part 2: Writing",
       "instruction": "Write instructions...",
-      "context": "Task context...",
+      "context": "Full context/context for the task (shown to test-taker)...",
       "targetWords": 250,
       "xp": 500,
       "prompt": "What to write about",
@@ -178,7 +187,7 @@ C1: src/data/TELC/mocks/telc-c1-mock-[N].json
       "title": "Task 1: Compulsory",
       "subtitle": "Part 1: Writing",
       "instruction": "Instructions for compulsory task...\nWrite at least 200 words.",
-      "context": "Task context...",
+      "context": "Full context/context for the task (shown to test-taker)...",
       "targetWords": 200,
       "xp": 500,
       "prompt": "What to write about",
@@ -191,10 +200,10 @@ C1: src/data/TELC/mocks/telc-c1-mock-[N].json
       "subtitle": "Part 2: Writing",
       "instruction": "Choose one of the following four tasks and write at least 150 words.",
       "options": [
-        { "id": "optional-a", "title": "A: [Title]", "context": "...", "targetWords": 150, "xp": 300, "type": "letter" },
-        { "id": "optional-b", "title": "B: [Title]", "context": "...", "targetWords": 150, "xp": 300, "type": "informative" },
-        { "id": "optional-c", "title": "C: [Title]", "context": "...", "targetWords": 150, "xp": 300, "type": "letter" },
-        { "id": "optional-d", "title": "D: [Title]", "context": "...", "targetWords": 150, "xp": 300, "type": "article" }
+        { "id": "optional-a", "title": "A: [Title]", "context": "Full context...", "targetWords": 150, "xp": 300, "type": "letter" },
+        { "id": "optional-b", "title": "B: [Title]", "context": "Full context...", "targetWords": 150, "xp": 300, "type": "informative" },
+        { "id": "optional-c", "title": "C: [Title]", "context": "Full context...", "targetWords": 150, "xp": 300, "type": "letter" },
+        { "id": "optional-d", "title": "D: [Title]", "context": "Full context...", "targetWords": 150, "xp": 300, "type": "article" }
       ]
     }
   ]
@@ -210,7 +219,7 @@ C1: src/data/TELC/mocks/telc-c1-mock-[N].json
 "speaking": {
   "title": "Speaking",
   "time": 15,
-  "parts": [
+  "sections": [
     {
       "id": "part1",
       "title": "Introduction and Interview",
@@ -254,7 +263,7 @@ C1: src/data/TELC/mocks/telc-c1-mock-[N].json
 "speaking": {
   "title": "Speaking",
   "time": 15,
-  "parts": [
+  "sections": [
     {
       "id": "part1",
       "title": "Presentation",
@@ -298,7 +307,7 @@ C1: src/data/TELC/mocks/telc-c1-mock-[N].json
 
 ## 6. Listening Section
 
-### Structure (All Levels)
+### Structure (All Levels - 3 parts)
 ```json
 "listening": {
   "title": "Listening",
@@ -316,7 +325,17 @@ C1: src/data/TELC/mocks/telc-c1-mock-[N].json
       "context": "Context type",
       "type": "LISTENING",
       "skill": "listening",
-      "subTasks": [...]
+      "subTasks": [
+        {
+          "type": "heading-match|mcq|trinary|notes-completion|matching-info",
+          "instruction": "Question instruction...",
+          "questions": [...],
+          "options": [...],
+          "headings": [...],
+          "tokens": [...],
+          "answers": {...}
+        }
+      ]
     }
   ]
 }
@@ -324,8 +343,8 @@ C1: src/data/TELC/mocks/telc-c1-mock-[N].json
 
 ### Listening Question Types
 - `heading-match` - Match headlines to news items
-- `mcq` - Multiple choice (3 options)
-- `trinary` - True/False/Not Given (mode: "tfng")
+- `mcq` - Multiple choice (3 options) - answers can be full text or index
+- `trinary` - True/False/Not Given - answers: "TRUE", "FALSE", "NOT GIVEN" (not +, -, X)
 - `notes-completion` - Fill in notes from recording
 - `matching-info` - Match speakers to statements
 
@@ -397,7 +416,21 @@ https://www.soundhelix.com/examples/mp3/SoundHelix-Song-[1-16].mp3
 
 ### Language Elements Question Types
 - `mcq` - Multiple choice cloze (3 options per gap)
-- `gap-fill-tokens` - Token selection (a-o, 10 tokens)
+- `gap-fill-tokens` - Token selection (a-j, 10 tokens), uses "tokens" array and "answers" object
+
+### Gap-Fill-Tokens Format
+```json
+{
+  "type": "gap-fill-tokens",
+  "instruction": "Choose the correct word (a-j) to complete each sentence.",
+  "tokens": ["WORD1", "WORD2", "WORD3", ...],
+  "answers": {
+    "a": "WORD1",
+    "b": "WORD2",
+    ...
+  }
+}
+```
 
 ---
 
@@ -422,7 +455,7 @@ https://www.soundhelix.com/examples/mp3/SoundHelix-Song-[1-16].mp3
 - [ ] 3 Reading parts (Heading Match, MCQ, Matching Info)
 - [ ] 2 Writing tasks (separate sections, each with own task)
 - [ ] 3 Speaking parts (Interview, Discussion, Collaborative)
-- [ ] 4 Listening parts
+- [ ] 3 Listening parts
 - [ ] 2 Language Elements parts
 
 ### C1

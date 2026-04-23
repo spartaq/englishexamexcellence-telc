@@ -8,6 +8,7 @@ const GapFillBlock = ({
   onUpdate, 
   isReviewMode = false, 
   showPassage = true,
+  inlinePassage = false,
   activeGap: controlledActiveGap,
   onActiveGapChange 
 }) => {
@@ -89,7 +90,7 @@ const GapFillBlock = ({
 
     const newSelections = { ...selections, [activeGap]: token };
     setSelections(newSelections);
-    if (onUpdate) onUpdate(newSelections);
+    if (onUpdate) onUpdate(activeGap, token);
   };
 
   // Handle gap click to toggle selection and set active gap
@@ -196,7 +197,30 @@ const getGapStyle = (gapIndex) => {
         <p className="gap-fill-instruction">{instruction}</p>
       )}
 
-      {/* Passage with gaps - only show if showPassage is true */}
+      {/* Inline Passage - for standalone drills (showPassage=false, inlinePassage=true) */}
+      {inlinePassage && passage && (
+        <div className="gap-fill-inline-passage">
+          {parts.map((part, index) => {
+            if (index % 2 === 0) {
+              return <span key={index} className="inline-passage-text">{part}</span>;
+            }
+            const gapIndex = part;
+            const gapStyle = getGapStyle(gapIndex);
+            const userAnswer = selections[gapIndex];
+            return (
+              <span
+                key={index}
+                className={`inline-gap ${gapStyle}`}
+                onClick={() => handleGapClick(gapIndex)}
+              >
+                {userAnswer || (isReviewMode ? '____' : '▼')}
+              </span>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Passage with gaps - only show if showPassage is true (TELC split-pane mode) */}
       {showPassage && (
       <div className="gap-fill-passage">
         {parts.map((part, index) => {

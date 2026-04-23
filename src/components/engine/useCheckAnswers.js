@@ -87,12 +87,36 @@ const useCheckAnswers = ({
       const accuracy = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
       results = { accuracy, earnedXP: Math.round((activeLesson.xpReward || 500) * (accuracy / 100)), isPerfect: accuracy >= 100 };
     } 
-    // B. Token Select / Punctuation
+      // B. Token Select / Punctuation / Gap Fill Tokens
     else if (activeLesson.type === 'token-select' || activeLesson.type === 'punctuation-correction') {
-      const userSelections = userAnswers[activeLesson.id] || [];
+      const rawSelections = userAnswers[activeLesson.id] || [];
+      // Handle both array and object formats (object = { sentenceId: [positions] })
+      let userSelections;
+      if (Array.isArray(rawSelections)) {
+        userSelections = rawSelections;
+      } else if (typeof rawSelections === 'object' && rawSelections !== null) {
+        // Flatten object { s1: [0], s2: [3] } to array [0, 3]
+        userSelections = Object.values(rawSelections).flat();
+      } else {
+        userSelections = [];
+      }
       const correctOnes = activeLesson.correctTokens || activeLesson.correctPositions || [];
       const correct = userSelections.filter(s => correctOnes.includes(s)).length;
       const accuracy = correctOnes.length > 0 ? Math.round((correct / correctOnes.length) * 100) : 0;
+      results = { accuracy, earnedXP: Math.round((activeLesson.xpReward || 300) * (accuracy / 100)), isPerfect: accuracy >= 100 };
+    }
+    // B2. Gap Fill Tokens (answers stored as object { a: "ALTHOUGH", b: "EVEN THOUGH" })
+    else if (activeLesson.type === 'gap-fill-tokens') {
+      const userAnswersObj = userAnswers[activeLesson.id] || {};
+      const correctAnswersObj = activeLesson.answers || {};
+      const totalGaps = Object.keys(correctAnswersObj).length;
+      let correctCount = 0;
+      Object.keys(correctAnswersObj).forEach(key => {
+        if (String(userAnswersObj[key] || "").trim().toLowerCase() === String(correctAnswersObj[key] || "").trim().toLowerCase()) {
+          correctCount++;
+        }
+      });
+      const accuracy = totalGaps > 0 ? Math.round((correctCount / totalGaps) * 100) : 0;
       results = { accuracy, earnedXP: Math.round((activeLesson.xpReward || 300) * (accuracy / 100)), isPerfect: accuracy >= 100 };
     }
     // C. Standard Flow (MCQ, Short Answer, Gap Fill)

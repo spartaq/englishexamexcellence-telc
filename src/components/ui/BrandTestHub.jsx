@@ -5,7 +5,6 @@ import {
   Timer, Library, GraduationCap, Lock, Search, 
   Mic, Headset, PenTool, FileText
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 import { telcMocks } from '../../data/TELC/mocks';
 
@@ -63,28 +62,19 @@ const BrandTestHub = ({
             <button className="btn-white" onClick={() => onSelectPath(singleExercisePath)}>
               Quick Start
             </button>
-            <Link to="/telc-info" className="btn-outline-white" style={{ textDecoration: 'none' }}>
-              Exam Info
-            </Link>
           </div>
         </div>
 
           <div className="hero-text">
-            <h1>How to use this site effectively</h1> 
+            <h1>What should you practice today?</h1> 
           <p>
-            If you are serious about passing an English exam, you need to do some work. Usually 3months before the test, if you do somework everyday, you will definitely improve your passive vocabulary and grammar use. But just taking practice tests won't help you much if you are not learning. The best way to pass the test is to speak English fluently of course. Barring that, you should build your vocabulary and practice the grammar that is likely to be on the test.
+            Vocab progress bar
           </p> 
              <p>
-            Take a section of each test part to get a feel for the test.
+            Tests progress bar
           </p> 
           <p>
-            Do vocab flashcards daily. (5 min)
-          </p> 
-          <p>
-            Do a reading everyday. (10-15 min)
-          </p>
-          <p>
-            Do one drill each day.  (5-10 min)
+           Drills progress bar
           </p>
           </div>
         

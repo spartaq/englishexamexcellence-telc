@@ -8,6 +8,7 @@ export const commaDrill1Data = {
   instruction: 'Click between words to add commas where they belong. Focus on introductory words and phrases.',
   xpReward: 100,
   punctuationMark: ',',
+  correctPositions: [0, 3, 0, 2, 3, 2, 0, 4],
   
   sentences: [
     {
@@ -70,7 +71,8 @@ export const commaDrill2Data = {
   instruction: 'Click between words to add commas where they belong. Focus on joining clauses.',
   xpReward: 100,
   punctuationMark: ',',
-  
+  correctPositions: [3, 5, 5, 3, 3, 4],
+
   sentences: [
     {
       id: 's1',
@@ -118,7 +120,8 @@ export const commaDrill3Data = {
   instruction: 'Click between words to add commas where they belong. Focus on lists and series.',
   xpReward: 100,
   punctuationMark: ',',
-  
+  correctPositions: [2, 3, 4, 5, 6, 2, 3, 3, 4, 4, 5],
+
   sentences: [
     {
       id: 's1',

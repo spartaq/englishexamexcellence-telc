@@ -2,6 +2,7 @@ import { findPassive1Data } from './reading/find-passive-1';
 import { findPresentPerfect1Data } from './reading/find-presperf-1';
 import { findNoun1Data } from './reading/find-noun-1';
 import { commaDrill1Data, commaDrill2Data, commaDrill3Data } from './writing/comma-drill-1';
+import { conjunctions1Data } from './writing/conjunctions-1';
 
 // 1. Lookup Table for Exercises
 export const drillsData = {
@@ -11,6 +12,7 @@ export const drillsData = {
   'comma-drill-1': commaDrill1Data,
   'comma-drill-2': commaDrill2Data,
   'comma-drill-3': commaDrill3Data,
+  'conjunctions-1': conjunctions1Data,
 }
 
 // 2. The Hub Configuration
@@ -34,6 +36,7 @@ export const DRILLS_HUB = {
         { id: 'comma-drill-1', title: 'Commas: Introductory Elements', xp: 100, type: 'punctuation-correction', tier: 'bronze' },
         { id: 'comma-drill-2', title: 'Commas: Compound Sentences', xp: 100, type: 'punctuation-correction', tier: 'bronze' },
         { id: 'comma-drill-3', title: 'Commas: Lists and Series', xp: 100, type: 'punctuation-correction', tier: 'bronze' },
+        { id: 'conjunctions-1', title: 'Conjunctions: Although, However, etc.', xp: 100, type: 'gap-fill-tokens', tier: 'bronze' },
       ]
     }
   ]

@@ -12,11 +12,6 @@ import {
   getAllSpeakingParts
 } from './TELC/mocks';
 
-// ==========================================
-// 2. Import LangCert (separate exam brand)
-// ==========================================
-import { SPEAKING_HUB as LANGCERT_SPEAKING, speakingMocks as langcertSpeakingMocks } from './LangCert/speaking/index';
-import { READING_HUB as LANGCERT_READING, readingMocks as langcertReadingMocks } from './LangCert/reading/index';
 
 // ==========================================
 // 3. Import Practice Exercises & Vocabulary
@@ -48,8 +43,6 @@ const vocabLessons = VOCAB_LESSONS;
 // ==========================================
 const lessonDatabase = {
   ...telcMocks,
-  ...langcertSpeakingMocks,
-  ...langcertReadingMocks,
   ...drillsData,  
   ...vocabLessons,
 };
@@ -81,8 +74,6 @@ export const HUBS = {
   drillshub: DRILLS_HUB, 
   vocabulary: VOCAB_HUB,
   
-  // LangCert (separate exam)
-  langcert_reading: LANGCERT_READING
 };
 
 /**
@@ -125,16 +116,7 @@ export const EXAM_CONFIG = {
       listening: TELC_C1_LISTENING,
     }
   },
-  langcert: {
-    id: 'langcert',
-    title: "LangCert ESOL",
-    description: "Official B2/C1 Communicator exam prep.",
-    color: "#2563eb",
-    modules: {
-      speaking: LANGCERT_SPEAKING,
-      reading: LANGCERT_READING
-    }
-  },
+ 
   // This section powers the "Skill Building" logic
   extra: {
     id: 'extra',

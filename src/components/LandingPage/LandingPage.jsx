@@ -16,6 +16,10 @@ const LandingPage = () => {
   // Navigate to free mock (no authentication required) - let user pick level
   const handleStartFreeMock = (level) => {
     navigate(`/free-mock/${level}`);
+  }; 
+  // Navigate to free mock (no authentication required) - let user pick level
+  const handleTelcInfo = () => {
+    navigate(`/telc-info`);
   };
 
   return (
@@ -53,6 +57,13 @@ const LandingPage = () => {
             </p><p className="hero-subtext">
              But just taking practice tests won't help you much if you are not learning. The best way to pass the test is to speak English fluently of course. Barring that, you should build your vocabulary and practice the grammar that is likely to be on the test.
             </p>
+            <button className="btn-outline" onClick={() => handleTelcInfo()}>
+                  Telc Info
+                </button>
+
+
+
+
 
             {/* THE FORK IN THE ROAD - TELC Level Selection */}
             <div className="hero-selection-cards">

@@ -20,11 +20,19 @@ export const LessonFactory = {
     if (!mock) return null;
     
     const sections = [];
+    const mockMeta = {
+      mockId: mock.id,
+      mockNumber: mock.mockNumber,
+      mockTitle: mock.title,
+      testType: mock.type,
+      level: mock.level
+    };
     
     // Add vocabulary
     if (mock.vocabulary) {
       sections.unshift({
         ...mock.vocabulary,
+        ...mockMeta,
         skill: 'vocab',
         type: 'VOCAB'
       });
@@ -37,6 +45,7 @@ export const LessonFactory = {
           section.passages.forEach(passage => {
             sections.push({
               ...passage,
+              ...mockMeta,
               skill: 'reading',
               type: passage.type || 'reading-practice'
             });
@@ -44,21 +53,23 @@ export const LessonFactory = {
         }
       });
     }    
-         
+       
    if (mock.languageElements?.sections) {
-  mock.languageElements.sections.forEach(section => {
-    sections.push({
-      ...section,
-      skill: 'language-elements',
-      type: 'LANGUAGE_ELEMENTS'
-    });
-  });
-}
+   mock.languageElements.sections.forEach(section => {
+     sections.push({
+       ...section,
+       ...mockMeta,
+       skill: 'language-elements',
+       type: 'LANGUAGE_ELEMENTS'
+     });
+   });
+ }
     // Add listening sections
     if (mock.listening?.sections) {
       mock.listening.sections.forEach(section => {
         sections.push({
           ...section,
+          ...mockMeta,
           skill: 'listening',
           type: 'LISTENING'
         });
@@ -70,6 +81,7 @@ export const LessonFactory = {
       mock.speaking.sections.forEach(section => {
         sections.push({
           ...section,
+          ...mockMeta,
           skill: 'speaking',
           type: 'SPEAKING'
         });
@@ -81,6 +93,7 @@ export const LessonFactory = {
       mock.writing.sections.forEach(section => {
         sections.push({
           ...section,
+          ...mockMeta,
           skill: 'writing',
           type: 'WRITING'
         });
@@ -153,8 +166,10 @@ export const LessonFactory = {
       // Mini-test with ALL skills (from free-mock /free-mock route)
       if (taskMetadata.id && taskMetadata.id.includes('mini-test')) {
         const type = taskMetadata.id.match(/telc-(b1|b2|c1)/)?.[1] || 'b2';
+        const rawMock = pluckRandomFullMock(type);
         const readingExercise = pluckRandom('reading', type);
-        const vocabExercise = findVocabFromReading(readingExercise);
+        let vocabExercise = rawMock?.vocabulary ? { ...rawMock.vocabulary, skill: 'vocab', type: 'VOCAB' } : null;
+        if (!vocabExercise) vocabExercise = findVocabFromReading(readingExercise);
         const sections = [];
         if (vocabExercise) sections.push({ ...vocabExercise, skill: 'vocab' });
         if (readingExercise) sections.push({ ...readingExercise, skill: 'reading' });
@@ -179,18 +194,25 @@ export const LessonFactory = {
     // Mock sections (from Hubs)
     if (taskMetadata.mockId) {
         const mock = telcMocks[taskMetadata.mockId];
+        const mockMeta = {
+          mockId: mock.id,
+          mockNumber: mock.mockNumber,
+          mockTitle: mock.title,
+          testType: mock.type,
+          level: mock.level
+        };
         switch (taskMetadata.skill) {
             case 'reading':
-                return { ...mock.reading, skill: 'reading', passages: mock.reading.sections.flatMap(s => s.passages) };
+                return { ...mock.reading, ...mockMeta, skill: 'reading', passages: mock.reading.sections.flatMap(s => s.passages) };
             case 'listening':
-                return { ...mock.listening, skill: 'listening' };
+                return { ...mock.listening, ...mockMeta, skill: 'listening' };
             case 'writing':
-                return { ...mock.writing, skill: 'writing', sections: mock.writing.sections };
+                return { ...mock.writing, ...mockMeta, skill: 'writing', sections: mock.writing.sections };
             case 'speaking':
-                return { ...mock.speaking, skill: 'speaking' };
+                return { ...mock.speaking, ...mockMeta, skill: 'speaking' };
             case 'language-elements':
-                return mock.languageElements ? { ...mock.languageElements, skill: 'language-elements', sections: mock.languageElements.sections } : { skill: 'language-elements', sections: [] };
-            default: return mock;
+                return mock.languageElements ? { ...mock.languageElements, ...mockMeta, skill: 'language-elements', sections: mock.languageElements.sections } : { ...mockMeta, skill: 'language-elements', sections: [] };
+            default: return { ...mock, ...mockMeta };
         }
     }
 

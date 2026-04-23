@@ -146,13 +146,7 @@ const Router = () => {
         </ProtectedRoute>
       } />
       
-      {/* LangCert routes */}
-      <Route path="/langcert" element={
-        <ProtectedRoute>
-          <App initialView="langcert-hub" />
-        </ProtectedRoute>
-      } />
-      
+            
     </Routes>
   );
 };

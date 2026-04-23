@@ -88,31 +88,33 @@ const QuestionDispatcher = ({
         />
       );
 
-     case 'gap-fill-tokens':
-       // Normalize passageContent to a string if it's an array (from structured content)
-       let normalizedPassage = data.passage;
-       if (passageContent) {
-         if (Array.isArray(passageContent)) {
-           // Extract text from content objects and join
-           normalizedPassage = passageContent.map(item => 
-             item && typeof item === 'object' ? (item.text || item.passage || '') : item
-           ).join('\n\n');
-         } else if (typeof passageContent === 'string') {
-           normalizedPassage = passageContent;
-         }
-         // If passageContent is truthy but not string/array, fall back to data.passage
-       }
-       return (
-         <GapFillBlock 
-           data={{ ...data, passage: normalizedPassage }} 
-           userAnswers={userAnswers} 
-           onUpdate={onUpdate}
-           isReviewMode={isReviewMode}
-           showPassage={false}
-           activeGap={activeGap}
-           onActiveGapChange={onActiveGapChange}
-         />
-       );
+case 'gap-fill-tokens':
+        
+        let normalizedPassage = data.passage;
+        const isStandalone = !!normalizedPassage && !passageContent;
+        if (passageContent) {
+          if (Array.isArray(passageContent)) {
+            // Extract text from content objects and join
+            normalizedPassage = passageContent.map(item => 
+              item && typeof item === 'object' ? (item.text || item.passage || '') : item
+            ).join('\n\n');
+          } else if (typeof passageContent === 'string') {
+            normalizedPassage = passageContent;
+          }
+          // If passageContent is truthy but not string/array, fall back to data.passage
+        }
+        return (
+          <GapFillBlock 
+            data={{ ...data, passage: normalizedPassage }} 
+            userAnswers={userAnswers} 
+            onUpdate={onUpdate}
+            isReviewMode={isReviewMode}
+            showPassage={false}
+            inlinePassage={isStandalone}
+            activeGap={activeGap}
+            onActiveGapChange={onActiveGapChange}
+          />
+        );
 
     case 'language_elements':
       // Language Elements - Use LanguageElementsBlock for both MCQ and gap-fill formats
@@ -304,22 +306,6 @@ const QuestionDispatcherWithCheck = ({
   if (!data) return null;
 
   const qId = data.id;
-  const checkValue = (value) => {
-    if (value === undefined || value === null) return false;
-    if (Array.isArray(value)) return value.length > 0;
-    if (typeof value === 'string') return value.trim().length > 0;
-    return true;
-  };
-
-  const hasUserAnswers = (() => {
-    if (checkValue(userAnswers[qId])) return true;
-    const qIdStr = String(qId);
-    return Object.keys(userAnswers).some((key) => {
-      if (!key) return false;
-      if (key === qIdStr) return checkValue(userAnswers[key]);
-      return key.startsWith(`${qIdStr}-`) || key.startsWith(`${qIdStr}.`);
-    });
-  })();
 
   return (
     <div className="question-dispatcher-wrapper">
@@ -333,15 +319,14 @@ const QuestionDispatcherWithCheck = ({
         onActiveGapChange={onActiveGapChange}
       />
       
-      {/* Check Answers Button */}
-      {showCheckAnswers && !isReviewMode && onCheckAnswers && (
+      {/* Check Answers Button - Toggle via onCheckAnswers (handles toggle in App.jsx) */}
+      {showCheckAnswers && onCheckAnswers && (
         <div className="check-answers-container">
           <button 
             className="check-answers-btn"
             onClick={() => onCheckAnswers()}
-            disabled={!hasUserAnswers}
           >
-            Check Answers
+            {isReviewMode ? 'Hide Answers' : 'Check Answers'}
           </button>
         </div>
       )}
