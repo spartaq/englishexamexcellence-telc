@@ -568,13 +568,10 @@ const totalSkills = availableSkills?.length || 0;
                   <span className="srs-label">Mastered</span>
                   <span className="srs-review-time">Review in 1 week</span>
                 </button>
+                
               </div>
-
-            
-            </section>
-            
-          </div>
-            {availableSkills?.length > 1 && (
+              <div className="flashnav">  
+                {availableSkills?.length > 1 && (
                 <div className="carousel-nav-footer">
                   <div className="carousel-nav-arrows">
                     <button onClick={handlePrevArrow} className="carousel-nav-arrow">
@@ -586,6 +583,12 @@ const totalSkills = availableSkills?.length || 0;
                   </div>
                 </div>
               )}
+              </div>
+          
+            </section>
+            
+          </div>
+            
         </div>
 
 

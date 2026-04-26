@@ -1085,3 +1085,7 @@
   color: var(--primary);
 }
 
+.flashnav {
+  margin:auto;
+}
+

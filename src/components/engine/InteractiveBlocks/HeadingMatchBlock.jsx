@@ -1,14 +1,15 @@
 import React from 'react';
 import { CheckCircle, XCircle } from 'lucide-react';
 import './HeadingMatchBlock.css';
+import CustomSelect from '../../ui/CustomSelect';
+import '../../ui/CustomSelect.css';
 
 const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = false }) => {
   const questions = data.questions || [];
   const headings = data.headings || [];
 
   // Helper to format heading label - support both "a Clear proof" and "1. Clear proof" formats
-  const getHeadingLabel = (heading, idx) => {
-    // Check if heading already starts with a letter prefix like "a Clear proof"
+  const getHeadingLabel = (heading, idx) => { 
     const letterMatch = heading.match(/^([a-z])\s+(.+)/i);
     if (letterMatch) {
       return `${letterMatch[1].toLowerCase()}. ${letterMatch[2]}`;
@@ -82,19 +83,21 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
             </h3>
             
             <div className="select-wrapper">
-              <select 
-                className={`answer-input ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''}`}
-                value={userAnswers[q.id] || ""}
-                disabled={isReviewMode}
-                onChange={(e) => handleSelect(q.id, e.target.value)}
-              >
-                <option value="" disabled>Select Heading...</option>
-                {headings.map((heading, idx) => (
-                  <option key={idx} value={idx}>
-                    {getHeadingLabel(heading, idx)}
-                  </option>
-                ))}
-              </select>
+              <CustomSelect
+  value={userAnswers[q.id] || ""}
+  onChange={(value) => handleSelect(q.id, value)}
+  disabled={isReviewMode}
+  isCorrect={isCorrect}
+  isIncorrect={isIncorrect}
+  placeholder="Select Heading..."
+  options={[
+    { value: "", label: "Select Heading...", disabled: true },
+    ...headings.map((heading, idx) => ({
+      value: idx,
+      label: getHeadingLabel(heading, idx)
+    }))
+  ]}
+/>
 
               {isIncorrect || isMissing ? (
                 correctChoice !== undefined ? (

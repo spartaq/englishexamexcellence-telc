@@ -45,10 +45,10 @@ Create a complete **TELC B1** mock test JSON. Include ALL sections below:
 - Part 3: Collaborative - topic with 8 suggestions
 
 ### Listening (30 min, 3 parts)
+- Create these based on the transcripts the user provides
 - Part 1: 5 news items → heading match (questions 41-45)
 - Part 2: Interview → True/False/Not Given (questions 46-55)
 - Part 3: 5 announcements → MCQ (questions 56-60)
-- Use placeholder audio URLs (user will add transcripts separately)
 
 ### Language Elements (90 min, 2 parts)
 - Part 1: MCQ cloze (questions 21-30, 8 gaps)

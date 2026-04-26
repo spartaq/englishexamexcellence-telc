@@ -439,33 +439,60 @@
         ]
       },
       {
-        "id": "le-part2",
-        "section": 2,
-        "title": "Language Elements, Part 2",
-        "description": "Read the following",
-        "passages": [
-		{
-            "id": "p3",
-            "subtitle": "Something",
-            "title": "else",
-            "type": "LANGUAGE-ELEMENTS",
-            "content": [
+      "id": "le-part2",
+      "section": 2,
+      "title": "Language Elements, Part 2",
+      "description": "Read the following text and complete the gaps.",
+      "passages": [
+        {
+          "id": "p3",
+          "subtitle": "Language Elements Part 2",
+          "title": "Letter to a Relative",
+          "type": "LANGUAGE-ELEMENTS",
+          "content": [
             {
-		     "id":"1",
-			"passage": "Dear Grandma, I am so sorry to hear that you’ve had an operation. How did it 31 ? How long do you have to 32 in hospital? I hope that the doctors and nurses are friendly. I remember when I was in hospital last year, the staff were always stressed and in a 33 , but they still did their best to make the patients feel as 34 as possible. Do you have a single room or are you 35 it with someone else? Hopefully it’s a nice old lady like you who you can 36 to. I am planning to visit you on Saturday. Are you on a special 37 ? Otherwise, I’ll bring  a cake and maybe some fresh fruit. If there is anything you need, 38 fresh towels or something to 39 , give me a call  before Friday so that I can go to your house and 40 it. See you on Saturday!"
-			}			
-			],
-		"subTasks": [
-          {
-            "type": "gap-fill-tokens",
-            "instruction": "Choose the correct word (a-o) to complete each sentence.",
-            "tokens": ["a APPROVAL", "b ATTEND", "c AWOKE", "d EDGE", "e EXCEPTION", "f EXPERIMENTED", "g EXPORTS", "h FAR", "i FASHION", "j INITIALS", "k INTERRUPTED", "l MYSTERIOUS", "m PUBLICITY", "n RECALLS", "o RURAL"],
-            "answers": ["g EXPORTS", "o RURAL", "b ATTEND", "n RECALLS", "k INTERRUPTED", "c AWOKE", "l MYSTERIOUS", "f EXPERIMENTED", "j INITIALS", "l MYSTERIOUS"]
-			      }
+              "id": "1",
+              "text": "Dear Grandma, I am so sorry to hear that you’ve had an operation. How did it ____(a)____? How long do you have to ____(b)____ in hospital? I hope that the doctors and nurses are friendly. I remember when I was in hospital last year, the staff were always stressed and in a ____(c)____, but they still did their best to make the patients feel as ____(d)____ as possible. Do you have a single room or are you ____(e)____ it with someone else? Hopefully it’s a nice old lady like you who you can ____(f)____ to. I am planning to visit you on Saturday. Are you on a special ____(g)____? Otherwise, I’ll bring a cake and maybe some fresh fruit. If there is anything you need, ____(h)____ fresh towels or something to ____(i)____, give me a call before Friday so that I can go to your house and ____(j)____ it. See you on Saturday!"
+            }
+          ],
+          "subTasks": [
+            {
+              "type": "gap-fill-tokens",
+              "instruction": "Choose the correct word (a-o) to complete each sentence.",
+              "tokens": [
+                "COMFORTABLE",
+                "DIET",
+                "DIVIDING",
+                "FOOD",
+                "FRIENDLY",
+                "GET",
+                "GO",
+                "HURRY",
+                "KEEP",
+                "LIKE",
+                "MEET",
+                "REMAIN",
+                "SHARE",
+                "TALK",
+                "WEAR"
+              ],
+              "answers": {
+                "a": "GO",
+                "b": "REMAIN",
+                "c": "HURRY",
+                "d": "COMFORTABLE",
+                "e": "SHARE",
+                "f": "TALK",
+                "g": "DIET",
+                "h": "LIKE",
+                "i": "WEAR",
+                "j": "GET"
+              }
+            }
           ]
-          }
-        ]
-      }
+        }
+      ]
+    }
     ]
   },
 
@@ -517,12 +544,12 @@
               }
             ],
             "headings": [
-              "a Clear proof of climate change",
-              "b Controversial solution to a challenging situation",
-              "c International rules urgently required",
-              "d Too many for safety",
-              "e Unexpected developments at sea",
-              "f Variety could be the key to survival"
+              "Clear proof of climate change",
+              "Controversial solution to a challenging situation",
+              "International rules urgently required",
+              "Too many for safety",
+              "Unexpected developments at sea",
+              "Variety could be the key to survival"
             ]
           }
         ]

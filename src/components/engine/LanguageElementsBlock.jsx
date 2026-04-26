@@ -71,8 +71,7 @@ const renderInteractiveGaps = (text) => {
             reviewClass = 'missing';
           } else {
             const correctAnswer = answers[gapId];
-            const userWord = selectedToken?.split(' ')[1];
-            reviewClass = userWord?.toLowerCase() === correctAnswer?.toLowerCase() ? 'correct' : 'incorrect';
+            reviewClass = selectedToken?.toLowerCase() === correctAnswer?.toLowerCase() ? 'correct' : 'incorrect'; 
           }
         }
         return (
