@@ -11,8 +11,8 @@ import { getAtomsFromMocks } from './mockPlucker';
 
 /**
  * Resolve a path/initialView into a navigation plan
- * 
- * @param {string} path - The route path (e.g., 'telc_b1_reading', 'drillshub', 'vocab-flashcards')
+ *
+ * @param {string} path - The route path (e.g., 'telc_b1_reading', 'drillshub', 'vocabulary', 'vocabulary/b2')
  * @returns {object} plan - The navigation plan
  * @returns {string} plan.view - The view to set ('telc-b1-hub', 'drillsHub', 'selection', 'lesson')
  * @returns {string[]} plan.viewHistory - The view history to set
@@ -20,6 +20,7 @@ import { getAtomsFromMocks } from './mockPlucker';
  * @returns {object|null} plan.activeSection - The active section to set
  * @returns {object|null} plan.triggerTask - If present, call handleStartTask with this metadata
  * @returns {object|null} plan.triggerFullTest - If present, call handleFullTestSelection with this
+ * @returns {object|null} plan.context - Optional context (e.g., vocabLevel for level-filtered VocabHub)
  */
 export const resolvePath = (path) => {
   // Default plan - go to telc-b2-hub
@@ -48,17 +49,21 @@ export const resolvePath = (path) => {
     };
   }
 
-  // Handle vocabulary hub route
-  if (path === 'vocabulary') {
-    return {
-      view: 'drillsHub',
-      viewHistory: ['drillsHub'],
-      activeCategory: HUBS.vocabulary,
-      activeSection: null,
-      triggerTask: null,
-      triggerFullTest: null,
-    };
-  }
+   // Handle vocabulary hub routes (with or without level)
+   if (path === 'vocabulary' || path.startsWith('vocabulary/')) {
+     // Extract level if present: 'vocabulary/b2' → 'b2'
+     const levelParam = path === 'vocabulary' ? null : path.split('/')[1];
+     return {
+       view: 'drillsHub',
+       viewHistory: ['drillsHub'],
+       activeCategory: HUBS.vocabulary,
+       activeSection: null,
+       triggerTask: null,
+       triggerFullTest: null,
+       // Pass level context to be used by App
+       context: { vocabLevel: levelParam ? levelParam.toUpperCase() : null }
+     };
+   }
 
   // TELC Level Hub routes
   if (path === 'telc-b1-hub') {

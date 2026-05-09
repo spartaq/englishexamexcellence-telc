@@ -1,0 +1,690 @@
+{
+  "id": "telc-b1-mock-7",
+  "level": "b1",
+  "mockNumber": 7,
+  "title": "TELC B1 Mock Test 7",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+
+  "vocabulary": {
+    "id": "vocab-b1-mock-7",
+    "title": "Test Vocabulary",
+    "level": "B1",
+    "words": [
+      { "term": "School", "hu": "Iskola", "definition": "An institution for educating children or students.", "example": "My children go to school every day." },
+      { "term": "Student", "hu": "Diák", "definition": "A person who is learning at a school.", "example": "She is a university student." },
+      { "term": "Teacher", "hu": "Tanár", "definition": "A person who teaches at a school.", "example": "Our teacher is very kind." },
+      { "term": "Subject", "hu": "Tantárgy", "definition": "An area of study or knowledge.", "example": "My favorite subject is history." },
+      { "term": "Lesson", "hu": "Óra", "definition": "A period of instruction in school.", "example": "We have math lessons three times a week." },
+      { "term": "Homework", "hu": "Házi feladat", "definition": "Schoolwork done outside class.", "example": "I have a lot of homework tonight." },
+      { "term": "Exam", "hu": "Vizsga", "definition": "A test of knowledge or skill.", "example": "We have an exam next week." },
+      { "term": "Grade", "hu": "Jegy", "definition": "A mark given for schoolwork.", "example": "I got a good grade on my test." },
+      { "term": "Library", "hu": "Könyvtár", "definition": "A building with books to borrow or read.", "example": "I study at the library after school." },
+      { "term": "Class", "hu": "Osztály", "definition": "A group of students taught together.", "example": "There are 25 students in our class." },
+      { "term": "Study", "hu": "Tanul", "definition": "To spend time learning about a subject.", "example": "I study English every evening." },
+      { "term": "Test", "hu": "Teszt", "definition": "An examination of someone's knowledge.", "example": "We have a science test tomorrow." },
+      { "term": "Learn", "hu": "Tanul", "definition": "To gain knowledge or skill.", "example": "Children learn quickly." },
+      { "term": "Knowledge", "hu": "Tudás", "definition": "Information and understanding of something.", "example": "He has a lot of knowledge about history." },
+      { "term": "Education", "hu": "Oktatás", "definition": "The process of teaching and learning.", "example": "Education is important for everyone." }
+    ]
+  },
+
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "School",
+              "Student",
+              "Teacher",
+              "Subject",
+              "Lesson",
+              "Homework",
+              "Exam",
+              "Grade",
+              "Library",
+              "Class",
+              "Study",
+              "Test",
+              "Learn",
+              "Knowledge",
+              "Education"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "Emma is a university student studying medicine. She has lectures every day from 9am to 3pm. In the evenings, she does homework and prepares for exams. She hopes to become a doctor one day and help people."
+              },
+              {
+                "id": "2",
+                "text": "Mr. Johnson has been a teacher for 20 years. He teaches history and geography. His students like his lessons because he tells interesting stories about the past. He believes education opens doors for young people."
+              },
+              {
+                "id": "3",
+                "text": "Tom is preparing for his final exams next month. He studies at the library every afternoon. He has made a study schedule to cover all his subjects. He wants to get good grades to go to university."
+              },
+              {
+                "id": "4",
+                "text": "The school library opened a new section with books in five languages. Students can now borrow books in Spanish, French, German, Italian, and English. The librarian says it's important for students to learn languages."
+              },
+              {
+                "id": "5",
+                "text": "Lisa's favorite subject is art. She has art lessons twice a week. Last week, her class visited an art museum. She learned about famous painters and their techniques. She wants to study art in the future."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  { "id": "1", "text": "Paragraph 1", "answer": 3 },
+                  { "id": "2", "text": "Paragraph 2", "answer": 5 },
+                  { "id": "3", "text": "Paragraph 3", "answer": 2 },
+                  { "id": "4", "text": "Paragraph 4", "answer": 0 },
+                  { "id": "5", "text": "Paragraph 5", "answer": 1 }
+                ],
+                "headings": [
+                  "New multilingual library resources",
+                  "A student preparing for exams",
+                  "A teacher with engaging lessons",
+                  "Dreaming of becoming a doctor",
+                  "Passion for art and museums"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about online learning and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The Rise of E-Learning",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Online learning has become increasingly popular in recent years. Many students now take courses on the internet instead of attending traditional classes. E-learning offers flexibility - students can learn at their own pace and from any location."
+              },
+              {
+                "id": "B",
+                "text": "There are many advantages to online education. It saves time and money on commuting. Students can access materials 24/7 and review lessons as many times as needed. However, online learning requires self-discipline and good time management skills."
+              },
+              {
+                "id": "C",
+                "text": "Many universities now offer online degrees. These programs are recognized by employers and can lead to the same career opportunities as traditional degrees. Some courses even include interactive elements like video lectures and online discussions."
+              },
+              {
+                "id": "D",
+                "text": "The future of education likely includes both online and classroom learning. This blended approach combines the benefits of both methods. Students get the flexibility of online study with the personal interaction of face-to-face teaching."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": "6",
+                    "text": "What is an advantage of online learning?",
+                    "options": [
+                      "A. It is always cheaper than traditional education",
+                      "B. It offers flexibility in time and place",
+                      "C. It requires no self-discipline"
+                    ],
+                    "answer": "B. It offers flexibility in time and place"
+                  },
+                  {
+                    "id": "7",
+                    "text": "What does online learning require from students?",
+                    "options": [
+                      "A. No special skills",
+                      "B. Self-discipline and time management",
+                      "C. Constant teacher supervision"
+                    ],
+                    "answer": "B. Self-discipline and time management"
+                  },
+                  {
+                    "id": "8",
+                    "text": "How are online degrees viewed by employers?",
+                    "options": [
+                      "A. They are not recognized",
+                      "B. They are often recognized",
+                      "C. They are preferred over traditional degrees"
+                    ],
+                    "answer": "B. They are often recognized"
+                  },
+                  {
+                    "id": "9",
+                    "text": "What may online courses include?",
+                    "options": [
+                      "A. Only text materials",
+                      "B. Interactive elements like video lectures",
+                      "C. No student interaction"
+                    ],
+                    "answer": "B. Interactive elements like video lectures"
+                  },
+                  {
+                    "id": "10",
+                    "text": "What is the likely future of education?",
+                    "options": [
+                      "A. Only online learning",
+                      "B. A mix of online and classroom learning",
+                      "C. Only traditional classrooms"
+                    ],
+                    "answer": "B. A mix of online and classroom learning"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 11-18",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Educational Services",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Language School - We offer intensive English courses for all levels. Morning and afternoon classes available. Qualified native teachers. Small group sizes ensure personal attention. Free trial lesson for new students."
+              },
+              {
+                "id": "B",
+                "text": "Math Tutoring - Expert math tutors available for students aged 10-18. We cover algebra, geometry, calculus, and more. Sessions can be online or in-person. Help with homework and exam preparation. First session free."
+              },
+              {
+                "id": "C",
+                "text": "Music Academy - Learn to play piano, guitar, violin, or drums. Professional music teachers with years of experience. Lessons for children and adults. Prepare for music exams or learn for fun. Recitals held twice a year."
+              },
+              {
+                "id": "D",
+                "text": "Computer Skills Center - Courses in basic computer use, Microsoft Office, and internet skills. Perfect for beginners or those wanting to improve. Individual and group classes. Learn at your own pace with patient instructors."
+              },
+              {
+                "id": "E",
+                "text": "Exam Preparation - Specialized courses for university entrance exams, TOEFL, and Cambridge exams. Our students have a 95% success rate. Expert teachers and proven methods. Intensive courses available year-round."
+              },
+              {
+                "id": "F",
+                "text": "Art Classes - Drawing, painting, and sculpture classes for all ages. Supplies included. Creative environment with experienced artists as instructors. Weekend workshops available. Children's and adult classes separate."
+              },
+              {
+                "id": "G",
+                "text": "Homework Help Club - After-school program for primary school children. Supervised homework time plus educational games and activities. Healthy snacks provided. Pick-up from local schools available."
+              },
+              {
+                "id": "H",
+                "text": "Study Abroad Services - We help students apply to universities worldwide. Assistance with applications, visas, and accommodation. Free consultation. Partner universities in the USA, UK, Canada, and Australia."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  { "id": 11, "text": "A service that helps students go to foreign universities.", "answer": "H" },
+                  { "id": 12, "text": "Classes for learning to play musical instruments.", "answer": "C" },
+                  { "id": 13, "text": "Help with school assignments for younger children.", "answer": "G" },
+                  { "id": 14, "text": "Courses for passing important exams.", "answer": "E" },
+                  { "id": 15, "text": "Computer training for beginners.", "answer": "D" },
+                  { "id": 16, "text": "Private lessons in mathematics.", "answer": "B" },
+                  { "id": 17, "text": "Art education for different age groups.", "answer": "F" },
+                  { "id": 18, "text": "Language courses with native teachers.", "answer": "A" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "Learning a New Language",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Learning a new language can be challenging, but it is also very rewarding. First, you need to ____(21)____ a language course that suits your level. Many people start with beginner classes at a language school or online.\n\nPractice is essential. Try to ____(22)____ every day, even if only for 15 minutes. You can use language apps, watch movies, or read books in the target language. Don't be afraid to make ____(23)____ - they're part of the learning process.\n\nListening and speaking are important skills. Find a language partner or join a conversation club. Don't worry about being perfect. The more you ____(24)____, the more confident you will become.\n\nFinally, be patient with yourself. Learning a language ____(25)____ time and effort. Set small, achievable goals and celebrate your progress. Remember that every successful speaker was once a beginner too."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  { "id": "21", "text": "find a language course that ____(21)____ your level", "options": ["suits", "matches", "fits"], "answer": "suits" },
+                  { "id": "22", "text": "Try to ____(22)____ every day", "options": ["practice", "exercise", "study"], "answer": "practice" },
+                  { "id": "23", "text": "make ____(23)____", "options": ["mistakes", "errors", "problems"], "answer": "mistakes" },
+                  { "id": "24", "text": "The more you ____(24)____", "options": ["practice", "speak", "learn"], "answer": "practice" },
+                  { "id": "25", "text": "Learning a language ____(25)____ time", "options": ["takes", "needs", "spends"], "answer": "takes" },
+                  { "id": "26", "text": "Set ____(26)____ goals", "options": ["realistic", "achievable", "possible"], "answer": "realistic" },
+                  { "id": "27", "text": "____(27)____ your progress", "options": ["Celebrate", "Enjoy", "Appreciate"], "answer": "Celebrate" },
+                  { "id": "28", "text": "You will improve ____(28)____", "options": ["gradually", "slowly", "step by step"] },
+                  { "id": "29", "text": "____(29)____ is important", "options": ["Consistency", "Regularity", "Practice"] },
+                  { "id": "30", "text": "Never give ____(30)____", "options": ["up", "in", "out"] }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text and complete the gaps with the correct word from the box.",
+        "passages": [
+          {
+            "id": "p3",
+            "subtitle": "Language Elements Part 2",
+            "title": "School Email",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Dear Mr. Thompson,\n\nI am writing to ____(a)____ about my daughter Emily's progress. She is in Year 8 and really enjoys her ____(b)____ at your school.\n\nI would like to know how she is doing in her main ____(c)____ - especially maths and science. She has been studying hard at home, but I'm concerned about her recent test ____(d)____. Could we arrange a meeting to discuss this?\n\nThank you for your time and ____(e)____.\n\nYours sincerely,\nMargaret Davis"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-j) to complete each gap.",
+                "tokens": [
+                  "ENQUIRE",
+                  "SCHOOL",
+                  "SUBJECTS",
+                  "GRADES",
+                  "HELP",
+                  "STUDY",
+                  "SUPPORT",
+                  "TEACHER",
+                  "CLASSES",
+                  "FEEDBACK"
+                ],
+                "answers": {
+                  "a": "ENQUIRE",
+                  "b": "SCHOOL",
+                  "c": "SUBJECTS",
+                  "d": "GRADES",
+                  "e": "FEEDBACK"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Situations",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear people talking in eight different situations.\nFor questions 1-8, choose the best answer A, B or C.",
+        "transcript": "1. Woman: Excuse me, can you tell us the way to the station?\nMan: Take the second on the right and it’s at the end of that road.\n\n2. Man: Have you used my calculator?\nWoman: Yes, can’t you find it? I put it back on the desk.\nMan: Where?\nWoman: Next to the lamp, I think. No, wait a minute, it’s on that pile of books.\n\n3. Man: Is Helen here?\nWoman: Yes, she’s over there, next to the man in the shorts.\nMan: Who’s that with her?\nWoman: Her brother, I think.\n\n4. Man 1: Did you hear the storm last night?\nMan 2: Of course. It was right over our apartment and seemed to hit something near the hotel.\nMan 1: Yes, the factory near the church was hit by lightning. It’s lucky no one was at work.\n\n5. Woman: Now I’ve bought this skirt, I think I need some new shoes to go with it.\nMan: Can’t you wear your boots?\nWoman: No, they’re too old. I think it would look better with flat shoes.\nMan: Come on then, let’s try that shop over the road.\n\n6. Woman: My mother wants me to send her a photo of our new house. Which one shall I send?\nMan: This one is nice, with the children playing in the back garden.\nWoman: I prefer this one with you standing by the front door.\nMan: Well, send her that one then.\n\n7. Woman: Have you decided which hotel you’re going to stay in?\nMan: Oh yes. It’s the largest in the area, it’s got hour floors and it’s right on the seashore … and there’s an outdoor pool as well. So we’ll be able to swim every day.",
+        "audioUrl": "/audio/PEL-B1-Test7-Part1.mp3",
+        "context": "Eight different situations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (a-f) corresponds to each news item?",
+            "questions": [
+              {
+                "id": 1,
+                "text": "News Item 1",
+                "answer": "1"
+              },
+              {
+                "id": 2,
+                "text": "News Item 2",
+                "answer": "3"
+              },
+              {
+                "id": 3,
+                "text": "News Item 3",
+                "answer": "2"
+              },
+              {
+                "id": 4,
+                "text": "News Item 4",
+                "answer": "5"
+              },
+              {
+                "id": 5,
+                "text": "News Item 5",
+                "answer": "0"
+              },
+              {
+                "id": 6,
+                "text": "News Item 6",
+                "answer": "6"
+              },
+              {
+                "id": 7,
+                "text": "News Item 7",
+                "answer": "4"
+              }
+            ],
+            "headings": [
+              "Buying shoes",
+              "Asking the way",
+              "Identifying people",
+              "Looking for something",
+              "Choosing a holiday hotel",
+              "Damage from a storm",
+              "Sending a photograph"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "International Camps Information",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an organiser talking about International Camps.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
+        "transcript": "Presenter: Hi there. On last week’s programme we interviewed the man behind the idea of the International Camps. So I thought that this week you’d be interested to hear more about one of the Camps which will be held later this year. Over to you, Michael …\n\nMichael: Thank you. Yes, the Camp is open to everyone between the ages of 18 to 23. You don’t have to be a student – you don’t even have to be employed, but you must be able to speak one foreign language in addition to your mother tongue.\n\nPresenter: OK. And what about accommodation?\n\nMichael: Well, the International Camp organisers supply tents which sleep up to four people but you are unlikely to know the people who you’ll be sharing a tent with. The nationalities are mixed, so you’ll be sharing with people who may not even speak your language?\n\nPresenter: Sounds interesting. Who does the cooking at the Camp?\n\nMichael: Everybody is expected to help with the running of the Camp. That means helping to prepare food, keeping the camp site clean and tidy, and so on. The Camp organisers are looking for people who can get along with others whatever happens.\n\nPresenter: And is there anything you need to take?\n\nMichael: Well as I’ve said, tents are provided but you’ll need to bring your own pillow, knife, fork and spoon. If you get chosen, you’re also asked to bring along photographs, postcards – anything that shows some of the traditions and customs of your own country. Everything goes into an exhibition at the start of the Camp, together with a huge map of the world showing the different countries people come from.\n\nPresenter: And is there any entertainment?\n\nMichael: Yes, there is. Everyone helps to provide the Camp entertainment. You are expected to sing, dance or play something musical – it doesn’t matter how good or bad you are. There is a space on the form to write down what you cand do.\n\nPresenter: Sounds great fun. And what does it all cost?\n\nMichael: Well, you have to find your own way to the Camp, so it’s up to you whether you fly, cycle, walk, hitch-hike or whatever. The charge for a week’s Camp is 300 dollars, but you’ll have to change that into your own currency to get a better idea of the cost. You have to pay the full cost before you arrive, but you can pay in any currency you want or you can use a credit card if you have one. Right. Now for the phone number to ring …",
+        "audioUrl": "/audio/PEL-B1-Test7-Part2.mp3",
+        "context": "Organiser talks about International Camps",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "mode": "tfng",
+            "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
+            "questions": [
+              {
+                "id": 8,
+                "text": "You must be a student to go to the Camp.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 9,
+                "text": "You must speak two languages to attend the Camp.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 10,
+                "text": "The Camp organisers provide all your food.",
+                "answer": "NOT GIVEN"
+              },
+              {
+                "id": 11,
+                "text": "Everyone at the Camp is expected to help with jobs.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 12,
+                "text": "You need to take your own tent to the Camp.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 13,
+                "text": "At the exhibition you can see things from different countries.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 14,
+                "text": "You have to entertain people at the Camp.",
+                "answer": "TRUE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Miss Brownlow's Two Years Abroad",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear an interview with Miss Brownlow, who talks about the two years she spent abroad after leaving school.\nFor questions 15-20, choose the correct answer A, B or C.",
+        "transcript": "Interviewer: Hello, Miss Brownlow, come and sit down. Now, I’d like you to tell me more about the two years you spent abroad after leaving school.\n\nWoman: Oh, right. Well, I decided to go abroad to see the world. I only intended staying for six months but in the end I stayed two years. first of all I worked for a family. I looked after their three children – all under the age of ten so I was kept very busy! I really liked the family, but after six months I was ready for a change although I didn’t want to come home. Then I applied for a job in a hotel as a receptionist. That way I could still practise my languages. And it was really good because I had my own room in the hotel and I had all my meals there as well. And then the hotel closed down! But the manager offered me a job – in a bakery – it belonged to his brother – and I worked there for almost a year. At the beginning it was really hard because I had to get up so early in the morning – around four o’clock every day. But once I got used to that, it was great, because I’d finished work by two o’clock in the afternoon and the rest of the time was my own. But my parents thought I ought to come home and get a ‘proper job’. I suppose they were right. So that’s when I applied for the job with the Bank International in their foreign department and so I continued to use my languages.\n\nInterviewer: You’ve had quite a lot of experience, haven’t you! Now, if I could ask you …",
+        "audioUrl": "/audio/PEL-B1-Test7-Part3.mp3",
+        "context": "Interview with Miss Brownlow about her two years abroad after leaving school",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "For questions 15-20, choose the correct answer A, B or C.",
+            "questions": [
+              {
+                "id": 15,
+                "text": "Miss Brownlow originally intended to stay abroad for",
+                "answer": "B",
+                "options": [
+                  "two years.",
+                  "six months.",
+                  "one year."
+                ]
+              },
+              {
+                "id": 16,
+                "text": "She left her first job because",
+                "answer": "A",
+                "options": [
+                  "she wanted a change.",
+                  "she didn’t like the children.",
+                  "she missed her family."
+                ]
+              },
+              {
+                "id": 17,
+                "text": "What was a benefit of her job as a receptionist?",
+                "answer": "B",
+                "options": [
+                  "She had her own apartment.",
+                  "She could practice her languages.",
+                  "She met many interesting people."
+                ]
+              },
+              {
+                "id": 18,
+                "text": "What did she find difficult about working in the bakery?",
+                "answer": "A",
+                "options": [
+                  "getting up early",
+                  "the work was hard",
+                  "it was a new skill"
+                ]
+              },
+              {
+                "id": 19,
+                "text": "Why did she decide to return home?",
+                "answer": "A",
+                "options": [
+                  "Her parents persuaded her.",
+                  "She ran out of money.",
+                  "She missed her friends."
+                ]
+              },
+              {
+                "id": 20,
+                "text": "Her current job involves",
+                "answer": "C",
+                "options": [
+                  "working in a bank.",
+                  "using her language skills.",
+                  "both A and B."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You will be asked questions about your education and learning experiences.",
+        "topics": [
+          {
+            "topic": "Your Education",
+            "questions": [
+              { "id": "p1q1", "text": "Are you currently studying? What are you studying?" },
+              { "id": "p1q2", "text": "What subjects do you enjoy most and least? Why?" },
+              { "id": "p1q3", "text": "What is your daily study routine like?" }
+            ]
+          },
+          {
+            "topic": "Learning Experiences",
+            "questions": [
+              { "id": "p1q4", "text": "Who was your favorite teacher and why?" },
+              { "id": "p1q5", "text": "What is the most useful thing you've learned?" },
+              { "id": "p1q6", "text": "How do you prefer to learn - reading, listening, or doing?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following text from a magazine. Discuss it with your partner.",
+        "text": "Many schools are removing exams and testing students through projects and continuous assessment instead. Supporters say this reduces stress and gives a more accurate picture of a student's abilities. Critics argue that exams teach students to work under pressure and are essential for university entrance.",
+        "topics": [
+          {
+            "topic": "School Assessment Methods",
+            "questions": [
+              { "id": "p2q1", "text": "Are exams or continuous assessment better for learning?" },
+              { "id": "p2q2", "text": "Does removing exams reduce student stress?" },
+              { "id": "p2q3", "text": "How else could we assess student progress?" },
+              { "id": "p2q4", "text": "What skills do exams help develop?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "Your school is planning to improve the learning environment. Discuss the following suggestions and decide which three should be implemented first.",
+        "topics": [
+          {
+            "topic": "School Improvements",
+            "suggestions": [
+              "Provide tablets for all students",
+              "Create more quiet study areas",
+              "Offer more after-school clubs",
+              "Improve the school library with new books",
+              "Install better lighting and air conditioning",
+              "Allow students to use phones during breaks",
+              "Start a student mentorship program",
+              "Extend school hours for additional support"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Which three improvements would help students most?" },
+              { "id": "p3q2", "text": "Which ones are most realistic to implement?" },
+              { "id": "p3q3", "text": "How would these changes affect learning?" },
+              { "id": "p3q4", "text": "What might be the challenges?" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m7-t1",
+        "taskType": 1,
+        "title": "Task 1: Email",
+        "subtitle": "Part 1: Writing",
+        "intro": "You see this notice at your language school",
+        "instruction": "Write an email to your language school. In your email:\n\n• Explain what you find difficult about learning English\n• Ask for specific help or advice\n• Suggest how the school could support you better\n\nWrite at least 150 words.",
+        "context": "Your language school has asked students for feedback about their learning experience. Write an email explaining your challenges and suggesting improvements.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write an email to your language school with feedback and suggestions.",
+        "bullets": [
+          "Explain what you find difficult about learning English",
+          "Ask for specific help or advice",
+          "Suggest how the school could support you better"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m7-t2",
+        "taskType": 2,
+        "title": "Task 2: Article",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Write an article for your school magazine about the following topic:\n\n'Is studying abroad a good idea for students?'\n\nIn your article, you should:\n\n• Discuss the advantages and disadvantages\n• Give your opinion\n• Make recommendations for students considering studying abroad\n\nWrite at least 250 words.",
+        "context": "The school magazine wants articles to help students think about educational opportunities.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write an article about studying abroad for students.",
+        "bullets": [
+          "Discuss the advantages and disadvantages",
+          "Give your own opinion",
+          "Make recommendations for students considering studying abroad"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

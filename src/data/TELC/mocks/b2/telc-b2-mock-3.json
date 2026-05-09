@@ -1,0 +1,891 @@
+{
+  "id": "telc-b2-mock-3",
+  "level": "b2",
+  "mockNumber": 3,
+  "title": "TELC B2 Mock Test 3",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B2 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-3",
+    "title": "Test Vocabulary",
+    "level": "B2",
+    "words": [
+      {
+        "term": "accommodation",
+        "hu": "szállás",
+        "definition": "a place where someone can live or stay",
+        "example": "The camp provides shared accommodation in cabins."
+      },
+      {
+        "term": "application",
+        "hu": "jelentkezés",
+        "definition": "a formal written request for something",
+        "example": "Send your letter of application by email."
+      },
+      {
+        "term": "commitment",
+        "hu": "kötelezettség",
+        "definition": "a promise or dedication to do something",
+        "example": "The job requires a commitment for the full summer season."
+      },
+      {
+        "term": "consumption",
+        "hu": "fogyasztás",
+        "definition": "the amount used or eaten",
+        "example": "Reducing meat consumption lowers environmental impact."
+      },
+      {
+        "term": "contribution",
+        "hu": "hozzájárulás",
+        "definition": "something given to help achieve a goal",
+        "example": "This blog welcomes reader contributions about green living."
+      },
+      {
+        "term": "environmental",
+        "hu": "környezetvédelmi",
+        "definition": "connected with the protection of nature",
+        "example": "Environmental issues affect everyone on the planet."
+      },
+      {
+        "term": "flexible",
+        "hu": "rugalmas",
+        "definition": "able to change or adapt easily",
+        "example": "The coordinator must be able to work flexible hours."
+      },
+      {
+        "term": "initiative",
+        "hu": "kezdeményezés",
+        "definition": "the ability to act independently",
+        "example": "Good leaders show initiative in solving problems."
+      },
+      {
+        "term": "lifestyle",
+        "hu": "élettartam",
+        "definition": "the way a person lives",
+        "example": "Adopting a sustainable lifestyle can make a difference."
+      },
+      {
+        "term": "oversee",
+        "hu": "megfigyel",
+        "definition": "to watch and direct work",
+        "example": "The coordinator will oversee all daily activities."
+      },
+      {
+        "term": "protocol",
+        "hu": "eljárás",
+        "definition": "an official way of doing something",
+        "example": "All staff must follow safety protocols."
+      },
+      {
+        "term": "responsibility",
+        "hu": "felelősség",
+        "definition": "a duty to deal with something",
+        "example": "Taking responsibility is important in any job."
+      },
+      {
+        "term": "sustainable",
+        "hu": "fenntartható",
+        "definition": "able to continue without harming the environment",
+        "example": "We need more sustainable solutions for the future."
+      },
+      {
+        "term": "supervise",
+        "hu": "ügyel",
+        "definition": "to watch and direct people's work",
+        "example": "She will supervise a team of activity leaders."
+      },
+      {
+        "term": "willingness",
+        "hu": "készesség",
+        "definition": "readiness to do something",
+        "example": "Willingness to learn is more important than experience."
+      }
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "advocate",
+              "bias",
+              "compelling",
+              "diverse",
+              "feasible",
+              "generate",
+              "implement"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "The city council has decided to implement a new recycling program starting next month. All residents will receive three separate bins for paper, plastic, and organic waste. Critics argue the program is too complex, but officials say it will generate significant environmental benefits and reduce landfill waste by 40 percent."
+              },
+              {
+                "id": "2",
+                "text": "Working from home has become increasingly feasible for many companies since the pandemic. A recent survey shows that 78 percent of employees prefer hybrid work arrangements, citing better work-life balance and reduced commute times as major advantages. However, managers worry about maintaining team cohesion."
+              },
+              {
+                "id": "3",
+                "text": "The old library building had been neglected for over a decade before the renovation project began. Water damage had destroyed several sections, and the roof was in danger of collapsing. Now, after two years of careful restoration, it has become a vibrant community center with modern facilities."
+              },
+              {
+                "id": "4",
+                "text": "Social media algorithms often create an echo chamber effect, showing users content that matches their existing bias. Researchers warn that this can limit exposure to diverse perspectives and make it harder for people to understand opposing viewpoints on important issues."
+              },
+              {
+                "id": "5",
+                "text": "The witness gave a compelling testimony that contradicted the defendant's alibi. She described the suspect's appearance in detail and provided information that only someone present at the scene could have known. The jury found her account entirely credible."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  {
+                    "id": "1",
+                    "text": "Paragraph 1",
+                    "answer": 5
+                  },
+                  {
+                    "id": "2",
+                    "text": "Paragraph 2",
+                    "answer": 1
+                  },
+                  {
+                    "id": "3",
+                    "text": "Paragraph 3",
+                    "answer": 7
+                  },
+                  {
+                    "id": "4",
+                    "text": "Paragraph 4",
+                    "answer": 3
+                  },
+                  {
+                    "id": "5",
+                    "text": "Paragraph 5",
+                    "answer": 6
+                  }
+                ],
+                "headings": [
+                  "Changes in workplace practices",
+                  "Concerns about online privacy",
+                  "Problems with social media",
+                  "Legal proceedings and evidence",
+                  "New environmental initiative",
+                  "A convincing court testimony",
+                  "Building restoration project"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about urban gardening and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "Rooftop Gardens: Cities of the Future",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "vocabList": [
+              "justify",
+              "perspective",
+              "prohibit",
+              "retain",
+              "significant",
+              "utilize",
+              "withdraw"
+            ],
+            "content": [
+              {
+                "id": "A",
+                "text": "As cities become more crowded, finding space for greenery has become a major challenge. Urban planners are increasingly looking upward, to rooftops, as a solution. Rooftop gardens not only provide aesthetic value but also offer practical benefits such as temperature regulation, improved air quality, and stormwater management."
+              },
+              {
+                "id": "B",
+                "text": "A study conducted in New York found that buildings with rooftop gardens used 30 percent less energy for cooling during summer months. The plants provide natural insulation, keeping buildings cooler in hot weather and warmer in winter. This reduces the need for artificial heating and cooling systems."
+              },
+              {
+                "id": "C",
+                "text": "However, installing a rooftop garden requires careful planning and significant investment. The roof structure must be able to support the additional weight of soil, plants, and water. Some older buildings cannot accommodate these gardens without expensive structural reinforcements."
+              },
+              {
+                "id": "D",
+                "text": "From a community perspective, rooftop gardens can serve as shared spaces for residents. They provide opportunities for urban farming, allowing people to grow their own vegetables and herbs. This is particularly valuable in areas with limited access to fresh produce."
+              },
+              {
+                "id": "E",
+                "text": "Despite these benefits, many developers remain hesitant to invest in rooftop gardens. They argue that maintenance costs are high and that the benefits do not always justify the expense. However, as cities face increasing environmental pressures, these green spaces may become essential rather than optional."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer",
+                "questions": [
+                  {
+                    "id": "6",
+                    "text": "What is one practical benefit of rooftop gardens mentioned in the passage?",
+                    "options": [
+                      "They increase property values significantly.",
+                      "They help regulate building temperatures.",
+                      "They eliminate the need for air conditioning.",
+                      "They prevent all stormwater runoff."
+                    ],
+                    "answer": "They help regulate building temperatures."
+                  },
+                  {
+                    "id": "7",
+                    "text": "According to the passage, what percentage less energy do buildings with rooftop gardens use for cooling?",
+                    "options": [
+                      "20 percent",
+                      "30 percent",
+                      "40 percent",
+                      "50 percent"
+                    ],
+                    "answer": "30 percent"
+                  },
+                  {
+                    "id": "8",
+                    "text": "What challenge might prevent some buildings from having rooftop gardens?",
+                    "options": [
+                      "Local laws prohibit rooftop construction.",
+                      "The roof cannot support the additional weight.",
+                      "There is insufficient sunlight at rooftop level.",
+                      "Residents oppose the idea of shared gardens."
+                    ],
+                    "answer": "The roof cannot support the additional weight."
+                  },
+                  {
+                    "id": "9",
+                    "text": "From a community perspective, what is one advantage of rooftop gardens?",
+                    "options": [
+                      "They provide space for urban farming.",
+                      "They create jobs for gardeners.",
+                      "They increase social security benefits.",
+                      "They reduce traffic congestion."
+                    ],
+                    "answer": "They provide space for urban farming."
+                  },
+                  {
+                    "id": "10",
+                    "text": "Why are some developers hesitant to install rooftop gardens?",
+                    "options": [
+                      "They believe maintenance costs outweigh the benefits.",
+                      "They think residents prefer traditional rooftops.",
+                      "They worry about water damage to the building.",
+                      "They cannot find qualified installation teams."
+                    ],
+                    "answer": "They believe maintenance costs outweigh the benefits."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Remote Work Revolution",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "The shift to remote work has transformed how companies operate worldwide. Many employees report higher productivity and job satisfaction when working from home, citing fewer distractions and flexible schedules as key benefits."
+              },
+              {
+                "id": "B",
+                "text": "However, remote work also presents challenges. Team collaboration can suffer without face-to-face interaction, and some workers struggle to separate their professional and personal lives. Companies must find ways to maintain team cohesion while supporting flexible work arrangements."
+              },
+              {
+                "id": "C",
+                "text": "Hybrid models, which combine office and home working, have emerged as a popular compromise. These allow employees to benefit from both environments – focused work at home and collaborative sessions in the office."
+              },
+              {
+                "id": "D",
+                "text": "Technology has played a crucial role in enabling remote work. Video conferencing, project management software, and cloud-based tools have made it possible for distributed teams to collaborate effectively, regardless of their physical location."
+              },
+              {
+                "id": "E",
+                "text": "Looking ahead, experts predict that remote and hybrid work will become permanent features of the modern workplace. Companies that adapt to these changes are likely to attract top talent, while those that resist may struggle to compete."
+              },
+              {
+                "id": "F",
+                "text": "The environmental impact of reduced commuting is another significant benefit. With fewer people traveling to offices daily, carbon emissions decrease, contributing to broader sustainability goals."
+              },
+              {
+                "id": "G",
+                "text": "Employee well-being must remain a priority in this new work landscape. Companies should invest in mental health support and create policies that prevent burnout, especially for remote workers who may feel isolated."
+              },
+              {
+                "id": "H",
+                "text": "As we navigate this transformation, flexibility and open communication will be essential. The most successful organizations will be those that can balance business needs with employee preferences and well-being."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  {
+                    "id": 11,
+                    "text": "A comparison of different work models and their benefits.",
+                    "answer": "C"
+                  },
+                  {
+                    "id": 12,
+                    "text": "The role of technology in supporting distributed teams.",
+                    "answer": "D"
+                  },
+                  {
+                    "id": 13,
+                    "text": "Future predictions about workplace trends.",
+                    "answer": "E"
+                  },
+                  {
+                    "id": 14,
+                    "text": "Environmental benefits of working from home.",
+                    "answer": "F"
+                  },
+                  {
+                    "id": 15,
+                    "text": "Challenges related to team collaboration in remote settings.",
+                    "answer": "B"
+                  },
+                  {
+                    "id": 16,
+                    "text": "The importance of mental health support for employees.",
+                    "answer": "G"
+                  },
+                  {
+                    "id": 17,
+                    "text": "Positive outcomes of remote work for employees.",
+                    "answer": "A"
+                  },
+                  {
+                    "id": 18,
+                    "text": "Key factors for organizational success during change.",
+                    "answer": "H"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Read the following email.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Language Elements",
+            "title": "Email to a friend",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Hi Maria,\n\nI hope you had a great holiday and managed to relax after the busy term. It's hard to believe summer is almost over! Thank you so much for the book you sent me – I've ____(21)____ started reading it and I'm ____(22)____ enjoying it so far. It's exactly the kind of story I like.\n\nI'm still thinking about the trip we discussed to the coast next month. I've checked train times and it looks ____(23)____ we could get an early morning train that gets us there before noon. Would that work for you? I know you prefer not to travel ____(24)____, so an early start might be better anyway.\n\nMy brother is ____(25)____ to drive us to the station, which is very kind of him. He's usually quite busy with work, so I feel lucky that he can help out. I've already told him about the nice restaurants we could try while we're there – he's definitely ____(26)____ by the seafood place you recommended!\n\nSpeaking of food, are you ____(27)____ free for dinner one evening while I'm in town? It would be lovely to catch up properly. I know you mentioned having some family commitments, but perhaps we could find a night that suits us both?\n\nAnyway, let me know about the train times and we can start making plans. I'm really ____(28)____ this trip and I think it will do us both good to get away for a few days.\n\nBest wishes,\n\nSarah"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {
+                    "id": "21",
+                    "text": "I've ____(21)____ started reading it",
+                    "options": ["just", "yet", "still"],
+                    "answer": "just"
+                  },
+                  {
+                    "id": "22",
+                    "text": "I'm ____(22)____ enjoying it so far",
+                    "options": ["really", "much", "hardly"],
+                    "answer": "really"
+                  },
+                  {
+                    "id": "23",
+                    "text": "it looks ____(23)____ we could get an early morning train",
+                    "options": ["like", "as", "if"],
+                    "answer": "if"
+                  },
+                  {
+                    "id": "24",
+                    "text": "I know you prefer not to travel ____(24)____",
+                    "options": ["late", "later", "lately"],
+                    "answer": "late"
+                  },
+                  {
+                    "id": "25",
+                    "text": "My brother is ____(25)____ to drive us to the station",
+                    "options": ["kind", "happy", "pleased"],
+                    "answer": "happy"
+                  },
+                  {
+                    "id": "26",
+                    "text": "he's definitely ____(26)____ by the seafood place",
+                    "options": ["interested", "interested in", "interesting"],
+                    "answer": "interested"
+                  },
+                  {
+                    "id": "27",
+                    "text": "are you ____(27)____ free for dinner one evening",
+                    "options": ["ever", "any", "usually"],
+                    "answer": "ever"
+                  },
+                  {
+                    "id": "28",
+                    "text": "I'm really ____(28)____ this trip",
+                    "options": ["looking forward to", "looking after", "looking for"],
+                    "answer": "looking forward to"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Choose the correct word (a-p) to complete each sentence.",
+        "passages": [
+          {
+            "id": "p2",
+            "subtitle": "Language Elements Part 2",
+            "title": "Public Transport Article",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Investment in public transport has been a topic of debate for years. While some argue that it is too expensive, others point out that the long-term benefits far ____(a)____ the costs. A recent study showed that cities with efficient public transport systems have lower levels of traffic ____(b)____ and better air quality.\n\nThe key to success is careful planning. Routes must be designed to ____(c)____ the needs of different communities, and services should run frequently enough to be a real alternative to car travel. When public transport is reliable and convenient, more people will choose to use it, which can ____(d)____ reduce congestion and pollution.\n\nHowever, simply building new lines is not enough. The system must also be affordable for everyone. High fares can ____(e)____ people from using public transport, especially those on lower incomes. Many cities are now introducing special discounts for students and elderly passengers to make travel more accessible.\n\nLooking to the future, technology will play an increasingly important role. Real-time information apps and contactless payment systems are already making journeys smoother. As these systems become more sophisticated, they will help public transport compete more effectively with private cars."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-p) to complete each sentence.",
+                "tokens": [
+                  "EXCEED",
+                  "CONGESTION",
+                  "MEET",
+                  "SIGNIFICANTLY",
+                  "DISCOURAGE",
+                  "IMPLEMENT",
+                  "JUSTIFY",
+                  "NEGLECT",
+                  "PERSPECTIVE",
+                  "VIABLE",
+                  "BALANCE",
+                  "PROMOTE",
+                  "RESIST",
+                  "STRATEGY",
+                  "ASSESS",
+                  "COORDINATE"
+                ],
+                "answers": {
+                  "a": "EXCEED",
+                  "b": "CONGESTION",
+                  "c": "MEET",
+                  "d": "SIGNIFICANTLY",
+                  "e": "DISCOURAGE"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Situations",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear people talking in five different situations. For each situation, match the speaker's main point to one of the headings (1-6). There is one extra heading you do not need to use.",
+        "transcript": "1\n\nIn the main summer months, the weather in the capital city is hot and the humidity is terrible. If you’re there then, the best thing to do is either sit in a pool all day or surround yourself with air-conditioning. You could, however, head higher where it’s cooler. The Citra Mountains behind the north-east coast have stunning scenery, but the majority never seem to make the effort to get out of the capital, which is a pity because the coast and the mountains are much pleasanter.\n\n2\n\nAlthough it’s popular worldwide, chewing gum is a uniquely US product, discovered during the search for rubber materials in the 1860s. The basic raw material for all chewing gum is the natural gum, chicle, obtained from the sapodilla tree found in Central America. Recently, man-made substitutes have come into widespread use and popular types of chewing gum now include a soft-chunk bubble gum and a gum filled with flavoured liquid. In the US alone, sales of chewing gum total over $800 million a year, and worldwide some several billion.\n\n3\n\nWoman:   Go ahead, David. What have you got to say?\n\nMan:   Well, I’m 55. I was a bank manager until ten years ago, and then I lost my job. I was angry, I can tell you. But you can’t just sit about feeling sorry for yourself – like most of your callers. Can I just say to anyone listening: my story will give you heart. A bank manager has to be a good listener, right? So I thought, ‘How can I use that skill?’ –  maybe I could be a counsellor of some sort – you know, help people deal with their personal problems. I’m busier now than I’ve ever been!\n\n4\n\nThe first rule about buying a painting is to immediately put aside any notion that this will make you enough money to keep you in your old age. The overriding factor is that you must really like the work itself. Ask yourself, can you imagine it on the wall next to the TV? Are you happy to have this painting as a fixture in your life? With this in mind, you can now set about looking into the art market. You should do your homework. Fine tune your taste; visit a student exhibition; flick through some contemporary art magazines.\n\n5\n\nMy mother could see I was artistic and she would never have stood in my way, but she was desperate to ensure that I would do well in life, financially I mean, as she had always struggled. So she helped me with my science homework – she really pushed me – if it hadn’t been for her, I wouldn’t be where I am today. I feel, deep down, I do have a more natural talent for art, rather than science; I even won some awards for my pictures … and I still paint whenever I can. But I suppose, when I was growing up, I didn’t think I would ever earn enough as an artist, so I studied science at university, then spent a few years in the States working as a researcher in the oil industry.",
+        "audioUrl": "/audio/PEL-B2-Test3-Part1.mp3",
+        "context": "Five different situations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which statement (1-6) corresponds to each situation?",
+            "questions": [
+              {
+                "id": 1,
+                "text": "Situation 1",
+                "answer": "2"
+              },
+              {
+                "id": 2,
+                "text": "Situation 2",
+                "answer": "4"
+              },
+              {
+                "id": 3,
+                "text": "Situation 3",
+                "answer": "1"
+              },
+              {
+                "id": 4,
+                "text": "Situation 4",
+                "answer": "6"
+              },
+              {
+                "id": 5,
+                "text": "Situation 5",
+                "answer": "3"
+              }
+            ],
+            "headings": [
+              "Finding a new career path after redundancy.",
+              "Suggestions for escaping city heat.",
+              "Parental influence on career choice.",
+              "A brief history and statistics of a product.",
+              "The advantages of living abroad.",
+              "Advice on purchasing artwork."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Model Maker",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear a man called Peter Welby, who makes small models of buildings, talking about his work. For questions 6-10, decide if each statement is TRUE, FALSE or NOT GIVEN.",
+        "transcript": "My job is model-making. I make small copies of large buildings and other structures. It might seem a strange job, but I knew when I was at school that it was what I wanted to do. So I did a college course, not in art or architecture as you might expect, but in woodwork. Because of the concentration on find detail it requires, it was ideal for a model-maker. Although later, of course, I had to adapt my skills to other materials as well. When I make a model of an old building, often original parts of the building have been damaged or even completely demolished over the years, so I have to work hard to find out what they must have been like. Actually, I think there’s quite a lot in common between what I do and what a detective does … tracking down clues, working things out …\n\nI’ve done quite a few jobs now. The toughest commission I’ve ever had was from Ireland. I was asked to do a model of part of a large house which had burnt down years before. They just gave me a few old photos to use, as there was no actual building to copy. I’ve done all sorts of buildings since, everything from grand castles to the most ordinary farmhouse. The one I liked most, though, was where I had to rebuild a theatre. The original building was gone, but this time there were detailed drawings to work from. My model was then shown in an exhibition called ‘All the World’s a Stage’ here in London. It was fun because I could go and look at it every day if I wanted to; see how people were reacting to it. Generally, though, I don’t see my models again after I’ve delivered them, as 80% of them are shipped out to Japan or Canada, with the rest shared between England and France. I do try to give pretty careful instructions, however, about how the models should be displayed. The height at which they should stand, how large the space around them should be, and also about lighting, because the colours and details come out most clearly if there’s electric light directly above them. Daylight’s too pale.\n\nAnd that’s particularly true of my most recent project, a model of a very interesting old building called Marney House. The owners decided to open it to the public and wanted a model to display for visitors. The detail work was very challenging indeed, as I had to reduce the original to a model just one hundred and forty centimetres high, which is seventy-six times smaller than the real building … that’s small, yet everything has to be there. It actually took longer than any model I’ve ever done before, mainly because I had to do all of the 150 windows …  a real test of patience! There were times, to be honest, when I found myself regretting the fact that I’d ever taken the project on in the first place. On top of that, I had to make every single one of the thousands of roof tiles individually out of paper. Mind you, when I had finished that process, I knew the hardest part was over, and that the rest would be quite fun. Doing things like the statues along the front was enjoyable, because every one’s different … and I spent some happy hours playing around with colours to get the exact reproduction of the original interior walls. When I’d finished all that, the only remaining problem was that, of course, the whole thing looked like a model of a new building. So I did what I usually do, which is to carefully wash the outside of the model with watercolour, so that it looks as if, over the years, it’s been affected by wind and rain, and also pollution, of course. The owners were very pleased with the result, and I’m glad I can go and see it from time to time. Model-making is a great job, and I’d recommend it to anyone with patience and an eye for detail.",
+        "audioUrl": "/audio/PEL-B2-Test3-Part2.mp3",
+        "context": "Interview - Peter Welby, model maker",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "mode": "tfng",
+            "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
+            "questions": [
+              {
+                "id": 6,
+                "text": "Peter Welby's college course was in architecture.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 7,
+                "text": "He often has to work from damaged parts of old buildings.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 8,
+                "text": "His toughest commission involved a building in Ireland that had been rebuilt.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 9,
+                "text": "He enjoyed making the model of the theatre because he could see people's reactions to it.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 10,
+                "text": "Most of his models are shipped to countries outside of Europe.",
+                "answer": "TRUE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Hotels with Children",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear five different people talking about hotels they have recently stayed in with their children. For questions 11-15, choose from the list (A-H) what each speaker says.",
+        "transcript": "Speaker 1\n\nWoman:   We chose this hotel because we knew that the owners had young children of their own. The room could have been a bit bigger, but them it was quite inexpensive. They provided an early supper if you told them in good time, so that the parents could eat in peace later in the cosy dining room. There were hundreds of toys for the children to play with, a huge garden with a playground, ponds and a playhouse. We hardly saw our two all week.\n\nSpeaker 2\n\nMan:   We always have difficulty finding hotels which welcome our children. This one was particularly good because the bedroom had a separate sitting room so we weren’t all squashed together in one room. Although it wasn’t the cheapest around, far from it in fact, it was worth it. Our teenage kids loved the outdoor heated swimming pool and the mountain bikes, which were provided free by the hotel. Apparently, the owners’ kids, who’ve grown up and left home now, had been mad on mountain biking. There was also an all-weather tennis court. Another thing we liked was the separate dining room for people with young families.\n\nSpeaker 3\n\nWoman:   We’d had a bad experience the year before at a hotel which didn’t cater for children. But this year we were very impressed by the hospitality of the hotel. The rooms were large enough to accommodate four beds comfortably and there was an adventure playground in the garden for the younger kids. You don’t have to pay for children under ten sharing the room – even meals were free for them, so that was another bonus. There was lots to do including horse riding and tennis. But if you wanted to swim you had to go to the local leisure centre, which the kids loved.\n\nSpeaker 4\n\nMan:   In the hotel we went to, we had a family suite which was very spacious. There was an outdoor heated pool and large grounds so the kids spent most of the time in the pool. So long as your children like swimming you’re alright ‘cos there wasn’t much else for them to do. I did think that they could have put in a playground too. Young children under ten aren’t allowed in the dining room but there was an early supper for them. This meant that we could have a quiet dinner for two when they were in bed.\n\nSpeaker 5\n\nWoman:   What we liked about our hotel was its size. It was only a small hotel and we were looked after like family. The room had loads of soft toys, wooden toys and books, which the children loved. The guest lounge and conservatory was a child-free zone after seven thirty which suited us fine ‘cos there was a special children’s supper at six, which meant that they could go to bed early and get a good night’s sleep. Older children aren’t really catered for and this hotel is probably better for those with younger kids.",
+        "audioUrl": "/audio/PEL-B2-Test3-Part3.mp3",
+        "context": "Five people talking about hotels they have recently stayed in with their children",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "For questions 11-15, choose from the list (A-H) what each speaker says.",
+            "questions": [
+              {
+                "id": 11,
+                "text": "Speaker 1",
+                "answer": 4,
+                "options": [
+                  "The hotel provided a separate space for teenagers.",
+                  "Children under a certain age ate for free.",
+                  "The hotel didn't have its own swimming pool.",
+                  "The hotel offered a separate dining time for children.",
+                  "The hotel owners had children of their own.",
+                  "The hotel had a variety of activities beyond swimming.",
+                  "The hotel had limited activities for children.",
+                  "The hotel felt like a family environment due to its small size."
+                ]
+              },
+              {
+                "id": 12,
+                "text": "Speaker 2",
+                "answer": 0,
+                "options": [
+                  "The hotel provided a separate space for teenagers.",
+                  "Children under a certain age ate for free.",
+                  "The hotel didn't have its own swimming pool.",
+                  "The hotel offered a separate dining time for children.",
+                  "The hotel owners had children of their own.",
+                  "The hotel had a variety of activities beyond swimming.",
+                  "The hotel had limited activities for children.",
+                  "The hotel felt like a family environment due to its small size."
+                ]
+              },
+              {
+                "id": 13,
+                "text": "Speaker 3",
+                "answer": 1,
+                "options": [
+                  "The hotel provided a separate space for teenagers.",
+                  "Children under a certain age ate for free.",
+                  "The hotel didn't have its own swimming pool.",
+                  "The hotel offered a separate dining time for children.",
+                  "The hotel owners had children of their own.",
+                  "The hotel had a variety of activities beyond swimming.",
+                  "The hotel had limited activities for children.",
+                  "The hotel felt like a family environment due to its small size."
+                ]
+              },
+              {
+                "id": 14,
+                "text": "Speaker 4",
+                "answer": 6,
+                "options": [
+                  "The hotel provided a separate space for teenagers.",
+                  "Children under a certain age ate for free.",
+                  "The hotel didn't have its own swimming pool.",
+                  "The hotel offered a separate dining time for children.",
+                  "The hotel owners had children of their own.",
+                  "The hotel had a variety of activities beyond swimming.",
+                  "The hotel had limited activities for children.",
+                  "The hotel felt like a family environment due to its small size."
+                ]
+              },
+              {
+                "id": 15,
+                "text": "Speaker 5",
+                "answer": 7,
+                "options": [
+                  "The hotel provided a separate space for teenagers.",
+                  "Children under a certain age ate for free.",
+                  "The hotel didn't have its own swimming pool.",
+                  "The hotel offered a separate dining time for children.",
+                  "The hotel owners had children of their own.",
+                  "The hotel had a variety of activities beyond swimming.",
+                  "The hotel had limited activities for children.",
+                  "The hotel felt like a family environment due to its small size."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You are expected to give a short presentation to your partner(s) on one of the following topics. (The prompts in brackets may help you.) Your presentation should take about 90 seconds and you should answer your partner's questions afterwards. While your partner is giving his/her presentation, listen and think of the questions you would like to ask. You should not interrupt your partner during the presentation",
+        "topics": [
+          {
+            "topic": "A city you would like to visit",
+            "questions": [
+              {
+                "id": "p1q1",
+                "text": "Why you would like to visit this city (facts about the city, your interests, etc.)"
+              }
+            ]
+          },
+          {
+            "topic": "A skill you have learned",
+            "questions": [
+              {
+                "id": "p1q2",
+                "text": "What, when, how, why, etc."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following text from a magazine. Discuss the content of the text with your partner(s). Tell them your opinions; give reasons and personal examples to support your ideas. Talk about your own experience with the problems mentioned and possible solutions.",
+        "text": "The rise of automation and artificial intelligence in the workplace is transforming many industries. While some jobs are being eliminated, new ones are being created that require different skills. Experts predict that workers will need to continuously update their knowledge and skills throughout their careers to remain competitive. This shift raises important questions about education systems and lifelong learning opportunities.",
+        "topics": [
+          {
+            "topic": "Automation and the Future of Work",
+            "questions": [
+              {
+                "id": "p2q1",
+                "text": "How do you think automation will change the job market in the next decade?"
+              },
+              {
+                "id": "p2q2",
+                "text": "What skills do you think will be most valuable in the future?"
+              },
+              {
+                "id": "p2q3",
+                "text": "Have you ever had to learn new skills for your job or studies?"
+              },
+              {
+                "id": "p2q4",
+                "text": "What role should governments play in preparing workers for these changes?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "You and your partner have joined the local community council. A piece of unused land in your neighbourhood is available for development. You have been asked to make a presentation together with suggestions as to what should be built there and why.\n\nFirstly, think of some ideas to include in the presentation.\n\nThen, discuss your ideas with your partner(s) and try to agree on a constructive and informative presentation.",
+        "topics": [
+          {
+            "topic": "Community Development",
+            "suggestions": [
+              "Build a community center with meeting rooms and event space",
+              "Create a public park with playground and sports facilities",
+              "Develop affordable housing units for young families",
+              "Establish a community garden and urban farming space",
+              "Construct a small library and learning center",
+              "Build a multi-purpose sports complex",
+              "Create an eco-friendly building with green technology",
+              "Develop a market space for local vendors and artisans"
+            ],
+            "questions": [
+              {
+                "id": "p3q1",
+                "text": "What development would benefit the community most?"
+              },
+              {
+                "id": "p3q2",
+                "text": "How can this development serve different age groups?"
+              },
+              {
+                "id": "p3q3",
+                "text": "Which suggestions are most cost-effective?"
+              },
+              {
+                "id": "p3q4",
+                "text": "What priorities should the community consider first?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m3-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter",
+        "subtitle": "Part 1: Writing",
+        "intro": "You see this job advertisement online",
+        "instruction": "Write a letter of application for the job described below. In your letter, explain:\n\n• Why you are interested in this position\n• What relevant experience or qualifications you have\n• Why you would be suitable for this job\n• When you would be available to start\n\nBefore you start writing, decide on the order of the points. Use a suitable greeting and complimentary closing. Start your letter with a few opening sentences and end the letter politely with one or two closing sentences.\n\nPlease write at least 150 words.",
+        "context": "Summer Camp Coordinator Position\n\nMountain Adventure Summer Camp for teenagers (ages 14-18) is looking for a Camp Coordinator for the summer season (June-August).\n\nResponsibilities:\n- Coordinate daily activities and schedules\n- Supervise and lead a team of 4-6 activity leaders\n- Ensure safety protocols are followed\n- Communicate with parents and handle any concerns\n- Plan special events and trips\n\nRequirements:\n- Experience working with teenagers\n- Strong organizational and leadership skills\n- First aid certification (or willingness to obtain)\n- Ability to work flexible hours including weekends\n- Fluent in English; additional languages a plus\n\nWe offer accommodation in shared cabins and meals. Previous camp experience preferred but not required.\n\nApply by sending your letter of application to: camp@mountainsummers.org",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a letter of application for the Summer Camp Coordinator position.",
+        "bullets": [
+          "State which position you are applying for and why you're interested",
+          "Describe your relevant experience and qualifications",
+          "Explain why you would be good at this job",
+          "Mention your availability"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m3-t2",
+        "taskType": 2,
+        "title": "Task 2: Letter",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Please write at least 250 words.",
+        "context": "Environmental Blog Contribution\n\nA popular environmental blog is asking readers to contribute articles about sustainable living. They want to publish personal stories about changes people have made to reduce their environmental impact.\n\nWrite an article for the blog that will be read by thousands of environmentally-conscious readers.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write a blog article about a change you have made to live more sustainably and how it has affected your life.",
+        "bullets": [
+          "Describe the change you made to be more environmentally friendly",
+          "Explain why you decided to make this change",
+          "Discuss the challenges and benefits of this lifestyle change",
+          "Give advice to others who might want to make similar changes"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

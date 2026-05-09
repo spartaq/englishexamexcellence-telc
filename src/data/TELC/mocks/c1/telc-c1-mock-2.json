@@ -287,62 +287,63 @@
             "subTasks": [
               {
                 "type": "trinary",
+                 "mode": "tfng",
                 "instruction": "Read the following text and the statements 13–23 below. For each of the statements mark: (+) corresponds to the content, (–) does not correspond, (X) is not mentioned.",
                 "questions": [
                   {
                     "id": "13",
                     "text": "The International Space Station symbolises international cooperation in space.",
-                    "answer": "+"
+                    "answer": "TRUE"
                   },
                   {
                     "id": "14",
                     "text": "Private companies have made space travel more expensive.",
-                    "answer": "–"
+                    "answer": "FALSE"
                   },
                   {
                     "id": "15",
                     "text": "Space debris is becoming a serious problem for orbital operations.",
-                    "answer": "+"
+                    "answer": "TRUE"
                   },
                   {
                     "id": "16",
                     "text": "Rocket launches have a larger carbon footprint than the aviation industry.",
-                    "answer": "X"
+                    "answer": "NOT GIVEN"
                   },
                   {
                     "id": "17",
                     "text": "Earth observation satellites help study climate change.",
-                    "answer": "+"
+                    "answer": "TRUE"
                   },
                   {
                     "id": "18",
                     "text": "Mars missions are currently underway with humans on board.",
-                    "answer": "X"
+                    "answer": "NOT GIVEN"
                   },
                   {
                     "id": "19",
                     "text": "The technical challenges of Mars missions are considered insurmountable by experts.",
-                    "answer": "–"
+                    "answer": "FALSE"
                   },
                   {
                     "id": "20",
                     "text": "Space exploration has always been a collaborative international effort.",
-                    "answer": "–"
+                    "answer": "FALSE"
                   },
                   {
                     "id": "21",
                     "text": "Reusable rockets have reduced the cost of reaching orbit.",
-                    "answer": "+"
+                    "answer": "TRUE"
                   },
                   {
                     "id": "22",
                     "text": "Space exploration primarily inspires young people to pursue science careers.",
-                    "answer": "X"
+                    "answer": "NOT GIVEN"
                   },
                   {
                     "id": "23",
                     "text": "Scientists are concerned about the possibility of collision cascades in orbit.",
-                    "answer": "+"
+                    "answer": "TRUE"
                   }
                 ]
               },
@@ -352,7 +353,7 @@
                 "questions": [
                   {
                     "id": "24",
-                    "text": "",
+                    "text": "Which title a, b or c best matches the article?",
                     "options": [
                       "a The new space race: private companies vs governments",
                       "b The challenges and rewards of exploring the final frontier",

@@ -1,0 +1,690 @@
+{
+  "id": "telc-b1-mock-4",
+  "level": "b1",
+  "mockNumber": 4,
+  "title": "TELC B1 Mock Test 4",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "gold",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+
+  "vocabulary": {
+    "id": "vocab-b1-mock-4",
+    "title": "Test Vocabulary",
+    "level": "B1",
+    "words": [
+      { "term": "Health", "hu": "Egészség", "definition": "The condition of being well and free from illness.", "example": "Good health is important for everyone." },
+      { "term": "Exercise", "hu": "Testedzés", "definition": "Physical activity to keep fit and healthy.", "example": "I exercise at the gym three times a week." },
+      { "term": "Diet", "hu": "Étrend", "definition": "The food that someone eats regularly.", "example": "A balanced diet includes fruits and vegetables." },
+      { "term": "Doctor", "hu": "Orvos", "definition": "A person who treats sick people.", "example": "I need to see a doctor about my cold." },
+      { "term": "Hospital", "hu": "Kórház", "definition": "A place where sick people receive treatment.", "example": "She works at the city hospital." },
+      { "term": "Medicine", "hu": "Gyógyszer", "definition": "A substance used to treat illness.", "example": "The doctor gave me some medicine." },
+      { "term": "Healthy", "hu": "Egészséges", "definition": "In good physical or mental condition.", "example": "Eating vegetables is healthy." },
+      { "term": "Stress", "hu": "Stressz", "definition": "Mental or emotional pressure.", "example": "Work can cause a lot of stress." },
+      { "term": "Sleep", "hu": "Alvás", "definition": "A natural state of rest for the body and mind.", "example": "Adults need about 8 hours of sleep." },
+      { "term": "Water", "hu": "Víz", "definition": "A clear liquid essential for life.", "example": "Drink plenty of water every day." },
+      { "term": "Vegetables", "hu": "Zöldségek", "definition": "Parts of plants eaten as food.", "example": "Carrots and broccoli are vegetables." },
+      { "term": "Fruit", "hu": "Gyümölcs", "definition": "The sweet part of a plant with seeds.", "example": "An apple is a healthy fruit." },
+      { "term": "Fitness", "hu": "Fittness", "definition": "The state of being physically strong and healthy.", "example": "I joined a fitness club last month." },
+      { "term": "Relax", "hu": "Pihenni", "definition": "To rest and become less anxious.", "example": "I relax by reading books." },
+      { "term": "Routine", "hu": "Rutin", "definition": "A regular way of doing things.", "example": "I have a daily exercise routine." }
+    ]
+  },
+
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "Health",
+              "Exercise",
+              "Diet",
+              "Doctor",
+              "Hospital",
+              "Medicine",
+              "Healthy",
+              "Stress",
+              "Sleep",
+              "Water",
+              "Vegetables",
+              "Fruit",
+              "Fitness",
+              "Relax",
+              "Routine"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "Lisa has decided to start running every morning before work. She used to be very tired by the end of the day, but since she started exercising, her energy levels have improved. Her co-workers have noticed that she seems happier and more focused."
+              },
+              {
+                "id": "2",
+                "text": "Mark has been having headaches for weeks. He finally went to see a doctor who told him he needs to drink more water and get enough sleep. The doctor also suggested that Mark reduce his coffee intake and take regular breaks from his computer."
+              },
+              {
+                "id": "3",
+                "text": "My grandmother always says that eating vegetables is the secret to a long life. She grows her own tomatoes, carrots, and lettuce in the garden. At 85, she is still very healthy and active. She believes in eating fresh, natural food."
+              },
+              {
+                "id": "4",
+                "text": "Tom works long hours at a stressful job. He recently started going to a yoga class twice a week. He says yoga helps him relax and manage his stress better. His sleep has also improved since he began this routine."
+              },
+              {
+                "id": "5",
+                "text": "Sarah joined a fitness center last month. She attends group exercise classes three times a week. She has already lost weight and feels much stronger. The instructors at the gym gave her advice about a healthy diet too."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  { "id": "1", "text": "Paragraph 1", "answer": 2 },
+                  { "id": "2", "text": "Paragraph 2", "answer": 1 },
+                  { "id": "3", "text": "Paragraph 3", "answer": 5 },
+                  { "id": "4", "text": "Paragraph 4", "answer": 3 },
+                  { "id": "5", "text": "Paragraph 5", "answer": 4 }
+                ],
+                "headings": [
+                  "A doctor's advice for better health",
+                  "Healthy eating and gardening",
+                  "Starting morning exercise",
+                  "Managing stress with yoga",
+                  "Getting fit at the gym"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about healthy living and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "Tips for a Healthy Lifestyle",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Living a healthy lifestyle is easier than many people think. It doesn't require major changes - small steps can make a big difference. The foundation of good health includes proper nutrition, regular exercise, adequate sleep, and stress management."
+              },
+              {
+                "id": "B",
+                "text": "Nutrition experts recommend eating at least five portions of fruit and vegetables every day. These foods are rich in vitamins and fiber. It's also important to drink plenty of water and avoid sugary drinks. Whole grains and lean proteins should be part of every meal."
+              },
+              {
+                "id": "C",
+                "text": "Physical activity is essential for maintaining a healthy body and mind. Adults should aim for at least 150 minutes of moderate exercise per week. This doesn't have to be intense - brisk walking, swimming, or cycling all count. The key is to find an activity you enjoy."
+              },
+              {
+                "id": "D",
+                "text": "Many people underestimate the importance of sleep. Adults need between 7 and 9 hours per night. Poor sleep can affect mood, concentration, and overall health. Creating a regular sleep schedule and avoiding screens before bed can improve sleep quality."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": "6",
+                    "text": "What does the article say about healthy living?",
+                    "options": [
+                      "A. It requires complete lifestyle changes",
+                      "B. Small steps can make a big difference",
+                      "C. It is difficult for most people"
+                    ],
+                    "answer": "B. Small steps can make a big difference"
+                  },
+                  {
+                    "id": "7",
+                    "text": "How many portions of fruit and vegetables should you eat daily?",
+                    "options": [
+                      "A. Three",
+                      "B. Five or more",
+                      "C. Seven"
+                    ],
+                    "answer": "B. Five or more"
+                  },
+                  {
+                    "id": "8",
+                    "text": "What kind of exercise is recommended?",
+                    "options": [
+                      "A. Only intense sports",
+                      "B. Any activity you enjoy",
+                      "C. Running five times a week"
+                    ],
+                    "answer": "B. Any activity you enjoy"
+                  },
+                  {
+                    "id": "9",
+                    "text": "How much sleep do adults need?",
+                    "options": [
+                      "A. 5-6 hours",
+                      "B. 7-9 hours",
+                      "C. 10-11 hours"
+                    ],
+                    "answer": "B. 7-9 hours"
+                  },
+                  {
+                    "id": "10",
+                    "text": "What can improve sleep quality?",
+                    "options": [
+                      "A. Watching TV before bed",
+                      "B. Regular sleep schedule",
+                      "C. Sleeping less during week"
+                    ],
+                    "answer": "B. Regular sleep schedule"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 11-18",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Health and Wellness Services",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Green Life Pharmacy offers free health checks every Saturday. Our trained pharmacists can measure your blood pressure and cholesterol. We also provide advice on managing common conditions like diabetes. No appointment needed - just walk in."
+              },
+              {
+                "id": "B",
+                "text": "FitNow Gym provides personal training programs for all fitness levels. Our certified trainers create custom workout plans based on your goals. Whether you want to lose weight, build muscle, or improve endurance, we can help. First session is free."
+              },
+              {
+                "id": "C",
+                "text": "Healthy Bites Cafe serves nutritious meals made with fresh, organic ingredients. All our dishes are prepared by a professional nutritionist. We offer vegetarian, vegan, and gluten-free options. Open daily from 8am to 8pm."
+              },
+              {
+                "id": "D",
+                "text": "Mindful Psychology Clinic specializes in stress and anxiety management. Our licensed therapists provide individual and group sessions. We use evidence-based techniques including cognitive behavioral therapy. Call for a confidential consultation."
+              },
+              {
+                "id": "E",
+                "text": "City Dental Care provides comprehensive dental services for the whole family. Our dentists use modern equipment and techniques. We offer regular check-ups, cleanings, and emergency appointments. We accept most insurance plans."
+              },
+              {
+                "id": "F",
+                "text": "Sunrise Yoga Studio offers classes for beginners and advanced practitioners. Our experienced instructors teach various styles including Hatha, Vinyasa, and restorative yoga. Classes are available morning and evening. Mats and props provided."
+              },
+              {
+                "id": "G",
+                "text": "Pure Water Delivery delivers fresh drinking water to homes and offices. We offer different bottle sizes and subscription plans. Our water is filtered and tested for quality. Delivery is free for orders over 50 liters."
+              },
+              {
+                "id": "H",
+                "text": "Active Kids Program organizes sports activities for children aged 5-12. We focus on fun, teamwork, and healthy habits. Activities include swimming, football, and arts & crafts. Summer camps and after-school programs available."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  { "id": 11, "text": "A service that provides health measurements.", "answer": "A" },
+                  { "id": 12, "text": "A place offering meals prepared by a nutritionist.", "answer": "C" },
+                  { "id": 13, "text": "A program that teaches children healthy habits through sports.", "answer": "H" },
+                  { "id": 14, "text": "A clinic helping people with anxiety.", "answer": "D" },
+                  { "id": 15, "text": "A gym with custom training programs.", "answer": "B" },
+                  { "id": 16, "text": "A service delivering clean drinking water.", "answer": "G" },
+                  { "id": 17, "text": "A yoga studio with morning and evening classes.", "answer": "F" },
+                  { "id": 18, "text": "A clinic providing dental care for families.", "answer": "E" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "A Healthy Life",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Many people want to be healthier, but they don't know where to start. The good news is that small changes ____(21)____ make a big difference. First, try to eat more fruit and vegetables. These foods ____(22)____ important vitamins.\n\nExercise is also very important. You ____(23)____ exercise for hours - even a 30-minute walk can help. If you are new to exercise, start slowly ____(24)____ increase gradually.\n\nGetting enough sleep is crucial for good health. Most adults ____(25)____ 7 to 9 hours per night. If you have trouble sleeping, avoid screens before bed and create a relaxing ____(26)____.\n\nFinally, manage your stress levels. Too much stress ____(27)____ negative effects on your body. Try meditation, deep breathing, or hobbies that you enjoy. Remember that a healthy lifestyle ____(28)____ time to develop, so be patient with yourself."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  { "id": "21", "text": "small changes ____(21)____ make a big difference", "options": ["can", "must", "should"], "answer": "can" },
+                  { "id": "22", "text": "foods ____(22)____ important vitamins", "options": ["contain", "include", "have"], "answer": "contain" },
+                  { "id": "23", "text": "You ____(23)____ exercise for hours", "options": ["don't have to", "must not", "needn't"], "answer": "don't have to" },
+                  { "id": "24", "text": "start slowly ____(24)____ increase gradually", "options": ["and", "but", "or"], "answer": "and" },
+                  { "id": "25", "text": "Adults ____(25)____ 7 to 9 hours", "options": ["need", "want", "like"], "answer": "need" },
+                  { "id": "26", "text": "a relaxing ____(26)____", "options": ["routine", "habit", "practice"], "answer": "routine" },
+                  { "id": "27", "text": "stress ____(27)____ negative effects", "options": ["has", "causes", "gives"], "answer": "has" },
+                  { "id": "28", "text": "lifestyle ____(28)____ time to develop", "options": ["takes", "needs", "spends"], "answer": "takes" },
+                  { "id": "29", "text": "Be ____(29)____ to yourself", "options": ["kind", "gentle", "nice"] },
+                  { "id": "30", "text": "____(30)____ is a journey, not a destination", "options": ["Health", "Fitness", "Exercise"] }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text and complete the gaps with the correct word from the box.",
+        "passages": [
+          {
+            "id": "p3",
+            "subtitle": "Language Elements Part 2",
+            "title": "Joining a Gym",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Dear Mr. Smith,\n\nI am interested in joining your fitness center. I would like to know more about your ____(a)____ and facilities. Could you please send me information about membership ____(b)____ and opening hours?\n\nI am particularly interested in the ____(c)____ classes you offer. Do you have instructors for beginners? I have been going to the gym regularly for six months, but I still consider myself a beginner. I ____(d)____ want to improve my fitness level and lose some weight.\n\nCould you also tell me if you have a swimming pool and a changing room with showers? I would appreciate it if you could ____(e)____ me a brochure. Thank you for your time.\n\nYours sincerely,\nJohn Miller"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-j) to complete each gap.",
+                "tokens": [
+                  "MEMBERSHIP",
+                  "PROGRAMS",
+                  "PRICES",
+                  "WOULD",
+                  "SEND",
+                  "SWIMMING",
+                  "FITNESS",
+                  "REPLY",
+                  "HOPE",
+                  "YOGA"
+                ],
+                "answers": {
+                  "a": "PROGRAMS",
+                  "b": "PRICES",
+                  "c": "YOGA",
+                  "d": "HOPE",
+                  "e": "SEND"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+ "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Situations",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear people talking in eight different situations.\nFor questions 1-8, choose the best answer A, B or C.",
+        "transcript": "1. Jack: Mum, I’m ringing to tell you I’m at Tim’s house. Football practice finished early, so we walked here together.\nMum: OK. Well, it’s half past five now, so I’ll come in the car and pick you up. It’ll take me about half an hour, so I’ll see you at six.\nJack: Oh, there’s something good on television then. Can you come and get me after it, at seven?\nMum: I can’t, Jack, I’ve got to pick your dad up from the station then.\n\n2. Girl: We mustn’t forget to send Mum a postcard … how about his one with a picture of the mountain?\nBoy: Well, it’s nice but we can’t actually see it from where we’re staying. What about a view of the lake and the village instead? Or perhaps one of the garden pictures if you think she’d prefer it. Look at the cottage and all the flowers …\nGirl: Mmm … I think your first idea was better … we could put a cross to show where we’re staying.\nBoy: Right then, let’s do that.\n\n3. Mum: Look, Kate, there are some of those biscuits you like!\nKate: Oh, yes. Mm … there aren’t many in a packet though, Mum. Why don’t we have this cake instead? Remember I’ve got my friends coming tomorrow.\nMum: Oh, I haven’t forgotten. I’ve already made a cake, and I’ve bought lots of ice cream.\nKate: Well, I suppose some biscuits would be nice with ice cream. Do we need anything else …?\n\n4. Boy: Finish your drink – we’ll be late for class. What are you looking for now? Don’t tell me you’ve forgotten your homework. You said you were working on it really late.\nGirl: Don’t worry, it was the first thing I put in my bag – look, here it is. I won’t be a second … just checking everything. Pencil case, now where did I ….? Oh … you’ll be able to lend me a pen, won’t you? Phone? Oh, here it is, in my pocket as usual …\n\n5. Dad: Jamie, could you do something for me?\nJamie: Well, it depends what it is. I’m meeting my mates in town.\nDad: I want to clean the upstairs windows this afternoon, but I lent the ladder to John … Could you come next door with me and help me carry it back? I’ll give you a lift into town afterwards if you like.\nJamie: Sure, Dad.\n\n6. Woman: Because of the football finishing late, there are some changes to this evening’s programmes. We won’t now show the Nature Programme, about the sharks found in the Pacific, at nine o’clock. Instead, the cartoon film the Mighty Heroes will be at this time, an hour later than advertised. You can see the Nature Programme at its usual time next week.\n\n7. Boy: I’m off now, Mum. I’m going to meet Ben at the youth club because he’s bought a new wheel for his bike and he wants me to help him put it on … and I’ve got to go to the library to take my books back sometime today too.\nMum: Well, do that before you start work on the bike because it isn’t open this afternoon.\nBoy: OK. And we’re going to play table tennis after we’ve done the bike, so I won’t see you until supper this evening. Bye!",
+        "audioUrl": "/audio/PEL-B1-Test4-Part1.mp3",
+        "context": "Eight different situations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (a-f) corresponds to each news item?",
+            "questions": [
+              {
+                "id": 1,
+                "text": "News Item 1",
+                "answer": "1"
+              },
+              {
+                "id": 2,
+                "text": "News Item 2",
+                "answer": "3"
+              },
+              {
+                "id": 3,
+                "text": "News Item 3",
+                "answer": "4"
+              },
+              {
+                "id": 4,
+                "text": "News Item 4",
+                "answer": "0"
+              },
+              {
+                "id": 5,
+                "text": "News Item 5",
+                "answer": "6"
+              },
+              {
+                "id": 6,
+                "text": "News Item 6",
+                "answer": "2"
+              },
+              {
+                "id": 7,
+                "text": "News Item 7",
+                "answer": "5"
+              }
+            ],
+            "headings": [
+              "Getting ready for class",
+              "Arranging to be collected",
+              "A change to the TV schedule",
+              "Choosing a postcard",
+              "Buying food for guests",
+              "Planning an afternoon",
+              "Helping a neighbour"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Interview: Maria Anderson - Champion Gymnast",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with Maria Anderson, a 16-year old champion gymnast.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
+        "transcript": "Man: I’m talking to Maria Anderson, a 16-year old champion gymnast. Maria, have you always dreamed of being a gymnast?\n\nMaria: I got interested when I was eight. I loved running, and jumping, and my teacher said I’d be good at sports. I read a book about a gymnast who took part in the Olympics and her life seemed very hard. Then I went to watch a gymnastics event with my Dad and saw gymnasts in action and I thought, ‘I’d like to do that’.\n\nMan: Did you realise immediately you’d be a champion?\n\nMaria: I tried too hard in the beginning – I’m very competitive – and was in a hurry to learn the moves. I made so many mistakes, I nearly gave up. Even when I won prizes at events in my town I didn’t think I’d ever be really good. But a famous coach saw me doing floor exercise and said he’d give me lessons, and then I knew I could get to the top.\n\nMan: You’ve done amazingly well since then. Has success changed you?\n\nMaria: I hope not. I’m growing up, getting experience, but basically I think I’m the same. My coach says the best athletes are sensible, they don’t let success make a difference to them as people, and I think that’s true of me. It’s just my mum and dad worry about me and wish I could lead a more normal life.\n\nMan: What about school? Can you keep up with the other children?\n\nMaria: I go to the sports centre at 5.30 every morning to practise, so I’ve been working for three hours before I even get to school. It was hard at first, I felt really tired. But I’m used to it now. I rest during the lunch break, instead of being with my friends. Lessons are all right, but I can’t stay up late or go to parties.\n\nMan: Do you have time for hobbies?\n\nMaria: Well, I travel a lot to events in other countries and listen to music on the plane. I hope I get a chance to go to a concert some day and I like movies, but not cartoons. My dad films me when I’m performing in a competition, and I put together videos for my website, which is fun.\n\nMan: What does your room at home look like?\n\nMaria: I’ve got posters covering every wall, mostly of singers and bands. The best thing is a photograph of me shaking hands with my hero, a fantastic Russian gymnast I met last year. Oh, and I’ve got all my cups and prizes in a glass case – a bit embarrassing.",
+        "audioUrl": "/audio/PEL-B1-Test4-Part2.mp3",
+        "context": "Interview with Maria Anderson, a champion gymnast",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "mode": "tfng",
+            "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
+            "questions": [
+              {
+                "id": 8,
+                "text": "Maria decided to become a gymnast after reading a book.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 9,
+                "text": "Maria’s original coach told her she could be a champion.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 10,
+                "text": "Maria’s parents are concerned about her lifestyle.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 11,
+                "text": "Maria finds it difficult to concentrate at school.",
+                "answer": "NOT GIVEN"
+              },
+              {
+                "id": 12,
+                "text": "Maria spends her lunch breaks resting at school.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 13,
+                "text": "Maria would like to go to a music concert.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 14,
+                "text": "Maria’s room has a photo of her and her favourite gymnast.",
+                "answer": "TRUE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "School Poetry Competition",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear a teacher giving information about a school poetry competition.\nFor questions 15-20, choose the correct answer A, B or C.",
+        "transcript": "Teacher: Now could everyone sit down, please. I’ve got an important announcement to make. As you know, the national school poetry competitions that we usually enter are starting soon. All the competitions are named after animals. One of the competitions, called the Dolphin Prize, is for 15- to 19-year olds. So if you have older brothers and sisters in the school, get them to enter that one. But the one for people of your age, the Tiger Prize, is the one we’d like you to go for. We hope lots of you will try.\n\nAs some of you may remember, the theme for last year was ‘Weather’. This time the judges have chosen the topic ‘Change’, and that could cover a lot of things, couldn’t it? A new school, a different house, for example …\n\nSo, if you want to enter the competition but you’re stuck for ideas, have a look at last year’s winner on the competition website. You may know the girl who wrote it – Maria Mason from our school with her poem called ‘Trains’. She also got a little book of her poems, called ‘Travelling’ published as part of her prize. Maria won some money for the school, too – one thousand euros! And this time that’s gone up to two thousand, which is very generous.\n\nIf anyone in the school wins, we’d like to use the money for the library, as we feel that’s the right way for it to be spent. Maria’s prize money last year was spent on the new computer software.\n\nNow, you may feel you’d like to enter the competition but need some more help. If that’s the case, you can look at the website. The head of English, Mr Winters, has said you will find it really useful.",
+        "audioUrl": "/audio/PEL-B1-Test4-Part3.mp3",
+        "context": "Teacher talks about a school poetry competition",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "For questions 15-20, choose the correct answer A, B or C.",
+            "questions": [
+              {
+                "id": 15,
+                "text": "The poetry competition for this age group is called the",
+                "answer": "B",
+                "options": [
+                  "Dolphin Prize.",
+                  "Tiger Prize.",
+                  "Lion Prize."
+                ]
+              },
+              {
+                "id": 16,
+                "text": "What is the theme for this year’s competition?",
+                "answer": "A",
+                "options": [
+                  "Change",
+                  "Weather",
+                  "Animals"
+                ]
+              },
+              {
+                "id": 17,
+                "text": "What was the title of last year’s winning poem?",
+                "answer": "A",
+                "options": [
+                  "Trains",
+                  "Travelling",
+                  "Weather"
+                ]
+              },
+              {
+                "id": 18,
+                "text": "How much money will this year’s winner get for the school?",
+                "answer": "C",
+                "options": [
+                  "1,000 euros",
+                  "1,500 euros",
+                  "2,000 euros"
+                ]
+              },
+              {
+                "id": 19,
+                "text": "What will the prize money be spent on this year?",
+                "answer": "B",
+                "options": [
+                  "new computer software",
+                  "the library",
+                  "sports equipment"
+                ]
+              },
+              {
+                "id": 20,
+                "text": "Where can students find more help with the competition?",
+                "answer": "A",
+                "options": [
+                  "on the website",
+                  "from Mr. Winters",
+                  "from the library"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You will be asked questions about your health habits and lifestyle. Answer as fully as you can.",
+        "topics": [
+          {
+            "topic": "Your Health and Fitness",
+            "questions": [
+              { "id": "p1q1", "text": "How do you stay healthy?" },
+              { "id": "p1q2", "text": "Do you exercise regularly? What do you do?" },
+              { "id": "p1q3", "text": "What do you think is the most important health habit?" }
+            ]
+          },
+          {
+            "topic": "Food and Diet",
+            "questions": [
+              { "id": "p1q4", "text": "What is your diet like? Do you eat healthily?" },
+              { "id": "p1q5", "text": "Do you eat fruits and vegetables every day?" },
+              { "id": "p1q6", "text": "What is your attitude towards junk food?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following text from a health magazine. Discuss it with your partner, sharing your opinions and experiences.",
+        "text": "Many people join a gym at New Year but stop going after a few months. Experts say this happens because people set unrealistic goals. They want to lose weight too quickly or exercise too intensely. Psychologists suggest setting small, achievable goals instead. They also recommend finding an exercise you enjoy, so you stick with it longer.",
+        "topics": [
+          {
+            "topic": "Exercise Habits",
+            "questions": [
+              { "id": "p2q1", "text": "Why do people give up on exercise so quickly?" },
+              { "id": "p2q2", "text": "Are small goals better than big ones for getting fit?" },
+              { "id": "p2q3", "text": "How can we stay motivated to exercise regularly?" },
+              { "id": "p2q4", "text": "What makes an exercise enjoyable so people stick with it?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "Your school wants to promote healthier lifestyles for students. Discuss the following ideas and decide which three should be implemented first.",
+        "topics": [
+          {
+            "topic": "School Health Initiative",
+            "suggestions": [
+              "Provide free fruit in the cafeteria every day",
+              "Add more sports clubs and activities after school",
+              "Install water fountains to encourage drinking water",
+              "Offer healthy hot meals in the canteen",
+              "Create a quiet room for relaxation and stress management",
+              "Run workshops about nutrition and healthy cooking",
+              "Increase physical education classes per week",
+              "Ban unhealthy snacks and drinks from school"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Which three initiatives would have the biggest impact?" },
+              { "id": "p3q2", "text": "Which ones are easiest to implement?" },
+              { "id": "p3q3", "text": "How can we get students interested in these changes?" },
+              { "id": "p3q4", "text": "What might be the challenges?" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m4-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter",
+        "subtitle": "Part 1: Writing",
+        "intro": "You see this notice on a community board",
+        "instruction": "Write a letter to your local newspaper. In your letter:\n\n• Describe a health problem in your community\n• Explain why it is a problem\n• Suggest what could be done to improve the situation\n\nWrite at least 150 words.",
+        "context": "Your local newspaper is running a series about community health issues. They want readers to write about health problems in their area and suggest solutions.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a letter to the newspaper about a local health issue.",
+        "bullets": [
+          "Describe a health problem in your community",
+          "Explain why it is a problem",
+          "Suggest what could be done to improve the situation"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m4-t2",
+        "taskType": 2,
+        "title": "Task 2: Article",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Write an article for your school magazine about staying healthy while studying. In your article, you should:\n\n• Explain why health is important for students\n• Give tips for healthy eating and exercise\n• Suggest ways to manage stress\n\nWrite at least 250 words.",
+        "context": "The school magazine wants student-written articles about health and wellness topics.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write an article about staying healthy as a student.",
+        "bullets": [
+          "Explain why health is important for students",
+          "Give tips for healthy eating and exercise",
+          "Suggest ways to manage stress"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

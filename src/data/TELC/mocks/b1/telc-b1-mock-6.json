@@ -1,0 +1,690 @@
+{
+  "id": "telc-b1-mock-6",
+  "level": "b1",
+  "mockNumber": 6,
+  "title": "TELC B1 Mock Test 6",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+
+  "vocabulary": {
+    "id": "vocab-b1-mock-6",
+    "title": "Test Vocabulary",
+    "level": "B1",
+    "words": [
+      { "term": "Job", "hu": "Munka", "definition": "A position of regular employment.", "example": "She found a new job." },
+      { "term": "Work", "hu": "Munkavégzés", "definition": "Activity involving mental or physical effort.", "example": "I work from Monday to Friday." },
+      { "term": "Company", "hu": "Cég", "definition": "A business organization.", "example": "He works for a big company." },
+      { "term": "Colleague", "hu": "Kolléga", "definition": "A person who works with you.", "example": "My colleagues are very friendly." },
+      { "term": "Boss", "hu": "Főnök", "definition": "A person in charge of others at work.", "example": "My boss is very supportive." },
+      { "term": "Salary", "hu": "Fizetés", "definition": "Regular payment for work.", "example": "I receive my salary monthly." },
+      { "term": "Responsibility", "hu": "Felelősség", "definition": "Duty to deal with something.", "example": "This job has a lot of responsibility." },
+      { "term": "Experience", "hu": "Tapasztalat", "definition": "Knowledge gained from doing things.", "example": "She has two years of work experience." },
+      { "term": "Application", "hu": "Jelentkezés", "definition": "A formal request for a job.", "example": "I sent my application last week." },
+      { "term": "Interview", "hu": "Meghallgatás", "definition": "A meeting to discuss a job.", "example": "I have a job interview tomorrow." },
+      { "term": "Career", "hu": "Karrier", "definition": "The progression of one's working life.", "example": "He has a successful career." },
+      { "term": "Promotion", "hu": "Előléptetés", "definition": "Advancement to a higher position.", "example": "She got a promotion last month." },
+      { "term": "Meeting", "hu": "Megbeszélés", "definition": "An assembly of people for a purpose.", "example": "We have a team meeting every Monday." },
+      { "term": "Project", "hu": "Projekt", "definition": "A planned piece of work.", "example": "I'm working on a new project." },
+      { "term": "Team", "hu": "Csapat", "definition": "Group working together.", "example": "I work as part of a team." }
+    ]
+  },
+
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "Job",
+              "Work",
+              "Company",
+              "Colleague",
+              "Boss",
+              "Salary",
+              "Responsibility",
+              "Experience",
+              "Application",
+              "Interview",
+              "Career",
+              "Promotion",
+              "Meeting",
+              "Project",
+              "Team"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "Maria has worked as a teacher for five years. She loves helping students learn and grow. Last week, her school offered her a promotion to become head of department. She is considering the new responsibility but is happy in her current role."
+              },
+              {
+                "id": "2",
+                "text": "John started a new job last month. He works for a technology company in the city. His colleagues are very friendly and helped him learn everything quickly. He already feels like part of the team."
+              },
+              {
+                "id": "3",
+                "text": "Lisa is preparing for a job interview tomorrow. She has researched the company thoroughly and practiced answering common questions. She wants to make a good impression and get the position. Her friend is giving her some last-minute advice."
+              },
+              {
+                "id": "4",
+                "text": "Tom works from home three days a week. He prefers this arrangement because it saves time commuting. His boss trusts him to complete his work independently. They have team meetings via video call when needed."
+              },
+              {
+                "id": "5",
+                "text": "Sarah has just finished a big project at work. Her team worked hard for three months to complete it. The client was very pleased with the result. Her manager praised the team's effort and took them out for dinner."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  { "id": "1", "text": "Paragraph 1", "answer": 4 },
+                  { "id": "2", "text": "Paragraph 2", "answer": 2 },
+                  { "id": "3", "text": "Paragraph 3", "answer": 0 },
+                  { "id": "4", "text": "Paragraph 4", "answer": 3 },
+                  { "id": "5", "text": "Paragraph 5", "answer": 1 }
+                ],
+                "headings": [
+                  "Preparing for an important interview",
+                  "Friendly colleagues at a new job",
+                  "A successful team project",
+                  "Working from home with trust",
+                  "Considering a promotion"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about finding a job and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "How to Find Your Dream Job",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Finding the right job takes time and effort. The first step is to think about what you enjoy doing and what you are good at. Consider your skills, interests, and values. This will help you identify careers that match your personality."
+              },
+              {
+                "id": "B",
+                "text": "Once you know what you want, research different companies and roles. Look at job descriptions online and see what qualifications are needed. If you lack required skills, consider taking a course or gaining experience through volunteering."
+              },
+              {
+                "id": "C",
+                "text": "Your CV and cover letter are your first impression. Make sure they are professional and error-free. Highlight your relevant experience and achievements. Tailor each application to the specific job - don't send the same CV everywhere."
+              },
+              {
+                "id": "D",
+                "text": "Before the interview, prepare thoroughly. Practice answering common interview questions. Research the company and think of questions to ask them. On the day, dress appropriately and arrive early. Remember to be confident and show enthusiasm for the role."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": "6",
+                    "text": "What is the first step in finding a job?",
+                    "options": [
+                      "A. Look at job advertisements",
+                      "B. Think about your skills and interests",
+                      "C. Apply for any available job"
+                    ],
+                    "answer": "B. Think about your skills and interests"
+                  },
+                  {
+                    "id": "7",
+                    "text": "What should you do if you lack required skills?",
+                    "options": [
+                      "A. Apply anyway",
+                      "B. Take a course or gain experience",
+                      "C. Give up"
+                    ],
+                    "answer": "B. Take a course or gain experience"
+                  },
+                  {
+                    "id": "8",
+                    "text": "How should you prepare your application?",
+                    "options": [
+                      "A. Send the same CV everywhere",
+                      "B. Tailor it to each job",
+                      "C. Focus only on your hobbies"
+                    ],
+                    "answer": "B. Tailor it to each job"
+                  },
+                  {
+                    "id": "9",
+                    "text": "What should you do before the interview?",
+                    "options": [
+                      "A. Research the company",
+                      "B. Arrive late",
+                      "C. Wear casual clothes"
+                    ],
+                    "answer": "A. Research the company"
+                  },
+                  {
+                    "id": "10",
+                    "text": "What attitude should you show in an interview?",
+                    "options": [
+                      "A. Enthusiasm",
+                      "B. Indifference",
+                      "C. Nervousness"
+                    ],
+                    "answer": "A. Enthusiasm"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 11-18",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Job Opportunities",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "We are looking for an experienced nurse to join our team at City Hospital. You must have at least 3 years of experience and be registered. Full-time position with competitive salary. Application deadline: May 30."
+              },
+              {
+                "id": "B",
+                "text": "Marketing Assistant needed for dynamic advertising agency. Responsibilities include social media management, content creation, and client support. Fluency in English required. Previous experience preferred but not essential."
+              },
+              {
+                "id": "C",
+                "text": "Restaurant Manager required for busy city center restaurant. Must have 2+ years management experience in hospitality. Strong leadership skills essential. Salary negotiable based on experience. Immediate start available."
+              },
+              {
+                "id": "D",
+                "text": "Software Developer position at innovative tech startup. Knowledge of Python and JavaScript required. Experience with web development is a plus. We offer competitive salary, flexible hours, and a great team environment."
+              },
+              {
+                "id": "E",
+                "text": "English teacher needed for language school. Native or near-native proficiency required. TEFL certificate preferred. Part-time and full-time positions available. Evening and weekend classes."
+              },
+              {
+                "id": "F",
+                "text": "Administrative Assistant for busy office. Duties include answering phones, managing schedules, and handling correspondence. Good organizational skills and computer literacy needed. Training provided."
+              },
+              {
+                "id": "G",
+                "text": "Sales Representative for growing company. Commission-based salary with uncapped earning potential. Must have excellent communication skills and previous sales experience. Company car provided."
+              },
+              {
+                "id": "H",
+                "text": "Accountant needed for small business. Experience with bookkeeping and tax preparation required. Part-time position, 20 hours per week. Must be detail-oriented and reliable."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  { "id": 11, "text": "A job that requires teaching qualifications.", "answer": "E" },
+                  { "id": 12, "text": "A position with possibility to earn more through performance.", "answer": "G" },
+                  { "id": 13, "text": "A computer-based role for someone organized.", "answer": "F" },
+                  { "id": 14, "text": "A health care job with specific experience needed.", "answer": "A" },
+                  { "id": 15, "text": "A management position in food service.", "answer": "C" },
+                  { "id": 16, "text": "A creative role in advertising.", "answer": "B" },
+                  { "id": 17, "text": "A programming job with flexible working hours.", "answer": "D" },
+                  { "id": 18, "text": "A financial role with part-time hours.", "answer": "H" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "My First Week at Work",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "I started my new job last Monday. I was quite nervous on the first day, but my colleagues were very friendly and helped me settle in. During the first week, I ____(21)____ many things about the company and my ____(22)____.\n\nI have met most of my team members. They ____(23)____ me around the office and showed me where everything is. My ____(24)____ gave me a tour on Tuesday and introduced me to important clients. I feel much more comfortable now.\n\nAt the moment, I am still learning the ____(25)____. My tasks include answering emails, organizing meetings, and preparing reports. It's not difficult, but there is a lot to remember. I ____(26)____ to do my best and make a good impression.\n\nThe work environment is very positive. Everyone ____(27)____ well together. We have lunch together most days. I think I will enjoy working here. I hope I can ____(28)____ here long-term and maybe get a ____(29)____ in the future.\n\nSo far, I am very happy with my ____(30)____ decision to take this job."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  { "id": "21", "text": "I ____(21)____ many things", "options": ["learned", "have learned", "had learned"], "answer": "have learned" },
+                  { "id": "22", "text": "my ____(22)____", "options": ["position", "salary", "colleague"], "answer": "position" },
+                  { "id": "23", "text": "They ____(23)____ me around", "options": ["showed", "show", "have shown"], "answer": "showed" },
+                  { "id": "24", "text": "My ____(24)____ gave me a tour", "options": ["boss", "colleague", "team"], "answer": "boss" },
+                  { "id": "25", "text": "learning the ____(25)____", "options": ["routine", "salary", "application"], "answer": "routine" },
+                  { "id": "26", "text": "I ____(26)____ to do my best", "options": ["hope", "want", "need"], "answer": "hope" },
+                  { "id": "27", "text": "Everyone ____(27)____ well together", "options": ["works", "gets", "fits"], "answer": "gets" },
+                  { "id": "28", "text": "I can ____(28)____ here long-term", "options": ["stay", "work", "live"], "answer": "stay" },
+                  { "id": "29", "text": "get a ____(29)____ in the future", "options": ["promotion", "position", "salary"], "answer": "promotion" },
+                  { "id": "30", "text": "my ____(30)____ decision", "options": ["recent", "first", "last"], "answer": "recent" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text and complete the gaps with the correct word from the box.",
+        "passages": [
+          {
+            "id": "p3",
+            "subtitle": "Language Elements Part 2",
+            "title": "Cover Letter",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Dear Hiring Manager,\n\nI am writing to apply for the position of Marketing Assistant, which I saw advertised on your ____(a)____. I have three years of experience in marketing and believe I would be a great addition to your ____(b)____.\n\nIn my current role, I am responsible for social media management, content creation, and client communication. I have successfully led several marketing ____(c)____ that increased our sales by 30%. I am skilled with digital marketing tools and have excellent ____(d)____ skills.\n\nI am very interested in your company and would love the opportunity to discuss the position further. I have attached my CV and look forward to hearing from you. Please feel free to contact me if you need any additional ____(e)____.\n\nSincerely,\nMichael Brown"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-j) to complete each gap.",
+                "tokens": [
+                  "APPLICATION",
+                  "COMPANY",
+                  "EXPERIENCE",
+                  "INTERVIEW",
+                  "LEADER",
+                  "PROJECTS",
+                  "RECRUITMENT",
+                  "SKILLS",
+                  "TEAM",
+                  "WEBSITE"
+                ],
+                "answers": {
+                  "a": "WEBSITE",
+                  "b": "TEAM",
+                  "c": "PROJECTS",
+                  "d": "SKILLS",
+                  "e": "INFORMATION"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+   "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Situations",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear people talking in eight different situations.\nFor questions 1-8, choose the best answer A, B or C.",
+        "transcript": "1. Woman: What time are we meeting Jane?\nMan: At half past seven outside the restaurant.\nWoman: I told her to wait inside, at a table.\nMan: I know, but she said she’s prefer to meet us outside.\n\n2. Girl: It’s Chris’s birthday on Friday. What shall we get him?\nBoy: Mmm, it’s difficult. Tapes? CDs? But he’s already got a lot of those …\nGirl: We could get him something to wear. No, let’s get him a book on sport – he’s really keen on that.\nBoy: Why not?\n\n3. Man: So, could you describe Mr Jones for me please, madam?\nWoman: Well, he’s about 40 years old, bald, with a moustache. He’s got large ears and he wears glasses.\n\n4. Woman: Where are you going to plant the tree? By the front door?\nMan: No, that would be silly. It’ll grow too big. I’m going to put it at the back of the garage. When it’s grown, it’ll give us some shade in the summer.\nWoman: I thought it would be better right at the other end of the lawn.\nMan: Oh, no.\n\n5. Man: Shall I get some fruit for the picnic?\nWoman: Yes, can you get some oranges and bananas?\nMan: I’m not very keen on oranges. How about grapes instead?\nWoman: They’re so expensive at the moment. Just get the bananas.\n\n6. Woman: Look, Gary’s sent us a postcard of his hotel, and he’s put a cross to show us his window!\nMan: Ah, right in the middle.\nWoman: Yes, he says he wanted a room on the top floor, but the only room available was on the floor below that.\n\n7. Woman: Good morning, sir, how can I help you?\nMan: Well, I’d like to hire a car, please. Something fast and comfortable, with enough room for four adults and a child.",
+        "audioUrl": "/audio/PEL-B1-Test6-Part1.mp3",
+        "context": "Eight different situations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (a-f) corresponds to each news item?",
+            "questions": [
+              {
+                "id": 1,
+                "text": "News Item 1",
+                "answer": "1"
+              },
+              {
+                "id": 2,
+                "text": "News Item 2",
+                "answer": "3"
+              },
+              {
+                "id": 3,
+                "text": "News Item 3",
+                "answer": "0"
+              },
+              {
+                "id": 4,
+                "text": "News Item 4",
+                "answer": "5"
+              },
+              {
+                "id": 5,
+                "text": "News Item 5",
+                "answer": "2"
+              },
+              {
+                "id": 6,
+                "text": "News Item 6",
+                "answer": "6"
+              },
+              {
+                "id": 7,
+                "text": "News Item 7",
+                "answer": "4"
+              }
+            ],
+            "headings": [
+              "Describing a man",
+              "Arranging a meeting",
+              "Shopping for food",
+              "Buying a present",
+              "Renting a car",
+              "Planning a garden",
+              "Receiving a postcard"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Arts Festival Box Office Information",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear a recorded message giving information about an arts festival.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
+        "transcript": "Message: This is the Arts Festival Box Office. There is no one here to take your call, but do not hang up, as further information follows.\n\nThe Festival begins on the 12th of May and continues to the 28th. There are things happening in several parts of the town itself, and outside it.\n\nAt the Theatre Royal, there will be a series of concerts, starting with jazz singer Elaine Delmar on the 12th of May. George Melly brings his own special kind of jazz and fun to the theatre on the 13th of May. On Thursday the 19th of May, there is the opera Faust. For classical music fans, the Brodsky String Quartet appear on the 23rd of May.\n\nThere are also concerts at the Corn Exchange. For people who prefer dance music, we have the London All Stars Steel Band on Sunday the 15th of May. On Thursday the 19th of May we welcome back the Viennese Gala Orchestra, who are regular performers at the Festival. Finally, also at the Corn Exchange, there will be a series of jazz concerts each Friday at 1 o’clock. During these lunch-time concerts a bar will be open for the sale of wine and we are offering free sort drinks. Sandwiches will also be on sale. Light meals can be bought in the restaurant afterwards.\n\nThere are various other musical performances in the cathedral, and poetry readings in one of the town’s churches. The Film Society has arranged to show a film of Mozart’s opera Don Giovanni at the theatre. Our programme has full details.\n\nIckworth House, just outside the town is joining in the Festival as usual. There is a guided walk around Ickworth Park on Sunday the 15th, which will last about two and a half hours. Also, on the 19th of May, we have a special concert of piano music, given by Oliver Davies in the beautiful Ickworth Library. The price of tickets includes coffee and biscuits and you are advised to book early, as this is always especially popular.\n\nFor more information, send for our Festival programme or visit the Box Office from 10.00 a.m. to 8 p.m. Mondays to Fridays, or 12.00 to 8 p.m. on Saturdays. Bookings can be made in person (cash, cheque or credit card), by post (cheques only), or by telephone (credit cards only). We also accept credit card bookings by fax, on 0284 706035. For these bookings, you must use our booking form.\n\nThank you for calling.",
+        "audioUrl": "/audio/PEL-B1-Test6-Part2.mp3",
+        "context": "Recorded message about an arts festival",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "mode": "tfng",
+            "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
+            "questions": [
+              {
+                "id": 8,
+                "text": "The Arts Festival takes place over two weeks.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 9,
+                "text": "Elaine Delmar will perform at the Corn Exchange.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 10,
+                "text": "You can hear dance music at the Corn Exchange.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 11,
+                "text": "Free soft drinks are available at all the lunch-time concerts.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 12,
+                "text": "There will be a film of an opera at the Theatre Royal.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 13,
+                "text": "The guided walk around Ickworth Park will be on Saturday.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 14,
+                "text": "You can book tickets by sending a cheque through the post.",
+                "answer": "TRUE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Language Study Fair Information",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear an organiser giving information about a Language Study Fair.\nFor questions 15-20, choose the correct answer A, B or C.",
+        "transcript": "Organiser: If you’re studying English, the Language Study Fair that’s being held this month will certainly interest you. The show is taking place between the 17th and 19th of March at the National Education Centre. It aims to answer all your questions about self-study (that’s studying by yourself), whatever your level.\n\nThat Language Study Fair provides a perfect opportunity for you to see, compare and get advice on everything that’s available to help you improve the way you study. Over 350 leading producers of educational materials will be present. Come along to this, and you won’t waste your money in the future on materials that are out-of-date, or books that you just don’t need.\n\nWe’ve got lots of different things for you to see and hear. There will be stands showing different types of self-study textbooks and talks by educational speakers on the best ways to study by yourself. You’ll be able to see the latest furniture available for people who study at home. We’re sure you’ll also enjoy watching people using the latest computer programs, which can make studying English alone so much easier.\n\nThis is your chance to make good decisions about what you buy. You can attend the fair between nine-thirty and five on Thursday and Friday, and from nine-thirty to four on Saturday.\n\nTickets cost £5 each, or £3 if you’re a full-time student. All tickets can be booked by ringing the ticket hotline. The number is 984 7711. Parking can be really difficult around the National Education Centre. However, an all-day space can be booked for only £2.50 per vehicle.\n\nSo, we look forward to seeing you there!",
+        "audioUrl": "/audio/PEL-B1-Test6-Part3.mp3",
+        "context": "Organiser talks about a Language Study Fair",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "For questions 15-20, choose the correct answer A, B or C.",
+            "questions": [
+              {
+                "id": 15,
+                "text": "The aim of the Language Study Fair is to",
+                "answer": "A",
+                "options": [
+                  "help you with self-study.",
+                  "teach you a new language.",
+                  "show you the best language schools."
+                ]
+              },
+              {
+                "id": 16,
+                "text": "The Language Study Fair will help you to avoid",
+                "answer": "C",
+                "options": [
+                  "buying expensive equipment.",
+                  "making the wrong choices.",
+                  "studying in an unsuitable way."
+                ]
+              },
+              {
+                "id": 17,
+                "text": "What does the fair offer apart from books and talks?",
+                "answer": "B",
+                "options": [
+                  "free language classes",
+                  "the latest computer programs",
+                  "advice from teachers"
+                ]
+              },
+              {
+                "id": 18,
+                "text": "On Saturday, the fair closes at",
+                "answer": "C",
+                "options": [
+                  "4.00 p.m.",
+                  "5.00 p.m.",
+                  "8.00 p.m."
+                ]
+              },
+              {
+                "id": 19,
+                "text": "How much does a student ticket cost?",
+                "answer": "B",
+                "options": [
+                  "£2.50",
+                  "£3",
+                  "£5"
+                ]
+              },
+              {
+                "id": 20,
+                "text": "What information is given about parking?",
+                "answer": "A",
+                "options": [
+                  "You can book a space for £2.50.",
+                  "It is difficult to find a space.",
+                  "It is free after 5.00 p.m."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "Answer questions about work, careers, and your professional life.",
+        "topics": [
+          {
+            "topic": "Your Work Life",
+            "questions": [
+              { "id": "p1q1", "text": "Do you currently work or study? What do you do?" },
+              { "id": "p1q2", "text": "What do you like or dislike about your work/studies?" },
+              { "id": "p1q3", "text": "What are your career goals for the future?" }
+            ]
+          },
+          {
+            "topic": "Jobs and Careers",
+            "questions": [
+              { "id": "p1q4", "text": "What kind of job would you like to have in the future?" },
+              { "id": "p1q5", "text": "How important is job satisfaction to you?" },
+              { "id": "p1q6", "text": "What skills are important for your chosen career?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following text from a magazine. Discuss your views on the topic.",
+        "text": "Many young people today change jobs frequently, sometimes every few years. Some see this as positive - gaining diverse experience and avoiding boredom. Others worry it shows a lack of commitment and loyalty. employers have mixed views on the trend.",
+        "topics": [
+          {
+            "topic": "Job Changing",
+            "questions": [
+              { "id": "p2q1", "text": "Is changing jobs frequently a good or bad thing?" },
+              { "id": "p2q2", "text": "What are the advantages and disadvantages of changing jobs often?" },
+              { "id": "p2q3", "text": "How long should someone stay in one job?" },
+              { "id": "p2q4", "text": "What do employers look for in a candidate's work history?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "Your company wants to improve employee satisfaction. Discuss the following suggestions and decide which three should be implemented first.",
+        "topics": [
+          {
+            "topic": "Improving Workplace Satisfaction",
+            "suggestions": [
+              "Offer flexible working hours",
+              "Provide more vacation days",
+              "Create a comfortable break room",
+              "Organize regular team-building activities",
+              "Offer opportunities for career development",
+              "Improve the office equipment and technology",
+              "Introduce a mentorship program",
+              "Provide healthy snacks and meals"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Which three would improve satisfaction the most?" },
+              { "id": "p3q2", "text": "Which ones are most cost-effective?" },
+              { "id": "p3q3", "text": "How can we implement these effectively?" },
+              { "id": "p3q4", "text": "Which should be prioritized first?" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m6-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter",
+        "subtitle": "Part 1: Writing",
+        "intro": "You see this advertisement",
+        "instruction": "Write a letter of application for the job advertised below. In your letter:\n\n• Introduce yourself and state your interest\n• Describe your relevant experience and skills\n• Explain why you would be suitable for the position\n\nWrite at least 150 words.",
+        "context": "You have seen the following job advertisement in a local newspaper: \"Office Assistant needed for busy law firm. Must be organized, proficient with computers, and have good communication skills. Previous office experience preferred. Competitive salary.\"",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a letter applying for the office assistant position.",
+        "bullets": [
+          "Introduce yourself and state your interest",
+          "Describe your relevant experience and skills",
+          "Explain why you would be suitable for the position"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m6-t2",
+        "taskType": 2,
+        "title": "Task 2: Report",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Your teacher has asked you to write a report about part-time work for students. In your report, you should:\n\n• Discuss the advantages and disadvantages of working while studying\n• Give your opinion on whether students should work part-time\n• Make recommendations for students who want to work\n\nWrite at least 250 words.",
+        "context": "Your school magazine wants a report examining the topic of part-time employment for students.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write a report about students doing part-time work.",
+        "bullets": [
+          "Discuss advantages and disadvantages of working while studying",
+          "Give your opinion on whether students should work part-time",
+          "Make recommendations for students who want to work"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

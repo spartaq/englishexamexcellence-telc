@@ -1,0 +1,572 @@
+{
+  "id": "telc-b1-mock-10",
+  "level": "b1",
+  "mockNumber": 10,
+  "title": "TELC B1 Mock Test 10",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+
+  "vocabulary": {
+    "id": "vocab-b1-mock-10",
+    "title": "Test Vocabulary",
+    "level": "B1",
+    "words": [
+      { "term": "City", "hu": "Város", "definition": "A large and important town.", "example": "I live in a big city." },
+      { "term": "Home", "hu": "Otthon", "definition": "The place where you live.", "example": "I'm going home now." },
+      { "term": "Family", "hu": "Család", "definition": "A group of people related to each other.", "example": "My family lives nearby." },
+      { "term": "Friend", "hu": "Barát", "definition": "A person you know well and like.", "example": "She is my best friend." },
+      { "term": "Time", "hu": "Idő", "definition": "The indefinite continued progress of existence.", "example": "What time is it?" },
+      { "term": "Work", "hu": "Munka", "definition": "Activity involving mental or physical effort.", "example": "I start work at 9am." },
+      { "term": "Money", "hu": "Pénz", "definition": "A current medium of exchange.", "example": "I don't have much money." },
+      { "term": "Problem", "hu": "Probléma", "definition": "A difficult situation that needs to be solved.", "example": "We have a small problem." },
+      { "term": "Question", "hu": "Kérdés", "definition": "A sentence worded to elicit information.", "example": "Can I ask you a question?" },
+      { "term": "Answer", "hu": "Válasz", "definition": "A response to a question.", "example": "I know the answer." },
+      { "term": "Reason", "hu": "Ok", "definition": "A cause, explanation, or justification.", "example": "Tell me the reason." },
+      { "term": "Example", "hu": "Példa", "definition": "A thing characteristic of its kind.", "example": "Let me give you an example." },
+      { "term": "Change", "hu": "Változás", "definition": "To make or become different.", "example": "Things will change." },
+      { "term": "Place", "hu": "Hely", "definition": "A particular position or location.", "example": "This is a nice place." },
+      { "term": "Thing", "hu": "Dolog", "definition": "An object that one need not immediately name.", "example": "What is that thing?" }
+    ]
+  },
+
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "City",
+              "Home",
+              "Family",
+              "Friend",
+              "Time",
+              "Work",
+              "Money",
+              "Problem",
+              "Question",
+              "Answer",
+              "Reason",
+              "Example",
+              "Change",
+              "Place",
+              "Thing"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "Emma moved to a new city last month. She didn't know anyone at first. Then she met her neighbor, who introduced her to some local people. Now she has made several friends and enjoys living there."
+              },
+              {
+                "id": "2",
+                "text": "Tom had a problem at work yesterday. His computer stopped working and he couldn't finish his task. He asked his colleague for help. Together they found the answer quickly."
+              },
+              {
+                "id": "3",
+                "text": "My parents visit my home every Sunday. We have lunch together and talk about the week. It's a nice tradition that I always look forward to. Family time is very important to me."
+              },
+              {
+                "id": "4",
+                "text": "Lisa needed to change her lifestyle. She was working too much and had no free time. So she started saying no to extra work. Now she has more time for herself and her hobbies."
+              },
+              {
+                "id": "5",
+                "text": "David lost his wallet in the city center. He was worried because it had all his money and cards. He went to the police station. They told him someone had found it and handed it in."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  { "id": "1", "text": "Paragraph 1", "answer": 4 },
+                  { "id": "2", "text": "Paragraph 2", "answer": 0 },
+                  { "id": "3", "text": "Paragraph 3", "answer": 3 },
+                  { "id": "4", "text": "Paragraph 4", "answer": 2 },
+                  { "id": "5", "text": "Paragraph 5", "answer": 1 }
+                ],
+                "headings": [
+                  "Solving a work problem",
+                  "Finding a lost wallet",
+                  "Making a lifestyle change",
+                  "Family visits and traditions",
+                  "Making friends in a new city"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about everyday life and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "Balancing Work and Life",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Many people today struggle to balance work and personal life. They work long hours and have little time for family, friends, or themselves. This can lead to stress and health problems."
+              },
+              {
+                "id": "B",
+                "text": "The first step to better balance is setting priorities. Decide what is most important to you. Then make time for those things. It's okay to say no to things that are not essential."
+              },
+              {
+                "id": "C",
+                "text": "Time management is also crucial. Plan your day and make a schedule. Include time for work, rest, and play. Try to stick to your plan as much as possible."
+              },
+              {
+                "id": "D",
+                "text": "Remember that life is short. Don't spend all your time working. Make sure to enjoy each day. Spend time with loved ones and do things that make you happy."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": "6",
+                    "text": "What is a common problem today?",
+                    "options": [
+                      "A. People have too much free time",
+                      "B. People struggle to balance work and life",
+                      "C. People don't work enough"
+                    ],
+                    "answer": "B. People struggle to balance work and life"
+                  },
+                  {
+                    "id": "7",
+                    "text": "What should you do first to improve balance?",
+                    "options": [
+                      "A. Work more hours",
+                      "B. Set your priorities",
+                      "C. Ignore your responsibilities"
+                    ],
+                    "answer": "B. Set your priorities"
+                  },
+                  {
+                    "id": "8",
+                    "text": "What helps with time management?",
+                    "options": [
+                      "A. No planning",
+                      "B. Making a schedule",
+                      "C. Working continuously"
+                    ],
+                    "answer": "B. Making a schedule"
+                  },
+                  {
+                    "id": "9",
+                    "text": "What does the article suggest about saying no?",
+                    "options": [
+                      "A. It's always wrong",
+                      "B. It's okay for non-essential things",
+                      "C. You should say no to everything"
+                    ],
+                    "answer": "B. It's okay for non-essential things"
+                  },
+                  {
+                    "id": "10",
+                    "text": "What is important to remember according to the article?",
+                    "options": [
+                      "A. Work is everything",
+                      "B. Life is short so enjoy it",
+                      "C. Money is most important"
+                    ],
+                    "answer": "B. Life is short so enjoy it"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 11-18",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Local Services",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "City Library - Open daily from 9am to 7pm. Free membership for residents. Borrow up to 10 books at a time. Free Wi-Fi, computers, and quiet study areas. Children's reading club on Saturdays."
+              },
+              {
+                "id": "B",
+                "text": "Community Center - Offers classes for all ages including yoga, painting, and computer skills. Room rentals available for meetings and parties. Drop-in for information or sign up online."
+              },
+              {
+                "id": "C",
+                "text": "Post Office - Open Monday to Saturday, 8am-6pm. Services include mail delivery, parcel sending, banking, and bill payments. Self-service machines available for faster service."
+              },
+              {
+                "id": "D",
+                "text": "Health Clinic - Walk-in clinic for minor illnesses and injuries. No appointment needed. Open 7 days a week, 8am-10pm. Accepts most insurance plans. On-site pharmacy."
+              },
+              {
+                "id": "E",
+                "text": "Sports Center - Facilities include swimming pool, gym, and sports halls. Personal trainers available. Membership options for individuals and families. Children's swimming lessons every weekend."
+              },
+              {
+                "id": "F",
+                "text": "Supermarket - Open 7am-11pm daily. Wide range of groceries, household items, and fresh produce. Loyalty card available for discounts. Online shopping with home delivery."
+              },
+              {
+                "id": "G",
+                "text": "Bank Branch - Full banking services including accounts, loans, and investments. Financial advisors available by appointment. Cash machines accessible 24/7. Secure parking for customers."
+              },
+              {
+                "id": "H",
+                "text": "Pharmacy - Prescription fulfillment and over-the-counter medications. Health advice from qualified pharmacists. Free blood pressure checks. Home delivery service for elderly customers."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  { "id": 11, "text": "A place to borrow books and use computers.", "answer": "A" },
+                  { "id": 12, "text": "A facility with swimming and exercise equipment.", "answer": "E" },
+                  { "id": 13, "text": "A shop that delivers groceries to your home.", "answer": "F" },
+                  { "id": 14, "text": "A place with medical advice and medicine sales.", "answer": "H" },
+                  { "id": 15, "text": "A building you can rent for events.", "answer": "B" },
+                  { "id": 16, "text": "A service for sending packages and paying bills.", "answer": "C" },
+                  { "id": 17, "text": "A place offering financial services and advice.", "answer": "G" },
+                  { "id": 18, "text": "A clinic that doesn't require appointments.", "answer": "D" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "A Day in the Life",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Every morning, I ____(21)____ up at 7 o'clock. I get dressed, have breakfast, and then I ____(22)____ to work by bus. The journey takes about 30 minutes.\n\nAt work, I usually have a lot of things to do. I check my emails first, then I start ____(23)____ on my projects. I have a short break for lunch at 1pm. After lunch, I continue working ____(24)____ 5pm.\n\nIn the evenings, I like to relax. Sometimes I meet ____(25)____ for coffee or dinner. Other times I stay at home and watch TV or read a book. I try to go to bed early ____(26)____ I need enough sleep.\n\nOn weekends, I spend time with my family. We often have lunch together on Sundays. I also do the gardening and ____(27)____ the house. It's important to me to have a clean and tidy home.\n\nLife is busy but I enjoy it. The key is finding a good ____(28)____ between work and personal life. Everyone has different ____(29)____ and that's okay. The most important thing is that you are happy with your own ____(30)____."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  { "id": "21", "text": "I ____(21)____ up at 7 o'clock", "options": ["wake", "get", "stand"], "answer": "wake" },
+                  { "id": "22", "text": "I ____(22)____ to work by bus", "options": ["go", "come", "travel"], "answer": "go" },
+                  { "id": "23", "text": "start ____(23)____ on my projects", "options": ["working", "work", "to work"], "answer": "working" },
+                  { "id": "24", "text": "working ____(24)____ 5pm", "options": ["until", "to", "at"], "answer": "until" },
+                  { "id": "25", "text": "meet ____(25)____ for coffee", "options": ["friends", "family", "colleagues"], "answer": "friends" },
+                  { "id": "26", "text": "early ____(26)____ I need enough sleep", "options": ["because", "so", "if"], "answer": "because" },
+                  { "id": "27", "text": "____(27)____ the house", "options": ["clean", "tidy", "wash"], "answer": "clean" },
+                  { "id": "28", "text": "good ____(28)____ between work and life", "options": ["balance", "time", "way"], "answer": "balance" },
+                  { "id": "29", "text": "Everyone has different ____(29)____", "options": ["priorities", "problems", "questions"], "answer": "priorities" },
+                  { "id": "30", "text": "happy with your own ____(30)____", "options": ["life", "choice", "situation"] }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text and complete the gaps with the correct word from the box.",
+        "passages": [
+          {
+            "id": "p3",
+            "subtitle": "Language Elements Part 2",
+            "title": "Apartment Search Email",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Hello,\n\nI am looking for a new apartment to rent. I need a place with two bedrooms and a small kitchen. My ____(a)____ is €800 per month including bills.\n\nI would like the apartment to be near public transport and close to shops. It's important that the building is in good ____(b)____ and has secure parking.\n\nI have a cat, so pets must be ____(c)____. Also, I work from home sometimes, so a quiet ____(d)____ is necessary. When is the soonest I could move in?\n\nPlease send me photos and details if you have anything available. Thank you for your help.\n\nBest regards,\nMaria"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-j) to complete each gap.",
+                "tokens": [
+                  "BUDGET",
+                  "PLACE",
+                  "CONDITION",
+                  "ENVIRONMENT",
+                  "ALLOWED",
+                  "AREA",
+                  "NEIGHBORHOOD",
+                  "NEED",
+                  "WANT",
+                  "POSSIBLE"
+                ],
+                "answers": {
+                  "a": "BUDGET",
+                  "b": "CONDITION",
+                  "c": "ALLOWED",
+                  "d": "ENVIRONMENT"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Daily Life Announcements",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear five short announcements. Match each to the correct situation.",
+        "transcript": "1. Female: \"This is a reminder that the supermarket closes at 9pm tonight for staff training. We apologize for any inconvenience. Normal hours resume tomorrow.\"\n\n2. Male: \"Attention residents: The water will be turned off for maintenance on Thursday from 10am to 2pm. Please fill your containers in advance. We apologize for the disruption.\"\n\n3. Female: \"The bus service on route 52 has been delayed by 15 minutes due to traffic. We thank you for your patience and understanding.\"\n\n4. Male: \"This is the last call for passengers of flight LH345 to Frankfurt. Please proceed to gate B7 immediately. Your flight is ready for boarding.\"\n\n5. Female: \"The community center is offering free computer classes for seniors this Saturday. Spaces are limited. Please call to reserve your place.\"",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "context": "Five daily life announcements",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which situation (a-e) matches each announcement?",
+            "questions": [
+              { "id": 1, "text": "Announcement 1", "answer": 3 },
+              { "id": 2, "text": "Announcement 2", "answer": 2 },
+              { "id": 3, "text": "Announcement 3", "answer": 1 },
+              { "id": 4, "text": "Announcement 4", "answer": 0 },
+              { "id": 5, "text": "Announcement 5", "answer": 4 }
+            ],
+            "headings": [
+              "Flight boarding announcement",
+              "Bus service delay",
+              "Water supply interruption",
+              "Supermarket closure notice",
+              "Free classes for seniors"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Interview: Daily Routines",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with someone about their daily routine. Decide if the statements are true (+) or not true (-).",
+        "transcript": "Interviewer: Tell us about your typical day. Maria: I wake up at 6:30 every morning. I have a quick breakfast and then walk to work - it takes about 20 minutes. I start work at 8:30. Interviewer: What do you do for lunch? Maria: I bring lunch from home most days. Sometimes I eat with colleagues in the cafeteria. I finish work at 5:30 and usually go to the gym. Interviewer: How do you relax in the evenings? Maria: I cook dinner and then watch some TV or read. I try not to use my phone much in the evening. I go to bed around 11pm. Interviewer: What about weekends? Maria: On Saturdays I do housework and meet friends. Sundays are for family - we have lunch together every week.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+        "context": "Interview about daily routine",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "mode": "tfng",
+            "instruction": "Decide if the statement for each item is true (+) or not true (-).",
+            "questions": [
+              { "id": 6, "text": "Maria wakes up at 6:30 every morning.", "answer": "TRUE" },
+              { "id": 7, "text": "Maria drives to work.", "answer": "FALSE" },
+              { "id": 8, "text": "Maria brings lunch from home most days.", "answer": "TRUE" },
+              { "id": 9, "text": "Maria goes to the gym after work.", "answer": "TRUE" },
+              { "id": 10, "text": "Maria spends Sundays with colleagues.", "answer": "FALSE" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Everyday Conversations",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear five short everyday conversations. Choose the correct answer for each.",
+        "transcript": "1. Man: \"What time is the meeting?\" Woman: \"It's at 2pm in the conference room.\"\n\n2. Woman: \"I forgot my keys.\" Man: \"Don't worry, you can use my spare set.\"\n\n3. Man: \"Can you help me with this bag?\" Woman: \"Sure, let me take that for you.\"\n\n4. Woman: \"I'm looking for the post office.\" Man: \"Go straight ahead, then turn left at the traffic lights.\"\n\n5. Man: \"The movie starts at 8pm.\" Woman: \"Great, I'll meet you there at 7:45.\"",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        "context": "Five everyday conversations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "Choose the correct answer (A, B, or C) for each question.",
+            "questions": [
+              { "id": 11, "text": "When is the meeting?", "options": ["At 2pm", "At 3pm", "In the morning"], "answer": 0 },
+              { "id": 12, "text": "What does the man offer?", "options": ["Spare keys", "A new lock", "To drive her home"], "answer": 0 },
+              { "id": 13, "text": "What does the woman offer to do?", "options": ["Carry the bag", "Open the door", "Find help"], "answer": 0 },
+              { "id": 14, "text": "What directions does the man give?", "options": ["Go straight, then left", "Turn right immediately", "Take the bus"], "answer": 0 },
+              { "id": 15, "text": "What time will they meet?", "options": ["7:45pm", "8:00pm", "8:15pm"], "answer": 0 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You will be asked questions about your daily life and routine.",
+        "topics": [
+          {
+            "topic": "Your Daily Life",
+            "questions": [
+              { "id": "p1q1", "text": "Can you describe a typical day for you?" },
+              { "id": "p1q2", "text": "What is your favorite part of the day?" },
+              { "id": "p1q3", "text": "How do you balance work and personal life?" }
+            ]
+          },
+          {
+            "topic": "People and Relationships",
+            "questions": [
+              { "id": "p1q4", "text": "Tell me about your family." },
+              { "id": "p1q5", "text": "What makes a good friend?" },
+              { "id": "p1q6", "text": "How much time do you spend with your family?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following text and discuss it with your partner. Share your opinions and experiences.",
+        "text": "Many people today feel they have too little time. Work takes up most of the day, and household chores fill the rest. Some suggest using technology to save time - online shopping, food delivery, and smart home devices. Others worry this makes us less active and loses the personal touch in daily life.",
+        "topics": [
+          {
+            "topic": "Time and Technology",
+            "questions": [
+              { "id": "p2q1", "text": "Do you feel you have enough time in your day?" },
+              { "id": "p2q2", "text": "Is technology helping us save time or making life more complicated?" },
+              { "id": "p2q3", "text": "What daily activities would you like to change?" },
+              { "id": "p2q4", "text": "How can we better manage our time?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "Your local community center wants to offer more activities for residents. Discuss the following ideas and decide which three should be prioritized.",
+        "topics": [
+          {
+            "topic": "Community Center Activities",
+            "suggestions": [
+              "Morning exercise classes for seniors",
+              "After-school homework help for children",
+              "Weekend cooking workshops",
+              "Language exchange meetings",
+              "Art and craft classes",
+              "Computer training for older adults",
+              "Parent and baby groups",
+              "Evening dance classes"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Which three activities would benefit the community most?" },
+              { "id": "p3q2", "text": "Which ones are easiest to organize?" },
+              { "id": "p3q3", "text": "How can we encourage people to participate?" },
+              { "id": "p3q4", "text": "What resources would we need?" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m10-t1",
+        "taskType": 1,
+        "title": "Task 1: Email",
+        "subtitle": "Part 1: Writing",
+        "intro": "You see this notice on a community board",
+        "instruction": "Write an email to your friend. In your email:\n\n• Describe a problem you recently faced\n• Explain how you solved it\n• Ask for advice about a current issue\n\nWrite at least 150 words.",
+        "context": "A friend has asked you to share a recent experience and also wants to know if you have any advice for a problem they're having.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write an email to a friend describing a problem and its solution, and asking for advice.",
+        "bullets": [
+          "Describe a problem you recently faced",
+          "Explain how you solved it",
+          "Ask for advice about a current issue"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m10-t2",
+        "taskType": 2,
+        "title": "Task 2: Article",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Write an article for your school or local newspaper about the following topic:\n\n'Is it important to have a daily routine?'\n\nIn your article, you should:\n\n• Discuss the advantages and disadvantages of having a routine\n• Give your opinion on whether routines are helpful\n• Suggest how to create a good daily routine\n\nWrite at least 250 words.",
+        "context": "The newspaper wants readers' views on daily routines and whether they contribute to a balanced life.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write an article about the importance of daily routines.",
+        "bullets": [
+          "Discuss the advantages and disadvantages of having a routine",
+          "Give your opinion on whether routines are helpful",
+          "Suggest how to create a good daily routine"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

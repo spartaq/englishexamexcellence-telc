@@ -1,0 +1,713 @@
+{
+  "id": "telc-b2-mock-5",
+  "level": "b2",
+  "mockNumber": 5,
+  "title": "TELC B2 Mock Test 5",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B2 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-5",
+    "title": "Test Vocabulary",
+    "level": "B2",
+    "words": [
+      {
+        "term": "advocate",
+        "hu": "védő",
+        "definition": "a person who publicly supports or recommends a particular cause or policy",
+        "example": "She is a strong advocate for environmental protection."
+      },
+      {
+        "term": "bias",
+        "hu": "előítélet",
+        "definition": "prejudice in favor of or against one thing, person, or group",
+        "example": "The article was criticized for its obvious bias."
+      },
+      {
+        "term": "feasible",
+        "hu": "lehetséges",
+        "definition": "possible to do easily or conveniently",
+        "example": "Given the time constraints, this solution seems feasible."
+      },
+      {
+        "term": "generate",
+        "hu": "előidéz",
+        "definition": "produce or create",
+        "example": "The new program will generate many new jobs."
+      },
+      {
+        "term": "implement",
+        "hu": "végrehajt",
+        "definition": "put (a decision, plan, agreement, etc.) into effect",
+        "example": "The company decided to implement new security measures."
+      },
+      {
+        "term": "justify",
+        "hu": "megigazít",
+        "definition": "show or prove to be right or reasonable",
+        "example": "He tried to justify his actions with excuses."
+      },
+      {
+        "term": "perspective",
+        "hu": "látszómező",
+        "definition": "a particular attitude toward or way of regarding something",
+        "example": "From my perspective, the decision was unfair."
+      },
+      {
+        "term": "prohibit",
+        "hu": "tilt",
+        "definition": "formally forbid by law, rule, or other authority",
+        "example": "Smoking is prohibited in this building."
+      },
+      {
+        "term": "retain",
+        "hu": "megtart",
+        "definition": "continue to have something; keep possession of",
+        "example": "It is difficult to retain all the information."
+      },
+      {
+        "term": "significant",
+        "hu": "jelentős",
+        "definition": "sufficiently great or important to be worthy of attention",
+        "example": "There was a significant increase in sales last year."
+      },
+      {
+        "term": "utilize",
+        "hu": "használ",
+        "definition": "make practical and effective use of",
+        "example": "They utilize solar energy to power their home."
+      },
+      {
+        "term": "withdraw",
+        "hu": "visszavon",
+        "definition": "stop using or providing something",
+        "example": "The company decided to withdraw its support."
+      },
+      {
+        "term": "automation",
+        "hu": "automatizálás",
+        "definition": "the use of machines to do work without human control",
+        "example": "Automation has changed many manufacturing processes."
+      },
+      {
+        "term": "flexibility",
+        "hu": "rugalmaság",
+        "definition": "the ability to change or be changed easily according to the situation",
+        "example": "Remote work offers greater flexibility."
+      },
+      {
+        "term": "gig economy",
+        "hu": "gig gazdaság",
+        "definition": "a labor market characterized by short-term contracts or freelance work",
+        "example": "Many young people work in the gig economy."
+      },
+      {
+        "term": "adaptability",
+        "hu": "alkalmazkodóképesség",
+        "definition": "the ability to adjust to new conditions",
+        "example": "Adaptability is crucial in today's fast-changing world."
+      },
+      {
+        "term": "congestion",
+        "hu": "torlódás",
+        "definition": "too much traffic in a place",
+        "example": "Traffic congestion is a major problem in cities."
+      },
+      {
+        "term": "infrastructure",
+        "hu": "infrastruktúra",
+        "definition": "the basic physical and organizational structures needed for the operation of a society",
+        "example": "The government plans to invest in new infrastructure."
+      },
+      {
+        "term": "advocacy",
+        "hu": "bírálati eljárás",
+        "definition": "public support for a particular cause or policy",
+        "example": "The organization focuses on advocacy for human rights."
+      },
+      {
+        "term": "initiative",
+        "hu": "kezdeményezés",
+        "definition": "an act or strategy intended to resolve a difficulty or improve a situation",
+        "example": "A new initiative has been launched to help the homeless."
+      }
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Match the Headlines",
+        "description": "Questions 1-5. Read the five texts and match each text to one of the headlines (A-G). Two headlines will not be used.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": ["advocate", "flexibility", "retain", "generate", "implement", "significant", "feasible", "perspective", "initiative", "automation"],
+            "content": [
+              {
+                "id": "1",
+                "text": "A new urban farming initiative has transformed abandoned city lots into productive green spaces. Local residents can now grow their own vegetables and participate in community-supported agriculture programs. The project not only provides fresh produce but also creates jobs and strengthens neighborhood bonds. City officials report a significant reduction in crime rates in areas where these farms have been established."
+              },
+              {
+                "id": "2",
+                "text": "A comprehensive study of remote workers found that 85 percent reported higher job satisfaction compared to office-based colleagues. The flexibility to manage one's own schedule was cited as the primary benefit, followed by reduced commuting stress. Interestingly, the study also noted that concerns about decreased productivity were largely unfounded, with most remote workers maintaining or exceeding their previous output levels."
+              },
+              {
+                "id": "3",
+                "text": "After three years of meticulous restoration, the Grand Theater has reopened its doors to the public. The project retained many original architectural features while incorporating modern amenities. A significant investment from private donors, alongside government grants, made the renovation possible. The theater will host its first performance next month, featuring a renowned international orchestra."
+              },
+              {
+                "id": "4",
+                "text": "Sales of electric vehicles have increased by 40 percent this year, driven by improved battery technology and expanded charging infrastructure. Industry analysts suggest that widespread adoption is now feasible for most consumers. The shift is expected to generate substantial reductions in urban air pollution over the next decade. Government incentives continue to play a crucial role in encouraging buyers to make the switch."
+              },
+              {
+                "id": "5",
+                "text": "The city council has approved funding for a new community center in the downtown area. From the perspective of local residents, this long-awaited project will provide much-needed space for youth programs and senior activities. Officials plan to implement the first phase of construction by early next year. The facility will include a gymnasium, meeting rooms, and a public library branch."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  {
+                    "id": "1",
+                    "text": "Paragraph 1",
+                    "answer": 2
+                  },
+                  {
+                    "id": "2",
+                    "text": "Paragraph 2",
+                    "answer": 5
+                  },
+                  {
+                    "id": "3",
+                    "text": "Paragraph 3",
+                    "answer": 0
+                  },
+                  {
+                    "id": "4",
+                    "text": "Paragraph 4",
+                    "answer": 1
+                  },
+                  {
+                    "id": "5",
+                    "text": "Paragraph 5",
+                    "answer": 4
+                  }
+                ],
+                "headings": [
+                  "Local Museum Receives Major Donation",
+                  "New Highway Construction Begins",
+                  "Urban Farming Transforms City Spaces",
+                  "School District Faces Budget Shortfall",
+                  "Tech Company Opens New Headquarters",
+                  "Study Shows Benefits of Flexible Work Arrangements",
+                  "Debate Over Housing Development Intensifies"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: The Digital Revolution",
+        "description": "Questions 6-10. Read the article below and choose the best answer (A, B, or C) for each question.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "Social Media and Mental Health",
+            "subtitle": "An Analysis of Modern Connectivity",
+            "type": "READING",
+            "vocabList": ["bias", "utilize", "significant"],
+            "content": [
+              {
+                "id": "A",
+                "text": "The relationship between social media use and mental health has become one of the most debated topics of our time. While platforms offer unprecedented opportunities for connection, research increasingly suggests a correlation between heavy usage and increased anxiety and depression, particularly among younger users. The curated nature of online profiles often creates an unrealistic bias that can negatively impact self-esteem."
+              },
+              {
+                "id": "B",
+                "text": "However, it would be misleading to characterize social media as purely harmful. Many users utilize these platforms to find support communities, access mental health resources, and maintain relationships across distances. The key lies in mindful consumption and digital literacy education that helps individuals recognize when their online habits become detrimental."
+              },
+              {
+                "id": "C",
+                "text": "A significant challenge is the addictive design of many platforms, which employ algorithms to maximize engagement time. Features like infinite scrolling and push notifications exploit psychological vulnerabilities. Moving forward, there is growing advocacy for regulatory measures that would require companies to prioritize user wellbeing alongside profit, potentially including mandatory usage limits for minors."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct option (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": 6,
+                    "text": "What negative effect of social media is mentioned in the first paragraph?",
+                    "options": [
+                      "Reduced physical activity",
+                      "Increased anxiety and depression",
+                      "Loss of privacy"
+                    ],
+                    "answer": "Increased anxiety and depression"
+                  },
+                  {
+                    "id": 7,
+                    "text": "How do people use social media positively according to the text?",
+                    "options": [
+                      "To find support communities",
+                      "To increase their income",
+                      "To avoid face-to-face interactions"
+                    ],
+                    "answer": "To find support communities"
+                  },
+                  {
+                    "id": 8,
+                    "text": "What feature of social media platforms is described as addictive?",
+                    "options": [
+                      "User profiles",
+                      "Infinite scrolling",
+                      "Photo filters"
+                    ],
+                    "answer": "Infinite scrolling"
+                  },
+                  {
+                    "id": 9,
+                    "text": "What solution is suggested to protect young users?",
+                    "options": [
+                      "Banning social media",
+                      "Mandatory usage limits",
+                      "Higher subscription fees"
+                    ],
+                    "answer": "Mandatory usage limits"
+                  },
+                  {
+                    "id": 10,
+                    "text": "What does the text say about the design of social media platforms?",
+                    "options": [
+                      "It prioritizes user wellbeing",
+                      "It exploits psychological vulnerabilities",
+                      "It discourages long usage sessions"
+                    ],
+                    "answer": "It exploits psychological vulnerabilities"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "The Future of Transportation",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "The way we travel is undergoing a remarkable transformation. Electric vehicles are becoming increasingly ____(21)____ as battery technology improves and charging infrastructure expands. Many experts believe that autonomous vehicles will ____(22)____ our roads within the next decade, potentially reducing accidents caused by human error. However, this shift also raises important questions about employment in the transport sector and the need for new ____(23)____ to manage these changes."
+              },
+              {
+                "id": "2",
+                "text": "Public transport systems are also evolving. Cities are investing in smart technology to make buses and trains more efficient and reliable. Real-time tracking apps allow passengers to plan their journeys with greater precision, reducing waiting times and ____(24)____. Some urban areas are even experimenting with flying taxis and underground hyperloop systems, though these remain largely experimental for now."
+              },
+              {
+                "id": "3",
+                "text": "Despite these innovations, many people ____(25)____ to use their own cars due to convenience and habit. Governments face the challenge of encouraging more sustainable transport choices while ____(26)____ that everyone has access to affordable and reliable options. The transition to greener transport will require significant investment, but the long-term benefits for both the environment and public health could be ____(27)____."
+              },
+              {
+                "id": "4",
+                "text": "As we look to the future, it seems clear that transportation will become more integrated, efficient, and environmentally friendly. The key will be ensuring that these advances ____(28)____ to everyone, not just those in wealthy urban centers. Only then can we create a truly sustainable and ____(29)____ transport system that meets the needs of all members of society. This is not just about technology; it's about creating a better quality of life for ____(30)____."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each gap.",
+                "questions": [
+                  {
+                    "id": 21,
+                    "text": "...becoming increasingly ________...",
+                    "options": [
+                      "rare",
+                      "common",
+                      "expensive"
+                    ],
+                    "answer": "common"
+                  },
+                  {
+                    "id": 22,
+                    "text": "...will ________ our roads...",
+                    "options": [
+                      "dominate",
+                      "abandon",
+                      "decorate"
+                    ],
+                    "answer": "dominate"
+                  },
+                  {
+                    "id": 23,
+                    "text": "...need for new ________...",
+                    "options": [
+                      "regulations",
+                      "vehicles",
+                      "roads"
+                    ],
+                    "answer": "regulations"
+                  },
+                  {
+                    "id": 24,
+                    "text": "...reducing waiting times and ________.",
+                    "options": [
+                      "confusion",
+                      "cost",
+                      "congestion"
+                    ],
+                    "answer": "congestion"
+                  },
+                  {
+                    "id": 25,
+                    "text": "...many people ________ to use their own cars...",
+                    "options": [
+                      "continue",
+                      "refuse",
+                      "forget"
+                    ],
+                    "answer": "continue"
+                  },
+                  {
+                    "id": 26,
+                    "text": "...while ________ that everyone has access...",
+                    "options": [
+                      "ensuring",
+                      "hoping",
+                      "guessing"
+                    ],
+                    "answer": "ensuring"
+                  },
+                  {
+                    "id": 27,
+                    "text": "...benefits could be ________.",
+                    "options": [
+                      "minimal",
+                      "significant",
+                      "unclear"
+                    ],
+                    "answer": "significant"
+                  },
+                  {
+                    "id": 28,
+                    "text": "...advances ________ to everyone...",
+                    "options": [
+                      "available",
+                      "restricted",
+                      "invisible"
+                    ],
+                    "answer": "available"
+                  },
+                  {
+                    "id": 29,
+                    "text": "...sustainable and ________ transport system...",
+                    "options": [
+                      "fair",
+                      "fast",
+                      "complex"
+                    ],
+                    "answer": "fair"
+                  },
+                  {
+                    "id": 30,
+                    "text": "...quality of life for ________.",
+                    "options": [
+                      "everyone",
+                      "drivers",
+                      "tourists"
+                    ],
+                    "answer": "everyone"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+  "id": "le-part2",
+  "section": 2,
+  "title": "Language Elements, Part 2",
+  "description": "Questions 31-40. Read the text below and choose the correct word (A-J) from the box to fill in each gap (31-40). There are two extra words you do not need to use.",
+  "passages": [
+    {
+      "id": "p2",
+      "title": "The Changing Nature of Work",
+      "type": "LANGUAGE-ELEMENTS",
+      "content": [
+        {
+          "id": "1",
+          "text": "The modern workplace is evolving at an unprecedented pace, driven by technological advances and shifting social expectations. One of the most notable changes is the rise of remote work, which has moved from being a rare perk to a mainstream expectation. This transformation offers employees greater flexibility and autonomy, allowing them to better balance their professional and personal lives. However, it also presents challenges, particularly in terms of maintaining team cohesion and fostering spontaneous collaboration.\n\nCompanies must now ____(a)____ with new strategies to keep their workforce engaged and productive. This includes investing in digital tools that facilitate communication and project management, as well as creating opportunities for virtual social interaction. The ____(b)____ of traditional office hierarchies is giving way to more agile, results-oriented approaches. Employees are increasingly valued for their output rather than their physical presence, which requires managers to ____(c)____ their leadership style accordingly.\n\nAnother significant trend is the growing importance of continuous learning. As certain skills become automated or obsolete, workers must ____(d)____ new competencies to remain relevant. This places greater responsibility on individuals to take charge of their own professional development, while also creating opportunities for organizations to support their staff through training programs and educational benefits. The most successful companies will be those that can ____(e)____ a culture of lifelong learning and adaptability.\n\nLooking ahead, the boundary between work and life will likely continue to blur, making it essential for both employers and employees to establish clear boundaries and expectations. While technology enables greater connectivity, it also risks creating an 'always-on' culture that can lead to burnout. Finding the right balance will be crucial for maintaining wellbeing and ensuring long-term productivity in this new era of work."
+        }
+      ],
+      "subTasks": [
+        {
+          "type": "gap-fill-tokens",
+          "instruction": "Choose the correct word (A-J) to complete each gap (31-40).",
+          "tokens": [
+            "ADAPT",
+            "DEVELOP",
+            "FRAGMENT",
+            "REJECT",
+            "CULTIVATE",
+            "EROSION",
+            "COORDINATE",
+            "ACQUIRE",
+            "MAINTAIN",
+            "IGNORE"
+          ],
+          "answers": {
+            "a": "COORDINATE",
+            "b": "EROSION",
+            "c": "ADAPT",
+            "d": "ACQUIRE",
+            "e": "CULTIVATE"
+          }
+        }
+      ]
+    }
+  ]
+}
+    ]
+  },
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear several recordings. Listen carefully and answer the questions based on what you hear. You will hear each recording twice.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Part 1: Short Announcements",
+        "subtitle": "Part 1: Listening",
+        "description": "Questions 41-45. You will hear five short announcements or conversations. For each one, choose the correct answer (A, B, or C).",
+        "transcript": "1. Female: \"This is a final boarding call for flight LH456 to Munich. Please proceed to Gate 23 immediately. The gate will close in fifteen minutes.\" Male: \"We need to hurry!\"\n\n2. Male: \"Welcome to 'Fitness Today' radio. In today's program, we'll explore the benefits of regular cardiovascular exercise and how just 30 minutes a day can improve your heart health, boost your mood, and increase your energy levels.\"\n\n3. Female: \"Weather update: Tomorrow will bring heavy rain to the northern regions with possible flooding. Southern areas will see sunny intervals but with strong winds. Temperatures will drop significantly across the country.\"\n\n4. Male: \"Message for Maria Santos. Your online order #4521 is ready for pickup at the main reception desk. Please bring a photo ID and your order confirmation. We close at 7 PM today.\"\n\n5. Female: \"Join our creative writing workshop this Saturday! Whether you're a beginner or experienced writer, you'll learn techniques to develop compelling characters and engaging plots. Limited spaces available - book online now!\"",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+        "context": "everyday situations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "Choose the correct answer (A, B, or C) for each question.",
+            "questions": [
+              { "id": "41", "text": "What is the announcement about?", "options": ["A. A flight cancellation", "B. A final boarding call", "C. A gate change"], "answer": 1 },
+              { "id": "42", "text": "What topic will be discussed on the radio show?", "options": ["A. Cardiovascular exercise", "B. Diet and nutrition", "C. Mental health awareness"], "answer": 0 },
+              { "id": "43", "text": "What will the weather be like in the north tomorrow?", "options": ["A. Heavy rain", "B. Sunny and warm", "C. Clear and cold"], "answer": 0 },
+              { "id": "44", "text": "What does Maria Santos need to collect?", "options": ["A. A package", "B. An email", "C. A receipt"], "answer": 0 },
+              { "id": "45", "text": "What kind of workshop is being advertised?", "options": ["A. A cooking class", "B. A creative writing workshop", "C. A painting course"], "answer": 1 }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Part 2: Interview about Sustainable Cities",
+        "subtitle": "Part 2: Listening",
+        "description": "Questions 46-55. You will hear an interview with an urban planner about creating sustainable cities. Decide if each statement (46-55) is TRUE, FALSE, or NOT GIVEN.",
+        "transcript": "Interviewer: Today we're speaking with Dr. Lisa Chen, an urban planner who specializes in sustainable city design. Dr. Chen, what are the key principles of a sustainable city? Dr. Chen: A truly sustainable city balances environmental protection, economic viability, and social equity. It's about creating spaces where people can live healthy, fulfilling lives without depleting natural resources for future generations. This includes efficient public transport, green spaces, renewable energy, and affordable housing. Interviewer: How important is public transport in this vision? Dr. Chen: It's absolutely crucial. Cities designed around cars rather than people create congestion, pollution, and inequality. We need integrated public transport networks that are affordable, reliable, and accessible to everyone. This reduces emissions and makes cities more livable. Interviewer: What about green spaces? Are they just a luxury? Dr. Chen: Not at all. Parks and green spaces are essential infrastructure. They improve air quality, reduce urban heat, support biodiversity, and provide mental health benefits. Every neighborhood should have access to quality green space within walking distance. Interviewer: Can existing cities become more sustainable, or is it easier to build new ones? Dr. Chen: Retrofitting existing cities is challenging but possible. It requires political will, community engagement, and long-term planning. Small changes like adding bike lanes, improving building insulation, or creating pedestrian zones can have significant cumulative impacts. The key is to start now and think systemically. Interviewer: What role do citizens play in this transformation? Dr. Chen: Citizens are not just passive residents but active participants. Community gardens, local environmental groups, and neighborhood initiatives all contribute to sustainability. When people feel ownership of their environment, they're more likely to support and participate in positive changes. I believe that within twenty years, all major cities will have banned private vehicles from their centers.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+        "context": "interview, urban planning",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "instruction": "Decide if each statement (46-55) is TRUE, FALSE, or NOT GIVEN.",
+            "questions": [
+              { "id": "46", "text": "Dr. Chen believes sustainable cities must balance environmental, economic, and social factors.", "answer": "TRUE" },
+              { "id": "47", "text": "According to Dr. Chen, cities designed around cars create pollution and inequality.", "answer": "TRUE" },
+              { "id": "48", "text": "Dr. Chen thinks green spaces are a luxury that only wealthy cities can afford.", "answer": "FALSE" },
+              { "id": "49", "text": "The interview states that retrofitting existing cities is impossible.", "answer": "FALSE" },
+              { "id": "50", "text": "Dr. Chen believes citizens should be passive recipients of urban planning decisions.", "answer": "FALSE" },
+              { "id": "51", "text": "The interview mentions that community gardens contribute to sustainability.", "answer": "TRUE" },
+              { "id": "52", "text": "Dr. Chen predicts all cities will ban private vehicles within ten years.", "answer": "FALSE" },
+              { "id": "53", "text": "According to Dr. Chen, public transport should be affordable and accessible to everyone.", "answer": "TRUE" },
+              { "id": "54", "text": "The interview states that green spaces only provide aesthetic benefits.", "answer": "FALSE" },
+              { "id": "55", "text": "Dr. Chen discusses the importance of building insulation for energy efficiency.", "answer": "TRUE" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Part 3: Opinions on Technology",
+        "subtitle": "Part 3: Listening",
+        "description": "Questions 56-60. You will hear five different people talking about technology in their lives. For each speaker (1-5), choose the statement (A-F) that best describes their opinion. There is one extra statement that you do not need to use.",
+        "transcript": "Speaker 1: \"I couldn't do my job without technology. I'm a graphic designer, and everything I create is digital. The software I use has become so sophisticated that I can produce work that would have been impossible just a few years ago. It's incredibly empowering.\"  Speaker 2: \"I try to limit my screen time as much as possible. I've deleted all social media apps from my phone and only check email at specific times during the day. My family has a rule: no devices at the dinner table. It's made such a difference to our conversations and relationships.\"  Speaker 3: \"Technology is advancing so fast that it's hard to keep up. I'm always worried about my privacy and how my data is being used. Every time I read about a new data breach or surveillance scandal, it reinforces my concerns. Sometimes I wonder if we've lost control.\"  Speaker 4: \"For me, technology is mainly about convenience. Being able to order groceries online, stream movies, and control my home's heating from my phone saves so much time. I don't care about the technical details - I just want things to work smoothly and make my life easier.\"  Speaker 5: \"I work in IT security, so I see both the benefits and risks of technology every day. While I appreciate how it connects people and enables innovation, I'm constantly aware of the vulnerabilities. It's a double-edged sword that requires constant vigilance and education.\"",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
+        "context": "opinions, technology",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "matching-info",
+            "instruction": "Match each speaker (1-5) to the statement (A-F) that best describes their opinion.",
+            "questions": [
+              { "id": "56", "text": "Speaker 1's opinion is best described by:", "answer": "A" },
+              { "id": "57", "text": "Speaker 2's opinion is best described by:", "answer": "F" },
+              { "id": "58", "text": "Speaker 3's opinion is best described by:", "answer": "E" },
+              { "id": "59", "text": "Speaker 4's opinion is best described by:", "answer": "C" },
+              { "id": "60", "text": "Speaker 5's opinion is best described by:", "answer": "B" }
+            ],
+            "options": [
+              "A. They see technology as an essential and empowering tool for their work.",
+              "B. They recognize both the benefits and risks, requiring careful management.",
+              "C. They value technology primarily for the convenience it provides.",
+              "D. They believe technology has made face-to-face communication obsolete.",
+              "E. They are concerned about privacy and feel we've lost control over technology.",
+              "F. They actively limit technology use to protect personal relationships."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You will be asked some questions about your personal life, experiences, and opinions. Answer honestly and in as much detail as you can.",
+        "topics": [
+          {
+            "topic": "Technology and Daily Life",
+            "questions": [
+              { "id": "p1q1", "text": "How has technology changed your daily routine in the last five years?" },
+              { "id": "p1q2", "text": "What apps or devices do you find most useful in your everyday life?" },
+              { "id": "p1q3", "text": "Do you think people rely too much on technology nowadays?" }
+            ]
+          },
+          {
+            "topic": "Environmental Awareness",
+            "questions": [
+              { "id": "p1q4", "text": "What environmental issues concern you the most?" },
+              { "id": "p1q5", "text": "Have you made any changes to your lifestyle to be more environmentally friendly?" },
+              { "id": "p1q6", "text": "What role should governments play in protecting the environment?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following short text and discuss it with your partner. Express your opinions and react to your partner's points.",
+        "text": "A recent survey found that 60 percent of young people prefer online shopping to visiting physical stores. They cite convenience, wider selection, and better prices as the main reasons. However, 70 percent also said they missed the social experience of shopping with friends and the ability to try products before buying.",
+        "topics": [
+          {
+            "topic": "Online vs. In-Store Shopping",
+            "questions": [
+              { "id": "p2q1", "text": "What are the main advantages of online shopping mentioned in the text?" },
+              { "id": "p2q2", "text": "Do you prefer online or in-store shopping? Why?" },
+              { "id": "p2q3", "text": "How do you think traditional shops can compete with online retailers?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "Your local community is planning to improve an underused public space. Discuss the different options and decide together which improvement would benefit the community most. Consider the following points:",
+        "topics": [
+          {
+            "topic": "Community Space Improvement",
+            "suggestions": [
+              "Build a modern playground with equipment for all ages",
+              "Create an outdoor fitness area with exercise stations",
+              "Develop a community garden with seating areas",
+              "Install public art and interactive sculptures",
+              "Add a small performance stage for local events"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Which option would attract the widest range of community members?" },
+              { "id": "p3q2", "text": "What are the maintenance requirements for each option?" },
+              { "id": "p3q3", "text": "How could each improvement promote community interaction?" },
+              { "id": "p3q4", "text": "Which option offers the best long-term value for the community?" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m5-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter of Complaint",
+        "subtitle": "Part 1: Writing",
+        "instruction": "You recently had a disappointing experience at a restaurant that you had wanted to visit for a long time. Write a letter to the restaurant manager explaining the problems you encountered. In your letter, you should:",
+        "context": "You visited 'The Gourmet Table' last Saturday evening for your anniversary. Despite having a reservation, you waited 45 minutes for a table. The service was slow, and your main course was cold when it arrived. When you mentioned this to the waiter, he was dismissive. The restaurant had been highly recommended to you.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a formal letter of complaint about your disappointing restaurant experience.",
+        "bullets": [
+          "Describe the problems you experienced during your visit",
+          "Explain how the staff responded to your concerns",
+          "Suggest what action you would like the manager to take"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m5-t2",
+        "taskType": 2,
+        "title": "Task 2: Article",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Your university newspaper is running a series on student life and is asking for articles about balancing different responsibilities. Write an article about how you manage your various commitments. In your article, you should:",
+        "context": "The student newspaper wants to help students learn from each other's experiences in managing their time and responsibilities effectively.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write an article about balancing study, work, and personal life as a student.",
+        "bullets": [
+          "Describe your typical weekly schedule and commitments",
+          "Explain the strategies you use to manage your time effectively",
+          "Discuss the challenges and rewards of maintaining this balance"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

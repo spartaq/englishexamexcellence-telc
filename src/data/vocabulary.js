@@ -1064,6 +1064,7 @@ export const VOCAB_LEVELS = {
   title: "Vocab Lab",
   description: "Choose your level and practice with words from all topics.",
   categories: [
+    createLevelCategory(VOCAB_HUB.categories, 'B1'),
     createLevelCategory(VOCAB_HUB.categories, 'B2'),
     createLevelCategory(VOCAB_HUB.categories, 'C1')
   ]

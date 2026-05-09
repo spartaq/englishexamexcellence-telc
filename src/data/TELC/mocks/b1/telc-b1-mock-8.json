@@ -1,0 +1,573 @@
+{
+  "id": "telc-b1-mock-8",
+  "level": "b1",
+  "mockNumber": 8,
+  "title": "TELC B1 Mock Test 8",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+
+  "vocabulary": {
+    "id": "vocab-b1-mock-8",
+    "title": "Test Vocabulary",
+    "level": "B1",
+    "words": [
+      { "term": "Travel", "hu": "Utazás", "definition": "The act of going from one place to another.", "example": "I love to travel around Europe." },
+      { "term": "Holiday", "hu": "Szabadság", "definition": "A day or period of celebration or rest.", "example": "We are going on holiday next week." },
+      { "term": "Hotel", "hu": "Szálloda", "definition": "A building providing accommodation for guests.", "example": "We stayed at a nice hotel." },
+      { "term": "Museum", "hu": "Múzeum", "definition": "A building where objects of historical or cultural interest are kept.", "example": "The museum has ancient artifacts." },
+      { "term": "Ticket", "hu": "Jegy", "definition": "A piece of paper giving permission to travel or enter somewhere.", "example": "I bought a ticket for the concert." },
+      { "term": "Tourist", "hu": "Turista", "definition": "A person who visits a place for pleasure.", "example": "The city is full of tourists in summer." },
+      { "term": "Guidebook", "hu": "Útikalauz", "definition": "A book with information for travelers.", "example": "I read the guidebook before my trip." },
+      { "term": "Sightseeing", "hu": "Városnézés", "definition": "The activity of visiting famous or interesting places.", "example": "We did some sightseeing in Paris." },
+      { "term": "Passport", "hu": "Útlevél", "definition": "An official document for international travel.", "example": "You need a passport to travel abroad." },
+      { "term": "Language", "hu": "Nyelv", "definition": "A system of communication used by people.", "example": "English is an important language." },
+      { "term": "Culture", "hu": "Kultúra", "definition": "The customs and beliefs of a particular group.", "example": "I enjoy learning about different cultures." },
+      { "term": "Experience", "hu": "Tapasztalat", "definition": "An event that leaves an impression.", "example": "It was a wonderful experience." },
+      { "term": "Memory", "hu": "Emlék", "definition": "Something remembered from the past.", "example": "I have fond memories of that trip." },
+      { "term": "Souvenir", "hu": "Emléktárgy", "definition": "An object kept as a reminder of a place or event.", "example": "I bought a souvenir from Italy." },
+      { "term": "Adventure", "hu": "Kaland", "definition": "An exciting or unusual experience.", "example": "We had an adventure in the mountains." }
+    ]
+  },
+
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "Travel",
+              "Holiday",
+              "Hotel",
+              "Museum",
+              "Ticket",
+              "Tourist",
+              "Guidebook",
+              "Sightseeing",
+              "Passport",
+              "Language",
+              "Culture",
+              "Experience",
+              "Memory",
+              "Souvenir",
+              "Adventure"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "Last summer, I visited Barcelona for a week. I stayed in a small hotel near the city center. Every day I did sightseeing - I visited the famous cathedral, the beach, and the Gothic Quarter. The architecture was stunning."
+              },
+              {
+                "id": "2",
+                "text": "My grandparents love to travel. They have been to over 30 countries. Their favorite trip was to Japan. They say the people were very friendly and the culture was fascinating. They brought back many souvenirs."
+              },
+              {
+                "id": "3",
+                "text": "Before my trip to Italy, I bought a guidebook. It had useful information about attractions, restaurants, and hotels. I also learned some basic Italian phrases. The language skills helped me communicate with locals."
+              },
+              {
+                "id": "4",
+                "text": "The museum was very interesting. It displayed ancient Roman artifacts found in the area. I spent three hours looking at the exhibits. The ticket price included an audio guide which explained everything in detail."
+              },
+              {
+                "id": "5",
+                "text": "We went on an adventure holiday in the mountains. We hiked for five days and camped outdoors. The views were breathtaking. It was the most exciting experience of my life and created memories I'll never forget."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  { "id": "1", "text": "Paragraph 1", "answer": 2 },
+                  { "id": "2", "text": "Paragraph 2", "answer": 5 },
+                  { "id": "3", "text": "Paragraph 3", "answer": 4 },
+                  { "id": "4", "text": "Paragraph 4", "answer": 3 },
+                  { "id": "5", "text": "Paragraph 5", "answer": 0 }
+                ],
+                "headings": [
+                  "An exciting mountain adventure",
+                  "Using a guidebook for preparation",
+                  "A week exploring Barcelona",
+                  "A day at the local museum",
+                  "Travel experiences of older generation"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about budget travel and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "Traveling on a Budget",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Many people dream of traveling but think it's too expensive. The truth is, with careful planning, anyone can travel affordably. Budget travel is about smart choices, not missing out on experiences."
+              },
+              {
+                "id": "B",
+                "text": "Accommodation is often the biggest expense. Instead of hotels, consider hostels, guesthouses, or apartment rentals. Camping is another cheap option if you have the equipment. Some travelers even house-sit for free accommodation."
+              },
+              {
+                "id": "C",
+                "text": "Transportation costs can add up quickly. Use public transport instead of taxis. Book flights and trains well in advance for better prices. Walking or cycling is free and allows you to see the city differently."
+              },
+              {
+                "id": "D",
+                "text": "Food and activities don't have to break the bank either. Eat at local restaurants away from tourist areas. Visit free attractions like parks, beaches, and museums with no entry fee. Many cities offer free walking tours."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": "6",
+                    "text": "What is budget travel about?",
+                    "options": [
+                      "A. Not having any experiences",
+                      "B. Making smart choices with money",
+                      "C. Always staying in expensive hotels"
+                    ],
+                    "answer": "B. Making smart choices with money"
+                  },
+                  {
+                    "id": "7",
+                    "text": "What is suggested for accommodation?",
+                    "options": [
+                      "A. Only five-star hotels",
+                      "B. Hostels or house-sitting",
+                      "C. Camping in the city center"
+                    ],
+                    "answer": "B. Hostels or house-sitting"
+                  },
+                  {
+                    "id": "8",
+                    "text": "How can you save on transportation?",
+                    "options": [
+                      "A. Always take taxis",
+                      "B. Use public transport and walk",
+                      "C. Travel at the last minute"
+                    ],
+                    "answer": "B. Use public transport and walk"
+                  },
+                  {
+                    "id": "9",
+                    "text": "Where should you eat to save money?",
+                    "options": [
+                      "A. At tourist restaurants",
+                      "B. At local restaurants away from tourists",
+                      "C. Only at fast food chains"
+                    ],
+                    "answer": "B. At local restaurants away from tourists"
+                  },
+                  {
+                    "id": "10",
+                    "text": "What free activities are mentioned?",
+                    "options": [
+                      "A. Paying for guided tours",
+                      "B. Visiting parks and free museums",
+                      "C. Shopping in city centers"
+                    ],
+                    "answer": "B. Visiting parks and free museums"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 11-18",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Travel Services",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "City Tours - Guided walking tours of historic city centers. Professional guides share stories and secrets. Tours run daily at 10am and 2pm. Families with children welcome. Book online for 10% discount."
+              },
+              {
+                "id": "B",
+                "text": "Budget Hostels - Clean, comfortable accommodation for backpackers. Dormitory and private rooms available. Shared kitchens and common areas. Free Wi-Fi and breakfast included. Located near major attractions."
+              },
+              {
+                "id": "C",
+                "text": "Car Rental Express - Rent a car for as little as one day. All vehicles less than two years old. Insurance included. Pick up at airport or city center. Unlimited mileage options available."
+              },
+              {
+                "id": "D",
+                "text": "Travel Insurance Plus - Comprehensive coverage for trips worldwide. Covers medical emergencies, lost luggage, and trip cancellation. Policies start at €15 per week. Claims processed within 48 hours."
+              },
+              {
+                "id": "E",
+                "text": "Sail & Surf - Water sports and sailing trips for all levels. Certified instructors available. Equipment rental included. Courses run from May to September. Book early for summer dates."
+              },
+              {
+                "id": "F",
+                "text": "Student Travel Agency - Special discounts for students with valid ID. Budget flights, hostels, and tours. Exchange program support. Help with visa applications. Offices in 20 cities worldwide."
+              },
+              {
+                "id": "G",
+                "text": "Bike Rentals - Explore the city on two wheels! Hourly and daily rentals available. City maps and helmets provided. Electric bikes also available for longer distances. Children's seats available."
+              },
+              {
+                "id": "H",
+                "text": "Local Eats Food Tours - Taste the best local cuisine on a 3-hour walking tour. Visit 5-6 different restaurants and markets. Learn about food culture from expert guides. Vegetarian options available."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  { "id": 11, "text": "A service offering tours by bicycle.", "answer": "G" },
+                  { "id": 12, "text": "Transportation with no distance limits.", "answer": "C" },
+                  { "id": 13, "text": "Accommodation with kitchen access.", "answer": "B" },
+                  { "id": 14, "text": "Tours focusing on local food.", "answer": "H" },
+                  { "id": 15, "text": "Travel coverage for medical issues.", "answer": "D" },
+                  { "id": 16, "text": "Guided tours of historic areas.", "answer": "A" },
+                  { "id": 17, "text": "Water sports instruction.", "answer": "E" },
+                  { "id": 18, "text": "Special prices for students.", "answer": "F" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "Planning a Holiday",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Planning a holiday can be exciting but also ____(21)____. First, decide on your destination. Think about what kind of ____(22)____ you want - beach, city, or mountain holiday.\n\nNext, book your ____(23)____ and accommodation. It's a good idea to compare prices online. Many websites offer ____(24)____ deals if you book early. Don't forget to check the ____(25)____ requirements for your destination.\n\nThink about how you will get around. Public transport is often cheap and ____(26)____. If you prefer more freedom, consider renting a car. Always research local customs and maybe learn a few ____(27)____ phrases.\n\nFinally, pack wisely. Bring comfortable shoes, suitable clothing, and don't forget your ____(28)____ and travel insurance documents. Make copies of important documents too.\n\nWith good planning, your holiday will be a wonderful ____(29)____ that you will remember for years to ____(30)____."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  { "id": "21", "text": "exciting but also ____(21)____", "options": ["stressful", "boring", "tiring"], "answer": "stressful" },
+                  { "id": "22", "text": "what kind of ____(22)____ you want", "options": ["holiday", "trip", "travel"], "answer": "holiday" },
+                  { "id": "23", "text": "book your ____(23)____ and accommodation", "options": ["flights", "hotel", "tickets"], "answer": "flights" },
+                  { "id": "24", "text": "offer ____(24)____ deals", "options": ["great", "special", "good"], "answer": "special" },
+                  { "id": "25", "text": "check the ____(25)____ requirements", "options": ["passport", "visa", "travel"], "answer": "passport" },
+                  { "id": "26", "text": "cheap and ____(26)____", "options": ["convenient", "easy", "fast"], "answer": "convenient" },
+                  { "id": "27", "text": "learn a few ____(27)____ phrases", "options": ["local", "basic", "common"], "answer": "local" },
+                  { "id": "28", "text": "don't forget your ____(28)____", "options": ["passport", "tickets", "luggage"], "answer": "passport" },
+                  { "id": "29", "text": "a wonderful ____(29)____", "options": ["experience", "memory", "journey"], "answer": "experience" },
+                  { "id": "30", "text": "remember for years to ____(30)____", "options": ["come", "follow", "future"] }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text and complete the gaps with the correct word from the box.",
+        "passages": [
+          {
+            "id": "p3",
+            "subtitle": "Language Elements Part 2",
+            "title": "Postcard from Abroad",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Hi Mom and Dad,\n\nGreetings from Greece! We are having a wonderful time. Yesterday we visited the ____(a)____ and saw ancient artifacts. Today we went ____(b)____ around the old town.\n\nThe ____(c)____ here is beautiful and the people are very friendly. We have tried lots of traditional Greek food. The weather has been perfect for ____(d)____.\n\nTomorrow we are taking a boat to a nearby island. We need to leave early to catch the ____(e)____. Don't worry, we'll send postcards!\n\nLove,\nAnna and Tom"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-j) to complete each gap.",
+                "tokens": [
+                  "ACCOMMODATION",
+                  "BEACH",
+                  "EXCURSION",
+                  "FERRY",
+                  "HOLIDAY",
+                  "MUSEUM",
+                  "SIGHTSEEING",
+                  "TICKET",
+                  "TOURISTS",
+                  "WEATHER"
+                ],
+                "answers": {
+                  "a": "MUSEUM",
+                  "b": "SIGHTSEEING",
+                  "c": "WEATHER",
+                  "d": "SUNBATHING",
+                  "e": "FERRY"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Travel Updates",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear five travel-related announcements. Match each to a headline.",
+        "transcript": "1. Female: \"Attention passengers: Flight AZ302 to Rome is now boarding at Gate B12. Please have your boarding pass and passport ready. The flight departs in 20 minutes.\"\n\n2. Male: \"The city museum will be closed for renovations next week. It will reopen on Monday with a new exhibition about local history. Entry will be free for the first three days.\"\n\n3. Female: \"Good news for travelers: The main train station now has a luggage storage service. You can leave your bags there while you explore the city. Open 8am to 8pm daily, prices start at €5.\"\n\n4. Male: \"The famous bridge in the old town is finally open again after repairs. Pedestrians can now cross safely. The city has also added new benches and lighting along the river.\"\n\n5. Female: \"Remember that Tuesday is market day in the town square. Over 50 vendors will sell fresh food, crafts, and souvenirs. It's a great chance to see local life and try traditional food.\"",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "context": "Five travel-related announcements",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (a-f) matches each announcement?",
+            "questions": [
+              { "id": 1, "text": "Announcement 1", "answer": 3 },
+              { "id": 2, "text": "Announcement 2", "answer": 5 },
+              { "id": 3, "text": "Announcement 3", "answer": 0 },
+              { "id": 4, "text": "Announcement 4", "answer": 2 },
+              { "id": 5, "text": "Announcement 5", "answer": 4 }
+            ],
+            "headings": [
+              "New luggage storage at train station",
+              "Bridge reopening after repairs",
+              "Flight boarding announcement",
+              "Museum reopening with free entry",
+              "Weekly market in town square"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Interview: Travel Tips",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with a travel writer. Decide if the statements are true (+) or not true (-).",
+        "transcript": "Interviewer: Today we're talking to travel writer Maria Santos about memorable journeys. Maria, what makes a trip memorable? Maria: It's not about expensive hotels or famous sights. The best experiences come from connecting with local people and trying authentic food. Interviewer: How can travelers meet locals? Maria: Stay in guesthouses rather than hotels. Eat at small family restaurants. Learn a few words of the local language. People appreciate the effort and become more friendly. Interviewer: What should travelers avoid? Maria: Don't only follow tourist guides. Get a little lost - that's where you find real discoveries. Also avoid eating only at places with English menus - those are usually tourist traps. Interviewer: Any final advice? Maria: Travel with an open mind. Be flexible when things go wrong - they often create the best stories. Keep a travel journal too - you'll forget details later.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+        "context": "Interview with a travel writer",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "mode": "tfng",
+            "instruction": "Decide if the statement for each item is true (+) or not true (-).",
+            "questions": [
+              { "id": 6, "text": "Expensive hotels make trips memorable.", "answer": "FALSE" },
+              { "id": 7, "text": "Meeting local people can create good experiences.", "answer": "TRUE" },
+              { "id": 8, "text": "Tourist restaurants are recommended.", "answer": "FALSE" },
+              { "id": 9, "text": "Travel problems can lead to good stories.", "answer": "TRUE" },
+              { "id": 10, "text": "Maria has written many travel guides.", "answer": "NOT GIVEN" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Tourist Conversations",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear five short conversations at a tourist information center. Choose the correct answer for each.",
+        "transcript": "1. Man: \"Where can I buy tickets for the castle tour?\" Woman: \"At the ticket office next to the entrance, or you can buy them online.\"\n\n2. Woman: \"Is there a guided tour in Spanish?\" Man: \"Yes, at 2pm daily. The booking sheet is on the desk.\"\n\n3. Man: \"What's the best way to see the city?\" Woman: \"The hop-on hop-off bus is convenient. Or you could rent a bike.\"\n\n4. Woman: \"Are there any good restaurants nearby?\" Man: \"Yes, turn left at the square. There are several affordable local places.\"\n\n5. Man: \"What time does the museum close?\" Woman: \"It's open until 6pm today, but closed on Mondays.\"",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        "context": "Conversations at tourist information",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "Choose the correct answer (A, B, or C) for each question.",
+            "questions": [
+              { "id": 11, "text": "Where can the man buy tickets?", "options": ["At the ticket office or online", "Only at the entrance", "At the hotel"], "answer": 0 },
+              { "id": 12, "text": "When is the Spanish tour?", "options": ["At 2pm", "At 10am", "Every Monday"], "answer": 0 },
+              { "id": 13, "text": "How can you tour the city?", "options": ["By bus or bike", "Only by walking", "By boat only"], "answer": 0 },
+              { "id": 14, "text": "Where are the restaurants?", "options": ["Near the square", "Inside the museum", "At the train station"], "answer": 0 },
+              { "id": 15, "text": "When is the museum closed?", "options": ["Mondays", "Tuesdays", "Sundays"], "answer": 0 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You will be asked questions about travel and holidays.",
+        "topics": [
+          {
+            "topic": "Travel Experiences",
+            "questions": [
+              { "id": "p1q1", "text": "Do you like traveling? Why or why not?" },
+              { "id": "p1q2", "text": "What is your favorite kind of holiday?" },
+              { "id": "p1q3", "text": "Where have you traveled to?" }
+            ]
+          },
+          {
+            "topic": "Travel Preferences",
+            "questions": [
+              { "id": "p1q4", "text": "Do you prefer city breaks or nature holidays?" },
+              { "id": "p1q5", "text": "What do you pack when you travel?" },
+              { "id": "p1q6", "text": "Do you travel alone or with others?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following text from a travel magazine. Discuss your opinions with your partner.",
+        "text": "Many people now prefer staying in Airbnb apartments rather than hotels. Proponents say it's cheaper and offers a more authentic local experience. Critics argue that it reduces housing availability for locals and lacks hotel standards. Some cities have introduced regulations.",
+        "topics": [
+          {
+            "topic": "Alternative Accommodation",
+            "questions": [
+              { "id": "p2q1", "text": "Which is better - hotels or Airbnb? Why?" },
+              { "id": "p2q2", "text": "What are the advantages of staying in an apartment?" },
+              { "id": "p2q3", "text": "Should there be rules about short-term rentals?" },
+              { "id": "p2q4", "text": "What is most important when choosing accommodation?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "Your travel club is planning a weekend trip. Discuss the following options and decide together where to go and what to do.",
+        "topics": [
+          {
+            "topic": "Weekend Trip Planning",
+            "suggestions": [
+              "Go to the mountains for hiking and nature",
+              "Visit a historic city with museums and galleries",
+              "Spend time at a beach resort relaxing",
+              "Take a city break with shopping and restaurants",
+              "Go to a spa town for relaxation",
+              "Visit a national park for wildlife",
+              "Take a river cruise",
+              "Go to an adventure park with activities"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Which type of destination would be best?" },
+              { "id": "p3q2", "text": "What activities should we include?" },
+              { "id": "p3q3", "text": "What is the most important factor - cost, distance, or facilities?" },
+              { "id": "p3q4", "text": "What should we consider first when planning?" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m8-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter",
+        "subtitle": "Part 1: Writing",
+        "intro": "You see this online post",
+        "instruction": "Write an email to a friend. In your email:\n\n• Describe a memorable trip you took\n• Explain what made it special\n• Recommend something they should see or do there\n\nWrite at least 150 words.",
+        "context": "A friend has asked you to recommend a travel destination. Write an email describing a trip you enjoyed and suggesting what they should experience.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write an email recommending a travel destination to a friend.",
+        "bullets": [
+          "Describe a memorable trip you took",
+          "Explain what made it special",
+          "Recommend something they should see or do there"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m8-t2",
+        "taskType": 2,
+        "title": "Task 2: Report",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Your school has asked students to write a report about the benefits of travel for young people. In your report, you should:\n\n• Explain why travel is valuable for young people\n• Discuss what young people can learn from traveling\n• Make suggestions for planning a first trip\n\nWrite at least 250 words.",
+        "context": "The school wants student perspectives on educational travel and its benefits.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write a report about the benefits of travel for young people.",
+        "bullets": [
+          "Explain why travel is valuable for young people",
+          "Discuss what young people can learn from traveling",
+          "Make suggestions for planning a first trip"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

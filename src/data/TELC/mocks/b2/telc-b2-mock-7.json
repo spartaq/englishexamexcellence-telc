@@ -1,0 +1,798 @@
+{
+  "id": "telc-b2-mock-7",
+  "level": "b2",
+  "mockNumber": 7,
+  "title": "TELC B2 Mock Test 7",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B2 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-7",
+    "title": "Test Vocabulary",
+    "level": "B2",
+    "words": [
+      {
+        "term": "Resilience",
+        "hu": "állósság",
+        "definition": "the capacity to recover quickly from difficulties; toughness",
+        "example": "The community showed great resilience after the natural disaster."
+      },
+      {
+        "term": "Sustainable",
+        "hu": "fenntartható",
+        "definition": "able to be maintained without depleting natural resources",
+        "example": "We need to develop sustainable energy solutions for the future."
+      },
+      {
+        "term": "Collaboration",
+        "hu": "együttműködés",
+        "definition": "the action of working with someone to produce something",
+        "example": "The project succeeded through effective collaboration between teams."
+      },
+      {
+        "term": "Innovation",
+        "hu": "innováció",
+        "definition": "a new method, idea, or product",
+        "example": "Technological innovation has transformed communication."
+      },
+      {
+        "term": "Advocate",
+        "hu": "védő",
+        "definition": "a person who publicly supports a particular cause",
+        "example": "She is a strong advocate for human rights."
+      },
+      {
+        "term": "Integrity",
+        "hu": "integritás",
+        "definition": "the quality of being honest and having strong moral principles",
+        "example": "The judge was known for his integrity and fairness."
+      },
+      {
+        "term": "Ambitious",
+        "hu": "ökeltelen",
+        "definition": "having a strong desire to achieve something",
+        "example": "She set ambitious goals for her career."
+      },
+      {
+        "term": "Diverse",
+        "hu": "különféle",
+        "definition": "showing a great deal of variety",
+        "example": "The city has a diverse population from many cultures."
+      },
+      {
+        "term": "Empower",
+        "hu": "hatalmonyaszt",
+        "definition": "to give someone the authority or power to do something",
+        "example": "Education can empower people to change their lives."
+      },
+      {
+        "term": "Accountability",
+        "hu": "felelősségtudat",
+        "definition": "the fact of being responsible for one's actions",
+        "example": "Good governance requires transparency and accountability."
+      },
+      {
+        "term": "Perseverance",
+        "hu": "kitartás",
+        "definition": "persistence in doing something despite difficulty",
+        "example": "Success requires hard work and perseverance."
+      },
+      {
+        "term": "Pragmatic",
+        "hu": "praktikus",
+        "definition": "dealing with things sensibly and realistically",
+        "example": "We need a pragmatic approach to solve this problem."
+      },
+      {
+        "term": "Cohesion",
+        "hu": "összetartozás",
+        "definition": "the action of forming a united whole",
+        "example": "Team cohesion is essential for project success."
+      },
+      {
+        "term": "Autonomy",
+        "hu": "önállóság",
+        "definition": "the right of self-government or independence",
+        "example": "Employees value autonomy in their work."
+      },
+      {
+        "term": "Mitigate",
+        "hu": "enyhít",
+        "definition": "to make less severe or serious",
+        "example": "We must take action to mitigate climate change effects."
+      }
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "Resilience",
+              "Sustainable",
+              "Innovation",
+              "Diverse",
+              "Empower"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "Coastal communities are demonstrating remarkable resilience in the face of rising sea levels and extreme weather events. Rather than abandoning their homes, residents are working together to build flood defenses, restore natural barriers like mangrove forests, and adapt their traditional practices. Local leaders emphasize that community-driven solutions are more effective than top-down approaches imposed by distant authorities."
+              },
+              {
+                "id": "2",
+                "text": "The shift toward sustainable agriculture is gaining momentum worldwide. Farmers are adopting regenerative practices that improve soil health, reduce chemical inputs, and increase biodiversity. These methods not only produce nutritious food but also capture carbon dioxide from the atmosphere. Consumer demand for organic and locally-sourced products continues to drive this transformation in the food system."
+              },
+              {
+                "id": "3",
+                "text": "A recent innovation in renewable energy storage could revolutionize how we power our cities. Scientists have developed a new battery technology that uses abundant, non-toxic materials and can store electricity for weeks rather than hours. This breakthrough addresses one of the biggest obstacles to widespread adoption of solar and wind power: the intermittent nature of these energy sources."
+              },
+              {
+                "id": "4",
+                "text": "The technology sector remains one of the most diverse industries in terms of ideas and approaches, though progress on workforce diversity has been slower. Companies are increasingly recognizing that diverse teams produce better outcomes and more creative solutions. Initiatives to support underrepresented groups in tech careers are expanding, but significant barriers still exist."
+              },
+              {
+                "id": "5",
+                "text": "Digital literacy programs are empowering elderly citizens to stay connected with family and access essential services online. Community centers across the country offer free courses teaching basic computer skills, internet safety, and how to use video calling platforms. Participants report feeling less isolated and more confident in navigating the digital world."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  {
+                    "id": "1",
+                    "text": "Paragraph 1",
+                    "answer": 3
+                  },
+                  {
+                    "id": "2",
+                    "text": "Paragraph 2",
+                    "answer": 5
+                  },
+                  {
+                    "id": "3",
+                    "text": "Paragraph 3",
+                    "answer": 1
+                  },
+                  {
+                    "id": "4",
+                    "text": "Paragraph 4",
+                    "answer": 6
+                  },
+                  {
+                    "id": "5",
+                    "text": "Paragraph 5",
+                    "answer": 2
+                  }
+                ],
+                "headings": [
+                  "Local Sports Team Wins Championship",
+                  "Library Transformation Project Announced",
+                  "New Traffic Rules to Reduce Congestion",
+                  "City Council Discusses Budget Cuts",
+                  "Environmental Group Launches New Initiative",
+                  "Annual Music Festival Attracts Record Crowds",
+                  "Debate Over Public Transport Fares"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about remote work and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The Remote Work Revolution",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "vocabList": [
+              "Collaboration",
+              "Autonomy",
+              "Cohesion"
+            ],
+            "content": [
+              {
+                "id": "A",
+                "text": "The pandemic accelerated a trend that was already underway: the shift toward remote work. What began as a necessity has become a preference for many employees who value the flexibility and autonomy it provides. Companies have discovered that productivity can remain high, or even improve, when workers have control over their environment and schedule."
+              },
+              {
+                "id": "B",
+                "text": "However, remote work presents challenges that organizations must address. Maintaining team cohesion without regular face-to-face interaction requires intentional effort. Virtual collaboration tools have improved significantly, but they cannot fully replicate the spontaneous conversations and relationship-building that occur in physical offices. Some employees report feeling isolated or struggling to separate work from personal life."
+              },
+              {
+                "id": "C",
+                "text": "The future likely involves hybrid models that balance the benefits of both approaches. Employers are experimenting with flexible policies that allow employees to split time between home and office. Success depends on clear communication, trust between managers and staff, and a focus on outcomes rather than hours worked. Companies that adapt thoughtfully will attract top talent in an increasingly competitive job market."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": 6,
+                    "text": "What trend did the pandemic accelerate?",
+                    "options": [
+                      "Return to traditional office work",
+                      "Shift toward remote work",
+                      "Reduction in working hours"
+                    ],
+                    "answer": "Shift toward remote work"
+                  },
+                  {
+                    "id": 7,
+                    "text": "What do employees value about remote work?",
+                    "options": [
+                      "Less responsibility",
+                      "Flexibility and autonomy",
+                      "More supervision"
+                    ],
+                    "answer": "Flexibility and autonomy"
+                  },
+                  {
+                    "id": 8,
+                    "text": "What challenge does remote work present for teams?",
+                    "options": [
+                      "Increased office costs",
+                      "Maintaining team cohesion",
+                      "Too much face-to-face interaction"
+                    ],
+                    "answer": "Maintaining team cohesion"
+                  },
+                  {
+                    "id": 9,
+                    "text": "What model is likely to become common in the future?",
+                    "options": [
+                      "Fully remote work only",
+                      "Hybrid work models",
+                      "Traditional office-only work"
+                    ],
+                    "answer": "Hybrid work models"
+                  },
+                  {
+                    "id": 10,
+                    "text": "What is essential for success in hybrid work arrangements?",
+                    "options": [
+                      "Strict monitoring of employees",
+                      "Focus on outcomes rather than hours",
+                      "Eliminating all remote work options"
+                    ],
+                    "answer": "Focus on outcomes rather than hours"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 11-18",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Community Initiatives",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "vocabList": [
+              "Advocate",
+              "Integrity",
+              "Accountability",
+              "Pragmatic",
+              "Mitigate"
+            ],
+            "content": [
+              {
+                "id": "A",
+                "text": "Sarah Mitchell has been a tireless advocate for affordable housing in her city. She organizes community meetings, writes letters to local officials, and works with neighborhood groups to develop practical solutions. Her approach is pragmatic: identify achievable goals and build coalitions to accomplish them step by step."
+              },
+              {
+                "id": "B",
+                "text": "The Green Futures Initiative focuses on environmental education in schools. Volunteers visit classrooms to teach students about recycling, conservation, and sustainable living. They also help schools establish gardens where children can learn about growing food and caring for the environment."
+              },
+              {
+                "id": "C",
+                "text": "Community Health Watch is a volunteer organization that provides free health screenings in underserved neighborhoods. They partner with local clinics and medical schools to offer basic check-ups, blood pressure monitoring, and health education. Their work helps identify health issues early and connects people with ongoing care."
+              },
+              {
+                "id": "D",
+                "text": "The Arts for All program brings music, theater, and visual arts to communities that lack cultural resources. Professional artists conduct workshops and performances, making the arts accessible to people regardless of income. The program emphasizes that creativity enriches lives and strengthens community bonds."
+              },
+              {
+                "id": "E",
+                "text": "Neighborhood Safety Coalition works to reduce crime through community engagement rather than increased policing. They organize youth programs, improve street lighting, and create safe spaces for residents to gather. Their philosophy is that prevention and community cohesion are more effective than punitive measures alone."
+              },
+              {
+                "id": "F",
+                "text": "Digital Access Now campaigns for universal internet access, arguing that connectivity is a basic necessity in modern life. They advocate for municipal broadband networks and provide refurbished computers to low-income families. Their efforts have helped bridge the digital divide in several communities."
+              },
+              {
+                "id": "G",
+                "text": "The Food Security Network addresses hunger through a combination of food banks, community kitchens, and urban farming projects. They work with local farmers, restaurants, and grocery stores to reduce food waste while ensuring no one goes hungry. Their integrated approach tackles both immediate needs and long-term solutions."
+              },
+              {
+                "id": "H",
+                "text": "Senior Connect provides companionship and practical assistance to elderly residents living alone. Volunteers visit regularly, help with errands, and teach technology skills. The program recognizes that social isolation is a serious health issue and works to keep seniors engaged and supported."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  {
+                    "id": "11",
+                    "text": "A program that teaches children about environmental conservation",
+                    "answer": "B"
+                  },
+                  {
+                    "id": "12",
+                    "text": "An organization that provides free health screenings",
+                    "answer": "C"
+                  },
+                  {
+                    "id": "13",
+                    "text": "A campaign for universal internet access",
+                    "answer": "F"
+                  },
+                  {
+                    "id": "14",
+                    "text": "A coalition that reduces crime through community engagement",
+                    "answer": "E"
+                  },
+                  {
+                    "id": "15",
+                    "text": "A program addressing hunger through multiple approaches",
+                    "answer": "G"
+                  },
+                  {
+                    "id": "16",
+                    "text": "An advocate for affordable housing with a pragmatic approach",
+                    "answer": "A"
+                  },
+                  {
+                    "id": "17",
+                    "text": "A program that makes arts accessible to low-income communities",
+                    "answer": "D"
+                  },
+                  {
+                    "id": "18",
+                    "text": "A service that provides companionship to elderly residents",
+                    "answer": "H"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "The Future of Cities",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Cities around the world are facing unprecedented challenges as populations continue to grow. Urban planners are working to create spaces that are not only functional but also sustainable and livable. One key strategy is to develop efficient public transportation systems that reduce ____(21)____ and improve air quality."
+              },
+              {
+                "id": "2",
+                "text": "Green spaces are becoming increasingly ____(22)____ in modern city design. Parks, gardens, and tree-lined streets provide residents with areas for recreation and relaxation while also helping to ____(23)____ temperatures in hot weather. These natural areas contribute to both physical and mental wellbeing."
+              },
+              {
+                "id": "3",
+                "text": "Technology is playing a crucial role in shaping the cities of tomorrow. Smart systems can monitor traffic patterns, optimize energy use, and ____(24)____ waste management. However, it is important that these innovations ____(25)____ to all residents, not just those in affluent neighborhoods."
+              },
+              {
+                "id": "4",
+                "text": "Housing affordability remains a significant challenge in many urban areas. Local governments must find ways to encourage development while ____(26)____ that new buildings are accessible to people with different income levels. Mixed-use developments that combine residential and commercial spaces offer one potential solution."
+              },
+              {
+                "id": "5",
+                "text": "Community engagement is essential for successful urban planning. When residents participate in decision-making processes, they feel more ____(27)____ and invested in their neighborhoods. This collaborative approach helps ensure that diverse needs and perspectives are ____(28)____."
+              },
+              {
+                "id": "6",
+                "text": "Looking ahead, cities must balance growth with environmental protection. Sustainable practices will be ____(29)____ for addressing climate change and resource scarcity. By prioritizing people-centered design and green infrastructure, urban areas can become more resilient and ____(30)____ for future generations."
+              }
+            ],
+"subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each gap.",
+                "questions": [
+                  {
+                    "id": 21,
+                    "text": "...reduce ____(21)____ and improve air quality.",
+                    "options": [
+                      "congestion",
+                      "safety",
+                      "noise"
+                    ],
+                    "answer": "congestion"
+                  },
+                  {
+                    "id": 22,
+                    "text": "...becoming increasingly ____(22)____ in modern city design.",
+                    "options": [
+                      "rare",
+                      "important",
+                      "expensive"
+                    ],
+                    "answer": "important"
+                  },
+                  {
+                    "id": 23,
+                    "text": "...helping to ____(23)____ temperatures in hot weather.",
+                    "options": [
+                      "lower",
+                      "raise",
+                      "measure"
+                    ],
+                    "answer": "lower"
+                  },
+                  {
+                    "id": 24,
+                    "text": "...and ____(24)____ waste management.",
+                    "options": [
+                      "complicate",
+                      "improve",
+                      "ignore"
+                    ],
+                    "answer": "improve"
+                  },
+                  {
+                    "id": 25,
+                    "text": "...these innovations ____(25)____ to all residents,",
+                    "options": [
+                      "available",
+                      "restricted",
+                      "invisible"
+                    ],
+                    "answer": "available"
+                  },
+                  {
+                    "id": 26,
+                    "text": "...while ____(26)____ that new buildings are accessible...",
+                    "options": [
+                      "ensuring",
+                      "hoping",
+                      "guessing"
+                    ],
+                    "answer": "ensuring"
+                  },
+                  {
+                    "id": 27,
+                    "text": "...they feel more ____(27)____ and invested...",
+                    "options": [
+                      "connected",
+                      "ignored",
+                      "confused"
+                    ],
+                    "answer": "connected"
+                  },
+                  {
+                    "id": 28,
+                    "text": "...diverse needs and perspectives are ____(28)____.",
+                    "options": [
+                      "considered",
+                      "avoided",
+                      "simplified"
+                    ],
+                    "answer": "considered"
+                  },
+                  {
+                    "id": 29,
+                    "text": "Sustainable practices will be ____(29)____ for addressing...",
+                    "options": [
+                      "crucial",
+                      "useless",
+                      "harmful"
+                    ],
+                    "answer": "crucial"
+                  },
+                  {
+                    "id": 30,
+                    "text": "...more resilient and ____(30)____ for future generations.",
+                    "options": [
+                      "sustainable",
+                      "polluted",
+                      "expensive"
+                    ],
+                    "answer": "sustainable"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+  "id": "le-part2",
+  "section": 2,
+  "title": "Language Elements, Part 2",
+  "description": "Questions 31-40. Read the text below and choose the correct word (A-J) from the box to fill in each gap (31-40). There are two extra words you do not need to use.",
+  "passages": [
+    {
+      "id": "p2",
+      "title": "The Changing Workplace",
+      "type": "LANGUAGE-ELEMENTS",
+      "content": [
+        {
+          "id": "1",
+          "text": "The modern workplace is undergoing a significant transformation. Rapid technological advances and shifting social expectations are reshaping how, where, and when we work. One of the most notable changes is the widespread adoption of remote work, which has evolved from a rare benefit to a mainstream expectation. This shift offers employees greater flexibility and autonomy, allowing them to better balance their professional responsibilities with their personal lives.\n\nHowever, this new way of working also presents challenges. Organizations must now ____(a)____ with innovative strategies to maintain team cohesion and keep their workforce engaged. This includes investing in digital tools that facilitate effective communication and project management. The ____(b)____ of traditional office hierarchies is giving way to more flexible, results-oriented approaches that focus on what employees achieve rather than where or when they work.\n\nAnother important trend is the growing emphasis on continuous learning. As certain skills become automated or obsolete, workers must ____(c)____ new competencies to remain competitive in the job market. This places greater responsibility on individuals to take charge of their own professional development. At the same time, organizations that ____(d)____ a culture of lifelong learning will be better positioned to attract and retain top talent.\n\nLooking to the future, the boundary between work and personal life will likely continue to blur. While technology enables greater connectivity, it also creates the risk of an 'always-on' culture that can lead to burnout. Finding the right balance will require thoughtful policies and clear expectations from both employers and employees. Success will depend on our ability to ____(e)____ to these changes while protecting our wellbeing and maintaining our productivity."
+        }
+      ],
+      "subTasks": [
+        {
+          "type": "gap-fill-tokens",
+          "instruction": "Choose the correct word (A-J) to complete each gap (31-40).",
+          "tokens": [
+            "ADAPT",
+            "DEVELOP",
+            "FRAGMENT",
+            "REJECT",
+            "CULTIVATE",
+            "EROSION",
+            "COORDINATE",
+            "ACQUIRE",
+            "MAINTAIN",
+            "IGNORE"
+          ],
+          "answers": {
+            "a": "COORDINATE",
+            "b": "EROSION",
+            "c": "ACQUIRE",
+            "d": "CULTIVATE",
+            "e": "ADAPT"
+          }
+        }
+      ]
+    }
+  ]
+}
+    ]
+  },
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear several recordings. Listen carefully and answer the questions based on what you hear. You will hear each recording twice.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Part 1: Short Announcements",
+        "subtitle": "Part 1: Listening",
+        "description": "Questions 1-5. You will hear five short announcements or conversations. For each one, choose the correct answer (A, B, or C).",
+        "transcript": "1. Female: \"This is a final boarding call for flight BA284 to London. Please proceed to Gate 15 immediately. The gate will close in twenty minutes.\" Male: \"We should hurry up!\"\n\n2. Male: \"Welcome to 'Health and Wellness Today.' In today's program, we'll discuss the benefits of regular physical activity and how just 20 minutes of exercise a day can strengthen your heart, improve your mood, and boost your energy levels throughout the day.\"\n\n3. Female: \"Weather forecast update: Tomorrow will bring scattered showers to the western regions with possible thunderstorms. Eastern areas will see mostly sunny conditions but with cooler temperatures. Winds will be moderate to strong across the country.\"\n\n4. Male: \"Message for Carlos Mendez. Your online order #7834 is ready for collection at the customer service desk. Please bring a photo ID and your order confirmation email. We close at 8 PM tonight.\"\n\n5. Female: \"Join our photography workshop this Sunday! Whether you're a complete beginner or an experienced photographer, you'll learn techniques to capture stunning images and tell compelling visual stories. Limited spots available - register online today!\"",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "context": "everyday situations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "Choose the correct answer (A, B, or C) for each question.",
+            "questions": [
+              { "id": "1", "text": "What is the announcement about?", "options": ["A. A flight delay", "B. A final boarding call", "C. A gate change"], "answer": 1 },
+              { "id": "2", "text": "What topic will be discussed on the radio show?", "options": ["A. Physical exercise", "B. Diet and nutrition", "C. Mental health"], "answer": 0 },
+              { "id": "3", "text": "What will the weather be like in the west tomorrow?", "options": ["A. Heavy rain", "B. Sunny and warm", "C. Showers and thunderstorms"], "answer": 2 },
+              { "id": "4", "text": "What does Carlos Mendez need to collect?", "options": ["A. A package", "B. An email", "C. A receipt"], "answer": 0 },
+              { "id": "5", "text": "What kind of workshop is being advertised?", "options": ["A. A photography workshop", "B. A painting class", "C. A creative writing course"], "answer": 0 }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Part 2: Interview about Urban Development",
+        "subtitle": "Part 2: Listening",
+        "description": "Questions 6-10. You will hear an interview with an architect about sustainable building design. Decide if each statement (6-10) is TRUE, FALSE, or NOT GIVEN.",
+        "transcript": "Interviewer: Today we're speaking with Marcus Webb, an award-winning architect who specializes in sustainable building design. Marcus, what are the key principles of green architecture? Marcus: Sustainable building is about creating structures that minimize environmental impact while maximizing human comfort and wellbeing. This starts with energy efficiency - using insulation, natural ventilation, and renewable energy sources. We also prioritize locally-sourced, sustainable materials that don't deplete natural resources. Water conservation is another crucial element, along with creating spaces that promote biodiversity rather than destroying it. Interviewer: How important is the location and orientation of a building? Marcus: It's absolutely fundamental. A well-designed building works with its environment, not against it. Proper orientation can maximize natural light and heat from the sun, reducing the need for artificial lighting and heating. We also consider existing landscape features and try to integrate the building harmoniously into its surroundings rather than imposing on them. Interviewer: What about the cost? Isn't sustainable construction more expensive? Marcus: Initially, yes, there may be higher upfront costs, but the long-term savings are substantial. Energy-efficient buildings have lower operating costs, and sustainable materials often last longer and require less maintenance. Plus, as green building practices become more widespread, costs are coming down. The real question is whether we can afford not to build sustainably given the environmental challenges we face. Interviewer: How do occupants benefit from green buildings? Marcus: Studies show that people working in green buildings report higher productivity, fewer sick days, and greater overall satisfaction. Natural light, good air quality, and connection to nature all contribute to better health and wellbeing. These buildings also future-proof us against rising energy costs and changing climate conditions. Interviewer: What advice would you give to someone planning a new build or renovation? Marcus: Start with a clear vision of your priorities and budget. Work with professionals who understand sustainable design principles. Even small changes can make a big difference - better insulation, efficient appliances, or adding green spaces. The key is to think holistically about how all elements work together to create a healthy, efficient, and comfortable space. (line truncated to 2000 chars)",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+        "context": "interview, architecture, sustainability",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "instruction": "Decide if each statement (6-10) is TRUE, FALSE, or NOT GIVEN.",
+            "questions": [
+              { "id": "6", "text": "Marcus Webb believes sustainable buildings should minimize environmental impact.", "answer": "TRUE" },
+              { "id": "7", "text": "According to Marcus, sustainable construction materials are always more expensive than traditional materials.", "answer": "FALSE" },
+              { "id": "8", "text": "The interview states that building orientation is not important for energy efficiency.", "answer": "FALSE" },
+              { "id": "9", "text": "Marcus claims that green buildings have higher operating costs than conventional buildings.", "answer": "FALSE" },
+              { "id": "10", "text": "The architect discusses how natural light in buildings contributes to occupant wellbeing.", "answer": "TRUE" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Part 3: Opinions on Education",
+        "subtitle": "Part 3: Listening",
+        "description": "Questions 11-15. You will hear five different people talking about education and learning. For each speaker (1-5), choose the statement (A-F) that best describes their opinion. There is one extra statement that you do not need to use.",
+        "transcript": "Speaker 1: \"I've always believed that education should focus on practical skills rather than just theoretical knowledge. What good is knowing complex formulas if you can't apply them to real-world problems? We need more hands-on learning experiences, apprenticeships, and project-based work that prepares students for actual careers.\"  Speaker 2: \"The traditional education system is too rigid and outdated. It was designed for the industrial age to create obedient workers, not creative thinkers. We need to completely rethink how we teach, focusing on critical thinking, collaboration, and adaptability rather than memorization and standardized testing.\"  Speaker 3: \"While I appreciate the value of modern teaching methods, I worry we're throwing out the baby with the bathwater. There's still immense value in learning foundational knowledge - history, literature, mathematics - even if we don't use these specific facts every day. They teach us how to think and provide cultural literacy.\"  Speaker 4: \"Technology has completely transformed education. With online courses, interactive simulations, and AI tutors, learning has become more accessible and personalized than ever before. Students can now learn at their own pace and explore subjects that genuinely interest them rather than following a one-size-fits-all curriculum.\"  Speaker 5: \"The most important thing education should teach is how to learn. In a world where information changes so rapidly, specific knowledge becomes outdated quickly. If we can instill curiosity, research skills, and a love of learning, students will be able to adapt to whatever challenges they face in the future.\"",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        "context": "opinions, education, learning",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "matching-info",
+            "instruction": "Match each speaker (1-5) to the statement (A-F) that best describes their opinion.",
+            "questions": [
+              { "id": "11", "text": "Speaker 1's opinion is best described by:", "answer": "D" },
+              { "id": "12", "text": "Speaker 2's opinion is best described by:", "answer": "E" },
+              { "id": "13", "text": "Speaker 3's opinion is best described by:", "answer": "F" },
+              { "id": "14", "text": "Speaker 4's opinion is best described by:", "answer": "A" },
+              { "id": "15", "text": "Speaker 5's opinion is best described by:", "answer": "C" }
+            ],
+            "options": [
+              "A. They see technology as revolutionizing and personalizing the learning experience.",
+              "B. They believe education should focus solely on traditional academic subjects.",
+              "C. They think the most important skill is learning how to learn and adapt.",
+              "D. They emphasize practical skills and real-world application over theory.",
+              "E. They advocate for completely overhauling the traditional education system.",
+              "F. They value foundational knowledge while acknowledging the need for modern methods."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You will be asked some questions about your personal life, experiences, and opinions. Answer honestly and in as much detail as you can.",
+        "topics": [
+          {
+            "topic": "Work and Career",
+            "questions": [
+              { "id": "p1q1", "text": "What do you do for a living, and what do you enjoy most about your work?" },
+              { "id": "p1q2", "text": "What skills do you think are most important for success in your field?" },
+              { "id": "p1q3", "text": "How has your career changed or evolved over the past five years?" }
+            ]
+          },
+          {
+            "topic": "Community and Society",
+            "questions": [
+              { "id": "p1q4", "text": "What role do you think individuals play in improving their local community?" },
+              { "id": "p1q5", "text": "Have you ever volunteered or participated in community activities?" },
+              { "id": "p1q6", "text": "What social or environmental issues concern you the most?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following short text and discuss it with your partner. Express your opinions and react to your partner's points.",
+        "text": "A recent study found that 70 percent of people believe social media has had a negative impact on society, citing issues like misinformation, cyberbullying, and decreased face-to-face interaction. However, 60 percent also acknowledged that these platforms help them stay connected with friends and family, especially those who live far away.",
+        "topics": [
+          {
+            "topic": "Social Media Impact",
+            "questions": [
+              { "id": "p2q1", "text": "What are the main negative effects of social media mentioned in the text?" },
+              { "id": "p2q2", "text": "Do you think the benefits of social media outweigh the drawbacks? Why or why not?" },
+              { "id": "p2q3", "text": "How can individuals use social media more responsibly?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "Your community center is organizing a series of events for the upcoming month. Discuss the different options and decide together which three events would be most beneficial for the community. Consider the following points:",
+        "topics": [
+          {
+            "topic": "Community Events",
+            "suggestions": [
+              "A health and wellness fair with free screenings and fitness classes",
+              "A cultural festival celebrating diversity with food, music, and art",
+              "A job fair and career development workshop series",
+              "An environmental cleanup day and sustainability workshop",
+              "A technology skills workshop for seniors and beginners"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Which events would attract the widest range of community members?" },
+              { "id": "p3q2", "text": "What resources or support would be needed for each event?" },
+              { "id": "p3q3", "text": "How could each event benefit the community long-term?" },
+              { "id": "p3q4", "text": "Which combination of three events would create the most positive impact?" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m7-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter of Application",
+        "subtitle": "Part 1: Writing",
+        "instruction": "You are applying for a volunteer position with a local environmental organization. Write a letter to the coordinator explaining why you want to volunteer and what skills you can offer. In your letter, you should:",
+        "context": "You have seen an advertisement for volunteer positions with 'Green Future Initiative,' an organization that promotes environmental awareness and sustainability projects in your community. You are passionate about environmental issues and want to contribute your time and skills.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a formal letter of application for a volunteer position with an environmental organization.",
+        "bullets": [
+          "Explain why you are interested in this volunteer position",
+          "Describe relevant skills or experience you can contribute",
+          "Suggest how you could help with their current projects"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m7-t2",
+        "taskType": 2,
+        "title": "Task 2: Article",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Your local newspaper is running a series on 'The Future of Our Community' and has invited readers to submit articles about upcoming changes and developments. Write an article discussing a significant change happening in your area. In your article, you should:",
+        "context": "The newspaper wants to inform residents about important local developments and encourage thoughtful discussion about the community's future direction.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write an article about a significant change or development in your community.",
+        "bullets": [
+          "Describe the change or development taking place",
+          "Discuss the potential benefits and drawbacks",
+          "Give your opinion on whether this is a positive development"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

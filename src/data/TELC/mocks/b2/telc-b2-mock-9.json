@@ -1,0 +1,939 @@
+{
+  "id": "telc-b2-mock-9",
+  "level": "b2",
+  "mockNumber": 9,
+  "title": "TELC B2 Mock Test 9",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B2 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-9",
+    "title": "Test Vocabulary",
+    "level": "B2",
+    "words": [
+      {
+        "term": "Integrity",
+        "hu": "integritás",
+        "definition": "the quality of being honest and having strong moral principles",
+        "example": "The judge was known for his integrity and fairness."
+      },
+      {
+        "term": "Ambitious",
+        "hu": "ökeltelen",
+        "definition": "having a strong desire to achieve something",
+        "example": "She set ambitious goals for her career."
+      },
+      {
+        "term": "Diverse",
+        "hu": "különféle",
+        "definition": "showing a great deal of variety",
+        "example": "The city has a diverse population from many cultures."
+      },
+      {
+        "term": "Empower",
+        "hu": "hatalmonyaszt",
+        "definition": "to give someone the authority or power to do something",
+        "example": "Education can empower people to change their lives."
+      },
+      {
+        "term": "Accountability",
+        "hu": "felelősségtudat",
+        "definition": "the fact of being responsible for one's actions",
+        "example": "Good governance requires transparency and accountability."
+      },
+      {
+        "term": "Perseverance",
+        "hu": "kitartás",
+        "definition": "persistence in doing something despite difficulty",
+        "example": "Success requires hard work and perseverance."
+      },
+      {
+        "term": "Pragmatic",
+        "hu": "praktikus",
+        "definition": "dealing with things sensibly and realistically",
+        "example": "We need a pragmatic approach to solve this problem."
+      },
+      {
+        "term": "Cohesion",
+        "hu": "összetartozás",
+        "definition": "the action of forming a united whole",
+        "example": "Team cohesion is essential for project success."
+      },
+      {
+        "term": "Autonomy",
+        "hu": "önállóság",
+        "definition": "the right of self-government or independence",
+        "example": "Employees value autonomy in their work."
+      },
+      {
+        "term": "Mitigate",
+        "hu": "enyhít",
+        "definition": "to make less severe or serious",
+        "example": "We must take action to mitigate climate change effects."
+      },
+      {
+        "term": "Resilience",
+        "hu": "állósság",
+        "definition": "the capacity to recover quickly from difficulties",
+        "example": "The community showed great resilience after the flood."
+      },
+      {
+        "term": "Sustainable",
+        "hu": "fenntartható",
+        "definition": "able to be maintained without depleting resources",
+        "example": "We need sustainable energy solutions for the future."
+      },
+      {
+        "term": "Collaboration",
+        "hu": "együttműködés",
+        "definition": "the action of working with someone to produce something",
+        "example": "The project succeeded through effective collaboration."
+      },
+      {
+        "term": "Innovation",
+        "hu": "innováció",
+        "definition": "a new method, idea, or product",
+        "example": "Technological innovation has transformed communication."
+      },
+      {
+        "term": "Advocate",
+        "hu": "védő",
+        "definition": "a person who publicly supports a particular cause",
+        "example": "She is a strong advocate for human rights."
+      }
+    ]
+  },
+
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "Resilience",
+              "Sustainable",
+              "Innovation",
+              "Collaboration",
+              "Advocate"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "After the devastating earthquake, the small island community demonstrated remarkable resilience. Within months, residents had rebuilt homes, restored local businesses, and created a community center that serves as both a meeting place and emergency shelter. Their ability to come together and support one another became a model for other disaster-affected areas."
+              },
+              {
+                "id": "2",
+                "text": "The city council has approved a comprehensive sustainable development plan that prioritizes green spaces, renewable energy, and affordable housing. Over the next decade, all municipal buildings will be retrofitted for energy efficiency, and new construction must meet strict environmental standards. The plan aims to make the city carbon-neutral by 2040."
+              },
+              {
+                "id": "3",
+                "text": "A breakthrough innovation in water purification could provide clean drinking water to millions in developing regions. The portable device uses solar power and advanced filtration to remove contaminants, costing just pennies per liter. Field tests in rural villages have shown promising results, with local health clinics reporting significant reductions in waterborne illnesses."
+              },
+              {
+                "id": "4",
+                "text": "Effective collaboration between government agencies, nonprofits, and private companies has led to a dramatic reduction in homelessness. The partnership provides not only emergency shelter but also job training, mental health services, and long-term housing solutions. Since the program launched three years ago, chronic homelessness has decreased by 40 percent."
+              },
+              {
+                "id": "5",
+                "text": "Dr. Martinez has been a tireless advocate for universal healthcare access, traveling across the country to speak about the moral imperative of ensuring everyone receives medical care regardless of income. Her grassroots campaign has gained momentum, with thousands of citizens joining rallies and contacting their representatives to demand policy changes."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  {
+                    "id": "1",
+                    "text": "Paragraph 1",
+                    "answer": 3
+                  },
+                  {
+                    "id": "2",
+                    "text": "Paragraph 2",
+                    "answer": 5
+                  },
+                  {
+                    "id": "3",
+                    "text": "Paragraph 3",
+                    "answer": 1
+                  },
+                  {
+                    "id": "4",
+                    "text": "Paragraph 4",
+                    "answer": 0
+                  },
+                  {
+                    "id": "5",
+                    "text": "Paragraph 5",
+                    "answer": 2
+                  }
+                ],
+                "headings": [
+                  "Local Sports Team Wins Championship",
+                  "Library Transformation Project Announced",
+                  "New Traffic Rules to Reduce Congestion",
+                  "City Council Discusses Budget Cuts",
+                  "Environmental Group Launches New Initiative",
+                  "Annual Music Festival Attracts Record Crowds",
+                  "Debate Over Public Transport Fares"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about artificial intelligence in healthcare and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "AI in Healthcare: Promise and Challenges",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "vocabList": [
+              "Integrity",
+              "Accountability",
+              "Pragmatic"
+            ],
+            "content": [
+              {
+                "id": "A",
+                "text": "Artificial intelligence is revolutionizing healthcare, from diagnostic tools that detect diseases earlier than human doctors to personalized treatment plans based on genetic profiles. Machine learning algorithms can analyze vast amounts of medical data to identify patterns that might escape human notice, potentially saving lives through earlier intervention."
+              },
+              {
+                "id": "B",
+                "text": "However, the integration of AI into medical practice raises serious ethical questions. When an algorithm makes a diagnostic error, determining accountability becomes complex. Is the responsibility with the software developer, the hospital, or the physician who relied on the system? Clear frameworks for accountability are essential as these technologies become more prevalent."
+              },
+              {
+                "id": "C",
+                "text": "Maintaining integrity in AI systems requires transparency about how decisions are made. Many current AI models operate as 'black boxes' where even their creators cannot fully explain the reasoning behind specific outputs. This lack of transparency undermines trust and makes it difficult to identify and correct biases in the system."
+              },
+              {
+                "id": "D",
+                "text": "A pragmatic approach to AI implementation involves rigorous testing, ongoing monitoring, and clear protocols for human oversight. Rather than replacing physicians, AI should augment their capabilities, allowing them to focus on complex cases while routine analyses are automated. Success depends on balancing technological potential with ethical responsibility and patient safety."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": 6,
+                    "text": "What benefit does AI provide in healthcare according to the article?",
+                    "options": [
+                      "It completely replaces human doctors",
+                      "It detects diseases earlier than human doctors",
+                      "It eliminates all medical errors"
+                    ],
+                    "answer": "It detects diseases earlier than human doctors"
+                  },
+                  {
+                    "id": 7,
+                    "text": "What challenge does AI integration raise in healthcare?",
+                    "options": [
+                      "Determining accountability for diagnostic errors",
+                      "Making healthcare too affordable",
+                      "Reducing the amount of medical data"
+                    ],
+                    "answer": "Determining accountability for diagnostic errors"
+                  },
+                  {
+                    "id": 8,
+                    "text": "Why is transparency important in AI systems?",
+                    "options": [
+                      "It builds trust and helps identify biases",
+                      "It makes the systems more expensive",
+                      "It allows AI to work without human oversight"
+                    ],
+                    "answer": "It builds trust and helps identify biases"
+                  },
+                  {
+                    "id": 9,
+                    "text": "What approach is recommended for implementing AI in healthcare?",
+                    "options": [
+                      "Pragmatic",
+                      "Reckless",
+                      "Secretive"
+                    ],
+                    "answer": "Pragmatic"
+                  },
+                  {
+                    "id": 10,
+                    "text": "How should AI be used in relation to physicians?",
+                    "options": [
+                      "To replace them completely",
+                      "To augment their capabilities",
+                      "To ignore their expertise"
+                    ],
+                    "answer": "To augment their capabilities"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 11-18",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Social Issues and Solutions",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "vocabList": [
+              "Perseverance",
+              "Empower",
+              "Diverse",
+              "Ambitious",
+              "Cohesion"
+            ],
+            "content": [
+              {
+                "id": "A",
+                "text": "The nonprofit organization focuses on empowering young women through education and mentorship programs. Participants gain confidence, develop leadership skills, and build networks that support their career aspirations. Many graduates have gone on to become role models in their communities, demonstrating what is possible when barriers are removed."
+              },
+              {
+                "id": "B",
+                "text": "Urban renewal projects in the city center have created a diverse mix of housing, shops, and cultural spaces. The area now attracts people from different backgrounds and income levels, fostering social cohesion and economic vitality. Long-term residents appreciate the improvements while welcoming new neighbors who bring fresh energy to the neighborhood."
+              },
+              {
+                "id": "C",
+                "text": "After years of perseverance, Maria finally achieved her goal of becoming a certified nurse. She balanced night classes with full-time work and family responsibilities, often studying late into the night. Her determination inspired her children and showed them the value of commitment and hard work."
+              },
+              {
+                "id": "D",
+                "text": "The ambitious plan to transform the abandoned industrial site into a community hub includes a makerspace, art studios, and affordable co-working areas. While some question whether the vision is too grand, supporters argue that bold thinking is necessary to revitalize the area and create opportunities for local entrepreneurs."
+              },
+              {
+                "id": "E",
+                "text": "Community cohesion has strengthened since the neighborhood association began organizing regular events. Monthly potlucks, clean-up days, and cultural celebrations bring residents together across age and cultural divides. These connections prove vital when facing challenges like severe weather or local policy changes."
+              },
+              {
+                "id": "F",
+                "text": "The youth sports league emphasizes teamwork and personal development over winning. Coaches focus on building character, teaching respect, and helping young athletes develop resilience. Parents appreciate that the program creates a positive environment where children learn valuable life lessons alongside athletic skills."
+              },
+              {
+                "id": "G",
+                "text": "Small business owners credit the microloan program with helping them launch and grow their ventures. Access to capital, combined with business training and mentorship, has enabled entrepreneurs from underrepresented communities to succeed. The program's success has inspired similar initiatives in neighboring cities."
+              },
+              {
+                "id": "H",
+                "text": "The literacy program serves adults who missed educational opportunities earlier in life. Volunteer tutors provide one-on-one support, helping students improve reading and writing skills at their own pace. Many participants report that gaining literacy has opened doors to better employment and increased confidence in daily life."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  {
+                    "id": "11",
+                    "text": "A program that helps young women develop leadership skills",
+                    "answer": "A"
+                  },
+                  {
+                    "id": "12",
+                    "text": "An example of perseverance in achieving a career goal",
+                    "answer": "C"
+                  },
+                  {
+                    "id": "13",
+                    "text": "A plan to revitalize an industrial area",
+                    "answer": "D"
+                  },
+                  {
+                    "id": "14",
+                    "text": "How community cohesion has been strengthened",
+                    "answer": "E"
+                  },
+                  {
+                    "id": "15",
+                    "text": "A diverse urban renewal project",
+                    "answer": "B"
+                  },
+                  {
+                    "id": "16",
+                    "text": "A youth sports program focused on character development",
+                    "answer": "F"
+                  },
+                  {
+                    "id": "17",
+                    "text": "A microloan program for entrepreneurs",
+                    "answer": "G"
+                  },
+                  {
+                    "id": "18",
+                    "text": "An adult literacy program with volunteer tutors",
+                    "answer": "H"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "Building Strong Communities",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Strong communities are built on trust, mutual respect, and shared responsibility. When neighbors know and care about each other, they are more likely to ____(21)____ together to solve local problems. This sense of connection can transform neighborhoods from mere collections of houses into vibrant, supportive communities."
+              },
+              {
+                "id": "2",
+                "text": "Community events play a crucial role in fostering these connections. Festivals, markets, and cultural celebrations bring people together across different backgrounds and generations. These gatherings create opportunities for residents to ____(22)____ relationships and discover common interests they might not have otherwise encountered."
+              },
+              {
+                "id": "3",
+                "text": "However, modern life often works against community building. Busy schedules, long commutes, and digital distractions can leave people feeling isolated despite living in close ____(23)____. Finding time for face-to-face interaction requires conscious effort in today's fast-paced world."
+              },
+              {
+                "id": "4",
+                "text": "Local organizations and volunteer groups provide essential infrastructure for community engagement. Whether through neighborhood watch programs, environmental clean-ups, or arts initiatives, these groups offer structured ways for residents to ____(24)____ and make meaningful contributions. Participation helps individuals feel more connected to their community's wellbeing."
+              },
+              {
+                "id": "5",
+                "text": "Public spaces also matter greatly for community life. Parks, libraries, and community centers serve as gathering places where people can meet informally. Well-designed spaces that are accessible to all residents encourage spontaneous interactions and help ____(25)____ a sense of belonging among diverse groups."
+              },
+              {
+                "id": "6",
+                "text": "Economic factors significantly impact community cohesion. When residents struggle with housing costs or lack access to good jobs, social tensions can arise. Communities that ____(26)____ affordable housing, living wages, and economic opportunities for all residents tend to be more stable and harmonious."
+              },
+              {
+                "id": "7",
+                "text": "Education plays a vital role in strengthening communities. Schools that engage families and partner with local organizations create networks of support that extend beyond the classroom. When parents, teachers, and community members ____(27)____, children benefit from a consistent message about the value of education and civic participation."
+              },
+              {
+                "id": "8",
+                "text": "Looking ahead, the challenge will be maintaining human connection in an increasingly digital world. While technology offers new ways to communicate, it cannot replace the depth of relationships built through shared experiences and face-to-face contact. Communities that ____(28)____ both online tools and in-person gatherings will likely thrive."
+              },
+              {
+                "id": "9",
+                "text": "Ultimately, strong communities require ongoing investment—not just financial, but of time, energy, and care. Each interaction, each act of kindness, each effort to understand a neighbor's perspective contributes to the whole. These small actions ____(29)____ to create resilient, compassionate communities where everyone can flourish."
+              },
+              {
+                "id": "10",
+                "text": "The most successful communities balance tradition with innovation, honoring their history while embracing change. They recognize that diversity is a strength, not a weakness, and actively work to include all voices in decision-making. By building bridges rather than walls, these communities ____(30)____ a powerful example of what human cooperation can achieve."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each gap.",
+                "questions": [
+                  {
+                    "id": 21,
+                    "text": "...more likely to ____(21)____ together...",
+                    "options": [
+                      "work",
+                      "compete",
+                      "argue"
+                    ],
+                    "answer": "work"
+                  },
+                  {
+                    "id": 22,
+                    "text": "...to ____(22)____ relationships...",
+                    "options": [
+                      "build",
+                      "end",
+                      "ignore"
+                    ],
+                    "answer": "build"
+                  },
+                  {
+                    "id": 23,
+                    "text": "...despite living in close ____(23)____.",
+                    "options": [
+                      "proximity",
+                      "conflict",
+                      "agreement"
+                    ],
+                    "answer": "proximity"
+                  },
+                  {
+                    "id": 24,
+                    "text": "...ways for residents to ____(24)____...",
+                    "options": [
+                      "participate",
+                      "withdraw",
+                      "complain"
+                    ],
+                    "answer": "participate"
+                  },
+                  {
+                    "id": 25,
+                    "text": "...help ____(25)____ a sense of belonging...",
+                    "options": [
+                      "foster",
+                      "destroy",
+                      "question"
+                    ],
+                    "answer": "foster"
+                  },
+                  {
+                    "id": 26,
+                    "text": "...that ____(26)____ affordable housing...",
+                    "options": [
+                      "prioritize",
+                      "eliminate",
+                      "restrict"
+                    ],
+                    "answer": "prioritize"
+                  },
+                  {
+                    "id": 27,
+                    "text": "...parents, teachers, and community members ____(27)____...",
+                    "options": [
+                      "collaborate",
+                      "disagree",
+                      "separate"
+                    ],
+                    "answer": "collaborate"
+                  },
+                  {
+                    "id": 28,
+                    "text": "...communities that ____(28)____ both online tools...",
+                    "options": [
+                      "integrate",
+                      "reject",
+                      "ignore"
+                    ],
+                    "answer": "integrate"
+                  },
+                  {
+                    "id": 29,
+                    "text": "...These small actions ____(29)____ to create...",
+                    "options": [
+                      "combine",
+                      "fail",
+                      "refuse"
+                    ],
+                    "answer": "combine"
+                  },
+                  {
+                    "id": 30,
+                    "text": "...these communities ____(30)____ a powerful example...",
+                    "options": [
+                      "set",
+                      "avoid",
+                      "misunderstand"
+                    ],
+                    "answer": "set"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+  "id": "le-part2",
+  "section": 2,
+  "title": "Language Elements, Part 2",
+  "description": "Questions 31-40. Read the text below and choose the correct word (A-J) from the box to fill in each gap (31-40). There are two extra words you do not need to use.",
+  "passages": [
+    {
+      "id": "p1",
+      "title": "The Future of Transportation",
+      "type": "LANGUAGE-ELEMENTS",
+      "content": [
+        {
+          "id": "1",
+          "text": "Transportation systems are at a critical juncture. As cities grow and climate concerns intensify, we must fundamentally rethink how people and goods move. The solutions will require not only technological innovation but also a willingness to challenge long-held assumptions about mobility and urban planning.\n\nElectric vehicles represent one important piece of the puzzle, but they cannot solve congestion or urban sprawl alone. We need integrated public transport networks that are reliable, affordable, and accessible. This means investing in buses, trains, and cycling infrastructure while creating incentives for people to choose sustainable options over private cars.\n\nCities must also ____(a)____ with residents to understand their needs and preferences. Top-down approaches often fail because they don't account for local realities. Successful transportation initiatives emerge from genuine partnerships between officials, planners, and the communities they serve.\n\nThe transition will require significant investment, but the costs of inaction are far greater. Traffic congestion already costs economies billions in lost productivity. Air pollution contributes to millions of premature deaths annually. By transforming our transportation systems, we can ____(b)____ these problems while creating more livable, equitable cities.\n\nTechnology can support this transformation through smart traffic management, real-time information systems, and integrated payment platforms. However, we must ensure these tools ____(c)____ everyone, not just those with smartphones or credit cards. Digital divides should not translate into transportation divides.\n\nYounger generations are already embracing different mobility patterns, favoring access over ownership. Car-sharing, bike-sharing, and ride-hailing services reflect changing attitudes. Cities that ____(d)____ these trends and plan accordingly will be better positioned for the future.\n\nUltimately, the goal is not just efficient movement but creating communities where people want to live. When transportation enhances rather than detracts from quality of life—when streets are safe for children, air is clean, and connections are easy—we have truly succeeded. This vision requires sustained commitment and the courage to ____(e)____ bold changes."
+        }
+      ],
+      "subTasks": [
+        {
+          "type": "gap-fill-tokens",
+          "instruction": "Choose the correct word (A-J) to complete each gap (31-40).",
+          "tokens": [
+            "ADAPT",
+            "DEVELOP",
+            "FRAGMENT",
+            "REJECT",
+            "CULTIVATE",
+            "EROSION",
+            "COORDINATE",
+            "ACQUIRE",
+            "MAINTAIN",
+            "MITIGATE"
+          ],
+          "answers": {
+            "a": "COORDINATE",
+            "b": "MITIGATE",
+            "c": "ACQUIRE",
+            "d": "ADAPT",
+            "e": "CULTIVATE"
+          }
+        }
+      ]
+    }
+  ]
+}
+    ]
+  },
+
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Situations",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear people talking in eight different situations.\nFor questions 1-8, choose the best answer A, B or C.",
+        "transcript": "1. Man: Was there anything valuable in the bag that was stolen, Madam?\nWoman: Yes. It had my purse in it and my keys.\nMan: Anything else?\nWoman: Well, luckily I was wearing my glasses, so no, nothing else.\n\n2. Man: I’m sure I’ve seen this film before. That bit where she’s standing on the bridge watching the sunset reminded me.\n\n3. Woman 1: Well, you put the washing powder in the machine.\nWoman 2: Is that before or after you put the clothes in?\nWoman 1: Oh, it’s after you put them in, and then remember to switch it on at the wall when you’re ready.\n\n4. Man: Could you help me paint my flat this weekend, David?\nDavid: Oh, sorry, I’m going sailing. I decided to enjoy myself for a change. I spent last weekend helping my mum do her garden and I need to repair the car next weekend.\n\n5. Man: Sorry I’m late. I never know whether to take the underground or drive. I was held up in a traffic jam for half an hour, and then when I got to work the car park was full! I think I’ll have to move nearer so I can walk or use my bike.\n\n6. Man: Which tie shall I wear for the interview? D’you think my blue silk one would look all right?\nWoman: A bit boring! I’d wear something with a small pattern – squares or spots, something like that.\nMan: Oh, I don’t know. I think I’ll wear the plain one.\n\n7. Woman: Dr Brown’s Clinic. Can I help you?\nMan: Yes. Can I have an appointment to see the doctor, please?\nWoman: Well, he’s free at quarter past eleven today or tomorrow at quarter past ten or five to two.\nMan: I’ll come tomorrow afternoon. Thank you.",
+        "audioUrl": "/audio/PEL-B1-Test9-Part1.mp3",
+        "context": "Eight different situations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (a-f) corresponds to each news item?",
+            "questions": [
+              {
+                "id": 1,
+                "text": "News Item 1",
+                "answer": "1"
+              },
+              {
+                "id": 2,
+                "text": "News Item 2",
+                "answer": "4"
+              },
+              {
+                "id": 3,
+                "text": "News Item 3",
+                "answer": "2"
+              },
+              {
+                "id": 4,
+                "text": "News Item 4",
+                "answer": "0"
+              },
+              {
+                "id": 5,
+                "text": "News Item 5",
+                "answer": "6"
+              },
+              {
+                "id": 6,
+                "text": "News Item 6",
+                "answer": "3"
+              },
+              {
+                "id": 7,
+                "text": "News Item 7",
+                "answer": "5"
+              }
+            ],
+            "headings": [
+              "Making an excuse",
+              "Something stolen",
+              "Giving instructions",
+              "Choosing a tie",
+              "Remembering a film",
+              "Booking an appointment",
+              "Explaining being late"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "TV31 Saturday Programme Guide",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear a radio presenter giving information about tomorrow’s television programmes.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
+        "transcript": "Man: And that’s the weather forecast. And now we know what the weather’s going to be like, let’s have a look at what we’ve got for you tomorrow on TV31.\n\nMost of the morning is taken up with children’s television. As it’s Saturday, we’ve got programmes for children from the under fives to teenagers. We start the day at 7.00 with cartoons and programmes for the very young. These go on until 9.00 when we have a film specially made for television called The Railway Princess. It was first shown about six months ago and we’ve had lots of requests to show it again. The film is based on Jenny Johnson’s best-selling children’s book. Then from 10.30 until 12.00, we continue with a magazine programme for 5- to 12-year-olds. There’s something for everyone – animals, art, sport, the countryside. At lunchtime, from 12.00 till 2.00, we have something for teenagers – Here and Now – our music programme with all the latest groups and singers, and the results of last week’s competition.\n\nAfter lunch there’s half an hour of news and that’s followed at 2.30 by sport. This afternoon you can watch the match between Brazil and Ireland. The winner of that match will go on to play Italy or Spain in the final next week.\n\nFootball is followed at 4 o’clock by tennis. We’ll be watching part of the Macmillan Tennis Tournament. If the tennis is cancelled because of rain we’ll be going over early to Japan to see some of the skiing. Let’s hope Angus Burns has recovered from yesterday’s fall. At 5 o’clock we’ll be bringing you the end of the Round Britain Cycle Race.\n\nAt 6 o’clock it’s time for our new quiz programme Your guess is as good as mine with Nigel Parsons. Each team is shown picture of people who were in the news in one particular year, or important things that happened in that year. The teams guess when that was.\n\nThat’s followed by more news and at 7.00 it’s time for our Saturday evening film I Could Live Forever, a sad story with a happy ending. You’ll recognise the songs, now well known, made famous by the film and sung by Julia Jones. And of course there’s some wonderful dancing.\n\nOur evening carries on with plenty of entertainment for all the family. At nine o’clock there’s a chance to see …",
+        "audioUrl": "/audio/PEL-B1-Test9-Part2.mp3",
+        "context": "Radio presenter gives information about tomorrow's television programmes",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "mode": "tfng",
+            "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
+            "questions": [
+              {
+                "id": 8,
+                "text": "The Railway Princess has been shown on TV31 before.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 9,
+                "text": "The film The Railway Princess is based on a real story.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 10,
+                "text": "Here and Now is a music programme for teenagers.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 11,
+                "text": "The football match will be followed by highlights of other sports.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 12,
+                "text": "If it rains, there will be skiing from Japan.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 13,
+                "text": "The quiz programme requires teams to guess the year of events.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 14,
+                "text": "The film I Could Live Forever is a comedy.",
+                "answer": "FALSE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Plymouth Sea Life Centre",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear a man talking about the new Sea Life Centre at Plymouth.\nFor questions 15-20, choose the correct answer A, B or C.",
+        "transcript": "Man: … and finally Mary James has been visiting the new Sea Life Centre at Plymouth. What can you tell us about it, Mary?\n\nWoman: Well, it’s an extremely exciting place. There are so many things to see and everything is enjoyable as well as educational. It costs £3.70 for adults, £2 for children and less for over sixties and school groups. It’s open every day of the year except the 25th and 26th of December.\n\nSpecial attractions for children include a quiz and hourly feeding times for all the different animals and fish, starting at 9.30. You can see everything here from the most enormous of sea creatures to the smallest.\n\nEvery morning from 10.00 there are slide and video shows for children in the sea life theatre, and someone is always there to answer questions about what you’ve seen. If you are in a group of six or more people, they can give you a special guided tour of the centre. But you need to arrange this at the information desk when you arrive.\n\nThe latest attraction at the centre is a big glass tunnel you can walk through; all around you, you will see enormous fish swimming – sometimes even over your head. You certainly have the clearest possible view of the world beneath the waves. Children love it and it’s really amazing for adults too!\n\nWhen you get hungry, there is a relaxed family dining area serving snacks, cold drinks and ice creams. Near the main entrance there is an excellent bookshop and there’s also a souvenir shop selling all kinds of things connected with the sea.\n\nI warmly recommend this visit; for more information phone 01743 564219.",
+        "audioUrl": "/audio/PEL-B1-Test9-Part3.mp3",
+        "context": "Man talks about the new Sea Life Centre at Plymouth",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "For questions 15-20, choose the correct answer A, B or C.",
+            "questions": [
+              {
+                "id": 15,
+                "text": "What is the entry fee for children?",
+                "answer": "B",
+                "options": [
+                  "£3.70",
+                  "£2",
+                  "Free"
+                ]
+              },
+              {
+                "id": 16,
+                "text": "When are the animals and fish fed?",
+                "answer": "A",
+                "options": [
+                  "hourly from 9.30",
+                  "every morning at 10.00",
+                  "only in the afternoons"
+                ]
+              },
+              {
+                "id": 17,
+                "text": "Children can watch slide and video shows",
+                "answer": "B",
+                "options": [
+                  "all day.",
+                  "every morning.",
+                  "in the afternoons."
+                ]
+              },
+              {
+                "id": 18,
+                "text": "A guided tour is available for",
+                "answer": "C",
+                "options": [
+                  "individuals.",
+                  "families.",
+                  "groups of six or more."
+                ]
+              },
+              {
+                "id": 19,
+                "text": "What is the new attraction at the centre?",
+                "answer": "A",
+                "options": [
+                  "a glass tunnel",
+                  "a special cinema",
+                  "a swimming pool"
+                ]
+              },
+              {
+                "id": 20,
+                "text": "What type of food is available at the centre?",
+                "answer": "B",
+                "options": [
+                  "hot meals",
+                  "snacks and ice creams",
+                  "full restaurant service"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You will be asked some questions about your personal life, experiences, and opinions. Answer honestly and in as much detail as you can.",
+        "topics": [
+          {
+            "topic": "Hobbies and Free Time",
+            "questions": [
+              { "id": "p1q1", "text": "What do you enjoy doing in your free time?" },
+              { "id": "p1q2", "text": "How has your approach to leisure activities changed over the years?" },
+              { "id": "p1q3", "text": "Do you prefer active or relaxing activities? Why?" }
+            ]
+          },
+          {
+            "topic": "Future Goals",
+            "questions": [
+              { "id": "p1q4", "text": "What are your main goals for the next five years?" },
+              { "id": "p1q5", "text": "How do you plan to achieve these goals?" },
+              { "id": "p1q6", "text": "What obstacles might you face along the way?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following short text and discuss it with your partner. Express your opinions and react to your partner's points.",
+        "text": "A recent study found that 45 percent of people feel that modern life is too fast-paced and stressful. While technology has made many tasks more efficient, it has also created an expectation of constant availability and immediate responses. Many people report feeling overwhelmed by the pressure to be productive every moment of the day.",
+        "topics": [
+          {
+            "topic": "Modern Life and Stress",
+            "questions": [
+              { "id": "p2q1", "text": "Why do you think people feel life is too fast-paced?" },
+              { "id": "p2q2", "text": "How can individuals manage stress in a fast-paced world?" },
+              { "id": "p2q3", "text": "Should companies do more to help employees manage stress?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "Your school is planning to introduce new extracurricular activities for the upcoming term. Discuss the different options and decide together which three activities would be most beneficial for students. Consider the following points:",
+        "topics": [
+          {
+            "topic": "School Extracurricular Activities",
+            "suggestions": [
+              "A coding and robotics club to develop technical skills",
+              "A debate society to improve public speaking and critical thinking",
+              "A community service program to engage with local charities",
+              "A creative arts workshop covering music, drama, and visual arts",
+              "A sports leadership program combining athletics and mentoring"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Which activities would develop the most valuable skills?" },
+              { "id": "p3q2", "text": "How would each activity benefit students' personal development?" },
+              { "id": "p3q3", "text": "Which options would attract the widest range of students?" },
+              { "id": "p3q4", "text": "Which combination of three activities offers the best balance?" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m9-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter of Complaint",
+        "subtitle": "Part 1: Writing",
+        "instruction": "You recently purchased a product online that did not meet your expectations. Write a letter to the customer service department explaining the issues and requesting a solution. In your letter, you should:",
+        "context": "You ordered a laptop bag from an online retailer that looked perfect in the photos. However, when it arrived, you found the material was much cheaper than expected, the stitching was poor, and it was significantly smaller than advertised. You want to return it and get a refund.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a formal letter of complaint about a defective product and request a refund.",
+        "bullets": [
+          "Describe the product and the problems you found",
+          "Explain how this differs from the product description",
+          "State what action you would like the company to take"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m9-t2",
+        "taskType": 2,
+        "title": "Task 2: Article",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Your local newspaper is running a series on 'The Changing Workplace' and has invited readers to submit articles. Write an article about how work patterns have evolved in recent years. In your article, you should:",
+        "context": "The newspaper wants to explore how modern work practices are affecting people's lives and what this means for the future of employment.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write an article about the evolution of work patterns and their impact.",
+        "bullets": [
+          "Describe how work patterns have changed in recent years",
+          "Discuss the advantages and disadvantages of these changes",
+          "Give your opinion on whether these trends are positive or negative"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

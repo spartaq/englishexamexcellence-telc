@@ -1,0 +1,838 @@
+{
+  "id": "telc-b2-mock-4",
+  "level": "b2",
+  "mockNumber": 4,
+  "title": "TELC B2 Mock Test 4",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B2 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. The test is divided into Reading, Language Elements, Listening, Writing, and Speaking.",
+  "vocabulary": {
+    "id": "vocab-general-4",
+    "title": "Test Vocabulary",
+    "level": "B2",
+    "words": [
+      {
+        "term": "sustainable",
+        "hu": "fenntartható",
+        "definition": "able to be maintained at a certain rate or level; conserving an ecological balance by avoiding depletion of natural resources.",
+        "example": "Many companies are now focusing on sustainable practices to protect the environment."
+      },
+      {
+        "term": "innovation",
+        "hu": "innováció",
+        "definition": "the action or process of innovating; a new method, idea, product, etc.",
+        "example": "Technological innovation has transformed the way we communicate."
+      },
+      {
+        "term": "endeavour",
+        "hu": "törekvés",
+        "definition": "an attempt to achieve a goal.",
+        "example": "He made every endeavour to ensure the project was completed on time."
+      },
+      {
+        "term": "resilience",
+        "hu": "rugalmasság",
+        "definition": "the capacity to recover quickly from difficulties; toughness.",
+        "example": "The community showed great resilience in rebuilding after the storm."
+      },
+      {
+        "term": "perceive",
+        "hu": "észlel, érzékel",
+        "definition": "to become aware or conscious of something; to interpret or look on someone or something in a particular way.",
+        "example": "It's important to perceive challenges as opportunities for growth."
+      },
+      {
+        "term": "crucial",
+        "hu": "döntő, alapvető",
+        "definition": "of great importance, critical.",
+        "example": "Effective communication is crucial for successful teamwork."
+      },
+      {
+        "term": "diverse",
+        "hu": "különféle, változatos",
+        "definition": "showing a great deal of variety; very different.",
+        "example": "The city is known for its diverse culture and population."
+      },
+      {
+        "term": "implement",
+        "hu": "végrehajt, megvalósít",
+        "definition": "put (a decision, plan, agreement, etc.) into effect.",
+        "example": "The company decided to implement new security measures."
+      },
+      {
+        "term": "mitigate",
+        "hu": "enyhít, csillapít",
+        "definition": "make less severe, serious, or painful.",
+        "example": "They are working on strategies to mitigate the risks of climate change."
+      },
+      {
+        "term": "adverse",
+        "hu": "hátrányos, kedvezőtlen",
+        "definition": "preventing success or development; unfavorable.",
+        "example": "The adverse weather conditions delayed our flight."
+      },
+      {
+        "term": "integral",
+        "hu": "szerves rész, alapvető",
+        "definition": "necessary to make a whole complete; fundamental.",
+        "example": "Trust is an integral part of any strong relationship."
+      },
+      {
+        "term": "scrutinize",
+        "hu": "átvizsgál, alaposan megvizsgál",
+        "definition": "examine or inspect closely and thoroughly.",
+        "example": "The auditor will scrutinize the financial records."
+      },
+      {
+        "term": "prevalent",
+        "hu": "elterjedt, gyakori",
+        "definition": "widespread in a particular area or at a particular time.",
+        "example": "The use of smartphones is highly prevalent among young people."
+      },
+      {
+        "term": "conundrum",
+        "hu": "találós kérdés, rejtély",
+        "definition": "a confusing and difficult problem or question.",
+        "example": "The problem of balancing economic growth with environmental protection is a global conundrum."
+      },
+      {
+        "term": "discrepancy",
+        "hu": "eltérés, ellentmondás",
+        "definition": "a lack of compatibility or similarity between two or more facts.",
+        "example": "There was a discrepancy between the two reports."
+      }
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Match the Headlines",
+        "description": "Questions 1-5. Read the five texts and match each text to one of the headlines (A-G). Two headlines will not be used.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": ["renovation", "congestion", "advocacy", "attendance", "fares"],
+            "content": [
+              {
+                "id": "1",
+                "text": "Our city's main library is set to undergo a major renovation next year. Plans include modernizing facilities, expanding digital resources, and creating more community spaces. The goal is to transform the library into a vibrant hub for learning and social interaction, moving beyond its traditional role. Public input has been crucial in shaping the design, ensuring it meets the diverse needs of residents. The project is expected to take 18 months."
+              },
+              {
+                "id": "2",
+                "text": "Commuters in the capital are once again facing increased traffic congestion as roadworks begin on key routes. Experts are calling for a more integrated approach to urban planning, suggesting that simply expanding roads is not a sustainable long-term solution. Discussions are underway at the city council regarding investments in public transport infrastructure and promoting cycling as viable alternatives. The aim is to mitigate the adverse effects of vehicle emissions and improve air quality."
+              },
+              {
+                "id": "3",
+                "text": "A new youth-led environmental initiative has launched, aiming to raise awareness about climate change and promote sustainable living practices within the community. The group plans a series of workshops, clean-up events, and advocacy campaigns to engage local residents. Their first project involves establishing a community garden in the city park, focusing on organic farming and local food production. The movement has garnered significant support from local authorities."
+              },
+              {
+                "id": "4",
+                "text": "The annual Summer Music Festival concluded last weekend, reporting record-breaking attendance figures. Thousands of music lovers flocked to various venues across the city, enjoying a diverse lineup of artists from different genres. Organizers expressed delight at the success, highlighting the festival's growing appeal and its positive impact on local tourism. Plans are already in motion for an even larger event next year, promising more international acts."
+              },
+              {
+                "id": "5",
+                "text": "A heated debate is ongoing regarding proposed changes to public transport fares. Commuters are concerned about potential price increases, while transport authorities argue that adjustments are necessary to cover rising operational costs and improve services. The discussion includes potential government subsidies and alternative funding models to ensure affordability and accessibility for all residents. A final decision is expected by the end of the month."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  {
+                    "id": "1",
+                    "text": "Paragraph 1",
+                    "answer": 5
+                  },
+                  {
+                    "id": "2",
+                    "text": "Paragraph 2",
+                    "answer": 2
+                  },
+                  {
+                    "id": "3",
+                    "text": "Paragraph 3",
+                    "answer": 0
+                  },
+                  {
+                    "id": "4",
+                    "text": "Paragraph 4",
+                    "answer": 6
+                  },
+                  {
+                    "id": "5",
+                    "text": "Paragraph 5",
+                    "answer": 7
+                  }
+                ],
+                "headings": [
+                  "Local Sports Team Wins Championship",
+                  "Library Transformation Project Announced",
+                  "New Traffic Rules to Reduce Congestion",
+                  "City Council Discusses Budget Cuts",
+                  "Environmental Group Launches New Initiative",
+                  "Annual Music Festival Attracts Record Crowds",
+                  "Debate Over Public Transport Fares"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: The Future of Work",
+        "description": "Questions 6-10. Read the article below and choose the best answer (A, B, or C) for each question.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "The Shifting Landscape of Employment",
+            "subtitle": "An Article on Remote Work and Automation",
+            "type": "READING",
+            "vocabList": ["automation", "flexibility", "gig economy", "adaptability"],
+            "content": [
+              { "id": "A", "text": "The world of work is undergoing a profound transformation, driven by technological advancements, globalization, and changing societal expectations. One of the most significant shifts is the rise of remote work. Once a niche concept, working from home has become a prevalent model for many businesses, accelerated by recent global events. Companies have realized the benefits of increased flexibility, reduced overheads, and access to a wider talent pool, while employees often appreciate the improved work-life balance and elimination of long commutes. However, challenges remain, including maintaining team cohesion and ensuring proper digital security." },
+              { "id": "B", "text": "Another major factor reshaping employment is automation and artificial intelligence (AI). While concerns about job displacement are valid, many experts believe AI will complement human capabilities rather than fully replace them. Routine, repetitive tasks are most susceptible to automation, freeing up human workers to focus on more complex, creative, and interpersonal roles. This shift necessitates a greater emphasis on upskilling and reskilling the workforce, encouraging adaptability and lifelong learning. Education systems will also need to evolve to prepare future generations for jobs that may not even exist yet." },
+              { "id": "C", "text": "The 'gig economy' is also growing, with more individuals opting for freelance or contract-based work. This model offers autonomy and variety but can come with less job security and fewer traditional benefits. Furthermore, the increasing importance of soft skills – such as critical thinking, problem-solving, and emotional intelligence – cannot be overstated. As technical skills become increasingly automated, these uniquely human attributes will be crucial for success in a dynamic job market. Understanding these trends is integral for both individuals planning their careers and organizations developing their future strategies." }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct option (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": 6,
+                    "text": "What is mentioned as a benefit of remote work for companies?",
+                    "options": [
+                      "Easier team cohesion",
+                      "Reduced travel costs for employees",
+                      "Access to a wider talent pool"
+                    ],
+                    "answer": "Access to a wider talent pool"
+                  },
+                  {
+                    "id": 7,
+                    "text": "According to the text, what types of tasks are most likely to be automated?",
+                    "options": [
+                      "Creative tasks",
+                      "Repetitive tasks",
+                      "Interpersonal tasks"
+                    ],
+                    "answer": "Repetitive tasks"
+                  },
+                  {
+                    "id": 8,
+                    "text": "What does the text suggest about the role of AI in the future workforce?",
+                    "options": [
+                      "It will completely replace human workers.",
+                      "It will primarily enhance human abilities.",
+                      "It will only affect low-skilled jobs."
+                    ],
+                    "answer": "It will primarily enhance human abilities."
+                  },
+                  {
+                    "id": 9,
+                    "text": "What is a potential disadvantage of the 'gig economy'?",
+                    "options": [
+                      "Lack of autonomy",
+                      "Limited job security",
+                      "Too much variety in work"
+                    ],
+                    "answer": "Limited job security"
+                  },
+                  {
+                    "id": 10,
+                    "text": "Which of the following is highlighted as increasingly important for future job success?",
+                    "options": [
+                      "Technical programming skills",
+                      "Manual labour skills",
+                      "Soft skills like problem-solving"
+                    ],
+                    "answer": "Soft skills like problem-solving"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Holiday Destinations",
+        "description": "Questions 11-15. Read the five advertisements for holiday destinations (A-E) and match each person's request (11-15) to the most suitable advertisement.",
+        "passages": [
+          {
+            "id": "A",
+            "title": "Adventure Peaks Resort",
+            "subtitle": "Your Mountain Getaway",
+            "type": "READING",
+            "vocabList": ["trekking", "rafting", "panoramic"],
+            "content": [
+              { "id": "A", "text": "Dreaming of an active holiday surrounded by breathtaking nature? Adventure Peaks Resort offers exhilarating trekking trails, white-water rafting, and rock climbing opportunities. Our guides are experienced, and all equipment is provided. Enjoy panoramic views from your chalet and unwind with a deep tissue massage after a day of exploration. Perfect for thrill-seekers and nature lovers who want to push their limits." }
+            ]
+          },
+          {
+            "id": "B",
+            "title": "Metropolitan Escape",
+            "subtitle": "City Life Awaits You",
+            "type": "READING",
+            "vocabList": ["bustling", "boutiques", "culinary"],
+            "content": [
+              { "id": "B", "text": "Experience the vibrant energy of our capital city with Metropolitan Escape. Discover ancient castles, wander through art galleries, and shop at exclusive boutiques. As evening falls, immerse yourself in the bustling nightlife, from rooftop bars to live music venues. Our package includes guided walking tours and discounts at selected restaurants, offering a true taste of the city's culinary delights. Perfect for those who love urban adventures." }
+            ]
+          },
+          {
+            "id": "C",
+            "title": "Sun-Kissed Shores Retreat",
+            "subtitle": "Relaxation by the Sea",
+            "type": "READING",
+            "vocabList": ["serene", "aquatic", "heritage"],
+            "content": [
+              { "id": "C", "text": "Unwind at Sun-Kissed Shores, a tranquil beachfront resort. Spend your days lounging by the crystal-clear waters or exploring nearby charming fishing villages. Indulge in fresh seafood at local eateries and discover the rich heritage of the region with optional historical tours. We offer a serene environment for ultimate relaxation, with no demanding activities. Ideal for those seeking peace, good food, and gentle cultural exploration." }
+            ]
+          },
+          {
+            "id": "D",
+            "title": "Zen Garden Sanctuary",
+            "subtitle": "Mind, Body, and Soul Rejuvenation",
+            "type": "READING",
+            "vocabList": ["meditation", "holistic", "serenity"],
+            "content": [
+              { "id": "D", "text": "Find inner peace at Zen Garden Sanctuary, a unique retreat focused on holistic well-being. Our program includes daily yoga and meditation sessions, healthy organic meals, and workshops on mindfulness. Nestled in a secluded valley, it offers absolute serenity, away from the stresses of modern life. Recharge your mind, body, and soul in an environment dedicated to health and quiet contemplation. Not suitable for young children." }
+            ]
+          },
+          {
+            "id": "E",
+            "title": "Family Fun Adventure Park",
+            "subtitle": "Memories for Everyone",
+            "type": "READING",
+            "vocabList": ["supervised", "amenities", "entertainment"],
+            "content": [
+              { "id": "E", "text": "Family Fun Adventure Park is designed for unforgettable holidays with children of all ages. We boast water slides, a petting zoo, and supervised kids' clubs that keep youngsters entertained all day. Parents can relax by the pool, enjoy spa treatments, or participate in adult-only activities. Our all-inclusive packages ensure a stress-free experience with plenty of amenities for everyone. Create lasting memories with your loved ones!" }
+            ]
+          }
+        ],
+        "subTasks": [
+          {
+            "type": "matching-info",
+            "instruction": "Which advertisement (A-E) matches each person's request (11-15)?",
+            "questions": [
+              { "id": "11", "text": "Marco wants a holiday where he can try exciting outdoor sports and enjoy stunning natural scenery.", "answer": "A" },
+              { "id": "12", "text": "Sophia is looking for a relaxing beach holiday with cultural experiences and good food, without too much physical exertion.", "answer": "C" },
+              { "id": "13", "text": "David wishes for a family-friendly holiday with activities for young children and opportunities for parents to relax.", "answer": "E" },
+              { "id": "14", "text": "Elena is interested in a city break that offers historical sights, shopping, and vibrant nightlife.", "answer": "B" },
+              { "id": "15", "text": "Chen desires a quiet retreat focused on wellness, meditation, and healthy eating in a peaceful environment.", "answer": "D" }
+            ],
+            "options": [
+              "Marco wants a holiday where he can try exciting outdoor sports and enjoy stunning natural scenery.",
+              "Sophia is looking for a relaxing beach holiday with cultural experiences and good food, without too much physical exertion.",
+              "David wishes for a family-friendly holiday with activities for young children and opportunities for parents to relax.",
+              "Elena is interested in a city break that offers historical sights, shopping, and vibrant nightlife.",
+              "Chen desires a quiet retreat focused on wellness, meditation, and healthy eating in a peaceful environment."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "The Importance of Sleep",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              { "id": "1", "text": "Sleep is an ____(21)____ part of our daily lives, as crucial for our health as eating and drinking. While we sleep, our bodies ____(22)____ and repair themselves, and our brains process information and consolidate memories. A lack of sufficient sleep can ____(23)____ to a variety of problems, including reduced concentration, irritability, and a weakened immune system. ____(24)____, it can also have long-term adverse effects on our physical and mental well-being.\n\nExperts recommend that adults get between 7 and 9 hours of sleep per night. However, many people ____(25)____ to meet this recommendation due to busy schedules, stress, or other factors. To improve sleep quality, it is ____(26)____ to establish a regular sleep schedule, create a comfortable sleep environment, and avoid caffeine and electronic screens before bedtime. ____(27)____, engaging in relaxing activities like reading or taking a warm bath can signal to your body that it's time to wind down.\n\nAlthough it might seem like a luxury, prioritizing sleep is an ____(28)____ in your overall health and productivity. When you are well-rested, you are more ____(29)____ to perform better at work or school, have more energy, and experience an improved mood. Therefore, understanding and addressing your sleep needs is ____(30)____ for a healthy and balanced life." }
+            ],
+"subTasks": [
+               {
+                 "type": "mcq",
+                 "instruction": "Choose the correct answer (A, B, or C) for each gap.",
+                 "questions": [
+                   {
+                     "id": 21,
+                     "text": "Sleep is an ________ part of our daily lives...",
+                     "options": [
+                       "optional",
+                       "integral",
+                       "external"
+                     ],
+                     "answer": "integral"
+                   },
+                   {
+                     "id": 22,
+                     "text": "...our bodies ________ and repair themselves...",
+                     "options": [
+                       "rest",
+                       "rebuild",
+                       "relax"
+                     ],
+                     "answer": "rest"
+                   },
+                   {
+                     "id": 23,
+                     "text": "...A lack of sufficient sleep can ________ to a variety of problems...",
+                     "options": [
+                       "cause",
+                       "result",
+                       "lead"
+                     ],
+                     "answer": "lead"
+                   },
+                   {
+                     "id": 24,
+                     "text": "________, it can also have long-term adverse effects...",
+                     "options": [
+                       "Furthermore",
+                       "However",
+                       "Therefore"
+                     ],
+                     "answer": "Furthermore"
+                   },
+                   {
+                     "id": 25,
+                     "text": "...many people ________ to meet this recommendation...",
+                     "options": [
+                       "fail",
+                       "struggle",
+                       "miss"
+                     ],
+                     "answer": "fail"
+                   },
+                   {
+                     "id": 26,
+                     "text": "...it is ________ to establish a regular sleep schedule...",
+                     "options": [
+                       "advisable",
+                       "optional",
+                       "difficult"
+                     ],
+                     "answer": "advisable"
+                   },
+                   {
+                     "id": 27,
+                     "text": "________, engaging in relaxing activities like reading...",
+                     "options": [
+                       "Instead",
+                       "Similarly",
+                       "In addition"
+                     ],
+                     "answer": "In addition"
+                   },
+                   {
+                     "id": 28,
+                     "text": "...prioritizing sleep is an ________ in your overall health...",
+                     "options": [
+                       "investment",
+                       "expenditure",
+                       "expense"
+                     ],
+                     "answer": "investment"
+                   },
+                   {
+                     "id": 29,
+                     "text": "...you are more ________ to perform better...",
+                     "options": [
+                       "likely",
+                       "possible",
+                       "capable"
+                     ],
+                     "answer": "likely"
+                   },
+                   {
+                     "id": 30,
+                     "text": "...your sleep needs is ________ for a healthy and balanced life.",
+                     "options": [
+                       "significant",
+                       "crucial",
+                       "minor"
+                     ],
+                     "answer": "crucial"
+                   }
+                 ]
+               }
+             ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Questions 31-40. Read the text below and choose the correct word (A-J) from the box to fill in each gap (31-40). There are two extra words you do not need to use.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The Benefits of Volunteering",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              { "id": "1", "text": "Volunteering is a powerful way to make a positive ____(a)____ on your community and personal life. It involves giving your time and skills ____(b)____ expecting financial compensation. There are countless opportunities to volunteer, from working at a local animal shelter to helping ____(c)____ environmental clean-up projects. \n\nOne of the most immediate benefits of volunteering is the sense of ____(d)____ it provides. Knowing that you are contributing to a cause you care ____(e)____ can significantly boost your mood and self-esteem. Furthermore, volunteering allows you to meet new people and ____(f)____ your social network, often leading to lasting friendships. This is particularly valuable ____(g)____ individuals who might otherwise feel isolated.\n\nFor many, volunteering also offers a chance to ____(h)____ new skills or enhance existing ones. Whether you're organizing events, assisting with administrative tasks, or providing direct support, you're constantly learning and ____(i)____. These practical experiences can be incredibly beneficial for your career, as they demonstrate initiative, teamwork, and commitment to potential ____(j)____. Ultimately, volunteering enriches both the giver and the receiver, fostering a stronger, more connected society."
+            }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (A-J) to complete each gap (31-40).",
+                "tokens": ["EMPLOYERS", "WITHOUT", "SATISFACTION", "DEVELOPING", "ABOUT", "IMPACT", "ESPECIALLY", "PARTICIPATE", "NO", "ACQUIRE"],
+                
+                "answers": {
+                  "a": "IMPACT",
+                  "b": "WITHOUT",
+                  "c": "PARTICIPATE",
+                  "d": "SATISFACTION",
+                  "e": "ABOUT",
+                  "f": "NO",
+                  "g": "ESPECIALLY",
+                  "h": "ACQUIRE",
+                  "i": "DEVELOPING",
+                  "j": "EMPLOYERS"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "listening": {
+  "title": "Listening",
+  "time": 30,
+  "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+  "sections": [
+    {
+      "id": "part1",
+      "part": 1,
+      "title": "Situations",
+      "subtitle": "Part 1: Listening",
+      "description": "You will hear people talking in eight different situations.\nFor questions 1-8, choose the best answer A, B or C.",
+      "transcript": "1\nI think we really have to encourage young girls to get involved in women’s football, to show them it’s a great sport and there are opportunities to play on the world stage, things like the women’s World Cup, things like the Olympic Games. That’s what inspires young kids to do things. They get to see role models and they get to see opportunities for them to perform, you know, in front of huge audiences. So, I think if we want this sport to develop, this is the message we have to get across.\n\n2\nThis model from Vango’s impressive range is one of those bags that you can use quite happily on long walking trips. It has well-made, comfortable straps, large side pockets and, as on their bigger bags, there is a removable rain cover – very useful in this changeable climate. Interestingly, they’ve added an internal pocket for a water flask and a key clip, both of which make this bag excellent value compared to other models available.\n\n3\nWell, it’s an amazing film. They got all the details right, well, almost. They certainly give you a good idea of just how enormous these creatures were, they make you feel really tiny … and the way they move is so believable … Having said that, I feel there should have been more research into the scenic effects, you need to know what their environment was like, the kinds of plants these giants were eating … What they had was some kind of strange landscape … But, when it came to the noises that these beasts would have made, you were left in no doubt, a lot of effort had gone into making them terrifyingly realistic …\n\n4\nWoman:   We ought to take some exercise, you know.\nMan:   Well, there’s probably something in that, but I resent constantly being told by the media that I’m not active enough.\nWoman:   Well, doctors want people to take that message on board too.\nMan:   So people join a gym, spend a fortune on fitness videos, then within a few weeks get fed up with it, so it’s money down the drain.\nWoman:   Some people manage to keep it up.\nMan:   Yes, and then they start overdoing it, so that it rules their life.\nWoman:   I don’t think there’s much danger of that in your case.\n\n5\nHi, glad I caught you in. I’m phoning from my mobile, and guess where I am now? … Yeah, can you hear the waves? Tell you what, we can both do the shopping together this evening if you like, it won’t take long. How about coming to join me for a couple of hours first? … No, I’ve got enough cash, I went past the bank this morning, but if you need some, get it on your way here. OK, so is that settled then? See you soon, I promise you won’t regret it!\n\n6\nWoman:   How did it go then?\nMan:   Well, I didn’t say what I wanted immediately. First we talked about the difficulty of the course and how much pressure it puts on students and so on. I mean last month I had to ask for an extension on both my assignments.\nWoman:   Mmm. I did too. You’re not alone there. And?\nMan:   I finally got to the point saying I’d lost my part-time job and had money problems. She mentioned that there were special grants for those having difficulty with the costs. So I got an application form to fill in and if they accept that, it’ll cover the fees for the next six months, so problem solved.\nWoman:   Great.\n\n7\nThe best way to learn how to paint is out in the open, with a teacher giving you guidance. Sitting on a stool and painting, you forget about everything else. I thought it would be demanding, and it was, although I wasn’t trying to become a professional. Choosing and mixing the colours, trying to create perfect clouds … I was amazed when people passed by and peered over my shoulder and said, ‘I wish I could do that!’ Seeing artists at work had always fascinated me, but at school a teacher’s report had said: ‘Peter has no feeling for art or design.’ Then at last I knew she’d been wrong.\n\n8\nIt’s sometimes hard to deal with a difficult situation on your own. Having the support of someone else can make all the difference and we should recognise that getting the aid of a friend or relative is a strength and not a weakness. So often we are led to believe that sharing our challenges is a sign of failure. This simply isn’t true. The most successful people are those who know how and when to ask for help so don’t battle on with things on your own if you don’t need to. Here are a few tips on how to …",
+      "audioUrl": "/audio/PEL-B2-Test4-Part1.mp3",
+      "context": "Eight different situations",
+      "type": "LISTENING",
+      "skill": "listening",
+      "subTasks": [
+        {
+          "type": "heading-match",
+          "instruction": "Which headline (a-h) corresponds to each situation?",
+          "questions": [
+            {
+              "id": 1,
+              "text": "Situation 1",
+              "answer": "0"
+            },
+            {
+              "id": 2,
+              "text": "Situation 2",
+              "answer": "1"
+            },
+            {
+              "id": 3,
+              "text": "Situation 3",
+              "answer": "2"
+            },
+            {
+              "id": 4,
+              "text": "Situation 4",
+              "answer": "3"
+            },
+            {
+              "id": 5,
+              "text": "Situation 5",
+              "answer": "4"
+            },
+            {
+              "id": 6,
+              "text": "Situation 6",
+              "answer": "5"
+            },
+            {
+              "id": 7,
+              "text": "Situation 7",
+              "answer": "6"
+            },
+            {
+              "id": 8,
+              "text": "Situation 8",
+              "answer": "7"
+            }
+          ],
+          "headings": [
+            "Encouraging girls in sport",
+            "Review of a travel backpack",
+            "Opinion about a dinosaur film",
+            "Discussion about exercise",
+            "Inviting a friend to the beach",
+            "Applying for financial help",
+            "Learning to paint outdoors",
+            "Asking others for support"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "part": 2,
+      "title": "Interview: Richard Porter",
+      "subtitle": "Part 2: Listening",
+      "description": "You will hear an interview with a man called Richard Porter who is a maker of musical instruments called organs.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
+      "transcript": "Interviewer:   Good evening and welcome to the programme where, as you know, we go out and talk to people who run their own companies. Today, we’re talking to Richard Porter, who makes large concert organs as a profession. Richard, tell us, just how did you get into this area of work?\n\nRichard:   Well, I play the piano and, as a child, I had a good teacher who wrote her own music, and I always wanted to be a composer too. However, my parents persuaded me that what I needed to do was go to college and study how to make musical instruments, rather than play them, because they saw more of a future in that. And now, I make the organs which are played in churches and concert halls all around the world. The one thing that I never intended to do was become a businessman, which is what I am now really, as well as being an instrument maker.\n\nInterviewer:   So, when did you start making organs?\n\nRichard:   About five years ago. I started from a room in my house, but now I have my own workshop.\n\nInterviewer:   So, it must pay.\n\nRichard:   Well, an organ sells at £9500, which means around £3500 profit for me I suppose.\n\nInterviewer:   And how long does it take to build one?\n\nRichard:   It might take me three months to complete one, and when I say three months, I mean three months of working seventy hours a week. Although that sounds a lot, I have to say I don’t mind because I love the work and I get to meet lots of interesting people. Most of my commissions are from overseas clients and they’re nearly all the result of personal contacts. I rarely use advertising these days.\n\nInterviewer:   So, you make a living out of it?\n\nRichard:   Not really. The most profitable part of my business is actually mending organs, generally old large ones so they can be used for concerts and recording sessions. That can earn me up to £300 each time. Which is just as well, because I do need to have money available to buy the raw materials for the larger organs. There’s a lot of investment to make before I can start to build. I get the wood from Britain, but most of the other components come from France or Germany.\n\nInterviewer:   And I understand you’ve made a big decision recently?\n\nRichard:   Yes. I’ve decided to take the opportunity to move my workshop to a former schoolroom that has become available in Lincolnshire, about a hundred miles away.\n\nInterviewer:   So, you’re moving house as well?\n\nRichard:   Yes. We’re moving there in three months’ time.\n\nInterviewer:   Tell me about the new workshop.\n\nRichard:   It is a lovely old building attached to the Town Hall in a small market town. In return for using the workshop, I’ve agreed to spend forty days a year working as a museum attendant. There’s a small museum in the town that has visiting exhibitions, but is only open on certain days in the year.\n\nInterviewer:   And is that something you’re looking forward to?\n\nRichard:   Not really, but it means that I save around £4000 a year because apart from paying the heating bill the workshop is rent free. That’s the great thing about the place. It’s also very close to our new house, so I’ll have the luxury of walking to work each morning, which is nice.\n\nInterviewer:   Is it easy to find a building that is suitable as a workshop?\n\nRichard:   No it isn’t. It’s very easy for the instruments to get damaged so the environment must be dry. None of the buildings I’ve worked in so far have been dry enough. The new workshop is perfect in that respect.\n\nInterviewer:   Oh right. Well, best of luck to you in that new project. Now, I think you’re going to play us a piece on an organ which you built yourself …",
+      "audioUrl": "/audio/PEL-B2-Test4-Part2.mp3",
+      "context": "Interview with Richard Porter, an organ maker",
+      "type": "LISTENING",
+      "skill": "listening",
+      "subTasks": [
+        {
+          "type": "trinary",
+          "mode": "tfng",
+          "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
+          "questions": [
+            {
+              "id": 9,
+              "text": "Richard originally wanted to become a composer.",
+              "answer": "TRUE"
+            },
+            {
+              "id": 10,
+              "text": "Richard’s parents wanted him to become a professional pianist.",
+              "answer": "FALSE"
+            },
+            {
+              "id": 11,
+              "text": "Richard began making organs in a rented workshop.",
+              "answer": "FALSE"
+            },
+            {
+              "id": 12,
+              "text": "Richard mainly gets customers through advertising.",
+              "answer": "FALSE"
+            },
+            {
+              "id": 13,
+              "text": "Repairing old organs earns Richard more money than building new ones.",
+              "answer": "TRUE"
+            },
+            {
+              "id": 14,
+              "text": "Richard will move to Lincolnshire next month.",
+              "answer": "FALSE"
+            },
+            {
+              "id": 15,
+              "text": "The new workshop previously belonged to Richard’s family.",
+              "answer": "NOT GIVEN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "part": 3,
+      "title": "Long-distance Cycling Race",
+      "subtitle": "Part 3: Listening",
+      "description": "You will hear five different cyclists talking about a long-distance race they took part in.\nFor questions 16-20, choose the correct answer A, B or C.",
+      "transcript": "Speaker 1\nWoman:   This was my first bike ride across the really difficult ground. When you ride at speed on rough tracks, it’s hard to find an easy riding position, and as a result you get an unpleasant stiffness in your back. You can stand up on the bike, and that sometimes helps. But it didn’t with me. On the contrary, I found myself flying over the handle bars a couple of times, landing on soft grass, luckily. If the bike had been damaged I’d have stopped then and there, but it was OK. I carried on to the end but the slight pain in my back didn’t get any better.\n\nSpeaker 2\nMan:   We cycled through towns and also through remote areas, and everything was fine until I came to a hilly bit. I knew I had an advantage here, because I’m good at speeding up slopes. No aching muscles for me! But at some point during the climb, I noticed one of the wheels needed adjusting. I’d been told before the start that there’d be a support team, so even if your bike broke down they’d be there to help you immediately. Well, they certainly weren’t capable of running things properly because I had to wait far too long, and so was one of the last competitors to reach the finishing line.\n\nSpeaker 3\nMan:   I’d been involved in all the planning stages of the race, and so it seemed a good idea to take part. However, halfway through, I realised my best option was to turn back. I hadn’t done enough training. In a race like that, you need to keep a regular speed, even when you are going up what looks like a mountainside. If you are not fit enough, your leg muscles may seem to refuse to keep on pedalling hard! I saw other riders speeding past me – I couldn’t believe it. Anyway, I thought, this is silly, I may end up with a torn muscle, so that was that.\n\nSpeaker 4\nWoman:   Well, I think I was just plain unlucky. I came up this village road and there were all these cars moving slowly uphill. There had been an accident or something. Anyway, it was impossible to overtake them, on such a narrow path, so they slowed me down. I’m content with what I’ve achieved, although I didn’t win any of the prizes. Basically, I managed all the difficult bits of the race, and I know that if it hadn’t been for that problem, I would have had a good chance of winning. Also my bike was great, I’d had it repaired recently and wasn’t sure it would stand this test.\n\nSpeaker 5\nMan:   I have lots of cycling experience, but I knew this was going to be a long race, and your muscles can get very tired and strained. But I was ready for the challenge, after months of weightlifting to increase my strength. In fact, I could almost say I overdid it, because I developed an elbow problem a couple of months before the race, which fortunately was not serious. But I certainly wasn’t expecting my bike to give my any trouble! But that’s what happened, unfortunately. I had started the race feeling fitter than ever, so it was all the more disappointing that it had to end like this.",
+      "audioUrl": "/audio/PEL-B2-Test4-Part3.mp3",
+      "context": "Five cyclists describe their experiences in a long-distance race",
+      "type": "LISTENING",
+      "skill": "listening",
+      "subTasks": [
+        {
+          "type": "mcq",
+          "instruction": "For questions 16-20, choose the correct answer A, B or C.",
+          "questions": [
+            {
+              "id": 16,
+              "text": "What problem did Speaker 1 experience during the race?",
+              "answer": "B",
+              "options": [
+                "a damaged bicycle",
+                "back pain",
+                "a crash on concrete"
+              ]
+            },
+            {
+              "id": 17,
+              "text": "Why was Speaker 2 disappointed?",
+              "answer": "A",
+              "options": [
+                "The support team was too slow.",
+                "The hills were too difficult.",
+                "His muscles became painful."
+              ]
+            },
+            {
+              "id": 18,
+              "text": "Why did Speaker 3 stop racing?",
+              "answer": "C",
+              "options": [
+                "His bicycle broke down.",
+                "He got lost on the route.",
+                "He was not physically prepared enough."
+              ]
+            },
+            {
+              "id": 19,
+              "text": "What prevented Speaker 4 from doing better in the race?",
+              "answer": "B",
+              "options": [
+                "a problem with her bicycle",
+                "slow traffic on a narrow road",
+                "a leg injury"
+              ]
+            },
+            {
+              "id": 20,
+              "text": "What surprised Speaker 5 most during the race?",
+              "answer": "A",
+              "options": [
+                "his bicycle developed problems",
+                "his elbow injury returned",
+                "the race was longer than expected"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+},
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You will be asked some questions about your personal life, experiences, and opinions. Answer honestly and in as much detail as you can.",
+        "topics": [
+          {
+            "topic": "Travel and Holidays",
+            "questions": [
+              { "id": "p1q1", "text": "Where do you usually go for your holidays?" },
+              { "id": "p1q2", "text": "What do you enjoy most about traveling?" },
+              { "id": "p1q3", "text": "Tell us about a memorable holiday you've had." }
+            ]
+          },
+          {
+            "topic": "Learning Languages",
+            "questions": [
+              { "id": "p1q4", "text": "Why are you learning German/English?" },
+              { "id": "p1q5", "text": "What do you find most challenging about learning a new language?" },
+              { "id": "p1q6", "text": "How do you practice your language skills outside of lessons?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following short text and discuss it with your partner. Express your opinions and react to your partner's points.",
+        "text": "An article in a youth magazine states: 'Social media has revolutionized how we connect, but it has also led to increased feelings of loneliness and anxiety among young people. The constant pressure to present a perfect life can be overwhelming.'",
+        "topics": [
+          {
+            "topic": "The Impact of Social Media",
+            "questions": [
+              { "id": "p2q1", "text": "What are your initial thoughts on the statement in the article?" },
+              { "id": "p2q2", "text": "Do you think social media has a mostly positive or negative impact on people's mental health?" },
+              { "id": "p2q3", "text": "What are some ways to use social media more responsibly?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "You and your partner are planning a surprise birthday party for a friend. Discuss the different aspects and decide together how to organize the party. Consider the following points:",
+        "topics": [
+          {
+            "topic": "Organizing a Surprise Party",
+            "suggestions": [
+              "Venue (e.g., restaurant, home, rented space)",
+              "Food and drinks (e.g., catering, potluck, cooking)",
+              "Guest list (who to invite, how to contact)",
+              "Activities/Entertainment (e.g., music, games, speeches)",
+              "Budget and responsibilities (who pays for what, who does what)"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Discuss the pros and cons of different venues." },
+              { "id": "p3q2", "text": "What kind of food and drinks should you have, considering your friend's preferences?" },
+              { "id": "p3q3", "text": "How will you ensure it remains a surprise?" },
+              { "id": "p3q4", "text": "Delegate responsibilities for planning and execution." }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m4-t1",
+        "taskType": 1,
+        "title": "Task 1: Formal Letter of Complaint",
+        "subtitle": "Part 1: Writing",
+        "instruction": "You recently purchased a new electronic device that has developed a fault within the first week. Write a formal letter of complaint to the retailer. In your letter, you should:",
+        "context": "You ordered a 'SuperSound Wireless Speaker' online from 'ElectroWorld' last week. Upon arrival, the sound quality was excellent, but after a few days, the battery stopped charging correctly. You still have the receipt and original packaging.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a formal letter of complaint.",
+        "bullets": [
+          "State clearly what the problem is with the device.",
+          "Explain when and where you purchased it.",
+          "Suggest what action you would like the retailer to take (e.g., replacement, refund, repair)."
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m4-t2",
+        "taskType": 2,
+        "title": "Task 2: Article for a Magazine",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Your local city magazine is running a series of articles about hobbies and leisure activities. Write an article describing a hobby you enjoy and explain why it is important to have hobbies in one's life. In your article, you should:",
+        "context": "The magazine 'Urban Living' has invited readers to submit articles about their passions. They want to encourage more people to find fulfilling ways to spend their free time.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write an article about your hobby.",
+        "bullets": [
+          "Describe your chosen hobby in detail.",
+          "Explain why you enjoy it and what benefits it brings you.",
+          "Discuss generally why hobbies are important for personal well-being and development."
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

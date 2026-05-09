@@ -1,0 +1,777 @@
+{
+  "id": "telc-b1-mock-2",
+  "level": "b1",
+  "mockNumber": 2,
+  "title": "TELC B1 Mock Test 2",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-b1-mock-2",
+    "title": "Test Vocabulary",
+    "level": "B1",
+    "words": [
+      { "term": "Accommodation", "hu": "Szállás", "definition": "A place where someone can stay or live.", "example": "We booked a hotel for our accommodation." },
+      { "term": "Journey", "hu": "Utazás", "definition": "The act of traveling from one place to another.", "example": "The journey took three hours by train." },
+      { "term": "Experience", "hu": "Tapasztalat", "definition": "An event that leaves an impression on someone.", "example": "It was an unforgettable experience." },
+      { "term": "Recommend", "hu": "Ajánlani", "definition": "To suggest something as good or useful.", "example": "I recommend visiting the museum." },
+      { "term": "Challenge", "hu": "Kihívás", "definition": "A difficult task that tests ability.", "example": "Climbing the mountain was a real challenge." },
+      { "term": "Culture", "hu": "Kultúra", "definition": "The customs and beliefs of a society.", "example": "We learned about local culture." },
+      { "term": "Tradition", "hu": "Tradició", "definition": "A custom passed down through generations.", "example": "This festival is an old tradition." },
+      { "term": "Destination", "hu": "Célállomás", "definition": "The place to which someone is going.", "example": "Paris is our final destination." },
+      { "term": "Memorable", "hu": "Emlékezetes", "definition": "Worth remembering; special.", "example": "We had a memorable holiday." },
+      { "term": "Adventure", "hu": "Kaland", "definition": "An exciting or unusual experience.", "example": "We went on an adventure in the mountains." },
+      { "term": "Local", "hu": "Helyi", "definition": "Belonging to a particular area.", "example": "We tried the local food." },
+      { "term": "Guide", "hu": "Kísérő", "definition": "A person who shows the way or gives information.", "example": "Our guide knew the city well." },
+      { "term": "Explore", "hu": "Felfedezni", "definition": "To travel around to learn about a place.", "example": "We want to explore the old town." },
+      { "term": "Relax", "hu": "Pihenni", "definition": "To rest and become less tired.", "example": "We relax on the beach every afternoon." },
+      { "term": "Memory", "hu": "Emlék", "definition": "Something remembered from the past.", "example": "I have a happy memory of that day." }
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "Accommodation",
+              "Journey",
+              "Experience",
+              "Recommend",
+              "Challenge",
+              "Culture",
+              "Tradition",
+              "Destination",
+              "Memorable",
+              "Adventure",
+              "Local",
+              "Guide",
+              "Explore",
+              "Relax",
+              "Memory"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "I have always wanted to explore the ancient city of Rome. Last summer, my family and I made this dream come true. We spent a week in Italy and visited many historical sites. The Colosseum has been standing for nearly 2,000 years, and it still amazes visitors today. We have seen many pictures of it, but nothing compares to seeing it in person."
+              },
+              {
+                "id": "2",
+                "text": "Maria has lived in Barcelona for five years, but she has never visited the famous Sagrada Familia. She has always said she would go there next weekend. However, she has found other things to do instead. Last month, she finally bought tickets and has been telling everyone about the beautiful architecture."
+              },
+              {
+                "id": "3",
+                "text": "The Thompsons have traveled to over twenty countries in the past decade. They have visited Japan during cherry blossom season, and they have explored the Amazon rainforest. They have also climbed Mount Kilimanjaro in Tanzania. Their children have learned so much from these experiences. The family believes that travel has opened their minds to different cultures."
+              },
+              {
+                "id": "4",
+                "text": "A group of friends from London decided to hike the Inca Trail to Machu Picchu last year. They had trained for months before the journey. The trail was more difficult than they had expected, but they supported each other. When they reached the ancient ruins at sunrise, they felt they had achieved something special. They have planned to return to Peru next year."
+              },
+              {
+                "id": "5",
+                "text": "Sarah works as a tour guide in Paris. She has shown thousands of visitors around the city since she started this job five years ago. She loves her work because she meets people from all over the world. Many tourists have told her that visiting the Louvre Museum has been the highlight of their trip. Sarah always recommends trying local French cuisine."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  {
+                    "id": "1",
+                    "text": "Paragraph 1",
+                    "answer": 3
+                  },
+                  {
+                    "id": "2",
+                    "text": "Paragraph 2",
+                    "answer": 5
+                  },
+                  {
+                    "id": "3",
+                    "text": "Paragraph 3",
+                    "answer": 1
+                  },
+                  {
+                    "id": "4",
+                    "text": "Paragraph 4",
+                    "answer": 4
+                  },
+                  {
+                    "id": "5",
+                    "text": "Paragraph 5",
+                    "answer": 2
+                  }
+                ],
+                "headings": [
+                  "A challenging mountain adventure",
+                  "A tour guide's recommendations",
+                  "A dream come true in Rome",
+                  "Finally visiting a famous landmark",
+                  "Travel experiences around the world"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about studying abroad and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The Benefits of Studying Abroad",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Studying abroad has become increasingly popular among students who want to improve their language skills and experience a different culture. Many universities now offer exchange programs that allow students to spend a semester or even a full year at a partner institution overseas. These programs have helped thousands of young people broaden their horizons."
+              },
+              {
+                "id": "B",
+                "text": "Living in a foreign country can be challenging at first. Students often experience culture shock when they arrive. Simple tasks like shopping or using public transportation may seem difficult initially. However, most students have found that they adapt quickly and become more independent as a result of the experience."
+              },
+              {
+                "id": "C",
+                "text": "The cost of studying abroad varies depending on the destination. Some countries are more expensive than others. Students should research carefully and plan their budget in advance. Many universities offer scholarships to help cover expenses, and some students work part-time while they are abroad."
+              },
+              {
+                "id": "D",
+                "text": "Employers increasingly value international experience. Students who have studied abroad often demonstrate better problem-solving skills and cultural awareness. They have learned to navigate unfamiliar situations and communicate with people from different backgrounds. These skills are highly valuable in today's global job market."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": "6",
+                    "text": "Why do students choose to study abroad?",
+                    "options": [
+                      "A. To improve language skills and experience different cultures",
+                      "B. To avoid studying at their home university",
+                      "C. To find permanent jobs in other countries"
+                    ],
+                    "answer": "A. To improve language skills and experience different cultures"
+                  },
+                  {
+                    "id": "7",
+                    "text": "What challenge do students often face initially?",
+                    "options": [
+                      "A. They cannot find accommodation",
+                      "B. They experience culture shock",
+                      "C. They do not like the food"
+                    ],
+                    "answer": "B. They experience culture shock"
+                  },
+                  {
+                    "id": "8",
+                    "text": "How can students manage the cost of studying abroad?",
+                    "options": [
+                      "A. By working full-time",
+                      "B. By applying for scholarships or working part-time",
+                      "C. By borrowing money from friends"
+                    ],
+                    "answer": "B. By applying for scholarships or working part-time"
+                  },
+                  {
+                    "id": "9",
+                    "text": "What skill do students develop while studying abroad?",
+                    "options": [
+                      "A. Better problem-solving skills",
+                      "B. Advanced mathematics",
+                      "C. Technical programming skills"
+                    ],
+                    "answer": "A. Better problem-solving skills"
+                  },
+                  {
+                    "id": "10",
+                    "text": "Why do employers value international experience?",
+                    "options": [
+                      "A. It shows students can navigate unfamiliar situations",
+                      "B. It proves students are wealthy",
+                      "C. It means students speak many languages"
+                    ],
+                    "answer": "A. It shows students can navigate unfamiliar situations"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 11-18",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Travel and Tourism Jobs",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Emma has worked as a flight attendant for three years. She loves meeting new people and traveling to different destinations. The job requires long hours and irregular schedules, but Emma finds it rewarding. She has visited over fifteen countries while working for the airline."
+              },
+              {
+                "id": "B",
+                "text": "Carlos became a tour guide after studying history at university. He specializes in leading walking tours through historic city centers. His extensive knowledge of local architecture and traditions impresses visitors. Carlos has been recognized as the best guide in his city twice."
+              },
+              {
+                "id": "C",
+                "text": "Lisa manages a boutique hotel in the mountains. She ensures that all guests have a comfortable stay and memorable experience. The hotel offers adventure activities like hiking and rock climbing. Lisa has organized several successful team-building events for corporate clients."
+              },
+              {
+                "id": "D",
+                "text": "Ahmed runs a travel agency that specializes in adventure holidays. He designs custom itineraries for clients who want unique experiences. His company has arranged trips to remote locations including the Himalayas and the Amazon. Ahmed enjoys creating personalized travel plans."
+              },
+              {
+                "id": "E",
+                "text": "Sophie works as a cruise ship entertainer. She performs in shows and organizes activities for passengers. The contract requires her to work at sea for six months at a time. Sophie has traveled to the Caribbean, Mediterranean, and Alaska while working on different ships."
+              },
+              {
+                "id": "F",
+                "text": "David is a wildlife photographer who travels extensively for his work. He has spent months in national parks capturing images of endangered species. His photographs have been published in international magazines. David believes that his work helps raise awareness about conservation."
+              },
+              {
+                "id": "G",
+                "text": "Maria owns a restaurant that serves traditional cuisine from her home country. She has introduced many locals to authentic flavors and cooking techniques. The restaurant has become a popular destination for tourists seeking genuine cultural experiences. Maria also teaches cooking classes on weekends."
+              },
+              {
+                "id": "H",
+                "text": "James works as a ski instructor at a resort in the Alps. He teaches beginners and advanced skiers throughout the winter season. James has trained hundreds of students over the past decade. During summer, he leads mountain climbing expeditions for experienced adventurers."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  {
+                    "id": "11",
+                    "text": "A person who has visited over fifteen countries for work",
+                    "answer": "A"
+                  },
+                  {
+                    "id": "12",
+                    "text": "Someone who specializes in adventure holidays",
+                    "answer": "D"
+                  },
+                  {
+                    "id": "13",
+                    "text": "A person who teaches skiing and mountain climbing",
+                    "answer": "H"
+                  },
+                  {
+                    "id": "14",
+                    "text": "Someone who manages a hotel in the mountains",
+                    "answer": "C"
+                  },
+                  {
+                    "id": "15",
+                    "text": "A person who works on cruise ships for six months at a time",
+                    "answer": "E"
+                  },
+                  {
+                    "id": "16",
+                    "text": "Someone who photographs endangered species",
+                    "answer": "F"
+                  },
+                  {
+                    "id": "17",
+                    "text": "A person who owns a traditional restaurant",
+                    "answer": "G"
+                  },
+                  {
+                    "id": "18",
+                    "text": "Someone who leads historic walking tours",
+                    "answer": "B"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "A Student's Experience Abroad",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "I ____(21)____ decided to study abroad last year. It was the best decision I have ever made. Before I left, I ____(22)____ about the experience for months. My university has many partner institutions, but I chose one in Spain because I ____(23)____ Spanish for three years already.\n\nWhen I arrived in Madrid, I felt a bit nervous. Everything was different from home. However, the university had organized an orientation week, and I ____(24)____ to meet other international students. We ____(25)____ a support group and met regularly.\n\nThe academic work was challenging but interesting. My professors ____(26)____ given us many assignments, but they were all manageable. I ____(27)____ learned so much about Spanish culture and history. The university ____(28)____ arranged several cultural trips for us. We ____(29)____ to Toledo and Segovia, which are beautiful historic cities.\n\nNow that I have returned home, I miss my life in Spain. I ____(30)____ many friends there, and I hope to visit them again soon."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {
+                    "id": "21",
+                    "text": "I ____(21)____ decided to study abroad last year.",
+                    "options": ["have", "had", "will"],
+                    "answer": "had"
+                  },
+                  {
+                    "id": "22",
+                    "text": "Before I left, I ____(22)____ about the experience for months.",
+                    "options": ["have thought", "thought", "had been thinking"],
+                    "answer": "had been thinking"
+                  },
+                  {
+                    "id": "23",
+                    "text": "...I chose one in Spain because I ____(23)____ Spanish for three years already.",
+                    "options": ["have studied", "studied", "had studied"],
+                    "answer": "had studied"
+                  },
+                  {
+                    "id": "24",
+                    "text": "...I ____(24)____ to meet other international students.",
+                    "options": ["was able", "could", "managed"],
+                    "answer": "was able"
+                  },
+                  {
+                    "id": "25",
+                    "text": "We ____(25)____ a support group and met regularly.",
+                    "options": ["have formed", "formed", "were forming"],
+                    "answer": "formed"
+                  },
+                  {
+                    "id": "26",
+                    "text": "My professors ____(26)____ given us many assignments...",
+                    "options": ["have", "had", "would"],
+                    "answer": "had"
+                  },
+                  {
+                    "id": "27",
+                    "text": "I ____(27)____ learned so much about Spanish culture...",
+                    "options": ["have", "had", "will"],
+                    "answer": "have"
+                  },
+                  {
+                    "id": "28",
+                    "text": "The university ____(28)____ arranged several cultural trips...",
+                    "options": ["have", "has", "had"],
+                    "answer": "had"
+                  },
+                  {
+                    "id": "29",
+                    "text": "We ____(29)____ to Toledo and Segovia...",
+                    "options": ["have gone", "went", "were going"],
+                    "answer": "went"
+                  },
+                  {
+                    "id": "30",
+                    "text": "I ____(30)____ many friends there...",
+                    "options": ["have made", "made", "had made"],
+                    "answer": "have made"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Questions 31-40. Read the following text and complete the gaps with the correct word from the box.",
+        "passages": [
+          {
+            "id": "p3",
+          "subtitle": "Language Elements Part 2",
+            "title": "Planning a Trip",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Dear Travel Agent,\n\nI am writing to ask for your help in planning a holiday for my family. We have never been to Italy before, and we would like some advice. We want to visit Rome, Florence, and Venice during our two-week trip.\n\nWe have already booked our flights, but we need help with the rest of our plans. We ____(a)____ to stay in hotels in each city, but we are not sure which areas are best. My children ____(b)____ about the ancient history, so we want to visit museums and historical sites. We also want to try the local food and perhaps take a cooking class.\n\nWe ____(c)____ to travel by train between cities, as we have heard it is convenient. However, we are worried about carrying our luggage. Can you recommend a good luggage delivery service?\n\nWe would appreciate any suggestions you can offer. We have saved for this trip for a long time, and we want it to be perfect. We ____(d)____ very much if you could send us some brochures and price lists.\n\nYours sincerely,\nThe Johnson Family"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-o) to complete each gap (a-d).",
+                "tokens": [
+                  "WOULD LIKE",
+                  "WOULD APPRECIATE",
+                  "ARE INTERESTED",
+                  "PLAN"
+                ],
+                "answers": {
+                  "a": "PLAN",
+                  "b": "ARE INTERESTED",
+                  "c": "WOULD LIKE",
+                  "d": "WOULD APPRECIATE"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+   "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Situations",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear people talking in eight different situations.\nFor questions 1-8, choose the best answer A, B or C.",
+        "transcript": "1. Mum: I’m going to mend and paint the cupboard in your bedroom today.\nDaughter: Great, Mum. Anything I can do to help?\nMum: Yes, can you go to the shop and get me a new hammer – this one’s broken. But before you do that, ask your dad what he’s done with the paintbrush – I’ve looked everywhere for it. There weren’t any in the garage; all I could find was this knife which I lost months ago!\n\n2. Man: And now for those of you planning to go to the rock festival tomorrow, you’ll want to know what the weather’s going to be like. As we go through today, the heave rain will gradually disappear by the end of the afternoon. Tomorrow we can expect some sunshine with just a few light showers, and then some very hot and dry weather is likely by the weekend.\n\n3. Son: I got most of the shopping you asked for, Mum. I got the last of the bread and some orange juice but sorry, there weren’t any newspapers left.\nMum: Oh, never mind, I need to remember to go in the morning. But what about the tomatoes for the salad?\nSon: Ah … I forgot. I’ll go back for them.\nMum: Oh, don’t worry, I’ll stop and pick some up when I go out to collect your sister.\n\n4. Jane: Hi … it’s me, Jane … I’ve got Mum’s birthday present. I think she’ll like it … Yes, that’s right, a gold-coloured one. She’s always writing letters, so she’ll find it useful … Mmm. I thought about a CD but I’m never really sure what music she likes, and Dad’s bought her a new pair of earrings for her birthday anyway. I’m sure she’ll like what I’ve got her.\n\n5. Girl: Hasn’t that basketball match finished yet? You know I want to watch the wildlife programme at nine o’clock.\nBoy: It’s cancelled, and everything’s running late because the rock concert finished later than expected. Sit down and watch this match with me. It’s really exciting, and more interesting than looking at animals.\nGirl: Oh, OK then.\n\n6. Girl: Hi Judy – do you want to play tennis after school – say about 4.30?\nJudy: Mmm – that would be fun but I’ve got a swimming lesson. It’s usually at a quarter past five but it’s half an hour earlier this evening, at a quarter to five. It takes me ages to cycle to the swimming pool, so I really don’t think I’ll have time today – let’s try tomorrow.\nGirl: OK!\n\n7. Boy: I really like the new IT teacher – our project for this term is to design a new website. I’ve always wanted to know how to do that. The sports teacher is much more serious but that’s still my favourite subject. Last year I used to really like geography, but the teacher we have now gives us so much homework.",
+        "audioUrl": "/audio/PEL-B1-Test2-Part1.mp3",
+        "context": "Eight different situations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (a-f) corresponds to each news item?",
+            "questions": [
+              {
+                "id": 1,
+                "text": "News Item 1",
+                "answer": "1"
+              },
+              {
+                "id": 2,
+                "text": "News Item 2",
+                "answer": "4"
+              },
+              {
+                "id": 3,
+                "text": "News Item 3",
+                "answer": "2"
+              },
+              {
+                "id": 4,
+                "text": "News Item 4",
+                "answer": "5"
+              },
+              {
+                "id": 5,
+                "text": "News Item 5",
+                "answer": "3"
+              },
+              {
+                "id": 6,
+                "text": "News Item 6",
+                "answer": "6"
+              },
+              {
+                "id": 7,
+                "text": "News Item 7",
+                "answer": "0"
+              }
+            ],
+            "headings": [
+              "A new teacher",
+              "Looking for tools",
+              "Forgetting something",
+              "A change of programme",
+              "The weather forecast",
+              "A birthday present",
+              "Making an excuse"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Interview: Simon Benito - Indoor Climbing",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with Simon Benito, who recently went with his mum to an indoor climbing centre.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
+        "transcript": "Woman: Hello, everyone! Today we’re discussing adventure activities, and I’m talking to Simon Benito, who recently went with his mum to an indoor climbing centre. Simon, what gave your mum the ideas to take you there?\n\nSimon: Well, last year my school had a trip to the centre, but I missed it because I was sick. Then recently she went with a friend and tired it herself – and she loved it! So after that she wanted to take me, too.\n\nWoman: And what did you think when your mum suggested going to the centre?\n\nSimon: Well, I knew I was OK at climbing – we’ve been climbing on holidays – and I thought we’d do something similar at the centre. I was really looking forward to it. But then my mum explained that the wall was inside. I wasn’t so interested when I heard that – I prefer being outside.\n\nWoman: But did you meet lots of people there?\n\nSimon: Well, yes – that was great! It was early morning when we arrived and the centre had just opened, so it was quiet, but lots of people came later in the morning – and for once I wasn’t the youngest! I’d expected it’d be mainly young people there, but there were people of all ages – serious climbers, mums with five-year olds … and teenagers like me!\n\nWoman: So what was the climbing wall like?\n\nSimon: Well, luckily it had rocks of different sizes to help you climb. So there was little chance of falling off. And I’d imagined it would look high before you started to climb, but actually it didn’t seem that far to the top. There were lots of really useful holes all over it, too, to put your feet in – green ones for an easy climb, red for more difficult.\n\nWoman: So what was your first climb like? Was it easy?\n\nSimon: No! The instructor showed us what to do and I thought I’d soon get to the top, but I was the last to get there, so I was annoyed with myself. The instructor warned us it can be painful for your arms, too, but I didn’t notice. And I did improve.\n\nWoman: So what did you learn from your visit?\n\nSimon: Well, it was great to be with other people who all like doing the same thing! And when I was climbing I had to think carefully where to put my feel before I moved – so that’s helped me to think first before I do things. It’s shown me that I am fitter than my friends who spend too much time on their computers.\n\nWoman: Well, thanks, Simon!",
+        "audioUrl": "/audio/PEL-B1-Test2-Part2.mp3",
+        "context": "Interview with Simon Benito about indoor climbing",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "mode": "tfng",
+            "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
+            "questions": [
+              {
+                "id": 8,
+                "text": "Simon’s mum had visited the centre before with a friend.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 9,
+                "text": "Simon was enthusiastic about going to an indoor climbing centre.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 10,
+                "text": "Simon was the youngest person at the centre that day.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 11,
+                "text": "Simon thought the climbing wall looked very high.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 12,
+                "text": "The climbing wall had different coloured holes to show how difficult the climb was.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 13,
+                "text": "Simon was annoyed because he was the last one to reach the top of the wall.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 14,
+                "text": "Simon has learnt to plan more carefully since his visit.",
+                "answer": "TRUE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Hannah and Griffon the Horse",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear a man called Ben, from a young people’s organisation, telling a youth group about a course they can do on Saturdays.\nFor questions 15-20, choose the correct answer A, B or C.",
+        "transcript": "Hannah: Hi. My name’s Hannah. I come from a family that trains horses, and we have a champion horse called Griffon. He is black with an incredibly shiny coat. He was born two years ago, in December, and we’re taking him to compete in his first international show in March next year, just after my fifteenth birthday.\n\nThe whole family is going – me, my sister and our parents. We live in Poland and we’re going to drive through Germany and the Netherlands to the show in England, so it’ll be a long journey for us. The event lasts for three days, and we’ll be staying with friends who also have horses.\n\nMy sister wanted to ride Griffon in front of the judges, but she’s too young. The rules are that the person riding the horse has to be over 18, so my father will do it. Griffon has been to other shows in several European countries. He’s got dozens of cups, but at an event a couple of weeks ago, he got some money as a prize, which was a change. It suited us because it’s expensive taking part in horse shows.\n\nHorses have to learn what to do in front of the judges – how to walk and jump. I watch my parents working with Griffon, and my dream is to be a trainer too, getting horses ready for shows. My parents want me to study to be a doctor, but I’m not sure about that.\n\nWhen Griffon comes first in a competition he’s as pleased as we are. Lots of people give their horses sweets when they win but we give Griffon apples. I also think he likes to be the centre of attention.",
+        "audioUrl": "/audio/PEL-B1-Test2-Part3.mp3",
+        "context": "Hannah talks about her family's champion horse, Griffon",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "For questions 15-20, choose the correct answer A, B or C.",
+            "questions": [
+              {
+                "id": 15,
+                "text": "When will Griffon take part in his first international show?",
+                "answer": "C",
+                "options": [
+                  "in December",
+                  "when Hannah is 15",
+                  "next March"
+                ]
+              },
+              {
+                "id": 16,
+                "text": "Where will Hannah’s family stay during the show?",
+                "answer": "A",
+                "options": [
+                  "with friends",
+                  "in a hotel",
+                  "in their car"
+                ]
+              },
+              {
+                "id": 17,
+                "text": "Who will ride Griffon in front of the judges?",
+                "answer": "B",
+                "options": [
+                  "Hannah",
+                  "her father",
+                  "her sister"
+                ]
+              },
+              {
+                "id": 18,
+                "text": "What prize did Griffon win recently?",
+                "answer": "C",
+                "options": [
+                  "a cup",
+                  "a new saddle",
+                  "some money"
+                ]
+              },
+              {
+                "id": 19,
+                "text": "What does Hannah want to do in the future?",
+                "answer": "A",
+                "options": [
+                  "train horses",
+                  "become a doctor",
+                  "ride Griffon in shows"
+                ]
+              },
+              {
+                "id": 20,
+                "text": "What does Griffon get when he wins a competition?",
+                "answer": "B",
+                "options": [
+                  "sweets",
+                  "apples",
+                  "extra attention"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You will be asked some questions about your personal life, experiences, and opinions. Answer honestly and in as much detail as you can.",
+        "topics": [
+          {
+            "topic": "Your Home and Area",
+            "questions": [
+              { "id": "p1q1", "text": "Where do you live?" },
+              { "id": "p1q2", "text": "What is your house or flat like?" },
+              { "id": "p1q3", "text": "What is your favorite room in your house? Why?" }
+            ]
+          },
+          {
+            "topic": "Travel and Experiences",
+            "questions": [
+              { "id": "p1q4", "text": "Have you ever traveled to another country?" },
+              { "id": "p1q5", "text": "What was your most memorable trip?" },
+              { "id": "p1q6", "text": "Where would you like to go in the future?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following short text and discuss it with your partner. Express your opinions and react to your partner's points.",
+        "text": "Many students choose to study abroad to improve their language skills and experience different cultures. However, some people believe it is too expensive and that students can learn just as much by staying at home. Others worry that students will struggle with homesickness and culture shock.",
+        "topics": [
+          {
+            "topic": "Studying Abroad",
+            "questions": [
+              { "id": "p2q1", "text": "Do you think studying abroad is worth the cost?" },
+              { "id": "p2q2", "text": "What are the main benefits of studying abroad?" },
+              { "id": "p2q3", "text": "How can students prepare for culture shock?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "Your school is planning a cultural exchange program with a school in another country. Discuss the different options and decide together which country would be best for the exchange. Consider the following points:",
+        "topics": [
+          {
+            "topic": "Cultural Exchange Program",
+            "suggestions": [
+              "Spain - to improve Spanish and experience European culture",
+              "Japan - to learn about Asian traditions and modern life",
+              "Canada - to practice English and experience nature",
+              "France - to improve French and visit historic cities",
+              "Germany - to learn about history and technology"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Which country would be most interesting for students?" },
+              { "id": "p3q2", "text": "What can students learn from each option?" },
+              { "id": "p3q3", "text": "Which option is best for language learning?" },
+              { "id": "p3q4", "text": "Which country would provide the most cultural differences?" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m2-t1",
+        "taskType": 1,
+        "title": "Task 1: Email",
+        "subtitle": "Part 1: Writing",
+        "intro": "You see this advert online",
+        "instruction": "You want to invite your friend to visit you during the summer holidays. Write an email describing interesting places in your city and activities you can do together. In your email, you should:\n\n• Describe your city or town\n• Suggest activities you can do together\n• Say when you are free to meet\n\nWrite at least 150 words.",
+        "context": "Your friend is thinking about visiting you during the summer holidays. You want to invite them and tell them about interesting places in your town and activities you can do together.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write an email inviting your friend to visit and describing your town and activities.",
+        "bullets": [
+          "Describe your town or city",
+          "Suggest activities you can do together",
+          "Say when you are free to meet"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m2-t2",
+        "taskType": 2,
+        "title": "Task 2: Article",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Your school magazine has asked students to write about their favorite place. Write an article about a place you like to visit. In your article, you should:\n\n• Describe the place\n• Explain why you like it\n• Say when you last visited and what you did\n\nWrite at least 250 words.",
+        "context": "The school magazine wants students to write about places they enjoy visiting and why they like them.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write an article about your favorite place to visit.",
+        "bullets": [
+          "Describe the place",
+          "Explain why you like it",
+          "Say when you last visited and what you did"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

@@ -1,0 +1,579 @@
+{
+  "id": "telc-c1-mock-8",
+  "level": "c1",
+  "mockNumber": 8,
+  "title": "TELC C1 Mock Test 8",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC C1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-8",
+    "title": "Test Vocabulary",
+    "level": "C1",
+    "words": [
+      {"term": "Anthropocene", "hu": "emberkor", "definition": "the current geological age where human activity is the dominant influence on climate and environment", "example": "Many scientists argue we have entered the Anthropocene due to widespread environmental modification."},
+      {"term": "Biotechnology", "hu": "biotechnológia", "definition": "the application of biological processes for industrial and other purposes, especially genetic manipulation", "example": "Advances in biotechnology have revolutionized medicine and agriculture."},
+      {"term": "Convergence", "hu": "konvergencia", "definition": "the process of different technologies or ideas coming together to form something new", "example": "The convergence of AI and biotechnology is creating unprecedented opportunities."},
+      {"term": "Democratization", "hu": "demokratizálás", "definition": "the action of making something accessible to everyone", "example": "The democratization of information through the internet has transformed education."},
+      {"term": "Epigenetics", "hu": "epigenetika", "definition": "the study of heritable changes in gene expression that do not involve changes to the underlying DNA sequence", "example": "Epigenetics explains how environmental factors can influence gene activity."},
+      {"term": "Frugal", "hu": "póráz", "definition": "sparing or economical in use or expenditure; simple and plain", "example": "The company developed frugal innovations that provide essential services at low cost."},
+      {"term": "Hegemonic", "hu": "hegemonikus", "definition": "ruling or dominant in a political or social context", "example": "The country's hegemonic influence extends across multiple continents."},
+      {"term": "Interdependence", "hu": "kölcsönhatás", "definition": "the mutual reliance between two or more things", "example": "Global supply chains demonstrate the interdependence of modern economies."},
+      {"term": "Juxtaposition", "hu": "viszonyítás", "definition": "the fact of comparing or contrasting two things together", "example": "The juxtaposition of traditional and modern architecture creates visual interest."},
+      {"term": "Kinetic", "hu": "kinetikus", "definition": "relating to or resulting from motion", "example": "Kinetic energy is converted to electrical energy in this innovative device."},
+      {"term": "Leverage", "hu": "befektetés", "definition": "to use something to maximum advantage", "example": "Small businesses can leverage social media to reach wider audiences."},
+      {"term": "Multilateral", "hu": "multilateralis", "definition": "involving more than two groups or countries", "example": "Multilateral agreements are essential for addressing global challenges."},
+      {"term": "Neuroplasticity", "hu": "idegplaszticitás", "definition": "the brain's ability to change, adapt, and reorganize itself throughout life", "example": "Neuroplasticity allows recovery from brain injuries through rehabilitation."},
+      {"term": "Obfuscate", "hu": "összebarmol", "definition": "to render obscure, unclear, or unintelligible", "example": "Legal jargon often serves to obfuscate rather than clarify meaning."},
+      {"term": "Paradoxical", "hu": "paradoxális", "definition": "seeming absurd or contradictory but actually valid", "example": "It is paradoxical that increased connectivity can lead to greater isolation."}
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 90,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Gapped Sentences",
+        "description": "Questions 1-6",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "The Evolution of Work",
+            "subtitle": "Reading Passage 1",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "The nature of work has undergone radical transformation throughout human history. __(1)__ agricultural societies established predictable rhythms tied to seasons, industrialization introduced rigid time discipline and factory schedules."
+              },
+              {
+                "id": "2",
+                "text": "The digital revolution accelerated this transformation exponentially. __(2)__ remote work became mainstream during the pandemic, the traditional office seemed increasingly obsolete and unnecessary."
+              },
+              {
+                "id": "3",
+                "text": "Artificial intelligence now threatens to automate cognitive tasks previously considered uniquely human. __(3)__ the productivity gains are substantial, widespread job displacement raises ethical concerns about economic distribution."
+              },
+              {
+                "id": "4",
+                "text": "The gig economy normalized precarious employment arrangements. __(4)__ workers value flexibility and autonomy, the lack of benefits and job security creates new forms of inequality."
+              },
+              {
+                "id": "5",
+                "text": "Some advocate for universal basic income as a solution. __(5)__ automation eliminates traditional employment, societies must reconsider how wealth is distributed among citizens."
+              },
+              {
+                "id": "6",
+                "text": "Others emphasize lifelong learning and skill adaptation. __(6)__ continuous education remains expensive and inaccessible to many, economic mobility becomes increasingly constrained by initial circumstances."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "sentence-insert",
+                "instruction": "Which of the sentences a–h is missing in each gap? There is only one correct answer for each item. Two sentences do not fit into any of the gaps.",
+                "options": [
+                  {"id": "a", "text": "Whereas agricultural societies followed natural cycles, industrial work imposed artificial schedules."},
+                  {"id": "b", "text": "When workers can perform their duties from anywhere, geographic constraints dissolve."},
+                  {"id": "c", "text": "Although automation increases overall productivity, displaced workers face unemployment."},
+                  {"id": "d", "text": "Because gig platforms offer flexible scheduling, many prefer independent contracting."},
+                  {"id": "e", "text": "Since machines can perform most economic functions, human contribution becomes optional."},
+                  {"id": "f", "text": "While retraining programs exist, not everyone can afford to participate."},
+                  {"id": "g", "text": "If we simply provide money to everyone regardless of work, motivation disappears."},
+                  {"id": "h", "text": "Due to technological advancement, work will disappear entirely within decades."}
+                ],
+                "answers": {
+                  "1": "a",
+                  "2": "b",
+                  "3": "c",
+                  "4": "d",
+                  "5": "e",
+                  "6": "f"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Selective Understanding",
+        "description": "Questions 7-12",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "Ocean Conservation Challenges",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "a",
+                "text": "Marine ecosystems face unprecedented threats from multiple interconnected sources. Plastic pollution has created floating garbage patches larger than countries, while ocean acidification threatens coral reefs and shell-forming organisms."
+              },
+              {
+                "id": "b",
+                "text": "Overfishing has depleted fish populations beyond sustainable limits, with some species experiencing collapse. Despite international agreements, enforcement remains inconsistent, and illegal fishing continues undetected in international waters."
+              },
+              {
+                "id": "c",
+                "text": "Climate change accelerates sea level rise and alters ocean temperature and circulation patterns. These changes disrupt marine food webs and force species migration toward cooler waters, creating ecological imbalances."
+              },
+              {
+                "id": "d",
+                "text": "Marine protected areas offer one conservation strategy, but their effectiveness varies widely. Without adequate enforcement and connectivity between reserves, isolated protected zones may become ecological traps rather than refuges."
+              },
+              {
+                "id": "e",
+                "text": "Community-based conservation efforts have shown promising results in some regions. When local populations have economic incentives to protect marine resources, compliance with conservation measures improves significantly."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "In which part of the text a–e can you find the information 7–12? There is only one correct answer for each item. Each part of the text may contain more than one of the pieces of information.",
+                "questions": [
+                  {
+                    "id": "7",
+                    "text": "describes the formation of garbage patches in oceans?",
+                    "answer": "a"
+                  },
+                  {
+                    "id": "8",
+                    "text": "explains why international fishing agreements are ineffective?",
+                    "answer": "b"
+                  },
+                  {
+                    "id": "9",
+                    "text": "discusses how climate affects marine food chains?",
+                    "answer": "c"
+                  },
+                  {
+                    "id": "10",
+                    "text": "suggests that protected areas need better enforcement?",
+                    "answer": "d"
+                  },
+                  {
+                    "id": "11",
+                    "text": "identifies successful conservation involving local communities?",
+                    "answer": "e"
+                  },
+                  {
+                    "id": "12",
+                    "text": "mentions threats to shell-forming marine organisms?",
+                    "answer": "a"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3-reading",
+        "section": 3,
+        "title": "Part 3: True/False/Not Given",
+        "description": "Questions 13-20",
+        "passages": [
+          {
+            "id": "p3-reading",
+            "title": "Memory and Identity in the Digital Age",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "Human memory has always been reconstructive rather than reproductive, meaning we recreate experiences rather than storing perfect recordings. This characteristic once ensured cultural transmission while allowing adaptation to new contexts."
+              },
+              {
+                "id": "2",
+                "text": "Digital archiving promises perfect preservation of every moment, conversation, and experience. However, external storage may weaken our capacity for internal memory consolidation and the meaning-making that emerges from forgetting."
+              },
+              {
+                "id": "3",
+                "text": "Social media platforms encourage continuous documentation of experience rather than immersion in the moment. This constant mediation potentially alters how we form autobiographical memories and construct personal narratives."
+              },
+              {
+                "id": "4",
+                "text": "The ability to edit and curate our digital selves enables more intentional identity construction than ever before. Yet this same capability creates pressure to perform rather than exist authentically, raising questions about the nature of true selfhood."
+              },
+              {
+                "id": "5",
+                "text": "Emerging technologies like augmented reality blur boundaries between remembered and recorded experience. When digital overlays become indistinguishable from reality, the very notion of authentic memory becomes problematic."
+              },
+              {
+                "id": "6",
+                "text": "Philosophers debate whether digitally mediated memories constitute genuine experience or something fundamentally different. This question gains urgency as virtual and augmented realities become seamless aspects of daily life."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "trinary",
+                 "mode": "tfng",
+                "instruction": "Read the following text and the statements 13–19 below. For each of the statements mark: (+) corresponds to the content, (–) does not correspond, (X) is not mentioned.",
+                "questions": [
+                  {"id": "13", "text": "Digital memory storage eliminates the need for human memory entirely.", "answer": "FALSE"},
+                  {"id": "14", "text": "Forgetting plays a role in how we make meaning from experiences.", "answer": "TRUE"},
+                  {"id": "15", "text": "Social media helps people live more present-moment lives.", "answer": "FALSE"},
+                  {"id": "16", "text": "Curating our digital presence requires constant performance.", "answer": "TRUE"},
+                  {"id": "17", "text": "Virtual reality technology is indistinguishable from physical reality today.", "answer": "NOT GIVEN"},
+                  {"id": "18", "text": "Perfect memory preservation is always beneficial for personal growth.", "answer": "FALSE"},
+                  {"id": "19", "text": "Digital mediation changes how autobiographical memories form.", "answer": "TRUE"}
+                ]
+              },
+              {
+                "type": "mcq",
+                "instruction": "Which title a, b or c best matches the article?",
+                "questions": [
+                  {"id": "20", "text": "", "options": ["a The transformation of memory in digital culture", "b Why photography killed natural memory", "c The benefits of online documentation"], "answer": "a The transformation of memory in digital culture"}
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Text 1",
+            "title": "Global Education Transformation",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Online education has fundamentally transformed how people learn worldwide. __(21)__ the pandemic accelerated adoption, virtual classrooms became the norm rather than the exception. __(22)__ this shift enabled broader access, concerns about student engagement and social development persist. __(23)__ traditional universities maintain high tuition fees, alternative credentials are gaining recognition from employers. __(24)__, the quality and accessibility of education depends heavily on technological infrastructure and individual self-regulation. __(25)__ online learning can democratize education globally, significant barriers remain for underserved populations."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {"id": "21", "text": "Online education has fundamentally transformed... __(21)__ the pandemic accelerated adoption...", "options": ["a While", "b Since", "c Before"], "answer": "b Since"},
+                  {"id": "22", "text": "...virtual classrooms became the norm. __(22)__ this shift enabled broader access...", "options": ["a Because", "b Although", "c Since"], "answer": "b Although"},
+                  {"id": "23", "text": "...alternative credentials are gaining recognition. __(23)__ traditional universities maintain high tuition fees...", "options": ["a Whereas", "b While", "c However"], "answer": "a Whereas"},
+                  {"id": "24", "text": "...alternative credentials... __(24)__, the quality and accessibility...", "options": ["a However", "b Therefore", "c Nevertheless"], "answer": "a However"},
+                  {"id": "25", "text": "...depends heavily on technological infrastructure. __(25)__ online learning can democratize education...", "options": ["a Although", "b Since", "c Even though"], "answer": "c Even though"}
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p2",
+            "subtitle": "Text 2",
+            "title": "Mental Health in Modern Society",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Mental health challenges have reached epidemic proportions in developed nations. __(26)__ rates of anxiety and depression continue rising, stigma around seeking help has gradually diminished. __(27)__ digital connectivity isolates individuals mentally, online communities provide support for those feeling alone. __(28)__, workplace wellness programs increasingly address psychological wellbeing alongside physical health. __(29)__, young people face unprecedented pressure from social comparison and achievement expectations. __(30)__, comprehensive mental health care requires coordinated efforts across healthcare, education, and social services."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-t) to complete each sentence.",
+                "tokens": ["additionally", "although", "as a result", "because", "consequently", "furthermore", "hence", "however", "in contrast", "indeed", "instead", "moreover", "nevertheless", "nonetheless", "notably", "particularly", "rather", "since", "therefore", "ultimately"],
+"questions": [
+                   {"id": "26", "text": "Mental health challenges have reached epidemic proportions... __(26)__ rates of anxiety and depression continue rising..."},
+                   {"id": "27", "text": "__(27)__ digital connectivity isolates individuals mentally, online communities provide support..."},
+                   {"id": "28", "text": "__(28)__, workplace wellness programs increasingly address psychological wellbeing..."},
+                   {"id": "29", "text": "__(29)__, young people face unprecedented pressure from social comparison..."},
+                   {"id": "30", "text": "__(30)__, comprehensive mental health care requires coordinated efforts..."}
+                 ],
+"answers": {
+                   "26": "although",
+                   "27": "however",
+                   "28": "consequently",
+                   "29": "moreover",
+                   "30": "therefore"
+                 }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Work-Life Balance Perspectives",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear eight professionals discussing their approaches to work-life balance. You will hear each speaker once. While listening, decide which statement a–j best matches each speaker.",
+        "transcript": "[Audio with eight speakers discussing work-life balance]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
+        "context": "Professional perspectives on work-life balance",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "matching-info",
+            "instruction": "Which statement a–j best matches what each speaker says?",
+            "questions": [
+              {"id": 47, "text": "Speaker 1", "answer": "a"},
+              {"id": 48, "text": "Speaker 2", "answer": "b"},
+              {"id": 49, "text": "Speaker 3", "answer": "c"},
+              {"id": 50, "text": "Speaker 4", "answer": "d"},
+              {"id": 51, "text": "Speaker 5", "answer": "e"},
+              {"id": 52, "text": "Speaker 6", "answer": "f"},
+              {"id": 53, "text": "Speaker 7", "answer": "g"},
+              {"id": 54, "text": "Speaker 8", "answer": "h"}
+            ],
+            "options": [
+              "a I set strict boundaries between work hours and personal time.",
+              "b Remote work has blurred the lines between professional and family responsibilities.",
+              "c Taking regular breaks throughout the day improves my productivity significantly.",
+              "d The pressure to always be available affects my mental health negatively.",
+              "e Sharing childcare duties equally with my partner helps maintain balance.",
+              "f I found that delegating tasks freed up time for personal pursuits.",
+              "g Freelancing gives me flexibility but creates income uncertainty.",
+              "h Mindfulness practices help me stay present in both work and home.",
+              "i Weekend digital detoxes restore my energy for the coming week.",
+              "j Cross-cultural differences shape how people view work-life integration."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Interview: Renewable Energy Transition",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with an energy policy expert about the transition to renewable sources.",
+        "transcript": "[Interview about renewable energy adoption]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
+        "context": "Energy policy discussion",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "While listening decide which answer fits best: a, b or c.",
+            "questions": [
+              {"id": 55, "text": "The expert identifies the main obstacle to renewable adoption as", "options": ["a insufficient technological capability", "b lack of political will and fossil fuel subsidies", "c public resistance to wind farms"], "answer": "b lack of political will and fossil fuel subsidies"},
+              {"id": 56, "text": "Regarding energy storage, the interviewee mentions", "options": ["a battery technology has reached its limits", "b grid-scale solutions exist but need scaling", "c storage is no longer a concern"], "answer": "b grid-scale solutions exist but need scaling"},
+              {"id": 57, "text": "The timeline for complete transition mentioned is", "options": ["a within the next decade", "b 2050 at the current rate", "c 2070 if current trends continue"], "answer": "b 2050 at the current rate"},
+              {"id": 58, "text": "Developing nations should approach renewables by", "options": ["a skipping fossil fuels entirely", "b leapfrogging to distributed systems", "c building coal plants as a bridge"], "answer": "b leapfrogging to distributed systems"},
+              {"id": 59, "text": "The expert views green hydrogen as", "options": ["a a distraction from real solutions", "b essential for hard-to-electrify sectors", "c too expensive for practical use"], "answer": "b essential for hard-to-electrify sectors"},
+              {"id": 60, "text": "Job losses in fossil fuel industries can be offset by", "options": ["a retraining programs for renewable sectors", "b maintaining existing plants longer", "c importing cheap solar panels"], "answer": "a retraining programs for renewable sectors"},
+              {"id": 61, "text": "The biggest misconception about renewables is", "options": ["a they cannot meet baseload demand", "b intermittency has been solved", "c costs are still prohibitively high"], "answer": "b intermittency has been solved"},
+              {"id": 62, "text": "International cooperation is crucial for", "options": ["a sharing technology patents freely", "b establishing supply chain standards", "c reducing trade barriers on solar panels"], "answer": "b establishing supply chain standards"},
+              {"id": 63, "text": "The transition requires investment in", "options": ["a nuclear power as bridge technology", "b grid modernization and storage", "c keeping coal plants as backup"], "answer": "b grid modernization and storage"},
+              {"id": 64, "text": "Individual actions can contribute by", "options": ["a installing rooftop solar only", "b supporting policy changes and efficiency", "c buying electric cars immediately"], "answer": "b supporting policy changes and efficiency"}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Lecture: Food Security and Climate Change",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear a lecture on sustainable agriculture and food security.",
+        "transcript": "[Academic lecture on food systems]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
+        "context": "Sustainable agriculture lecture",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "notes-completion",
+            "instruction": "Complete the notes with information from the lecture. Write no more than THREE words for each answer.",
+            "wordLimit": 3,
+            "notes": [
+              {
+                "heading": "Dr. Maria Santos",
+                "items": [
+                  { "id": "0", "type": "text", "text": "Global Food Institute" },
+                  { "id": "0-answer", "type": "gap", "label": "Position", "answer": "Senior Researcher" }
+                ]
+              },
+              {
+                "heading": "Climate Impacts on Agriculture",
+                "items": [
+                  { "id": "65", "type": "gap", "label": "Crop yield reduction by 2050", "answer": "twenty-five percent" },
+                  { "id": "66", "type": "gap", "label": "Most vulnerable region", "answer": "Sub-Saharan Africa" }
+                ]
+              },
+              {
+                "heading": "Adaptation Strategies",
+                "items": [
+                  { "id": "67", "type": "gap", "label": "Drought-resistant crops", "answer": "drought-tolerant varieties" },
+                  { "id": "68", "type": "gap", "label": "Water conservation method", "answer": "precision irrigation" }
+                ]
+              },
+              {
+                "heading": "Policy Recommendations",
+                "items": [
+                  { "id": "69", "type": "gap", "label": "International funding needed", "answer": "climate finance mechanisms" },
+                  { "id": "70", "type": "gap", "label": "Local adaptation priority", "answer": "indigenous knowledge systems" }
+                ]
+              },
+              {
+                "heading": "Nutritional Outcomes",
+                "items": [
+                  { "id": "71", "type": "gap", "label": "Undernourishment projection", "answer": "nearly nine percent" },
+                  { "id": "72", "type": "gap", "label": "Micronutrient deficiency issue", "answer": "hidden hunger crisis" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m8-t1",
+        "taskType": 1,
+        "title": "Task 1: Compulsory",
+        "subtitle": "Part 1: Writing",
+        "instruction": "In this part of the examination you have to write two texts: the compulsory task and one of the optional tasks. You have a total of one hour to complete both tasks.\nRemember:\nThe texts you write should be well-structured and highlight the points that you think are most important for the reader. The structure of the text should have an appropriate degree of complexity with reference to the type of text specified and should also contain a number of complex sentence forms.\nWrite at least 200 words.",
+        "context": "Your government is considering banning all single-use plastics within five years. The proposal has sparked intense debate about economic impacts, practical alternatives, and environmental benefits. A public consultation has been opened for citizens to share their views. Write a formal letter to the Minister of Environment presenting your position on this proposal.",
+        "targetWords": 200,
+        "xp": 500,
+        "prompt": "Write to the Minister about the proposed single-use plastic ban.",
+        "type": "letter"
+      },
+      {
+        "id": "w-m8-t2",
+        "taskType": 2,
+        "title": "Task 2: Optional",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Choose one of the following four tasks and write at least 150 words.",
+        "options": [
+          {
+            "id": "optional-a",
+            "title": "A: Letter to Your Future Self",
+            "context": "Write a letter to yourself five years from now describing your current goals, challenges you are facing, and advice you would give about navigating this pivotal period in your life.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "letter"
+          },
+          {
+            "id": "optional-b",
+            "title": "B: Article on Sustainable Fashion",
+            "context": "Write an article for a lifestyle magazine about the environmental impact of fast fashion and how consumers can make more sustainable clothing choices.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          },
+          {
+            "id": "optional-c",
+            "title": "C: Blog Post About a Book",
+            "context": "Write a blog post reviewing a book that significantly changed your perspective on an important issue. Describe the book's main arguments and how they influenced your thinking.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          },
+          {
+            "id": "optional-d",
+            "title": "D: Social Media Campaign Proposal",
+            "context": "Your local community is organizing a campaign to reduce food waste. Write a proposal outlining what the campaign would look like, how it would engage residents, and what resources would be needed.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          }
+        ]
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "speaking-part1",
+        "title": "Presentation",
+        "subtitle": "Part 1: Speaking",
+        "type": "presentation",
+        "duration": "3 minutes",
+        "instruction": "Choose one of the two topics and give a short presentation to your partner(s). Take a few seconds to prepare before you start speaking. Remember to give an introduction (example, own experience) and come to a conclusion at the end. You should talk for about three minutes. At the end you will be asked follow-up questions.",
+        "topics": [
+          {
+            "topic": "Should governments prioritize economic growth or environmental protection?",
+            "questions": [
+              {
+                "id": "p1q1",
+                "text": "What evidence supports the view that both goals can be achieved simultaneously?"
+              }
+            ]
+          },
+          {
+            "topic": "Is remote work beneficial for career advancement?",
+            "questions": [
+              {
+                "id": "p1q2",
+                "text": "How does physical presence in an office contribute to professional development?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "speaking-part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Discussion",
+        "type": "discussion",
+        "duration": "6 minutes",
+        "instruction": "Discuss the following topic with your partner(s)",
+        "text": "\"The measure of intelligence is the ability to change.\" - Albert Einstein",
+        "topics": [
+          {
+            "topic": "Adaptability and Intelligence",
+            "questions": [
+              {
+                "id": "p2q1",
+                "text": "What does Einstein mean by intelligence as the ability to change?"
+              },
+              {
+                "id": "p2q2",
+                "text": "Do you agree that adaptability is more important than knowledge in today's world?"
+              },
+              {
+                "id": "p2q3",
+                "text": "What factors make change difficult for individuals and societies?"
+              },
+              {
+                "id": "p2q4",
+                "text": "How can we develop greater capacity for change in our lives?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

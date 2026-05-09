@@ -1,0 +1,823 @@
+{
+  "id": "telc-c1-mock-4",
+  "level": "c1",
+  "mockNumber": 4,
+  "title": "TELC C1 Mock Test 4",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC C1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-4",
+    "title": "Test Vocabulary",
+    "level": "C1",
+    "words": [
+      {
+        "term": "Dilemma",
+        "hu": " dilemma",
+        "definition": "a difficult situation requiring a choice between equally undesirable alternatives",
+        "example": "She faced a dilemma between career advancement and family life."
+      },
+      {
+        "term": "Nuance",
+        "hu": "finomrészlet",
+        "definition": "a subtle difference in meaning, expression, or tone",
+        "example": "The nuance in his response suggested hidden disagreement."
+      },
+      {
+        "term": "Viable",
+        "hu": "megvalósítható",
+        "definition": "capable of working successfully or of developing",
+        "example": "We need a viable solution to the housing crisis."
+      },
+      {
+        "term": "Precarious",
+        "hu": "bizonytalan",
+        "definition": "not safely held or placed; uncertain or unstable",
+        "example": "His health was in a precarious condition after the surgery."
+      },
+      {
+        "term": "Pragmatic",
+        "hu": "gyakorlati",
+        "definition": "dealing with things sensibly and realistically",
+        "example": "We need a pragmatic approach to urban planning problems."
+      },
+      {
+        "term": "Inevitable",
+        "hu": "elkerülhetetlen",
+        "definition": "certain to happen; unavoidable",
+        "example": "Change is inevitable in any dynamic organisation."
+      },
+      {
+        "term": "Comprehensive",
+        "hu": "átfogó",
+        "definition": "including all aspects or elements; complete",
+        "example": "The report provides a comprehensive analysis of the market."
+      },
+      {
+        "term": "Substantiate",
+        "hu": "bizonyít",
+        "definition": "to provide evidence to support an argument or claim",
+        "example": "You must substantiate your claims with documented evidence."
+      },
+      {
+        "term": "Consciousness",
+        "hu": "tudatosság",
+        "definition": "the state of being aware of and able to think",
+        "example": "Philosophers debate the nature of human consciousness."
+      },
+      {
+        "term": "Paradigm",
+        "hu": "paradigma",
+        "definition": "a typical example or pattern of something",
+        "example": "This discovery represents a paradigm shift in physics."
+      },
+      {
+        "term": "Mitigate",
+        "hu": "enyhít",
+        "definition": "to make less severe, serious, or painful",
+        "example": "Measures must be taken to mitigate the effects of climate change."
+      },
+      {
+        "term": "Ubiquitous",
+        "hu": "mindenhová jelenlévő",
+        "definition": "present, appearing, or found everywhere",
+        "example": "Smartphones have become ubiquitous in modern society."
+      },
+      {
+        "term": "Resilient",
+        "hu": "rugalmas",
+        "definition": "able to withstand or recover quickly from difficult conditions",
+        "example": "The community proved remarkably resilient after the flood."
+      },
+      {
+        "term": "Algorithmic",
+        "hu": "algoritmikus",
+        "definition": "relating to the step-by-step procedures for calculations",
+        "example": "Algorithmic trading dominates modern financial markets."
+      },
+      {
+        "term": "Intricate",
+        "hu": "összetett",
+        "definition": "very complicated or detailed",
+        "example": "The intricate design required months of careful craftsmanship."
+      },
+      {
+        "term": "Ambiguous",
+        "hu": "kétértelmű",
+        "definition": "open to more than one interpretation; having unclear meaning",
+        "example": "The contract contained ambiguous clauses that led to dispute."
+      },
+      {
+        "term": "Empirical",
+        "hu": "empirikus",
+        "definition": "based on observation or experience rather than theory",
+        "example": "The study relied on empirical data collected over five years."
+      },
+      {
+        "term": "Surveillance",
+        "hu": "megfigyelés",
+        "definition": "close observation of people or places, especially for security",
+        "example": "Mass surveillance raises serious privacy concerns."
+      },
+      {
+        "term": "Ethical",
+        "hu": "etikai",
+        "definition": "relating to moral principles or the branch of knowledge dealing with these",
+        "example": "The ethical implications of genetic engineering are widely debated."
+      },
+      {
+        "term": "Implementation",
+        "hu": "megvalósítás",
+        "definition": "the process of putting a decision or plan into effect",
+        "example": "The implementation of the new system took longer than expected."
+      }
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 90,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Gapped Sentences",
+        "description": "Questions 1-6",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "Digital Transformation in Education",
+            "subtitle": "Reading Passage 1",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "The integration of digital technology into education has accelerated dramatically in recent years. __(1)__ the COVID-19 pandemic forced institutions worldwide to adopt remote learning solutions, many educators had been experimenting with digital tools in the classroom."
+              },
+              {
+                "id": "2",
+                "text": "However, this rapid digitalisation has revealed significant disparities. Students from disadvantaged backgrounds often lack access to necessary devices and reliable internet. __(2)__ the digital divide threatens to exacerbate existing educational inequalities."
+              },
+              {
+                "id": "3",
+                "text": "The nature of teaching itself is evolving. __(3)__ traditional lectures are being complemented or replaced by interactive online modules, adaptive learning software, and virtual reality experiences."
+              },
+              {
+                "id": "4",
+                "text": "Critics argue that excessive screen time can harm students' social development and mental wellbeing. __(4)__ proponents maintain that technology, when used thoughtfully, can enhance engagement and personalise learning."
+              },
+              {
+                "id": "5",
+                "text": "Artificial intelligence is poised to play an increasingly important role. __(5)__ AI-powered tutors can provide individualised attention to every student, something impossible in overcrowded classrooms."
+              },
+              {
+                "id": "6",
+                "text": "Looking forward, the challenge lies in finding the right balance. __(6)__ embracing technological innovation while preserving essential human elements of education remains the central task for institutions."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "sentence-insert",
+                "instruction": "Which of the sentences a–h is missing in each gap? There is only one correct answer for each item. Two sentences do not fit into any of the gaps.",
+                "options": [
+                  { "id": "a", "text": "Some fear that automation will eventually replace human teachers entirely." },
+                  { "id": "b", "text": "While there are valid concerns about over-reliance on technology," },
+                  { "id": "c", "text": "Long before the pandemic," },
+                  { "id": "d", "text": "This phenomenon is known as the digital divide." },
+                  { "id": "e", "text": "These tools offer unprecedented flexibility and accessibility." },
+                  { "id": "f", "text": "For instance, these systems can adjust difficulty based on student performance." },
+                  { "id": "g", "text": "This shift requires substantial investment in infrastructure and training." },
+                  { "id": "h", "text": "Pedagogical approaches are being transformed by technological capabilities." }
+                ],
+                "answers": {
+                  "1": "c",
+                  "2": "d",
+                  "3": "h",
+                  "4": "b",
+                  "5": "f",
+                  "6": "a"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Selective Understanding",
+        "description": "Questions 7-12",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The Circular Economy: Rethinking Resource Use",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "a",
+                "text": "The circular economy represents a fundamental departure from the traditional linear 'take-make-dispose' model. Instead of extracting resources, manufacturing products, and discarding them, the circular model keeps materials in use for as long as possible. This approach aims to eliminate waste entirely by designing products for durability, reuse, and eventual recycling."
+              },
+              {
+                "id": "b",
+                "text": "Transitioning to a circular economy requires radical redesign across industries. Companies must reconsider product design, supply chains, and business models. Some pioneering organisations have demonstrated success through product-as-a-service models, where customers pay for functionality rather than ownership. This shift creates incentives for producers to build longer-lasting products and maintain responsibility for end-of-life recycling."
+              },
+              {
+                "id": "c",
+                "text": "The environmental benefits are substantial. By reducing resource extraction and minimising waste, circular practices can significantly lower carbon emissions. Moreover, keeping materials in circulation reduces pressure on ecosystems and biodiversity. Some estimates suggest that circular economy strategies could reduce global greenhouse gas emissions by nearly 40 percent by 2050."
+              },
+              {
+                "id": "d",
+                "text": "Economic advantages are equally compelling. Circular business models can generate new revenue streams while reducing exposure to volatile commodity prices. Companies that embrace circular principles often report improved brand reputation and customer loyalty. However, significant barriers exist, including upfront investment requirements, regulatory hurdles, and the need for consumer behaviour change."
+              },
+              {
+                "id": "e",
+                "text": "Policy frameworks are crucial for systemic change. Extended producer responsibility laws, landfill taxes, and recycling targets create market conditions favourable to circular approaches. Several European countries have already implemented ambitious circular economy strategies. The shift is not merely environmental or economic—it represents a philosophical reorientation toward valuing longevity, stewardship, and intergenerational responsibility."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "In which part of the text a–e can you find the information 7–12? There is only one correct answer for each item. Each part of the text may contain more than one of the pieces of information.",
+                "questions": [
+                  {
+                    "id": "7",
+                    "text": "explains how business models need fundamental changes?",
+                    "answer": "b"
+                  },
+                  {
+                    "id": "8",
+                    "text": "mentions financial benefits for companies?",
+                    "answer": "d"
+                  },
+                  {
+                    "id": "9",
+                    "text": "contrasts circular and linear approaches to production?",
+                    "answer": "a"
+                  },
+                  {
+                    "id": "10",
+                    "text": "notes environmental advantages of circular systems?",
+                    "answer": "c"
+                  },
+                  {
+                    "id": "11",
+                    "text": "describes how some companies now sell services rather than products?",
+                    "answer": "b"
+                  },
+                  {
+                    "id": "12",
+                    "text": "indicates that government policy supports circular economy transition?",
+                    "answer": "e"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3-reading",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 13-24",
+        "passages": [
+          {
+            "id": "p3-reading",
+            "title": "The Challenge of Misinformation in the Digital Age",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "The spread of misinformation through social media and digital platforms has emerged as one of the defining challenges of the 21st century. Unlike traditional media, which typically employs editorial oversight, digital platforms enable anyone to publish content that can reach millions within hours. This democratisation of information, while valuable, has created fertile ground for deliberate disinformation campaigns and unintentional falsehoods."
+              },
+              {
+                "id": "2",
+                "text": "Psychological research explains why misinformation spreads so effectively. Confirmation bias drives people to accept information consistent with their existing beliefs. The illusory truth effect demonstrates that repeated exposure to a claim increases its perceived accuracy, regardless of truthfulness. Algorithms optimised for engagement often prioritise emotionally charged content, further accelerating misinformation propagation."
+              },
+              {
+                "id": "3",
+                "text": "The consequences extend far beyond individual beliefs. Misinformation about public health measures during the COVID-19 pandemic contributed directly to preventable deaths. False political narratives undermine democratic processes and social cohesion. Conspiracy theories targeting minority groups fuel discrimination and violence. The scale of harm demands urgent responses."
+              },
+              {
+                "id": "4",
+                "text": "Combating misinformation requires multi-faceted strategies. Media literacy education should equip citizens to critically evaluate sources and verify claims. Platform providers must improve content moderation and transparency about algorithmic decisions. Fact-checking organisations play a vital role, though their impact is limited by reach and speed. Some scholars advocate for regulatory approaches, but concerns about censorship create significant political obstacles."
+              },
+              {
+                "id": "5",
+                "text": "Technological solutions are also evolving. Artificial intelligence can help identify potentially false content at scale, though imperfectly. Blockchain technology could provide verifiable provenance for information sources. However, technology alone cannot solve a problem rooted in human psychology and social dynamics. Sustainable solutions will likely combine education, technology, and cultural shifts toward valuing truth and evidence."
+              },
+              {
+                "id": "6",
+                "text": "The path forward remains contested. Free speech advocates warn against overregulation, while public health experts call for stronger measures. Finding the right balance between protecting expression and preventing harm represents one of society's most pressing challenges in the digital era."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "trinary",
+                 "mode": "tfng",
+                "instruction": "Read the following text and the statements 13–23 below. For each of the statements mark: (+) corresponds to the content, (–) does not correspond, (X) is not mentioned.",
+                "questions": [
+                  {
+                    "id": "13",
+                    "text": "Digital platforms allow unrestricted publication of information.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "14",
+                    "text": "Traditional media has better fact-checking than digital platforms.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "15",
+                    "text": "Social media algorithms help slow the spread of misinformation.",
+                    "answer": "FALSE"
+                  },
+                  {
+                    "id": "16",
+                    "text": "Misinformation influenced public health responses during the pandemic.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "17",
+                    "text": "Fact-checking organisations have completely solved the misinformation problem.",
+                    "answer": "FALSE"
+                  },
+                  {
+                    "id": "18",
+                    "text": "Blockchain technology can track information origins.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "19",
+                    "text": "Artificial intelligence perfectly identifies all false content.",
+                    "answer": "FALSE"
+                  },
+                  {
+                    "id": "20",
+                    "text": "Solving misinformation requires changes in human behaviour.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "21",
+                    "text": "Some worry that regulation might restrict free speech.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "22",
+                    "text": "Misinformation only affects political opinions.",
+                    "answer": "FALSE"
+                  },
+                  {
+                    "id": "23",
+                    "text": "The spread of misinformation is partly a psychological phenomenon.",
+                    "answer": "TRUE"
+                  }
+                ]
+              },
+              {
+                "type": "mcq",
+                "instruction": "Which title a, b or c best matches the article?",
+                "questions": [
+                  {
+                    "id": "24",
+                    "text": "",
+                    "options": [
+                      "a Why misinformation spreads in the digital age",
+                      "b The role of social media in modern communication",
+                      "c How to regulate online content effectively"
+                    ],
+                    "answer": "a Why misinformation spreads in the digital age"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Text 1",
+            "title": "Globalisation and Cultural Identity",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Globalisation has profoundly reshaped cultural identities worldwide. As borders become increasingly porous, cultural exchange accelerates, leading to both enrichment and tension. __(21)____ cultures come into closer contact, questions arise about the preservation of unique traditions. __(22)____ globalisation threatens to homogenise cultural expression, others argue that hybrid cultural forms represent authentic evolution rather than loss. The internet and social media have dramatically amplified these dynamics. __(23)____, younger generations can access content from anywhere in the world, shaping their identities through diverse influences. This transnational cultural flow challenges conventional notions of national and ethnic belonging. __(24)____, many people maintain strong attachments to local customs and languages. The relationship between global and local identity is complex and often contradictory. __(25)____ globalisation shapes cultural practices; communities actively reinterpret and resist external influences in creative ways."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {
+                    "id": "21",
+                    "text": "As borders become increasingly porous, cultural exchange accelerates, leading to both enrichment and tension. __(21)____ cultures come into closer contact...",
+                    "options": ["a whereas", "b whenever", "c as"],
+                    "answer": "c as"
+                  },
+                  {
+                    "id": "22",
+                    "text": "Globalisation threatens to homogenise cultural expression, others argue that hybrid cultural forms represent authentic evolution rather than loss. __(22)____ globalisation threatens to homogenise...",
+                    "options": ["a while", "b whereas", "c however"],
+                    "answer": "a while"
+                  },
+                  {
+                    "id": "23",
+                    "text": "The internet and social media have dramatically amplified these dynamics. __(23)____, younger generations can access content from anywhere...",
+                    "options": ["a for example", "b as a result", "c in contrast"],
+                    "answer": "a for example"
+                  },
+                  {
+                    "id": "24",
+                    "text": "This transnational cultural flow challenges conventional notions of national and ethnic belonging. __(24)____, many people maintain strong attachments to local customs...",
+                    "options": ["a on the other hand", "b on the contrary", "c in addition"],
+                    "answer": "b on the contrary"
+                  },
+                  {
+                    "id": "25",
+                    "text": "The relationship between global and local identity is complex and often contradictory. __(25)____ globalisation shapes cultural practices...",
+                    "options": ["a whereas", "b while", "c if"],
+                    "answer": "b while"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p2",
+            "subtitle": "Text 2",
+            "title": "The Psychology of Motivation",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Understanding what drives human behaviour has been central to psychology for over a century. Intrinsic motivation arises from internal factors like curiosity, enjoyment, or personal growth. Extrinsic motivation, by contrast, depends on external rewards or punishments. Research consistently shows that intrinsic motivation leads to deeper, more sustainable engagement. However, extrinsic factors are not necessarily detrimental; they can support intrinsic motivation when used appropriately. The key lies in balancing autonomy, competence, and relatedness—three fundamental psychological needs identified by self-determination theory. When these needs are satisfied, motivation flourishes. Conversely, environments that undermine autonomy or create excessive pressure tend to diminish intrinsic drive. Modern organisations increasingly recognise these principles, moving away from purely reward-based management toward approaches that foster engagement through meaningful work, skill development, and supportive culture."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-t) to complete each sentence.",
+                "tokens": ["accordingly", "additionally", "alternatively", "certainly", "consequently", "essentially", "furthermore", "hence", "however", "indeed", "instead", "moreover", "nevertheless", "nonetheless", "notably", "particularly", "perhaps", "rather", "therefore", "ultimately"],
+                "questions": [
+                  { "id": "26", "text": "Research consistently shows that intrinsic motivation leads to deeper engagement. __(26)____, extrinsic motivation can be beneficial in certain contexts." },
+                  { "id": "27", "text": "Intrinsic motivation arises from internal satisfaction. __(27)____, extrinsic motivation depends on external incentives." },
+                  { "id": "28", "text": "Both types of motivation have their place. __(28)____, the question becomes how to balance them effectively." },
+                  { "id": "29", "text": "Self-determination theory identifies three core needs. __(29)____, fulfilling these needs creates optimal motivation conditions." },
+                  { "id": "30", "text": "Modern workplaces are applying these insights. __(30)____, companies are redesigning jobs to emphasise autonomy and purpose." }
+                ],
+                "answers": {
+                  "26": "however",
+                  "27": "instead",
+                  "28": "hence",
+                  "29": "therefore",
+                  "30": "accordingly"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Opinions on Social Media",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear eight people giving their views on social media's impact on society. You will hear each speaker once. While listening, decide which statement a–j best matches what each speaker says. You will only need eight of the ten statements.\nMark your answers for items 47–54 on Answer Sheet.",
+        "transcript": "[Radio programme transcript with eight speakers discussing social media's influence on society]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
+        "context": "Radio programme about social media effects",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "matching-info",
+            "instruction": "Which statement a–j best matches what each speaker says?",
+            "questions": [
+              { "id": 47, "text": "Speaker 1", "answer": "a" },
+              { "id": 48, "text": "Speaker 2", "answer": "b" },
+              { "id": 49, "text": "Speaker 3", "answer": "c" },
+              { "id": 50, "text": "Speaker 4", "answer": "d" },
+              { "id": 51, "text": "Speaker 5", "answer": "e" },
+              { "id": 52, "text": "Speaker 6", "answer": "f" },
+              { "id": 53, "text": "Speaker 7", "answer": "g" },
+              { "id": 54, "text": "Speaker 8", "answer": "h" }
+            ],
+            "options": [
+              "a Social media has democratised information sharing.",
+              "b Constant connectivity erodes face-to-face social skills.",
+              "c Platforms can amplify both positive and harmful messages.",
+              "d Social media activism often lacks genuine commitment.",
+              "e Online communities provide valuable support networks.",
+              "f Digital literacy education is essential for young people.",
+              "g Algorithms create filter bubbles that polarise society.",
+              "h Social media impacts mental health differently across individuals.",
+              "i Authenticity online is increasingly difficult to maintain.",
+              "j Social media has become indispensable for professional networking."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Interview: The Future of Work",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with an economist about the future of employment. You will hear the interview only once. While listening decide which answer fits best: a, b or c.\nMark your answers for items 55–64 on Answer Sheet.",
+        "transcript": "[Interview transcript about economics and future of work]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
+        "context": "Interview about labour economics",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "While listening decide which answer fits best: a, b or c.",
+            "questions": [
+              {
+                "id": "55",
+                "text": "The economist predicts that automation will primarily",
+                "options": ["a eliminate all manual jobs.", "b transform job composition.", "c increase overall unemployment."],
+                "answer": "b transform job composition."
+              },
+              {
+                "id": "56",
+                "text": "Regarding universal basic income, the guest suggests it",
+                "options": ["a is inevitable in the near future.", "b warrants serious consideration.", "c is too expensive to implement."],
+                "answer": "b warrants serious consideration."
+              },
+              {
+                "id": "57",
+                "text": "The most crucial skill for future workers will be",
+                "options": ["a technical programming ability.", "b adaptability and continuous learning.", "c advanced academic qualifications."],
+                "answer": "b adaptability and continuous learning."
+              },
+              {
+                "id": "58",
+                "text": "On remote work trends, the economist states that",
+                "options": ["a they will continue indefinitely.", "b a hybrid model is likely to persist.", "c offices will become obsolete."],
+                "answer": "b a hybrid model is likely to persist."
+              },
+              {
+                "id": "59",
+                "text": "The gig economy's main drawback is",
+                "options": ["a lack of job security and benefits.", "b reduced productivity.", "c fewer opportunities for skilled workers."],
+                "answer": "a lack of job security and benefits."
+              },
+              {
+                "id": "60",
+                "text": "Regarding wealth inequality, the economist believes",
+                "options": ["a it will decrease naturally.", "b policy intervention is necessary.", "c technology will solve the problem."],
+                "answer": "b policy intervention is necessary."
+              },
+              {
+                "id": "61",
+                "text": "The role of government in workforce transition should be",
+                "options": ["a minimal, leaving markets to adjust.", "b active through retraining programs.", "c focused on protecting existing jobs."],
+                "answer": "b active through retraining programs."
+              },
+              {
+                "id": "62",
+                "text": "On education reform, the economist advocates",
+                "options": ["a earlier specialisation.", "b broadening general skills.", "c vocational training for all."],
+                "answer": "b broadening general skills."
+              },
+              {
+                "id": "63",
+                "text": "The economist describes the future of work as",
+                "options": ["a predominantly pessimistic.", "b cautiously optimistic.", "c overwhelmingly positive."],
+                "answer": "b cautiously optimistic."
+              },
+              {
+                "id": "64",
+                "text": "Workers' attitudes must shift towards",
+                "options": ["a seeking lifetime employment at one company.", "b embracing career fluidity and resilience.", "c prioritising salary over satisfaction."],
+                "answer": "b embracing career fluidity and resilience."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "The History of the Silk Road",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear a lecture on the historical Silk Road trade network. While listening, complete the notes with information from the lecture. Write no more than THREE words for each answer.\nYou will hear the lecture only once.\nYou will now have one minute to read the notes.",
+        "transcript": "[Academic lecture transcript about the Silk Road]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
+        "context": "Academic lecture on historical trade",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "notes-completion",
+            "instruction": "Complete the notes with information from the lecture. Write no more than THREE words for each answer.",
+            "wordLimit": 3,
+            "notes": [
+              {
+                "heading": "The Silk Road",
+                "items": [
+                  { "id": "0", "type": "text", "text": "DR. ANNA PETROVA" },
+                  { "id": "0-answer", "type": "gap", "label": "University", "answer": "University of Cambridge" }
+                ]
+              },
+              {
+                "heading": "Origins and Development",
+                "items": [
+                  { "id": "65", "type": "gap", "label": "Period when Silk Road flourished", "answer": "2nd century BCE to 14th century" },
+                  { "id": "66", "type": "gap", "label": "Good that gave the route its name", "answer": "silk" }
+                ]
+              },
+              {
+                "heading": "Trade and Exchange",
+                "items": [
+                  { "id": "67", "type": "gap", "label": "Most valuable commodity traded", "answer": "gold" },
+                  { "id": "68", "type": "gap", "label": "Technology transferred from China to West", "answer": "papermaking" }
+                ]
+              },
+              {
+                "heading": "Cultural Impact",
+                "items": [
+                  { "id": "69", "type": "gap", "label": "Religion that spread along the Silk Road", "answer": "Buddhism" },
+                  { "id": "70", "type": "gap", "label": "Disease that travelled via trade routes", "answer": "bubonic plague" }
+                ]
+              },
+              {
+                "heading": "Decline",
+                "items": [
+                  { "id": "71", "type": "gap", "label": "Empire that disrupted overland trade", "answer": "Mongol Empire" },
+                  { "id": "72", "type": "gap", "label": "Event that ultimately ended the Silk Road", "answer": "rise of sea trade" }
+                ]
+              },
+              {
+                "heading": "Modern Relevance",
+                "items": [
+                  { "id": "73", "type": "gap", "label": "Modern initiative inspired by Silk Road", "answer": "Belt and Road Initiative" },
+                  { "id": "74", "type": "gap", "label": "Term for renewed East-West connections", "answer": "New Silk Road" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m4-t1",
+        "taskType": 1,
+        "title": "Task 1: Compulsory",
+        "subtitle": "Part 1: Writing",
+        "instruction": "In this part of the examination you have to write two texts: the compulsory task and one of the optional tasks. You have a total of one hour to complete both tasks.\nRemember:\nThe texts you write should be well-structured and highlight the points that you think are most important for the reader. The structure of the text should have an appropriate degree of complexity with reference to the type of text specified and should also contain a number of complex sentence forms.\nWrite at least 200 words.",
+        "context": "Your university is considering implementing a four-day work week for all administrative staff. The proposal aims to improve work-life balance, reduce burnout, and increase productivity. Some faculty members support it as a progressive reform, while others worry about coverage and service quality. The university newsletter has opened a forum for debate.\n\nWrite an article for the newsletter presenting arguments for and against the four-day work week.",
+        "targetWords": 200,
+        "xp": 500,
+        "prompt": "Write an article discussing the advantages and disadvantages of a four-day work week.",
+        "type": "article"
+      },
+      {
+        "id": "w-m4-t2",
+        "taskType": 2,
+        "title": "Task 2: Optional",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Choose one of the following four tasks and write at least 150 words.",
+        "options": [
+          {
+            "id": "optional-a",
+            "title": "A: Personal Blog Post",
+            "context": "You run a travel blog documenting your adventures. Write a post describing a memorable journey you experienced—by train, plane, ship, or otherwise. Include details about the people you met, sights you saw, and what made the trip special.\n\nWrite a blog post about your memorable travel experience.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          },
+          {
+            "id": "optional-b",
+            "title": "B: Restaurant Review",
+            "context": "You recently dined at a new fusion restaurant that combines multiple culinary traditions. Write a review for a food magazine assessing the food, service, ambiance, and overall value. Provide a recommendation for readers.\n\nWrite the restaurant review.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "review"
+          },
+          {
+            "id": "optional-c",
+            "title": "C: Complaint to Landlord",
+            "context": "You have been renting an apartment for six months and have discovered several serious issues: a persistent mould problem, heating that fails during winter, and inability of the landlord to address repairs despite repeated requests. You believe your health and living conditions are at risk.\n\nWrite a formal letter to your landlord demanding resolution of these problems.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "letter"
+          },
+          {
+            "id": "optional-d",
+            "title": "D: Opinion on Remote Work",
+            "context": "A business magazine is publishing a series called 'The Office of Tomorrow.' Write a contribution discussing whether traditional office spaces will remain relevant in the post-pandemic era, considering productivity, collaboration, and company culture factors.\n\nWrite your opinion piece for the magazine.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          }
+        ]
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "speaking-part1",
+        "title": "Presentation",
+        "subtitle": "Part 1: Speaking",
+        "type": "presentation",
+        "duration": "3 minutes",
+        "instruction": "Choose one of the two topics and give a short presentation to your partner(s). Take a few seconds to prepare before you start speaking. Remember to give an introduction (example, own experience) and come to a conclusion at the end. You should talk for about three minutes. At the end you will be asked follow-up questions.",
+        "topics": [
+          {
+            "topic": "Should governments prioritise economic growth over environmental protection?",
+            "questions": [
+              {
+                "id": "p1q1",
+                "text": "Can economic development and environmental stewardship be reconciled?"
+              }
+            ]
+          },
+          {
+            "topic": "Is traditional news media still relevant in the age of social media?",
+            "questions": [
+              {
+                "id": "p1q2",
+                "text": "What advantages do traditional news sources still hold?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "speaking-part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Discussion",
+        "type": "discussion",
+        "duration": "6 minutes",
+        "instruction": "Discuss the following topic with your partner(s)",
+        "text": "\"In a world where you can be anything, be kind.\" Unknown author",
+        "topics": [
+          {
+            "topic": "Kindness and Ethics",
+            "questions": [
+              {
+                "id": "p2q1",
+                "text": "Why do you think this simple message resonates with so many people?"
+              },
+              {
+                "id": "p2q2",
+                "text": "Is kindness undervalued in modern society? Why or why not?"
+              },
+              {
+                "id": "p2q3",
+                "text": "How can individuals cultivate kindness in daily life?"
+              },
+              {
+                "id": "p2q4",
+                "text": "What obstacles prevent people from being kinder?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

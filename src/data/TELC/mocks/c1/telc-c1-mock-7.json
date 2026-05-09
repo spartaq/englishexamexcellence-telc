@@ -1,0 +1,595 @@
+{
+  "id": "telc-c1-mock-7",
+  "level": "c1",
+  "mockNumber": 7,
+  "title": "TELC C1 Mock Test 7",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC C1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-7",
+    "title": "Test Vocabulary",
+    "level": "C1",
+    "words": [
+      {"term": "Autonomous", "hu": "önálló", "definition": "able to operate independently without external control", "example": "Autonomous vehicles are expected to transform urban transportation systems."},
+      {"term": "Cohesive", "hu": "összefüggő", "definition": "united and working together effectively", "example": "A cohesive team can overcome even the most daunting challenges."},
+      {"term": "Disparate", "hu": "különböző", "definition": "essentially different in kind; distinct", "example": "The study compared disparate cultural attitudes toward technology adoption."},
+      {"term": "Exacerbate", "hu": "rosszabbítani", "definition": "to make a problem or situation worse", "example": "Economic inequality tends to exacerbate social tensions and political polarization."},
+      {"term": "Facilitate", "hu": "könnyebbíteni", "definition": "to make an action or process easier or more achievable", "example": "Digital platforms facilitate instant communication across geographical boundaries."},
+      {"term": "Inevitable", "hu": "elkerülhetetlen", "definition": "certain to happen; unavoidable", "example": "Technological obsolescence is inevitable in fast-paced industries."},
+      {"term": "Multifaceted", "hu": "többszínű", "definition": "having many different aspects or features", "example": "Climate change is a multifaceted problem requiring comprehensive solutions."},
+      {"term": "Ominous", "hu": "rosszujjú", "definition": "giving the impression that something bad is going to happen", "example": "The darkening clouds created an ominous atmosphere over the valley."},
+      {"term": "Proliferate", "hu": "gyorsan terjed", "definition": "to increase rapidly in number or spread widely", "example": "Misinformation can proliferate quickly through social media networks."},
+      {"term": "Resilient", "hu": "álló", "definition": "able to withstand or recover quickly from difficult conditions", "example": "Resilient ecosystems maintain biodiversity despite environmental pressures."},
+      {"term": "Substantiate", "hu": "alátámaszt", "definition": "to provide evidence to support or prove the truth of something", "example": "The researcher needed additional data to substantiate his controversial claims."},
+      {"term": "Tangible", "hu": "érinthető", "definition": "perceptible by touch; having clear practical results", "example": "Employees need tangible benefits to feel valued in the workplace."},
+      {"term": "Ubiquitous", "hu": "mindenütt jelenlévő", "definition": "present, appearing, or found everywhere", "example": "Artificial intelligence has become ubiquitous in modern software applications."},
+      {"term": "Vulnerable", "hu": "érhető", "definition": "susceptible to physical or emotional harm or damage", "example": "Coastal communities are particularly vulnerable to rising sea levels."},
+      {"term": "Coexistence", "hu": "együttélés", "definition": "the state of living together in the same place", "example": "Promoting peaceful coexistence between different religious groups remains challenging."},
+      {"term": "Dehumanization", "hu": "emberiség-elvonás", "definition": "the psychological process of perceiving people as less than human", "example": "Online anonymity can sometimes lead to the dehumanization of others in digital discourse."},
+      {"term": "Ephemeral", "hu": "átmeneti", "definition": "lasting for a very short time; fleeting", "example": "Social media fame is often ephemeral, disappearing as quickly as it arrives."},
+      {"term": "Immutable", "hu": "változhatatlan", "definition": "unchanging over time or unable to be changed", "example": "The laws of physics are considered immutable across the known universe."},
+      {"term": "Paradigm", "hu": "paradigma", "definition": "a typical example or pattern of something; a model", "example": "The shift to remote work represents a paradigm change in professional culture."},
+      {"term": "Synergy", "hu": "szinergia", "definition": "the interaction of elements that produces a combined effect greater than the sum of their separate effects", "example": "The synergy between art and technology created groundbreaking new experiences."}
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 90,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Gapped Sentences",
+        "description": "Questions 1-6",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "The Paradox of Connection",
+            "subtitle": "Reading Passage 1",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "Digital technology promises unprecedented connectivity, yet loneliness epidemics spread globally. __(1)__ virtual interactions multiply exponentially, meaningful human connection appears to diminish in quality and depth."
+              },
+              {
+                "id": "2",
+                "text": "Social platforms optimize for engagement rather than genuine relationship building. __(2)__ algorithms prioritize controversial content, civil discourse becomes increasingly difficult to sustain."
+              },
+              {
+                "id": "3",
+                "text": "The curated nature of online personas creates unrealistic comparison standards. __(3)__ individuals present idealized versions of their lives, authentic vulnerability becomes stigmatized."
+              },
+              {
+                "id": "4",
+                "text": "Attention economies reward distraction over contemplation. __(4)__ information becomes abundant, wisdom and critical thinking skills may paradoxically decline."
+              },
+              {
+                "id": "5",
+                "text": "Yet isolation in pre-digital eras carried its own profound costs. __(5)__ the challenges are significant, completely rejecting technology would sacrifice genuine benefits and opportunities."
+              },
+              {
+                "id": "6",
+                "text": "The path forward requires intentional design choices. __(6)__ we prioritize human flourishing over engagement metrics, technology could serve rather than diminish our humanity."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "sentence-insert",
+                "instruction": "Which of the sentences a–h is missing in each gap? There is only one correct answer for each item. Two sentences do not fit into any of the gaps.",
+                "options": [
+                  {"id": "a", "text": "As communication becomes more instantaneous and convenient, its depth and quality may suffer."},
+                  {"id": "b", "text": "Because social connections require sustained attention and effort over time."},
+                  {"id": "c", "text": "If society values genuine connection, digital tools must serve rather than replace face-to-face interaction."},
+                  {"id": "d", "text": "While digital technology offers unprecedented opportunities for global communication."},
+                  {"id": "e", "text": "Since the platforms profit from keeping users engaged regardless of content quality."},
+                  {"id": "f", "text": "When individuals can carefully construct and edit their online identities."},
+                  {"id": "g", "text": "Although human beings have always sought connection and belonging through various means."},
+                  {"id": "h", "text": "Unless we consciously design for meaningful interaction rather than mere engagement."}
+                ],
+                "answers": {
+                  "1": "d",
+                  "2": "e",
+                  "3": "f",
+                  "4": "a",
+                  "5": "g",
+                  "6": "h"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Selective Understanding",
+        "description": "Questions 7-12",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The Economics of Time",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "a",
+                "text": "Modern capitalism increasingly monetizes time itself, treating temporal availability as just another commodity to be bought, sold, and optimized. The gig economy exemplifies this transformation, converting hours and minutes into fragmented economic units."
+              },
+              {
+                "id": "b",
+                "text": "Historical analysis reveals that time discipline emerged alongside industrialization, when factory whistles and clock towers imposed artificial rhythms on natural human cycles. This synchronization enabled mass production but severed connections to seasonal and biological temporality."
+              },
+              {
+                "id": "c",
+                "text": "Cross-cultural research demonstrates that societies with stronger temporal sovereignty report higher subjective wellbeing, suggesting that control over one's temporal resources matters more than absolute wealth in determining life satisfaction."
+              },
+              {
+                "id": "d",
+                "text": "The paradox of productivity reveals that increased efficiency often generates expanded expectations rather than liberated time. As tasks accelerate, the baseline for acceptable performance rises, creating a temporal treadmill where individuals must run faster merely to maintain position."
+              },
+              {
+                "id": "e",
+                "text": "Attention economics fundamentally differs from traditional markets because human cognitive capacity remains finite while information supply proliferates infinitely. This asymmetry creates intense competition for our most precious and non-renewable resource: focused attention."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "In which part of the text a–e can you find the information 7–12? There is only one correct answer for each item. Each part of the text may contain more than one of the pieces of information.",
+                "questions": [
+                  {
+                    "id": "7",
+                    "text": "discusses how time availability has become commodified in modern economies?",
+                    "answer": "a"
+                  },
+                  {
+                    "id": "8",
+                    "text": "explains that improved efficiency often leads to higher performance expectations?",
+                    "answer": "d"
+                  },
+                  {
+                    "id": "9",
+                    "text": "describes the impact of industrialization on natural human rhythms?",
+                    "answer": "b"
+                  },
+                  {
+                    "id": "10",
+                    "text": "argues that control over time affects wellbeing more than wealth?",
+                    "answer": "c"
+                  },
+                  {
+                    "id": "11",
+                    "text": "notes that human attention is finite while information is infinite?",
+                    "answer": "e"
+                  },
+                  {
+                    "id": "12",
+                    "text": "identifies the gig economy as an example of temporal commodification?",
+                    "answer": "a"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3-reading",
+        "section": 3,
+        "title": "Part 3: True/False/Not Given",
+        "description": "Questions 13-24",
+        "passages": [
+          {
+            "id": "p3-reading",
+            "title": "Neural Interfaces and Cognitive Liberty",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "Brain-computer interfaces have evolved from medical devices that restore function to disabled individuals into consumer products promising enhanced cognition and seamless digital integration. This trajectory raises fundamental questions about cognitive liberty and mental privacy that existing legal frameworks inadequately address."
+              },
+              {
+                "id": "2",
+                "text": "Current neural implants primarily target therapeutic applications, treating Parkinson's disease, epilepsy, and severe depression through targeted electrical stimulation. However, research increasingly explores enhancement applications: memory augmentation, accelerated learning, and direct brain-to-brain communication. These possibilities challenge traditional notions of human identity and agency."
+              },
+              {
+                "id": "3",
+                "text": "The concept of cognitive liberty asserts that individuals possess fundamental rights to mental privacy, self-determination, and freedom from unauthorized manipulation of thought processes. As technology capable of reading and potentially modifying neural activity advances, protecting these rights becomes increasingly urgent yet technically complex."
+              },
+              {
+                "id": "4",
+                "text": "Corporate investment in neural interface technology exceeds government research funding by a significant margin, driven by visions of seamless human-machine integration and new markets for cognitive enhancement. This commercial momentum may outpace regulatory development, creating scenarios where powerful corporations access unprecedented intimate data about users' mental states."
+              },
+              {
+                "id": "5",
+                "text": "Neuroethical frameworks emphasize the distinction between therapeutic intervention and elective enhancement, though this boundary blurs as technologies become more sophisticated. While treating disease commands broad consensus, enhancement raises concerns about fairness, coercion, and the potential for creating new forms of inequality based on cognitive capabilities."
+              },
+              {
+                "id": "6",
+                "text": "International cooperation on neural technology governance remains limited despite growing recognition of transnational implications. Divergent cultural values regarding privacy, enhancement, and human nature complicate efforts to establish universal standards. Meanwhile, technological capabilities continue advancing faster than societal consensus can form."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "trinary",
+                 "mode": "tfng",
+                "instruction": "Read the following text and the statements 13–23 below. For each of the statements mark: (+) corresponds to the content, (–) does not correspond, (X) is not mentioned.",
+                "questions": [
+                  {"id": "13", "text": "Brain-computer interfaces were initially developed for consumer enhancement rather than medical therapy.", "answer": "FALSE"},
+                  {"id": "14", "text": "Cognitive liberty includes rights to mental privacy and self-determination.", "answer": "TRUE"},
+                  {"id": "15", "text": "Current legal frameworks adequately protect mental privacy from neural technology.", "answer": "FALSE"},
+                  {"id": "16", "text": "Neural implants can currently enable direct brain-to-brain communication between individuals.", "answer": "NOT GIVEN"},
+                  {"id": "17", "text": "Private companies invest more in neural interface technology than governments do.", "answer": "TRUE"},
+                  {"id": "18", "text": "Neuroethical frameworks clearly distinguish between therapy and enhancement without ambiguity.", "answer": "FALSE"},
+                  {"id": "19", "text": "International cooperation exists to establish universal standards for neural technology governance.", "answer": "FALSE"},
+                  {"id": "20", "text": "Cognitive enhancement could create new forms of inequality among people.", "answer": "TRUE"},
+                  {"id": "21", "text": "Therapeutic applications of neural technology include treatment for Parkinson's disease and epilepsy.", "answer": "TRUE"},
+                  {"id": "22", "text": "Memory augmentation is classified as a therapeutic rather than enhancement application.", "answer": "FALSE"},
+                  {"id": "23", "text": "Technological advancement in neural interfaces outpaces regulatory and societal development.", "answer": "TRUE"}
+                ]
+              },
+              {
+                "type": "mcq",
+                "instruction": "Which title a, b or c best matches the article?",
+                "questions": [
+                  {"id": "24", "text": "", "options": ["a Neural technology and the future of cognitive liberty", "b The medical benefits of brain-computer interfaces", "c Corporate investment in healthcare technology"], "answer": "a Neural technology and the future of cognitive liberty"}
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Text 1",
+            "title": "The Future of Urban Mobility",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Urban transportation systems face unprecedented challenges as cities expand and populations grow __(21)__ mobility patterns evolve rapidly. Autonomous vehicles promise safer streets and reduced congestion, __(22)__ significant infrastructure investments and regulatory frameworks remain uncertain. __(23)__ several pilot programs demonstrating success, public skepticism persists regarding the reliability of driverless technology. __(24)__, the integration of electric vehicles alone cannot solve fundamental issues of urban sprawl and accessibility. __(25)__, a comprehensive approach combining public transit, cycling infrastructure, and smart city technologies appears essential for sustainable mobility solutions."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {"id": "21", "text": "Urban transportation systems face unprecedented challenges as cities expand and populations grow __(21)__ mobility patterns evolve rapidly.", "options": ["a while", "b although", "c consequently"], "answer": "a while"},
+                  {"id": "22", "text": "Autonomous vehicles promise safer streets and reduced congestion, __(22)__ significant infrastructure investments and regulatory frameworks remain uncertain.", "options": ["a however", "b but", "c despite"], "answer": "b but"},
+                  {"id": "23", "text": "__(23)__ several pilot programs demonstrating success, public skepticism persists regarding the reliability of driverless technology.", "options": ["a Although", "b Because", "c Since"], "answer": "a Although"},
+                  {"id": "24", "text": "__(24)__, the integration of electric vehicles alone cannot solve fundamental issues of urban sprawl and accessibility.", "options": ["a However", "b Therefore", "c Moreover"], "answer": "a However"},
+                  {"id": "25", "text": "__(25)__, a comprehensive approach combining public transit, cycling infrastructure, and smart city technologies appears essential for sustainable mobility solutions.", "options": ["a Meanwhile", "b Otherwise", "c Ultimately"], "answer": "c Ultimately"}
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p2",
+            "subtitle": "Text 2",
+            "title": "Cultural Transformation in the Digital Age",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Digital connectivity has fundamentally altered how cultural knowledge propagates across generations and geographical boundaries. __(26)__ traditional transmission methods persist in many communities, online platforms increasingly mediate cultural exchange. __(27)__ this transformation enables unprecedented access to diverse perspectives, it simultaneously creates echo chambers where challenging viewpoints rarely penetrate. __(28)__, younger generations often navigate multiple cultural frameworks simultaneously, developing hybrid identities that __(29)__ previous generational experiences. __(30)__, cultural institutions face the complex challenge of remaining relevant while preserving authentic traditions in rapidly evolving contexts."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-t) to complete each sentence.",
+                "tokens": ["additionally", "although", "as a result", "because", "consequently", "furthermore", "hence", "however", "in contrast", "indeed", "instead", "moreover", "nevertheless", "nonetheless", "notably", "particularly", "rather", "since", "therefore", "ultimately"],
+                "questions": [
+                  {"id": "26", "text": "Digital connectivity has fundamentally altered... __(26)__ traditional transmission methods persist in many communities..."},
+                  {"id": "27", "text": "__(27)__ this transformation enables unprecedented access..."},
+                  {"id": "28", "text": "__(28)__, younger generations often navigate multiple cultural frameworks..."},
+                  {"id": "29", "text": "...hybrid identities that __(29)__ previous generational experiences."},
+                  {"id": "30", "text": "__(30)__, cultural institutions face the complex challenge..."}
+                ],
+                "answers": {
+                  "26": "although",
+                  "27": "however",
+                  "28": "consequently",
+                  "29": "contrast",
+                  "30": "ultimately"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Social Media Influencers",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear eight social media influencers discussing their work and motivations. You will hear each speaker once. While listening, decide which statement a–j best matches each speaker. You will only use eight of the ten statements. Mark your answers for items 47–54 on Answer Sheet.",
+        "transcript": "[Audio with eight influencers discussing social media work]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
+        "context": "Social media career perspectives",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "matching-info",
+            "instruction": "Which statement a–j best matches what each speaker says?",
+            "questions": [
+              {"id": 47, "text": "Speaker 1", "answer": "a"},
+              {"id": 48, "text": "Speaker 2", "answer": "b"},
+              {"id": 49, "text": "Speaker 3", "answer": "c"},
+              {"id": 50, "text": "Speaker 4", "answer": "d"},
+              {"id": 51, "text": "Speaker 5", "answer": "e"},
+              {"id": 52, "text": "Speaker 6", "answer": "f"},
+              {"id": 53, "text": "Speaker 7", "answer": "g"},
+              {"id": 54, "text": "Speaker 8", "answer": "h"}
+            ],
+            "options": [
+              "a I focus on educational content to help people develop practical skills.",
+              "b Mental health advocacy drives my platform despite industry pressures.",
+              "c The constant need to create viral content has negatively impacted my wellbeing.",
+              "d Authenticity matters more to me than follower counts or sponsorship deals.",
+              "e I strategically collaborate with brands that align with my core values.",
+              "f Digital minimalism allows me to maintain creative integrity in a saturated market.",
+              "g Algorithm changes forced me to completely reinvent my content strategy.",
+              "h Building genuine community connections requires consistent vulnerability.",
+              "i Monetization opportunities increased exponentially after going viral unexpectedly.",
+              "j Comparative thinking with other creators damages creative motivation significantly."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Interview: Artificial Intelligence Ethics",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with an AI ethics researcher about algorithmic bias and accountability. You will hear the interview only once. While listening decide which answer fits best: a, b or c. Mark your answers for items 55–64 on Answer Sheet.",
+        "transcript": "[Interview about AI ethics and algorithmic accountability]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
+        "context": "AI ethics discussion",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "While listening decide which answer fits best: a, b or c.",
+            "questions": [
+              {"id": 55, "text": "The researcher identifies the primary source of algorithmic bias as", "options": ["a intentional discrimination by developers", "b training data reflecting historical inequalities", "c insufficient computational power for complex tasks"], "answer": "b training data reflecting historical inequalities"},
+              {"id": 56, "text": "Algorithmic accountability requires", "options": ["a complete transparency of proprietary systems", "b meaningful human oversight and audit mechanisms", "c eliminating automation from decision-making entirely"], "answer": "b meaningful human oversight and audit mechanisms"},
+              {"id": 57, "text": "The fairness through unawareness approach to AI", "options": ["a successfully eliminates all forms of discrimination", "b ignores how proxies can perpetuate bias indirectly", "c represents the most advanced current methodology"], "answer": "b ignores how proxies can perpetuate bias indirectly"},
+              {"id": 58, "text": "Explainable AI systems are important because", "options": ["a they enable users to understand automated decisions", "b they significantly reduce computational requirements", "c they guarantee completely unbiased outcomes"], "answer": "a they enable users to understand automated decisions"},
+              {"id": 59, "text": "The researcher suggests that diverse development teams", "options": ["a can identify potential harms that homogeneous teams might overlook", "b will necessarily produce completely neutral algorithms", "c slow down innovation through excessive deliberation"], "answer": "a can identify potential harms that homogeneous teams might overlook"},
+              {"id": 60, "text": "Regarding AI regulation, the researcher argues", "options": ["a current frameworks adequately address emerging risks", "b proactive governance should precede widespread deployment", "c industry self-regulation has proven entirely effective"], "answer": "b proactive governance should precede widespread deployment"},
+              {"id": 61, "text": "Algorithmic impact assessments should evaluate", "options": ["a only technical performance metrics and efficiency", "b potential social consequences and distributional effects", "c exclusively the financial costs of implementation"], "answer": "b potential social consequences and distributional effects"},
+              {"id": 62, "text": "The concept of 'human in the loop' refers to", "options": ["a replacing human workers with automated systems", "b maintaining human judgment in critical decision points", "c collecting human behavioral data for training"], "answer": "b maintaining human judgment in critical decision points"},
+              {"id": 63, "text": "Cross-cultural validation of AI systems is necessary because", "options": ["a universal values translate identically across contexts", "b cultural assumptions embedded in training data vary significantly", "c local regulations are harmonized globally"], "answer": "b cultural assumptions embedded in training data vary significantly"},
+              {"id": 64, "text": "The long-term challenge for AI ethics involves", "options": ["a achieving perfect technical solutions to moral dilemmas", "b balancing innovation with fundamental human rights", "c reducing public concern about technological progress"], "answer": "b balancing innovation with fundamental human rights"}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Urban Planning Lecture",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear a lecture on sustainable urban design principles and their implementation. While listening, complete the notes with information from the lecture. Write no more than THREE words for each answer. You will hear the lecture only once. You will now have one minute to read the notes.",
+        "transcript": "[Academic lecture on sustainable urban design]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
+        "context": "Sustainable urban planning lecture",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "notes-completion",
+            "instruction": "Complete the notes with information from the lecture. Write no more than THREE words for each answer.",
+            "wordLimit": 3,
+            "notes": [
+              {
+                "heading": "Dr. Elena Rodriguez",
+                "items": [
+                  { "id": "0", "type": "text", "text": "Urban Design Institute" },
+                  { "id": "0-answer", "type": "gap", "label": "Affiliation", "answer": "MIT Department" }
+                ]
+              },
+              {
+                "heading": "Principles of Sustainable Design",
+                "items": [
+                  { "id": "65", "type": "gap", "label": "Core planning concept", "answer": "mixed-use development" },
+                  { "id": "66", "type": "gap", "label": "Transportation priority", "answer": "public transit corridors" }
+                ]
+              },
+              {
+                "heading": "Implementation Challenges",
+                "items": [
+                  { "id": "67", "type": "gap", "label": "Primary obstacle", "answer": "existing zoning regulations" },
+                  { "id": "68", "type": "gap", "label": "Funding mechanism", "answer": "public-private partnerships" }
+                ]
+              },
+              {
+                "heading": "Environmental Benefits",
+                "items": [
+                  { "id": "69", "type": "gap", "label": "Carbon reduction target", "answer": "forty percent reduction" },
+                  { "id": "70", "type": "gap", "label": "Stormwater management", "answer": "green infrastructure systems" }
+                ]
+              },
+              {
+                "heading": "Social Considerations",
+                "items": [
+                  { "id": "71", "type": "gap", "label": "Housing policy goal", "answer": "mixed-income communities" },
+                  { "id": "72", "type": "gap", "label": "Public space standard", "answer": "ten-minute walkability" }
+                ]
+              },
+              {
+                "heading": "Case Study Results",
+                "items": [
+                  { "id": "73", "type": "gap", "label": "Portland district outcome", "answer": "thirty percent increase" },
+                  { "id": "74", "type": "gap", "label": "Copenhagen comparison", "answer": "cycling infrastructure network" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m7-t1",
+        "taskType": 1,
+        "title": "Task 1: Compulsory",
+        "subtitle": "Part 1: Writing",
+        "instruction": "In this part of the examination you have to write two texts: the compulsory task and one of the optional tasks. You have a total of one hour to complete both tasks. Remember: The texts you write should be well-structured and highlight the points that you think are most important for the reader. The structure of the text should have an appropriate degree of complexity with reference to the type of text specified and should also contain a number of complex sentence forms. Write at least 200 words.",
+        "context": "A prominent technology company has announced plans to implement mandatory neural monitoring devices for all remote workers, claiming it will optimize productivity and prevent burnout. Critics argue this violates privacy and sets a dangerous precedent. The company is hosting a public consultation on this policy. Write a formal letter to the company's ethics committee expressing your concerns or support regarding this proposal.",
+        "targetWords": 200,
+        "xp": 500,
+        "prompt": "Write to the company ethics committee about mandatory neural monitoring for employees.",
+        "type": "letter"
+      },
+      {
+        "id": "w-m7-t2",
+        "taskType": 2,
+        "title": "Task 2: Optional",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Choose one of the following four tasks and write at least 150 words.",
+        "options": [
+          {
+            "id": "optional-a",
+            "title": "A: Letter to a Younger Sibling",
+            "context": "A family member who is about to start university is feeling overwhelmed by the pressure to choose a 'practical' field of study that guarantees financial success. Write a letter offering perspective on balancing practical concerns with intellectual passion. Write your letter of advice.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "letter"
+          },
+          {
+            "id": "optional-b",
+            "title": "B: Review of a Social Experiment",
+            "context": "You recently participated in or observed a week-long experiment where participants gave up all digital devices and returned to analog methods of communication and information gathering. Write a review detailing the experience, psychological effects observed, and lessons learned. Write the experiment review.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "review"
+          },
+          {
+            "id": "optional-c",
+            "title": "C: Policy Brief on Public Spaces",
+            "context": "Your local government is considering a proposal to transform several underutilized parking lots into community gathering spaces with gardens, seating, and cultural programming. Write a policy brief supporting or opposing this initiative, including evidence and implementation recommendations. Write the policy brief.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          },
+          {
+            "id": "optional-d",
+            "title": "D: Personal Essay on Solitude",
+            "context": "In an increasingly connected world, write a reflective essay exploring your relationship with solitude and how periods of intentional isolation have affected your creativity, mental health, and understanding of yourself.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          }
+        ]
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "speaking-part1",
+        "title": "Presentation",
+        "subtitle": "Part 1: Speaking",
+        "type": "presentation",
+        "duration": "3 minutes",
+        "instruction": "Choose one of the two topics and give a short presentation to your partner(s). Take a few seconds to prepare before you start speaking. Remember to give an introduction (example, own experience) and come to a conclusion at the end. You should talk for about three minutes. At the end you will be asked follow-up questions.",
+        "topics": [
+          {
+            "topic": "Should access to the internet be considered a fundamental human right?",
+            "questions": [
+              {
+                "id": "p1q1",
+                "text": "What practical steps would be necessary to guarantee universal internet access?"
+              }
+            ]
+          },
+          {
+            "topic": "Do modern technologies amplify or reduce social inequalities?",
+            "questions": [
+              {
+                "id": "p1q2",
+                "text": "Which groups benefit most from technological advancement, and which are left behind?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "speaking-part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Discussion",
+        "type": "discussion",
+        "duration": "6 minutes",
+        "instruction": "Discuss the following topic with your partner(s)",
+        "text": "\"The most profound technologies are those that disappear. They weave themselves into the fabric of everyday life until they are indistinguishable from it.\" - Mark Weiser",
+        "topics": [
+          {
+            "topic": "Technological Integration",
+            "questions": [
+              {
+                "id": "p2q1",
+                "text": "What does Weiser mean by technologies that 'disappear' while becoming more profound?"
+              },
+              {
+                "id": "p2q2",
+                "text": "Do you agree that the best technology is invisible in daily life?"
+              },
+              {
+                "id": "p2q3",
+                "text": "What are the dangers of technology becoming too integrated into our lives?"
+              },
+              {
+                "id": "p2q4",
+                "text": "How can we maintain human agency as technology becomes more embedded in our environment?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

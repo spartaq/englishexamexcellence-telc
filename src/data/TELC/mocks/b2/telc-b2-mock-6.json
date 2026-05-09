@@ -1,0 +1,909 @@
+{
+  "id": "telc-b2-mock-6",
+  "level": "b2",
+  "mockNumber": 6,
+  "title": "TELC B2 Mock Test 6",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B2 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-6",
+    "title": "Test Vocabulary",
+    "level": "B2",
+    "words": [
+      {
+        "term": "Innovation",
+        "hu": "innováció",
+        "definition": "a new idea or method",
+        "example": "The company is known for its innovation in technology."
+      },
+      {
+        "term": "Negotiate",
+        "hu": "megállapodni",
+        "definition": "to discuss something to reach an agreement",
+        "example": "The two countries negotiated a trade deal."
+      },
+      {
+        "term": "Perspective",
+        "hu": "látszópont",
+        "definition": "a way of thinking about something",
+        "example": "From my perspective, the decision was fair."
+      },
+      {
+        "term": "Substantial",
+        "hu": "jelentős",
+        "definition": "large in amount or importance",
+        "example": "There was a substantial increase in sales last year."
+      },
+      {
+        "term": "Vulnerable",
+        "hu": "sérthető",
+        "definition": "easily harmed or damaged",
+        "example": "Children and the elderly are particularly vulnerable."
+      },
+      {
+        "term": "Allocate",
+        "hu": "hozzárendel",
+        "definition": "to distribute for a particular purpose",
+        "example": "The government allocated funds for education."
+      },
+      {
+        "term": "Competence",
+        "hu": "képesség",
+        "definition": "the ability to do something well",
+        "example": "She demonstrated great competence in handling the crisis."
+      },
+      {
+        "term": "Fluctuate",
+        "hu": "ingadozik",
+        "definition": "to change continuously",
+        "example": "Currency exchange rates fluctuate daily."
+      },
+      {
+        "term": "Implication",
+        "hu": "következmény",
+        "definition": "a possible future effect or result",
+        "example": "The decision has serious implications for the economy."
+      },
+      {
+        "term": "Legislation",
+        "hu": "törvényhozás",
+        "definition": "laws or rules",
+        "example": "New legislation was passed to protect the environment."
+      },
+      {
+        "term": "Optimize",
+        "hu": "optimalizál",
+        "definition": "to make something as effective as possible",
+        "example": "We need to optimize our workflow to meet the deadline."
+      },
+      {
+        "term": "Proportion",
+        "hu": "arány",
+        "definition": "a part of a whole",
+        "example": "A large proportion of the population supports the policy."
+      },
+      {
+        "term": "Reinforce",
+        "hu": "megmunkál",
+        "definition": "to strengthen or support",
+        "example": "The teacher's praise reinforced the student's confidence."
+      },
+      {
+        "term": "Scenario",
+        "hu": "szituáció",
+        "definition": "a possible future situation",
+        "example": "We must prepare for every possible scenario."
+      },
+      {
+        "term": "Threshold",
+        "hu": "küszöb",
+        "definition": "a limit or point at which something begins",
+        "example": "The pain threshold varies from person to person."
+      },
+      {
+        "term": "Advocate",
+        "hu": "védő",
+        "definition": "to publicly support or recommend",
+        "example": "Many organizations advocate for animal rights."
+      },
+      {
+        "term": "Constraint",
+        "hu": "korlátozás",
+        "definition": "a limitation or restriction",
+        "example": "Budget constraints forced us to reduce the project scope."
+      },
+      {
+        "term": "Deviate",
+        "hu": "eltér",
+        "definition": "to depart from a standard or plan",
+        "example": "Do not deviate from the instructions."
+      },
+      {
+        "term": "Enhance",
+        "hu": "javít",
+        "definition": "to improve the quality or value of something",
+        "example": "Regular exercise can enhance your mental health."
+      },
+      {
+        "term": "Integrate",
+        "hu": "integrál",
+        "definition": "to combine parts into a whole",
+        "example": "The school aims to integrate technology into all subjects."
+      }
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "Innovation",
+              "Negotiate",
+              "Perspective",
+              "Substantial",
+              "Vulnerable"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "A new innovation hub has opened in the city centre, offering workspace and mentorship for tech startups. The facility includes state-of-the-art equipment and hosts regular networking events. Over fifty companies have already signed up, with many citing the collaborative environment as a key factor in their decision to join."
+              },
+              {
+                "id": "2",
+                "text": "The local council is negotiating with residents about plans to convert the old library into a community centre. Some residents support the proposal, while others want the building to remain a library. A final decision is expected next month after further consultation meetings."
+              },
+              {
+                "id": "3",
+                "text": "From a historical perspective, the industrial revolution fundamentally changed how people lived and worked. Cities grew rapidly, and traditional crafts were replaced by factory production. While this brought economic growth, it also created new social challenges that took decades to address."
+              },
+              {
+                "id": "4",
+                "text": "The charity reported a substantial increase in donations this year, allowing them to expand their services to three new regions. The additional funding will support education programmes for underprivileged children and provide emergency relief for families affected by recent flooding."
+              },
+              {
+                "id": "5",
+                "text": "Wildlife conservationists warn that many species are vulnerable due to habitat loss and climate change. A recent study shows that bird populations have declined by 30% over the past decade. Conservation groups are calling for immediate action to protect remaining habitats."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  {
+                    "id": "1",
+                    "text": "Paragraph 1",
+                    "answer": 0
+                  },
+                  {
+                    "id": "2",
+                    "text": "Paragraph 2",
+                    "answer": 4
+                  },
+                  {
+                    "id": "3",
+                    "text": "Paragraph 3",
+                    "answer": 3
+                  },
+                  {
+                    "id": "4",
+                    "text": "Paragraph 4",
+                    "answer": 5
+                  },
+                  {
+                    "id": "5",
+                    "text": "Paragraph 5",
+                    "answer": 2
+                  }
+                ],
+                "headings": [
+                  "Innovation hub supports startups",
+                  "New shopping complex planned",
+                  "Species at risk from habitat loss",
+                  "Historical changes during industrialisation",
+                  "Library conversion plans debated",
+                  "Charity expands services with increased funding",
+                  "Traffic problems in city centre",
+                  "New housing development approved"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about artificial intelligence and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The Impact of Artificial Intelligence",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Artificial intelligence has moved from science fiction to everyday reality in a remarkably short time. Voice assistants, recommendation algorithms, and automated customer service systems are now commonplace. These technologies promise efficiency and convenience, but they also raise important questions about privacy, employment, and human autonomy."
+              },
+              {
+                "id": "B",
+                "text": "In the workplace, AI systems are increasingly used to screen job applications, monitor employee productivity, and even make hiring decisions. While proponents argue that this reduces human bias, critics worry that algorithms may perpetuate existing prejudices or create new forms of discrimination that are harder to detect and challenge."
+              },
+              {
+                "id": "C",
+                "text": "The creative industries face particular uncertainty. AI can now generate text, images, and music that rival human creations. Some artists see this as a threat to their livelihoods, while others view it as a tool to enhance their work. The legal framework around copyright and AI-generated content remains unclear, adding to the complexity."
+              },
+              {
+                "id": "D",
+                "text": "Healthcare represents one of AI's most promising applications. Machine learning algorithms can analyse medical images with accuracy that matches or exceeds human specialists. However, the 'black box' nature of some AI systems means doctors cannot always understand how a diagnosis was reached, raising concerns about accountability and trust."
+              },
+              {
+                "id": "E",
+                "text": "Looking ahead, experts emphasise the need for thoughtful regulation and public engagement. The goal should not be to halt AI development, but to ensure it aligns with human values and serves the common good. This requires collaboration between technologists, policymakers, ethicists, and the general public."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer",
+                "questions": [
+                  {
+                    "id": "6",
+                    "text": "According to the article, what is one concern about AI in the workplace?",
+                    "options": [
+                      "It makes work too easy",
+                      "It may perpetuate discrimination",
+                      "It always makes mistakes",
+                      "It is too expensive"
+                    ],
+                    "answer": "It may perpetuate discrimination"
+                  },
+                  {
+                    "id": "7",
+                    "text": "The article mentions that AI in healthcare can",
+                    "options": [
+                      "replace all doctors",
+                      "analyse medical images accurately",
+                      "eliminate all diseases",
+                      "work without any supervision"
+                    ],
+                    "answer": "analyse medical images accurately"
+                  },
+                  {
+                    "id": "8",
+                    "text": "What challenge does the article identify regarding AI-generated creative work?",
+                    "options": [
+                      "It is always inferior to human work",
+                      "Copyright laws are unclear",
+                      "No one wants to buy it",
+                      "It takes too long to produce"
+                    ],
+                    "answer": "Copyright laws are unclear"
+                  },
+                  {
+                    "id": "9",
+                    "text": "The article suggests that AI systems can be problematic because",
+                    "options": [
+                      "they are too slow",
+                      "people don't understand how they work",
+                      "they require too much electricity",
+                      "they are always biased"
+                    ],
+                    "answer": "people don't understand how they work"
+                  },
+                  {
+                    "id": "10",
+                    "text": "According to the conclusion, AI development should",
+                    "options": [
+                      "be stopped immediately",
+                      "only benefit large companies",
+                      "align with human values",
+                      "focus only on entertainment"
+                    ],
+                    "answer": "align with human values"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Urban Development Articles",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "City planners have approved a new pedestrian zone in the historic district. The area will be closed to vehicles on weekends, allowing residents and visitors to enjoy outdoor cafes and street performances. Local businesses have welcomed the initiative, expecting increased foot traffic during these periods."
+              },
+              {
+                "id": "B",
+                "text": "A vertical garden project has transformed the facade of an office building into a living ecosystem. The installation includes over 2,000 plants that help regulate temperature and improve air quality. Maintenance is handled by an automated irrigation system, making it sustainable long-term."
+              },
+              {
+                "id": "C",
+                "text": "The university has launched a bike-sharing programme with 500 bicycles available across campus. Students and staff can rent bikes using a mobile app, with the first 30 minutes free. The initiative aims to reduce car usage and promote healthier transportation options."
+              },
+              {
+                "id": "D",
+                "text": "A new affordable housing complex will provide 200 units for low-income families. The development includes communal spaces, a playground, and access to public transport. Construction is scheduled to begin in autumn, with completion expected within 18 months."
+              },
+              {
+                "id": "E",
+                "text": "The city's smart traffic system uses sensors and cameras to optimise traffic flow. Real-time data helps adjust signal timing and provides drivers with alternative route suggestions. Since implementation, average commute times have decreased by 15%."
+              },
+              {
+                "id": "F",
+                "text": "Community gardens have been established in five neighbourhoods, giving residents space to grow vegetables and flowers. The project fosters social connections while improving access to fresh produce. Workshops on sustainable gardening techniques are offered monthly."
+              },
+              {
+                "id": "G",
+                "text": "A riverside park renovation will create new walking trails, exercise stations, and picnic areas. The project also includes improved lighting and safety features. The park is expected to become a popular destination for families and fitness enthusiasts."
+              },
+              {
+                "id": "H",
+                "text": "The public library has introduced digital literacy classes for seniors. Participants learn to use smartphones, tablets, and computers for communication, banking, and accessing online services. Over 100 people have already completed the course."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  {
+                    "id": 11,
+                    "text": "A project that helps people learn digital skills",
+                    "answer": "H"
+                  },
+                  {
+                    "id": 12,
+                    "text": "A plan to create more affordable homes",
+                    "answer": "D"
+                  },
+                  {
+                    "id": 13,
+                    "text": "A system that reduces traffic congestion",
+                    "answer": "E"
+                  },
+                  {
+                    "id": 14,
+                    "text": "A programme that provides free bicycles",
+                    "answer": "C"
+                  },
+                  {
+                    "id": 15,
+                    "text": "A garden that grows food for the community",
+                    "answer": "F"
+                  },
+                  {
+                    "id": 16,
+                    "text": "A park with exercise facilities",
+                    "answer": "G"
+                  },
+                  {
+                    "id": 17,
+                    "text": "A building with plants that clean the air",
+                    "answer": "B"
+                  },
+                  {
+                    "id": 18,
+                    "text": "An area closed to cars on weekends",
+                    "answer": "A"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Read the following article.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Language Elements",
+            "title": "The Future of Work",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "The modern workplace is undergoing significant changes, and many experts believe that remote working will become the standard rather than the exception. Companies ____(21)____ increasingly recognise that employees can be productive outside traditional office environments. This shift ____(22)____ been accelerated by advances in technology that make collaboration easier than ever before. However, managers must also consider how to ____(23)____ team cohesion when workers are geographically dispersed. Some organisations have found that regular virtual meetings and clear communication channels help ____(24)____ this challenge. Additionally, businesses need to ____(25)____ their policies to support flexible working arrangements. Employees who work from home often ____(26)____ the challenge of separating work life from personal life. Establishing clear boundaries is therefore ____(27)____ for maintaining wellbeing. Looking ahead, it seems likely that hybrid models will ____(28)____ the most popular approach, combining the benefits of both remote and office-based work."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {
+                    "id": "21",
+                    "text": "Companies ____(21)____ increasingly recognise that employees can be productive outside traditional office environments.",
+                    "options": ["do", "are", "will"],
+                    "answer": "do"
+                  },
+                  {
+                    "id": "22",
+                    "text": "This shift ____(22)____ been accelerated by advances in technology that make collaboration easier than ever before.",
+                    "options": ["has", "have", "had"],
+                    "answer": "has"
+                  },
+                  {
+                    "id": "23",
+                    "text": "However, managers must also consider how to ____(23)____ team cohesion when workers are geographically dispersed.",
+                    "options": ["maintain", "maintaining", "maintained"],
+                    "answer": "maintain"
+                  },
+                  {
+                    "id": "24",
+                    "text": "Some organisations have found that regular virtual meetings and clear communication channels help ____(24)____ this challenge.",
+                    "options": ["address", "addressing", "addressed"],
+                    "answer": "address"
+                  },
+                  {
+                    "id": "25",
+                    "text": "Additionally, businesses need to ____(25)____ their policies to support flexible working arrangements.",
+                    "options": ["adapt", "adapting", "adapted"],
+                    "answer": "adapt"
+                  },
+                  {
+                    "id": "26",
+                    "text": "Employees who work from home often ____(26)____ the challenge of separating work life from personal life.",
+                    "options": ["face", "faces", "facing"],
+                    "answer": "face"
+                  },
+                  {
+                    "id": "27",
+                    "text": "Establishing clear boundaries is therefore ____(27)____ for maintaining wellbeing.",
+                    "options": ["essential", "essentially", "essence"],
+                    "answer": "essential"
+                  },
+                  {
+                    "id": "28",
+                    "text": "Looking ahead, it seems likely that hybrid models will ____(28)____ the most popular approach, combining the benefits of both remote and office-based work.",
+                    "options": ["become", "becoming", "became"],
+                    "answer": "become"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text and complete the gaps.",
+        "passages": [
+          {
+            "id": "p2",
+            "subtitle": "Language Elements Part 2",
+            "title": "Space Exploration",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Humanity has always looked to the stars with wonder and curiosity. The space race of the 20th century ____(a)____ us to the Moon and ____(b)____ the foundation for future exploration. Today, we stand at the threshold of a new era where private companies ____(c)____ alongside government agencies to push the boundaries of what is possible. Mars represents the next great frontier, with several nations planning crewed missions within the coming decades. The challenges are ____(d)____, including radiation exposure, psychological stress, and the need for self-sustaining habitats. Yet the potential rewards are equally ____(e)____, offering insights into the origins of life and perhaps even a future home for humanity. Robotic missions continue to ____(f)____ our understanding of the solar system, while telescopes reveal distant worlds that were once only imagined. As technology ____(g)____, the dream of interstellar travel moves slowly from science fiction towards scientific possibility. The universe is vast and mysterious, but human ingenuity and determination have consistently ____(h)____ seemingly impossible obstacles throughout history. Space exploration reminds us that we are all passengers on a small planet, inspiring cooperation and a shared sense of purpose that ____(i)____ beyond national borders. The next generation of explorers will inherit this legacy and ____(j)____ it forward into the unknown."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-o) to complete each sentence.",
+                "tokens": ["ADVANCE", "TACKLED", "OPERATE", "PROFOUND", "EXTEND", "BROADEN", "EVOLVES", "REMAIN", "SURPASSED", "LAUNCHED", "ESTABLISHED", "IMMENSE", "COMPLEX", "TRANSFORMS", "UNITE"],
+                "answers": {
+                  "a": "LAUNCHED",
+                  "b": "ESTABLISHED",
+                  "c": "OPERATE",
+                  "d": "IMMENSE",
+                  "e": "PROFOUND",
+                  "f": "BROADEN",
+                  "g": "EVOLVES",
+                  "h": "TACKLED",
+                  "i": "EXTEND",
+                  "j": "ADVANCE"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Situations",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear people talking in eight different situations.\nFor questions 1-5, choose the best answer A, B or C.",
+        "transcript": "1. Manager: So, regarding the new project timeline, we need everyone to be on the same page. The client wants the first phase completed by the end of next month, which is ambitious but achievable if we all pull together. I know some of you have concerns about the workload, and I hear you. We're looking at bringing in temporary staff to help with the peak periods. What I need from you today is your honest assessment of what's realistic and where we might need to adjust our approach.\n\n2. Speaker: The city's new recycling initiative has been running for six months now, and the results are impressive. We've seen a 40% increase in household recycling rates, which is well above the national average. The key has been making it easy for residents - providing clear instructions, regular collection, and those convenient drop-off points for larger items. What surprised us most was how quickly people adapted to the new system once they understood the environmental impact of their choices.\n\n3. Colleague: I really appreciate you covering my shift yesterday. I know it was short notice, and I hope it didn't mess up your plans too much. My daughter came down with a fever in the middle of the night, and I had no choice but to stay home. She's feeling better today, thankfully, and I've arranged for my mother to look after her tomorrow if I need to be at work. I'll make sure to return the favour when you need time off.\n\n4. Customer: I've been coming to this restaurant for years, and I've never had a bad meal until tonight. The salmon was overcooked and dry, and when I mentioned it to the waiter, he just shrugged and said the kitchen was busy. For a place that prides itself on quality, this was disappointing. I expected better, especially given the prices you charge. I'm not asking for a free meal, just an acknowledgement that standards have slipped.\n\n5. Student: The library has been my lifeline during exam season. Having access to those quiet study rooms and the online databases has made such a difference to my revision. I used to struggle to concentrate at home with all the distractions. The librarians have been incredibly helpful too - they pointed me towards resources I didn't even know existed. I'm not sure how I would have managed without this place.",
+        "audioUrl": "/audio/PEL-B2-Test6-Part1.mp3",
+        "context": "Eight different situations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (A-F) corresponds to each news item?",
+            "questions": [
+              {
+                "id": 41,
+                "text": "News Item 1",
+                "answer": 4
+              },
+              {
+                "id": 42,
+                "text": "News Item 2",
+                "answer": 5
+              },
+              {
+                "id": 43,
+                "text": "News Item 3",
+                "answer": 0
+              },
+              {
+                "id": 44,
+                "text": "News Item 4",
+                "answer": 2
+              },
+              {
+                "id": 45,
+                "text": "News Item 5",
+                "answer": 3
+              }
+            ],
+            "headings": [
+              "Appreciation for colleague's help",
+              "Restaurant complaint about quality",
+              "Library praised for exam support",
+              "Project deadline discussion at work",
+              "Successful recycling initiative",
+              "New fitness centre opening",
+              "Traffic improvements announced",
+              "Community event cancelled"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Interview: Career Changes",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with Marcus about his career change.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
+        "transcript": "Interviewer: Marcus, you've had quite a varied career path, haven't you? You started in finance, then moved to teaching, and now you're running your own business. What made you leave banking?\n\nMarcus: Well, after ten years in the City, I felt like I was just going through the motions. The money was good, but I wasn't fulfilled. I'd always been interested in education - my mother was a teacher - and I started volunteering at a local school during my lunch breaks. That's when I realised I wanted to make a real difference.\n\nInterviewer: And teaching gave you that fulfilment?\n\nMarcus: For a while, yes. But after five years, I started feeling constrained by the system. There were so many rules and targets, and less time for actual teaching than I'd expected. I loved working with the students, but the bureaucracy was exhausting.\n\nInterviewer: So you started your own tutoring business?\n\nMarcus: Exactly. It gives me the freedom to work one-on-one with students and really focus on their individual needs. I specialise in helping students with learning difficulties, which requires patience and tailored approaches. The business has grown steadily - I now have three other tutors working with me.\n\nInterviewer: What would you say to someone considering a similar change?\n\nMarcus: I'd say follow your passion, but be realistic about the challenges. The financial uncertainty was scary at first, and building a client base took longer than I expected. But seeing students progress and knowing I'm making a difference - that's worth more than any salary. I do miss the security of a regular pay cheque sometimes, but I wouldn't go back.\n\nInterviewer: And what about the future? Any plans to expand further?\n\nMarcus: We're actually looking at developing online courses to reach more students. The pandemic showed us that remote learning can be effective when done properly. We want to create high-quality resources that schools can use too. It's exciting to think about the possibilities.",
+        "audioUrl": "/audio/PEL-B2-Test6-Part2.mp3",
+        "context": "Interview - career change from banking to teaching to business",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "mode": "tfng",
+            "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
+            "questions": [
+              {
+                "id": 46,
+                "text": "Marcus left banking because he wasn't earning enough money.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 47,
+                "text": "Marcus's mother worked in education.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 48,
+                "text": "Marcus volunteered at a school during his finance career.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 49,
+                "text": "Marcus found teaching less bureaucratic than expected.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 50,
+                "text": "Marcus's tutoring business focuses on students with learning difficulties.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 51,
+                "text": "Marcus started his business with three other tutors.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 52,
+                "text": "Marcus sometimes misses the security of a regular salary.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 53,
+                "text": "Marcus plans to create online courses for schools.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 54,
+                "text": "Marcus found building his client base quicker than expected.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 55,
+                "text": "Marcus worked in banking for five years.",
+                "answer": "FALSE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Opinions: Technology in Education",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear five different teachers talking about technology in the classroom.\nFor questions 11-15, choose which of the opinions A-F each speaker expresses.\nUse the letters only once. There is one extra letter which you do not need to use.",
+        "transcript": "Speaker 1: I'll be honest, I was skeptical at first. All these tablets and laptops in the classroom - it seemed like more of a distraction than a learning tool. But then we did a project where students created digital presentations about historical events, and the engagement was incredible. They were researching, collaborating, editing - real skills for the modern world. I'm still cautious about screen time, but I can see the benefits when it's used purposefully.\n\nSpeaker 2: The school provided us with these new interactive whiteboards, and to be frank, I haven't had the training to use them properly. I'm in my fifties, and technology has always been a bit of a struggle for me. The students know more about it than I do, which is fine, but I worry about losing that personal connection. Sometimes I think we're replacing human interaction with screens, and that's not what education should be about.\n\nSpeaker 3: What excites me most is how technology can level the playing field for students with disabilities. I have students who can't write easily, but with speech-to-text software, they can express their ideas. Others use text-to-speech to access materials they couldn't read otherwise. These aren't just gadgets - they're tools that give students independence and confidence. That's transformative.\n\nSpeaker 4: We need to be careful about assuming all technology is good technology. I've seen schools spend fortunes on the latest devices without thinking about how they fit into actual learning objectives. The key is teacher training - without it, you just have expensive paperweights. And we must consider the cost - not just financial, but the social cost of students who don't have access at home.\n\nSpeaker 5: My approach is simple - technology should enhance, not replace. I use online quizzes for quick feedback, video clips to introduce topics, and collaborative documents for group work. But we still have discussions, we still write by hand, we still debate face-to-face. The technology is a tool in my toolkit, not the entire workshop. Balance is everything.",
+        "audioUrl": "/audio/PEL-B2-Test6-Part3.mp3",
+        "context": "Five teachers discuss technology in education",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "Which of the opinions A-F does each speaker express? Use each letter only once.",
+            "questions": [
+              {
+                "id": 56,
+                "text": "Speaker 1",
+                "answer": 2,
+                "options": [
+                  "Technology can engage students in meaningful projects.",
+                  "Technology should be used to support students with disabilities.",
+                  "Technology is most effective when it enhances rather than replaces traditional methods.",
+                  "Technology can create barriers for teachers who lack training.",
+                  "Technology implementation requires careful planning and consideration of costs.",
+                  "Technology allows for more personalized student feedback."
+                ]
+              },
+              {
+                "id": 57,
+                "text": "Speaker 2",
+                "answer": 3,
+                "options": [
+                  "Technology can engage students in meaningful projects.",
+                  "Technology should be used to support students with disabilities.",
+                  "Technology is most effective when it enhances rather than replaces traditional methods.",
+                  "Technology can create barriers for teachers who lack training.",
+                  "Technology implementation requires careful planning and consideration of costs.",
+                  "Technology allows for more personalized student feedback."
+                ]
+              },
+              {
+                "id": 58,
+                "text": "Speaker 3",
+                "answer": 1,
+                "options": [
+                  "Technology can engage students in meaningful projects.",
+                  "Technology should be used to support students with disabilities.",
+                  "Technology is most effective when it enhances rather than replaces traditional methods.",
+                  "Technology can create barriers for teachers who lack training.",
+                  "Technology implementation requires careful planning and consideration of costs.",
+                  "Technology allows for more personalized student feedback."
+                ]
+              },
+              {
+                "id": 59,
+                "text": "Speaker 4",
+                "answer": 4,
+                "options": [
+                  "Technology can engage students in meaningful projects.",
+                  "Technology should be used to support students with disabilities.",
+                  "Technology is most effective when it enhances rather than replaces traditional methods.",
+                  "Technology can create barriers for teachers who lack training.",
+                  "Technology implementation requires careful planning and consideration of costs.",
+                  "Technology allows for more personalized student feedback."
+                ]
+              },
+              {
+                "id": 60,
+                "text": "Speaker 5",
+                "answer": 2,
+                "options": [
+                  "Technology can engage students in meaningful projects.",
+                  "Technology should be used to support students with disabilities.",
+                  "Technology is most effective when it enhances rather than replaces traditional methods.",
+                  "Technology can create barriers for teachers who lack training.",
+                  "Technology implementation requires careful planning and consideration of costs.",
+                  "Technology allows for more personalized student feedback."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You are expected to give a short presentation to your partner(s) on one of the following topics. (The prompts in brackets may help you.) Your presentation should take about 90 seconds and you should answer your partner's questions afterwards. While your partner is giving his/her presentation, listen and think of the questions you would like to ask. You should not interrupt your partner during the presentation",
+        "topics": [
+          {
+            "topic": "A skill you would like to learn",
+            "questions": [
+              {
+                "id": "p1q1",
+                "text": "Why would you like to learn this skill?"
+              }
+            ]
+          },
+          {
+            "topic": "A place you would like to visit",
+            "questions": [
+              {
+                "id": "p1q2",
+                "text": "What makes this place interesting to you?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following text from a magazine. Discuss the content of the text with your partner(s). Tell them your opinions; give reasons and personal examples to support your ideas. Talk about your own experience with the problems mentioned and possible solutions.",
+        "text": "The gig economy has grown rapidly in recent years, with millions of people working as freelancers, delivery drivers, or in other flexible roles. While this offers freedom and autonomy, it also means less job security, fewer benefits, and unpredictable income. Many gig workers struggle with isolation and the lack of workplace protections. Some countries are introducing new legislation to protect these workers, but finding the right balance between flexibility and security remains a challenge.",
+        "topics": [
+          {
+            "topic": "The Gig Economy",
+            "questions": [
+              {
+                "id": "p2q1",
+                "text": "What are the advantages and disadvantages of gig work?"
+              },
+              {
+                "id": "p2q2",
+                "text": "Should gig workers have the same rights as traditional employees?"
+              },
+              {
+                "id": "p2q3",
+                "text": "How can gig workers protect themselves financially?"
+              },
+              {
+                "id": "p2q4",
+                "text": "What role should governments play in regulating this sector?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "You and your partner have been asked to advise a local company on how to improve employee wellbeing. Firstly, think of some ideas to include in your presentation. Then, discuss your ideas with your partner(s) and try to agree on the three most important suggestions.",
+        "topics": [
+          {
+            "topic": "Improving Employee Wellbeing",
+            "suggestions": [
+              "Flexible working hours",
+              "Mental health support services",
+              "Regular team building activities",
+              "Gym membership subsidies",
+              "Quiet relaxation spaces",
+              "Professional development opportunities",
+              "Recognition and reward programmes",
+              "Healthy snack options"
+            ],
+            "questions": [
+              {
+                "id": "p3q1",
+                "text": "Which suggestions would be most cost-effective?"
+              },
+              {
+                "id": "p3q2",
+                "text": "What are the potential benefits of each suggestion?"
+              },
+              {
+                "id": "p3q3",
+                "text": "Which three ideas should be prioritised?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m6-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter",
+        "subtitle": "Part 1: Writing",
+        "instruction": "Write a formal letter of complaint. In your letter write in detail about\na) at least three of the following points\nor\nb) at least two of the following points plus one other aspect related to the topic:\n• What you bought and when\n• What the problem was\n• How you tried to resolve the issue\n• What resolution you expect\n\nBefore you start writing, decide on the order of the points. Use a suitable greeting and complimentary closing. Start your letter with a few opening sentences and end the letter politely with one or two closing sentences.\n\nPlease write at least 150 words.",
+        "context": "Customer Services Manager\nTechWorld Ltd\n456 Innovation Park\nLondon SW1A 2BC\n\nDear Sir or Madam,",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a formal letter of complaint about a faulty smartphone.",
+        "bullets": [
+          "What you bought and when",
+          "What the problem was",
+          "How you tried to resolve the issue",
+          "What resolution you expect"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m6-t2",
+        "taskType": 2,
+        "title": "Task 2: Article",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Please write at least 250 words.",
+        "context": "Your local newspaper has asked for articles about how technology has changed our daily lives. Write an article for the newspaper discussing both the positive and negative effects of technology on modern life.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write an article about the impact of technology on daily life, discussing both benefits and drawbacks.",
+        "bullets": [
+          "Discuss positive effects of technology",
+          "Discuss negative effects of technology",
+          "Give your personal opinion and conclusion"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

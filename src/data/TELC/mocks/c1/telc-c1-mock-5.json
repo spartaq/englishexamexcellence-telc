@@ -1,0 +1,823 @@
+{
+  "id": "telc-c1-mock-5",
+  "level": "c1",
+  "mockNumber": 5,
+  "title": "TELC C1 Mock Test 5",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC C1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-5",
+    "title": "Test Vocabulary",
+    "level": "C1",
+    "words": [
+      {
+        "term": "Autonomy",
+        "hu": "önrendelkezés",
+        "definition": "the right or condition of self-government",
+        "example": "Employees value autonomy in how they manage their work."
+      },
+      {
+        "term": "Conscious",
+        "hu": "tudatos",
+        "definition": "aware of and responding to one's surroundings",
+        "example": "She made a conscious effort to reduce her carbon footprint."
+      },
+      {
+        "term": "Empirical",
+        "hu": "empirikus",
+        "definition": "based on observation or experience rather than theory",
+        "example": "The study provided empirical evidence supporting the hypothesis."
+      },
+      {
+        "term": "Feasible",
+        "hu": "kivitelezhető",
+        "definition": "possible and practical to do easily",
+        "example": "The plan seems feasible given our current resources."
+      },
+      {
+        "term": "Inevitable",
+        "hu": "elkerülhetetlen",
+        "definition": "certain to happen; unavoidable",
+        "example": "Technological change is inevitable in modern society."
+      },
+      {
+        "term": "Mitigate",
+        "hu": "enyhít",
+        "definition": "to make less severe, serious, or painful",
+        "example": "We must mitigate the risks before proceeding with the project."
+      },
+      {
+        "term": "Paradigm",
+        "hu": "paradigma",
+        "definition": "a typical example or pattern of something",
+        "example": "This discovery has shifted the scientific paradigm entirely."
+      },
+      {
+        "term": "Pragmatic",
+        "hu": "gyakorlati",
+        "definition": "dealing with things sensibly and realistically",
+        "example": "We need a pragmatic solution to this complex problem."
+      },
+      {
+        "term": "Resilient",
+        "hu": "rugalmas",
+        "definition": "able to withstand or recover quickly from difficult conditions",
+        "example": "Communities must become more resilient to climate impacts."
+      },
+      {
+        "term": "Substantiate",
+        "hu": "bizonyít",
+        "definition": "to provide evidence to support an argument",
+        "example": "Please substantiate your claims with verifiable data."
+      },
+      {
+        "term": "Ubiquitous",
+        "hu": "mindenhová jelenlévő",
+        "definition": "present or found everywhere",
+        "example": "Digital technology is ubiquitous in contemporary life."
+      },
+      {
+        "term": "Ambiguous",
+        "hu": "kétértelmű",
+        "definition": "open to more than one interpretation",
+        "example": "The wording of the contract was deliberately ambiguous."
+      },
+      {
+        "term": "Comprehensive",
+        "hu": "átfogó",
+        "definition": "complete and including everything necessary",
+        "example": "We conducted a comprehensive review of all evidence."
+      },
+      {
+        "term": "Consciousness",
+        "hu": "tudatosság",
+        "definition": "the state of being aware of and able to think",
+        "example": "The nature of consciousness remains a philosophical puzzle."
+      },
+      {
+        "term": "Conundrum",
+        "hu": "rejtély",
+        "definition": "a confusing and difficult problem",
+        "example": "The ethical conundrum of gene editing troubles many scientists."
+      },
+      {
+        "term": "Contemporary",
+        "hu": "korszakmai",
+        "definition": "belonging to the present time",
+        "example": "Contemporary society faces unprecedented challenges."
+      },
+      {
+        "term": "Innovation",
+        "hu": "innováció",
+        "definition": "the introduction of new things or methods",
+        "example": "Innovation drives economic growth and competitiveness."
+      },
+      {
+        "term": "Intricate",
+        "hu": "összetett",
+        "definition": "very complicated or detailed",
+        "example": "The intricate web of international law is difficult to navigate."
+      },
+      {
+        "term": "Implementation",
+        "hu": "megvalósítás",
+        "definition": "the process of putting a plan into action",
+        "example": "The implementation phase will take approximately six months."
+      },
+      {
+        "term": "Viable",
+        "hu": "megvalósítható",
+        "definition": "capable of working successfully",
+        "example": "We must identify a viable path forward."
+      }
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 90,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Gapped Sentences",
+        "description": "Questions 1-6",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "The Neuroscience of Decision Making",
+            "subtitle": "Reading Passage 1",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "Recent advances in neuroscience have begun to illuminate the complex processes underlying human decision-making. __(1)__ brain imaging technology allows researchers to observe neural activity in real time, we are gaining unprecedented insights into how choices are made."
+              },
+              {
+                "id": "2",
+                "text": "The prefrontal cortex plays a central role in rational decision-making. __(2)__ this region is damaged or impaired, individuals struggle with impulse control and long-term planning."
+              },
+              {
+                "id": "3",
+                "text": "Emotion and cognition are deeply intertwined in decision processes. __(3)__ traditional models assumed purely logical reasoning, modern research demonstrates that emotional responses are integral to effective choices."
+              },
+              {
+                "id": "4",
+                "text": "Neuroeconomists have identified two distinct neural systems: one for immediate gratification and another for delayed rewards. __(4)__ these systems compete, short-term desires often override long-term benefits."
+              },
+              {
+                "id": "5",
+                "text": "Stress significantly impacts decision quality. __(5)__ cortisol levels rise, the brain's capacity for nuanced evaluation diminishes, leading to more impulsive choices."
+              },
+              {
+                "id": "6",
+                "text": "Understanding these neural mechanisms has practical implications. __(6)__ we can design environments that support better decision-making—from public health campaigns to financial products."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "sentence-insert",
+                "instruction": "Which of the sentences a–h is missing in each gap? There is only one correct answer for each item. Two sentences do not fit into any of the gaps.",
+                "options": [
+                  { "id": "a", "text": "These findings challenge traditional notions of free will and moral responsibility." },
+                  { "id": "b", "text": "With the advent of sophisticated fMRI scanners," },
+                  { "id": "c", "text": "When the prefrontal cortex is compromised," },
+                  { "id": "d", "text": "This competition explains many self-control failures." },
+                  { "id": "e", "text": "For example, default settings can nudge people toward healthier choices." },
+                  { "id": "f", "text": "However, this integrated view complicates efforts to model decisions mathematically." },
+                  { "id": "g", "text": "Under conditions of stress," },
+                  { "id": "h", "text": "Contrary to earlier assumptions," }
+                ],
+                "answers": {
+                  "1": "b",
+                  "2": "c",
+                  "3": "h",
+                  "4": "d",
+                  "5": "g",
+                  "6": "e"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Selective Understanding",
+        "description": "Questions 7-12",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The Digital Preservation of Cultural Heritage",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "a",
+                "text": "Museums and cultural institutions are increasingly turning to digital technologies to preserve and provide access to fragile artefacts. 3D scanning allows for the creation of precise digital replicas that can be studied without risking damage to originals. This digital turn has democratised access to collections that were previously available only to researchers."
+              },
+              {
+                "id": "b",
+                "text": "Virtual and augmented reality technologies offer immersive experiences that transcend physical limitations. Visitors can explore ancient ruins as they once stood or handle virtual artefacts that would be impossible to touch in reality. These technologies blur the boundary between preservation and presentation, creating new pedagogical possibilities."
+              },
+              {
+                "id": "c",
+                "text": "However, digital preservation presents its own challenges. File formats become obsolete rapidly, requiring continuous migration to maintain accessibility. Storage costs remain substantial, and ensuring long-term data integrity demands sustained investment. Some critics question whether digital surrogates can ever capture the aura and materiality of original works."
+              },
+              {
+                "id": "d",
+                "text": "Despite these concerns, digital initiatives have proven invaluable during crises. When conflict or natural disaster threatens cultural sites, digital records serve as critical backups. The destruction of heritage in war-torn regions has underscored the urgency of comprehensive digitisation efforts worldwide."
+              },
+              {
+                "id": "e",
+                "text": "Looking ahead, artificial intelligence may further transform digital preservation. Machine learning algorithms could automatically identify and categorise artefacts, while blockchain technology might provide verifiable provenance for digital objects. These innovations will require careful ethical consideration regarding ownership, access, and cultural sensitivity."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "In which part of the text a–e can you find the information 7–12? There is only one correct answer for each item. Each part of the text may contain more than one of the pieces of information.",
+                "questions": [
+                  {
+                    "id": "7",
+                    "text": "describes how digital copies protect original artefacts?",
+                    "answer": "a"
+                  },
+                  {
+                    "id": "8",
+                    "text": "mentions virtual experiences that recreate historical sites?",
+                    "answer": "b"
+                  },
+                  {
+                    "id": "9",
+                    "text": "notes concerns about digital copies capturing the original's essence?",
+                    "answer": "c"
+                  },
+                  {
+                    "id": "10",
+                    "text": "explains how digital records help in crisis situations?",
+                    "answer": "d"
+                  },
+                  {
+                    "id": "11",
+                    "text": "indicates that new technologies raise ethical questions?",
+                    "answer": "e"
+                  },
+                  {
+                    "id": "12",
+                    "text": "states that digital technology has made collections more widely accessible?",
+                    "answer": "a"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3-reading",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 13-24",
+        "passages": [
+          {
+            "id": "p3-reading",
+            "title": "The Economics of Attention",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "In an information-saturated world, attention has become the scarcest and most valuable resource. Economists now treat attention as a finite commodity that must be allocated efficiently. This 'attention economy' fundamentally reshapes how businesses, media, and individuals operate."
+              },
+              {
+                "id": "2",
+                "text": "Social media platforms are engineered to capture and hold user attention through sophisticated algorithms. These systems employ variable rewards, endless scrolling, and social validation mechanisms that trigger dopamine responses. The result is often compulsive usage patterns that can impair mental health and productivity."
+              },
+              {
+                "id": "3",
+                "text": "Business models based on attention extraction raise profound ethical questions. If users' attention is the product being sold to advertisers, are these platforms morally accountable for the ways they manipulate engagement? Some scholars argue that attention-harvesting constitutes a form of cognitive capitalism that exploits psychological vulnerabilities."
+              },
+              {
+                "id": "4",
+                "text": "The concentration of attention among a handful of tech giants has worrying implications for democracy and culture. When a small number of companies control the channels through which most people consume information, they wield enormous power to shape public discourse. Market dominance in attention translates directly into political and cultural influence."
+              },
+              {
+                "id": "5",
+                "text": "Individual strategies for managing attention are increasingly important. Experts recommend deliberate practices: setting boundaries on digital consumption, cultivating deep work habits, and reclaiming agency over one's focus. These approaches recognise that attention is not merely a personal resource but a social and political concern."
+              },
+              {
+                "id": "6",
+                "text": "Policy responses are emerging but lagging behind technological development. Some European countries have enacted 'right to disconnect' laws, while others debate attention-fiduciary regulations that would impose ethical duties on platforms. The debate continues: can we harness attention economy dynamics without being consumed by them?"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "trinary",
+                 "mode": "tfng",
+                "instruction": "Read the following text and the statements 13–23 below. For each of the statements mark: (+) corresponds to the content, (–) does not correspond, (X) is not mentioned.",
+                "questions": [
+                  {
+                    "id": "13",
+                    "text": "Attention is considered an abundant resource in modern society.",
+                    "answer": "NOT GIVEN"
+                  },
+                  {
+                    "id": "14",
+                    "text": "Social media uses psychological mechanisms to maintain user engagement.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "15",
+                    "text": "The business model of social media is based on selling user data.",
+                    "answer": "FALSE"
+                  },
+                  {
+                    "id": "16",
+                    "text": "Some critics compare attention-extracting platforms to cognitive capitalism.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "17",
+                    "text": "A few companies dominate public attention channels.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "18",
+                    "text": "Attention concentration strengthens democratic discourse.",
+                    "answer": "FALSE"
+                  },
+                  {
+                    "id": "19",
+                    "text": "Individuals can develop practices to manage their attention better.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "20",
+                    "text": "Policy regulations have fully addressed attention economy concerns.",
+                    "answer": "FALSE"
+                  },
+                  {
+                    "id": "21",
+                    "text": "Some countries have passed laws related to disconnecting from work.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "22",
+                    "text": "The attention economy is a purely economic concept with no social implications.",
+                    "answer": "FALSE"
+                  },
+                  {
+                    "id": "23",
+                    "text": "The text questions whether we can benefit from attention dynamics without harm.",
+                    "answer": "TRUE"
+                  }
+                ]
+              },
+              {
+                "type": "mcq",
+                "instruction": "Which title a, b or c best matches the article?",
+                "questions": [
+                  {
+                    "id": "24",
+                    "text": "",
+                    "options": [
+                      "a The value of attention in the digital era",
+                      "b How social media captures user attention",
+                      "c Addressing the ethics of digital platforms"
+                    ],
+                    "answer": "a The value of attention in the digital era"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Text 1",
+            "title": "The Philosophy of Mind",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "The mind-body problem has perplexed philosophers for centuries. At its core lies the question of how physical processes in the brain give rise to subjective conscious experience. __(21)____ materialism asserts that mental states are ultimately reducible to brain states, dualists maintain that mind and matter are fundamentally distinct substances. __(22)____ these competing frameworks, a third perspective—panpsychism—has gained renewed attention. Panpsychism proposes that consciousness is a fundamental property of all matter, not merely an emergent feature of complex systems. __(23)____ this view elegantly sidesteps the hard problem of explaining how consciousness arises from non-conscious matter; it introduces new puzzles about how micro-conscious entities combine into unified macro-experiences. Critics argue that panpsychism lacks empirical support and faces the 'combination problem.' __(24)____, proponents continue to refine the theory, suggesting it may bridge the gap between science and subjective experience. The debate remains unresolved, __(25)____ advances in neuroscience and physics may eventually provide new insights into this ancient mystery."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {
+                    "id": "21",
+                    "text": "At its core lies the question of how physical processes in the brain give rise to subjective conscious experience. __(21)____ materialism asserts that mental states are ultimately reducible to brain states, dualists maintain that mind and matter are fundamentally distinct substances.",
+                    "options": ["a Whereas", "b While", "c Nevertheless"],
+                    "answer": "b While"
+                  },
+                  {
+                    "id": "22",
+                    "text": "materialism asserts that mental states are ultimately reducible to brain states, dualists maintain that mind and matter are fundamentally distinct substances. __(22)____ these competing frameworks, a third perspective—panpsychism—has gained renewed attention.",
+                    "options": ["a Beyond", "b Against", "c Despite"],
+                    "answer": "c Despite"
+                  },
+                  {
+                    "id": "23",
+                    "text": "Panpsychism proposes that consciousness is a fundamental property of all matter. __(23)____ this view elegantly sidesteps the hard problem of explaining how consciousness arises from non-conscious matter; it introduces new puzzles about how micro-conscious entities combine into unified macro-experiences.",
+                    "options": ["a While", "b Whereas", "c Because"],
+                    "answer": "a While"
+                  },
+                  {
+                    "id": "24",
+                    "text": "Critics argue that panpsychism lacks empirical support and faces the 'combination problem.' __(24)____, proponents continue to refine the theory, suggesting it may bridge the gap between science and subjective experience.",
+                    "options": ["a Nevertheless", "b However", "c On the contrary"],
+                    "answer": "a Nevertheless"
+                  },
+                  {
+                    "id": "25",
+                    "text": "The debate remains unresolved, __(25)____ advances in neuroscience and physics may eventually provide new insights into this ancient mystery.",
+                    "options": ["a although", "b despite", "c yet"],
+                    "answer": "a although"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p2",
+            "subtitle": "Text 2",
+            "title": "Cognitive Biases in Investment",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Investment decisions are notoriously susceptible to cognitive biases that can undermine rational analysis. Confirmation bias leads investors to seek information supporting their existing views while ignoring contradictory evidence. Loss aversion causes people to feel losses more intensely than equivalent gains, often resulting in premature selling of winners and holding onto losers. Overconfidence bias leads to excessive risk-taking and underestimation of potential downsides. Anchoring causes investors to rely too heavily on initial information when making subsequent judgements. Understanding these psychological traps is essential for sound financial decision-making. __(26)____, many investors fail to recognise their own biases. Professional financial advisers must not only identify these patterns in their clients but also remain vigilant about their own susceptibility. __(27)____ knowledge of behavioural economics helps mitigate bias impact. Systematic approaches like pre-commitment strategies and decision algorithms can provide objective checks. __(28)____, these methods require discipline and consistent application. Emotional intelligence plays a crucial role in investment success—the ability to recognise one's emotional states and prevent them from dictating actions. __(29)____, investors who cultivate self-awareness and emotional regulation tend to achieve better long-term outcomes. The most successful approach combines analytical rigour with psychological insight. __(30)____, mastering one's own mind may be the most important investment skill of all."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-t) to complete each sentence.",
+                "tokens": ["accordingly", "additionally", "alternatively", "certainly", "consequently", "furthermore", "hence", "however", "indeed", "instead", "moreover", "nevertheless", "nonetheless", "notably", "particularly", "perhaps", "rather", "therefore", "ultimately", "whereas"],
+                "questions": [
+                  { "id": "26", "text": "Understanding these psychological traps is essential. __(26)____, many investors fail to recognise their own biases." },
+                  { "id": "27", "text": "Professional financial advisers must not only identify these patterns in their clients but also remain vigilant about their own susceptibility. __(27)____ knowledge of behavioural economics helps mitigate bias impact." },
+                  { "id": "28", "text": "Systematic approaches can provide objective checks. __(28)____, these methods require discipline and consistent application." },
+                  { "id": "29", "text": "Emotional intelligence plays a crucial role. __(29)____, investors who cultivate self-awareness and emotional regulation tend to achieve better outcomes." },
+                  { "id": "30", "text": "The most successful approach combines analytical rigour with psychological insight. __(30)____, mastering one's own mind may be the most important investment skill." }
+                ],
+                "answers": {
+                  "26": "however",
+                  "27": "furthermore",
+                  "28": "nevertheless",
+                  "29": "indeed",
+                  "30": "ultimately"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Views on Globalisation",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear eight speakers sharing their perspectives on globalisation. You will hear each speaker once. While listening, decide which statement a–j best matches what each speaker says. You will only need eight of the ten statements.\nMark your answers for items 47–54 on Answer Sheet.",
+        "transcript": "[Radio programme transcript with eight speakers discussing aspects of globalisation]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3",
+        "context": "Radio programme about globalisation",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "matching-info",
+            "instruction": "Which statement a–j best matches what each speaker says?",
+            "questions": [
+              { "id": 47, "text": "Speaker 1", "answer": "a" },
+              { "id": 48, "text": "Speaker 2", "answer": "b" },
+              { "id": 49, "text": "Speaker 3", "answer": "c" },
+              { "id": 50, "text": "Speaker 4", "answer": "d" },
+              { "id": 51, "text": "Speaker 5", "answer": "e" },
+              { "id": 52, "text": "Speaker 6", "answer": "f" },
+              { "id": 53, "text": "Speaker 7", "answer": "g" },
+              { "id": 54, "text": "Speaker 8", "answer": "h" }
+            ],
+            "options": [
+              "a Globalisation has lifted millions out of poverty worldwide.",
+              "b Globalisation threatens local cultural identities.",
+              "c Environmental costs of global trade are too high.",
+              "d Technology enables global collaboration and innovation.",
+              "e Benefits of globalisation are unevenly distributed.",
+              "f Global supply chains are vulnerable to disruption.",
+              "g Cultural exchange enriches societies when managed well.",
+              "h National sovereignty is eroded by international agreements.",
+              "i Globalisation creates opportunities for developing nations.",
+              "j Local businesses cannot compete with multinational corporations."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Interview: Neuroscience and Education",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with a cognitive scientist about applying neuroscience to education. You will hear the interview only once. While listening decide which answer fits best: a, b or c.\nMark your answers for items 55–64 on Answer Sheet.",
+        "transcript": "[Interview transcript about educational neuroscience]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "context": "Interview about learning science",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "While listening decide which answer fits best: a, b or c.",
+            "questions": [
+              {
+                "id": "55",
+                "text": "The guest explains that neuroplasticity means",
+                "options": ["a the brain cannot change significantly in adulthood.", "b brain structure remains fixed throughout life.", "c the brain can form new connections throughout life."],
+                "answer": "c the brain can form new connections throughout life."
+              },
+              {
+                "id": "56",
+                "text": "Regarding standardized testing, the scientist believes it",
+                "options": ["a measures learning effectively.", "b often conflicts with how brains actually learn.", "c should be expanded to all subjects."],
+                "answer": "b often conflicts with how brains actually learn."
+              },
+              {
+                "id": "57",
+                "text": "Sleep's role in learning is described as",
+                "options": ["a unimportant for memory.", "b crucial for memory consolidation.", "c only beneficial for children."],
+                "answer": "b crucial for memory consolidation."
+              },
+              {
+                "id": "58",
+                "text": "The guest recommends that teachers",
+                "options": ["a focus solely on content delivery.", "b incorporate movement into lessons.", "c minimise student interaction."],
+                "answer": "b incorporate movement into lessons."
+              },
+              {
+                "id": "59",
+                "text": "On stress and learning, the scientist states that",
+                "options": ["a moderate stress enhances learning.", "b stress has no effect on memory.", "c high stress prevents any learning."],
+                "answer": "a moderate stress enhances learning."
+              },
+              {
+                "id": "60",
+                "text": "Multitasking during learning is",
+                "options": ["a efficient for most students.", "b detrimental to deep understanding.", "c necessary in modern classrooms."],
+                "answer": "b detrimental to deep understanding."
+              },
+              {
+                "id": "61",
+                "text": "Individual differences in learning are attributed to",
+                "options": ["a prior knowledge and experiences.", "b intelligence quotient only.", "c socioeconomic status primarily."],
+                "answer": "a prior knowledge and experiences."
+              },
+              {
+                "id": "62",
+                "text": "The scientist suggests that error-making",
+                "options": ["a should be avoided at all costs.", "b is essential for deep learning.", "c indicates poor teaching quality."],
+                "answer": "b is essential for deep learning."
+              },
+              {
+                "id": "63",
+                "text": "Regarding technology in classrooms, the position is",
+                "options": ["a it should be banned completely.", "b it must be used thoughtfully and purposefully.", "c it is always beneficial."],
+                "answer": "b it must be used thoughtfully and purposefully."
+              },
+              {
+                "id": "64",
+                "text": "The overall message is",
+                "options": ["a education should return to traditional methods.", "b neuroscience can inform more effective teaching.", "c teachers need less training."],
+                "answer": "b neuroscience can inform more effective teaching."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "The Anthropocene Epoch",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear a lecture on the Anthropocene—the proposed geological epoch defined by human impact. While listening, complete the notes with information from the lecture. Write no more than THREE words for each answer.\nYou will hear the lecture only once.\nYou will now have one minute to read the notes.",
+        "transcript": "[Academic lecture transcript about the Anthropocene]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+        "context": "Academic lecture on geology and human impact",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "notes-completion",
+            "instruction": "Complete the notes with information from the lecture. Write no more than THREE words for each answer.",
+            "wordLimit": 3,
+            "notes": [
+              {
+                "heading": "The Anthropocene Epoch",
+                "items": [
+                  { "id": "0", "type": "text", "text": "PROF. MICHAEL THOMPSON" },
+                  { "id": "0-answer", "type": "gap", "label": "Institution", "answer": "Royal Society" }
+                ]
+              },
+              {
+                "heading": "Defining the Anthropocene",
+                "items": [
+                  { "id": "65", "type": "gap", "label": "Term first proposed", "answer": "1960s" },
+                  { "id": "66", "type": "gap", "label": "Key indicator species", "answer": "radioactive isotopes" }
+                ]
+              },
+              {
+                "heading": "Human Impact Indicators",
+                "items": [
+                  { "id": "67", "type": "gap", "label": "Atmospheric marker", "answer": "carbon dioxide" },
+                  { "id": "68", "type": "gap", "label": "Material distinguishing epoch", "answer": "plastics" }
+                ]
+              },
+              {
+                "heading": "Debate and Controversy",
+                "items": [
+                  { "id": "69", "type": "gap", "label": "Starting date proposal", "answer": "Industrial Revolution" },
+                  { "id": "70", "type": "gap", "label": "Alternative starting point", "answer": "mid-20th century" }
+                ]
+              },
+              {
+                "heading": "Geological Evidence",
+                "items": [
+                  { "id": "71", "type": "gap", "label": "Sediment layer characteristic", "answer": "distinct composition" },
+                  { "id": "72", "type": "gap", "label": "Fossil record pattern", "answer": "rapid species turnover" }
+                ]
+              },
+              {
+                "heading": "Implications",
+                "items": [
+                  { "id": "73", "type": "gap", "label": "Primary human responsibility", "answer": "planetary stewardship" },
+                  { "id": "74", "type": "gap", "label": "Urgent global need", "answer": "sustainable management" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m5-t1",
+        "taskType": 1,
+        "title": "Task 1: Compulsory",
+        "subtitle": "Part 1: Writing",
+        "instruction": "In this part of the examination you have to write two texts: the compulsory task and one of the optional tasks. You have a total of one hour to complete both tasks.\nRemember:\nThe texts you write should be well-structured and highlight the points that you think are most important for the reader. The structure of the text should have an appropriate degree of complexity with reference to the type of text specified and should also contain a number of complex sentence forms.\nWrite at least 200 words.",
+        "context": "A popular science magazine is publishing a special issue on artificial intelligence. The editors have invited experts to contribute articles discussing whether AI will ultimately benefit or harm humanity. You are asked to write an essay presenting a balanced analysis of AI's potential benefits and risks, concluding with your reasoned position.\n\nWrite the essay for the magazine.",
+        "targetWords": 200,
+        "xp": 500,
+        "prompt": "Write an essay analysing the benefits and risks of artificial intelligence.",
+        "type": "article"
+      },
+      {
+        "id": "w-m5-t2",
+        "taskType": 2,
+        "title": "Task 2: Optional",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Choose one of the following four tasks and write at least 150 words.",
+        "options": [
+          {
+            "id": "optional-a",
+            "title": "A: Email to a Friend About a Challenge",
+            "context": "You recently completed a challenging project or course that pushed you out of your comfort zone. Write an email to a friend describing the experience, what you learned about yourself, and whether you would recommend similar challenges to others.\n\nWrite the email.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "letter"
+          },
+          {
+            "id": "optional-b",
+            "title": "B: Review of a Public Space",
+            "context": "A new public空间 (park, square, waterfront area) has opened in your city. Write a review for the local newspaper describing its features, how well it serves the community, and any improvements you would suggest.\n\nWrite the review.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "review"
+          },
+          {
+            "id": "optional-c",
+            "title": "C: Proposal to Employer",
+            "context": "You work for an organisation that has not adopted sustainable practices. You believe your workplace should implement environmentally friendly policies. Write a proposal to management outlining specific changes and their benefits.\n\nWrite the proposal.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          },
+          {
+            "id": "optional-d",
+            "title": "D: Blog Post About Learning a Skill",
+            "context": "You have recently learned a difficult skill—such as playing an instrument, a new language, or a sport. Write a blog post sharing your experience, including challenges faced and advice for others attempting similar learning journeys.\n\nWrite the blog post.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          }
+        ]
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "speaking-part1",
+        "title": "Presentation",
+        "subtitle": "Part 1: Speaking",
+        "type": "presentation",
+        "duration": "3 minutes",
+        "instruction": "Choose one of the two topics and give a short presentation to your partner(s). Take a few seconds to prepare before you start speaking. Remember to give an introduction (example, own experience) and come to a conclusion at the end. You should talk for about three minutes. At the end you will be asked follow-up questions.",
+        "topics": [
+          {
+            "topic": "Can art and literature effect social change?",
+            "questions": [
+              {
+                "id": "p1q1",
+                "text": "What examples come to mind where art influenced society?"
+              }
+            ]
+          },
+          {
+            "topic": "Should individuals prioritize personal happiness over professional success?",
+            "questions": [
+              {
+                "id": "p1q2",
+                "text": "How do we define success in contemporary life?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "speaking-part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Discussion",
+        "type": "discussion",
+        "duration": "6 minutes",
+        "instruction": "Discuss the following topic with your partner(s)",
+        "text": "\"The purpose of education is to replace an empty mind with an open one.\" Malcolm Forbes",
+        "topics": [
+          {
+            "topic": "Education and Open-mindedness",
+            "questions": [
+              {
+                "id": "p2q1",
+                "text": "What does Malcolm Forbes mean by 'an open mind' in the context of education?"
+              },
+              {
+                "id": "p2q2",
+                "text": "Do you agree that education's primary goal is openness rather than knowledge acquisition?"
+              },
+              {
+                "id": "p2q3",
+                "text": "How can educational systems cultivate open-mindedness in students?"
+              },
+              {
+                "id": "p2q4",
+                "text": "What obstacles hinder education from fostering truly open minds?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

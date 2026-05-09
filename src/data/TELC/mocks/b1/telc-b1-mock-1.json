@@ -314,7 +314,7 @@
                   {
                     "id": 16,
                     "text": "Your daughter is looking for organic skin products for her face.",
-                    "answer": "x"
+                    "answer": "NOT GIVEN"
                   },
                   {
                     "id": 17,
@@ -324,7 +324,7 @@
                   {
                     "id": 18,
                     "text": "Your Chinese girlfriend is looking for traditional Asian hair products.",
-                    "answer": "x"
+                    "answer": "NOT GIVEN"
                   },
                   {
                     "id": 19,
@@ -375,61 +375,61 @@
                   {
                     "id": "21",
                     "text": "I'm sure I'll find good use ____(21)____ it.",
-                    "options": ["a for", "b from", "c of"],
+                    "options": ["for", "from", "of"],
                     "answer": "for"
                   },
                   {
                     "id": "22",
                     "text": "While most other people thankfully ____(22)____ me financial gifts too,",
-                    "options": ["a are giving", "b gave", "c has given"],
+                    "options": ["are giving", "gave", "has given"],
                     "answer": "for"
                   },
                   {
                     "id": "23",
                     "text": "whose identities remain ____(23)____ connected in some way.",
-                    "options": ["a suspect", "b suspicious", "c suspiciously"],
+                    "options": ["suspect", "suspicious", "suspiciously"],
                     "answer": "for"
                   },
                   {
                     "id": "24",
                     "text": "My little brother, who was not at all happy with his presents, decided ____(24)____ all our gifts differently",
-                    "options": ["a arrange", "b arranging", "c to arrange"],
+                    "options": ["arrange", "arranging", "to arrange"],
                     "answer": "for"
                   },
                   {
                     "id": "25",
                     "text": "I'm in my second year at university and the past ____(25)____ has been ____(26)____ as before,",
-                    "options": ["a semester", "b year", "c term"],
+                    "options": ["semester", "year", "term"],
                     "answer": "for"
                   },
                   {
                     "id": "26",
                     "text": "I'm in my second year at university and the past ____(25)____ has been ____(26)____ as before,",
-                    "options": ["a the same", "b similar", "c alike"],
+                    "options": ["the same", "similar", "alike"],
                     "answer": "for"
                   },
                   {
                     "id": "27",
                     "text": "It's slightly smaller than the last and I still don't have my own shower, but at least it has proper heating and isn't right ____(27)____ to a noisy bar.",
-                    "options": ["a next", "b beside", "c nearby"],
+                    "options": ["next", "beside", "nearby"],
                     "answer": "for"
                   },
                   {
                     "id": "28",
                     "text": "Other than that, there was a university-wide strike ____(28)____ the last week of term,",
-                    "options": ["a at", "b in", "c on"],
+                    "options": ["at", "in", "on"],
                     "answer": "for"
                   },
                   {
                     "id": "29",
                     "text": "This Christmas break was a week shorter ____(29)____ it usually is,",
-                    "options": ["a than", "b then", "c as"],
+                    "options": ["than", "then", "as"],
                     "answer": "for"
                   },
                   {
                     "id": "30",
                     "text": "____(30)____ there are things about the coming term I'm looking forward to, I think I still would have preferred the additional week of holiday.",
-                    "options": ["a Although", "b Despite", "c However"],
+                    "options": ["Although", "Despite", "However"],
                     "answer": "for"
                   }
                 ]
@@ -496,20 +496,20 @@
     ]
   },
 
-  "listening": {
+"listening": {
     "title": "Listening",
     "time": 30,
-    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 4 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
     "sections": [
       {
         "id": "part1",
         "part": 1,
-        "title": "News Items",
+        "title": "Situations",
         "subtitle": "Part 1: Listening",
-        "description": "You will hear five news items. You will hear each item only once.\nDecide which headline a–f goes with each news item.\nMark your answers on the answer sheet.\nNow you will have 45 seconds to read the headlines.",
-        "transcript": "[Five news item transcripts to be matched with headlines]",
-        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-        "context": "Five short news items",
+        "description": "You will hear people talking in eight different situations.\nFor questions 1-8, choose the best answer A, B or C.",
+        "transcript": "1. Woman: So you’ve won the teenage chef competition, Mark – congratulations!\nMark: Thanks! In the competition, you choose whether to cook a meat, fish or vegetarian dish; then you’re judged on the taste and how attractive it looks. I couldn’t decide between fish and vegetables – I’ve never been brilliant at meat dishes. Then I found the judge was an expert in cooking fish, which worried me, so I went for my other choice – and won!\n\n2. Girl: Excuse me. I think I left my book on this table – have you seen it?\nMan: Oh yes. I took it inside with the empty glass when I cleared the table. I gave it to the manager, who put it with the other lost property. He keeps it all in the drawer of his desk.\nGirl: \nMan: He’s on the phone inside the café. Why don’t you go inside – he’ll be finished in a minute.\n\n3. Girl: Does your house seem empty now your sister’s left home, Josh?\nJosh: Not really. My grandmother’s moved into her room, and she doesn’t go out much. It’s really nice having her there because my dad never comes home until later, and if my mum’s out for the evening, Grandma cooks supper for me.\n\n4. Boy: Have you packed for your holiday?\nGirl: No, I need to go shopping before I can do that. Last holiday, my suitcase handle got broken, so I need something new to pull all my stuff in. But suitcases are so heavy to carry.\nBoy: I always take a backpack – you can carry more that way.\nGirl: Yes, I thought about one of those, but good-quality ones are expensive. I’ll get one of those big sports bags. You know, one you can pull along. They don’t cost much, so it doesn’t matter if it gets torn.\n\n5. Man: The train arriving at platform six in the 11.45 from Manchester. The train due to arrive at platform four in approximately five minutes is the delayed 11.30 train to Manchester. The train will now depart at 11.50 and travel non-stop. We apologise to passengers for the delay. Refreshments will not be available on this train.\n\n6. Kimberley: Hi, it’s Kimberley. I got your message and I’d love to go to the movies. There’s a film called SpyGame, or a comedy – I don’t mind which … Shall we meet outside the cinema?\nGirl: Or, I know, at the burger bar on the corner. We could have a snack before we go in or we could meet at the bus station.\nKimberley: Mum’s driving me into town this afternoon, to buy some trainers, so I won’t be near the station. But something to eat first is a good idea. Shall we say 6 o’clock?\nGirl: OK.\n\n7. Boy: Have you been to the new water sports centre yet?\nGirl: Oh yes, it’s brilliant. There are two indoor pools, one for underwater diving and one for swimming, and you can also have sailing lessons on the lake.\nBoy: That’s what I’m doing there next weekend, actually. I was hoping to take waterskiing lessons, but the leaflet says they’re not starting those until next year.",
+        "audioUrl": "/audio/PEL-B1-Test1-Part1.mp3",
+        "context": "Eight different situations",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
@@ -518,38 +518,49 @@
             "instruction": "Which headline (a-f) corresponds to each news item?",
             "questions": [
               {
-                "id": 41,
+                "id": 1,
                 "text": "News Item 1",
-                "answer": "a"
+                "answer": "1"
               },
               {
-                "id": 42,
+                "id": 2,
                 "text": "News Item 2",
-                "answer": "b"
+                "answer": "3"
               },
               {
-                "id": 43,
+                "id": 3,
                 "text": "News Item 3",
-                "answer": "c"
+                "answer": "5"
               },
               {
-                "id": 44,
+                "id": 4,
                 "text": "News Item 4",
-                "answer": "d"
+                "answer": "0"
               },
               {
-                "id": 45,
+                "id": 5,
                 "text": "News Item 5",
-                "answer": "e"
+                "answer": "6"
+              },
+              {
+                "id": 6,
+                "text": "News Item 6",
+                "answer": "2"
+              },
+              {
+                "id": 7,
+                "text": "News Item 7",
+                "answer": "4"
               }
             ],
             "headings": [
-              "Clear proof of climate change",
-              "Controversial solution to a challenging situation",
-              "International rules urgently required",
-              "Too many for safety",
-              "Unexpected developments at sea",
-              "Variety could be the key to survival"
+              "Buying a holiday bag",
+              "A cooking competition",
+              "Arranging to meet",
+              "Lost property",
+              "A new sports centre",
+              "Family life",
+              "Train announcement"
             ]
           }
         ]
@@ -557,139 +568,134 @@
       {
         "id": "part2",
         "part": 2,
-        "title": "Radio Interview: University Life",
+        "title": "Interview: Nick Parker of Krispy",
         "subtitle": "Part 2: Listening",
-        "description": "You will hear a radio interview. First you will have one minute to read the introduction and the items. Then you will hear the interview. You will hear the interview only once. Decide if the statement for each of the items is true (+) or not true (–) and mark your answers on the answer sheet.",
-        "transcript": "[Radio interview transcript about university life - containing the information needed to answer questions 46-55]",
-        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-        "context": "Interview - university context",
+        "description": "You will hear an interview with a singer called Nick Parker who plays in a band called Krispy with his sister Mel.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
+        "transcript": "Int: I’m talking to Nick Parker, the singer with the band called Krispy. Nick your sister, Mel, plays guitar in the band too, doesn’t she?\n\nNick: Yeah. Mel’s a year younger than me. We’ve been playing and singing together since we were … eight, nine. Dad is a guitarist and took us to hear the great bands playing live. Mel and I put on shows at school, which was a lot of fun. Mum thought we were good, but she didn’t want us to get too serious about our music because of the hard lives professional musicians have.\n\nInt: When did you start writing music?\n\nNick: I’ve been writing since I was ten. And later Mel started working with me. We didn’t have the same influences – I liked rock music and she loved world music, especially bands from Africa. But we found good ways of mixing the styles.\n\nInt: Your band, Krispy, has two guys and two girls in it. How was it formed?\n\nNick: Mel and I were playing in a concert at our college and there were two students from music school in the audience. They came to see us after the show and asked if we’d like to form a band with them. We weren’t sure at first because we were much younger than them. But we agreed to try it out, and it was brilliant.\n\nInt: Was the band an immediate success?\n\nNick: Well, we spent the first year practising and writing music. During that time we all had studying to do. We played in local concerts, and the audiences enjoyed what we did. Then during one holiday we recorded two songs and sent them to a music company. They offered us a contract, but our parents said we had to finish college first.\n\nInt: You’ve been together a few years now and you’re one of the top bands. What’s that like?\n\nNick: Hard work. We travel to concerts all round the world and are never in one place for more than a few nights. The others are like an older brother and sister to me and Mel, which is good. They help us relax on our days off, and make sure we eat well. They’re strict about practising too.\n\nInt: Have you had any disappointments?\n\nNick: Everything we’ve recorded has done well. Three singles have gone to number one, and our first album has sold over a million copies. Our second album was due out this winter, but I’ve been ill recently so we’ve started recording late, which is a pity. But for the rest, everything’s fine.",
+        "audioUrl": "/audio/PEL-B1-Test1-Part2.mp3",
+        "context": "Interview with Nick Parker of the band Krispy",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
           {
             "type": "trinary",
-            "mode": "tfng", 
-            "instruction": "Decide if the statement for each of the items is true (+) or not true (–).",
+            "mode": "tfng",
+            "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
             "questions": [
               {
-                "id": 46,
-                "text": "When Harry started at university, he was anxious that he would not cope with having to work independently.",
+                "id": 8,
+                "text": "Nick’s father is a musician.",
                 "answer": "TRUE"
               },
               {
-                "id": 47,
-                "text": "Harry selected Southampton because the course they offer suits his interests best.",
-                "answer": "NOT GIVEN"
-              },
-              {
-                "id": 48,
-                "text": "Harry has individual sessions with his tutor at the same time each week.",
+                "id": 9,
+                "text": "Nick’s mother encouraged him to become a professional musician.",
                 "answer": "FALSE"
               },
               {
-                "id": 49,
-                "text": "Harry enjoys the more practical aspects of his studies.",
-                "answer": "TRUE"
-              },
-              {
-                "id": 50,
-                "text": "The work done in the lab is based on the lectures on a specific concept heard previously.",
-                "answer": "NOT GIVEN"
-              },
-              {
-                "id": "51",
-                "text": "The assessment given for each lab session only depends on how well Harry has recorded things in his logbook.",
+                "id": 10,
+                "text": "Nick and Mel have always liked the same kind of music.",
                 "answer": "FALSE"
               },
               {
-                "id": "52",
-                "text": "To encourage students to keep fit, there are no lectures one afternoon a week.",
+                "id": 11,
+                "text": "Nick and Mel were invited to form a band by two older students.",
                 "answer": "TRUE"
               },
               {
-                "id": "53",
-                "text": "The university expects new students to organise their own accommodation.",
-                "answer": "FALSE"
-              },
-              {
-                "id": "54",
-                "text": "When you apply to stay in a Hall of Residence, you have some influence over which room you get.",
+                "id": 12,
+                "text": "The band Krispy got a contract with a music company after their first year together.",
                 "answer": "NOT GIVEN"
               },
               {
-                "id": "55",
-                "text": "Harry refers to a challenge that can win you an attractive award.",
+                "id": 13,
+                "text": "The other two members of the band help Nick and Mel a lot.",
                 "answer": "TRUE"
+              },
+              {
+                "id": 14,
+                "text": "The band has had problems with their record sales.",
+                "answer": "FALSE"
               }
             ]
           }
         ]
       },
       {
-        "id": "part3-new",
+        "id": "part3",
         "part": 3,
-        "title": "Short Conversations",
+        "title": "Course on Wildlife",
         "subtitle": "Part 3: Listening",
-        "description": "You will hear five short texts. Decide which is the correct answer (a, b or c) for each question.",
-        "transcript": "",
-        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
-        "context": "Five short texts",
+        "description": "You will hear a man called Ben, from a young people’s organisation, telling a youth group about a course they can do on Saturdays.\nFor questions 15-20, choose the correct answer A, B or C.",
+        "transcript": "Ben: Hello, everyone. Let me introduce myself – my name’s Ben and I’d like to tell you about a course you can do on Saturday mornings.\n\nI’m from an organisation called ‘Nature’ and we run courses for young people like you to do during the weekends. Now, we know that at school you learn a lot about things like science and maths, but this course is really about giving your youth group the chance to come and find out about wildlife. It’s an area that tends to get forgotten.\n\nWe usually take groups like yours to a wild place that’s near their home. Sometimes we go to a beach or a lake, but we’ve planned for your group to go to a forest. That’s the closest place for you, and the easiest to get to.\n\nNow, we’d like you to come and do some activities with us. You spend six hours each week with us and the course lasts for 12 weeks, depending on the weather. That might sound like a long time, but we think you’ll be sorry when it’s over!\n\nTaking part in our activities means you get to do all sorts of things that you wouldn’t normally be allowed to do at home. That includes how to safely climb trees, cut wood and build a fire.\n\nWhile you’re with us, we’ll also show you how to make things out of different materials. On the last course, everyone designed backpacks which they were very pleased with. This time we thought we’d get you to design and make a birdhouse. When it’s finished, you can take it home and show your family.\n\nWe think you’ll enjoy doing this.\n\nNow, any questions …?",
+        "audioUrl": "/audio/PEL-B1-Test1-Part3.mp3",
+        "context": "Ben from a young people's organization talks about a Saturday course",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
           {
             "type": "mcq",
-            "instruction": "Choose the correct answer",
+            "instruction": "For questions 15-20, choose the correct answer A, B or C.",
             "questions": [
               {
-                "id": 56,
-                "text": "The theater production is especially suitable for",
+                "id": 15,
+                "text": "Ben says that the 'Nature' organisation",
+                "answer": "A",
                 "options": [
-                  "kids that love watching fairy tales.",
-                  "families wishing to participate in the performance.",
-                  "people who are familiar with Wyesham."
-                ],
-                "answer": "kids that love watching fairy tales."
+                  "teaches young people about wildlife.",
+                  "helps young people with schoolwork.",
+                  "shows young people how to do science and maths."
+                ]
               },
               {
-                "id": 57,
-                "text": "The ride at Death Tower can be attempted by",
+                "id": 16,
+                "text": "What type of place will Ben’s group be visiting?",
+                "answer": "C",
                 "options": [
-                  "anyone who likes scary experiences.",
-                  "people who have no loose items on them.",
-                  "visitors who like speeds of over 100 kph."
-                ],
-                "answer": "people who have no loose items on them."
+                  "a lake",
+                  "a beach",
+                  "a forest"
+                ]
               },
               {
-                "id": 58,
-                "text": "The items mentioned today are",
+                "id": 17,
+                "text": "The Saturday course will last for",
+                "answer": "B",
                 "options": [
-                  "appealing for various groups of customers.",
-                  "attractive for families buying small amounts.",
-                  "interesting for people wishing to buy regional food."
-                ],
-                "answer": "appealing for various groups of customers."
+                  "6 weeks.",
+                  "12 weeks.",
+                  "6 hours."
+                ]
               },
               {
-                "id": 59,
-                "text": "After hearing this announcement visitors",
+                "id": 18,
+                "text": "What can students do on the course that they cannot do at home?",
+                "answer": "A",
                 "options": [
-                  "can enjoy all facilities for ten more minutes.",
-                  "must head for the changing rooms immediately.",
-                  "should exit the building in the next half-an-hour."
-                ],
-                "answer": "should exit the building in the next half-an-hour."
+                  "build a fire",
+                  "climb trees",
+                  "cut wood"
+                ]
               },
               {
-                "id": 60,
-                "text": "The weather will be",
+                "id": 19,
+                "text": "On the last course, students designed",
+                "answer": "B",
                 "options": [
-                  "calm on Wednesday.",
-                  "extreme on Thursday.",
-                  "unpleasant on Friday"
-                ],
-                "answer": "unpleasant on Friday"
+                  "birdhouses.",
+                  "backpacks.",
+                  "materials."
+                ]
+              },
+              {
+                "id": 20,
+                "text": "What will students make on the course?",
+                "answer": "A",
+                "options": [
+                  "a birdhouse",
+                  "a backpack",
+                  "some furniture"
+                ]
               }
             ]
           }

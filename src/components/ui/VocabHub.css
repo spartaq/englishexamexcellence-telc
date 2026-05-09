@@ -5,12 +5,527 @@
   color: var(--on-surface);
 }
 
+/* ==========================================
+   LEVEL SELECTOR VIEW (no level selected)
+   ========================================== */
+
+.level-selector-section {
+  padding: 2rem 0;
+}
+
+.level-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.level-selector-card {
+  background: var(--bg-app);
+  border: 2px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.level-selector-card:hover {
+  border-color: var(--invictus-red);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.level-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.level-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin: 0;
+  color: var(--invictus-red);
+  letter-spacing: -0.05em;
+}
+
+.level-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--on-surface-variant);
+  background: var(--bg-subtle);
+  padding: 0.25rem 0.5rem;
+  width: fit-content;
+  border-radius: 4px;
+}
+
+.level-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.level-word-count {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--on-surface);
+}
+
+.level-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--invictus-red), #f87171);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.level-card-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.start-button {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--invictus-red);
+}
+
+/* ==========================================
+   NAVIGATION BAR (Back + My Words)
+   ========================================== */
+
+.hub-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.back-link,
+.my-words-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.back-link:hover,
+.my-words-link:hover {
+  background: var(--bg-subtle);
+  color: var(--invictus-red);
+}
+
+/* ==========================================
+   DUE WORDS SECTION
+   ========================================== */
+
+.due-words-section {
+  margin-top: 4rem;
+}
+
+.due-words-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.02));
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.due-words-card:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.04));
+  border-color: rgba(239, 68, 68, 0.4);
+  transform: translateY(-2px);
+}
+
+.due-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.due-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ef4444;
+}
+
+.due-count {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--on-surface);
+}
+
+/* ==========================================
+   EXISTING STYLES (unchanged below)
+   ========================================== */
+
 /* Header */
 .invictus-hub-header {
   margin-bottom: 3rem;
   border-left: 2px solid var(--invictus-red);
   padding-left: 1.5rem;
 }
+
+.header-top {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.invictus-hub-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  margin: 0;
+}
+
+.system-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.system-tag .dot {
+  width: 6px;
+  height: 6px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.invictus-hub-subtitle {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+/* Proficiency Grid */
+.proficiency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.track-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2px solid var(--border-subtle);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.track-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.track-lvl {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+.card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.prof-card {
+  background: var(--bg-app);
+  border: 1px solid var(--border-subtle);
+  border-left: 4px solid #d1d5db;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.prof-card.active {
+  border-left-color: var(--invictus-red);
+}
+
+.prof-card:hover {
+  background: var(--bg-subtle);
+  transform: translateX(4px);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.card-top h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+.card-top p {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--on-surface-variant);
+}
+
+.xp-label {
+  font-size: 10px;
+  font-weight: 800;
+  background: #f3f4f6;
+  padding: 0.2rem 0.5rem;
+}
+
+.xp-label.featured {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.bar-bg {
+  width: 100%;
+  height: 4px;
+  background: #f3f4f6;
+  margin-bottom: 0.5rem;
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--invictus-red);
+}
+
+.status-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 800;
+  opacity: 0.5;
+}
+
+/* Topics Section */
+.topics-section {
+  margin-top: 2rem;
+}
+
+.section-heading {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.topic-card-minimal {
+  background: var(--bg-app);
+  border: 1px solid var(--border-subtle);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topic-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.topic-icon-hex {
+  width: 36px;
+  height: 36px;
+  background: var(--bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--invictus-red);
+}
+
+.topic-name {
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.topic-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.topic-actions button {
+  background: #f3f4f6;
+  border: none;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.topic-actions button.level-b1 {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.topic-actions button.level-b2 {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.topic-actions button.accent {
+  background: #000;
+  color: #fff;
+}
+
+.topic-actions button:hover {
+  background: var(--invictus-red);
+  color: #fff;
+}
+
+/* Level-specific button styles (overrides) */
+.topic-actions button.level-b1 {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.topic-actions button.level-b2 {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.topic-actions button.level-c1 {
+  background: #000;
+  color: #fff;
+}
+
+.topic-actions button.level-b1:hover,
+.topic-actions button.level-b2:hover,
+.topic-actions button.level-c1:hover {
+  background: var(--invictus-red);
+  color: #fff;
+}
+
+/* Loading */
+.invictus-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--on-surface-variant);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .invictus-vocab-hub {
+    padding: 1rem;
+  }
+
+  .invictus-hub-title {
+    font-size: 1.5rem;
+  }
+
+  .level-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .level-selector-card {
+    padding: 1.5rem;
+  }
+
+  .level-title {
+    font-size: 2rem;
+  }
+
+  .proficiency-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hub-nav-bar {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .back-link,
+  .my-words-link {
+    justify-content: center;
+  }
+}
+
 
 .header-top {
   display: flex;
@@ -343,26 +858,4 @@
   font-weight: 800;
 }
 
-.topic-actions {
-  display: flex;
-  gap: 4px;
-}
-
-.topic-actions button {
-  background: #f3f4f6;
-  border: none;
-  font-size: 10px;
-  font-weight: 800;
-  padding: 0.5rem;
-  cursor: pointer;
-}
-
-.topic-actions button.accent {
-  background: #000;
-  color: #fff;
-}
-
-.topic-actions button:hover {
-  background: var(--invictus-red);
-  color: #fff;
-}
+/* End of file */

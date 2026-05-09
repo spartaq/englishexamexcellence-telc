@@ -1,0 +1,691 @@
+{
+  "id": "telc-b1-mock-3",
+  "level": "b1",
+  "mockNumber": 3,
+  "title": "TELC B1 Mock Test 3",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+
+  "vocabulary": {
+    "id": "vocab-b1-mock-3",
+    "title": "Test Vocabulary",
+    "level": "B1",
+    "words": [
+      { "term": "Environment", "hu": "Környezet", "definition": "The natural world around us.", "example": "We must protect the environment." },
+      { "term": "Recycle", "hu": "Újrahasznosít", "definition": "To process used materials to use again.", "example": "We should recycle plastic bottles." },
+      { "term": "Pollution", "hu": "Környezetszennyezés", "definition": "Harmful substances in the environment.", "example": "Air pollution is a serious problem." },
+      { "term": "Energy", "hu": "Energia", "definition": "The power to do work or make things happen.", "example": "Solar energy is renewable." },
+      { "term": "Protect", "hu": "Véd", "definition": "To keep safe from harm.", "example": "We must protect wildlife." },
+      { "term": "Nature", "hu": "Természet", "definition": "The physical world including plants, animals, and landscapes.", "example": "I love spending time in nature." },
+      { "term": "Water", "hu": "Víz", "definition": "A clear liquid essential for life.", "example": "We need clean water to drink." },
+      { "term": "Forest", "hu": "Erdő", "definition": "A large area covered with trees.", "example": "The forest is home to many animals." },
+      { "term": "Climate", "hu": "Éghajlat", "definition": "The weather conditions of an area over time.", "example": "The climate is changing." },
+      { "term": "Future", "hu": "Jövő", "definition": "The time that is coming after the present.", "example": "We need to think about the future." },
+      { "term": "Problem", "hu": "Probléma", "definition": "A difficult situation that needs to be solved.", "example": "We have to solve this problem." },
+      { "term": "Solution", "hu": "Megoldás", "definition": "A way to solve a problem.", "example": "We need to find a solution." },
+      { "term": "Importance", "hu": "Fontosság", "definition": "The quality of being important.", "example": "The importance of education is clear." },
+      { "term": "Natural", "hu": "Természetes", "definition": "Existing in or caused by nature.", "example": "This park is a natural reserve." },
+      { "term": "Waste", "hu": "Hulladék", "definition": "Unwanted or unusable material.", "example": "Don't waste food." }
+    ]
+  },
+
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "Environment",
+              "Recycle",
+              "Pollution",
+              "Energy",
+              "Protect",
+              "Nature",
+              "Water",
+              "Forest",
+              "Climate",
+              "Future",
+              "Problem",
+              "Solution",
+              "Importance",
+              "Natural",
+              "Waste"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "Sarah has just finished university and started a new job in environmental science. She never wastes paper and always uses both sides. She also carries a reusable water bottle. Her colleagues have started doing the same. Sarah believes that small actions can add up to big changes."
+              },
+              {
+                "id": "2",
+                "text": "Tom has lived in the countryside all his life. He knows every tree and animal in the local forest. When a company wanted to cut down trees to build a shopping center, Tom organized a protest. He spoke to the town council and saved the forest."
+              },
+              {
+                "id": "3",
+                "text": "Last weekend, my class went to the beach to clean up plastic waste. We collected over 100 bags of trash in just three hours. Most of it was plastic bottles and bags. We learned that plastic can take hundreds of years to break down."
+              },
+              {
+                "id": "4",
+                "text": "My family installed solar panels on our roof last year. We now produce most of our own electricity. The panels have already paid for themselves through lower energy bills. We feel good about using clean energy."
+              },
+              {
+                "id": "5",
+                "text": "Climate change is affecting weather around the world. Many places are experiencing more extreme temperatures and storms. Scientists say we must reduce pollution quickly. Governments are working on solutions."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  { "id": "1", "text": "Paragraph 1", "answer": 3 },
+                  { "id": "2", "text": "Paragraph 2", "answer": 1 },
+                  { "id": "3", "text": "Paragraph 3", "answer": 4 },
+                  { "id": "4", "text": "Paragraph 4", "answer": 5 },
+                  { "id": "5", "text": "Paragraph 5", "answer": 2 }
+                ],
+                "headings": [
+                  "Saving a forest from destruction",
+                  "Why climate change matters now",
+                  "Small actions make a big difference",
+                  "Cleaning up the beach",
+                  "Using solar power at home"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about renewable energy and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The Power of Renewable Energy",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Renewable energy comes from sources that cannot be used up. The sun, wind, and water are all renewable resources. Unlike fossil fuels, these sources do not produce harmful pollution. More and more countries are investing in renewable energy to protect the environment."
+              },
+              {
+                "id": "B",
+                "text": "Solar power is one of the fastest-growing renewable energies. Solar panels on roofs can generate electricity for homes and businesses. In sunny countries, solar energy can provide power all year round. The price of solar panels has dropped significantly in recent years."
+              },
+              {
+                "id": "C",
+                "text": "Wind power is another important renewable source. Wind turbines are large structures that convert wind into electricity. They are usually placed in open areas or offshore. Some people complain about the appearance of wind farms, but most agree they are necessary."
+              },
+              {
+                "id": "D",
+                "text": "The future of renewable energy looks promising. Technology continues to improve, making clean energy cheaper and more efficient. Many experts believe that renewable energy will one day replace fossil fuels completely. This change is essential for a sustainable planet."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": "6",
+                    "text": "What is renewable energy?",
+                    "options": [
+                      "A. Energy from sources that cannot run out",
+                      "B. Energy from coal and oil",
+                      "C. Energy that is very expensive"
+                    ],
+                    "answer": "A. Energy from sources that cannot run out"
+                  },
+                  {
+                    "id": "7",
+                    "text": "What is an advantage of solar power?",
+                    "options": [
+                      "A. It works only in summer",
+                      "B. It produces no pollution",
+                      "C. It is becoming cheaper"
+                    ],
+                    "answer": "C. It is becoming cheaper"
+                  },
+                  {
+                    "id": "8",
+                    "text": "Where are wind turbines usually placed?",
+                    "options": [
+                      "A. In busy city centers",
+                      "B. In open areas or offshore",
+                      "C. Inside buildings only"
+                    ],
+                    "answer": "B. In open areas or offshore"
+                  },
+                  {
+                    "id": "9",
+                    "text": "What do many experts think about renewable energy?",
+                    "options": [
+                      "A. It will never replace fossil fuels",
+                      "B. It will eventually replace fossil fuels",
+                      "C. It is not important for the future"
+                    ],
+                    "answer": "B. It will eventually replace fossil fuels"
+                  },
+                  {
+                    "id": "10",
+                    "text": "Why is the change to renewable energy necessary?",
+                    "options": [
+                      "A. To make money",
+                      "B. For a sustainable planet",
+                      "C. To create more jobs"
+                    ],
+                    "answer": "B. For a sustainable planet"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 11-18",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Green Initiatives Around the World",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Denmark has become a leader in wind energy. The country generates over 40% of its electricity from wind power. The government aims to increase this to 50% by 2030. Wind turbines can be seen across the Danish countryside."
+              },
+              {
+                "id": "B",
+                "text": "Costa Rica runs almost entirely on renewable energy. For several years, the country has used hydroelectric, geothermal, and wind power. This has helped protect its famous rainforests and wildlife."
+              },
+              {
+                "id": "C",
+                "text": "Iceland uses geothermal energy from volcanoes to heat homes and generate electricity. The country has cheap, clean energy because of its unique geology. Over 85% of Iceland's energy comes from renewable sources."
+              },
+              {
+                "id": "D",
+                "text": "Germany has invested heavily in solar power. Despite not being a sunny country, Germany is one of the world's top solar energy producers. The government provides subsidies to homeowners who install solar panels."
+              },
+              {
+                "id": "E",
+                "text": "Norway plans to ban the sale of new petrol and diesel cars by 2025. The country wants all new cars to be electric. Norway already has more electric vehicles per capita than any other country."
+              },
+              {
+                "id": "F",
+                "text": "China has built the world's largest solar farm. The farm covers an area of 3,000 hectares and powers millions of homes. China is also the world's biggest investor in renewable energy."
+              },
+              {
+                "id": "G",
+                "text": "Sweden recycles almost all of its waste. The country sends less than 1% of household trash to landfills. Unrecyclable waste is burned to produce electricity for heating homes."
+              },
+              {
+                "id": "H",
+                "text": "Bhutan is a carbon-negative country. Its forests absorb more carbon dioxide than the country produces. The government has promised to keep the country carbon-neutral forever."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  { "id": 11, "text": "A country that does not produce much carbon dioxide.", "answer": "H" },
+                  { "id": 12, "text": "A nation that uses heat from the earth for energy.", "answer": "C" },
+                  { "id": 13, "text": "A country where most cars will be electric soon.", "answer": "E" },
+                  { "id": 14, "text": "A nation with the biggest solar power production.", "answer": "F" },
+                  { "id": 15, "text": "A country that makes electricity from wind.", "answer": "A" },
+                  { "id": 16, "text": "A place that recycles nearly everything it throws away.", "answer": "G" },
+                  { "id": 17, "text": "A sunny country that has become a solar energy leader.", "answer": "D" },
+                  { "id": 18, "text": "A country that uses water power for energy.", "answer": "B" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "Saving the Planet",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Environmental protection is one of the most important issues ____(21)____ today. Many people understand that we must ____(22)____ our natural resources for future generations. Problems like air and water pollution ____(23)____ serious threats to our health.\n\nRecycling is a simple way everyone can help. We ____(24)____ recycle paper, plastic, and glass. This ____(25)____ less waste goes to landfills. Using less energy at home is also important. We can ____(26)____ electricity by turning off lights when not needed.\n\nMany countries are investing in renewable energy sources such as solar and wind power. These sources of energy are cleaner and will never ____(27)____. Protecting forests and wildlife is equally important. Forests produce oxygen and provide homes for many species. Every individual action matters."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  { "id": "21", "text": "issues ____(21)____ today", "options": ["today", "nowadays", "present"], "answer": "present" },
+                  { "id": "22", "text": "we must ____(22)____ our resources", "options": ["protect", "defend", "guard"], "answer": "protect" },
+                  { "id": "23", "text": "____(23)____ serious threats", "options": ["pose", "present", "put"], "answer": "pose" },
+                  { "id": "24", "text": "We ____(24)____ recycle", "options": ["should", "can", "will"], "answer": "should" },
+                  { "id": "25", "text": "This ____(25)____ less waste", "options": ["means", "shows", "says"], "answer": "means" },
+                  { "id": "26", "text": "We can ____(26)____ electricity", "options": ["save", "keep", "preserve"], "answer": "save" },
+                  { "id": "27", "text": "will never ____(27)____", "options": ["run out", "end", "stop"], "answer": "run out" },
+                  { "id": "28", "text": "Everyone can ____(28)____ a difference", "options": ["make", "do", "create"], "answer": "make" },
+                  { "id": "29", "text": "Governments should ____(29)____ laws", "options": ["introduce", "start", "begin"], "answer": "introduce" },
+                  { "id": "30", "text": "____(30)____ is in everyone's hands", "options": ["The future", "Tomorrow", "Next"], "answer": "The future" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text and complete the gaps with the correct word from the box.",
+        "passages": [
+          {
+            "id": "p3",
+            "subtitle": "Language Elements Part 2",
+            "title": "A Letter About the Environment",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Dear Local Council,\n\nI am writing to express my concern about the ____(a)____ in our town. The park near my house has a lot of ____(b)____ - plastic bags and bottles everywhere. This is bad for the ____(c)____ and makes the area look ugly.\n\nI think we should organize regular clean-up days. Residents could ____(d)____ together to collect waste. We could also put more recycling bins in public places. It is our ____(e)____ to protect the environment for the next generation.\n\nI would like to discuss this at the next council meeting. Please let me know when it is. I am ready to help in any way I can.\n\nYours faithfully,\nA Concerned Citizen"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-k) to complete each gap.",
+                "tokens": [
+                  "ENVIRONMENT",
+                  "POLLUTION",
+                  "WASTE",
+                  "NATURE",
+                  "PROBLEM",
+                  "FUTURE",
+                  "WORK",
+                  "MEETING",
+                  "RESPONSIBILITY",
+                  "CLEAN",
+                  "RECYCLE"
+                ],
+                "answers": {
+                  "a": "PROBLEM",
+                  "b": "WASTE",
+                  "c": "ENVIRONMENT",
+                  "d": "WORK",
+                  "e": "RESPONSIBILITY"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+    "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Situations",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear people talking in eight different situations.\nFor questions 1-8, choose the best answer A, B or C.",
+        "transcript": "1. Boy: I’d like to buy a black T-shirt with short sleeves, please. Large size.\nWoman: I’m afraid the black ones have long sleeves, but we’ve got short sleeves in the lighter colours. Do you want a round neck or a V-neck?\nBoy: It must be round neck. Let me think … umm, OK, I’ll take one of the short-sleeved ones, the colour’s not so important really.\n\n2. Man: And that was Shark, with Jo on piano and Rich on guitar. Lots of music to come, including The Three Biscuits with songs from their new CD. But first, here are Subway – you all know the dummer and guitarist, but singing here with them for the first time is Sarah Ireland, the drummer’s sister – please give her a big welcome.\n\n3. Girl: What time is it, Mum? Do you think the apple pie will be ready yet?\nMum: It’s 4.35.\nGirl: And the pie went into the oven at a quarter past four?\nMum: That’s right. You could check it at five and turn the heat down a bit but don’t take it out until twenty past. That’s forty-five minutes to go!\nGirl: OK, I’m hungry already.\n\n4. Girl: I’ve got the photos back! Look, this one of us on the beach is just brilliant!\nBoy: Yes … You must get a copy for me to put in my photo album. It was a great day, but that other one’s good too!\nGirl: I don’t know why you think so, that dress I’m wearing looks awful. I only bought it because it was half-price. The one of us on the boat isn’t bad, look.\nBoy: Mm … apart from the fact that we look seasick!\n\n5. Teacher: Now, you won’t need any money for the bus or your entrance ticket to the museum tomorrow, because that’s already paid for. But bring some change for when you get thirsty and want to buy a drink. The only food or drink allowed on the bus is fruit. Bring some with you because it’s quite a long trip, and you’ll get hungry. And you’ll need to bring all your coloured pencils for the work I’m going to ask you to do there.\n\n6. Boy 1: So, we’ve got three hours. Shall we go skateboarding in the park? What do you think?\nBoy 2: Well, there’s the latest space film, which is meant to be good, or there’s a new computer-game shop which has just opened.\nBoy 1: Oh, well I haven’t got enough money to buy a new game anyway. Let’s go and watch the film.\nBoy 2: OK. We can go skateboarding any time.\n\n7. Teacher: Can I help you? you look worried. Is everything all right?\nGirl: Well, I was in the playground about ten minutes ago with my friends and I got a call on my mobile phone – I had to get a pen out of my bag to write something down and I think my purse fell out. I can’t find it now. Do you know if anyone has handed it in?\nTeacher: You know you’re not supposed to bring phones to school – anyway, let me go and check. What colour is it?",
+        "audioUrl": "/audio/PEL-B1-Test3-Part1.mp3",
+        "context": "Eight different situations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (a-f) corresponds to each news item?",
+            "questions": [
+              {
+                "id": 1,
+                "text": "News Item 1",
+                "answer": "1"
+              },
+              {
+                "id": 2,
+                "text": "News Item 2",
+                "answer": "5"
+              },
+              {
+                "id": 3,
+                "text": "News Item 3",
+                "answer": "2"
+              },
+              {
+                "id": 4,
+                "text": "News Item 4",
+                "answer": "0"
+              },
+              {
+                "id": 5,
+                "text": "News Item 5",
+                "answer": "6"
+              },
+              {
+                "id": 6,
+                "text": "News Item 6",
+                "answer": "3"
+              },
+              {
+                "id": 7,
+                "text": "News Item 7",
+                "answer": "4"
+              }
+            ],
+            "headings": [
+              "Looking at holiday photos",
+              "Buying clothes",
+              "Cooking something",
+              "Deciding what to do",
+              "Losing something",
+              "Introducing a new singer",
+              "Things to take on a trip"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Interview: Teenage Surfer Abby Fielding",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with teenage surfer Abby Fielding.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
+        "transcript": "Man: Today, I’m talking to teenage surfer Abby Fielding. Abby, welcome. Tell us about how you started surfing.\n\nAbby: Well, my family have always loved going to our local beach, and my dad became keen on surfing. He wasn’t very good, but he really wanted to show me how to do it, and my mum offered to buy me a board. I still wasn’t keen, but then I started watching surfing competitions near home, and when I saw the standard of the surfers, I just felt I could do better!\n\nMan: Very confident! How easy was it to get started?\n\nAbby: Well, it’s free to practise, once you’ve got the equipment. But it can cost quite a lot to buy what you need. I went to the local surfing school for a bit too. I was lent some boards before I bought one, to see which type I liked best – that was useful.\n\nMan: So do you go surfing all year round now?\n\nAbby: Yes – even in winter when it’s cold! The sea is actually warmer than the land. I just wear the same wetsuit as I do in the summer – although sometimes I do add gloves! You’d be surprised how many people are out there surfing with me.\n\nMan: And your biggest achievement was surfing an enormous wave!\n\nAbby: Yeah! That kind of wave only comes along a couple of times a year. I borrowed a large board, as mine wasn’t big enough, and I was nervous – the waves were a lot bigger than they look from the beach. People say it hurts if you fall off in those conditions – but I didn’t have time to think about that!\n\nMan: So – any advice for other teenagers taking up surfing?\n\nAbby: Well, you’re never too young to start – not on big waves, of course, in case you have to swim back to the beach. But in many places, you need to know how to surf whatever the waves are like – good and bad. And surfing schools are OK, but watching other surfers is just as useful – and practising yourself, of course!\n\nMan: So … you’re still young – what next?\n\nAbby: Well, I’m going to miss the next big competition, as I’ve injured my ankle, but my future’s definitely in surfing, so I need to investigate what opportunities there are. There’s a course in surfing science you can do at the university here, but I’m not sure that’s the right path for me at the moment.\n\nMan: Well, thank you Abby.",
+        "audioUrl": "/audio/PEL-B1-Test3-Part2.mp3",
+        "context": "Interview with teenage surfer Abby Fielding",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "mode": "tfng",
+            "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
+            "questions": [
+              {
+                "id": 8,
+                "text": "Abby’s father taught her to surf.",
+                "answer": "NOT GIVEN"
+              },
+              {
+                "id": 9,
+                "text": "Abby was encouraged to take up surfing by watching a competition.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 10,
+                "text": "Abby bought her surfing equipment from a local school.",
+                "answer": "NOT GIVEN"
+              },
+              {
+                "id": 11,
+                "text": "Abby wears gloves when she goes surfing in winter.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 12,
+                "text": "Abby was afraid when she surfed a very big wave.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 13,
+                "text": "Abby advises young people to have surfing lessons.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 14,
+                "text": "Abby is going to study surfing at university.",
+                "answer": "NOT GIVEN"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Caspar from a Circus Family",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear a man called Ben, from a young people’s organisation, telling a youth group about a course they can do on Saturdays.\nFor questions 15-20, choose the correct answer A, B or C.",
+        "transcript": "Caspar: My name is Caspar and I’m the youngest child in a circus family. My parents and brother and sister are all performers. My mother wears wonderful costumes and dances across a rope about fifteen metres above the ground. Sometimes she plays a violin at the same time … Incredible!\n\nMy brother is ten years older than me, and my sister’s sixteen. They’re part of an act where up to twenty people balance on a motorbike and ride round the ring. The performers stand on each other’s shoulders, with my sister at the top.\n\nMy dad’s the ringmaster, or the boss of the circus. He’s good at his job because he’s tall and has a loud voice. He introduces the performers and makes sure the acts start and finish on time.\n\nI’m not allowed to perform until I’m fifteen, but I march beside my dad ahead of the band at the beginning of the show, and lead everyone out at the end. I have some great costumes, and I love being in the ring. I can’t wait to start training to be a performer.\n\nWe don’t have horses or dogs. In fact the only animals in the circus is a rabbit, who doesn’t do much but is always the star of the show. The children love him. The performers have a lot of other jobs to do. We have to clean out the circus tent between each show, make the costumes, and repair the equipment. I check the audience tickets, and sell ice-cream at half-time.\n\nWe only work for eight months, during good weather, and we travel around from place to place. It’s a great life.",
+        "audioUrl": "/audio/PEL-B1-Test3-Part3.mp3",
+        "context": "Caspar talks about his circus family",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "For questions 15-20, choose the correct answer A, B or C.",
+            "questions": [
+              {
+                "id": 15,
+                "text": "What does Caspar’s mother do?",
+                "answer": "B",
+                "options": [
+                  "She plays the violin.",
+                  "She dances on a rope.",
+                  "She designs costumes."
+                ]
+              },
+              {
+                "id": 16,
+                "text": "Caspar’s brother and sister",
+                "answer": "A",
+                "options": [
+                  "are part of a motorbike act.",
+                  "perform with twenty people.",
+                  "stand on each other’s shoulders."
+                ]
+              },
+              {
+                "id": 17,
+                "text": "What is Caspar’s father’s job?",
+                "answer": "C",
+                "options": [
+                  "He trains the performers.",
+                  "He plays in the band.",
+                  "He introduces the acts."
+                ]
+              },
+              {
+                "id": 18,
+                "text": "What does Caspar do in the show?",
+                "answer": "B",
+                "options": [
+                  "He performs with his family.",
+                  "He walks with his father.",
+                  "He helps with the equipment."
+                ]
+              },
+              {
+                "id": 19,
+                "text": "What does Caspar say about the animals in the circus?",
+                "answer": "A",
+                "options": [
+                  "The children love the rabbit.",
+                  "The rabbit does clever things.",
+                  "There are horses and dogs."
+                ]
+              },
+              {
+                "id": 20,
+                "text": "What is Caspar’s favourite part of circus life?",
+                "answer": "A",
+                "options": [
+                  "travelling to different places",
+                  "meeting other performers",
+                  "being in the ring"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You will be asked some questions about your life, opinions, and experiences. Answer honestly and in as much detail as you can.",
+        "topics": [
+          {
+            "topic": "The Environment",
+            "questions": [
+              { "id": "p1q1", "text": "Do you think the environment is important? Why?" },
+              { "id": "p1q2", "text": "What do you do to help protect the environment?" },
+              { "id": "p1q3", "text": "Is pollution a problem in your area?" }
+            ]
+          },
+          {
+            "topic": "Your Lifestyle",
+            "questions": [
+              { "id": "p1q4", "text": "Do you try to save energy at home? How?" },
+              { "id": "p1q5", "text": "Do you recycle? What do you recycle?" },
+              { "id": "p1q6", "text": "What can young people do for the environment?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following text from a magazine. Discuss the content of the text with your partner(s). Tell them your opinions; give reasons and personal examples to support your ideas.",
+        "text": "Many people believe that individual actions like recycling or using public transport are not enough to solve environmental problems. They argue that only governments and large companies can make a real difference. Others say that if everyone makes small changes, together we can achieve great results.",
+        "topics": [
+          {
+            "topic": "Individual vs. Collective Action",
+            "questions": [
+              { "id": "p2q1", "text": "Do you think individual actions matter?" },
+              { "id": "p2q2", "text": "What should governments do about the environment?" },
+              { "id": "p2q3", "text": "Can companies solve environmental problems alone?" },
+              { "id": "p2q4", "text": "How can we encourage more people to act?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "Your community wants to become more environmentally friendly. Discuss the different suggestions and decide together which three actions would be most effective for your town.",
+        "topics": [
+          {
+            "topic": "Community Environmental Project",
+            "suggestions": [
+              "Build bicycle paths to encourage cycling",
+              "Plant more trees in parks and streets",
+              "Introduce recycling bins in every neighborhood",
+              "Organize regular community clean-up events",
+              "Install solar panels on public buildings",
+              "Create a car-free day once a month",
+              "Start an environmental education program in schools",
+              "Support local farmers markets"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Which three actions would help the most?" },
+              { "id": "p3q2", "text": "Which actions are easiest to implement?" },
+              { "id": "p3q3", "text": "How can we get people involved?" },
+              { "id": "p3q4", "text": "What should we do first?" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m3-t1",
+        "taskType": 1,
+        "title": "Task 1: Letter",
+        "subtitle": "Part 1: Writing",
+        "intro": "You see this notice in your local newspaper",
+        "instruction": "Write a letter to the newspaper editor. In your letter:\n\n• Explain why the environment is important to you\n• Describe an environmental problem in your area\n• Suggest what people could do to help\n\nWrite at least 150 words.",
+        "context": "Your local newspaper has invited readers to write about environmental issues. They want to hear about local problems and solutions.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a letter to the newspaper editor about an environmental issue.",
+        "bullets": [
+          "Explain why the environment is important to you",
+          "Describe an environmental problem in your area",
+          "Suggest what people could do to help"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m3-t2",
+        "taskType": 2,
+        "title": "Task 2: Article",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Your school website is publishing articles about important topics. Write an article about why young people should care about the environment. In your article, you should:\n\n• Explain why the environment matters for young people's future\n• Give examples of environmental problems\n• Suggest actions young people can take\n\nWrite at least 250 words.",
+        "context": "The school website wants to publish student articles that encourage young people to think about important issues.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write an article about why young people should care about the environment.",
+        "bullets": [
+          "Explain why the environment matters for young people's future",
+          "Give examples of environmental problems",
+          "Suggest actions young people can take"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

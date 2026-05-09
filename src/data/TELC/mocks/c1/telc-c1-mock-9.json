@@ -1,0 +1,579 @@
+{
+  "id": "telc-c1-mock-9",
+  "level": "c1",
+  "mockNumber": 9,
+  "title": "TELC C1 Mock Test 9",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC C1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-9",
+    "title": "Test Vocabulary",
+    "level": "C1",
+    "words": [
+      {"term": "Algorithmic", "hu": "algoritmikus", "definition": "relating to a process or set of rules to be followed in calculations or problem-solving", "example": "Algorithmic bias can perpetuate discrimination in hiring decisions."},
+      {"term": "Biodiversity", "hu": "biodiverzitás", "definition": "the variety of life in a particular habitat or ecosystem", "example": "Protecting biodiversity is essential for ecosystem resilience."},
+      {"term": "Cognitive", "hu": "kognitív", "definition": "relating to mental processes of perception, memory, judgment, and reasoning", "example": "Cognitive decline can be slowed through mental exercise."},
+      {"term": "Decarbonization", "hu": "szénlábnyomcsökkentés", "definition": "the reduction or elimination of carbon dioxide emissions", "example": "Decarbonization requires a transition to renewable energy sources."},
+      {"term": "Epigenetic", "hu": "epigenetikai", "definition": "relating to changes in gene expression that do not involve alterations to the genetic code", "example": "Epigenetic modifications can be inherited across generations."},
+      {"term": "Fungible", "hu": "cserélhető", "definition": "able to replace or be replaced by something of equal value", "example": "Cryptocurrency tokens are fungible, unlike unique NFTs."},
+      {"term": "Gentrification", "hu": "gentrifikáció", "definition": "the process of wealthier people moving into and renovating previously run-down areas", "example": "Gentrification often displaces longtime residents and small businesses."},
+      {"term": "Hermeneutics", "hu": "hermeneutika", "definition": "the theory and methodology of interpretation, especially of scriptural texts", "example": "Hermeneutics helps us understand historical texts in their context."},
+      {"term": "Inequality", "hu": "egyenlőtlenség", "definition": "difference in size, degree, circumstances, or quality between two or more entities", "example": "Income inequality undermines social cohesion and economic growth."},
+      {"term": "Juxtaposition", "hu": "viszonyítás", "definition": "the act or an instance of placing two or more things side by side", "example": "The juxtaposition of ancient and modern architecture defines the city's character."},
+      {"term": "Kinetic", "hu": "kinetikus", "definition": "relating to or resulting from motion", "example": "Kinetic energy can be harnessed to generate electricity."},
+      {"term": "Liminal", "hu": "határ", "definition": "relating to a threshold or transitional state", "example": "Adolescence is a liminal period between childhood and adulthood."},
+      {"term": "Mitigate", "hu": "káros hatást csökkenteni", "definition": "to make less severe or painful", "example": "Early intervention can mitigate the effects of mental health disorders."},
+      {"term": "Nuance", "hu": "finomság", "definition": "a subtle difference in meaning or expression", "example": "The translation captured most but not all of the original nuances."},
+      {"term": "Opacity", "hu": "átlátszatlanság", "definition": "the quality of being difficult to understand or opaque", "example": "The opacity of financial products makes them risky for unsophisticated investors."}
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 90,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Gapped Sentences",
+        "description": "Questions 1-6",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "The Circular Economy Revolution",
+            "subtitle": "Reading Passage 1",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "Traditional linear economic models follow a take-make-dispose pattern that depletes resources and generates waste. __(1)__ circular economy principles emphasize keeping materials in use for as long as possible, this approach fundamentally challenges established business practices."
+              },
+              {
+                "id": "2",
+                "text": "Cities worldwide are implementing circular strategies from sharing platforms to industrial symbiosis. __(2)__ Amsterdam aims to become fully circular by 2050, the transition requires massive investment in new infrastructure and systems."
+              },
+              {
+                "id": "3",
+                "text": "Consumer behavior presents both obstacles and opportunities for circular adoption. __(3)__ convenience often trumps sustainability concerns, growing awareness of environmental impact drives demand for circular alternatives."
+              },
+              {
+                "id": "4",
+                "text": "Extended producer responsibility policies shift waste management costs to manufacturers. __(4)__ companies optimize for durability and recyclability, they also face significant upfront redesign and retooling expenses."
+              },
+              {
+                "id": "5",
+                "text": "Digital technologies enable unprecedented tracking and optimization of material flows. __(5)__ IoT sensors monitor resource usage throughout product lifecycles, data-driven insights facilitate more efficient circular systems."
+              },
+              {
+                "id": "6",
+                "text": "Critics argue that circular economy rhetoric masks continued growth imperatives. __(6)__ proponents emphasize decoupling prosperity from resource consumption, skeptics question whether technological solutions suffice without systemic change."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "sentence-insert",
+                "instruction": "Which of the sentences a–h is missing in each gap? There is only one correct answer for each item. Two sentences do not fit into any of the gaps.",
+                "options": [
+                  {"id": "a", "text": "Whereas the Industrial Revolution transformed production methods, the circular transition transforms consumption patterns."},
+                  {"id": "b", "text": "Although the benefits seem clear, implementation faces significant barriers."},
+                  {"id": "c", "text": "Because consumers increasingly seek sustainable options, businesses must adapt or lose market share."},
+                  {"id": "d", "text": "When tracking becomes ubiquitous, real-time optimization of resource flows becomes possible."},
+                  {"id": "e", "text": "If we continue with current practices, resource scarcity will intensify dramatically."},
+                  {"id": "f", "text": "While some embrace these changes enthusiastically, others resist due to cost concerns."},
+                  {"id": "g", "text": "Since circular models require significant upfront investment, short-term profitability may suffer."},
+                  {"id": "h", "text": "Unless regulatory frameworks evolve to support circular practices, adoption will remain limited."}
+                ],
+                "answers": {
+                  "1": "a",
+                  "2": "b",
+                  "3": "f",
+                  "4": "g",
+                  "5": "d",
+                  "6": "h"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Selective Understanding",
+        "description": "Questions 7-12",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "Urban Heat Islands and Climate Resilience",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "a",
+                "text": "Cities experience significantly higher temperatures than surrounding rural areas due to the urban heat island effect. Dark surfaces absorb and radiate heat while dense construction limits airflow, creating dangerous conditions during heat waves."
+              },
+              {
+                "id": "b",
+                "text": "Vulnerable populations bear disproportionate heat-related health burdens. Elderly residents, outdoor workers, and those without air conditioning face elevated risks of heat exhaustion and mortality during extreme temperature events."
+              },
+              {
+                "id": "c",
+                "text": "Green infrastructure offers promising cooling solutions through strategic tree planting and vegetated surfaces. Urban forests and green roofs reduce ambient temperatures while providing co-benefits for air quality and stormwater management."
+              },
+              {
+                "id": "d",
+                "text": "Cool roof and pavement technologies reflect rather than absorb sunlight. While effective for individual buildings, citywide deployment requires coordinated policy implementation and significant upfront investment."
+              },
+              {
+                "id": "e",
+                "text": "Community-based adaptation strategies recognize that top-down solutions alone are insufficient. Local knowledge and grassroots organizing can identify priority areas and mobilize resources for equitable heat resilience measures."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "In which part of the text a–e can you find the information 7–12? There is only one correct answer for each item. Each part of the text may contain more than one of the pieces of information.",
+                "questions": [
+                  {
+                    "id": "7",
+                    "text": "explains how city surfaces contribute to higher temperatures?",
+                    "answer": "a"
+                  },
+                  {
+                    "id": "8",
+                    "text": "identifies groups most at risk during heat waves?",
+                    "answer": "b"
+                  },
+                  {
+                    "id": "9",
+                    "text": "describes nature-based solutions for cooling cities?",
+                    "answer": "c"
+                  },
+                  {
+                    "id": "10",
+                    "text": "mentions reflective building materials?",
+                    "answer": "d"
+                  },
+                  {
+                    "id": "11",
+                    "text": "argues for localized adaptation approaches?",
+                    "answer": "e"
+                  },
+                  {
+                    "id": "12",
+                    "text": "notes co-benefits of urban greening?",
+                    "answer": "c"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3-reading",
+        "section": 3,
+        "title": "Part 3: True/False/Not Given",
+        "description": "Questions 13-19",
+        "passages": [
+          {
+            "id": "p3-reading",
+            "title": "The Psychology of Conformity",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "Conformity research reveals fundamental tensions between individual autonomy and social belonging. Asch's famous line experiments demonstrated that people will deny obvious sensory evidence to match group judgments."
+              },
+              {
+                "id": "2",
+                "text": "Social media amplifies conformity pressures through algorithmic reinforcement of popular opinions. Echo chambers emerge as users encounter primarily validated viewpoints rather than diverse perspectives."
+              },
+              {
+                "id": "3",
+                "text": "Minority influence theory shows that consistent dissenters can gradually shift majority opinions. While initial resistance is expected, unwavering commitment to alternative views eventually garners attention and respect."
+              },
+              {
+                "id": "4",
+                "text": "Cultural variations in conformity rates reflect different social norms and individualistic versus collective orientations. East Asian societies typically show higher conformity than Western individualistic cultures."
+              },
+              {
+                "id": "5",
+                "text": "Obedience studies reveal that authority figures can override personal moral judgment. Milgram's experiments showed participants administering apparently harmful electric shocks when instructed by an experimenter."
+              },
+              {
+                "id": "6",
+                "text": "Contemporary research explores how digital environments reshape conformity dynamics. The permanence and scale of online interactions create new forms of social pressure and visibility of non-conformity."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "trinary",
+                 "mode": "tfng",
+                "instruction": "Read the following text and the statements 13–19 below. For each of the statements mark: (+) corresponds to the content, (–) does not correspond, (X) is not mentioned.",
+                "questions": [
+                  {"id": "13", "text": "Asch's experiments showed people ignore obvious evidence to fit in.", "answer": "TRUE"},
+                  {"id": "14", "text": "Social media platforms intentionally create echo chambers.", "answer": "NOT GIVEN"},
+                  {"id": "15", "text": "Consistent minority opinions have no impact on majority views.", "answer": "FALSE"},
+                  {"id": "16", "text": "Conformity rates are identical across all cultures.", "answer": "FALSE"},
+                  {"id": "17", "text": "Milgram's research examined obedience to authority.", "answer": "TRUE"},
+                  {"id": "18", "text": "Digital environments reduce social pressure on individuals.", "answer": "FALSE"},
+                  {"id": "19", "text": "Non-conformity has become more visible in online spaces.", "answer": "TRUE"}
+                ]
+              },
+              {
+                "type": "mcq",
+                "instruction": "Which title a, b or c best matches the article?",
+                "questions": [
+                  {"id": "20", "text": "", "options": ["a The power of social influence throughout history", "b Why individuality matters more than ever", "c Digital technology and social conformity"], "answer": "a The power of social influence throughout history"}
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Text 1",
+            "title": "Universal Basic Income Debate",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Universal basic income has emerged as a radical solution to technological unemployment and economic insecurity. __(21)__ automation threatens widespread job displacement, policymakers debate whether unconditional cash transfers could provide economic stability. __(22)__ pilot programs show promising results in poverty reduction, critics question the affordability and work disincentives. __(23)__ basic income guarantees subsistence for all citizens, implementation requires fundamental restructuring of welfare and tax systems. __(24)__, the debate continues over whether UBI represents pragmatic reform or utopian fantasy. __(25)__ societies grapple with inequality and automation, basic income may transition from fringe idea to mainstream policy."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {"id": "21", "text": "UBI has emerged... __(21)__ automation threatens widespread job displacement...", "options": ["a While", "b Because", "c Since"], "answer": "a While"},
+                  {"id": "22", "text": "__(22)__ pilot programs show promising results in poverty reduction...", "options": ["a Although", "b However", "c Even though"], "answer": "a Although"},
+                  {"id": "23", "text": "__(23)__ basic income guarantees subsistence for all citizens...", "options": ["a Once", "b Because", "c When"], "answer": "c When"},
+                  {"id": "24", "text": "...systems. __(24)__, the debate continues over whether UBI represents...", "options": ["a Nevertheless", "b Meanwhile", "c Ultimately"], "answer": "b Meanwhile"},
+                  {"id": "25", "text": "____(25)__, societies grapple with inequality and automation...", "options": ["a As", "b While", "c Since"], "answer": "a As"}
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p2",
+            "subtitle": "Text 2",
+            "title": "Remote Work Transformation",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "The shift to remote work represents one of the most significant labor transformations in decades. __(26)__ productivity initially raised concerns, studies show many employees perform effectively outside traditional offices. __(27)__ digital collaboration tools facilitate communication, spontaneous interactions that spark creativity are harder to replicate virtually. __(28)__, companies redesign physical spaces for hybrid models combining remote and in-person work. __(29)__, urban centers must adapt as commuting patterns and city economies face fundamental restructuring. __(30)__, the future of work will likely blend flexibility with intentional in-person collaboration."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-t) to complete each sentence.",
+                "tokens": ["additionally", "although", "as a result", "because", "consequently", "furthermore", "hence", "however", "in contrast", "indeed", "instead", "moreover", "nevertheless", "nonetheless", "notably", "particularly", "rather", "since", "therefore", "ultimately"],
+                "questions": [
+                  {"id": "26", "text": "The shift to remote work... __(26)__ productivity initially raised concerns..."},
+                  {"id": "27", "text": "__(27)__ digital collaboration tools facilitate communication..."},
+                  {"id": "28", "text": "__(28)__, companies redesign physical spaces..."},
+                  {"id": "29", "text": "__(29)__, urban centers must adapt..."},
+                  {"id": "30", "text": "__(30)__, the future of work will likely blend..."}
+                ],
+                "answers": {
+                  "26": "although",
+                  "27": "however",
+                  "28": "consequently",
+                  "29": "moreover",
+                  "30": "ultimately"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Climate Action Stories",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear eight individuals describing their contributions to climate action. You will hear each speaker once. While listening, decide which statement a–j best matches each speaker.",
+        "transcript": "[Audio with eight speakers sharing climate action stories]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
+        "context": "Climate activism and lifestyle changes",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "matching-info",
+            "instruction": "Which statement a–j best matches what each speaker says?",
+            "questions": [
+              {"id": 47, "text": "Speaker 1", "answer": "a"},
+              {"id": 48, "text": "Speaker 2", "answer": "b"},
+              {"id": 49, "text": "Speaker 3", "answer": "c"},
+              {"id": 50, "text": "Speaker 4", "answer": "d"},
+              {"id": 51, "text": "Speaker 5", "answer": "e"},
+              {"id": 52, "text": "Speaker 6", "answer": "f"},
+              {"id": 53, "text": "Speaker 7", "answer": "g"},
+              {"id": 54, "text": "Speaker 8", "answer": "h"}
+            ],
+            "options": [
+              "a I installed solar panels and battery storage to power my home sustainably.",
+              "b I changed my diet to reduce my carbon footprint significantly.",
+              "c I started a community garden to promote local food production.",
+              "d I gave up flying and now travel exclusively by train or boat.",
+              "e I invested in a heat pump system to replace my gas boiler.",
+              "f I retrofitted my house with insulation and triple-glazed windows.",
+              "g I advocate for climate policy through political engagement and protests.",
+              "h I calculate and offset my carbon emissions annually.",
+              "i I use only renewable energy providers for my electricity.",
+              "j I bike or walk for all my daily transportation needs."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Interview: Urban Planning Challenges",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with an urban planner about designing sustainable cities.",
+        "transcript": "[Interview about city planning and sustainability]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
+        "context": "Urban sustainability discussion",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "While listening decide which answer fits best: a, b or c.",
+            "questions": [
+              {"id": 55, "text": "The planner identifies the biggest obstacle to sustainable urban development as", "options": ["a lack of public interest", "b conflicting stakeholder priorities", "c insufficient technological solutions"], "answer": "b conflicting stakeholder priorities"},
+              {"id": 56, "text": "Regarding public transportation, the interviewee emphasizes", "options": ["a building more roads for cars", "b integrating mobility with land use", "c privatizing transit systems"], "answer": "b integrating mobility with land use"},
+              {"id": 57, "text": "Affordable housing can be incorporated sustainably by", "options": ["a subsidizing suburban sprawl", "b mixed-use developments near transit", "c reducing building standards"], "answer": "b mixed-use developments near transit"},
+              {"id": 58, "text": "The planner suggests climate resilience requires", "options": ["a building sea walls everywhere", "b distributed infrastructure and green systems", "c relocating all coastal cities"], "answer": "b distributed infrastructure and green systems"},
+              {"id": 59, "text": "Community engagement improves planning outcomes by", "options": ["a minimizing public input", "b identifying local needs and concerns", "c speeding up decision-making"], "answer": "b identifying local needs and concerns"},
+              {"id": 60, "text": "Zoning regulations should evolve to", "options": ["a separate uses strictly", "b allow mixed-use flexibility", "c ban residential development"], "answer": "b allow mixed-use flexibility"},
+              {"id": 61, "text": "The 15-minute city concept aims to", "options": ["a concentrate jobs downtown", "b provide daily needs within walking distance", "c build taller skyscrapers"], "answer": "b provide daily needs within walking distance"},
+              {"id": 62, "text": "Urban biodiversity can be enhanced by", "options": ["a removing all green spaces", "b creating habitat corridors", "c paving over vacant lots"], "answer": "b creating habitat corridors"},
+              {"id": 63, "text": "The main benefit of transit-oriented development is", "options": ["a increased car dependency", "b reduced emissions and better access", "c longer commute times"], "answer": "b reduced emissions and better access"},
+              {"id": 64, "text": "Successful implementation requires", "options": ["a ignoring regional differences", "b coordination across multiple agencies", "c eliminating environmental reviews"], "answer": "b coordination across multiple agencies"}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Lecture: Behavioral Economics",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear a lecture on how psychology influences economic decision-making.",
+        "transcript": "[Academic lecture on behavioral economics]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
+        "context": "Behavioral economics lecture",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "notes-completion",
+            "instruction": "Complete the notes with information from the lecture. Write no more than THREE words for each answer.",
+            "wordLimit": 3,
+            "notes": [
+              {
+                "heading": "Professor Sarah Chen",
+                "items": [
+                  { "id": "0", "type": "text", "text": "Behavioral Economics Institute" },
+                  { "id": "0-answer", "type": "gap", "label": "Specialization", "answer": "decision science" }
+                ]
+              },
+              {
+                "heading": "Key Concepts",
+                "items": [
+                  { "id": "65", "type": "gap", "label": "Primary bias studied", "answer": "loss aversion" },
+                  { "id": "66", "type": "gap", "label": "Endowment effect example", "answer": "coffee mug study" }
+                ]
+              },
+              {
+                "heading": "Common Heuristics",
+                "items": [
+                  { "id": "67", "type": "gap", "label": "Availability shortcut", "answer": "recent events" },
+                  { "id": "68", "type": "gap", "label": "Anchoring bias impact", "answer": "first numbers" }
+                ]
+              },
+              {
+                "heading": "Policy Applications",
+                "items": [
+                  { "id": "69", "type": "gap", "label": "Nudge effectiveness", "answer": "default options" },
+                  { "id": "70", "type": "gap", "label": "Retirement savings boost", "answer": "automatic enrollment" }
+                ]
+              },
+              {
+                "heading": "Future Research",
+                "items": [
+                  { "id": "71", "type": "gap", "label": "Digital nudging potential", "answer": "app notifications" },
+                  { "id": "72", "type": "gap", "label": "Climate behavior challenge", "answer": "psychological distance" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m9-t1",
+        "taskType": 1,
+        "title": "Task 1: Compulsory",
+        "subtitle": "Part 1: Writing",
+        "instruction": "In this part of the examination you have to write two texts: the compulsory task and one of the optional tasks. You have a total of one hour to complete both tasks.\nRemember:\nThe texts you write should be well-structured and highlight the points that you think are most important for the reader. The structure of the text should have an appropriate degree of complexity with reference to the type of text specified and should also contain a number of complex sentence forms.\nWrite at least 200 words.",
+        "context": "Your local government is considering raising the legal age for social media use from 13 to 18. Supporters argue this protects children's mental health, while opponents claim it restricts freedom and is unenforceable. A public forum has been organized to discuss this proposal. Write a formal letter to the forum presenting your views on this policy.",
+        "targetWords": 200,
+        "xp": 500,
+        "prompt": "Write to the forum about the proposed social media age restriction.",
+        "type": "letter"
+      },
+      {
+        "id": "w-m9-t2",
+        "taskType": 2,
+        "title": "Task 2: Optional",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Choose one of the following four tasks and write at least 150 words.",
+        "options": [
+          {
+            "id": "optional-a",
+            "title": "A: Letter to a Mentor",
+            "context": "Write a letter to someone whose advice has significantly influenced your life choices. Describe a specific situation where their guidance helped you, and explain how this relationship has shaped your personal growth.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "letter"
+          },
+          {
+            "id": "optional-b",
+            "title": "B: Film Review",
+            "context": "Write a review of a recent film that explores themes of technology and society. Discuss the plot, characters, and how effectively the film addresses its central message.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "review"
+          },
+          {
+            "id": "optional-c",
+            "title": "C: Career Advice Article",
+            "context": "Write an article offering advice to young people entering your industry or field. Include key skills needed, potential challenges, and recommended strategies for success.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          },
+          {
+            "id": "optional-d",
+            "title": "D: Travel Blog Entry",
+            "context": "Write a blog post about a place you have visited that challenged your assumptions or changed your perspective. Describe the experience and its lasting impact on your worldview.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          }
+        ]
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "speaking-part1",
+        "title": "Presentation",
+        "subtitle": "Part 1: Speaking",
+        "type": "presentation",
+        "duration": "3 minutes",
+        "instruction": "Choose one of the two topics and give a short presentation to your partner(s). Take a few seconds to prepare before you start speaking. Remember to give an introduction (example, own experience) and come to a conclusion at the end. You should talk for about three minutes. At the end you will be asked follow-up questions.",
+        "topics": [
+          {
+            "topic": "Is artificial intelligence a threat or an opportunity for humanity?",
+            "questions": [
+              {
+                "id": "p1q1",
+                "text": "What safeguards would you propose for responsible AI development?"
+              }
+            ]
+          },
+          {
+            "topic": "Should governments regulate the internet more strictly?",
+            "questions": [
+              {
+                "id": "p1q2",
+                "text": "Where should the line be drawn between freedom and regulation online?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "speaking-part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Discussion",
+        "type": "discussion",
+        "duration": "6 minutes",
+        "instruction": "Discuss the following topic with your partner(s)",
+        "text": "\"The greatest enemy of knowledge is not ignorance, it is the illusion of knowledge.\" - Daniel J. Boorstin",
+        "topics": [
+          {
+            "topic": "The Illusion of Knowledge",
+            "questions": [
+              {
+                "id": "p2q1",
+                "text": "What does Boorstin mean by the illusion of knowledge being worse than ignorance?"
+              },
+              {
+                "id": "p2q2",
+                "text": "Give examples of how the illusion of knowledge affects decision-making in society."
+              },
+              {
+                "id": "p2q3",
+                "text": "How can individuals guard against the illusion of knowledge in their own thinking?"
+              },
+              {
+                "id": "p2q4",
+                "text": "What role should humility play in education and public discourse?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

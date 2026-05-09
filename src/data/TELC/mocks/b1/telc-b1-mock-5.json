@@ -1,0 +1,689 @@
+{
+  "id": "telc-b1-mock-5",
+  "level": "b1",
+  "mockNumber": 5,
+  "title": "TELC B1 Mock Test 5",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+
+  "vocabulary": {
+    "id": "vocab-b1-mock-5",
+    "title": "Test Vocabulary",
+    "level": "B1",
+    "words": [
+      { "term": "Technology", "hu": "Technológia", "definition": "The application of scientific knowledge for practical purposes.", "example": "Technology changes quickly these days." },
+      { "term": "Internet", "hu": "Internet", "definition": "A global computer network providing information.", "example": "I use the internet every day." },
+      { "term": "Mobile", "hu": "Mobiltelefon", "definition": "A portable phone that can make calls and access the internet.", "example": "My mobile phone is very useful." },
+      { "term": "Computer", "hu": "Számítógép", "definition": "An electronic device for storing and processing data.", "example": "I work on my computer all day." },
+      { "term": "Social", "hu": "Társas", "definition": "Relating to society or interaction with others.", "example": "Social media connects people." },
+      { "term": "Information", "hu": "Információ", "definition": "Facts or details about something.", "example": "I found useful information online." },
+      { "term": "Communication", "hu": "Kommunikáció", "definition": "The act of exchanging information.", "example": "Email is a form of communication." },
+      { "term": "Online", "hu": "Online", "definition": "Connected to the internet.", "example": "I shop online regularly." },
+      { "term": "Download", "hu": "Letöltés", "definition": "To transfer data from the internet to a device.", "example": "I downloaded a new app." },
+      { "term": "Password", "hu": "Jelszó", "definition": "A secret word used to access something.", "example": "Use a strong password for security." },
+      { "term": "Account", "hu": "Fiók", "definition": "A private arrangement for services.", "example": "I have an online bank account." },
+      { "term": "Website", "hu": "Weboldal", "definition": "A location on the internet.", "example": "The company has a good website." },
+      { "term": "Message", "hu": "Üzenet", "definition": "A piece of written or electronic communication.", "example": "I sent her a message." },
+      { "term": "Privacy", "hu": "Adatvédelem", "definition": "The state of being free from public attention.", "example": "Privacy is important online." },
+      { "term": "Update", "hu": "Frissítés", "definition": "To make something modern or current.", "example": "I update my phone regularly." }
+    ]
+  },
+
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "Technology",
+              "Internet",
+              "Mobile",
+              "Computer",
+              "Social",
+              "Information",
+              "Communication",
+              "Online",
+              "Download",
+              "Password",
+              "Account",
+              "Website",
+              "Message",
+              "Privacy",
+              "Update"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "My grandfather bought his first mobile phone last week. He was surprised at how many features it has. He can take photos, play music, and even video call his grandchildren. He says it's like having a small computer in his pocket."
+              },
+              {
+                "id": "2",
+                "text": "Lisa changed all her passwords yesterday after hearing about a security problem. She now uses a different password for every online account. Her new passwords are longer and mix letters with numbers. She feels much safer now."
+              },
+              {
+                "id": "3",
+                "text": "Tom downloaded a new language learning app last month. He studies for 20 minutes every day on his phone. He has already learned 200 new words. He says the app makes learning fun and convenient."
+              },
+              {
+                "id": "4",
+                "text": "The company website was down for maintenance this morning. Customers couldn't access their accounts or make purchases. The technical team worked quickly and fixed the problem by lunchtime. Everything is working normally again."
+              },
+              {
+                "id": "5",
+                "text": "Many teenagers today communicate mainly through social media. They send messages, share photos, and chat online. Some people worry that this reduces face-to-face communication skills. Others say it's just a new way to stay connected."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  { "id": "1", "text": "Paragraph 1", "answer": 3 },
+                  { "id": "2", "text": "Paragraph 2", "answer": 1 },
+                  { "id": "3", "text": "Paragraph 3", "answer": 4 },
+                  { "id": "4", "text": "Paragraph 4", "answer": 0 },
+                  { "id": "5", "text": "Paragraph 5", "answer": 2 }
+                ],
+                "headings": [
+                  "Website problems and solutions",
+                  "Communication in the digital age",
+                  "Learning a language with an app",
+                  "A phone with many features",
+                  "Better online security"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about digital technology and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "Technology in Everyday Life",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Technology has changed how we live, work, and communicate. Smartphones, computers, and the internet are now part of daily life for most people. These tools make many tasks easier, from finding information to staying in touch with friends and family."
+              },
+              {
+                "id": "B",
+                "text": "The internet provides access to vast amounts of information. Students use it for research, professionals use it for work, and many people use it for entertainment. However, not all information online is reliable. It's important to check sources carefully."
+              },
+              {
+                "id": "C",
+                "text": "Social media platforms allow people to share their lives with others. Users can post photos, send messages, and connect with people worldwide. While social media has benefits, it can also lead to privacy concerns and excessive screen time."
+              },
+              {
+                "id": "D",
+                "text": "As technology evolves, digital literacy becomes increasingly important. People need to understand how to use devices safely and effectively. This includes protecting personal information, identifying fake news, and using technology responsibly."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": "6",
+                    "text": "How has technology changed our lives?",
+                    "options": [
+                      "A. It has made many tasks easier",
+                      "B. It has made life more difficult",
+                      "C. It has removed the need to work"
+                    ],
+                    "answer": "A. It has made many tasks easier"
+                  },
+                  {
+                    "id": "7",
+                    "text": "What should users check when using the internet?",
+                    "options": [
+                      "A. Only official websites",
+                      "B. The reliability of information",
+                      "C. The website design"
+                    ],
+                    "answer": "B. The reliability of information"
+                  },
+                  {
+                    "id": "8",
+                    "text": "What is a potential problem with social media?",
+                    "options": [
+                      "A. It is too expensive",
+                      "B. It can create privacy issues",
+                      "C. It is not popular"
+                    ],
+                    "answer": "B. It can create privacy issues"
+                  },
+                  {
+                    "id": "9",
+                    "text": "What is digital literacy important for?",
+                    "options": [
+                      "A. Playing video games",
+                      "B. Using technology safely and effectively",
+                      "C. Avoiding all technology"
+                    ],
+                    "answer": "B. Using technology safely and effectively"
+                  },
+                  {
+                    "id": "10",
+                    "text": "Why should we protect personal information online?",
+                    "options": [
+                      "A. To avoid spam emails",
+                      "B. For safety and security",
+                      "C. To save storage space"
+                    ],
+                    "answer": "B. For safety and security"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 11-18",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Tech Services in Town",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Computer Help Desk - We fix all computer problems including viruses, slow performance, and software issues. Home visits available. Open Monday to Saturday, 9am-7pm. Call 555-0123 for an appointment."
+              },
+              {
+                "id": "B",
+                "text": "Phone World - Buy the latest smartphones and tablets at competitive prices. We offer repair services for all mobile devices. Trade in your old phone for a discount on a new one. Free Wi-Fi while you wait."
+              },
+              {
+                "id": "C",
+                "text": "Web Design Pro - Professional website creation for small businesses. Our designers create modern, user-friendly websites. We also offer website maintenance and SEO services. Get a free quote today at webdesignpro.com."
+              },
+              {
+                "id": "D",
+                "text": "Cyber Safe Training - Learn how to stay safe online. Our courses cover password security, privacy settings, and identifying online scams. Classes for individuals and companies. Evening and weekend sessions available."
+              },
+              {
+                "id": "E",
+                "text": "Digital Camera Shop - We sell cameras, lenses, and photography equipment. Our staff can advise on the best camera for your needs. We also offer photography classes for beginners. Open daily 10am-6pm."
+              },
+              {
+                "id": "F",
+                "text": "Internet Express - Fast home internet connections with no contract. Installation within 24 hours. Technical support available 24/7. Special offers for new customers. Call now for a free installation quote."
+              },
+              {
+                "id": "G",
+                "text": "App Development Studio - We create custom mobile apps for businesses. From idea to launch, we handle everything. iOS and Android development. Consultations are free. Visit our website for examples of our work."
+              },
+              {
+                "id": "H",
+                "text": "Online Store Solutions - We help shops set up online stores. We handle payment systems, shipping integration, and website design. Perfect for businesses wanting to sell on the internet. Training included."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  { "id": 11, "text": "A company that helps businesses sell online.", "answer": "H" },
+                  { "id": 12, "text": "A service teaching online safety skills.", "answer": "D" },
+                  { "id": 13, "text": "A place that fixes mobile phones.", "answer": "B" },
+                  { "id": 14, "text": "A business creating mobile applications.", "answer": "G" },
+                  { "id": 15, "text": "A shop selling photography equipment.", "answer": "E" },
+                  { "id": 16, "text": "A service providing internet connections.", "answer": "F" },
+                  { "id": 17, "text": "A company that makes websites.", "answer": "C" },
+                  { "id": 18, "text": "A service that repairs computers at home.", "answer": "A" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "Technology Today",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Modern technology ____(21)____ an important part of our lives. Most people ____(22)____ a smartphone and use it every day. With a smartphone, you can ____(23)____ the internet, take photos, and send messages.\n\nThe internet gives us ____(24)____ to information from around the world. We can ____(25)____ news, watch videos, and communicate with friends. However, it's important to think about ____(26)____ when using the internet. Not all websites are safe.\n\nMany people use social media ____(27)____ stay in touch. These platforms allow ____(28)____ to share their thoughts and photos. But users should be careful about what personal information they ____(29)____ online.\n\nTechnology continues to develop quickly. New ____(30)____ and updates are released all the time. It's good to keep your devices up to date for the best performance and security."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  { "id": "21", "text": "technology ____(21)____ an important part", "options": ["is", "are", "was"], "answer": "is" },
+                  { "id": "22", "text": "people ____(22)____ a smartphone", "options": ["have", "has", "had"], "answer": "have" },
+                  { "id": "23", "text": "you can ____(23)____ the internet", "options": ["access", "use", "open"], "answer": "access" },
+                  { "id": "24", "text": "gives us ____(24)____ to information", "options": ["access", "entry", "way"], "answer": "access" },
+                  { "id": "25", "text": "We can ____(25)____ news", "options": ["read", "see", "look"], "answer": "read" },
+                  { "id": "26", "text": "think about ____(26)____", "options": ["safety", "privacy", "security"], "answer": "privacy" },
+                  { "id": "27", "text": "use social media ____(27)____ stay in touch", "options": ["to", "for", "in order"], "answer": "to" },
+                  { "id": "28", "text": "allows ____(28)____ to share", "options": ["users", "people", "them"], "answer": "users" },
+                  { "id": "29", "text": "information they ____(29)____ online", "options": ["share", "post", "put"], "answer": "share" },
+                  { "id": "30", "text": "New ____(30)____ and updates", "options": ["features", "things", "items"], "answer": "features" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text and complete the gaps with the correct word from the box.",
+        "passages": [
+          {
+            "id": "p3",
+            "subtitle": "Language Elements Part 2",
+            "title": "Email About Technology",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Hi Alex,\n\nI need your help with something. I want to buy a new ____(a)____ but I don't know which one to choose. There are so many options!\n\nMy old phone is very slow and the ____(b)____ doesn't work well anymore. I can't download new ____(c)____ because it says I don't have enough space. Also, the battery only lasts a few hours. I need a phone that can last all day.\n\nI'm also worried about online ____(d)____. I've heard that some apps collect personal data. What should I do to protect my information?\n\nCan we go phone shopping together this weekend? I need your advice.\n\nThanks,\nMike"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-j) to complete each gap.",
+                "tokens": [
+                  "COMPUTER",
+                  "DOWNLOAD",
+                  "MOBILE",
+                  "PASSWORD",
+                  "MESSAGE",
+                  "PRIVACY",
+                  "SCREEN",
+                  "ACCOUNT",
+                  "BATTERY",
+                  "WEBSITE"
+                ],
+                "answers": {
+                  "a": "MOBILE",
+                  "b": "SCREEN",
+                  "c": "APPS",
+                  "d": "PRIVACY"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+"listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Situations",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear people talking in eight different situations.\nFor questions 1-8, choose the best answer A, B or C.",
+        "transcript": "1. Girl 1: Will you meet me in the park?\nGirl 2: OK. Where? By the entrance?\nGirl 1: No, at the ice-cream kiosk. You know, the one by the lake.\nGirl 2: OK.\n\n2. Man: Good afternoon. Can you show me your office chairs? I’m looking for something with a high back and arms.\n\n3. Girl 1: Now, have we got everything? Flour, butter, a lemon, milk …\nGirl 2: Don’t we need eggs?\nGirl 1: Of course? Two eggs.\n\n4. Woman: Look at that mirror – how did it get broken?\nBoy: We were playing ball and I missed it.\nWoman: I’ve told you before you are not to play ball in the house. Well, you will both have to buy a new mirror.\n\n5. Sarah: When can we go out, Mum?\nMother: In about half an hour, Sarah, when I’ve finished doing the washing-up.\n\n6. Woman: I thought you were only taking two suitcases on holiday with you?\nMan: Well, I was, but I decided to take my overnight bag as well. I couldn’t get everything into two cases and there’s no way I could carry a third!\n\n7. Man: I’m really disappointed with my holiday photos. The only good one is the one of us all standing together on the clifftop looking down at the beach.",
+        "audioUrl": "/audio/PEL-B1-Test5-Part1.mp3",
+        "context": "Eight different situations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (a-f) corresponds to each news item?",
+            "questions": [
+              {
+                "id": 1,
+                "text": "News Item 1",
+                "answer": "1"
+              },
+              {
+                "id": 2,
+                "text": "News Item 2",
+                "answer": "3"
+              },
+              {
+                "id": 3,
+                "text": "News Item 3",
+                "answer": "2"
+              },
+              {
+                "id": 4,
+                "text": "News Item 4",
+                "answer": "5"
+              },
+              {
+                "id": 5,
+                "text": "News Item 5",
+                "answer": "0"
+              },
+              {
+                "id": 6,
+                "text": "News Item 6",
+                "answer": "6"
+              },
+              {
+                "id": 7,
+                "text": "News Item 7",
+                "answer": "4"
+              }
+            ],
+            "headings": [
+              "Waiting to go out",
+              "Arranging to meet",
+              "Making a cake",
+              "Buying furniture",
+              "Looking at holiday pictures",
+              "Breaking something",
+              "Packing for a trip"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Competition: Classical Music Piece",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear a radio presenter giving information about a competition to identify a piece of classical music.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
+        "transcript": "Presenter: … and now if you’re a regular listener to this programme, you’ll know that it’s time for our weekly competition. Last week’s prize of two theatre tickets was won by Bill Martins. Congratulations, Bill. I hope you’ve received your tickets by now.\n\nThis week we’re offering a classical CD to the first listener who can name the piece of music and the person who wrote it. I’m going to play the piece in a few minutes, but before I do, you need to get a pencil and a piece of paper, as I’m going to give you some help which should make your job a little easier. Are you ready? Right. Now, listen carefully, as you might be this week’s lucky winner.\n\nAlthough the person who wrote this piece of classical music was born in Italy, his parents were French and he spent most of his life in Spain. Have you got that? On to the second point: there is also a famous play which has the same title as this music and which is usually performed in the open air – in the summer. Any idea yet? I should warn you that it’s not that easy.\n\nAnyway for the next point. When this piece of music was first performed, many people in the audience got up and walked out. At the end they say there was complete silence, which I’m sure wasn’t very pleasant for the writer. People thought the music was terrible and complained about wasting their money. It’s amazing really, when you think how popular it is today.\n\nAnd now for the last point. Part of this music has been used for an advertisement which you can see on television. I’m sure when you hear the music, you’ll know what the advertisement is for. I’m not going to tell you what product it advertises, as that would almost certainly give you the answer! You can also see the advert in a lot of magazines and I think from next month this advert will also be on your cinema screens.\n\nSo that’s four things to remember. And the phone number to ring if you can give us the title of the music and the name of the man who wrote it is 0018 937 224. And the piece of music is coming up now …",
+        "audioUrl": "/audio/PEL-B1-Test5-Part2.mp3",
+        "context": "Radio competition about a piece of classical music",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "mode": "tfng",
+            "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
+            "questions": [
+              {
+                "id": 8,
+                "text": "The prize in last week’s competition was a classical CD.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 9,
+                "text": "Listeners are advised to write down some information.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 10,
+                "text": "The composer of the music spent most of his life in France.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 11,
+                "text": "The music has the same name as a famous play.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 12,
+                "text": "The first time the music was performed, the audience loved it.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 13,
+                "text": "The music is currently used in a television advertisement.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 14,
+                "text": "The advertisement will only be shown in magazines and on TV.",
+                "answer": "FALSE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Mike Davis - Life in Hereford",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear Mike Davis, who lives in Hereford, telling you something about his life.\nFor questions 15-20, choose the correct answer A, B or C.",
+        "transcript": "Man: Hello and welcome to our series about young people living in different parts of the country. Today you’ll hear Mike Davis, who lives in Hereford, telling you something about his life.\n\nBoy: Hello. I’m 13 years old and I go to Stanley School. I’m in Form 3, and I’m really interested in science but I find maths and especially English a bit hard. I’m good at running and I’ve run for the school team in the 800 metres.\n\nMy dad sells farm machinery. We live in the country about four miles from school, so I get to school by bicycle. My uncle has a farm and I spend most of my free time helping out there. He’s got 50 cows and I like to help him with them. I help to do the milking every Saturday and sometimes I have to clean the cowshed. It’s hard work, but it’s good to see everything looking clean. I painted it white last summer – I’m good at painting. My uncle’s got a tractor and he says I can drive it when I’m 15. I’m looking forward to that.\n\nOn Mondays I go to the Young Farmers’ Group which I’ve belonged to since I was 10. It’s mostly fun but we also learn things, like how to look after animals properly.\n\nI definitely want to work in the countryside when I leave school. I wouldn’t like to live in a town or sit in an office all day. My father thinks I should work in his business, but I want to be like my uncle and have my own farm one day. My mother says I’ll have to go to agricultural college first, so I’m going to work hard to pass all my exams.\n\nMan: Thank you, Mike, …",
+        "audioUrl": "/audio/PEL-B1-Test5-Part3.mp3",
+        "context": "Mike Davis talks about his life in Hereford",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "For questions 15-20, choose the correct answer A, B or C.",
+            "questions": [
+              {
+                "id": 15,
+                "text": "Mike says that at school he",
+                "answer": "A",
+                "options": [
+                  "is good at science.",
+                  "is interested in English.",
+                  "finds maths easy."
+                ]
+              },
+              {
+                "id": 16,
+                "text": "How does Mike get to school?",
+                "answer": "B",
+                "options": [
+                  "by bus",
+                  "by bicycle",
+                  "by car"
+                ]
+              },
+              {
+                "id": 17,
+                "text": "What does Mike do at his uncle’s farm?",
+                "answer": "C",
+                "options": [
+                  "He looks after horses.",
+                  "He helps with the painting.",
+                  "He helps with the cows."
+                ]
+              },
+              {
+                "id": 18,
+                "text": "What does Mike enjoy most about the Young Farmers’ Group?",
+                "answer": "A",
+                "options": [
+                  "learning about animals",
+                  "having fun",
+                  "meeting new people"
+                ]
+              },
+              {
+                "id": 19,
+                "text": "What does Mike want to do when he leaves school?",
+                "answer": "C",
+                "options": [
+                  "work for his father",
+                  "live in a town",
+                  "have his own farm"
+                ]
+              },
+              {
+                "id": 20,
+                "text": "Mike’s mother thinks he should",
+                "answer": "A",
+                "options": [
+                  "go to college.",
+                  "pass his exams.",
+                  "work hard."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You will be asked questions about technology and how you use it in your daily life.",
+        "topics": [
+          {
+            "topic": "Technology and You",
+            "questions": [
+              { "id": "p1q1", "text": "What technology do you use every day?" },
+              { "id": "p1q2", "text": "How do you use the internet?" },
+              { "id": "p1q3", "text": "Are you good at using new technology?" }
+            ]
+          },
+          {
+            "topic": "Digital Communication",
+            "questions": [
+              { "id": "p1q4", "text": "How do you prefer to communicate with friends - online or in person?" },
+              { "id": "p1q5", "text": "Do you use social media? What do you use it for?" },
+              { "id": "p1q6", "text": "What are the advantages and disadvantages of technology?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following text from a magazine and discuss it with your partner. Share your opinions and experiences.",
+        "text": "Many parents worry that children spend too much time on screens - phones, tablets, and computers. They fear this affects children's social skills and physical health. However, some experts argue that technology can be educational and prepares children for the future. Finding a balance is key.",
+        "topics": [
+          {
+            "topic": "Children and Screen Time",
+            "questions": [
+              { "id": "p2q1", "text": "How much screen time is too much for children?" },
+              { "id": "p2q2", "text": "Can technology be beneficial for children's learning?" },
+              { "id": "p2q3", "text": "What rules should parents set about technology use?" },
+              { "id": "p2q4", "text": "How can children learn to use technology responsibly?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "Your school wants to improve digital learning. Discuss the following suggestions and decide which three should be implemented first.",
+        "topics": [
+          {
+            "topic": "Digital Learning Improvements",
+            "suggestions": [
+              "Provide tablets for all students",
+              "Offer computer programming classes",
+              "Create a school website with learning resources",
+              "Allow students to use phones during breaks",
+              "Install interactive whiteboards in all classrooms",
+              "Train teachers in using educational technology",
+              "Start an after-school coding club",
+              "Improve school Wi-Fi speed and coverage"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Which three improvements would help learning the most?" },
+              { "id": "p3q2", "text": "Which ones are most practical to implement?" },
+              { "id": "p3q3", "text": "What might be the challenges?" },
+              { "id": "p3q4", "text": "Which should the school prioritize?" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m5-t1",
+        "taskType": 1,
+        "title": "Task 1: Email",
+        "subtitle": "Part 1: Writing",
+        "intro": "You see this post on a community forum",
+        "instruction": "Write an email to your friend. In your email:\n\n• Describe a useful piece of technology you own\n• Explain how it helps you\n• Give your opinion about technology in general\n\nWrite at least 150 words.",
+        "context": "A friend has asked you to recommend a useful piece of technology. Write an email describing a device you own and how it helps you in daily life.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write an email recommending a piece of technology to a friend.",
+        "bullets": [
+          "Describe a useful piece of technology you own",
+          "Explain how it helps you",
+          "Give your opinion about technology in general"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m5-t2",
+        "taskType": 2,
+        "title": "Task 2: Essay",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Write an essay for your school magazine about the following topic:\n\n'Is social media good for young people?'\n\nIn your essay, you should:\n\n• Present both advantages and disadvantages\n• Give your own opinion\n• Suggest how to use social media responsibly\n\nWrite at least 250 words.",
+        "context": "The school magazine is asking students to write essays about technology and its effects on young people.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write an essay about social media and young people.",
+        "bullets": [
+          "Present both advantages and disadvantages",
+          "Give your own opinion",
+          "Suggest how to use social media responsibly"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

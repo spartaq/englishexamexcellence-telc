@@ -1,0 +1,573 @@
+{
+  "id": "telc-b1-mock-9",
+  "level": "b1",
+  "mockNumber": 9,
+  "title": "TELC B1 Mock Test 9",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+
+  "vocabulary": {
+    "id": "vocab-b1-mock-9",
+    "title": "Test Vocabulary",
+    "level": "B1",
+    "words": [
+      { "term": "Food", "hu": "Étel", "definition": "Any nutritious substance that people eat.", "example": "I love Italian food." },
+      { "term": "Meal", "hu": "Étel", "definition": "An occasion when food is eaten.", "example": "We have three meals a day." },
+      { "term": "Recipe", "hu": "Recept", "definition": "A set of instructions for cooking something.", "example": "My grandmother gave me this recipe." },
+      { "term": "Ingredient", "hu": "Összetevő", "definition": "A component part of a dish.", "example": "What ingredients do we need?" },
+      { "term": "Cook", "hu": "Főz", "definition": "To prepare food by heating it.", "example": "She can cook very well." },
+      { "term": "Restaurant", "hu": "Étterem", "definition": "A place where meals are served to customers.", "example": "We went to a restaurant last night." },
+      { "term": "Menu", "hu": "Étlap", "definition": "A list of dishes available at a restaurant.", "example": "Let's look at the menu." },
+      { "term": "Taste", "hu": "Íz", "definition": "The sensation of flavor in the mouth.", "example": "This dish has a sweet taste." },
+      { "term": "Hungry", "hu": "Éhes", "definition": "Feeling a need for food.", "example": "I'm getting hungry." },
+      { "term": "Flavor", "hu": "Íz", "definition": "The quality of tasting.", "example": "The soup has a rich flavor." },
+      { "term": "Fresh", "hu": "Friss", "definition": "Newly made or grown.", "example": "The vegetables are very fresh." },
+      { "term": "Delicious", "hu": "Finom", "definition": "Very pleasant to taste.", "example": "The cake was delicious." },
+      { "term": "Ingredient", "hu": "Összetevő", "definition": "A part used in making a dish.", "example": "Tomatoes are an ingredient in this sauce." },
+      { "term": "Bake", "hu": "Süt", "definition": "To cook using an oven.", "example": "She bakes bread every Sunday." },
+      { "term": "Serve", "hu": "Tálal", "definition": "To provide food for someone.", "example": "He served the main course." }
+    ]
+  },
+
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "Food",
+              "Meal",
+              "Recipe",
+              "Ingredient",
+              "Cook",
+              "Restaurant",
+              "Menu",
+              "Taste",
+              "Hungry",
+              "Flavor",
+              "Fresh",
+              "Delicious",
+              "Bake",
+              "Serve",
+              "Fresh"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "Maria loves cooking Italian food. Her favorite dish is homemade pizza. She makes the dough from scratch and adds fresh tomatoes, mozzarella, and basil. Her family says it tastes just like the pizza in Naples."
+              },
+              {
+                "id": "2",
+                "text": "Tom works as a chef in a new restaurant downtown. The restaurant serves modern fusion cuisine - mixing flavors from different cultures. Tom says creativity is as important as cooking skill in his kitchen."
+              },
+              {
+                "id": "3",
+                "text": "I tried a new recipe for chocolate cake last weekend. It required dark chocolate, eggs, butter, and sugar. The cake turned out perfectly - moist and rich. My friends said it was the most delicious cake they'd ever tasted."
+              },
+              {
+                "id": "4",
+                "text": "Every Sunday, my grandmother cooks a big family meal. We all gather around the table and eat traditional dishes. She uses recipes passed down through generations. These meals are my favorite memories."
+              },
+              {
+                "id": "5",
+                "text": "The farmer's market opens every Saturday morning. Local farmers sell fresh vegetables, fruits, herbs, and homemade products. I go there to buy ingredients for the week. The produce always tastes better than supermarket food."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  { "id": "1", "text": "Paragraph 1", "answer": 4 },
+                  { "id": "2", "text": "Paragraph 2", "answer": 2 },
+                  { "id": "3", "text": "Paragraph 3", "answer": 0 },
+                  { "id": "4", "text": "Paragraph 4", "answer": 3 },
+                  { "id": "5", "text": "Paragraph 5", "answer": 1 }
+                ],
+                "headings": [
+                  "Baking a successful chocolate cake",
+                  "Creative cooking in a restaurant",
+                  "Traditional Sunday family meals",
+                  "Buying fresh local ingredients",
+                  "Making authentic Italian pizza"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about street food and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The World of Street Food",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "Street food is an important part of food culture around the world. It's usually cheap, tasty, and reflects local traditions. From hot dogs in New York to tacos in Mexico City, street food offers authentic flavors you might not find in restaurants."
+              },
+              {
+                "id": "B",
+                "text": "Many street food vendors are family businesses passed down through generations. They often use secret family recipes that have been perfected over decades. Eating street food is a way to experience a country's culinary heritage directly."
+              },
+              {
+                "id": "C",
+                "text": "Some people worry about food safety when eating street food. However, popular vendors usually have high turnover, meaning food is fresh. Look for places where many locals eat - that's often a good sign of quality."
+              },
+              {
+                "id": "D",
+                "text": "Street food also has social importance. It brings people together in markets and on street corners. Food trucks have become popular worldwide, offering everything from gourmet burgers to vegan options. Street food continues to evolve while staying true to its roots."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": "6",
+                    "text": "What is street food known for?",
+                    "options": [
+                      "A. Being expensive and exclusive",
+                      "B. Being cheap and authentic",
+                      "C. Being only available in restaurants"
+                    ],
+                    "answer": "B. Being cheap and authentic"
+                  },
+                  {
+                    "id": "7",
+                    "text": "Where do many street food recipes come from?",
+                    "options": [
+                      "A. From cookbooks",
+                      "B. From family traditions",
+                      "C. From famous chefs"
+                    ],
+                    "answer": "B. From family traditions"
+                  },
+                  {
+                    "id": "8",
+                    "text": "How can you judge if a street food stall is good?",
+                    "options": [
+                      "A. If it has a fancy sign",
+                      "B. If many locals eat there",
+                      "C. If it's cheap"
+                    ],
+                    "answer": "B. If many locals eat there"
+                  },
+                  {
+                    "id": "9",
+                    "text": "What social role does street food play?",
+                    "options": [
+                      "A. It separates people",
+                      "B. It brings people together",
+                      "C. It's only for tourists"
+                    ],
+                    "answer": "B. It brings people together"
+                  },
+                  {
+                    "id": "10",
+                    "text": "What modern form of street food is mentioned?",
+                    "options": [
+                      "A. Home cooking",
+                      "B. Food trucks",
+                      "C. Supermarkets"
+                    ],
+                    "answer": "B. Food trucks"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 11-18",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Food Services",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "A",
+                "text": "The Green Leaf Cafe serves organic, vegetarian meals made with local ingredients. All dishes are prepared freshly each day. Vegan and gluten-free options available. Open Tuesday to Sunday, 8am-8pm."
+              },
+              {
+                "id": "B",
+                "text": "Pizza Perfect - Authentic Italian pizzas baked in wood-fired oven. Traditional and modern toppings. Takeaway and delivery available. Family deals and student discounts. Open daily from 11am."
+              },
+              {
+                "id": "C",
+                "text": "Sweet Dreams Bakery - Fresh pastries, cakes, and bread baked every morning. Custom cakes for special occasions. Coffee and tea served. Gluten-free options available. Open early at 6am for breakfast."
+              },
+              {
+                "id": "D",
+                "text": "Asian Wok - Fresh Asian cuisine including Chinese, Thai, and Vietnamese dishes. All ingredients sourced locally where possible. Spicy levels can be adjusted. Lunch specials available Monday to Friday."
+              },
+              {
+                "id": "E",
+                "text": "The Burger Joint - Gourmet burgers with homemade buns and local meat. Vegetarian and vegan options. Serves craft beers and milkshakes. Casual dining atmosphere. Great for families and groups."
+              },
+              {
+                "id": "F",
+                "text": "Healthy Bowls - Customizable salads and grain bowls with fresh ingredients. Protein options include chicken, fish, and tofu. Nutritional information available for all dishes. Perfect for a quick, healthy lunch."
+              },
+              {
+                "id": "G",
+                "text": "Seafood Corner - Fresh seafood delivered daily from the coast. Grilled, fried, or steamed preparations. Sustainable sourcing guaranteed. Outdoor seating with sea views. Reservations recommended for dinner."
+              },
+              {
+                "id": "H",
+                "text": " Mexican Fiesta - Authentic Mexican street food. Tacos, burritos, and quesadillas made with traditional recipes. Fresh salsa and guacamole prepared daily. Vegetarian options available. Takeaway and eat-in options."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  { "id": 11, "text": "A place that serves fresh seafood from the coast.", "answer": "G" },
+                  { "id": 12, "text": "A restaurant with homemade burgers and craft beer.", "answer": "E" },
+                  { "id": 13, "text": "A cafe with early opening hours for breakfast.", "answer": "C" },
+                  { "id": 14, "text": "A place offering vegetarian and organic meals.", "answer": "A" },
+                  { "id": 15, "text": "A restaurant with customizable healthy dishes.", "answer": "F" },
+                  { "id": 16, "text": "A place serving traditional Mexican street food.", "answer": "H" },
+                  { "id": 17, "text": "A pizzeria with a traditional Italian oven.", "answer": "B" },
+                  { "id": 18, "text": "A restaurant offering adjustable spice levels in Asian dishes.", "answer": "D" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "Cooking at Home",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Cooking at home is a great way to eat healthy and save money. First, plan your ____(21)____ for the week and make a shopping list. This helps you avoid buying things you don't need.\n\nWhen you're in the kitchen, follow the recipe carefully at first. Once you ____(22)____ more confident, you can start experimenting with flavors. Don't be afraid to make ____(23)____ - even professional chefs learn from them.\n\nUse fresh ingredients whenever possible. Fresh vegetables and herbs ____(24)____ a wonderful taste to dishes. Also, learn how to store food properly to keep it fresh ____(25)____.\n\nCooking can be a fun activity to do with family or friends. It brings people together and creates ____(26)____ memories. The meals you make taste ____(27)____ better when shared with loved ones.\n\nFinally, remember that practice makes perfect. The more you cook, the more skills you ____(28)____. Don't worry if your first attempts aren't flawless - what ____(29)____ is that you enjoy the process and eat well. There's nothing quite like a home-cooked ____(30)____!"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  { "id": "21", "text": "plan your ____(21)____ for the week", "options": ["meals", "recipes", "menu"], "answer": "meals" },
+                  { "id": "22", "text": "Once you ____(22)____ more confident", "options": ["feel", "become", "get"], "answer": "feel" },
+                  { "id": "23", "text": "make ____(23)____", "options": ["mistakes", "errors", "problems"], "answer": "mistakes" },
+                  { "id": "24", "text": "vegetables and herbs ____(24)____ a wonderful taste", "options": ["add", "give", "bring"], "answer": "add" },
+                  { "id": "25", "text": "keep it fresh ____(25)____", "options": ["longer", "long", "for long"], "answer": "longer" },
+                  { "id": "26", "text": "creates ____(26)____ memories", "options": ["wonderful", "good", "special"], "answer": "wonderful" },
+                  { "id": "27", "text": "taste ____(27)____ better", "options": ["much", "very", "so"], "answer": "much" },
+                  { "id": "28", "text": "skills you ____(28)____", "options": ["develop", "learn", "gain"], "answer": "develop" },
+                  { "id": "29", "text": "what ____(29)____ is that", "options": ["matters", "counts", "important"], "answer": "matters" },
+                  { "id": "30", "text": "home-cooked ____(30)____", "options": ["meal", "food", "dish"] }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text and complete the gaps with the correct word from the box.",
+        "passages": [
+          {
+            "id": "p3",
+            "subtitle": "Language Elements Part 2",
+            "title": "Restaurant Email",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Dear Manager,\n\nI am writing to ____(a)____ a reservation for Saturday evening at 7pm for four people. We would like a table by the window if possible.\n\nI have a few questions before we come. Could you please tell me if you have vegetarian ____(b)____ on your menu? My friend has a food allergy and needs to avoid nuts. Do you have ____(c)____ for nut-free dishes?\n\nAlso, do you have a ____(d)____ of wines to pair with the meal? And is there a dress ____(e)____ for the restaurant?\n\nThank you for your help. I look forward to dining at your restaurant.\n\nBest regards,\nJohn Smith"
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-j) to complete each gap.",
+                "tokens": [
+                  "MENU",
+                  "BOOK",
+                  "WINE",
+                  "OPTIONS",
+                  "RESERVATION",
+                  "CODE",
+                  "ALLERGY",
+                  "CHOICES",
+                  "DRINKS",
+                  "LIST"
+                ],
+                "answers": {
+                  "a": "BOOK",
+                  "b": "OPTIONS",
+                  "c": "CHOICES",
+                  "d": "LIST",
+                  "e": "CODE"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Food and Cooking",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear five short talks about food and cooking. Match each talk to the correct headline.",
+        "transcript": "1. Female: \"Growing your own vegetables is rewarding and saves money. Tomatoes, lettuce, and herbs are easy to start with. You need good soil, sunlight, and regular watering.\"\n\n2. Male: \"Bread baking requires patience and practice. The first secret is using quality flour. Second, let the dough rise slowly in a warm place. Third, bake it at the right temperature for a crispy crust.\"\n\n3. Female: \"Meal prep saves time during busy weekdays. Cook large batches on Sunday and portion into containers. You can refrigerate for three days or freeze for later. Just reheat and enjoy home-cooked meals.\"\n\n4. Male: \"Spices add flavor to any dish. You don't need many - just a few basics like paprika, cumin, and oregano. Store them in a cool, dark place and they'll keep their taste for months.\"\n\n5. Female: \"Cooking with kids teaches them healthy habits. Let them wash vegetables, mix ingredients, and set the table. They're more likely to eat what they've helped create. Make it fun and educational.\"",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "context": "Five short talks about food",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (a-e) matches each talk?",
+            "questions": [
+              { "id": 1, "text": "Talk 1", "answer": 3 },
+              { "id": 2, "text": "Talk 2", "answer": 0 },
+              { "id": 3, "text": "Talk 3", "answer": 4 },
+              { "id": 4, "text": "Talk 4", "answer": 2 },
+              { "id": 5, "text": "Talk 5", "answer": 1 }
+            ],
+            "headings": [
+              "Secrets to baking good bread",
+              "Cooking with children is educational",
+              "The importance of spices for flavor",
+              "Growing vegetables at home",
+              "Meal preparation for busy people"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Interview: Healthy Eating",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with a nutritionist. Decide if the statements are true (+) or not true (-).",
+        "transcript": "Interviewer: Today we're talking to nutritionist Dr. Laura Chen about healthy eating habits. Dr. Chen, what's the most common mistake people make? Dr. Chen: They skip breakfast. Breakfast gives you energy for the day and helps control hunger later. People who skip breakfast often eat more at lunch. Interviewer: How many meals should we eat? Dr. Chen: Three balanced meals with healthy snacks in between is ideal. Portion control is key - use smaller plates. Eat slowly and stop when you're satisfied, not full. Interviewer: What about snacks? Dr. Chen: Snacks can be healthy if chosen wisely. Nuts, fruit, or yogurt are better than chips and sweets. Also, drink plenty of water - sometimes thirst is confused with hunger.",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+        "context": "Interview with a nutritionist",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "mode": "tfng",
+            "instruction": "Decide if the statement for each item is true (+) or not true (-).",
+            "questions": [
+              { "id": 6, "text": "Skipping breakfast is a common mistake.", "answer": "TRUE" },
+              { "id": 7, "text": "Skipping breakfast helps control hunger.", "answer": "FALSE" },
+              { "id": 8, "text": "Three balanced meals with snacks is recommended.", "answer": "TRUE" },
+              { "id": 9, "text": "Portion control is unimportant.", "answer": "FALSE" },
+              { "id": 10, "text": "Nuts and fruit are healthy snack options.", "answer": "TRUE" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Restaurant Conversations",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear five short conversations in a restaurant setting. Choose the correct answer for each.",
+        "transcript": "1. Man: \"Could we have the bill, please?\" Woman: \"Of course, I'll bring it right away.\"\n\n2. Woman: \"Is this dish very spicy?\" Man: \"No, it's mild. But we can make it spicier if you prefer.\"\n\n3. Man: \"What do you recommend?\" Woman: \"The grilled salmon is excellent today. It's fresh and perfectly cooked.\"\n\n4. Woman: \"I'd like to make a reservation for tomorrow.\" Man: \"For what time and how many people?\"\n\n5. Man: \"This soup is cold.\" Woman: \"I'm sorry about that. Let me bring you a hot one right away.\"",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        "context": "Five restaurant conversations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "Choose the correct answer (A, B, or C) for each question.",
+            "questions": [
+              { "id": 11, "text": "What does the woman offer to do?", "options": ["Bring the bill", "Take the order", "Clear the table"], "answer": 0 },
+              { "id": 12, "text": "How spicy is the dish?", "options": ["Not spicy", "Very spicy", "Unknown"], "answer": 0 },
+              { "id": 13, "text": "What does the man recommend?", "options": ["Grilled salmon", "Chicken soup", "Vegetable curry"], "answer": 0 },
+              { "id": 14, "text": "What information does the man need?", "options": ["Time and number of guests", "Food preferences", "Budget"], "answer": 0 },
+              { "id": 15, "text": "What does the woman offer to do about the soup?", "options": ["Replace it", "Refund it", "Ignore it"], "answer": 0 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You will be asked questions about food, cooking, and eating habits.",
+        "topics": [
+          {
+            "topic": "Food and Cooking",
+            "questions": [
+              { "id": "p1q1", "text": "What is your favorite food and why?" },
+              { "id": "p1q2", "text": "Do you like cooking? What can you cook?" },
+              { "id": "p1q3", "text": "What's a typical meal in your country?" }
+            ]
+          },
+          {
+            "topic": "Eating Habits",
+            "questions": [
+              { "id": "p1q4", "text": "Do you eat healthy food? What do you eat regularly?" },
+              { "id": "p1q5", "text": "How often do you eat out? Do you prefer restaurants or home cooking?" },
+              { "id": "p1q6", "text": "What meal of the day is most important for you?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following text from a magazine. Discuss your views with your partner.",
+        "text": "Many young people today eat a lot of fast food because it's convenient and cheap. However, this habit can lead to health problems like obesity and diabetes. Some argue that fast food companies should be regulated more strictly. Others believe it's a personal choice and education is key.",
+        "topics": [
+          {
+            "topic": "Fast Food and Health",
+            "questions": [
+              { "id": "p2q1", "text": "Is fast food good or bad for society?" },
+              { "id": "p2q2", "text": "Should fast food be more strictly regulated?" },
+              { "id": "p2q3", "text": "How can we encourage healthier eating habits?" },
+              { "id": "p2q4", "text": "Is personal responsibility more important than regulation?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "Your school is planning to improve the cafeteria food. Discuss the following suggestions and decide which three should be implemented first.",
+        "topics": [
+          {
+            "topic": "Cafeteria Improvements",
+            "suggestions": [
+              "Offer healthier meal options with more vegetables",
+              "Reduce prices for students",
+              "Introduce a salad bar with fresh ingredients",
+              "Provide nutritional information for all dishes",
+              "Offer vegetarian and vegan meals daily",
+              "Use locally sourced ingredients",
+              "Improve the dining area with better seating",
+              "Run cooking workshops for students"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Which three changes would improve student health most?" },
+              { "id": "p3q2", "text": "Which improvements are most cost-effective?" },
+              { "id": "p3q3", "text": "How can we get students to choose healthier options?" },
+              { "id": "p3q4", "text": "What should be the first priority?" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m9-t1",
+        "taskType": 1,
+        "title": "Task 1: Email",
+        "subtitle": "Part 1: Writing",
+        "intro": "You see this message on a community forum",
+        "instruction": "Write an email to your friend. In your email:\n\n• Describe a memorable meal you had\n• Explain what made it special\n• Share the recipe or recommend the restaurant\n\nWrite at least 150 words.",
+        "context": "A friend has asked you to tell them about a memorable dining experience. Write an email describing the meal and why you remember it so well.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write an email describing a memorable meal to a friend.",
+        "bullets": [
+          "Describe a memorable meal you had",
+          "Explain what made it special",
+          "Share the recipe or recommend the restaurant"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m9-t2",
+        "taskType": 2,
+        "title": "Task 2: Article",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Write an article for your school magazine about the following topic:\n\n'Is it important to learn how to cook?'\n\nIn your article, you should:\n\n• Discuss the benefits of knowing how to cook\n• Give your opinion on whether cooking is an essential life skill\n• Suggest ways young people can learn to cook\n\nWrite at least 250 words.",
+        "context": "The school magazine wants student articles about life skills and their importance.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write an article about the importance of cooking skills.",
+        "bullets": [
+          "Discuss the benefits of knowing how to cook",
+          "Give your opinion on whether cooking is an essential life skill",
+          "Suggest ways young people can learn to cook"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

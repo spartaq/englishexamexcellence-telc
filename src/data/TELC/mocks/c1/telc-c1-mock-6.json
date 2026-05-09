@@ -1,0 +1,595 @@
+{
+  "id": "telc-c1-mock-6",
+  "level": "c1",
+  "mockNumber": 6,
+  "title": "TELC C1 Mock Test 6",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC C1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-6",
+    "title": "Test Vocabulary",
+    "level": "C1",
+    "words": [
+      {"term": "Biometric", "hu": "biometrikus", "definition": "relating to measurement of biological characteristics", "example": "Biometric security systems use fingerprints and facial recognition."},
+      {"term": "Decentralized", "hu": "decentralizált", "definition": "controlled by several local offices rather than one central one", "example": "A decentralized network is more resistant to single points of failure."},
+      {"term": "Expedite", "hu": "gyorsítani", "definition": "to accelerate the progress of", "example": "We need to expedite the delivery process to meet the deadline."},
+      {"term": "Foster", "hu": "segíteni", "definition": "to encourage or promote development", "example": "The program aims to foster innovation in renewable energy."},
+      {"term": "Heterogeneous", "hu": "heterogén", "definition": "diverse in character or content", "example": "The team is heterogeneous, bringing together people from different backgrounds."},
+      {"term": "Imperative", "hu": "parancsoló", "definition": "essential or urgent", "example": "It is imperative that we address climate change immediately."},
+      {"term": "Jurisdiction", "hu": "hatósági kör", "definition": "the official power to make legal decisions", "example": "This case falls under federal jurisdiction."},
+      {"term": "Legitimate", "hu": "törvényes", "definition": "conforming to the law or rules", "example": "The government has a legitimate interest in public safety."},
+      {"term": "Obliterate", "hu": "kiirtani", "definition": "to completely destroy or remove", "example": "The disease could obliterate entire populations if left unchecked."},
+      {"term": "Paradigm", "hu": "paradigma", "definition": "a typical example or pattern", "example": "This represents a paradigm shift in scientific thinking."},
+      {"term": "Quintessential", "hu": "teljes", "definition": "representing the most perfect example", "example": "Paris is the quintessential city of romance."},
+      {"term": "Resilient", "hu": "rugalmas", "definition": "able to recover quickly from difficulties", "example": "Resilient communities can withstand natural disasters."},
+      {"term": "Scrutinize", "hu": "megvizsgál", "definition": "to examine closely and thoroughly", "example": "The committee will scrutinize all proposals carefully."},
+      {"term": "Tangible", "hu": "érinthető", "definition": "perceptible by touch; concrete", "example": "We need tangible results, not just promises."},
+      {"term": "Ubiquitous", "hu": "mindenhová jelenlévő", "definition": "present everywhere", "example": "Smartphones have become ubiquitous in modern life."},
+      {"term": "Validate", "hu": "érvényesít", "definition": "to check or prove the validity of something", "example": "You must validate your theory with experimental data."},
+      {"term": "Warrant", "hu": "indokol", "definition": "to justify or necessitate", "example": "The severity of the situation warrants immediate action."},
+      {"term": "Xenophobic", "hu": "felfogástartó", "definition": "having a dislike of people from other countries", "example": "His xenophobic remarks caused widespread offense."},
+      {"term": "Yield", "hu": "eredmény", "definition": "to produce or provide", "example": "The new farming methods yield higher crop production."},
+      {"term": "Zealous", "hu": "ragaszkodó", "definition": "having intense passion or enthusiasm", "example": "She was a zealous defender of human rights."}
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 90,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Gapped Sentences",
+        "description": "Questions 1-6",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "The Rise of Smart Cities",
+            "subtitle": "Reading Passage 1",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "Smart cities represent the future of urban development, integrating technology to enhance livability and efficiency. __(1)__ the Internet of Things connects countless devices, cities can optimize everything from traffic flow to energy consumption in real time."
+              },
+              {
+                "id": "2",
+                "text": "However, this integration raises significant privacy concerns. __(2)__ the collection of vast amounts of personal data becomes commonplace, citizens must question who controls this information and how it is used."
+              },
+              {
+                "id": "3",
+                "text": "The digital divide poses another challenge. __(3)__ smart infrastructure proliferates, marginalized communities risk being left behind without equal access to these technologies."
+              },
+              {
+                "id": "4",
+                "text": "Urban planners face a delicate balancing act. __(4)__ technology offers solutions to overcrowding and pollution, it must be implemented in ways that preserve democratic values and social equity."
+              },
+              {
+                "id": "5",
+                "text": "Critics warn that smart cities could become tools of surveillance. __(5)__ sensors monitor public spaces, the boundary between safety and intrusion becomes increasingly blurred."
+              },
+              {
+                "id": "6",
+                "text": "Despite these challenges, advocates remain optimistic. __(6)__ thoughtful design and inclusive policies, smart cities can indeed improve quality of life for all residents."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "sentence-insert",
+                "instruction": "Which of the sentences a–h is missing in each gap? There is only one correct answer for each item. Two sentences do not fit into any of the gaps.",
+                "options": [
+                  {"id": "a", "text": "The potential benefits of urban technology are undeniable and far-reaching."},
+                  {"id": "b", "text": "As more devices are networked together, the possibilities for urban management multiply exponentially."},
+                  {"id": "c", "text": "When algorithms make decisions about resource allocation, transparency becomes crucial."},
+                  {"id": "d", "text": "Because the costs of implementation are substantial, many cities struggle to fund these projects."},
+                  {"id": "e", "text": "While digital transformation promises efficiency gains, it also introduces new vulnerabilities."},
+                  {"id": "f", "text": "If data governance frameworks are inadequate, personal privacy may be severely compromised."},
+                  {"id": "g", "text": "Since smart systems require constant monitoring, questions of accountability arise regularly."},
+                  {"id": "h", "text": "Without equitable access, smart city initiatives may exacerbate existing social inequalities."}
+                ],
+                "answers": {
+                  "1": "b",
+                  "2": "f",
+                  "3": "h",
+                  "4": "e",
+                  "5": "c",
+                  "6": "a"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Selective Understanding",
+        "description": "Questions 7-12",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The Ethics of Space Exploration",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "a",
+                "text": "As humanity stands on the threshold of becoming a multiplanetary species, ethical questions multiply rapidly. The colonization of Mars raises fundamental issues about resource rights, environmental stewardship, and the treatment of potential indigenous life forms."
+              },
+              {
+                "id": "b",
+                "text": "Private companies now lead space exploration efforts, driven by profit motives rather than scientific curiosity alone. This shift from public to private ownership challenges traditional frameworks of international space law, which were designed for nation-states."
+              },
+              {
+                "id": "c",
+                "text": "Terraforming—the deliberate modification of planetary environments—presents perhaps the most dramatic ethical dilemma. Altering another planet's atmosphere could destroy any existing ecosystems before we even detect them, raising questions about our cosmic responsibilities."
+              },
+              {
+                "id": "d",
+                "text": "The economic costs of space colonization divert resources from urgent problems on Earth. Critics argue that addressing poverty, climate change, and disease should take priority over establishing human settlements on distant worlds."
+              },
+              {
+                "id": "e",
+                "text": "Proponents counter that space exploration drives technological innovation that benefits Earth-based challenges. Satellite technology, materials science, and life support systems developed for space missions have already yielded terrestrial applications in medicine, agriculture, and environmental monitoring."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "In which part of the text a–e can you find the information 7–12? There is only one correct answer for each item. Each part of the text may contain more than one of the pieces of information.",
+                "questions": [
+                  {
+                    "id": "7",
+                    "text": "discusses the moral implications of modifying other planets?",
+                    "answer": "c"
+                  },
+                  {
+                    "id": "8",
+                    "text": "mentions how space technology has practical uses on Earth?",
+                    "answer": "e"
+                  },
+                  {
+                    "id": "9",
+                    "text": "identifies the shift from government to corporate space programs?",
+                    "answer": "b"
+                  },
+                  {
+                    "id": "10",
+                    "text": "questions the allocation of funds for space colonization?",
+                    "answer": "d"
+                  },
+                  {
+                    "id": "11",
+                    "text": "addresses potential conflicts over resources in space?",
+                    "answer": "a"
+                  },
+                  {
+                    "id": "12",
+                    "text": "notes challenges to existing space law frameworks?",
+                    "answer": "b"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3-reading",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 13-24",
+        "passages": [
+          {
+            "id": "p3-reading",
+            "title": "The Future of Truth in a Post-Fact World",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "The collapse of shared factual ground represents one of the most serious challenges facing contemporary societies. When objective reality becomes negotiable, democratic deliberation becomes nearly impossible. This epistemological crisis stems partly from technological amplification of falsehoods, but also from deeper cultural shifts."
+              },
+              {
+                "id": "2",
+                "text": "Social media algorithms prioritize engagement over accuracy, creating incentive structures that reward sensationalism and emotional manipulation. Users increasingly inhabit personalized information ecosystems where their biases are constantly reinforced, making encounters with challenging perspectives rare."
+              },
+              {
+                "id": "3",
+                "text": "The proliferation of sophisticated deepfakes and AI-generated content further complicates the information landscape. As synthetic media becomes indistinguishable from authentic documentation, traditional verification methods become inadequate. The very concept of 'seeing is believing' loses its foundation."
+              },
+              {
+                "id": "4",
+                "text": "Institutional trust has eroded dramatically. Media organizations, scientific institutions, and governmental bodies face unprecedented skepticism. While healthy skepticism fosters accountability, wholesale rejection of expertise creates vulnerability to manipulation by malicious actors."
+              },
+              {
+                "id": "5",
+                "text": "Efforts to combat misinformation through fact-checking and content moderation face significant limitations. These reactive approaches cannot match the speed and scale of false information spread. Moreover, labeling content as disputed can sometimes backfire, triggering reactance and strengthening belief in falsehoods."
+              },
+              {
+                "id": "6",
+                "text": "Rebuilding epistemic foundations requires multi-level interventions. Educational systems must prioritize critical thinking and media literacy. Technology platforms need fundamental redesign to serve truth rather than engagement. Ultimately, societies must cultivate intellectual humility—an openness to being wrong and willingness to update beliefs based on evidence."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "trinary",
+                 "mode": "tfng",
+                "instruction": "Read the following text and the statements 13–23 below. For each of the statements mark: (+) corresponds to the content, (–) does not correspond, (X) is not mentioned.",
+                "questions": [
+                  {"id": "13", "text": "The post-truth society emerged suddenly and without warning.", "answer": "NOT GIVEN"},
+                  {"id": "14", "text": "Democratic deliberation requires shared acceptance of facts.", "answer": "TRUE"},
+                  {"id": "15", "text": "Social media algorithms are designed to minimize user engagement.", "answer": "FALSE"},
+                  {"id": "16", "text": "Deepfakes challenge traditional methods of verifying information authenticity.", "answer": "TRUE"},
+                  {"id": "17", "text": "Skepticism toward institutions always leads to better-informed citizens.", "answer": "FALSE"},
+                  {"id": "18", "text": "Fact-checking alone is sufficient to stop the spread of misinformation.", "answer": "FALSE"},
+                  {"id": "19", "text": "AI-generated content is becoming harder to distinguish from real content.", "answer": "TRUE"},
+                  {"id": "20", "text": "Educational systems currently prioritize critical thinking above all else.", "answer": "NOT GIVEN"},
+                  {"id": "21", "text": "Technology platforms have incentives that favor truth over engagement.", "answer": "FALSE"},
+                  {"id": "22", "text": "Intellectual humility involves openness to revising one's beliefs.", "answer": "TRUE"},
+                  {"id": "23", "text": "The epistemological crisis involves both technological and cultural factors.", "answer": "TRUE"}
+                ]
+              },
+              {
+                "type": "mcq",
+                "instruction": "Which title a, b or c best matches the article?",
+                "questions": [
+                  {"id": "24", "text": "", "options": ["a The crisis of truth in the digital age", "b How fact-checking changed the world", "c The importance of institutional trust"], "answer": "a The crisis of truth in the digital age"}
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Text 1",
+            "title": "The Ethics of Genetic Engineering",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "CRISPR technology has revolutionized genetic engineering, making precise DNA modifications faster and cheaper than ever before. __(21)__ proponents envision eradicating hereditary diseases, critics warn of potential misuse for enhancement purposes. __(22)__ these ethical concerns, clinical trials for treating genetic disorders have shown remarkable promise. Success stories, __(23)__ the recent treatment of sickle cell anemia, demonstrate the technology's life-saving potential. __(24)__, the long-term consequences of germline editing remain unknown, and many argue that altering human DNA for future generations crosses an ethical boundary. __(25)__ the debate continues, regulatory frameworks struggle to keep pace with rapid scientific advancement."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {"id": "21", "text": "CRISPR technology has revolutionized genetic engineering... __(21)__ proponents envision eradicating hereditary diseases, critics warn...", "options": ["a While", "b Furthermore", "c Consequently"], "answer": "a While"},
+                  {"id": "22", "text": "_(21)... critics warn of potential misuse for enhancement purposes. __(22)__ these ethical concerns, clinical trials...", "options": ["a Despite", "b Because of", "c Except for"], "answer": "a Despite"},
+                  {"id": "23", "text": "Success stories, __(23)__ the recent treatment of sickle cell anemia, demonstrate...", "options": ["a above all", "b for instance", "c in conclusion"], "answer": "b for instance"},
+                  {"id": "24", "text": "...the technology's life-saving potential. __(24)__, the long-term consequences remain unknown...", "options": ["a However", "b Therefore", "c Moreover"], "answer": "a However"},
+                  {"id": "25", "text": "...germline editing crosses an ethical boundary. __(25)__ the debate continues...", "options": ["a Until", "b Although", "c Meanwhile"], "answer": "c Meanwhile"}
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p2",
+            "subtitle": "Text 2",
+            "title": "Digital Identity and Privacy",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Our digital footprints grow increasingly extensive as we navigate online platforms daily. Personal data is harvested, analyzed, and monetized by technology companies __(26)__ explicit user consent. __(27)__ individuals claim to value privacy, many willingly exchange personal information for convenience and personalized services. This contradiction highlights the complexity of privacy preferences in modern society. __(28)__, legal protections lag behind technological capabilities, leaving consumers vulnerable to breaches and misuse. __(29)__, awareness of digital rights is growing among younger generations who demand greater transparency from corporations. __(30)__, the tension between innovation and privacy regulation will define how societies balance technological progress with individual autonomy."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-t) to complete each sentence.",
+                "tokens": ["additionally", "although", "as a result", "because", "consequently", "furthermore", "hence", "however", "in contrast", "indeed", "instead", "moreover", "nevertheless", "nonetheless", "notably", "particularly", "rather", "since", "therefore", "ultimately"],
+                "questions": [
+                  {"id": "26", "text": "Personal data is harvested... __(26)__ explicit user consent."},
+                  {"id": "27", "text": "__(27)__ individuals claim to value privacy, many willingly exchange..."},
+                  {"id": "28", "text": "This contradiction highlights... __(28)__, legal protections lag behind..."},
+                  {"id": "29", "text": "...leaving consumers vulnerable. __(29)__, awareness of digital rights is growing..."},
+                  {"id": "30", "text": "...(30)__, the tension between innovation and privacy will define..."}
+                ],
+                "answers": {
+                  "26": "without",
+                  "27": "although",
+                  "28": "however",
+                  "29": "nevertheless",
+                  "30": "ultimately"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Sustainable Living",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear eight people describing lifestyle changes for sustainability. You will hear each speaker once. While listening, decide which statement a–j best matches each speaker. You will only use eight of the ten statements.\nMark your answers for items 47–54 on Answer Sheet.",
+        "transcript": "[Audio with eight speakers discussing sustainable lifestyles]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        "context": "Sustainable living perspectives",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "matching-info",
+            "instruction": "Which statement a–j best matches what each speaker says?",
+            "questions": [
+              {"id": 47, "text": "Speaker 1", "answer": "a"},
+              {"id": 48, "text": "Speaker 2", "answer": "b"},
+              {"id": 49, "text": "Speaker 3", "answer": "c"},
+              {"id": 50, "text": "Speaker 4", "answer": "d"},
+              {"id": 51, "text": "Speaker 5", "answer": "e"},
+              {"id": 52, "text": "Speaker 6", "answer": "f"},
+              {"id": 53, "text": "Speaker 7", "answer": "g"},
+              {"id": 54, "text": "Speaker 8", "answer": "h"}
+            ],
+            "options": [
+              "a I reduced my carbon footprint by switching to a plant-based diet.",
+              "b My household produces zero waste through careful composting and recycling.",
+              "c We grow our own vegetables and keep chickens for eggs in the backyard.",
+              "d I avoid fast fashion and buy only second-hand or ethically made clothing.",
+              "e Cycling to work every day has improved my health and saved money.",
+              "f Our community shares tools and resources rather than everyone buying new items.",
+              "g I chose to have fewer children to reduce my family's environmental impact.",
+              "h We installed solar panels and battery storage to achieve energy independence.",
+              "i I stopped flying completely and only travel by train or bicycle.",
+              "j We minimized plastic use by shopping at bulk food stores with our own containers."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Interview: Biodiversity Loss",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with a conservation biologist about species extinction. You will hear the interview only once. While listening decide which answer fits best: a, b or c.\nMark your answers for items 55–64 on Answer Sheet.",
+        "transcript": "[Interview about biodiversity and extinction]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+        "context": "Conservation biology interview",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "While listening decide which answer fits best: a, b or c.",
+            "questions": [
+              {"id": 55, "text": "The scientist states that current extinction rates are", "options": ["a within normal historical ranges.", "b significantly higher than background rates.", "c lower than previously predicted."], "answer": "b significantly higher than background rates."},
+              {"id": 56, "text": "The primary driver of species loss is", "options": ["a climate change alone.", "b habitat destruction and fragmentation.", "c invasive species only."], "answer": "b habitat destruction and fragmentation."},
+              {"id": 57, "text": "Biodiversity loss impacts human wellbeing by", "options": ["a reducing ecosystem services that support life.", "b increasing available land for agriculture.", "c simplifying complex natural systems."], "answer": "a reducing ecosystem services that support life."},
+              {"id": 58, "text": "Regarding protected areas, the biologist argues they", "options": ["a are sufficient to prevent extinctions.", "b need to be larger and better connected.", "c should focus on charismatic species only."], "answer": "b need to be larger and better connected."},
+              {"id": 59, "text": "On individual actions, the scientist believes that", "options": ["a personal choices have little meaningful impact.", "b consumer decisions influence corporate practices.", "c only government policy creates real change."], "answer": "b consumer decisions influence corporate practices."},
+              {"id": 60, "text": "The sixth mass extinction differs from past events because", "options": ["a it is driven by a single species' activities.", "b it is caused by natural climate cycles.", "c asteroid impacts are involved."], "answer": "a it is driven by a single species' activities."},
+              {"id": 61, "text": "Indigenous knowledge systems are", "options": ["a irrelevant to modern conservation.", "b valuable for sustainable management practices.", "c obstacles to scientific progress."], "answer": "b valuable for sustainable management practices."},
+              {"id": 62, "text": "The biologist describes rewilding as", "options": ["a a controversial but promising approach.", "b an impractical romantic fantasy.", "c dangerous for local communities."], "answer": "a a controversial but promising approach."},
+              {"id": 63, "text": "Hope for the future lies in", "options": ["a technological solutions that replace nature.", "b rapid transformative change in priorities.", "c accepting reduced biodiversity as inevitable."], "answer": "b rapid transformative change in priorities."},
+              {"id": 64, "text": "The overall message is", "options": ["a deeply pessimistic about human prospects.", "b cautiously optimistic if urgent action is taken.", "c neutral and descriptive only."], "answer": "b cautiously optimistic if urgent action is taken."}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "The Silk Road Revisited",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear a lecture on the modern Belt and Road Initiative compared with the ancient Silk Road. While listening, complete the notes with information from the lecture. Write no more than THREE words for each answer.\nYou will hear the lecture only once.\nYou will now have one minute to read the notes.",
+        "transcript": "[Academic lecture on trade routes past and present]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+        "context": "Comparative history lecture",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "notes-completion",
+            "instruction": "Complete the notes with information from the lecture. Write no more than THREE words for each answer.",
+            "wordLimit": 3,
+            "notes": [
+              {
+                "heading": "The Silk Road Revisited",
+                "items": [
+                  { "id": "0", "type": "text", "text": "DR. LI ZHANG" },
+                  { "id": "0-answer", "type": "gap", "label": "University", "answer": "Peking University" }
+                ]
+              },
+              {
+                "heading": "Ancient Trade Networks",
+                "items": [
+                  { "id": "65", "type": "gap", "label": "Route length at peak", "answer": "6,400 km" },
+                  { "id": "66", "type": "gap", "label": "Primary goods transported", "answer": "silk, spices, gold" }
+                ]
+              },
+              {
+                "heading": "Cultural Exchange",
+                "items": [
+                  { "id": "67", "type": "gap", "label": "Major religion spread east", "answer": "Buddhism" },
+                  { "id": "68", "type": "gap", "label": "Innovations from China to West", "answer": "paper, gunpowder, compass" }
+                ]
+              },
+              {
+                "heading": "Modern Initiative",
+                "items": [
+                  { "id": "69", "type": "gap", "label": "Chinese infrastructure program", "answer": "Belt and Road Initiative" },
+                  { "id": "70", "type": "gap", "label": "Investment amount estimated", "answer": "trillions of dollars" }
+                ]
+              },
+              {
+                "heading": "Strategic Goals",
+                "items": [
+                  { "id": "71", "type": "gap", "label": "Key aims of BRI", "answer": "connectivity, markets, influence" },
+                  { "id": "72", "type": "gap", "label": "Primary criticism of BRI", "answer": "debt dependency concerns" }
+                ]
+              },
+              {
+                "heading": "Comparative Analysis",
+                "items": [
+                  { "id": "73", "type": "gap", "label": "Main difference ancient vs modern", "answer": "scale and technology" },
+                  { "id": "74", "type": "gap", "label": "Shared characteristic of both routes", "answer": "economic integration" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m6-t1",
+        "taskType": 1,
+        "title": "Task 1: Compulsory",
+        "subtitle": "Part 1: Writing",
+        "instruction": "In this part of the examination you have to write two texts: the compulsory task and one of the optional tasks. You have a total of one hour to complete both tasks.\nRemember:\nThe texts you write should be well-structured and highlight the points that you think are most important for the reader. The structure of the text should have an appropriate degree of complexity with reference to the type of text specified and should also contain a number of complex sentence forms.\nWrite at least 200 words.",
+        "context": "Your city is planning to host a major international sporting event in five years. The event is expected to bring economic benefits but requires significant public investment in infrastructure and security. There is debate about whether this is the best use of public funds. The mayor's office has invited public comments in the city newspaper.\n\nWrite a letter to the editor expressing your views on hosting the sporting event.",
+        "targetWords": 200,
+        "xp": 500,
+        "prompt": "Write to the newspaper editor about hosting an international sporting event.",
+        "type": "letter"
+      },
+      {
+        "id": "w-m6-t2",
+        "taskType": 2,
+        "title": "Task 2: Optional",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Choose one of the following four tasks and write at least 150 words.",
+        "options": [
+          {
+            "id": "optional-a",
+            "title": "A: Letter to Your Future Self",
+            "context": "A time capsule project invites people to write letters to be opened in 10 years. Write what you hope to have achieved, what challenges you expect to have faced, and what advice you would give yourself from today's perspective.\n\nWrite your letter for the time capsule.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "letter"
+          },
+          {
+            "id": "optional-b",
+            "title": "B: Museum Exhibition Review",
+            "context": "A new exhibition on the history of computing has opened at your local museum. Visit the exhibition (real or imagined) and write a review describing the displays, educational value, and overall experience for potential visitors.\n\nWrite the exhibition review.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "review"
+          },
+          {
+            "id": "optional-c",
+            "title": "C: Company Policy Proposal",
+            "context": "You work for a medium-sized company. Write a proposal to management suggesting the implementation of flexible working hours and remote work options. Include potential benefits, possible challenges, and suggested implementation steps.\n\nWrite the proposal.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          },
+          {
+            "id": "optional-d",
+            "title": "D: Blog Review of a Documentary",
+            "context": "You have watched a documentary that profoundly affected your view of an important social or environmental issue. Write a blog post reviewing the documentary, describing how it changed your perspective and recommending it to others.\n\nWrite the blog post.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          }
+        ]
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "speaking-part1",
+        "title": "Presentation",
+        "subtitle": "Part 1: Speaking",
+        "type": "presentation",
+        "duration": "3 minutes",
+        "instruction": "Choose one of the two topics and give a short presentation to your partner(s). Take a few seconds to prepare before you start speaking. Remember to give an introduction (example, own experience) and come to a conclusion at the end. You should talk for about three minutes. At the end you will be asked follow-up questions.",
+        "topics": [
+          {
+            "topic": "Should genetic engineering be used to enhance human capabilities?",
+            "questions": [
+              {
+                "id": "p1q1",
+                "text": "Where should society draw the line between therapy and enhancement?"
+              }
+            ]
+          },
+          {
+            "topic": "Can economic growth and ecological sustainability coexist?",
+            "questions": [
+              {
+                "id": "p1q2",
+                "text": "What evidence supports or contradicts the possibility of 'green growth'?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "speaking-part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Discussion",
+        "type": "discussion",
+        "duration": "6 minutes",
+        "instruction": "Discuss the following topic with your partner(s)",
+        "text": "\"The question is not whether we will use technology to reshape humanity, but how wisely we will do so.\" Yuval Noah Harari",
+        "topics": [
+          {
+            "topic": "Technological Responsibility",
+            "questions": [
+              {
+                "id": "p2q1",
+                "text": "What does Harari mean by using technology 'wisely'?"
+              },
+              {
+                "id": "p2q2",
+                "text": "Do you agree that reshaping humanity through technology is inevitable?"
+              },
+              {
+                "id": "p2q3",
+                "text": "Who should have the authority to make decisions about human enhancement?"
+              },
+              {
+                "id": "p2q4",
+                "text": "What safeguards would you propose for responsible technological development?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

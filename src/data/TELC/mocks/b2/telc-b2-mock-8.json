@@ -1,0 +1,938 @@
+{
+  "id": "telc-b2-mock-8",
+  "level": "b2",
+  "mockNumber": 8,
+  "title": "TELC B2 Mock Test 8",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B2 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-8",
+    "title": "Test Vocabulary",
+    "level": "B2",
+    "words": [
+      {
+        "term": "Perseverance",
+        "hu": "kitartás",
+        "definition": "persistence in doing something despite difficulty",
+        "example": "Success requires hard work and perseverance."
+      },
+      {
+        "term": "Pragmatic",
+        "hu": "praktikus",
+        "definition": "dealing with things sensibly and realistically",
+        "example": "We need a pragmatic approach to solve this problem."
+      },
+      {
+        "term": "Cohesion",
+        "hu": "összetartozás",
+        "definition": "the action of forming a united whole",
+        "example": "Team cohesion is essential for project success."
+      },
+      {
+        "term": "Autonomy",
+        "hu": "önállóság",
+        "definition": "the right of self-government or independence",
+        "example": "Employees value autonomy in their work."
+      },
+      {
+        "term": "Mitigate",
+        "hu": "enyhít",
+        "definition": "to make less severe or serious",
+        "example": "We must take action to mitigate climate change effects."
+      },
+      {
+        "term": "Empathy",
+        "hu": "empátia",
+        "definition": "the ability to understand and share the feelings of another",
+        "example": "Good leaders show empathy toward their team members."
+      },
+      {
+        "term": "Versatile",
+        "hu": "sokoldalú",
+        "definition": "able to adapt or be adapted to many different functions",
+        "example": "A versatile employee can handle various tasks effectively."
+      },
+      {
+        "term": "Transparent",
+        "hu": "átlátható",
+        "definition": "easy to perceive or detect",
+        "example": "The company maintains transparent communication with stakeholders."
+      },
+      {
+        "term": "Resilient",
+        "hu": "álló",
+        "definition": "able to withstand or recover quickly from difficult conditions",
+        "example": "Children are often more resilient than adults in adapting to change."
+      },
+      {
+        "term": "Cultivate",
+        "hu": "művel",
+        "definition": "to try to acquire or develop a quality or skill",
+        "example": "She worked to cultivate positive relationships with colleagues."
+      },
+      {
+        "term": "Delegate",
+        "hu": "feladatokat átruház",
+        "definition": "to assign responsibility or authority to someone else",
+        "example": "Effective managers know how to delegate tasks appropriately."
+      },
+      {
+        "term": "Optimize",
+        "hu": "optimalizál",
+        "definition": "to make the best or most effective use of",
+        "example": "We need to optimize our workflow to meet the deadline."
+      },
+      {
+        "term": "Negotiate",
+        "hu": "megállapodni",
+        "definition": "to discuss something to reach an agreement",
+        "example": "The two countries negotiated a trade deal."
+      },
+      {
+        "term": "Initiative",
+        "hu": "kezdeményezés",
+        "definition": "an act or strategy intended to resolve a difficulty",
+        "example": "A new initiative has been launched to help the homeless."
+      },
+      {
+        "term": "Accountability",
+        "hu": "felelősségtudat",
+        "definition": "the fact of being responsible for one's actions",
+        "example": "Good governance requires transparency and accountability."
+      }
+    ]
+  },
+
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "Perseverance",
+              "Versatile",
+              "Resilient",
+              "Delegate",
+              "Initiative"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "Starting a small business requires tremendous perseverance and dedication. Many entrepreneurs face setbacks in their first year, but those who persist often find creative solutions to unexpected problems. The key is to remain adaptable and learn from each challenge rather than becoming discouraged."
+              },
+              {
+                "id": "2",
+                "text": "Modern workplaces increasingly value versatile employees who can handle multiple responsibilities. Cross-training programs allow staff to develop skills in different areas, making the team more flexible when facing staffing shortages or changing project demands. This approach benefits both the organization and individual career development."
+              },
+              {
+                "id": "3",
+                "text": "Children who grow up in supportive environments tend to be more resilient when facing life's difficulties. Research shows that emotional security in early years helps young people develop coping strategies and bounce back from disappointments. Schools and families play crucial roles in building this foundation."
+              },
+              {
+                "id": "4",
+                "text": "Effective managers understand when to delegate tasks to their team members. Micromanaging can stifle creativity and reduce job satisfaction, while appropriate delegation empowers employees and develops their skills. The challenge lies in finding the right balance between oversight and autonomy."
+              },
+              {
+                "id": "5",
+                "text": "A neighborhood initiative to create a community garden has transformed an abandoned lot into a vibrant gathering space. Local residents planted vegetables, flowers, and herbs, and built raised beds together. The project not only provides fresh produce but also strengthens social bonds among neighbors who previously rarely interacted."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  {
+                    "id": "1",
+                    "text": "Paragraph 1",
+                    "answer": 4
+                  },
+                  {
+                    "id": "2",
+                    "text": "Paragraph 2",
+                    "answer": 6
+                  },
+                  {
+                    "id": "3",
+                    "text": "Paragraph 3",
+                    "answer": 2
+                  },
+                  {
+                    "id": "4",
+                    "text": "Paragraph 4",
+                    "answer": 5
+                  },
+                  {
+                    "id": "5",
+                    "text": "Paragraph 5",
+                    "answer": 0
+                  }
+                ],
+                "headings": [
+                  "Local Sports Team Wins Championship",
+                  "Library Transformation Project Announced",
+                  "New Traffic Rules to Reduce Congestion",
+                  "City Council Discusses Budget Cuts",
+                  "Environmental Group Launches New Initiative",
+                  "Annual Music Festival Attracts Record Crowds",
+                  "Debate Over Public Transport Fares"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about mindfulness and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The Practice of Mindfulness",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "vocabList": [
+              "Pragmatic",
+              "Cultivate",
+              "Optimize"
+            ],
+            "content": [
+              {
+                "id": "A",
+                "text": "Mindfulness has gained significant attention in recent years as people seek ways to manage stress and improve mental wellbeing. Rooted in ancient meditation practices, modern mindfulness involves paying attention to the present moment without judgment. This simple concept can have profound effects on both psychological and physical health when practiced regularly."
+              },
+              {
+                "id": "B",
+                "text": "Research demonstrates that mindfulness practices can reduce symptoms of anxiety and depression while improving focus and emotional regulation. Many corporations now offer mindfulness training to employees, recognizing that mental clarity and stress reduction can lead to better decision-making and increased productivity. Schools are also incorporating these techniques to help students manage academic pressure."
+              },
+              {
+                "id": "C",
+                "text": "To cultivate mindfulness effectively, experts recommend starting with short daily sessions rather than attempting lengthy meditation immediately. Even five minutes of focused breathing can create noticeable benefits over time. A pragmatic approach involves integrating mindfulness into existing routines, such as mindful walking or eating, rather than viewing it as an additional task to complete."
+              },
+              {
+                "id": "D",
+                "text": "Critics argue that mindfulness has become overly commercialized, with expensive retreats and apps promising quick fixes. However, the core practice remains accessible to anyone willing to commit to regular practice. The challenge lies in optimizing these techniques for individual needs while avoiding the trap of treating mindfulness as just another productivity tool."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": 6,
+                    "text": "What is the main focus of modern mindfulness practice?",
+                    "options": [
+                      "Judging past experiences",
+                      "Paying attention to the present moment",
+                      "Planning for future goals"
+                    ],
+                    "answer": "Paying attention to the present moment"
+                  },
+                  {
+                    "id": 7,
+                    "text": "Why do corporations offer mindfulness training to employees?",
+                    "options": [
+                      "To reduce office space costs",
+                      "To improve decision-making and productivity",
+                      "To increase working hours"
+                    ],
+                    "answer": "To improve decision-making and productivity"
+                  },
+                  {
+                    "id": 8,
+                    "text": "What do experts recommend for starting mindfulness practice?",
+                    "options": [
+                      "Lengthy meditation sessions immediately",
+                      "Short daily sessions",
+                      "Expensive retreats"
+                    ],
+                    "answer": "Short daily sessions"
+                  },
+                  {
+                    "id": 9,
+                    "text": "What approach is suggested for integrating mindfulness into daily life?",
+                    "options": [
+                      "Pragmatic",
+                      "Complex",
+                      "Expensive"
+                    ],
+                    "answer": "Pragmatic"
+                  },
+                  {
+                    "id": 10,
+                    "text": "What challenge is mentioned regarding mindfulness techniques?",
+                    "options": [
+                      "Optimizing them for individual needs",
+                      "Making them longer",
+                      "Reducing their effectiveness"
+                    ],
+                    "answer": "Optimizing them for individual needs"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 11-18",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Personal Development",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "vocabList": [
+              "Empathy",
+              "Transparent",
+              "Negotiate",
+              "Accountability",
+              "Mitigate"
+            ],
+            "content": [
+              {
+                "id": "A",
+                "text": "Marcus Chen believes that emotional intelligence is just as important as technical skills in today's workplace. He regularly attends workshops on communication and conflict resolution, and encourages his team members to do the same. His leadership style emphasizes empathy and understanding, creating an environment where people feel valued and heard."
+              },
+              {
+                "id": "B",
+                "text": "The Open Government Initiative has made city council meetings more transparent by streaming them online and publishing detailed minutes. Citizens can now track decisions in real-time and access historical records easily. This increased visibility has helped rebuild trust between residents and local officials after years of perceived secrecy."
+              },
+              {
+                "id": "C",
+                "text": "Labor unions and management successfully negotiated a new three-year contract that includes wage increases, improved healthcare benefits, and clearer career progression paths. The agreement came after months of discussions and demonstrates how both sides can find common ground when they approach disputes constructively."
+              },
+              {
+                "id": "D",
+                "text": "The university implemented a new system of accountability for research funding, requiring regular progress reports and financial audits. While some faculty members initially resisted the additional oversight, most now acknowledge that it ensures responsible use of resources and maintains the institution's reputation for integrity."
+              },
+              {
+                "id": "E",
+                "text": "Coastal communities are implementing various strategies to mitigate the impact of rising sea levels, including building seawalls, restoring wetlands, and relocating critical infrastructure to higher ground. These measures require significant investment but could prevent much greater losses in the future if climate projections prove accurate."
+              },
+              {
+                "id": "F",
+                "text": "The mentorship program pairs experienced professionals with newcomers to the industry, providing guidance on career navigation and skill development. Participants report that having a trusted advisor helps them avoid common pitfalls and accelerates their professional growth. Many relationships continue long after the formal program ends."
+              },
+              {
+                "id": "G",
+                "text": "Financial literacy workshops help community members understand budgeting, credit management, and investment basics. The program targets young adults and families, aiming to break cycles of debt and build long-term financial stability. Early results show participants are making more informed decisions about spending and saving."
+              },
+              {
+                "id": "H",
+                "text": "The neighborhood watch coordinator works to build connections among residents while addressing safety concerns. Regular meetings provide opportunities to discuss issues and share information. The program emphasizes prevention through community awareness rather than relying solely on police intervention."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  {
+                    "id": "11",
+                    "text": "A program that improves government transparency",
+                    "answer": "B"
+                  },
+                  {
+                    "id": "12",
+                    "text": "A leader who emphasizes emotional intelligence",
+                    "answer": "A"
+                  },
+                  {
+                    "id": "13",
+                    "text": "A contract agreement between workers and management",
+                    "answer": "C"
+                  },
+                  {
+                    "id": "14",
+                    "text": "Measures to reduce climate change impacts",
+                    "answer": "E"
+                  },
+                  {
+                    "id": "15",
+                    "text": "A system ensuring responsible use of research funds",
+                    "answer": "D"
+                  },
+                  {
+                    "id": "16",
+                    "text": "A mentorship program for career development",
+                    "answer": "F"
+                  },
+                  {
+                    "id": "17",
+                    "text": "Workshops on financial management",
+                    "answer": "G"
+                  },
+                  {
+                    "id": "18",
+                    "text": "A community safety program",
+                    "answer": "H"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "The Digital Transformation",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "The rapid pace of digital transformation is reshaping industries worldwide. Companies that fail to ____(21)____ new technologies risk falling behind their competitors. Successful digitalization requires more than just purchasing software; it demands a fundamental shift in organizational culture and processes."
+              },
+              {
+                "id": "2",
+                "text": "One of the biggest challenges is ensuring that employees have the necessary skills to work with new systems. Training programs must be designed to ____(22)____ different learning styles and provide ongoing support. Resistance to change is natural, but can be overcome with clear communication about the benefits."
+              },
+              {
+                "id": "3",
+                "text": "Data security has become a critical concern as organizations move more operations online. Cyber threats are becoming increasingly sophisticated, requiring constant vigilance and regular updates to protection systems. A single breach can ____(23)____ years of trust-building with customers."
+              },
+              {
+                "id": "4",
+                "text": "Despite these challenges, the benefits of digital transformation are substantial. Automation can eliminate repetitive tasks, allowing workers to focus on more creative and strategic activities. Real-time data analytics enable better decision-making and can ____(24)____ operational efficiency significantly."
+              },
+              {
+                "id": "5",
+                "text": "Looking forward, organizations must remain flexible and adaptable. The technology landscape continues to evolve at an unprecedented rate, and what seems cutting-edge today may be obsolete tomorrow. Those who can ____(25)____ quickly to new tools and methodologies will have a distinct advantage."
+              },
+              {
+                "id": "6",
+                "text": "Ultimately, digital transformation is not just about technology—it's about people. Success depends on creating a culture that embraces innovation, encourages experimentation, and values continuous learning. Organizations that ____(26)____ this holistic approach will thrive in the digital age."
+              },
+              {
+                "id": "7",
+                "text": "The journey requires patience and commitment, but the rewards can be transformative. Improved customer experiences, streamlined operations, and new business opportunities are just some of the potential benefits. With careful planning and execution, digital transformation can ____(27)____ an organization's capabilities and market position."
+              },
+              {
+                "id": "8",
+                "text": "As we move deeper into the digital era, the divide between digitally mature organizations and those lagging behind will likely widen. Companies must ask themselves whether they are prepared to invest in their future. The time to act is now—delaying could mean ____(28)____ the opportunity to compete effectively."
+              },
+              {
+                "id": "9",
+                "text": "Collaboration across departments is essential for successful implementation. IT teams cannot drive transformation alone; they need buy-in from all levels of the organization. Breaking down silos and fostering cross-functional cooperation will be ____(29)____ for achieving long-term success."
+              },
+              {
+                "id": "10",
+                "text": "In conclusion, digital transformation represents both a challenge and an opportunity. While the path may be complex, the potential for growth and innovation makes it worthwhile. Organizations that approach this journey with vision and determination will emerge stronger and more ____(30)____ than ever before."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each gap.",
+                "questions": [
+                  {
+                    "id": 21,
+                    "text": "...fail to ____(21)____ new technologies...",
+                    "options": [
+                      "adopt",
+                      "ignore",
+                      "criticize"
+                    ],
+                    "answer": "adopt"
+                  },
+                  {
+                    "id": 22,
+                    "text": "...designed to ____(22)____ different learning styles...",
+                    "options": [
+                      "accommodate",
+                      "restrict",
+                      "eliminate"
+                    ],
+                    "answer": "accommodate"
+                  },
+                  {
+                    "id": 23,
+                    "text": "...can ____(23)____ years of trust-building...",
+                    "options": [
+                      "destroy",
+                      "enhance",
+                      "maintain"
+                    ],
+                    "answer": "destroy"
+                  },
+                  {
+                    "id": 24,
+                    "text": "...can ____(24)____ operational efficiency...",
+                    "options": [
+                      "reduce",
+                      "improve",
+                      "complicate"
+                    ],
+                    "answer": "improve"
+                  },
+                  {
+                    "id": 25,
+                    "text": "...who can ____(25)____ quickly to new tools...",
+                    "options": [
+                      "adapt",
+                      "resist",
+                      "complain"
+                    ],
+                    "answer": "adapt"
+                  },
+                  {
+                    "id": 26,
+                    "text": "...that ____(26)____ this holistic approach...",
+                    "options": [
+                      "embrace",
+                      "reject",
+                      "misunderstand"
+                    ],
+                    "answer": "embrace"
+                  },
+                  {
+                    "id": 27,
+                    "text": "...can ____(27)____ an organization's capabilities...",
+                    "options": [
+                      "weaken",
+                      "enhance",
+                      "limit"
+                    ],
+                    "answer": "enhance"
+                  },
+                  {
+                    "id": 28,
+                    "text": "...could mean ____(28)____ the opportunity...",
+                    "options": [
+                      "missing",
+                      "creating",
+                      "sharing"
+                    ],
+                    "answer": "missing"
+                  },
+                  {
+                    "id": 29,
+                    "text": "...will be ____(29)____ for achieving long-term success.",
+                    "options": [
+                      "irrelevant",
+                      "crucial",
+                      "harmful"
+                    ],
+                    "answer": "crucial"
+                  },
+                  {
+                    "id": 30,
+                    "text": "...more ____(30)____ than ever before.",
+                    "options": [
+                      "vulnerable",
+                      "competitive",
+                      "isolated"
+                    ],
+                    "answer": "competitive"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+  "id": "le-part2",
+  "section": 2,
+  "title": "Language Elements, Part 2",
+  "description": "Questions 31-40. Read the text below and choose the correct word (A-J) from the box to fill in each gap (31-40). There are two extra words you do not need to use.",
+  "passages": [
+    {
+      "id": "p1",
+      "title": "Globalization and Culture",
+      "type": "LANGUAGE-ELEMENTS",
+      "content": [
+        {
+          "id": "1",
+          "text": "Globalization has fundamentally altered how cultures interact and influence each other. While some fear that local traditions might be lost, others see opportunities for enriching cultural exchange. The key lies in finding ways to preserve cultural identity while remaining open to new ideas and perspectives from around the world.\n\nModern communication technologies have made it easier than ever to connect with people across borders. Social media platforms allow individuals to share experiences and learn about different lifestyles instantly. However, this increased connectivity also requires us to ____(a)____ with cultural differences sensitively and respectfully.\n\nEducation systems play a crucial role in preparing young people for a globalized world. Students need to ____(b)____ not only academic knowledge but also intercultural competence—the ability to navigate diverse cultural contexts effectively. This includes understanding different communication styles, values, and social norms.\n\nBusinesses operating internationally must also adapt their approaches. What works in one cultural context may not translate well to another. Successful companies invest time in understanding local customs and preferences, and they ____(c)____ their strategies accordingly. This cultural sensitivity can be a significant competitive advantage.\n\nDespite the challenges, globalization offers tremendous potential for mutual understanding and cooperation. When people from different backgrounds come together with openness and curiosity, they can ____(d)____ innovative solutions to shared problems. The diversity of perspectives often leads to more creative and effective outcomes than homogeneous groups can achieve.\n\nLooking ahead, the ability to move comfortably between different cultural contexts will become increasingly valuable. Those who can ____(e)____ to various cultural environments while maintaining their own identity will be well-positioned for success in an interconnected world. This requires both self-awareness and cultural intelligence."
+        }
+      ],
+      "subTasks": [
+        {
+          "type": "gap-fill-tokens",
+          "instruction": "Choose the correct word (A-J) to complete each gap (31-40).",
+          "tokens": [
+            "ADAPT",
+            "DEVELOP",
+            "FRAGMENT",
+            "REJECT",
+            "CULTIVATE",
+            "EROSION",
+            "COORDINATE",
+            "ACQUIRE",
+            "MAINTAIN",
+            "IGNORE"
+          ],
+          "answers": {
+            "a": "COORDINATE",
+            "b": "ACQUIRE",
+            "c": "ADAPT",
+            "d": "CULTIVATE",
+            "e": "ADAPT"
+          }
+        }
+      ]
+    }
+  ]
+}
+    ]
+  },
+"listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Situations",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear people talking in eight different situations.\nFor questions 1-8, choose the best answer A, B or C.",
+        "transcript": "1. Woman: I can never find my glasses!\nMan: Where did you have them last?\nWoman: I either had them when I was working, or I left them in the lounge when I was watching television.\nMan: They’re not in either of those places, you know – you’re wearing them!\n\n2. Woman: I’m really annoyed. Someone’s damaged my car again.\nMan: Don’t tell me someone’s scratched the paint again!\nWoman: No, not scratches this time. Someone’s put paint all over the side.\n\n3. Man: Did you remember to bring some toothpaste?\nWoman: I think so. Wait a minute, I’ll look … soap, towel, toothbrush. Er … no, sorry, I forgot.\n\n4. Woman: I see you’ve been shopping, Sally. What have you got in the bag?\nSally: Well, I went into town to buy a new skirt, but I’ve come back with a T-shirt and a pair of jeans.\nWoman: I thought you wanted some new shoes too.\nSally: Yes, I did. But I couldn’t find any I liked.\n\n5. Man: Hello, Grandma, can I carry your case?\nGrandma: Oh, that’s nice of you. Thank you for coming to meet me. Travelling always makes me so nervous!\nMan: Don’t worry, we’ll be in the car soon, and it won’t take long to get home.\nGrandma: Good, I’ll be glad to get away from this noisy station.\n\n6. Teacher: What do you want to be when you leave school, John? You always wanted to be a professional footballer, didn’t you?\nBoy: Well, I did. I thought about being a doctor, too, but I don’t think I could pass all the exams.\nTeacher: What about being an engineer like your brother?\nBoy: It’s a nice idea – but I think I’d like to do what my dad does. He teaches maths.\n\n7. Woman: I thought the most interesting pianist in the whole competition was Gavin Willow.\nMan: Was he the tall one with long hair?\nWoman: Well he was tall, but he had short, dark hair and a beard.\nMan: Ah, yes, I know.",
+        "audioUrl": "/audio/PEL-B1-Test8-Part1.mp3",
+        "context": "Eight different situations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (a-f) corresponds to each news item?",
+            "questions": [
+              {
+                "id": 1,
+                "text": "News Item 1",
+                "answer": "1"
+              },
+              {
+                "id": 2,
+                "text": "News Item 2",
+                "answer": "4"
+              },
+              {
+                "id": 3,
+                "text": "News Item 3",
+                "answer": "0"
+              },
+              {
+                "id": 4,
+                "text": "News Item 4",
+                "answer": "5"
+              },
+              {
+                "id": 5,
+                "text": "News Item 5",
+                "answer": "2"
+              },
+              {
+                "id": 6,
+                "text": "News Item 6",
+                "answer": "6"
+              },
+              {
+                "id": 7,
+                "text": "News Item 7",
+                "answer": "3"
+              }
+            ],
+            "headings": [
+              "Forgetting something for a trip",
+              "Finding lost glasses",
+              "Meeting someone at the station",
+              "Describing a person",
+              "Problems with a car",
+              "Shopping for clothes",
+              "Choosing a future job"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Morecambe Museum of Fashion: Clothes of the Future",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear a guide talking about a fashion exhibition.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
+        "transcript": "Guide: Welcome, ladies and gentleman, to the Morecambe Museum of Fashion. Before we go up to the fashion exhibition ‘Clothes of the Future’, I would like to show you some slides on the screen, and say a few words about the history of fashion. I will also mention some of the important people in fashion. This will provide an introduction for you and will prepare you for the clothes that we’re going to see in the exhibition.\n\nAs I’m sure you know, nowadays fashion is something that almost everybody enjoys. People of all age groups and all incomes usually have an interest in what they wear. But this has only recently happened, and I will tell you why.\n\nUntil the beginning of this century, it was only the rich who could afford to follow fashion. There were no factories to make many copies of the same article, as there are today. Rich men and women wore trousers, jackets and dresses which were made especially for them. This picture here shows a young lady being measured for a dress that she will have made by hand, exactly how she wants it to be. Ladies’ clothes in those days were long and usually tight-fitting and made of heavy material.\n\nHowever, the new century – the 1900s – brought new ideas. The important person at this time was Coco Chanel, who started making clothes in 1908, in Paris. Many people think she was the 20th century’s most important influence on fashion. Chanel loved to wear loose-fitting clothes and produced jackets and skirts which everyone admired. Here’s a picture of one of her ladies’ suits. Even today people still wear styles like this when they want to look smart. Young Paris designers all began to produce simple clothes, and skirts started to get shorter.\n\nThe idea of special clothes for playing sports also became popular in the early 1920s. Things like long shorts and tennis clothes started to become fashionable. Soon factories produced these new styles more cheaply, and then many more people were able to enjoy fashion.\n\nIn 1947, after the second world war, Christian Dior used all the new materials available to produce a fashion which was known as the ‘New Look’. As you can see in this picture, he made skirt lengths longer again.\n\nLater, in the 60s, ‘flower power’ and student fashion were popular. In London, Mary Quant introduced short skirts. These were worn with boots that went up to the knee. Look at the white, shiny boots in this picture!\n\nAnd now we come to today’s exhibition. Some of the clothes you will see today will be very different from anything which you have seen before. The exhibition aims to take a look at the sort of clothes that we might wear in the next 50 years.\n\nLet’s go inside and have a look at the exciting clothes that are waiting for us …",
+        "audioUrl": "/audio/PEL-B1-Test8-Part2.mp3",
+        "context": "Guide talks about a fashion exhibition",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "mode": "tfng",
+            "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
+            "questions": [
+              {
+                "id": 8,
+                "text": "The guide will discuss important people in fashion.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 9,
+                "text": "Fashion used to be only for rich people.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 10,
+                "text": "Coco Chanel started making clothes in London.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 11,
+                "text": "Coco Chanel designed tight-fitting clothes.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 12,
+                "text": "Sportswear became fashionable in the 1920s.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 13,
+                "text": "Christian Dior made skirts shorter with his 'New Look'.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 14,
+                "text": "The exhibition shows clothes from the past 50 years.",
+                "answer": "FALSE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Tanya Perry's Life and Career",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear an interview with Ray Potter, Tanya Perry’s friend and colleague, talking about her life.\nFor questions 15-20, choose the correct answer A, B or C.",
+        "transcript": "Interviewer: Hello and welcome. We’re spending the first part of today’s programme talking about Tanya Perry, and with me today is Ray Potter, her friend and colleague for many years …\n\nRay: Yes, well, I’ve known Tanya for nearly 20 years. Not many people know that she was born in London, in 1948. In 1952, her parents moved with Tanya and her brother to the north west. They lived in various places, before finally coming to Manchester in 1956.\n\nTanya spent a very happy period at school. In fact she was in the same class as Jack Peters, the famous poet. David Thompson, the artist, was also at the school – a couple of years below her, I think. So it was an interesting time for Tanya, who actually began to write short stories while she was at school. One of her stories appeared in the school magazine – I have a copy here. It’s extraordinary, you can see a lot of her ideas starting to grow. When Tanya left school, she didn’t go to university, as Jack Peters did, but got a job immediately. She was never interested in university life. what she wanted was to be part of the real world, to meet different people and get more experience of life. So in the early 1970s she became a waitress, working in what was then one of the most popular cafés in Manchester. She was writing at night and in 1975 she had her first play performed, at the Edinburgh Festival.\n\nShe gave up her day job the following year, to be able to write full-time. Several of her plays were performed, including one at the Court Theatre in London. This was where she met film director Robin Newgate, who she later married. Robin introduced her to the film word and, in 1979, she wrote the story which later became the film ‘City Life’, which Robin directed. It won the prize for best foreign film at an important French Film Festival in 1984.\n\nTanya could have moved to Hollywood then, but she was still married to the theatre – and to Robin – so she decided to stay here. Now she has 24 plays in print, 18 in translation, which makes her work very widely known all over the world.",
+        "audioUrl": "/audio/PEL-B1-Test8-Part3.mp3",
+        "context": "Ray Potter talks about Tanya Perry's life and career",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "For questions 15-20, choose the correct answer A, B or C.",
+            "questions": [
+              {
+                "id": 15,
+                "text": "Tanya Perry was born in",
+                "answer": "B",
+                "options": [
+                  "Manchester.",
+                  "London.",
+                  "the north west."
+                ]
+              },
+              {
+                "id": 16,
+                "text": "Tanya started writing short stories when she was",
+                "answer": "B",
+                "options": [
+                  "at university.",
+                  "at school.",
+                  "a waitress."
+                ]
+              },
+              {
+                "id": 17,
+                "text": "What did Tanya do after she left school?",
+                "answer": "A",
+                "options": [
+                  "She got a job.",
+                  "She went to university.",
+                  "She travelled abroad."
+                ]
+              },
+              {
+                "id": 18,
+                "text": "When did Tanya have her first play performed?",
+                "answer": "C",
+                "options": [
+                  "in the early 1970s",
+                  "in 1976",
+                  "in 1975"
+                ]
+              },
+              {
+                "id": 19,
+                "text": "The film 'City Life' was directed by",
+                "answer": "B",
+                "options": [
+                  "Tanya Perry.",
+                  "Robin Newgate.",
+                  "Jack Peters."
+                ]
+              },
+              {
+                "id": 20,
+                "text": "Tanya Perry decided not to move to Hollywood because",
+                "answer": "C",
+                "options": [
+                  "she preferred the theatre.",
+                  "she was married to Robin.",
+                  "both A and B."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You will be asked some questions about your personal life, experiences, and opinions. Answer honestly and in as much detail as you can.",
+        "topics": [
+          {
+            "topic": "Personal Growth and Learning",
+            "questions": [
+              { "id": "p1q1", "text": "What new skill have you learned recently, and why did you choose it?" },
+              { "id": "p1q2", "text": "How do you prefer to learn new things—through practice, reading, or discussion?" },
+              { "id": "p1q3", "text": "What has been your biggest challenge in personal development?" }
+            ]
+          },
+          {
+            "topic": "Technology and Society",
+            "questions": [
+              { "id": "p1q4", "text": "How has technology changed the way you communicate with others?" },
+              { "id": "p1q5", "text": "Do you think people spend too much time on digital devices? Why or why not?" },
+              { "id": "p1q6", "text": "What positive impact has technology had on your community?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following short text and discuss it with your partner. Express your opinions and react to your partner's points.",
+        "text": "A survey revealed that 55 percent of employees feel their workplace lacks transparency in decision-making processes. While 70 percent of managers believe they communicate openly with their teams, only 35 percent of employees agree with this assessment. This disconnect suggests a need for improved communication strategies and more inclusive leadership approaches.",
+        "topics": [
+          {
+            "topic": "Workplace Transparency",
+            "questions": [
+              { "id": "p2q1", "text": "Why might there be a disconnect between managers' and employees' perceptions?" },
+              { "id": "p2q2", "text": "How can organizations improve transparency in decision-making?" },
+              { "id": "p2q3", "text": "What role do employees play in fostering open communication?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "Your city is planning to enhance its public spaces to promote community wellbeing. Discuss the different options and decide together which three initiatives would provide the greatest benefit. Consider the following points:",
+        "topics": [
+          {
+            "topic": "Public Space Development",
+            "suggestions": [
+              "Create a network of walking and cycling paths connecting neighborhoods",
+              "Build a multi-purpose community center with sports and cultural facilities",
+              "Establish urban gardens and green spaces in densely populated areas",
+              "Install public art installations and interactive cultural displays",
+              "Develop outdoor learning spaces and educational nature trails"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Which initiatives would have the most immediate impact on daily life?" },
+              { "id": "p3q2", "text": "What long-term benefits could each option provide?" },
+              { "id": "p3q3", "text": "How would each initiative contribute to community wellbeing?" },
+              { "id": "p3q4", "text": "Which combination of three projects offers the best overall value?" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m8-t1",
+        "taskType": 1,
+        "title": "Task 1: Formal Letter",
+        "subtitle": "Part 1: Writing",
+        "instruction": "You have experienced poor service at a local restaurant and want to bring it to the manager's attention. Write a formal letter explaining the issues and suggesting improvements. In your letter, you should:",
+        "context": "You visited 'The Riverside Café' last weekend for a family celebration. Despite making a reservation, you experienced multiple problems including long wait times, incorrect orders, and unhelpful staff. You want to help the restaurant improve by providing constructive feedback.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a formal letter of complaint about poor service at a restaurant, with suggestions for improvement.",
+        "bullets": [
+          "Describe the problems you experienced during your visit",
+          "Explain how the staff handled your concerns",
+          "Suggest specific improvements the restaurant could make"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m8-t2",
+        "taskType": 2,
+        "title": "Task 2: Article",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Your university magazine is publishing a special edition on 'The Skills for Tomorrow' and has invited students to write about essential competencies for future success. Write an article discussing the most important skills young people need to develop. In your article, you should:",
+        "context": "The magazine aims to help students think about their personal development and career preparation in a rapidly changing world. Your article should provide insights and practical advice.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write an article about essential skills for future success in a changing world.",
+        "bullets": [
+          "Identify 2-3 key skills that will be increasingly important",
+          "Explain why these skills matter for personal and professional development",
+          "Suggest ways students can develop these skills during their education"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

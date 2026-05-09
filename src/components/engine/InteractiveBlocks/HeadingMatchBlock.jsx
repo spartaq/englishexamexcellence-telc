@@ -9,18 +9,15 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
   const headings = data.headings || [];
 
   // Helper to format heading label - support both "a Clear proof" and "1. Clear proof" formats
-  const getHeadingLabel = (heading, idx) => { 
-    const letterMatch = heading.match(/^([a-z])\s+(.+)/i);
-    if (letterMatch) {
-      return `${letterMatch[1].toLowerCase()}. ${letterMatch[2]}`;
-    }
+  // Helper to format heading label - display as-is (headings already include their labels)
+  const getHeadingLabel = (heading, idx) => {
     // Check if heading starts with number prefix like "1. Clear proof"
     const numMatch = heading.match(/^(\d+)\s*\.\s*(.+)/);
     if (numMatch) {
       return `${numMatch[1]}. ${numMatch[2]}`;
     }
-    // Default to numeric label
-    return `${idx + 1}. ${heading}`;
+    // Default: display heading as-is (it already includes its label like "A. ...")
+    return heading;
   };
 
   const handleSelect = (qId, value) => {

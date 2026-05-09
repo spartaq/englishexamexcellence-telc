@@ -1,0 +1,936 @@
+{
+  "id": "telc-b2-mock-10",
+  "level": "b2",
+  "mockNumber": 10,
+  "title": "TELC B2 Mock Test 10",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC B2 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-10",
+    "title": "Test Vocabulary",
+    "level": "B2",
+    "words": [
+      {
+        "term": "Integrity",
+        "hu": "integritás",
+        "definition": "the quality of being honest and having strong moral principles",
+        "example": "The judge was known for his integrity and fairness."
+      },
+      {
+        "term": "Ambitious",
+        "hu": "ökeltelen",
+        "definition": "having a strong desire to achieve something",
+        "example": "She set ambitious goals for her career."
+      },
+      {
+        "term": "Diverse",
+        "hu": "különféle",
+        "definition": "showing a great deal of variety",
+        "example": "The city has a diverse population from many cultures."
+      },
+      {
+        "term": "Empower",
+        "hu": "hatalmonyaszt",
+        "definition": "to give someone the authority or power to do something",
+        "example": "Education can empower people to change their lives."
+      },
+      {
+        "term": "Accountability",
+        "hu": "felelősségtudat",
+        "definition": "the fact of being responsible for one's actions",
+        "example": "Good governance requires transparency and accountability."
+      },
+      {
+        "term": "Perseverance",
+        "hu": "kitartás",
+        "definition": "persistence in doing something despite difficulty",
+        "example": "Success requires hard work and perseverance."
+      },
+      {
+        "term": "Pragmatic",
+        "hu": "praktikus",
+        "definition": "dealing with things sensibly and realistically",
+        "example": "We need a pragmatic approach to solve this problem."
+      },
+      {
+        "term": "Cohesion",
+        "hu": "összetartozás",
+        "definition": "the action of forming a united whole",
+        "example": "Team cohesion is essential for project success."
+      },
+      {
+        "term": "Autonomy",
+        "hu": "önállóság",
+        "definition": "the right of self-government or independence",
+        "example": "Employees value autonomy in their work."
+      },
+      {
+        "term": "Mitigate",
+        "hu": "enyhít",
+        "definition": "to make less severe or serious",
+        "example": "We must take action to mitigate climate change effects."
+      },
+      {
+        "term": "Resilience",
+        "hu": "állósság",
+        "definition": "the capacity to recover quickly from difficulties",
+        "example": "The community showed great resilience after the flood."
+      },
+      {
+        "term": "Sustainable",
+        "hu": "fenntartható",
+        "definition": "able to be maintained without depleting resources",
+        "example": "We need sustainable energy solutions for the future."
+      },
+      {
+        "term": "Collaboration",
+        "hu": "együttműködés",
+        "definition": "the action of working with someone to produce something",
+        "example": "The project succeeded through effective collaboration."
+      },
+      {
+        "term": "Innovation",
+        "hu": "innováció",
+        "definition": "a new method, idea, or product",
+        "example": "Technological innovation has transformed communication."
+      },
+      {
+        "term": "Advocate",
+        "hu": "védő",
+        "definition": "a person who publicly supports a particular cause",
+        "example": "She is a strong advocate for human rights."
+      }
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 20,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Global Understanding",
+        "description": "Questions 1-5",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Short Texts 1-5",
+            "title": "Various texts",
+            "type": "READING",
+            "vocabList": [
+              "Resilience",
+              "Sustainable",
+              "Innovation",
+              "Collaboration",
+              "Advocate"
+            ],
+            "content": [
+              {
+                "id": "1",
+                "text": "A small farming community in the Midwest has transformed itself into a model of sustainable agriculture. By rotating crops, using natural pest control methods, and installing solar panels, the farmers have reduced their environmental impact while increasing yields. Their success has inspired neighboring farms to adopt similar practices."
+              },
+              {
+                "id": "2",
+                "text": "The city's new innovation district has become a magnet for tech startups. With affordable office space, mentorship programs, and networking events, the area has attracted over 200 new companies in just two years. Young entrepreneurs cite the collaborative atmosphere as a key factor in their decision to locate there."
+              },
+              {
+                "id": "3",
+                "text": "After a devastating wildfire, the mountain town showed remarkable resilience. Volunteers from across the state helped rebuild homes, clear debris, and restore hiking trails. Within a year, tourism had returned to pre-disaster levels, demonstrating the community's ability to recover from adversity."
+              },
+              {
+                "id": "4",
+                "text": "A groundbreaking collaboration between universities, government agencies, and private companies has led to a new treatment for a rare disease. By sharing research and resources, the partnership accelerated the development process by several years. Patients who previously had no options now have access to life-saving therapy."
+              },
+              {
+                "id": "5",
+                "text": "Maria Santos has been a passionate advocate for immigrant rights, organizing legal clinics, English classes, and cultural exchange programs. Her tireless work has helped hundreds of families navigate the complex immigration system and build new lives in their adopted country."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "heading-match",
+                "instruction": "Choose the correct heading for each paragraph.",
+                "questions": [
+                  {
+                    "id": "1",
+                    "text": "Paragraph 1",
+                    "answer": 5
+                  },
+                  {
+                    "id": "2",
+                    "text": "Paragraph 2",
+                    "answer": 1
+                  },
+                  {
+                    "id": "3",
+                    "text": "Paragraph 3",
+                    "answer": 3
+                  },
+                  {
+                    "id": "4",
+                    "text": "Paragraph 4",
+                    "answer": 0
+                  },
+                  {
+                    "id": "5",
+                    "text": "Paragraph 5",
+                    "answer": 2
+                  }
+                ],
+                "headings": [
+                  "Local Sports Team Wins Championship",
+                  "Library Transformation Project Announced",
+                  "New Traffic Rules to Reduce Congestion",
+                  "City Council Discusses Budget Cuts",
+                  "Environmental Group Launches New Initiative",
+                  "Annual Music Festival Attracts Record Crowds",
+                  "Debate Over Public Transport Fares"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Detailed Understanding",
+        "description": "Read the article about cybersecurity and answer the multiple-choice questions.",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "Protecting Our Digital Lives",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "vocabList": [
+              "Integrity",
+              "Accountability",
+              "Pragmatic"
+            ],
+            "content": [
+              {
+                "id": "A",
+                "text": "In an increasingly connected world, cybersecurity has become a critical concern for individuals, businesses, and governments. The growing sophistication of cyber attacks, from ransomware to identity theft, poses significant threats to privacy, financial security, and national infrastructure. As more aspects of daily life move online, the potential impact of security breaches continues to expand."
+              },
+              {
+                "id": "B",
+                "text": "Maintaining integrity in digital systems requires constant vigilance and robust security protocols. Organizations must implement multi-layered defenses, including encryption, firewalls, and regular security audits. Employee training is equally important, as human error remains one of the most common vulnerabilities in cybersecurity."
+              },
+              {
+                "id": "C",
+                "text": "Accountability for data protection must be clearly defined. When breaches occur, organizations need transparent incident response plans and must take responsibility for protecting affected individuals. Regulatory frameworks are evolving to hold companies accountable for safeguarding customer data, with significant penalties for non-compliance."
+              },
+              {
+                "id": "D",
+                "text": "A pragmatic approach to cybersecurity balances protection with usability. Overly restrictive security measures can frustrate users and hinder productivity, while lax protocols invite disaster. The goal is to create systems that are both secure and user-friendly, with appropriate safeguards scaled to the sensitivity of the information being protected."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each question.",
+                "questions": [
+                  {
+                    "id": 6,
+                    "text": "What has become a critical concern in our connected world?",
+                    "options": [
+                      "Social media usage",
+                      "Cybersecurity",
+                      "Online shopping"
+                    ],
+                    "answer": "Cybersecurity"
+                  },
+                  {
+                    "id": 7,
+                    "text": "What is essential for maintaining integrity in digital systems?",
+                    "options": [
+                      "Constant vigilance and robust security protocols",
+                      "Minimal security measures",
+                      "Ignoring potential threats"
+                    ],
+                    "answer": "Constant vigilance and robust security protocols"
+                  },
+                  {
+                    "id": 8,
+                    "text": "What must be clearly defined for data protection?",
+                    "options": [
+                      "Accountability",
+                      "Profit margins",
+                      "Marketing strategies"
+                    ],
+                    "answer": "Accountability"
+                  },
+                  {
+                    "id": 9,
+                    "text": "What approach is recommended for cybersecurity?",
+                    "options": [
+                      "Pragmatic",
+                      "Reckless",
+                      "Overly restrictive"
+                    ],
+                    "answer": "Pragmatic"
+                  },
+                  {
+                    "id": 10,
+                    "text": "What can overly restrictive security measures do?",
+                    "options": [
+                      "Frustrate users and hinder productivity",
+                      "Improve user experience",
+                      "Eliminate all threats"
+                    ],
+                    "answer": "Frustrate users and hinder productivity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 11-18",
+        "passages": [
+          {
+            "id": "p3",
+            "title": "Cultural Exchange and Understanding",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "vocabList": [
+              "Perseverance",
+              "Empower",
+              "Diverse",
+              "Ambitious",
+              "Cohesion"
+            ],
+            "content": [
+              {
+                "id": "A",
+                "text": "The international student exchange program has created opportunities for young people to experience different cultures firsthand. Participants return home with broader perspectives, improved language skills, and lasting friendships across borders. These experiences often shape career choices and foster a lifelong appreciation for cultural diversity."
+              },
+              {
+                "id": "B",
+                "text": "Learning a new language requires perseverance and consistent practice. Many students find that immersion—living in a country where the language is spoken—is the most effective method. While challenging at first, this approach accelerates learning and helps students understand cultural nuances that textbooks cannot convey."
+              },
+              {
+                "id": "C",
+                "text": "The community center's diverse programming reflects the multicultural makeup of the neighborhood. Classes in cooking, dance, and traditional crafts from around the world bring people together and celebrate different cultural heritages. This inclusive approach has strengthened social cohesion and mutual understanding."
+              },
+              {
+                "id": "D",
+                "text": "Ambitious plans to create a sister-city relationship with a town in another country are moving forward. The initiative includes student exchanges, business partnerships, and cultural events. Supporters believe these connections will enrich both communities and create opportunities for collaboration on global challenges."
+              },
+              {
+                "id": "E",
+                "text": "The mentorship program empowers refugee youth by pairing them with professionals in their fields of interest. Mentors provide guidance on education and career paths, help navigate cultural differences, and offer emotional support during difficult transitions. Many participants credit the program with giving them confidence and direction."
+              },
+              {
+                "id": "F",
+                "text": "Cultural festivals throughout the year showcase music, food, and traditions from different communities. These events attract thousands of visitors and provide platforms for artists and performers to share their heritage. The festivals have become important occasions for building bridges and dispelling stereotypes."
+              },
+              {
+                "id": "G",
+                "text": "The university's global studies program combines academic coursework with international internships. Students gain practical experience while developing intercultural competence—a skill increasingly valued by employers. The program's success has inspired similar initiatives at other institutions."
+              },
+              {
+                "id": "H",
+                "text": "Online language exchange platforms connect learners with native speakers around the world. These virtual partnerships allow people to practice conversation skills and learn about different cultures from their own homes. The accessibility of these tools has democratized language learning and cultural exchange."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "Which paragraph (A-H) contains the following information?",
+                "questions": [
+                  {
+                    "id": "11",
+                    "text": "A program that pairs refugee youth with professional mentors",
+                    "answer": "E"
+                  },
+                  {
+                    "id": "12",
+                    "text": "The importance of perseverance in language learning",
+                    "answer": "B"
+                  },
+                  {
+                    "id": "13",
+                    "text": "Plans for creating international sister-city connections",
+                    "answer": "D"
+                  },
+                  {
+                    "id": "14",
+                    "text": "How diverse programming strengthens community cohesion",
+                    "answer": "C"
+                  },
+                  {
+                    "id": "15",
+                    "text": "An international student exchange program",
+                    "answer": "A"
+                  },
+                  {
+                    "id": "16",
+                    "text": "Cultural festivals that showcase different traditions",
+                    "answer": "F"
+                  },
+                  {
+                    "id": "17",
+                    "text": "A university program combining study with international internships",
+                    "answer": "G"
+                  },
+                  {
+                    "id": "18",
+                    "text": "Online platforms for language exchange",
+                    "answer": "H"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Questions 21-30. Read the following text and choose the best word (A, B, or C) for each gap.",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "The Power of Communication",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Effective communication is the foundation of successful relationships, whether personal or professional. When people ____(21)____ clearly and listen attentively, misunderstandings are reduced and trust is built. This skill becomes increasingly important in our diverse and interconnected world."
+              },
+              {
+                "id": "2",
+                "text": "However, communication barriers still exist across cultures and languages. Even when people speak the same language, differences in communication styles can lead to confusion. Some cultures value directness, while others prefer more ____(22)____ approaches. Understanding these differences is crucial for avoiding misinterpretation."
+              },
+              {
+                "id": "3",
+                "text": "Technology has transformed how we communicate, offering new ways to connect across distances. Video calls, instant messaging, and social media enable real-time interaction with people around the globe. Yet these tools cannot fully ____(23)____ the nuances of face-to-face communication, where body language and tone convey important meaning."
+              },
+              {
+                "id": "4",
+                "text": "In the workplace, strong communication skills contribute to team success and organizational effectiveness. Leaders who communicate their vision clearly can ____(24)____ employees and foster commitment to shared goals. Regular feedback and open dialogue help identify problems early and promote continuous improvement."
+              },
+              {
+                "id": "5",
+                "text": "Developing communication skills requires practice and self-awareness. People must learn to adapt their style to different audiences and situations. Being able to ____(25)____ complex ideas simply is particularly valuable in today's fast-paced environment where attention spans are limited."
+              },
+              {
+                "id": "6",
+                "text": "Active listening is equally important but often overlooked. Rather than simply waiting to speak, effective listeners focus on understanding the speaker's perspective. They ask clarifying questions and provide feedback that shows they are fully ____(26)____ in the conversation."
+              },
+              {
+                "id": "7",
+                "text": "Non-verbal communication also plays a significant role in how messages are received. Facial expressions, gestures, and posture can reinforce or contradict spoken words. Being aware of these signals helps people ____(27)____ their communication and ensure their intended message is understood."
+              },
+              {
+                "id": "8",
+                "text": "As workplaces become more diverse, cross-cultural communication skills are increasingly valuable. Employees who can navigate cultural differences and communicate respectfully with colleagues from various backgrounds contribute to a more inclusive and ____(28)____ work environment."
+              },
+              {
+                "id": "9",
+                "text": "The ability to resolve conflicts through constructive dialogue is another essential communication skill. Rather than avoiding difficult conversations, people with strong communication skills address issues directly but diplomatically. This approach helps ____(29)____ relationships and find mutually acceptable solutions."
+              },
+              {
+                "id": "10",
+                "text": "Ultimately, investing in communication skills yields significant returns in both personal and professional contexts. Those who can express themselves clearly, listen effectively, and adapt to different communication situations will be better equipped to ____(30)____ the challenges of modern life."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer (A, B, or C) for each gap.",
+                "questions": [
+                  {
+                    "id": 21,
+                    "text": "...people ____(21)____ clearly...",
+                    "options": [
+                      "communicate",
+                      "argue",
+                      "ignore"
+                    ],
+                    "answer": "communicate"
+                  },
+                  {
+                    "id": 22,
+                    "text": "...others prefer more ____(22)____ approaches.",
+                    "options": [
+                      "indirect",
+                      "complicated",
+                      "aggressive"
+                    ],
+                    "answer": "indirect"
+                  },
+                  {
+                    "id": 23,
+                    "text": "...cannot fully ____(23)____ the nuances...",
+                    "options": [
+                      "capture",
+                      "eliminate",
+                      "complicate"
+                    ],
+                    "answer": "capture"
+                  },
+                  {
+                    "id": 24,
+                    "text": "...can ____(24)____ employees...",
+                    "options": [
+                      "inspire",
+                      "confuse",
+                      "ignore"
+                    ],
+                    "answer": "inspire"
+                  },
+                  {
+                    "id": 25,
+                    "text": "...to ____(25)____ complex ideas simply...",
+                    "options": [
+                      "explain",
+                      "hide",
+                      "complicate"
+                    ],
+                    "answer": "explain"
+                  },
+                  {
+                    "id": 26,
+                    "text": "...they are fully ____(26)____ in the conversation.",
+                    "options": [
+                      "engaged",
+                      "distracted",
+                      "bored"
+                    ],
+                    "answer": "engaged"
+                  },
+                  {
+                    "id": 27,
+                    "text": "...helps people ____(27)____ their communication...",
+                    "options": [
+                      "improve",
+                      "worsen",
+                      "ignore"
+                    ],
+                    "answer": "improve"
+                  },
+                  {
+                    "id": 28,
+                    "text": "...more inclusive and ____(28)____ work environment.",
+                    "options": [
+                      "harmonious",
+                      "hostile",
+                      "chaotic"
+                    ],
+                    "answer": "harmonious"
+                  },
+                  {
+                    "id": 29,
+                    "text": "...helps ____(29)____ relationships...",
+                    "options": [
+                      "strengthen",
+                      "destroy",
+                      "complicate"
+                    ],
+                    "answer": "strengthen"
+                  },
+                  {
+                    "id": 30,
+                    "text": "...to ____(30)____ the challenges of modern life.",
+                    "options": [
+                      "navigate",
+                      "avoid",
+                      "create"
+                    ],
+                    "answer": "navigate"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+  "id": "le-part2",
+  "section": 2,
+  "title": "Language Elements, Part 2",
+  "description": "Questions 31-40. Read the text below and choose the correct word (A-J) from the box to fill in each gap (31-40). There are two extra words you do not need to use.",
+  "passages": [
+    {
+      "id": "p1",
+      "title": "Education for the Future",
+      "type": "LANGUAGE-ELEMENTS",
+      "content": [
+        {
+          "id": "1",
+          "text": "The education system faces unprecedented challenges as it prepares students for a future that is difficult to predict. Traditional models focused on memorization and standardized testing are increasingly seen as inadequate for developing the skills students will need. A fundamental transformation is required to make education more relevant and effective.\n\nSchools must ____(a)____ with students, parents, and employers to understand what competencies will be most valuable. Critical thinking, creativity, and emotional intelligence consistently rank high among desired skills. The ability to learn continuously and adapt to change may be the most important competency of all.\n\nTechnology should be integrated thoughtfully to ____(b)____ learning rather than simply digitizing traditional methods. Personalized learning platforms can help students progress at their own pace while providing teachers with insights into individual needs. However, technology cannot replace the human connection that is central to effective education.\n\nProject-based learning offers opportunities for students to ____(c)____ knowledge in authentic contexts. By working on real-world problems, students develop collaboration skills and see the practical applications of what they learn. This approach also helps students build portfolios that demonstrate their capabilities to future employers.\n\nThe role of teachers is evolving from information providers to facilitators of learning. This shift requires significant professional development and support. Teachers need time to experiment with new approaches and ____(d)____ from both successes and failures. Creating a culture of innovation in schools is essential for sustainable change.\n\nAssessment methods must also evolve to measure what truly matters. Standardized tests provide limited information about critical competencies like problem-solving and creativity. Schools are exploring alternative approaches that ____(e)____ a broader range of skills and provide more meaningful feedback to guide student growth."
+        }
+      ],
+      "subTasks": [
+        {
+          "type": "gap-fill-tokens",
+          "instruction": "Choose the correct word (A-J) to complete each gap (31-40).",
+          "tokens": [
+            "ADAPT",
+            "DEVELOP",
+            "FRAGMENT",
+            "REJECT",
+            "CULTIVATE",
+            "EROSION",
+            "COORDINATE",
+            "ACQUIRE",
+            "MAINTAIN",
+            "IGNORE"
+          ],
+          "answers": {
+            "a": "COORDINATE",
+            "b": "DEVELOP",
+            "c": "ACQUIRE",
+            "d": "ADAPT",
+            "e": "CULTIVATE"
+          }
+        }
+      ]
+    }
+  ]
+}
+    ]
+  },
+
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Situations",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear people talking in eight different situations.\nFor questions 1-8, choose the best answer A, B or C.",
+        "transcript": "1. Man: Was there anything valuable in the bag that was stolen, Madam?\nWoman: Yes. It had my purse in it and my keys.\nMan: Anything else?\nWoman: Well, luckily I was wearing my glasses, so no, nothing else.\n\n2. Man: I’m sure I’ve seen this film before. That bit where she’s standing on the bridge watching the sunset reminded me.\n\n3. Woman 1: Well, you put the washing powder in the machine.\nWoman 2: Is that before or after you put the clothes in?\nWoman 1: Oh, it’s after you put them in, and then remember to switch it on at the wall when you’re ready.\n\n4. Man: Could you help me paint my flat this weekend, David?\nDavid: Oh, sorry, I’m going sailing. I decided to enjoy myself for a change. I spent last weekend helping my mum do her garden and I need to repair the car next weekend.\n\n5. Man: Sorry I’m late. I never know whether to take the underground or drive. I was held up in a traffic jam for half an hour, and then when I got to work the car park was full! I think I’ll have to move nearer so I can walk or use my bike.\n\n6. Man: Which tie shall I wear for the interview? D’you think my blue silk one would look all right?\nWoman: A bit boring! I’d wear something with a small pattern – squares or spots, something like that.\nMan: Oh, I don’t know. I think I’ll wear the plain one.\n\n7. Woman: Dr Brown’s Clinic. Can I help you?\nMan: Yes. Can I have an appointment to see the doctor, please?\nWoman: Well, he’s free at quarter past eleven today or tomorrow at quarter past ten or five to two.\nMan: I’ll come tomorrow afternoon. Thank you.",
+        "audioUrl": "/audio/PEL-B1-Test9-Part1.mp3",
+        "context": "Eight different situations",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "heading-match",
+            "instruction": "Which headline (a-f) corresponds to each news item?",
+            "questions": [
+              {
+                "id": 1,
+                "text": "News Item 1",
+                "answer": "1"
+              },
+              {
+                "id": 2,
+                "text": "News Item 2",
+                "answer": "4"
+              },
+              {
+                "id": 3,
+                "text": "News Item 3",
+                "answer": "2"
+              },
+              {
+                "id": 4,
+                "text": "News Item 4",
+                "answer": "0"
+              },
+              {
+                "id": 5,
+                "text": "News Item 5",
+                "answer": "6"
+              },
+              {
+                "id": 6,
+                "text": "News Item 6",
+                "answer": "3"
+              },
+              {
+                "id": 7,
+                "text": "News Item 7",
+                "answer": "5"
+              }
+            ],
+            "headings": [
+              "Making an excuse",
+              "Something stolen",
+              "Giving instructions",
+              "Choosing a tie",
+              "Remembering a film",
+              "Booking an appointment",
+              "Explaining being late"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "TV31 Saturday Programme Guide",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear a radio presenter giving information about tomorrow’s television programmes.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
+        "transcript": "Man: And that’s the weather forecast. And now we know what the weather’s going to be like, let’s have a look at what we’ve got for you tomorrow on TV31.\n\nMost of the morning is taken up with children’s television. As it’s Saturday, we’ve got programmes for children from the under fives to teenagers. We start the day at 7.00 with cartoons and programmes for the very young. These go on until 9.00 when we have a film specially made for television called The Railway Princess. It was first shown about six months ago and we’ve had lots of requests to show it again. The film is based on Jenny Johnson’s best-selling children’s book. Then from 10.30 until 12.00, we continue with a magazine programme for 5- to 12-year-olds. There’s something for everyone – animals, art, sport, the countryside. At lunchtime, from 12.00 till 2.00, we have something for teenagers – Here and Now – our music programme with all the latest groups and singers, and the results of last week’s competition.\n\nAfter lunch there’s half an hour of news and that’s followed at 2.30 by sport. This afternoon you can watch the match between Brazil and Ireland. The winner of that match will go on to play Italy or Spain in the final next week.\n\nFootball is followed at 4 o’clock by tennis. We’ll be watching part of the Macmillan Tennis Tournament. If the tennis is cancelled because of rain we’ll be going over early to Japan to see some of the skiing. Let’s hope Angus Burns has recovered from yesterday’s fall. At 5 o’clock we’ll be bringing you the end of the Round Britain Cycle Race.\n\nAt 6 o’clock it’s time for our new quiz programme Your guess is as good as mine with Nigel Parsons. Each team is shown picture of people who were in the news in one particular year, or important things that happened in that year. The teams guess when that was.\n\nThat’s followed by more news and at 7.00 it’s time for our Saturday evening film I Could Live Forever, a sad story with a happy ending. You’ll recognise the songs, now well known, made famous by the film and sung by Julia Jones. And of course there’s some wonderful dancing.\n\nOur evening carries on with plenty of entertainment for all the family. At nine o’clock there’s a chance to see …",
+        "audioUrl": "/audio/PEL-B1-Test9-Part2.mp3",
+        "context": "Radio presenter gives information about tomorrow's television programmes",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "trinary",
+            "mode": "tfng",
+            "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
+            "questions": [
+              {
+                "id": 8,
+                "text": "The Railway Princess has been shown on TV31 before.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 9,
+                "text": "The film The Railway Princess is based on a real story.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 10,
+                "text": "Here and Now is a music programme for teenagers.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 11,
+                "text": "The football match will be followed by highlights of other sports.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 12,
+                "text": "If it rains, there will be skiing from Japan.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 13,
+                "text": "The quiz programme requires teams to guess the year of events.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 14,
+                "text": "The film I Could Live Forever is a comedy.",
+                "answer": "FALSE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "Plymouth Sea Life Centre",
+        "subtitle": "Part 3: Listening",
+        "description": "You will hear a man talking about the new Sea Life Centre at Plymouth.\nFor questions 15-20, choose the correct answer A, B or C.",
+        "transcript": "Man: … and finally Mary James has been visiting the new Sea Life Centre at Plymouth. What can you tell us about it, Mary?\n\nWoman: Well, it’s an extremely exciting place. There are so many things to see and everything is enjoyable as well as educational. It costs £3.70 for adults, £2 for children and less for over sixties and school groups. It’s open every day of the year except the 25th and 26th of December.\n\nSpecial attractions for children include a quiz and hourly feeding times for all the different animals and fish, starting at 9.30. You can see everything here from the most enormous of sea creatures to the smallest.\n\nEvery morning from 10.00 there are slide and video shows for children in the sea life theatre, and someone is always there to answer questions about what you’ve seen. If you are in a group of six or more people, they can give you a special guided tour of the centre. But you need to arrange this at the information desk when you arrive.\n\nThe latest attraction at the centre is a big glass tunnel you can walk through; all around you, you will see enormous fish swimming – sometimes even over your head. You certainly have the clearest possible view of the world beneath the waves. Children love it and it’s really amazing for adults too!\n\nWhen you get hungry, there is a relaxed family dining area serving snacks, cold drinks and ice creams. Near the main entrance there is an excellent bookshop and there’s also a souvenir shop selling all kinds of things connected with the sea.\n\nI warmly recommend this visit; for more information phone 01743 564219.",
+        "audioUrl": "/audio/PEL-B1-Test9-Part3.mp3",
+        "context": "Man talks about the new Sea Life Centre at Plymouth",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "For questions 15-20, choose the correct answer A, B or C.",
+            "questions": [
+              {
+                "id": 15,
+                "text": "What is the entry fee for children?",
+                "answer": "B",
+                "options": [
+                  "£3.70",
+                  "£2",
+                  "Free"
+                ]
+              },
+              {
+                "id": 16,
+                "text": "When are the animals and fish fed?",
+                "answer": "A",
+                "options": [
+                  "hourly from 9.30",
+                  "every morning at 10.00",
+                  "only in the afternoons"
+                ]
+              },
+              {
+                "id": 17,
+                "text": "Children can watch slide and video shows",
+                "answer": "B",
+                "options": [
+                  "all day.",
+                  "every morning.",
+                  "in the afternoons."
+                ]
+              },
+              {
+                "id": 18,
+                "text": "A guided tour is available for",
+                "answer": "C",
+                "options": [
+                  "individuals.",
+                  "families.",
+                  "groups of six or more."
+                ]
+              },
+              {
+                "id": 19,
+                "text": "What is the new attraction at the centre?",
+                "answer": "A",
+                "options": [
+                  "a glass tunnel",
+                  "a special cinema",
+                  "a swimming pool"
+                ]
+              },
+              {
+                "id": 20,
+                "text": "What type of food is available at the centre?",
+                "answer": "B",
+                "options": [
+                  "hot meals",
+                  "snacks and ice creams",
+                  "full restaurant service"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "part1",
+        "title": "Introduction and Interview",
+        "subtitle": "Part 1: Speaking",
+        "type": "interview",
+        "duration": "4-5 minutes",
+        "instruction": "You will be asked some questions about your personal life, experiences, and opinions. Answer honestly and in as much detail as you can.",
+        "topics": [
+          {
+            "topic": "Travel and Culture",
+            "questions": [
+              { "id": "p1q1", "text": "Have you traveled to other countries? What places have you visited?" },
+              { "id": "p1q2", "text": "What did you learn from your travel experiences?" },
+              { "id": "p1q3", "text": "Would you prefer to travel independently or with a tour group? Why?" }
+            ]
+          },
+          {
+            "topic": "Personal Values",
+            "questions": [
+              { "id": "p1q4", "text": "What values are most important to you in your life?" },
+              { "id": "p1q5", "text": "How do these values influence your decisions?" },
+              { "id": "p1q6", "text": "Have your values changed over time? If so, how?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Speaking",
+        "type": "discussion",
+        "duration": "3-4 minutes",
+        "instruction": "Read the following short text and discuss it with your partner. Express your opinions and react to your partner's points.",
+        "text": "A study found that 65 percent of people believe that face-to-face communication is becoming less common due to digital technology. While 75 percent agreed that digital communication is more convenient, 55 percent reported feeling that the quality of their relationships has suffered as a result of relying heavily on digital interactions.",
+        "topics": [
+          {
+            "topic": "Digital vs. Face-to-Face Communication",
+            "questions": [
+              { "id": "p2q1", "text": "Do you agree that face-to-face communication is declining? Why or why not?" },
+              { "id": "p2q2", "text": "What are the advantages and disadvantages of digital communication?" },
+              { "id": "p2q3", "text": "How can people maintain meaningful relationships in the digital age?" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "title": "Collaborative Task",
+        "subtitle": "Part 3: Speaking",
+        "type": "collaborative",
+        "duration": "4-5 minutes",
+        "instruction": "Your university is planning to enhance its career services to better prepare students for the modern job market. Discuss the different options and decide together which three initiatives would be most valuable for students. Consider the following points:",
+        "topics": [
+          {
+            "topic": "Career Services Enhancement",
+            "suggestions": [
+              "Establish partnerships with companies for internship and mentorship programs",
+              "Create a comprehensive digital skills training program",
+              "Develop an alumni networking platform and events",
+              "Offer workshops on entrepreneurship and startup development",
+              "Implement a cross-cultural communication and global readiness program"
+            ],
+            "questions": [
+              { "id": "p3q1", "text": "Which initiatives would best prepare students for current job market demands?" },
+              { "id": "p3q2", "text": "How would each option benefit students' career prospects?" },
+              { "id": "p3q3", "text": "Which combination of three programs would provide the most comprehensive support?" },
+              { "id": "p3q4", "text": "What resources would be needed to implement these initiatives effectively?" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m10-t1",
+        "taskType": 1,
+        "title": "Task 1: Formal Letter",
+        "subtitle": "Part 1: Writing",
+        "instruction": "You are writing to apply for a position as a volunteer coordinator for a local charity. Write a letter explaining your interest in the role and describing your relevant experience and skills. In your letter, you should:",
+        "context": "You have seen an advertisement for a volunteer coordinator position with 'Community Care Foundation,' a charity that supports elderly and vulnerable people in your area. You have relevant volunteer experience and want to contribute to this organization.",
+        "targetWords": 150,
+        "xp": 250,
+        "prompt": "Write a formal letter of application for a volunteer coordinator position.",
+        "bullets": [
+          "Explain why you are interested in this volunteer coordinator role",
+          "Describe your relevant experience and skills",
+          "Explain how you could contribute to the charity's work"
+        ],
+        "type": "letter"
+      },
+      {
+        "id": "w-m10-t2",
+        "taskType": 2,
+        "title": "Task 2: Article",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Your city newspaper is running a series on 'The Future of Urban Living' and has invited readers to submit articles. Write an article discussing how cities can become more sustainable and livable. In your article, you should:",
+        "context": "The newspaper wants to explore innovative ideas for improving urban environments and quality of life for residents.",
+        "targetWords": 250,
+        "xp": 500,
+        "prompt": "Write an article about sustainable and livable cities of the future.",
+        "bullets": [
+          "Describe current challenges facing urban areas",
+          "Discuss innovative solutions for sustainable urban development",
+          "Give your opinion on which approaches would be most effective"
+        ],
+        "type": "article"
+      }
+    ]
+  }
+}

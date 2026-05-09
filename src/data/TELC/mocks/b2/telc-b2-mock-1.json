@@ -546,7 +546,7 @@
     ]
   },
 
-"listening": {
+ "listening": {
     "title": "Listening",
     "time": 30,
     "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
@@ -557,136 +557,115 @@
         "title": "Situations",
         "subtitle": "Part 1: Listening",
         "description": "You will hear people talking in eight different situations.\nFor questions 1-8, choose the best answer A, B or C.",
-        "transcript": "1. As restaurant manager, I feel responsible for the quality of the food we serve. So it's up to me to check the ingredients that have been delivered overnight to make sure they are of sufficient quality, and to produce a menu for the day. The cooks arrive at about ten a.m. to prepare lunch and I'll take them through the menu. Because lunch is concentrated over a short period of time it can get very busy and very hot. But unlike some kitchens, we tend to divide the jobs up according to who likes doing what, and that includes cleaning pots and pans and clearing the place before dinner.\n\n2. It's a factual book, a chronicle of the twentieth century and it's wonderful. I mean it's terribly bitty and it's not going to give you a lot of information nor be good for school work. That's what's really nice about it. Here is a reference book which it is fun to dip in and out of. It's hardly going to help anyone write an essay and it avoids being geared to any school syllabus, unlike so much of what is published today. But for anyone who likes little details, you know, you can look up your date of birth, for example, and see what else happened then, it's a very good book.\n\n3. So, there've been some dramatic events in Victoria Street this past week, what with Mariela deciding not to marry Jason, and Stephen leaving home in the middle of a family row. Are next week's episodes as exciting? Well, I can't give away the whole story, but I don't think you'll be disappointed! I can tell you that Stephen's mother is forced to tell her husband the secret she's been hiding for years, which leads to more fireworks and a few tears. And Jason refuses to accept Mariela's decision, so you're going to hear a lot more from him, and look out for some surprises there.\n\n4. We get people to the taxis, that's the first priority, and to the trains. We make sure they get on early and get comfortable seats. These days many passengers have a lot of luggage and they want assistance with it. So we provide a much-needed service. We even take people down to the Underground or to places in the surrounding streets. But the majority of users are airline passengers with a lot of bags and perhaps accompanied by elderly relatives, young children and so on. Obviously they can't manage everything on their own.\n\n5. I exercise in the form of dance. At one time, I did aerobics because exercise is more interesting with music, but I've since moved on to line dancing. It's less energetic, but I go three times a week. I run my own business, work hard, and it's just a way to cut off rather than watch television. It's also a challenge keeping up with the new steps. I think young people sometimes take exercise too far, get over-concerned with how they look, when they'll never be able to keep it up at that sort of pace. Whereas line dancing struck me as something I could sustain as part of my normal life.\n\n6. Man: Well, what did you think of that, then? Woman: Brilliant! I've never tasted anything like it! I wish you'd tried this place sooner. I mean, I've been walking past it for years. Man: Why didn't you? Woman: Well, to be honest, I never thought I'd be able to afford it, but it's actually quite reasonable. Mind you, I think they could have tried a bit harder with the presentation. I think if food looks good on the plate you automatically expect it to taste good. Yours was okay, but I think they could have made more of an effort with mine.\n\n7. In practical terms, the place I'm in doesn't matter too much. As long as I have the necessary tools, you know, pencil and paper and, of course, my keyboard. Once I'm started, I go over things again and again – must be very dull if anyone's listening. I change a few notes here and there, but basically I tend to stick with an idea once I have it. I guess home's the best place in a way because there I'm relaxed enough to let my imagination flow and that's what you need to do, in order to produce a good piece…\n\n8. Well, I'm sharing with two other girls … I know, it was supposed to be me and one other person, but there's a shortage of accommodation, apparently. Anyway, the room's rather cramped. But it's great. There've been three parties so far, and it's still the first week. It's an incredibly noisy place, with doors banging and people laughing and shouting till the small hours. Yes, I suppose we'll have to get down to work soon, though I don't know how we'll be able to, packed into that little space – none of us is very tidy …",
+        "transcript": "1. Woman: So you’ve won the teenage chef competition, Mark – congratulations!\nMark: Thanks! In the competition, you choose whether to cook a meat, fish or vegetarian dish; then you’re judged on the taste and how attractive it looks. I couldn’t decide between fish and vegetables – I’ve never been brilliant at meat dishes. Then I found the judge was an expert in cooking fish, which worried me, so I went for my other choice – and won!\n\n2. Girl: Excuse me. I think I left my book on this table – have you seen it?\nMan: Oh yes. I took it inside with the empty glass when I cleared the table. I gave it to the manager, who put it with the other lost property. He keeps it all in the drawer of his desk.\nGirl: \nMan: He’s on the phone inside the café. Why don’t you go inside – he’ll be finished in a minute.\n\n3. Girl: Does your house seem empty now your sister’s left home, Josh?\nJosh: Not really. My grandmother’s moved into her room, and she doesn’t go out much. It’s really nice having her there because my dad never comes home until later, and if my mum’s out for the evening, Grandma cooks supper for me.\n\n4. Boy: Have you packed for your holiday?\nGirl: No, I need to go shopping before I can do that. Last holiday, my suitcase handle got broken, so I need something new to pull all my stuff in. But suitcases are so heavy to carry.\nBoy: I always take a backpack – you can carry more that way.\nGirl: Yes, I thought about one of those, but good-quality ones are expensive. I’ll get one of those big sports bags. You know, one you can pull along. They don’t cost much, so it doesn’t matter if it gets torn.\n\n5. Man: The train arriving at platform six in the 11.45 from Manchester. The train due to arrive at platform four in approximately five minutes is the delayed 11.30 train to Manchester. The train will now depart at 11.50 and travel non-stop. We apologise to passengers for the delay. Refreshments will not be available on this train.\n\n6. Kimberley: Hi, it’s Kimberley. I got your message and I’d love to go to the movies. There’s a film called SpyGame, or a comedy – I don’t mind which … Shall we meet outside the cinema?\nGirl: Or, I know, at the burger bar on the corner. We could have a snack before we go in or we could meet at the bus station.\nKimberley: Mum’s driving me into town this afternoon, to buy some trainers, so I won’t be near the station. But something to eat first is a good idea. Shall we say 6 o’clock?\nGirl: OK.\n\n7. Boy: Have you been to the new water sports centre yet?\nGirl: Oh yes, it’s brilliant. There are two indoor pools, one for underwater diving and one for swimming, and you can also have sailing lessons on the lake.\nBoy: That’s what I’m doing there next weekend, actually. I was hoping to take waterskiing lessons, but the leaflet says they’re not starting those until next year.",
         "audioUrl": "/audio/PEL-B2-Test1-Part1.mp3",
         "context": "Eight different situations",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
-                    {
+          {
             "type": "heading-match",
             "instruction": "Which headline (a-f) corresponds to each news item?",
             "questions": [
               {
-                "id": 41,
+                "id": 1,
                 "text": "News Item 1",
-                "answer": "3"
-              },
-              {
-                "id": 42,
-                "text": "News Item 2",
-                "answer": "6"
-              },
-              {
-                "id": 43,
-                "text": "News Item 3",
                 "answer": "1"
               },
               {
-                "id": 44,
-                "text": "News Item 4",
-                "answer": "2"
+                "id": 2,
+                "text": "News Item 2",
+                "answer": "3"
               },
               {
-                "id": 45,
-                "text": "News Item 5",
-                "answer": "4"
-              },
-              {
-                "id": 46,
-                "text": "News Item 6",
-                "answer": "0"
-              },
-              {
-                "id": 47,
-                "text": "News Item 7",
+                "id": 3,
+                "text": "News Item 3",
                 "answer": "5"
               },
               {
-                "id": 48,
-                "text": "News Item 8",
-                "answer": "7"
+                "id": 4,
+                "text": "News Item 4",
+                "answer": "0"
+              },
+              {
+                "id": 5,
+                "text": "News Item 5",
+                "answer": "6"
+              },
+              {
+                "id": 6,
+                "text": "News Item 6",
+                "answer": "2"
+              },
+              {
+                "id": 7,
+                "text": "News Item 7",
+                "answer": "4"
               }
             ],
             "headings": [
-                  "Mixed feelings about a meal out",
-                  "Further exciting developments",
-                  "Helping people on their way",
-                  "Varied workload",
-                  "Finding the right kind of exercise",
-                  "The best place to work",
-                  "Book that avoids being academic",
-                  "Adjusting to a new living situation"
+              "Buying a holiday bag",
+              "A cooking competition",
+              "Arranging to meet",
+              "Lost property",
+              "A new sports centre",
+              "Family life",
+              "Train announcement"
             ]
-          } 
+          }
         ]
       },
       {
         "id": "part2",
         "part": 2,
-        "title": "Interview: Volunteering in Africa",
+        "title": "Interview: Nick Parker of Krispy",
         "subtitle": "Part 2: Listening",
-        "description": "You will hear an interview with Elizabeth Holmes about her experience working in Africa.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
-        "transcript": "Interviewer: Visitors to the small Devon village of Whimple might be forgiven for looking twice as they pass the garden of Elizabeth Holmes. In the middle of the garden there stands a traditional African hut, a reminder of the two years Elizabeth spent in Africa as a volunteer. Elizabeth, what persuaded you to leave your secure job in a travel agent's and go to Africa?\n\nElizabeth: Well, I'd been feeling restless for ages. I wanted to see the real world, not just tourist places. Then, I was at the dentist's one day, waiting to go in, and I'd read all the magazines in the waiting room, so I started looking at a poster – it was all about volunteers working in Africa.\n\nInterviewer: And it interested you?\n\nElizabeth: Yes, I took down the name and address and applied. I had an interview locally and did some aptitude tests. Then just before I left for Africa, there was a training weekend in London, which they call 'Changes' and which gives you some idea of what you're letting yourself in for.\n\nInterviewer: What particular skills could you offer?\n\nElizabeth: I had a degree in economics and I had done some teaching at one time. What they wanted to send me to Africa to do was to train local farmers in the marketing of their produce. I flew out with fifteen other volunteers, all going to do different things, like nursing, teaching, and so on. When we got there, we were supposed to have a four-week course at a training centre learning something about the local culture and the basics of the language – you know, greetings and things like that. Anyway, there was a problem and it only lasted three weeks in the end – not enough really.\n\nInterviewer: Did it take a long time to get used to your new lifestyle?\n\nElizabeth: I found it quite difficult for the first few weeks, but after that I settled in very well. My area covered 1200 square kilometres, and I had a truck for long-distance travel, but for more local trips I rode a motorbike.\n\nInterviewer: How did you get on with the local people?\n\nElizabeth: Very well. The men were very polite but they tended to keep their distance – unlike the women, who were always inviting me to meals. They showed me how they wove and dyed material to make clothes for themselves and their children. I used to get magazines sent from England and we'd spend ages looking at them.\n\nInterviewer: I expect you found it very different when you returned to England?\n\n\nElizabeth: Yes, I certainly did. After two years of living very simply, I found the supermarkets especially overwhelming – just the enormous choice of food. Also, the traffic disturbed me. I had to move from my flat in the city to a small cottage in the country just to get some of the peace and quiet I'd become accustomed to in Africa.\nInterviewer: And what are you working on at the moment?\n\nElizabeth: Well, I didn't want to just go back to working in someone else's office so I set up my own business, which I run from home. I deal in African furniture. I brought some small pieces back with me as souvenirs and everyone loved them in Britain. However, I'm still in touch with the organisation that sent me to Africa as a volunteer. I organise events to raise funds and give talks about my experience to encourage other people to go.\nInterviewer: Has the experience in Africa changed you at all?\n\nElizabeth: Oh yes, in many ways. I used to spend all my time working, but now I make sure I have more time for gardening – my favourite hobby.",
+        "description": "You will hear an interview with a singer called Nick Parker who plays in a band called Krispy with his sister Mel.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
+        "transcript": "Int: I’m talking to Nick Parker, the singer with the band called Krispy. Nick your sister, Mel, plays guitar in the band too, doesn’t she?\n\nNick: Yeah. Mel’s a year younger than me. We’ve been playing and singing together since we were … eight, nine. Dad is a guitarist and took us to hear the great bands playing live. Mel and I put on shows at school, which was a lot of fun. Mum thought we were good, but she didn’t want us to get too serious about our music because of the hard lives professional musicians have.\n\nInt: When did you start writing music?\n\nNick: I’ve been writing since I was ten. And later Mel started working with me. We didn’t have the same influences – I liked rock music and she loved world music, especially bands from Africa. But we found good ways of mixing the styles.\n\nInt: Your band, Krispy, has two guys and two girls in it. How was it formed?\n\nNick: Mel and I were playing in a concert at our college and there were two students from music school in the audience. They came to see us after the show and asked if we’d like to form a band with them. We weren’t sure at first because we were much younger than them. But we agreed to try it out, and it was brilliant.\n\nInt: Was the band an immediate success?\n\nNick: Well, we spent the first year practising and writing music. During that time we all had studying to do. We played in local concerts, and the audiences enjoyed what we did. Then during one holiday we recorded two songs and sent them to a music company. They offered us a contract, but our parents said we had to finish college first.\n\nInt: You’ve been together a few years now and you’re one of the top bands. What’s that like?\n\nNick: Hard work. We travel to concerts all round the world and are never in one place for more than a few nights. The others are like an older brother and sister to me and Mel, which is good. They help us relax on our days off, and make sure we eat well. They’re strict about practising too.\n\nInt: Have you had any disappointments?\n\nNick: Everything we’ve recorded has done well. Three singles have gone to number one, and our first album has sold over a million copies. Our second album was due out this winter, but I’ve been ill recently so we’ve started recording late, which is a pity. But for the rest, everything’s fine.",
         "audioUrl": "/audio/PEL-B2-Test1-Part2.mp3",
-        "context": "Interview - volunteering in Africa",
+        "context": "Interview with Nick Parker of the band Krispy",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
           {
             "type": "trinary",
-            "mode": "tfng", 
+            "mode": "tfng",
             "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
             "questions": [
               {
-                "id": 9,
-                "text": "Elizabeth worked for a travel agency before she went to Africa.",
+                "id": 8,
+                "text": "Nick’s father is a musician.",
                 "answer": "TRUE"
+              },
+              {
+                "id": 9,
+                "text": "Nick’s mother encouraged him to become a professional musician.",
+                "answer": "FALSE"
               },
               {
                 "id": 10,
-                "text": "She first found out about working as a volunteer from a poster she saw at the dentist's.",
-                "answer": "TRUE"
+                "text": "Nick and Mel have always liked the same kind of music.",
+                "answer": "FALSE"
               },
               {
                 "id": 11,
-                "text": "The course in London that Elizabeth attended was called 'Changes'.",
+                "text": "Nick and Mel were invited to form a band by two older students.",
                 "answer": "TRUE"
               },
               {
                 "id": 12,
-                "text": "Elizabeth's job in Africa was to teach local farmers how to market their goods.",
-                "answer": "TRUE"
+                "text": "The band Krispy got a contract with a music company after their first year together.",
+                "answer": "NOT GIVEN"
               },
               {
                 "id": 13,
-                "text": "On arrival in Africa, Elizabeth spent four weeks doing a training course with other volunteers.",
-                "answer": "FALSE"
+                "text": "The other two members of the band help Nick and Mel a lot.",
+                "answer": "TRUE"
               },
               {
                 "id": 14,
-                "text": "Elizabeth used a motorbike to travel short distances in Africa.",
-                "answer": "TRUE"
-              },
-              {
-                "id": 15,
-                "text": "Elizabeth feels that she got on best with the local women in the area of Africa where she lived.",
-                "answer": "TRUE"
-              },
-              {
-                "id": 16,
-                "text": "Back in England, Elizabeth found that she was disturbed by the traffic noise in the city.",
-                "answer": "TRUE"
-              },
-              {
-                "id": 17,
-                "text": "At the moment, Elizabeth buys and sells furniture from Africa.",
-                "answer": "TRUE"
-              },
-              {
-                "id": 18,
-                "text": "Nowadays, Elizabeth spends more time on her favourite pastime, which is gardening.",
-                "answer": "TRUE"
+                "text": "The band has had problems with their record sales.",
+                "answer": "FALSE"
               }
             ]
           }
@@ -695,82 +674,77 @@
       {
         "id": "part3",
         "part": 3,
-        "title": "Opinions: Good Boss Qualities",
+        "title": "Course on Wildlife",
         "subtitle": "Part 3: Listening",
-        "description": "You will hear five different employees talking about what makes a good boss.\nFor questions 19-23, choose which of the opinions A-F each speaker expresses.\nUse the letters only once. There is one extra letter which you do not need to use.",
-        "transcript": "Speaker 1: Some people still think that leaders are born, not made. They say, no matter how hard you study and how many diplomas you collect, at the end of the day, if you've got natural skills, such as a strong character, that's all you'll need. I think that's nonsense. Leadership is all about commanding respect. If a boss says to me, for example, 'Look, your computer skills need upgrading', I'll think, 'Right, this person has a degree in computing, I don't, so he must be right'. But if it's the other way round, then you feel, well, maybe I should be boss!\n\nSpeaker 2: Well, the sort of leaders that I actually admire … are not the … top dogs in suits … with a degree in management and a belief that nobody can do things as well as they can. One thing I've learned from all my experience in different jobs is that, to be a really good boss, you have to be good at encouraging the people under you to decide on important issues … creating a situation in which other people can shine. Of course this does not mean the boss's job is any easier; it's still a challenge, but so much more rewarding for everyone.\n\nSpeaker 3: Since I left school, I've done a number of short-term office jobs, and I must say I'm beginning to realise how important it is to have the right sort of person directing your work. To develop all my potential, I need to be told when I'm doing something well, and also the areas where I could improve … I think the earlier you get formal and informal feedback, the better. Otherwise you develop bad habits … some of my workmates don't agree with me, when I say it's good to meet regularly with your boss, they think I'm trying to be better than them.\n\nSpeaker 4: Of course we all want bosses who are knowledgeable and who bring energy to the job, and I must say, in my opinion, most people who reach top job positions do possess these qualities. However, what really matters is the ability to bring people together. Leaders often mistakenly encourage people to work on their own, kind of, in isolation, because they are afraid of the strengths of groups, they think maybe they'll criticise, or even join forces against the leader … Such leaders need to go on management courses, to look at good examples of leadership …\n\nSpeaker 5: Well, in the organisation where I work, each department has a leader, a boss … and because I've worked in six of these departments, I've had six different bosses! I must say there's been very little to complain about … except that we are being asked to do an enormous amount of extra work and some of the bosses don't seem to be doing long hours, like the rest of us. It is true that after work, they may have to attend special management courses, or meet individual members of staff to discuss performance, but this only happens occasionally …",
+        "description": "You will hear a man called Ben, from a young people’s organisation, telling a youth group about a course they can do on Saturdays.\nFor questions 15-20, choose the correct answer A, B or C.",
+        "transcript": "Ben: Hello, everyone. Let me introduce myself – my name’s Ben and I’d like to tell you about a course you can do on Saturday mornings.\n\nI’m from an organisation called ‘Nature’ and we run courses for young people like you to do during the weekends. Now, we know that at school you learn a lot about things like science and maths, but this course is really about giving your youth group the chance to come and find out about wildlife. It’s an area that tends to get forgotten.\n\nWe usually take groups like yours to a wild place that’s near their home. Sometimes we go to a beach or a lake, but we’ve planned for your group to go to a forest. That’s the closest place for you, and the easiest to get to.\n\nNow, we’d like you to come and do some activities with us. You spend six hours each week with us and the course lasts for 12 weeks, depending on the weather. That might sound like a long time, but we think you’ll be sorry when it’s over!\n\nTaking part in our activities means you get to do all sorts of things that you wouldn’t normally be allowed to do at home. That includes how to safely climb trees, cut wood and build a fire.\n\nWhile you’re with us, we’ll also show you how to make things out of different materials. On the last course, everyone designed backpacks which they were very pleased with. This time we thought we’d get you to design and make a birdhouse. When it’s finished, you can take it home and show your family.\n\nWe think you’ll enjoy doing this.\n\nNow, any questions …?",
         "audioUrl": "/audio/PEL-B2-Test1-Part3.mp3",
-        "context": "Five employees discuss good boss qualities",
+        "context": "Ben from a young people's organization talks about a Saturday course",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
           {
             "type": "mcq",
-            "instruction": "Which of the opinions A-F does each speaker express? Use each letter only once.",
+            "instruction": "For questions 15-20, choose the correct answer A, B or C.",
             "questions": [
               {
-                "id": 19,
-                "text": "Speaker 1",
-                "answer": 4,
+                "id": 15,
+                "text": "Ben says that the 'Nature' organisation",
+                "answer": "A",
                 "options": [
-                  "A good boss should allow staff to take decisions.",
-                  "A good boss should encourage staff to work in teams.",
-                  "A good boss should listen to complaints from staff.",
-                  "A good boss should give information on individual progress.",
-                  "A good boss should have good qualifications.",
-                  "A good boss should set an example of hard work."
+                  "teaches young people about wildlife.",
+                  "helps young people with schoolwork.",
+                  "shows young people how to do science and maths."
+                ]
+              },
+              {
+                "id": 16,
+                "text": "What type of place will Ben’s group be visiting?",
+                "answer": "C",
+                "options": [
+                  "a lake",
+                  "a beach",
+                  "a forest"
+                ]
+              },
+              {
+                "id": 17,
+                "text": "The Saturday course will last for",
+                "answer": "B",
+                "options": [
+                  "6 weeks.",
+                  "12 weeks.",
+                  "6 hours."
+                ]
+              },
+              {
+                "id": 18,
+                "text": "What can students do on the course that they cannot do at home?",
+                "answer": "A",
+                "options": [
+                  "build a fire",
+                  "climb trees",
+                  "cut wood"
+                ]
+              },
+              {
+                "id": 19,
+                "text": "On the last course, students designed",
+                "answer": "B",
+                "options": [
+                  "birdhouses.",
+                  "backpacks.",
+                  "materials."
                 ]
               },
               {
                 "id": 20,
-                "text": "Speaker 2",
-                "answer": 0,
+                "text": "What will students make on the course?",
+                "answer": "A",
                 "options": [
-                  "A good boss should allow staff to take decisions.",
-                  "B good boss should encourage staff to work in teams.",
-                  "C good boss should listen to complaints from staff.",
-                  "D good boss should give information on individual progress.",
-                  "E good boss should have good qualifications.",
-                  "F good boss should set an example of hard work."
-                ]
-              },
-              {
-                "id": 21,
-                "text": "Speaker 3",
-                "answer": 3,
-                "options": [
-                  "A good boss should allow staff to take decisions.",
-                  "B good boss should encourage staff to work in teams.",
-                  "C good boss should listen to complaints from staff.",
-                  "D good boss should give information on individual progress.",
-                  "E good boss should have good qualifications.",
-                  "F good boss should set an example of hard work."
-                ]
-              },
-              {
-                "id": 22,
-                "text": "Speaker 4",
-                "answer": 1,
-                "options": [
-                  "A good boss should allow staff to take decisions.",
-                  "B good boss should encourage staff to work in teams.",
-                  "C good boss should listen to complaints from staff.",
-                  "D good boss should give information on individual progress.",
-                  "E good boss should have good qualifications.",
-                  "F good boss should set an example of hard work."
-                ]
-              },
-              {
-                "id": 23,
-                "text": "Speaker 5",
-                "answer": 5,
-                "options": [
-                  "A good boss should allow staff to take decisions.",
-                  "B good boss should encourage staff to work in teams.",
-                  "C good boss should listen to complaints from staff.",
-                  "D good boss should give information on individual progress.",
-                  "E good boss should have good qualifications.",
-                  "F good boss should set an example of hard work."
+                  "a birdhouse",
+                  "a backpack",
+                  "some furniture"
                 ]
               }
             ]

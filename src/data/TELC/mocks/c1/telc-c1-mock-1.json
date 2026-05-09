@@ -216,62 +216,63 @@
             "subTasks": [
               {
                 "type": "trinary",
+                 "mode": "tfng",
                 "instruction": "Read the following text and the statements 13–23 below. For each of the statements mark: (+) corresponds to the content, (–) does not correspond, (X) is not mentioned.",
                 "questions": [
                   {
                     "id": "13",
                     "text": "Political necessity motivated engineers to develop the transatlantic telegraph cable.",
-                    "answer": "X"
+                    "answer": "NOT GIVEN"
                   },
                   {
                     "id": "14",
                     "text": "Before working on the telegraph, Morse was well-known as an artist.",
-                    "answer": "+"
+                    "answer": "TRUE"
                   },
                   {
                     "id": "15",
                     "text": "The transatlantic cable project received funding from two governments.",
-                    "answer": "+"
+                    "answer": "TRUE"
                   },
                   {
                     "id": "16",
                     "text": "The cable was damaged several times due to the bad weather.",
-                    "answer": "+"
+                    "answer": "TRUE"
                   },
                   {
                     "id": "17",
                     "text": "During the celebration, City Hall in New York burned down.",
-                    "answer": "–"
+                    "answer": "FALSE"
                   },
                   {
                     "id": "18",
                     "text": "Lord Kelvin and Dr Whitehouse had worked together prior to the cable being laid.",
-                    "answer": "X"
+                    "answer": "NOT GIVEN"
                   },
                   {
                     "id": "19",
                     "text": "Kelvin was skeptical of Whitehouse's theories, arguing that the cable should be treated more sensitively.",
-                    "answer": "+"
+                    "answer": "TRUE"
                   },
                   {
                     "id": "20",
                     "text": "Whitehouse accepted responsibility for the project's failure.",
-                    "answer": "–"
+                    "answer": "FALSE"
                   },
                   {
                     "id": "21",
                     "text": "Whitehouse was part of the Great Eastern expedition.",
-                    "answer": "–"
+                    "answer": "FALSE"
                   },
                   {
                     "id": "22",
                     "text": "During the 1930s, people were able to make telephone calls between Europe and the United States.",
-                    "answer": "+"
+                    "answer": "TRUE"
                   },
                   {
                     "id": "23",
                     "text": "Today, the majority of transatlantic communication is done via satellite.",
-                    "answer": "–"
+                    "answer": "FALSE"
                   }
                 ]
               },
@@ -281,7 +282,7 @@
                 "questions": [
                   {
                     "id": "24",
-                    "text": "",
+                    "text": "Which title a, b or c best matches the article?",
                     "options": [
                       "a A short history of the telegraph",
                       "b How we moved from the Morse code to satellites",
@@ -329,7 +330,7 @@
                     "id": "0",
                     "text": "The Camino de Santiago, also ____(0)____ as the way of Saint James, is a network of hiking routes...",
                     "options": ["a actually", "b easily", "c eventually", "d known"],
-                    "answer": 3
+                    "answer": "known"
                   },
                   {
                     "id": "25",

@@ -1,0 +1,824 @@
+{
+  "id": "telc-c1-mock-3",
+  "level": "c1",
+  "mockNumber": 3,
+  "title": "TELC C1 Mock Test 3",
+  "testBrand": "telc",
+  "type": "general",
+  "description": "Complete TELC C1 test with all 4 skills",
+  "xpReward": 5000,
+  "tier": "bronze",
+  "instructions": "Read the instructions for each part of the paper carefully. Answer all the questions. Write your answers in the answer sheet. You must complete the answer sheet within the time limit. At the end of the test, hand in both this question paper and your answer sheet.",
+  "vocabulary": {
+    "id": "vocab-general-3",
+    "title": "Test Vocabulary",
+    "level": "C1",
+    "words": [
+      {
+        "term": "Innovation",
+        "hu": "innováció",
+        "definition": "the introduction of new things or methods",
+        "example": "Technological innovation has transformed our world."
+      },
+      {
+        "term": "Implementation",
+        "hu": "megvalósítás",
+        "definition": "the process of putting a plan into action",
+        "example": "The implementation of the new policy took six months."
+      },
+      {
+        "term": "Sustainability",
+        "hu": "fenntarthatóság",
+        "definition": "the ability to maintain something at a certain rate or level",
+        "example": "Sustainability is key to protecting our environment."
+      },
+      {
+        "term": "Conundrum",
+        "hu": "rejtély",
+        "definition": "a confusing and difficult problem",
+        "example": "The ethical conundrum of artificial intelligence concerns many experts."
+      },
+      {
+        "term": "Contemporary",
+        "hu": "korszakmai",
+        "definition": "belonging to the present time",
+        "example": "Contemporary art often challenges traditional forms."
+      },
+      {
+        "term": "Pragmatic",
+        "hu": "gyakorlati",
+        "definition": "dealing with things sensibly and realistically",
+        "example": "We need a pragmatic approach to solve this problem."
+      },
+      {
+        "term": "Inevitable",
+        "hu": "elkerülhetetlen",
+        "definition": "certain to happen; unavoidable",
+        "example": "Change is inevitable in any growing organization."
+      },
+      {
+        "term": "Proliferation",
+        "hu": "elterjedés",
+        "definition": "rapid increase in numbers or spread",
+        "example": "The proliferation of misinformation online is concerning."
+      },
+      {
+        "term": "Ambiguous",
+        "hu": "kétértelmű",
+        "definition": "open to more than one interpretation",
+        "example": "The instructions were ambiguous and caused confusion."
+      },
+      {
+        "term": "Consciousness",
+        "hu": "tudatosság",
+        "definition": "the state of being aware of and able to think",
+        "example": "Philosophers have long debated the nature of consciousness."
+      },
+      {
+        "term": "Resilient",
+        "hu": "rugalmas",
+        "definition": "able to recover quickly from difficulties",
+        "example": "Communities need to be resilient in the face of climate change."
+      },
+      {
+        "term": "Ethical",
+        "hu": "etikai",
+        "definition": "relating to moral principles",
+        "example": "The ethical implications of genetic engineering are significant."
+      },
+      {
+        "term": "Comprehensive",
+        "hu": "átfogó",
+        "definition": "including all aspects or elements",
+        "example": "We conducted a comprehensive review of the literature."
+      },
+      {
+        "term": "Substantiate",
+        "hu": "bizonyít",
+        "definition": "to provide evidence to support a claim",
+        "example": "You must substantiate your argument with solid evidence."
+      },
+      {
+        "term": "Intricate",
+        "hu": "összetett",
+        "definition": "very complicated or detailed",
+        "example": "The watch mechanism is an intricate work of engineering."
+      },
+      {
+        "term": "Viable",
+        "hu": "megvalósítható",
+        "definition": "capable of working successfully",
+        "example": "We need to find a viable solution to the problem."
+      },
+      {
+        "term": "Articulate",
+        "hu": "kifejez",
+        "definition": "to express clearly and effectively",
+        "example": "She articulated her ideas in a compelling presentation."
+      },
+      {
+        "term": "Perceive",
+        "hu": "felfogni",
+        "definition": "to notice or become aware of something",
+        "example": "Many people perceive risk differently."
+      },
+      {
+        "term": "Render",
+        "hu": "megnyújt",
+        "definition": "to cause to be or become",
+        "example": "The data was rendered unusable by the software bug."
+      },
+      {
+        "term": "Integral",
+        "hu": "alapvető",
+        "definition": "necessary to make a whole complete",
+        "example": "Teamwork is integral to the project's success."
+      }
+    ]
+  },
+  "reading": {
+    "title": "Reading",
+    "time": 90,
+    "sections": [
+      {
+        "id": "s1",
+        "section": 1,
+        "title": "Part 1: Gapped Sentences",
+        "description": "Questions 1-6",
+        "passages": [
+          {
+            "id": "p1",
+            "title": "The Ethics of Artificial Intelligence",
+            "subtitle": "Reading Passage 1",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "Artificial Intelligence has advanced rapidly over the past decade, raising profound ethical questions. __(1)__ as AI systems become more sophisticated, concerns about their impact on society have grown accordingly."
+              },
+              {
+                "id": "2",
+                "text": "One major concern is bias in AI algorithms. __(2)__ machine learning models are trained on data that reflects societal prejudices, they can perpetuate and even amplify discrimination."
+              },
+              {
+                "id": "3",
+                "text": "Privacy is another hotly debated topic. With AI-powered surveillance becoming increasingly common, __(3)__ individual privacy rights are being compromised in the name of security and convenience."
+              },
+              {
+                "id": "4",
+                "text": "The question of AI accountability presents a significant challenge. __(4)__ should be held responsible when an autonomous system makes a harmful decision—the developer, the user, or the AI itself?"
+              },
+              {
+                "id": "5",
+                "text": "Some experts argue that strict regulations are necessary to govern AI development. __(5)__ others believe that excessive regulation could stifle innovation and put countries at a competitive disadvantage."
+              },
+              {
+                "id": "6",
+                "text": "Ultimately, __(6)__ the technology itself is neither inherently good nor bad; it is how humans choose to deploy it that determines its ethical standing."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "sentence-insert",
+                "instruction": "Which of the sentences a–h is missing in each gap? There is only one correct answer for each item. Two sentences do not fit into any of the gaps.",
+                "options": [
+                  { "id": "a", "text": "As a result, many companies are investing heavily in AI ethics committees." },
+                  { "id": "b", "text": "This is particularly evident in facial recognition technology." },
+                  { "id": "c", "text": "Because the systems learn from existing patterns," },
+                  { "id": "d", "text": "This dilemma highlights the legal vacuum surrounding AI." },
+                  { "id": "e", "text": "The question of machine consciousness remains unresolved." },
+                  { "id": "f", "text": "This reality has forced society to grapple with questions we have never faced before." },
+                  { "id": "g", "text": "While some advocate for a precautionary approach," },
+                  { "id": "h", "text": "These concerns are not merely theoretical but have real-world consequences." }
+                ],
+                "answers": {
+                  "1": "f",
+                  "2": "c",
+                  "3": "b",
+                  "4": "d",
+                  "5": "g",
+                  "6": "e"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "title": "Part 2: Selective Understanding",
+        "description": "Questions 7-12",
+        "passages": [
+          {
+            "id": "p2",
+            "title": "The Future of Work in a Digital Age",
+            "subtitle": "Reading Passage 2",
+            "type": "READING",
+            "content": [
+              {
+                "id": "a",
+                "text": "The nature of work is transforming at an unprecedented pace, driven by technological innovation and shifting economic realities. Traditional employment models are being replaced by flexible arrangements, gig work, and remote possibilities. This transformation presents both opportunities and challenges for workers and organisations alike."
+              },
+              {
+                "id": "b",
+                "text": "Automation and artificial intelligence are reshaping job markets across industries. While some fear widespread unemployment, historical patterns suggest that technology tends to create as many jobs as it eliminates, though often in different sectors. The key challenge lies in helping workers transition from declining industries to emerging ones."
+              },
+              {
+                "id": "c",
+                "text": "Skills requirements are evolving rapidly. Technical literacy is becoming essential across all professions, not just in STEM fields. Equally important are soft skills—creativity, emotional intelligence, and adaptive thinking—that machines struggle to replicate. The most successful workers will be those who can combine technical expertise with human-centered capabilities."
+              },
+              {
+                "id": "d",
+                "text": "Workplace culture is undergoing a fundamental reimagining. Companies are recognising that employee wellbeing directly impacts productivity and innovation. Flexible working hours, remote work options, and emphasis on work-life integration are becoming standard expectations rather than perks. This shift reflects a broader understanding that sustainable performance requires balance."
+              },
+              {
+                "id": "e",
+                "text": "Looking ahead, the most adaptive organisations will be those that embrace continuous learning and agile structures. The concept of a single lifelong career is becoming obsolete, replaced by portfolios of projects and roles. Success will depend less on job security and more on the ability to learn, unlearn, and relearn as circumstances shift."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "matching-info",
+                "instruction": "In which part of the text a–e can you find the information 7–12? There is only one correct answer for each item. Each part of the text may contain more than one of the pieces of information.",
+                "questions": [
+                  {
+                    "id": "7",
+                    "text": "notes that technology has both created and eliminated jobs throughout history?",
+                    "answer": "b"
+                  },
+                  {
+                    "id": "8",
+                    "text": "identifies skills that machines cannot easily duplicate?",
+                    "answer": "c"
+                  },
+                  {
+                    "id": "9",
+                    "text": "describes how work arrangements are changing?",
+                    "answer": "a"
+                  },
+                  {
+                    "id": "10",
+                    "text": "mentions the importance of employee wellbeing?",
+                    "answer": "d"
+                  },
+                  {
+                    "id": "11",
+                    "text": "suggests that adaptability is crucial for organisational success?",
+                    "answer": "e"
+                  },
+                  {
+                    "id": "12",
+                    "text": "indicates that traditional views of career progression are outdated?",
+                    "answer": "e"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s3-reading",
+        "section": 3,
+        "title": "Part 3: Selective Understanding",
+        "description": "Questions 13-24",
+        "passages": [
+          {
+            "id": "p3-reading",
+            "title": "__________________",
+            "subtitle": "Reading Passage 3",
+            "type": "READING",
+            "content": [
+              {
+                "id": "1",
+                "text": "Quantum computing represents a fundamental departure from classical computing, harnessing the strange properties of quantum mechanics to process information in fundamentally new ways. Unlike classical computers that use bits (0s and 1s), quantum computers use quantum bits, or qubits, which can exist in multiple states simultaneously."
+
+              },
+              {
+                "id": "2",
+                "text": "The power of quantum computing lies in two quantum phenomena: superposition and entanglement. Superposition allows a qubit to be both 0 and 1 at the same time, while entanglement creates correlations between qubits that enable parallel processing on an extraordinary scale. These properties could allow quantum computers to solve certain problems exponentially faster than classical computers."
+              },
+              {
+                "id": "3",
+                "text": "Potential applications are vast and transformative. Cryptography faces an existential threat, as quantum computers could break current encryption methods that secure online communications. Conversely, quantum encryption promises virtually unbreakable security. In medicine, quantum simulations could accelerate drug discovery by modelling molecular interactions with unprecedented accuracy."
+              },
+              {
+                "id": "4",
+                "text": "However, significant technical hurdles remain. Quantum systems are extremely delicate, requiring near-zero temperatures and isolation from environmental noise. Error rates remain high, and scaling up the number of qubits while maintaining coherence presents formidable engineering challenges. Most experts predict that practical, large-scale quantum computers are still years, if not decades, away."
+              },
+              {
+                "id": "5",
+                "text": "The race to achieve quantum supremacy has become a geopolitical priority, with major governments and tech companies investing billions. China and the United States are particularly competitive in this domain. Some scholars warn that the existential risks of quantum technology—potential disruption of global finance, intelligence, and military systems—require international cooperation and governance frameworks before the technology matures fully."
+              },
+              {
+                "id": "6",
+                "text": "Despite the challenges, progress continues at a remarkable pace. Recent breakthroughs in error correction and qubit stability suggest that practical quantum computers may arrive sooner than anticipated. Whether these machines will fulfill their transformative potential remains to be seen, but the quantum revolution is undoubtedly underway, promising to reshape technology, science, and society in ways we are only beginning to imagine."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "trinary",
+                 "mode": "tfng",
+                "instruction": "Read the following text and the statements 13–23 below. For each of the statements mark: (+) corresponds to the content, (–) does not correspond, (X) is not mentioned.",
+                "questions": [
+                  {
+                    "id": "13",
+                    "text": "Quantum computers use traditional bits to perform calculations.",
+                    "answer": "NOT GIVEN"
+                  },
+                  {
+                    "id": "14",
+                    "text": "Superposition and entanglement play a crucial role in quantum computing.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "15",
+                    "text": "Quantum computers will immediately replace classical computers for all tasks.",
+                    "answer": "FALSE"
+                  },
+                  {
+                    "id": "16",
+                    "text": "Cryptography may be threatened by quantum computing capabilities.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "17",
+                    "text": "Medical applications include improved drug development processes.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "18",
+                    "text": "Quantum computers function reliably at room temperature.",
+                    "answer": "FALSE"
+                  },
+                  {
+                    "id": "19",
+                    "text": "Error correction in quantum systems has been fully solved.",
+                    "answer": "FALSE"
+                  },
+                  {
+                    "id": "20",
+                    "text": "Building quantum computers requires specific environmental conditions.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "21",
+                    "text": "Quantum technology development has implications for international security.",
+                    "answer": "TRUE"
+                  },
+                  {
+                    "id": "22",
+                    "text": "Large-scale quantum computers are already commercially available.",
+                    "answer": "NOT GIVEN"
+                  },
+                  {
+                    "id": "23",
+                    "text": "Governments and private companies are investing in quantum research.",
+                    "answer": "TRUE"
+                  }
+                ]
+              },
+              {
+                "type": "mcq",
+                "instruction": "Which title a, b or c best matches the article?",
+                "questions": [
+                  {
+                    "id": "24",
+                    "text": "Which title a, b or c best matches the article?",
+                    "options": [
+                      "a Quantum computing: From theory to reality",
+                      "b Why classical computing will become obsolete",
+                      "c The geopolitical race for quantum supremacy"
+                    ],
+                    "answer": "a Quantum computing: From theory to reality"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "languageElements": {
+    "title": "Language Elements",
+    "time": 90,
+    "sections": [
+      {
+        "id": "le-part1",
+        "section": 1,
+        "title": "Language Elements, Part 1",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p1",
+            "subtitle": "Text 1",
+            "title": "Cognitive Biases in Decision Making",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Human decision-making is influenced by a variety of cognitive biases that often lead us astray. The confirmation bias, for example, causes people to ____(21)____ information that supports their existing beliefs while ignoring contradictory evidence. This tendency can be particularly problematic in political discourse and media consumption. Similarly, the anchoring effect occurs when individuals rely too heavily on the first piece of information they receive, ____(22)____ subsequent judgements. Understanding these psychological phenomena is essential for making more rational choices. Despite growing awareness of these biases, they remain difficult to overcome because they operate at a subconscious level. Effective strategies to mitigate their influence include actively seeking diverse perspectives and ____(23)____ to question one's own assumptions. The illusion of control is another widespread bias, where people ____(24)____ an ability to influence events that are actually random. This can lead to risky behaviour in gambling or financial markets. Additionally, the status quo bias explains why many people prefer to maintain their current state rather than embrace change, even when change would be beneficial. This preference for familiarity can limit personal and professional growth. Ultimately, recognising these biases is the first step toward more objective thinking; ____(25)____ requires deliberate effort and continuous self-reflection if we wish to improve our decision-making processes."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "mcq",
+                "instruction": "Choose the correct answer for each gap.",
+                "questions": [
+                  {
+                    "id": "21",
+                    "text": "causes people to ____(21)____ information that supports their existing beliefs",
+                    "options": ["a seek out", "b look for", "c chase"],
+                    "answer": "a seek out"
+                  },
+                  {
+                    "id": "22",
+                    "text": "while ignoring contradictory evidence. This tendency can be particularly problematic in political discourse and media consumption. Similarly, the anchoring effect occurs when individuals rely too heavily on the first piece of information they receive, ____(22)____ subsequent judgements.",
+                    "options": ["a influencing", "b affecting", "c biasing"],
+                    "answer": "a influencing"
+                  },
+                  {
+                    "id": "23",
+                    "text": "Effective strategies to mitigate their influence include actively seeking diverse perspectives and ____(23)____ to question one's own assumptions.",
+                    "options": ["a committing", "b making", "c forcing"],
+                    "answer": "a committing"
+                  },
+                  {
+                    "id": "24",
+                    "text": "the illusion of control is another widespread bias, where people ____(24)____ an ability to influence events that are actually random.",
+                    "options": ["a overestimate", "b believe", "c exaggerate"],
+                    "answer": "a overestimate"
+                  },
+                  {
+                    "id": "25",
+                    "text": "Ultimately, recognising these biases is the first step toward more objective thinking; ____(25)____ requires deliberate effort and continuous self-reflection if we wish to improve our decision-making processes.",
+                    "options": ["a but this", "b however", "c nevertheless"],
+                    "answer": "a but this"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "le-part2",
+        "section": 2,
+        "title": "Language Elements, Part 2",
+        "description": "Read the following text.",
+        "passages": [
+          {
+            "id": "p2",
+            "subtitle": "Text 2",
+            "title": "The Science of Memory Consolidation",
+            "type": "LANGUAGE-ELEMENTS",
+            "content": [
+              {
+                "id": "1",
+                "text": "Recent research has shed light on the process of memory consolidation during sleep. Studies indicate that different sleep stages contribute uniquely to memory formation. Deep sleep appears crucial for consolidating factual knowledge, while REM sleep supports procedural memory and creative problem-solving. Scientists now believe that during sleep, the brain replays and reorganises daily experiences, strengthening neural connections. This understanding has implications for education and cognitive enhancement strategies."
+              }
+            ],
+            "subTasks": [
+              {
+                "type": "gap-fill-tokens",
+                "instruction": "Choose the correct word (a-u) to complete each sentence.",
+                "tokens": ["consequently", "despite", "fundamentally", "heightened", "implications", "increasingly", "inevitably", "necessarily", "nevertheless", "notably", "obviously", "occurring", "potentially", "previously", "primarily", "recently", "relatively", "significantly", "ultimately", "whereas"],
+                "questions": [
+                  { "id": "26", "text": "____(26)____, research has revealed the importance of sleep for learning." },
+                  { "id": "27", "text": "Memory consolidation is ____(27)____ important for academic performance." },
+                  { "id": "28", "text": "Some cognitive functions are enhanced during REM sleep, ____(28)____ creativity." },
+                  { "id": "29", "text": "The brain reorganises information ____(29)____ during sleep." },
+                  { "id": "30", "text": "These findings have significant educational ____(30)____." }
+                ],
+                "answers": {
+                  "26": "recently",
+                  "27": "significantly",
+                  "28": "notably",
+                  "29": "occurring",
+                  "30": "implications"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "listening": {
+    "title": "Listening",
+    "time": 30,
+    "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
+    "sections": [
+      {
+        "id": "part1",
+        "part": 1,
+        "title": "Leadership Styles",
+        "subtitle": "Part 1: Listening",
+        "description": "You will hear eight speakers discussing different approaches to leadership. You will hear each speaker once. While listening, decide which statement a–j best summarises what each speaker says. You will only use eight of the ten statements.\nMark your answers for items 47–54 on Answer Sheet.",
+        "transcript": "[Radio programme transcript with eight leaders discussing their leadership philosophies and approaches to management]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
+        "context": "Radio programme about leadership styles",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "matching-info",
+            "instruction": "Which statement a–j best matches what each speaker says?",
+            "questions": [
+              { "id": 47, "text": "Speaker 1", "answer": "a" },
+              { "id": 48, "text": "Speaker 2", "answer": "b" },
+              { "id": 49, "text": "Speaker 3", "answer": "c" },
+              { "id": 50, "text": "Speaker 4", "answer": "d" },
+              { "id": 51, "text": "Speaker 5", "answer": "e" },
+              { "id": 52, "text": "Speaker 6", "answer": "f" },
+              { "id": 53, "text": "Speaker 7", "answer": "g" },
+              { "id": 54, "text": "Speaker 8", "answer": "h" }
+            ],
+            "options": [
+              "a Effective leaders must adapt their style to different situations.",
+              "b Micromanagement undermines employee autonomy and motivation.",
+              "c Leading by example is more impactful than giving orders.",
+              "d Empathy is essential for building strong team relationships.",
+              "e Clear communication prevents misunderstandings in the workplace.",
+              "f Delegation empowers team members and develops their skills.",
+              "g Leaders should foster innovation by encouraging risk-taking.",
+              "h Transparency builds trust and employee engagement.",
+              "i Authoritarian leadership is effective in crisis situations.",
+              "j Regular feedback helps employees improve continuously."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part2",
+        "part": 2,
+        "title": "Climate Activism Interview",
+        "subtitle": "Part 2: Listening",
+        "description": "You will hear an interview with a climate scientist about recent environmental changes. You will hear the interview only once. While listening decide which answer fits best: a, b or c.\nMark your answers for items 55–64 on Answer Sheet.",
+        "transcript": "[Interview transcript about climate science and environmental activism]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
+        "context": "Interview about climate change",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "mcq",
+            "instruction": "While listening decide which answer fits best: a, b or c.",
+            "questions": [
+              {
+                "id": "55",
+                "text": "According to the guest, the most critical tipping point in climate systems is",
+                "options": ["a melting of polar ice caps.", "b ocean acidification.", "c permafrost thawing."],
+                "answer": "a melting of polar ice caps."
+              },
+              {
+                "id": "56",
+                "text": "The scientist believes that international climate agreements",
+                "options": ["a are fundamentally flawed.", "b represent progress but need strengthening.", "c have been highly effective so far."],
+                "answer": "b represent progress but need strengthening."
+              },
+              {
+                "id": "57",
+                "text": "Regarding renewable energy adoption, the guest states that",
+                "options": ["a costs are no longer a major barrier.", "b storage remains the key challenge.", "c public opposition is widespread."],
+                "answer": "b storage remains the key challenge."
+              },
+              {
+                "id": "58",
+                "text": "On individual climate action, the scientist argues that",
+                "options": ["a personal choices have minimal impact.", "b collective action begins with individual commitment.", "c systemic change is the only meaningful approach."],
+                "answer": "b collective action begins with individual commitment."
+              },
+              {
+                "id": "59",
+                "text": "The guest describes geoengineering proposals as",
+                "options": ["a necessary supplements to emissions reduction.", "b potentially dangerous distractions.", "c already proven effective."],
+                "answer": "b potentially dangerous distractions."
+              },
+              {
+                "id": "60",
+                "text": "Methane emissions reduction is important because",
+                "options": ["a methane is the most potent greenhouse gas.", "b it can have rapid climate benefits.", "c methane affects only local air quality."],
+                "answer": "b it can have rapid climate benefits."
+              },
+              {
+                "id": "61",
+                "text": "The scientist believes adaptation measures",
+                "options": ["a are unnecessary if we reduce emissions.", "b must go hand-in-hand with mitigation.", "c are too expensive to implement widely."],
+                "answer": "b must go hand-in-hand with mitigation."
+              },
+              {
+                "id": "62",
+                "text": "Regarding climate justice, the guest emphasises that",
+                "options": ["a developed nations bear historical responsibility.", "b developing countries should not be constrained.", "c climate change affects everyone equally."],
+                "answer": "a developed nations bear historical responsibility."
+              },
+              {
+                "id": "63",
+                "text": "The message for young activists is",
+                "options": ["a to focus on electoral politics.", "b that their actions do make a difference.", "c to accept gradual progress."],
+                "answer": "b that their actions do make a difference."
+              },
+              {
+                "id": "64",
+                "text": "Overall, the scientist's outlook is",
+                "options": ["a deeply pessimistic.", "b cautiously hopeful.", "c naively optimistic."],
+                "answer": "b cautiously hopeful."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "part3",
+        "part": 3,
+        "title": "The Neuroscience of Creativity",
+        "subtitle": "Part 3: Listening",
+        "description": "You are listening to a lecture on creativity and the brain. For each slide there are one or more pieces of information you should note down. While listening, make notes on the right hand side for items 65–74. Answer 0 is an example. You will hear the presentation only once.\nAfter listening to the recording, you will have five minutes to transfer your answers for items 65–74 to Answer Sheet.\nYou will now have one minute to read the slides.",
+        "transcript": "[Academic lecture transcript about neuroscience and creativity]",
+        "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
+        "context": "Academic lecture on neuroscience",
+        "type": "LISTENING",
+        "skill": "listening",
+        "subTasks": [
+          {
+            "type": "notes-completion",
+            "instruction": "Complete the notes with information from the presentation.",
+            "wordLimit": 3,
+            "notes": [
+              {
+                "heading": "The Neuroscience of Creativity",
+                "items": [
+                  { "id": "0", "type": "text", "text": "DR. ELIZABETH WARREN" },
+                  { "id": "0-answer", "type": "gap", "label": "Award", "answer": "Neuroscience Prize" }
+                ]
+              },
+              {
+                "heading": "Defining Creativity",
+                "items": [
+                  { "id": "65", "type": "gap", "label": "Two components of creativity", "answer": "divergent and convergent thinking" },
+                  { "id": "66", "type": "gap", "label": "Brain network involved", "answer": "default mode network" }
+                ]
+              },
+              {
+                "heading": "The Creative Process",
+                "items": [
+                  { "id": "67", "type": "gap", "label": "First phase of creative thinking", "answer": "preparation" },
+                  { "id": "68", "type": "gap", "label": "Phase when insights occur", "answer": "illumination" }
+                ]
+              },
+              {
+                "heading": "Factors that Enhance Creativity",
+                "items": [
+                  { "id": "69", "type": "gap", "label": "Practice improves creative", "answer": "skill" },
+                  { "id": "70", "type": "gap", "label": "Diverse experiences foster", "answer": "novel connections" }
+                ]
+              },
+              {
+                "heading": "Obstacles to Creativity",
+                "items": [
+                  { "id": "71", "type": "gap", "label": "Fear of failure limits", "answer": "risk-taking" },
+                  { "id": "72", "type": "gap", "label": "Time pressure reduces", "answer": "creative output" }
+                ]
+              },
+              {
+                "heading": "Creative Environments",
+                "items": [
+                  { "id": "73", "type": "gap", "label": "Physical space affects", "answer": "cognitive function" },
+                  { "id": "74", "type": "gap", "label": "Interdisciplinary collaboration promotes", "answer": "innovation" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "writing": {
+    "title": "Writing",
+    "time": 60,
+    "sections": [
+      {
+        "id": "w-m3-t1",
+        "taskType": 1,
+        "title": "Task 1: Compulsory",
+        "subtitle": "Part 1: Writing",
+        "instruction": "In this part of the examination you have to write two texts: the compulsory task and one of the optional tasks. You have a total of one hour to complete both tasks.\nRemember:\nThe texts you write should be well-structured and highlight the points that you think are most important for the reader. The structure of the text should have an appropriate degree of complexity with reference to the type of text specified and should also contain a number of complex sentence forms.\nWrite at least 200 words.",
+        "context": "Your city council is considering implementing a congestion charge for vehicles entering the city centre during peak hours. The proposal aims to reduce traffic congestion, lower air pollution, and encourage public transport use. Some residents support the plan as a necessary environmental measure, while others argue it will unfairly burden low-income drivers and local businesses. The local newspaper has requested opinions from readers.\n\nWrite a letter to the editor of the newspaper expressing your views on this proposal.",
+        "targetWords": 200,
+        "xp": 500,
+        "prompt": "Write to the newspaper editor expressing your opinion on the proposed congestion charge.",
+        "type": "letter"
+      },
+      {
+        "id": "w-m3-t2",
+        "taskType": 2,
+        "title": "Task 2: Optional",
+        "subtitle": "Part 2: Writing",
+        "instruction": "Choose one of the following four tasks and write at least 150 words.",
+        "options": [
+          {
+            "id": "optional-a",
+            "title": "A: Letter to Your Younger Self",
+            "context": "A popular online magazine is publishing a series called 'Lessons Learned' where successful professionals write letters to their younger selves. You have been invited to contribute. Write a letter to yourself at age 20, sharing insights about career choices, relationships, or personal growth that you wish you had known at that time.\n\nWrite your letter for the magazine.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "letter"
+          },
+          {
+            "id": "optional-b",
+            "title": "B: Fitness Centre Advertisement",
+            "context": "A new fitness centre is opening in your neighbourhood and needs to attract members. You have been asked to write a promotional text for the community newsletter describing the facilities, programmes, and benefits of joining.\n\nWrite the promotional text for the newsletter.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "informative"
+          },
+          {
+            "id": "optional-c",
+            "title": "C: Complaint to Streaming Service",
+            "context": "You have been a loyal subscriber to a streaming service for three years. Recently, the service has significantly increased its prices while reducing the content library and experiencing frequent technical issues. You have tried contacting customer service with no resolution.\n\nWrite a formal complaint letter to the company's management.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "letter"
+          },
+          {
+            "id": "optional-d",
+            "title": "D: Blog Post About Lifelong Learning",
+            "context": "A popular education blog is seeking contributions about continuous learning in the modern world. Write a post discussing why learning new skills throughout adulthood is important, with examples of how people can do so effectively.\n\nWrite the blog post.",
+            "targetWords": 150,
+            "xp": 300,
+            "type": "article"
+          }
+        ]
+      }
+    ]
+  },
+  "speaking": {
+    "title": "Speaking",
+    "time": 15,
+    "sections": [
+      {
+        "id": "speaking-part1",
+        "title": "Presentation",
+        "subtitle": "Part 1: Speaking",
+        "type": "presentation",
+        "duration": "3 minutes",
+        "instruction": "Choose one of the two topics and give a short presentation to your partner(s). Take a few seconds to prepare before you start speaking. Remember to give an introduction (example, own experience) and come to a conclusion at the end. You should talk for about three minutes. At the end you will be asked follow-up questions.",
+        "topics": [
+          {
+            "topic": "Can technological progress and environmental protection go hand in hand?",
+            "questions": [
+              {
+                "id": "p1q1",
+                "text": "What are some examples of technology helping the environment?"
+              }
+            ]
+          },
+          {
+            "topic": "Is success in life dependent on having a university degree?",
+            "questions": [
+              {
+                "id": "p1q2",
+                "text": "What skills are most valuable in today's job market?"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "speaking-part2",
+        "title": "Discussion",
+        "subtitle": "Part 2: Discussion",
+        "type": "discussion",
+        "duration": "6 minutes",
+        "instruction": "Discuss the following topic with your partner(s)",
+        "text": "\"The greatest threat to our planet is the belief that someone else will save it.\" Robert Swan, environmental activist",
+        "topics": [
+          {
+            "topic": "Environmental Responsibility",
+            "questions": [
+              {
+                "id": "p2q1",
+                "text": "What message do you think Robert Swan is conveying with this statement?"
+              },
+              {
+                "id": "p2q2",
+                "text": "To what extent do you agree or disagree with this viewpoint?"
+              },
+              {
+                "id": "p2q3",
+                "text": "What concrete actions can individuals take to address environmental challenges?"
+              },
+              {
+                "id": "p2q4",
+                "text": "How can we motivate others to take environmental responsibility more seriously?"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -576,7 +576,7 @@
     ]
   },
   
-"listening": {
+  "listening": {
     "title": "Listening",
     "time": 30,
     "instructions": "You will hear a number of different recordings and you will have to answer questions on what you hear. There will be time for you to read the instructions and questions, and you will have a chance to check your work. All the recordings will be played once only. The test is in 3 parts. At the end of the test, you will be given 10 minutes to transfer your answers to the answer sheet.",
@@ -586,137 +586,95 @@
         "part": 1,
         "title": "Situations",
         "subtitle": "Part 1: Listening",
-        "description": "You will hear people talking in eight different situations.\nFor questions 1-8, choose the best answer A, B or C.",
-        "transcript": "1. As restaurant manager, I feel responsible for the quality of the food we serve. So it's up to me to check the ingredients that have been delivered overnight to make sure they are of sufficient quality, and to produce a menu for the day. The cooks arrive at about ten a.m. to prepare lunch and I'll take them through the menu. Because lunch is concentrated over a short period of time it can get very busy and very hot. But unlike some kitchens, we tend to divide the jobs up according to who likes doing what, and that includes cleaning pots and pans and clearing the place before dinner.\n\n2. It's a factual book, a chronicle of the twentieth century and it's wonderful. I mean it's terribly bitty and it's not going to give you a lot of information nor be good for school work. That's what's really nice about it. Here is a reference book which it is fun to dip in and out of. It's hardly going to help anyone write an essay and it avoids being geared to any school syllabus, unlike so much of what is published today. But for anyone who likes little details, you know, you can look up your date of birth, for example, and see what else happened then, it's a very good book.\n\n3. So, there've been some dramatic events in Victoria Street this past week, what with Mariela deciding not to marry Jason, and Stephen leaving home in the middle of a family row. Are next week's episodes as exciting? Well, I can't give away the whole story, but I don't think you'll be disappointed! I can tell you that Stephen's mother is forced to tell her husband the secret she's been hiding for years, which leads to more fireworks and a few tears. And Jason refuses to accept Mariela's decision, so you're going to hear a lot more from him, and look out for some surprises there.\n\n4. We get people to the taxis, that's the first priority, and to the trains. We make sure they get on early and get comfortable seats. These days many passengers have a lot of luggage and they want assistance with it. So we provide a much-needed service. We even take people down to the Underground or to places in the surrounding streets. But the majority of users are airline passengers with a lot of bags and perhaps accompanied by elderly relatives, young children and so on. Obviously they can't manage everything on their own.\n\n5. I exercise in the form of dance. At one time, I did aerobics because exercise is more interesting with music, but I've since moved on to line dancing. It's less energetic, but I go three times a week. I run my own business, work hard, and it's just a way to cut off rather than watch television. It's also a challenge keeping up with the new steps. I think young people sometimes take exercise too far, get over-concerned with how they look, when they'll never be able to keep it up at that sort of pace. Whereas line dancing struck me as something I could sustain as part of my normal life.\n\n6. Man: Well, what did you think of that, then? Woman: Brilliant! I've never tasted anything like it! I wish you'd tried this place sooner. I mean, I've been walking past it for years. Man: Why didn't you? Woman: Well, to be honest, I never thought I'd be able to afford it, but it's actually quite reasonable. Mind you, I think they could have tried a bit harder with the presentation. I think if food looks good on the plate you automatically expect it to taste good. Yours was okay, but I think they could have made more of an effort with mine.\n\n7. In practical terms, the place I'm in doesn't matter too much. As long as I have the necessary tools, you know, pencil and paper and, of course, my keyboard. Once I'm started, I go over things again and again – must be very dull if anyone's listening. I change a few notes here and there, but basically I tend to stick with an idea once I have it. I guess home's the best place in a way because there I'm relaxed enough to let my imagination flow and that's what you need to do, in order to produce a good piece…\n\n8. Well, I'm sharing with two other girls … I know, it was supposed to be me and one other person, but there's a shortage of accommodation, apparently. Anyway, the room's rather cramped. But it's great. There've been three parties so far, and it's still the first week. It's an incredibly noisy place, with doors banging and people laughing and shouting till the small hours. Yes, I suppose we'll have to get down to work soon, though I don't know how we'll be able to, packed into that little space – none of us is very tidy …",
-        "audioUrl": "/audio/PEL-B2-Test1-Part1.mp3",
-        "context": "Eight different situations",
+        "description": "You will hear people talking in five different situations. For each situation, match the speaker's main point to one of the headings (1-6). There is one extra heading you do not need to use.",
+        "transcript": "1\n\nListen, about Jimmy’s school project. I spoke to the computer department at work about borrowing a laptop, and apparently they’re only supposed to give them out to people on company business. So I guess Jimmy will just have to write it all out by hand and type it out when we get back. That’ll only give him two days, but what can we do? I know he’s been at home all summer, but that’s Jimmy for you, and he’s only twelve. I just wish his school was a bit more understanding about people’s holiday arrangements.\n\n2\n\nWoman:   Go ahead, Paul, I’m listening.\n\nMan:   Well … I’m fed up with listening to all your callers moaning on about the new traffic scheme. I mean, that woman who said it took fifty minutes to cross the city by car instead of her usual thirty. Poor thing! Why doesn’t she leave the car at home and use the bus service instead? Anyway, the aim of the new scheme isn’t to make car journeys quicker; it’s for shoppers and pedestrians and cyclists and bus passengers, and it’s working. I recommend everyone to have a walk in the city centre and see for themselves. That’s all I wanted to say.\n\n3\n\nI do sometimes think about moving, I can’t deny it, but when you’ve lived in a house for as long as I have, you learn to accept its drawbacks and you stop always trying to change things. Here, the garden is a bit big for me to cope with as I would like, but now I’ve got someone who comes in once a week to help me out, and things have definitely improved, so I think I’ll be staying put for just a little bit longer.\n\n4\n\nMan:   I had dinner at Mark’s house last night. His father made a delicious Italian dessert.\n\nWoman:   Oh, yes, his parents are Italian, aren’t they? I keep forgetting that because Mark’s English is so good.\n\nMan:   Of course it is! He was born in Texas. And his mother’s not Italian, she’s French. That’s what they all speak to each other, though they used English when I was there. Mark has to go to classes on Saturday to learn to read and write Italian. To hear him speak on the phone to his grandmother in Rome, you’d think it was his first language!\n\n5\n\nAs a child all our holidays were in Scotland because my father was very keen on climbing and he insisted we went climbing every day. One day the weather stopped us going climbing, much to my relief, so we hired a rowing boat on the lake. My father complained it was uncomfortable and slow (he preferred motorboats) but I sat there and thought, ‘This feels good!’ – even though the boat was old and creaky. After that, I just got the bug really … and I’ve been rowing ever since. And the boats now are better than that first one in Scotland!",
+        "audioUrl": "/audio/PEL-B2-Test2-Part1.mp3",
+        "context": "Five different situations",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
-                    {
+          {
             "type": "heading-match",
-            "instruction": "Which headline (a-f) corresponds to each news item?",
+            "instruction": "Which statement (1-6) corresponds to each situation?",
             "questions": [
               {
-                "id": 41,
-                "text": "News Item 1",
+                "id": 1,
+                "text": "Situation 1",
                 "answer": "3"
               },
               {
-                "id": 42,
-                "text": "News Item 2",
-                "answer": "6"
-              },
-              {
-                "id": 43,
-                "text": "News Item 3",
+                "id": 2,
+                "text": "Situation 2",
                 "answer": "1"
               },
               {
-                "id": 44,
-                "text": "News Item 4",
-                "answer": "2"
-              },
-              {
-                "id": 45,
-                "text": "News Item 5",
-                "answer": "4"
-              },
-              {
-                "id": 46,
-                "text": "News Item 6",
+                "id": 3,
+                "text": "Situation 3",
                 "answer": "0"
               },
               {
-                "id": 47,
-                "text": "News Item 7",
+                "id": 4,
+                "text": "Situation 4",
                 "answer": "5"
               },
               {
-                "id": 48,
-                "text": "News Item 8",
-                "answer": "7"
+                "id": 5,
+                "text": "Situation 5",
+                "answer": "4"
               }
             ],
             "headings": [
-                  "Mixed feelings about a meal out",
-                  "Further exciting developments",
-                  "Helping people on their way",
-                  "Varied workload",
-                  "Finding the right kind of exercise",
-                  "The best place to work",
-                  "Book that avoids being academic",
-                  "Adjusting to a new living situation"
+              "Getting help with a household chore.",
+              "Defending a new urban development.",
+              "Regretting a past travel decision.",
+              "Problems with school holiday assignments.",
+              "Discovering a new hobby.",
+              "Discussing family language background."
             ]
-          } 
+          }
         ]
       },
       {
         "id": "part2",
         "part": 2,
-        "title": "Interview: Volunteering in Africa",
+        "title": "Interview: Nature Reserve",
         "subtitle": "Part 2: Listening",
-        "description": "You will hear an interview with Elizabeth Holmes about her experience working in Africa.\nFirst you will have one minute to read the questions.\nThen you will hear the interview.\nDecide if each statement is TRUE, FALSE or NOT GIVEN.",
-        "transcript": "Interviewer: Visitors to the small Devon village of Whimple might be forgiven for looking twice as they pass the garden of Elizabeth Holmes. In the middle of the garden there stands a traditional African hut, a reminder of the two years Elizabeth spent in Africa as a volunteer. Elizabeth, what persuaded you to leave your secure job in a travel agent's and go to Africa?\n\nElizabeth: Well, I'd been feeling restless for ages. I wanted to see the real world, not just tourist places. Then, I was at the dentist's one day, waiting to go in, and I'd read all the magazines in the waiting room, so I started looking at a poster – it was all about volunteers working in Africa.\n\nInterviewer: And it interested you?\n\nElizabeth: Yes, I took down the name and address and applied. I had an interview locally and did some aptitude tests. Then just before I left for Africa, there was a training weekend in London, which they call 'Changes' and which gives you some idea of what you're letting yourself in for.\n\nInterviewer: What particular skills could you offer?\n\nElizabeth: I had a degree in economics and I had done some teaching at one time. What they wanted to send me to Africa to do was to train local farmers in the marketing of their produce. I flew out with fifteen other volunteers, all going to do different things, like nursing, teaching, and so on. When we got there, we were supposed to have a four-week course at a training centre learning something about the local culture and the basics of the language – you know, greetings and things like that. Anyway, there was a problem and it only lasted three weeks in the end – not enough really.\n\nInterviewer: Did it take a long time to get used to your new lifestyle?\n\nElizabeth: I found it quite difficult for the first few weeks, but after that I settled in very well. My area covered 1200 square kilometres, and I had a truck for long-distance travel, but for more local trips I rode a motorbike.\n\nInterviewer: How did you get on with the local people?\n\nElizabeth: Very well. The men were very polite but they tended to keep their distance – unlike the women, who were always inviting me to meals. They showed me how they wove and dyed material to make clothes for themselves and their children. I used to get magazines sent from England and we'd spend ages looking at them.\n\nInterviewer: I expect you found it very different when you returned to England?\n\n\nElizabeth: Yes, I certainly did. After two years of living very simply, I found the supermarkets especially overwhelming – just the enormous choice of food. Also, the traffic disturbed me. I had to move from my flat in the city to a small cottage in the country just to get some of the peace and quiet I'd become accustomed to in Africa.\nInterviewer: And what are you working on at the moment?\n\nElizabeth: Well, I didn't want to just go back to working in someone else's office so I set up my own business, which I run from home. I deal in African furniture. I brought some small pieces back with me as souvenirs and everyone loved them in Britain. However, I'm still in touch with the organisation that sent me to Africa as a volunteer. I organise events to raise funds and give talks about my experience to encourage other people to go.\nInterviewer: Has the experience in Africa changed you at all?\n\nElizabeth: Oh yes, in many ways. I used to spend all my time working, but now I make sure I have more time for gardening – my favourite hobby.",
-        "audioUrl": "/audio/PEL-B2-Test1-Part2.mp3",
-        "context": "Interview - volunteering in Africa",
+        "description": "You will hear a girl called Tricia Simpkins talking at a public meeting about a plan to create a nature reserve in the centre of a large city. For questions 6-10, decide if each statement is TRUE, FALSE or NOT GIVEN.",
+        "transcript": "Man:   Good afternoon. Thank you for coming to this public meeting which has been called to discuss the idea of creating a nature reserve in the city – that is, an area where wildlife is protected, and to begin with, local teenager, Tricia Simpkins, is going to tell us some of the background to the idea. Tricia.\n\nTricia:   Yes. Hello … I’d like to start by saying that, like many city teenagers, I don’t have much contact with the countryside. I live off a busy, polluted shopping street, full of people and cars, in the middle of a crowded city and I’d never given any thought to wildlife. Even though every house down my street has got a bit of a garden and we have trees along the road and a piece of waste ground at one end, it seemed nothing out of the ordinary, and I took it all for granted.\n\nMy attitude started to change when we had to do a survey of the wildlife in the city as part of a school project. We chose ten families from the street and we asked them just to write down all the animals, birds, insects and so on that they could remember seeing in their garden or down the street during the last couple of years.\n\nAll sorts of surprising things soon started coming out of that survey; like that we have twenty different sorts of butterfly, fifty different types of birds, and all sorts of animals, even some quite large ones like foxes and deer. At first we wondered what it meant, like was it a world record or something? We’d no way of knowing. So what we did, we got in touch with a nature reserve out in the country, and asked them what you could see there. And that’s when we realised that we’ve as much, if not more wildlife than they do. And that’s what really got us interested in the idea of a nature reserve here.\n\nBecause what worries us now is that we may be losing our local wildlife. One specially worrying thing has been all the cutting down of trees in the streets. We’ve got really big old trees here in this part of the city, and of course if one gets damaged in a storm or gets a disease, it has to be removed. But this year alone, over one hundred of these trees have been chopped down. Now the reason given for this is that the trees have really extensive root systems which makes it difficult for people laying gas pipes, electricity cables and things. But we think these problems are not as serious as they are made out to be, and there’s no need for all this destruction.\n\nWhat’s more, although the local council has agreed to plant new trees in place of the old ones, what they’re planting are these little ornamental trees that look nice, but the birds and animals just don’t use them in the same way. And they’re not even saving money, because more suitable trees cost just the same.\n\nAnother example of what can happen is the wasteland at the end of our street. It belongs to the city council and as children we all used to play there and we thought it was really great because it was so covered in bushes and wild flowers that you could get lost if you went off the little muddy tracks. Then, a few years ago, no doubt thinking they were doing the right thing, the council decided to tidy it up. Now it’s just an area of grass where people go to exercises their dogs. There are a few little trees, but basically there’s not a lot there any more.\n\nSo, what I’d like to propose this afternoon is that we use this space to create a nature reserve. We think it should be allowed to go back to its natural condition, thus providing a refuge for the local wildlife which may be suffering from the loss of trees in the area. This would, of course, also be a leisure amenity for people who want to get away from the stresses of city living, which is hardly something we would want to deny them.\n\nSo, I would like you ….",
+        "audioUrl": "/audio/PEL-B2-Test2-Part2.mp3",
+        "context": "Interview - Tricia Simpkins discussing a city nature reserve",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
           {
             "type": "trinary",
-            "mode": "tfng", 
+            "mode": "tfng",
             "instruction": "Decide if each statement is TRUE, FALSE or NOT GIVEN.",
             "questions": [
               {
+                "id": 6,
+                "text": "Tricia had always been interested in city wildlife.",
+                "answer": "FALSE"
+              },
+              {
+                "id": 7,
+                "text": "The school project involved surveying ten families about local wildlife.",
+                "answer": "TRUE"
+              },
+              {
+                "id": 8,
+                "text": "The survey discovered a world record number of species in their area.",
+                "answer": "NOT GIVEN"
+              },
+              {
                 "id": 9,
-                "text": "Elizabeth worked for a travel agency before she went to Africa.",
+                "text": "Tricia believes the reasons for cutting down trees are exaggerated.",
                 "answer": "TRUE"
               },
               {
                 "id": 10,
-                "text": "She first found out about working as a volunteer from a poster she saw at the dentist's.",
-                "answer": "TRUE"
-              },
-              {
-                "id": 11,
-                "text": "The course in London that Elizabeth attended was called 'Changes'.",
-                "answer": "TRUE"
-              },
-              {
-                "id": 12,
-                "text": "Elizabeth's job in Africa was to teach local farmers how to market their goods.",
-                "answer": "TRUE"
-              },
-              {
-                "id": 13,
-                "text": "On arrival in Africa, Elizabeth spent four weeks doing a training course with other volunteers.",
+                "text": "The new ornamental trees planted by the council are more expensive.",
                 "answer": "FALSE"
-              },
-              {
-                "id": 14,
-                "text": "Elizabeth used a motorbike to travel short distances in Africa.",
-                "answer": "TRUE"
-              },
-              {
-                "id": 15,
-                "text": "Elizabeth feels that she got on best with the local women in the area of Africa where she lived.",
-                "answer": "TRUE"
-              },
-              {
-                "id": 16,
-                "text": "Back in England, Elizabeth found that she was disturbed by the traffic noise in the city.",
-                "answer": "TRUE"
-              },
-              {
-                "id": 17,
-                "text": "At the moment, Elizabeth buys and sells furniture from Africa.",
-                "answer": "TRUE"
-              },
-              {
-                "id": 18,
-                "text": "Nowadays, Elizabeth spends more time on her favourite pastime, which is gardening.",
-                "answer": "TRUE"
               }
             ]
           }
@@ -725,82 +683,92 @@
       {
         "id": "part3",
         "part": 3,
-        "title": "Opinions: Good Boss Qualities",
+        "title": "Study Habits",
         "subtitle": "Part 3: Listening",
-        "description": "You will hear five different employees talking about what makes a good boss.\nFor questions 19-23, choose which of the opinions A-F each speaker expresses.\nUse the letters only once. There is one extra letter which you do not need to use.",
-        "transcript": "Speaker 1: Some people still think that leaders are born, not made. They say, no matter how hard you study and how many diplomas you collect, at the end of the day, if you've got natural skills, such as a strong character, that's all you'll need. I think that's nonsense. Leadership is all about commanding respect. If a boss says to me, for example, 'Look, your computer skills need upgrading', I'll think, 'Right, this person has a degree in computing, I don't, so he must be right'. But if it's the other way round, then you feel, well, maybe I should be boss!\n\nSpeaker 2: Well, the sort of leaders that I actually admire … are not the … top dogs in suits … with a degree in management and a belief that nobody can do things as well as they can. One thing I've learned from all my experience in different jobs is that, to be a really good boss, you have to be good at encouraging the people under you to decide on important issues … creating a situation in which other people can shine. Of course this does not mean the boss's job is any easier; it's still a challenge, but so much more rewarding for everyone.\n\nSpeaker 3: Since I left school, I've done a number of short-term office jobs, and I must say I'm beginning to realise how important it is to have the right sort of person directing your work. To develop all my potential, I need to be told when I'm doing something well, and also the areas where I could improve … I think the earlier you get formal and informal feedback, the better. Otherwise you develop bad habits … some of my workmates don't agree with me, when I say it's good to meet regularly with your boss, they think I'm trying to be better than them.\n\nSpeaker 4: Of course we all want bosses who are knowledgeable and who bring energy to the job, and I must say, in my opinion, most people who reach top job positions do possess these qualities. However, what really matters is the ability to bring people together. Leaders often mistakenly encourage people to work on their own, kind of, in isolation, because they are afraid of the strengths of groups, they think maybe they'll criticise, or even join forces against the leader … Such leaders need to go on management courses, to look at good examples of leadership …\n\nSpeaker 5: Well, in the organisation where I work, each department has a leader, a boss … and because I've worked in six of these departments, I've had six different bosses! I must say there's been very little to complain about … except that we are being asked to do an enormous amount of extra work and some of the bosses don't seem to be doing long hours, like the rest of us. It is true that after work, they may have to attend special management courses, or meet individual members of staff to discuss performance, but this only happens occasionally …",
-        "audioUrl": "/audio/PEL-B2-Test1-Part3.mp3",
-        "context": "Five employees discuss good boss qualities",
+        "description": "You will hear five different people talking about the way they study. For questions 11-15, choose from the list A-H what each speaker says.",
+        "transcript": "Speaker 1\n\nGirl:   I must say, I’ve never found it easy to study at home. I’ve tried all sorts of places. One of my friends prefers to study outside, lying on a rug in the garden. I try that from time to time and it’s nice and airy, though my concentration tends to wander a bit and I find I’m looking at the trees, or people passing by, rather than at my notes. I think better in my bedroom, where it’s nice and quiet. I’ve got a large desk there to put my computer on, and I set my alarm early and work with a fresh mind before everyone else’s up.\n\nSpeaker 2\n\nBoy:   You know how sociable I am normally? Well, it’s strange but I find people talking really puts me off when I’m trying to study, so I hardly ever work with a classmate, although it’s much more fun. You’d think that the faculty library would be the best place for me then – an academic atmosphere and no distractions. You always get a few people whispering and coughing though and that annoys me. What I frequently do instead now is put on my personal stereo and have something blasting away, it doesn’t matter what. That blocks out everything else and I get through the work in no time.\n\nSpeaker 3\n\nGirl:   When I do my homework I have to feel right. After sitting on a hard chair all day, I need to stretch out with my head on a pillow. Mum says I cannot possibly concentrate like that, but actually I don’t fall asleep as long as I don’t go on too late and I have the window open to get some fresh air. I’d love to work with music on, a lot of my friends do, and they say it really helps them concentrate. The point is I like music too much – it takes over from whatever I’m supposed to be doing.\n\nSpeaker 4\n\nBoy:   I’m hopeless at doing school projects. I make timetables so that I can complete the project well before the deadline, but I don’t stick to them. I’ve tried everything – strong coffee, quiet rooms, fresh air. Even though I’m wide awake and there’s nothing to disturb me, the work still doesn’t get done. I was getting really worried last week, when Mary came round and asked if she could work in my room – hers is too dark and stuffy. I’ve never worked with a friend before and so I said ‘No’, but she was desperate. Eventually, I gave in and it really worked out for us both. I couldn’t believe it!\n\nSpeaker 5\n\nGirl:   I really like some of the subjects I’m doing this year, particularly maths and physics. I don’t mind studying them at all, although some of the homework assignments we’re given are quite tricky, so I need to be able to work undisturbed. That’s often a bit difficult in our house, unless I put it off until everyone’s in bed. Did you know that my younger brother, Fred, plays the guitar in a band? I love some of their music, it’s really cool, you’d love it too, but it’s pointless trying to work when he’s playing.",
+        "audioUrl": "/audio/PEL-B2-Test2-Part3.mp3",
+        "context": "Five people discuss their study habits",
         "type": "LISTENING",
         "skill": "listening",
         "subTasks": [
           {
             "type": "mcq",
-            "instruction": "Which of the opinions A-F does each speaker express? Use each letter only once.",
+            "instruction": "For questions 11-15, choose from the list (A-H) what each speaker says.",
             "questions": [
               {
-                "id": 19,
+                "id": 11,
                 "text": "Speaker 1",
-                "answer": 4,
+                "answer": 3,
                 "options": [
-                  "A good boss should allow staff to take decisions.",
-                  "A good boss should encourage staff to work in teams.",
-                  "A good boss should listen to complaints from staff.",
-                  "A good boss should give information on individual progress.",
-                  "A good boss should have good qualifications.",
-                  "A good boss should set an example of hard work."
+                  "I get distracted by background noise.",
+                  "I find working with others helpful.",
+                  "I have a specific way of getting comfortable to study.",
+                  "I study best early in the morning.",
+                  "I use music to help me concentrate.",
+                  "I find it hard to stick to a study schedule.",
+                  "I get disturbed by family members.",
+                  "I prefer to study outdoors."
                 ]
               },
               {
-                "id": 20,
+                "id": 12,
                 "text": "Speaker 2",
                 "answer": 0,
                 "options": [
-                  "A good boss should allow staff to take decisions.",
-                  "B good boss should encourage staff to work in teams.",
-                  "C good boss should listen to complaints from staff.",
-                  "D good boss should give information on individual progress.",
-                  "E good boss should have good qualifications.",
-                  "F good boss should set an example of hard work."
+                  "I get distracted by background noise.",
+                  "I find working with others helpful.",
+                  "I have a specific way of getting comfortable to study.",
+                  "I study best early in the morning.",
+                  "I use music to help me concentrate.",
+                  "I find it hard to stick to a study schedule.",
+                  "I get disturbed by family members.",
+                  "I prefer to study outdoors."
                 ]
               },
               {
-                "id": 21,
+                "id": 13,
                 "text": "Speaker 3",
-                "answer": 3,
+                "answer": 2,
                 "options": [
-                  "A good boss should allow staff to take decisions.",
-                  "B good boss should encourage staff to work in teams.",
-                  "C good boss should listen to complaints from staff.",
-                  "D good boss should give information on individual progress.",
-                  "E good boss should have good qualifications.",
-                  "F good boss should set an example of hard work."
+                  "I get distracted by background noise.",
+                  "I find working with others helpful.",
+                  "I have a specific way of getting comfortable to study.",
+                  "I study best early in the morning.",
+                  "I use music to help me concentrate.",
+                  "I find it hard to stick to a study schedule.",
+                  "I get disturbed by family members.",
+                  "I prefer to study outdoors."
                 ]
               },
               {
-                "id": 22,
+                "id": 14,
                 "text": "Speaker 4",
                 "answer": 1,
                 "options": [
-                  "A good boss should allow staff to take decisions.",
-                  "B good boss should encourage staff to work in teams.",
-                  "C good boss should listen to complaints from staff.",
-                  "D good boss should give information on individual progress.",
-                  "E good boss should have good qualifications.",
-                  "F good boss should set an example of hard work."
+                  "I get distracted by background noise.",
+                  "I find working with others helpful.",
+                  "I have a specific way of getting comfortable to study.",
+                  "I study best early in the morning.",
+                  "I use music to help me concentrate.",
+                  "I find it hard to stick to a study schedule.",
+                  "I get disturbed by family members.",
+                  "I prefer to study outdoors."
                 ]
               },
               {
-                "id": 23,
+                "id": 15,
                 "text": "Speaker 5",
-                "answer": 5,
+                "answer": 6,
                 "options": [
-                  "A good boss should allow staff to take decisions.",
-                  "B good boss should encourage staff to work in teams.",
-                  "C good boss should listen to complaints from staff.",
-                  "D good boss should give information on individual progress.",
-                  "E good boss should have good qualifications.",
-                  "F good boss should set an example of hard work."
+                  "I get distracted by background noise.",
+                  "I find working with others helpful.",
+                  "I have a specific way of getting comfortable to study.",
+                  "I study best early in the morning.",
+                  "I use music to help me concentrate.",
+                  "I find it hard to stick to a study schedule.",
+                  "I get disturbed by family members.",
+                  "I prefer to study outdoors."
                 ]
               }
             ]
@@ -808,9 +776,7 @@
         ]
       }
     ]
-  },
-              
-      
+  },  
  
   "speaking": {
     "title": "Speaking",
@@ -960,8 +926,6 @@
       }
     ]
   }
-
-
 
 }
 
