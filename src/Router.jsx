@@ -130,38 +130,55 @@ const Router = () => {
       } />
       
        {/* Shared routes (vocab, drills, my words) */}
-       {/* Level-specific vocab routes */}
-       <Route path="/telc/vocabulary/b1" element={
-         <ProtectedRoute>
-           <App initialView="vocabulary" initialLevel="b1" />
-         </ProtectedRoute>
-       } />
-       <Route path="/telc/vocabulary/b2" element={
-         <ProtectedRoute>
-           <App initialView="vocabulary" initialLevel="b2" />
-         </ProtectedRoute>
-       } />
-       <Route path="/telc/vocabulary/c1" element={
-         <ProtectedRoute>
-           <App initialView="vocabulary" initialLevel="c1" />
-         </ProtectedRoute>
-       } />
-       {/* Generic vocabulary route (no level - shows level selector) */}
-       <Route path="/telc/vocabulary" element={
-         <ProtectedRoute>
-           <App initialView="vocabulary" />
-         </ProtectedRoute>
-       } />
-       <Route path="/telc/mywords" element={
-         <ProtectedRoute>
-           <App initialView="mywords" />
-         </ProtectedRoute>
-       } />
-       <Route path="/telc/drillshub" element={
-         <ProtectedRoute>
-           <App initialView="drillshub" />
-         </ProtectedRoute>
-       } />
+        {/* Level-specific vocab routes */}
+        <Route path="/telc/vocabulary/b1" element={
+          <ProtectedRoute>
+            <App initialView="vocabulary" initialLevel="b1" />
+          </ProtectedRoute>
+        } />
+        <Route path="/telc/vocabulary/b2" element={
+          <ProtectedRoute>
+            <App initialView="vocabulary" initialLevel="b2" />
+          </ProtectedRoute>
+        } />
+        <Route path="/telc/vocabulary/c1" element={
+          <ProtectedRoute>
+            <App initialView="vocabulary" initialLevel="c1" />
+          </ProtectedRoute>
+        } />
+        {/* Generic vocabulary route (no level - shows level selector) */}
+        <Route path="/telc/vocabulary" element={
+          <ProtectedRoute>
+            <App initialView="vocabulary" />
+          </ProtectedRoute>
+        } />
+        {/* Level-specific drillshub routes */}
+        <Route path="/telc/drillshub/b1" element={
+          <ProtectedRoute>
+            <App initialView="drillshub" initialLevel="b1" />
+          </ProtectedRoute>
+        } />
+        <Route path="/telc/drillshub/b2" element={
+          <ProtectedRoute>
+            <App initialView="drillshub" initialLevel="b2" />
+          </ProtectedRoute>
+        } />
+        <Route path="/telc/drillshub/c1" element={
+          <ProtectedRoute>
+            <App initialView="drillshub" initialLevel="c1" />
+          </ProtectedRoute>
+        } />
+        {/* Generic drillshub route (no level - shows level selector) */}
+        <Route path="/telc/drillshub" element={
+          <ProtectedRoute>
+            <App initialView="drillshub" />
+          </ProtectedRoute>
+        } />
+        <Route path="/telc/mywords" element={
+          <ProtectedRoute>
+            <App initialView="mywords" />
+          </ProtectedRoute>
+        } />
       
             
     </Routes>

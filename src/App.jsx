@@ -79,10 +79,13 @@ function App({ initialView, initialLevel }) {
   const [activeSkillTab, setActiveSkillTab] = useState(0); // For unified skill tabs: Vocab(mini), Reading, Writing, Speaking, Listening
   const [showPaywall, setShowPaywall] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [lessonOrigin, setLessonOrigin] = useState(null); // Track which hub the lesson was started from
-  const [selectedVocabLevel, setSelectedVocabLevel] = useState(
-    initialLevel ? initialLevel.toUpperCase() : null
-  ); // For level-filtered VocabHub (B1/B2/C1)
+   const [lessonOrigin, setLessonOrigin] = useState(null); // Track which hub the lesson was started from
+   const [selectedVocabLevel, setSelectedVocabLevel] = useState(
+     initialLevel ? initialLevel.toUpperCase() : null
+   ); // For level-filtered VocabHub (B1/B2/C1)
+   const [selectedDrillLevel, setSelectedDrillLevel] = useState(
+     initialLevel ? initialLevel.toUpperCase() : null
+   ); // For level-filtered DrillsHub (B1/B2/C1)
 
   // Learning & Result State (moved before handleUpdateAnswer)
   const [userAnswers, setUserAnswers] = useState({});
@@ -97,12 +100,19 @@ function App({ initialView, initialLevel }) {
     return () => clearTimeout(timer);
   }, []);
 
-  // Sync initialLevel prop to selectedVocabLevel state (on route changes)
-  useEffect(() => {
-    if (initialLevel !== undefined && initialLevel !== selectedVocabLevel) {
-      setSelectedVocabLevel(initialLevel ? initialLevel.toUpperCase() : null);
-    }
-  }, [initialLevel, selectedVocabLevel]);
+   // Sync initialLevel prop to selectedVocabLevel state (on route changes)
+   useEffect(() => {
+     if (initialLevel !== undefined && initialLevel !== selectedVocabLevel) {
+       setSelectedVocabLevel(initialLevel ? initialLevel.toUpperCase() : null);
+     }
+   }, [initialLevel, selectedVocabLevel]);
+
+   // Sync initialLevel prop to selectedDrillLevel state (on route changes)
+   useEffect(() => {
+     if (initialLevel !== undefined && initialLevel !== selectedDrillLevel) {
+       setSelectedDrillLevel(initialLevel ? initialLevel.toUpperCase() : null);
+     }
+   }, [initialLevel, selectedDrillLevel]);
 
   // handle update answer
   const handleUpdateAnswer = useCallback((qId, val) => {
@@ -222,32 +232,36 @@ function App({ initialView, initialLevel }) {
   useActive(isUserInApp); 
   useXP(isUserInApp);
   
-   // Effect to handle initial view (routing)
-   useEffect(() => {
-     // Use NavigationResolver to determine the navigation plan
-     const plan = resolvePath(initialView);
+    // Effect to handle initial view (routing)
+    useEffect(() => {
+      // Use NavigationResolver to determine the navigation plan
+      const plan = resolvePath(initialView);
 
-     // Apply the plan to the states
-     setView(plan.view);
-     setViewHistory(plan.viewHistory);
-     setActiveCategory(plan.activeCategory);
-     setActiveSection(plan.activeSection);
-     // Handle vocab level from context (for /telc/vocabulary/b2 etc)
-     if (plan.context?.vocabLevel) {
-       setSelectedVocabLevel(plan.context.vocabLevel);
-     }
-     setCurrentView(plan.view); // Update Zustand store for ScrollToTop
+      // Apply the plan to the states
+      setView(plan.view);
+      setViewHistory(plan.viewHistory);
+      setActiveCategory(plan.activeCategory);
+      setActiveSection(plan.activeSection);
+      // Handle vocab level from context (for /telc/vocabulary/b2 etc)
+      if (plan.context?.vocabLevel) {
+        setSelectedVocabLevel(plan.context.vocabLevel);
+      }
+      // Handle drill level from context (for /telc/drillshub/b2 etc)
+      if (plan.context?.drillLevel) {
+        setSelectedDrillLevel(plan.context.drillLevel);
+      }
+      setCurrentView(plan.view); // Update Zustand store for ScrollToTop
 
-     // Handle triggerTask if present
-     if (plan.triggerTask) {
-       handleStartTask(plan.triggerTask);
-     }
+      // Handle triggerTask if present
+      if (plan.triggerTask) {
+        handleStartTask(plan.triggerTask);
+      }
 
-     // Handle triggerFullTest if present
-     if (plan.triggerFullTest) {
-       handleFullTestSelection(plan.triggerFullTest.testType, plan.triggerFullTest.path);
-     }
-   }, [initialView]);
+      // Handle triggerFullTest if present
+      if (plan.triggerFullTest) {
+        handleFullTestSelection(plan.triggerFullTest.testType, plan.triggerFullTest.path);
+      }
+    }, [initialView]);
 
   // Layout logic for specialized views
   // Note: All skill types removed from isHighFocus to show sidebar for all exercises if && view !== 'lesson' is not present
@@ -326,16 +340,27 @@ function App({ initialView, initialLevel }) {
      navigateToView('drillsHub');
    };
 
-  const handleNavigateToLevel = (level) => {
-    const upperLevel = level.toUpperCase();
-    setSelectedVocabLevel(upperLevel);
-    navigate(`/telc/vocabulary/${level.toLowerCase()}`);
-  };
+   const handleNavigateToLevel = (level) => {
+     const upperLevel = level.toUpperCase();
+     setSelectedVocabLevel(upperLevel);
+     navigate(`/telc/vocabulary/${level.toLowerCase()}`);
+   };
 
-  const handleNavigateToLevelSelector = () => {
-    setSelectedVocabLevel(null);
-    navigate('/telc/vocabulary');
-  };
+   const handleNavigateToDrillLevel = (level) => {
+     const upperLevel = level.toUpperCase();
+     setSelectedDrillLevel(upperLevel);
+     navigate(`/telc/drillshub/${level.toLowerCase()}`);
+   };
+
+   const handleNavigateToLevelSelector = () => {
+     setSelectedVocabLevel(null);
+     navigate('/telc/vocabulary');
+   };
+
+   const handleNavigateToDrillLevelSelector = () => {
+     setSelectedDrillLevel(null);
+     navigate('/telc/drillshub');
+   };
   
   // Handler to start a task/exercise (used by BrandTestHub, DrillsHub, TaskSelection)
   const handleStartTask = (taskMetadata) => {
@@ -694,18 +719,25 @@ function App({ initialView, initialLevel }) {
             </div>
           )}
 
-           {/* DYNAMIC HUB & SELECTION */}
-          {view === 'drillsHub' && activeCategory?.title === 'Drills Hub' && <DrillsHub data={activeCategory} onSelectSection={handleSelectSection} onStartTask={handleStartTask} />}
-           {view === 'drillsHub' && activeCategory?.title !== 'Drills Hub' && (
-             <VocabHub
-               data={activeCategory}
-               selectedLevel={selectedVocabLevel}
-               onSelectSection={handleSelectSection}
-               onNavigateToMyWords={handleNavigateToMyWords}
-               onNavigateToLevelSelector={handleNavigateToLevelSelector}
-               onNavigateToLevel={handleNavigateToLevel}
-             />
-           )}
+            {/* DYNAMIC HUB & SELECTION */}
+           {view === 'drillsHub' && activeCategory?.title === 'Drills Hub' && <DrillsHub 
+                data={activeCategory} 
+                selectedLevel={selectedDrillLevel}
+                onSelectSection={handleSelectSection} 
+                onStartTask={handleStartTask}
+                onNavigateToLevelSelector={handleNavigateToLevelSelector}
+                onNavigateToLevel={handleNavigateToLevel}
+              />}
+            {view === 'drillsHub' && activeCategory?.title !== 'Drills Hub' && (
+              <VocabHub
+                data={activeCategory}
+                selectedLevel={selectedVocabLevel}
+                onSelectSection={handleSelectSection}
+                onNavigateToMyWords={handleNavigateToMyWords}
+                onNavigateToLevelSelector={handleNavigateToLevelSelector}
+                onNavigateToLevel={handleNavigateToLevel}
+              />
+            )}
             {view === 'mywords' && <MyWords onBack={handleBackFromMyWords} />}
           {view === 'selection' && <TaskSelection section={activeSection} onSelectTask={handleStartTask} />}
 

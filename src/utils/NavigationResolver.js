@@ -49,21 +49,37 @@ export const resolvePath = (path) => {
     };
   }
 
-   // Handle vocabulary hub routes (with or without level)
-   if (path === 'vocabulary' || path.startsWith('vocabulary/')) {
-     // Extract level if present: 'vocabulary/b2' → 'b2'
-     const levelParam = path === 'vocabulary' ? null : path.split('/')[1];
-     return {
-       view: 'drillsHub',
-       viewHistory: ['drillsHub'],
-       activeCategory: HUBS.vocabulary,
-       activeSection: null,
-       triggerTask: null,
-       triggerFullTest: null,
-       // Pass level context to be used by App
-       context: { vocabLevel: levelParam ? levelParam.toUpperCase() : null }
-     };
-   }
+    // Handle vocabulary hub routes (with or without level)
+    if (path === 'vocabulary' || path.startsWith('vocabulary/')) {
+      // Extract level if present: 'vocabulary/b2' → 'b2'
+      const levelParam = path === 'vocabulary' ? null : path.split('/')[1];
+      return {
+        view: 'drillsHub',
+        viewHistory: ['drillsHub'],
+        activeCategory: HUBS.vocabulary,
+        activeSection: null,
+        triggerTask: null,
+        triggerFullTest: null,
+        // Pass level context to be used by App
+        context: { vocabLevel: levelParam ? levelParam.toUpperCase() : null }
+      };
+    }
+    
+    // Handle drillshub routes (with or without level)
+    if (path === 'drillshub' || path.startsWith('drillshub/')) {
+      // Extract level if present: 'drillshub/b2' → 'b2'
+      const levelParam = path === 'drillshub' ? null : path.split('/')[1];
+      return {
+        view: 'drillsHub',
+        viewHistory: ['drillsHub'],
+        activeCategory: HUBS.drillshub,
+        activeSection: null,
+        triggerTask: null,
+        triggerFullTest: null,
+        // Pass level context to be used by App
+        context: { drillLevel: levelParam ? levelParam.toUpperCase() : null }
+      };
+    }
 
   // TELC Level Hub routes
   if (path === 'telc-b1-hub') {
