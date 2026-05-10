@@ -188,6 +188,7 @@ const VocabHub = ({
         <p className="invictus-hub-subtitle">
           {allFilteredWords.length.toLocaleString()} academic tokens across {filteredCategories.length} topics
         </p>
+        <p className="vocab-hub-tagline">Passive vocabulary = reading fluency + comprehension</p>
       </header>
 
       {/* BACK TO LEVEL SELECTOR */}

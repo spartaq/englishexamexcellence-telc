@@ -166,11 +166,32 @@
 }
 
 .system-tag .dot {
-  width: 6px;
-  height: 6px;
-  background: #22c55e;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #22c55e;
+   width: 6px;
+   height: 6px;
+   background: #22c55e;
+   border-radius: 50%;
+   box-shadow: 0 0 8px #22c55e;
+}
+
+.drills-hub-subtitle {
+   font-size: 1rem;
+   opacity: 0.7;
+   margin: 0;
+}
+
+.drills-hub-tagline {
+   font-size: 0.9rem;
+   font-weight: 600;
+   color: var(--drills-amber);
+   margin: 0.25rem 0 0 0;
+   font-style: italic;
+}
+
+.category-description {
+   font-size: 0.85rem;
+   color: var(--on-surface-variant);
+   margin: 0 0 1.5rem 0;
+   font-style: italic;
 }
 
 /* Hero Section */

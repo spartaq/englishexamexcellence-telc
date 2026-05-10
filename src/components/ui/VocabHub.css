@@ -247,9 +247,17 @@
 }
 
 .invictus-hub-subtitle {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  opacity: 0.7;
+   margin-top: 0.5rem;
+   font-size: 1rem;
+   opacity: 0.7;
+}
+
+.vocab-hub-tagline {
+   font-size: 0.9rem;
+   font-weight: 600;
+   color: var(--invictus-red);
+   margin: 0.25rem 0 0 0;
+   font-style: italic;
 }
 
 /* Proficiency Grid */

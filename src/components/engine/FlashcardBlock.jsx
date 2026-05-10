@@ -56,7 +56,7 @@ const FlashcardBlock = ({
   setActiveSkillTab,
   totalSections,
   availableSkills = [],
-  
+   
  }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [flipStage, setFlipStage] = useState(0);
@@ -73,6 +73,9 @@ const FlashcardBlock = ({
   
   // Mobile menu state
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Track whether words have been initialized to avoid resetting currentIndex on re-renders
+  const [wordsInitialized, setWordsInitialized] = useState(false);
 
 const handlePrevArrow = () => {
   let newSectionIndex;
@@ -146,10 +149,9 @@ const handleNextArrow = () => {
 
 
 
-
-// Navigation arrows for full-mock
-const totalSections = availableSkills?.length || 0;
-const totalSkills = availableSkills?.length || 0;
+ // Navigation arrows for full-mock
+ const totalSections = availableSkills?.length || 0;
+ const totalSkills = availableSkills?.length || 0;
 
     return (
       <>
@@ -255,17 +257,29 @@ const totalSkills = availableSkills?.length || 0;
   }, [selectedTopic, selectedLevel]);
   
   // Reset words when data changes or session starts
+  // IMPORTANT: Only reset currentIndex to 0 when transitioning from no words to having words
   useEffect(() => {
     if (sessionStarted) {
+      console.log('[FlashcardBlock] Effect triggered: sessionStarted changed or vocabProgress changed');
+      console.log('[FlashcardBlock] Current words length:', words.length, 'currentIndex:', currentIndex);
+      
       const rawWords = getFilteredWords.slice(0, wordCount);
       const prioritizedWords = prioritizeWords(rawWords, vocabProgress);
       const shuffledWords = data?.isRandomMix ? shuffleArray(prioritizedWords) : prioritizedWords;
+      
       setWords(shuffledWords);
-      setCurrentIndex(0);
-      setFlipStage(0);
+      
+      // Only reset currentIndex if we're transitioning from empty to non-empty
+      if (words.length === 0) {
+        console.log('[FlashcardBlock] Resetting currentIndex to 0 (was empty)');
+        setCurrentIndex(0);
+        setWordsInitialized(true);
+      } else {
+        console.log('[FlashcardBlock] Keeping currentIndex at', currentIndex, '(words already initialized)');
+      }
     }
   }, [data?.id, data?.isRandomMix, sessionStarted, getFilteredWords, wordCount, vocabProgress]);
-  
+   
   // Initialize with data words if provided
   useEffect(() => {
     if (data?.words && !sessionStarted) {
@@ -276,7 +290,7 @@ const totalSkills = availableSkills?.length || 0;
       setFlipStage(0);
     }
   }, [data?.id, data?.isRandomMix, data?.words, sessionStarted]);
-  
+   
   const currentWord = words[currentIndex];
   
   // Get level from data (each task now has one level)
@@ -330,6 +344,15 @@ const totalSkills = availableSkills?.length || 0;
   };
 
   const handleDifficulty = (level) => {
+    console.log('[FlashcardBlock] handleDifficulty called with level:', level);
+    console.log('[FlashcardBlock] currentWord:', currentWord?.term, 'currentIndex:', currentIndex, 'words length:', words.length);
+    console.log('[FlashcardBlock] vocabProgress before:', JSON.parse(JSON.stringify(vocabProgress)));
+    
+    if (!currentWord) {
+      console.error('[FlashcardBlock] ERROR: currentWord is undefined!');
+      return;
+    }
+    
     // 1. Update store
     updateVocabMastery(currentWord.term, level);
     
@@ -338,9 +361,11 @@ const totalSkills = availableSkills?.length || 0;
 
     // 3. Small delay for visual feedback before moving to next word
     setTimeout(() => {
+      console.log('[FlashcardBlock] Timeout executing, currentIndex was:', currentIndex, 'words length:', words.length);
       if (currentIndex < words.length - 1) {
         setCurrentIndex(prev => prev + 1);
       } else {
+        console.log('[FlashcardBlock] Session complete, calling onComplete');
         onComplete();
       }
     }, 300);
@@ -471,7 +496,7 @@ const totalSkills = availableSkills?.length || 0;
                 >
                   <span className="material-symbols-outlined">chevron_left</span>
                 </button>
-                
+                 
                 <button
                   className="flashcard-nav-arrow flashcard-nav-next"
                   onClick={(e) => {
@@ -488,7 +513,7 @@ const totalSkills = availableSkills?.length || 0;
                 </button>
                 {/* Clinical Grid Sub-texture */}
                 <div className="grid-texture"></div>
-                
+                 
                 <div className="flashcard-inner">
                   {/* Front of card */}
                   <div className="flashcard-front">
@@ -498,7 +523,7 @@ const totalSkills = availableSkills?.length || 0;
                       Click for definition and usage examples.
                     </p>
                   </div>
-                  
+                   
                   {/* Back of card */}
                   <div className="flashcard-back">
                     {flipStage === 1 && (
@@ -507,7 +532,7 @@ const totalSkills = availableSkills?.length || 0;
                         <p className="definition-text">{currentWord.definition}</p>
                       </div>
                     )}
-                    
+                     
                     {flipStage === 2 && (
                       <div className="flashcard-example-translation">
                         <div className="flashcard-example">
@@ -544,7 +569,7 @@ const totalSkills = availableSkills?.length || 0;
                   <span className="srs-label">Recall Failure</span>
                   <span className="srs-review-time">Review soon</span>
                 </button>
-                
+                 
                 <button
                   className="srs-btn uncertain"
                   onClick={(e) => {
@@ -556,7 +581,7 @@ const totalSkills = availableSkills?.length || 0;
                   <span className="srs-label">Uncertain</span>
                   <span className="srs-review-time">Review in 2-3 days</span>
                 </button>
-                
+                 
                 <button
                   className="srs-btn mastered"
                   onClick={(e) => {
@@ -568,7 +593,7 @@ const totalSkills = availableSkills?.length || 0;
                   <span className="srs-label">Mastered</span>
                   <span className="srs-review-time">Review in 1 week</span>
                 </button>
-                
+                 
               </div>
               <div className="flashnav">  
                 {availableSkills?.length > 1 && (
@@ -582,13 +607,13 @@ const totalSkills = availableSkills?.length || 0;
                     </button>
                   </div>
                 </div>
-              )}
-              </div>
-          
-            </section>
-            
+                )}
+                </div>
+           
+              </section>
+             
           </div>
-            
+             
         </div>
 
 

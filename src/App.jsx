@@ -46,7 +46,7 @@ const EXTRA_TOOLS = [
   { 
     id: 'vocab', 
     title: 'Vocab Hub', 
-    description: 'Master academic and topical vocabulary.', 
+    description: 'Build lasting vocabulary with spaced-repetition. Essential for reading comprehension.', 
     icon: <Library size={24} />, 
     hubKey: 'vocabulary',
     color: '#8b5cf6' 
@@ -54,7 +54,7 @@ const EXTRA_TOOLS = [
   { 
     id: 'drillshub', 
     title: 'Drills Hub', 
-    description: 'Grammar, punctuation, and core drills.', 
+    description: 'Master grammar, reading, and writing skills that transfer beyond any test.', 
     icon: <Zap size={24} />, 
     hubKey: 'drillshub',
     color: '#f59e0b' 
@@ -335,10 +335,10 @@ function App({ initialView, initialLevel }) {
      navigateToView('mywords');
    };
 
-   const handleBackFromMyWords = () => {
-     // Return to VocabHub (drillsHub view)
-     navigateToView('drillsHub');
-   };
+    const handleBackFromMyWords = () => {
+      // Use standard back navigation which handles history and URL sync
+      navigateBack();
+    };
 
    const handleNavigateToLevel = (level) => {
      const upperLevel = level.toUpperCase();

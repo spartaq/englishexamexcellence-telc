@@ -9,6 +9,13 @@ const categoryIcons = {
   'speaking-drills': <BookOpen size={20} />,
 };
 
+const categoryDescriptions = {
+  'reading-drills': 'Master reading strategies for any text',
+  'writing-drills': 'Write clearly and structure your thoughts',
+  'language-elements': 'Grammar that serves you everywhere',
+  'speaking-drills': 'Communicate with confidence and clarity',
+};
+
 const DrillsHub = ({ 
   data, 
   selectedLevel = null,
@@ -134,6 +141,7 @@ const hub = data;
         <p className="drills-hub-subtitle">
           {allFilteredTasks.length} targeted exercises for {selectedLevel} level
         </p>
+        <p className="drills-hub-tagline">Skills that serve you beyond the exam</p>
       </header>
 
       {/* BACK TO LEVEL SELECTOR */}
@@ -184,6 +192,7 @@ const hub = data;
               </div>
               <span className="category-count">{category.tasks.length} DRILLS</span>
             </div>
+            <p className="category-description">{categoryDescriptions[category.id] || ''}</p>
 
             <div className="drill-cards">
               {category.tasks.map((task, index) => (

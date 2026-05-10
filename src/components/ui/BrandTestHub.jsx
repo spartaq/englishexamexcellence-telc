@@ -55,9 +55,13 @@ const BrandTestHub = ({
           <span className="hero-badge">{levelBadge}</span>
           <h1 className="hero-title">{activeTest?.title || `${levelTitle} Hub`}</h1>
           <p className="hero-subtitle">
-            Stop practicing. Start training. Build skills daily with Atoms, 
-            or test your stamina with our full mock exam archive.
+            Stop practicing. Start training.
           </p>
+          {/* TEACHER'S MESSAGE */}
+          <div className="teacher-note" style={{ marginTop: '16px', maxWidth: '500px' }}>
+            <h4>The Real Solution</h4>
+            <p>You could take endless mock tests, but that's not so useful. To truly improve, you need to expand your passive vocabulary and master skills that are both test-relevant and generally useful.</p>
+          </div>
           <div className="hero-actions">
             <button className="btn-white" onClick={() => onSelectPath(singleExercisePath)}>
               Quick Start
@@ -65,8 +69,8 @@ const BrandTestHub = ({
           </div>
         </div>
 
-          <div className="hero-text">
-            <h1>What should you practice today?</h1> 
+        <div className="hero-text">
+          <h1>What should you practice today?</h1> 
           <p>
             Vocab progress bar
           </p> 
@@ -76,184 +80,168 @@ const BrandTestHub = ({
           <p>
            Drills progress bar
           </p>
-          </div>
+        </div>
         
       </header>
 
-      {/* --- 2. QUICK START SECTION (ATOMS) --- */}
+      {/* --- 2. TRAINING VS TESTING SECTION --- */}
       <div className="section-header">
-        <h2 className="section-title">Practice Tests</h2>
+        <h2 className="section-title">The Real Solution</h2>
+        <p style={{ color: '#64748b', fontSize: '15px', marginTop: '4px' }}>Targeted vocabulary and skill mastery beats endless testing</p>
       </div>
 
-      <div className="quick-start-grid">
-<div className="quick-card">
-        <div className="archive-controls">
-          <div className="search-input-wrapper">
-            <Search size={20} style={{ position: 'absolute', left: '16px', top: '18px', color: '#94a3b8' }} />
-            <input type="text" placeholder="Search mocks by number or title..." />
-          </div>
-          <div className="filter-tabs">
-            <button className="filter-tab active">All Mocks</button>
-            <button className="filter-tab">Bronze</button>
-            <button className="filter-tab">Gold</button>
-          </div>
-        </div>
+      <div className="precision-grid">
+        {EXTRA_TOOLS && EXTRA_TOOLS.map(tool => {
+          const hubKey = tool && typeof tool.hubKey === 'string' && tool.hubKey.trim() ? tool.hubKey : null;
+          const validHex = /^#(?:[0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(tool?.color);
+          const background = validHex ? `${tool.color}15` : 'rgba(15, 23, 42, 0.08)';
+          const iconContent = React.isValidElement(tool.icon) ? React.cloneElement(tool.icon, { size: 24 }) : null;
 
-        <div className="exam-list">
-          {filteredMocks.map(mock => {
-              const hasAccess = canAccess(mock.tier);
-              
-              return (
-                <div key={mock.id} className={`exam-list-item ${!hasAccess ? 'locked-item' : ''}`}>
-                    <div className="exam-info">
-                    <div className="exam-title">
-                        {mock.title} 
-                        {!hasAccess && <Lock size={14} style={{ marginLeft: '8px', color: '#94a3b8' }} />}
-                    </div>
-                    <div className="exam-meta">
-                  <span className={`tier-text ${mock.tier}`}>{mock.tier.toUpperCase()} TIER</span>
-                    </div>
-                  </div>
-                  
-                  <button
-                    className={hasAccess ? "btn-start-exam" : "btn-hub"}
-                    onClick={() => {
-                      console.log('[BrandTestHub] Start Mock button clicked', { mockId: mock.id, mockType: mock.type, hasAccess });
-                      if (hasAccess) {
-                        const path = mock.id;
-                        console.log('[BrandTestHub] Calling onSelectPath with path:', path);
-                        onSelectPath(path);
-                      } else {
-                        onOpenPaywall();
-                      }
-                    }}
-                  >
-                    {hasAccess ? "Start Mock" : "Unlock Gold"}
-                  </button>
-                </div>
-              );
-          })}
-        </div>
+          return (
+            <div
+              key={tool.id}
+              className="quick-card"
+              onClick={() => {
+                if (hubKey && typeof onSelectModule === 'function') {
+                  // Pass current level for vocabulary and drillshub tools
+                  const levelToPass = ['vocabulary', 'drillshub'].includes(hubKey) ? level : null;
+                  onSelectModule(hubKey, levelToPass);
+                } else {
+                  console.warn('[BrandTestHub] onSelectModule called with invalid tool.hubKey', tool);
+                }
+              }}
+            >
+              <div className="quick-icon-box" style={{ background, color: validHex ? tool.color : '#0f172a' }}>
+                {iconContent}
+              </div>
+              <h3 className="exam-title">{tool.title}</h3>
+              <p className="exam-meta">SKILL BUILDING</p>
+              <p className="exam-description">{tool.description}</p>
+            </div>
+          );
+        })}
       </div>
 
+       {/* --- 3. CHECK PROGRESS & SKILL PRACTICE (SIDE BY SIDE) --- */}
+       <div className="dual-section-container">
+         <div className="dual-section-box">
+           <div className="section-header">
+             <h2 className="section-title">Check Progress</h2>
+             <p style={{ color: '#64748b', fontSize: '15px', marginTop: '4px' }}>Review your development after building foundations</p>
+           </div>
 
-       {/* <div className="quick-card" onClick={() => onSelectPath(miniTestPath)}>
-          <div className="quick-icon-box"><Shuffle size={24} /></div>
-          <h3 className="exam-title">{level ? `${level.toUpperCase()} Random` : 'Random Mix'}</h3>
-          <p className="exam-meta">15 MIN • ALL SKILLS</p>
-          <p className="exam-description">A randomized mix of questions across all four skills to keep you sharp and adaptable.</p>
-        </div> */}
+           <div className="quick-card">
+             <div className="archive-controls">
+               <div className="search-input-wrapper">
+                 <Search size={20} style={{ position: 'absolute', left: '16px', top: '18px', color: '#94a3b8' }} />
+                 <input type="text" placeholder="Search mocks by number or title..." />
+               </div>
+               <div className="filter-tabs">
+                 <button className="filter-tab active">All Mocks</button>
+                 <button className="filter-tab">Bronze</button>
+                 <button className="filter-tab">Gold</button>
+               </div>
+             </div>
 
-        {/* NEW: Inline Skill Grid - REVERT by uncommenting below and removing this block */}
-        <div className="quick-card">
-          <h3 className="exam-title">Practice Atoms</h3>
-          <p className="exam-meta">CHOOSE YOUR ATOM</p>
-          
-          <div className="inline-skill-grid">
-            <button 
-              className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
-              onClick={() => onStartSkill && onStartSkill('reading', level)}
-              disabled={!onStartSkill}
-              aria-disabled={!onStartSkill}
-            >
-              <BookOpen size={20} />
-              <span>Reading</span>
-            </button>
-            <button 
-              className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
-              onClick={() => onStartSkill && onStartSkill('language-elements', level)}
-              disabled={!onStartSkill}
-              aria-disabled={!onStartSkill}
-            >
-              <FileText size={20} />
-              <span>Lang. Elements</span>
-            </button>
-            <button 
-              className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
-              onClick={() => onStartSkill && onStartSkill('listening', level)}
-              disabled={!onStartSkill}
-              aria-disabled={!onStartSkill}
-            >
-              <Headset size={20} />
-              <span>Listening</span>
-            </button>
-            <button 
-              className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
-              onClick={() => onStartSkill && onStartSkill('speaking', level)}
-              disabled={!onStartSkill}
-              aria-disabled={!onStartSkill}
-            >
-              <Mic size={20} />
-              <span>Speaking</span>
-            </button>
-            <button 
-              className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
-              onClick={() => onStartSkill && onStartSkill('writing', level)}
-              disabled={!onStartSkill}
-              aria-disabled={!onStartSkill}
-            >
-              <PenTool size={20} />
-              <span>Writing</span>
-            </button>
-          </div>
-          
-          <p className="exam-description">Target individual skills with focused practice sessions tailored to your weak areas.</p>
-        </div>
-        
-        {/* OLD: Skill Tests View - REVERT by uncommenting this and removing the block above */}
-        {/* 
-        <div className="quick-card" onClick={() => onSelectPath('skill-tests')}>
-          <div className="quick-icon-box"><List size={24} /></div>
-          <h3 className="exam-title">Specific Skills</h3>
-          <p className="exam-meta">CHOOSE YOUR ATOM</p>
-          <p className="exam-description">Target individual skills with focused practice sessions tailored to your weak areas.</p>
-        </div>
-        */}
-      </div>
+             <div className="exam-list-scroll">
+               {filteredMocks.map(mock => {
+                   const hasAccess = canAccess(mock.tier);
+                   
+                   return (
+                     <div key={mock.id} className={`exam-list-item ${!hasAccess ? 'locked-item' : ''}`}>
+                         <div className="exam-info">
+                         <div className="exam-title">
+                             {mock.title} 
+                             {!hasAccess && <Lock size={14} style={{ marginLeft: '8px', color: '#94a3b8' }} />}
+                         </div>
+                         <div className="exam-meta">
+                           <span className={`tier-text ${mock.tier}`}>{mock.tier.toUpperCase()} TIER</span>
+                         </div>
+                       </div>
+                       
+                       <button
+                         className={hasAccess ? "btn-start-exam" : "btn-hub"}
+                         onClick={() => {
+                           console.log('[BrandTestHub] Start Mock button clicked', { mockId: mock.id, mockType: mock.type, hasAccess });
+                           if (hasAccess) {
+                             const path = mock.id;
+                             console.log('[BrandTestHub] Calling onSelectPath with path:', path);
+                             onSelectPath(path);
+                           } else {
+                             onOpenPaywall();
+                           }
+                         }}
+                       >
+                         {hasAccess ? "Start Mock" : "Unlock Gold"}
+                       </button>
+                     </div>
+                 );
+               })}
+             </div>
+           </div>
+         </div>
 
-      {/* --- 3. THE EXAM ARCHIVE (MOCK LIBRARY) --- 
-      <div className="section-header">
-        <h2 className="section-title">Full Mock Exam Archive</h2>
-      </div>*/}
+         <div className="dual-section-box">
+           <div className="section-header">
+             <h2 className="section-title">Skill Practice</h2>
+           </div>
 
-      
+           <div className="quick-card">
+             <h3 className="exam-title">Practice Atoms</h3>
+             <p className="exam-meta">CHOOSE YOUR ATOM</p>
 
-      {/* --- 4. PRECISION TRAINING (EXTRA TOOLS) --- */}
-      <div className="section-header">
-        <h2 className="section-title">Practice Exercises</h2>
-      </div>
+             <div className="inline-skill-grid">
+               <button 
+                 className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
+                 onClick={() => onStartSkill && onStartSkill('reading', level)}
+                 disabled={!onStartSkill}
+                 aria-disabled={!onStartSkill}
+               >
+                 <BookOpen size={20} />
+                 <span>Reading</span>
+               </button>
+               <button 
+                 className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
+                 onClick={() => onStartSkill && onStartSkill('language-elements', level)}
+                 disabled={!onStartSkill}
+                 aria-disabled={!onStartSkill}
+               >
+                 <FileText size={20} />
+                 <span>Lang. Elements</span>
+               </button>
+               <button 
+                 className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
+                 onClick={() => onStartSkill && onStartSkill('listening', level)}
+                 disabled={!onStartSkill}
+                 aria-disabled={!onStartSkill}
+               >
+                 <Headset size={20} />
+                 <span>Listening</span>
+               </button>
+               <button 
+                 className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
+                 onClick={() => onStartSkill && onStartSkill('speaking', level)}
+                 disabled={!onStartSkill}
+                 aria-disabled={!onStartSkill}
+               >
+                 <Mic size={20} />
+                 <span>Speaking</span>
+               </button>
+               <button 
+                 className={`inline-skill-btn ${!onStartSkill ? 'disabled' : ''}`}
+                 onClick={() => onStartSkill && onStartSkill('writing', level)}
+                 disabled={!onStartSkill}
+                 aria-disabled={!onStartSkill}
+               >
+                 <PenTool size={20} />
+                 <span>Writing</span>
+               </button>
+             </div>
 
-       <div className="precision-grid">
-            {EXTRA_TOOLS && EXTRA_TOOLS.map(tool => {
-              const hubKey = tool && typeof tool.hubKey === 'string' && tool.hubKey.trim() ? tool.hubKey : null;
-              const validHex = /^#(?:[0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(tool?.color);
-              const background = validHex ? `${tool.color}15` : 'rgba(15, 23, 42, 0.08)';
-              const iconContent = React.isValidElement(tool.icon) ? React.cloneElement(tool.icon, { size: 24 }) : null;
-
-              return (
-                <div
-                  key={tool.id}
-                  className="quick-card"
-                  onClick={() => {
-                    if (hubKey && typeof onSelectModule === 'function') {
-                      // Pass current level for vocabulary and drillshub tools
-                      const levelToPass = ['vocabulary', 'drillshub'].includes(hubKey) ? level : null;
-                      onSelectModule(hubKey, levelToPass);
-                    } else {
-                      console.warn('[BrandTestHub] onSelectModule called with invalid tool.hubKey', tool);
-                    }
-                  }}
-                >
-                  <div className="quick-icon-box" style={{ background, color: validHex ? tool.color : '#0f172a' }}>
-                    {iconContent}
-                  </div>
-                  <h3 className="exam-title">{tool.title}</h3>
-                  <p className="exam-meta">TARGETED SKILL BUILDING</p>
-                  <p className="exam-description">{tool.description}</p>
-                </div>
-              );
-            })}
-      </div>
+             <p className="exam-description">Target individual skills with focused practice sessions tailored to your weak areas.</p>
+           </div>
+         </div>
+       </div>
     </div>
   );
 };

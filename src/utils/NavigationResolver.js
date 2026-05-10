@@ -37,17 +37,18 @@ export const resolvePath = (path) => {
     return defaultPlan;
   }
 
-  // Handle mywords view
-  if (path === 'mywords') {
-    return {
-      view: 'mywords',
-      viewHistory: ['mywords'],
-      activeCategory: null,
-      activeSection: null,
-      triggerTask: null,
-      triggerFullTest: null,
-    };
-  }
+   // Handle mywords view
+   if (path === 'mywords') {
+     return {
+       view: 'mywords',
+       // Pretend we came from the Vocab Hub so back navigation works
+       viewHistory: ['drillsHub', 'mywords'],
+       activeCategory: HUBS.vocabulary,
+       activeSection: null,
+       triggerTask: null,
+       triggerFullTest: null,
+     };
+   }
 
     // Handle vocabulary hub routes (with or without level)
     if (path === 'vocabulary' || path.startsWith('vocabulary/')) {
