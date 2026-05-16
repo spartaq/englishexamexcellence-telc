@@ -397,13 +397,33 @@ if (skill === 'language-elements') {
  * @param {Object} readingExercise - The reading exercise to extract vocab from
  * @returns {Object} The vocab block or null if no vocab found
  */
-export const findVocabFromReading = (readingExercise) => {
+export const findVocabFromReading = (readingExercise, mockVocabWords = null) => {
   let vocabExercise = null;
   
+  // Build a Map from term strings → full word objects when a vocab list is provided
+  const vocabWordMap = mockVocabWords
+    ? mockVocabWords.reduce((map, w) => {
+        if (typeof w === 'string') return map;               // plain string — no resolution possible
+        if (w.term) map.set(w.term.toLowerCase(), w);       // index by lowercased term
+        return map;
+      }, new Map())
+    : null;
+
+  // Helper: resolve a raw vocabList entry to a proper word object
+  const resolveWord = (entry) => {
+    if (typeof entry === 'object' && entry.term) return entry;  // already a proper object
+    if (typeof entry === 'string' && vocabWordMap) {
+      return vocabWordMap.get(entry.toLowerCase())              // resolve from mock vocabulary
+        || { term: entry, hu: '', definition: '', example: '' }; // safe fallback
+    }
+    return { term: String(entry ?? ''), hu: '', definition: '', example: '' };
+  };
+
   // Priority 1: Check if the reading exercise itself has vocabList directly
   if (readingExercise?.vocabList && readingExercise.vocabList.length > 0) {
-    const shuffledWords = [...readingExercise.vocabList].sort(() => Math.random() - 0.5);
-    const selectedWords = shuffledWords.slice(0, Math.min(5, shuffledWords.length));
+    const selectedWords = readingExercise.vocabList
+      .map(resolveWord)
+      .slice(0, Math.min(5, readingExercise.vocabList.length));
     vocabExercise = {
       id: readingExercise.vocabId || `vocab-${readingExercise.id}`,
       title: readingExercise.vocabTitle || `${readingExercise.title} Vocabulary`,
@@ -424,8 +444,9 @@ export const findVocabFromReading = (readingExercise) => {
       if (section?.passages) {
         for (const passage of section.passages) {
           if (passage?.vocabList && passage.vocabList.length > 0) {
-            const shuffledWords = [...passage.vocabList].sort(() => Math.random() - 0.5);
-            const selectedWords = shuffledWords.slice(0, Math.min(5, shuffledWords.length));
+            const selectedWords = passage.vocabList
+              .map(resolveWord)
+              .slice(0, Math.min(5, passage.vocabList.length));
             vocabExercise = {
               id: passage.vocabId || `vocab-${passage.id}`,
               title: passage.vocabTitle || `${passage.title} Vocabulary`,
@@ -449,8 +470,9 @@ export const findVocabFromReading = (readingExercise) => {
   if (!vocabExercise && readingExercise?.passages) {
     for (const passage of readingExercise.passages) {
       if (passage?.vocabList && passage.vocabList.length > 0) {
-        const shuffledWords = [...passage.vocabList].sort(() => Math.random() - 0.5);
-        const selectedWords = shuffledWords.slice(0, Math.min(5, shuffledWords.length));
+        const selectedWords = passage.vocabList
+          .map(resolveWord)
+          .slice(0, Math.min(5, passage.vocabList.length));
         vocabExercise = {
           id: passage.vocabId || `vocab-${passage.id}`,
           title: passage.vocabTitle || `${passage.title} Vocabulary`,
@@ -674,6 +696,9 @@ export const pluckRandomFullMock = (level = null) => {
     testType: level,
     mockNumber: mock.mockNumber,
     xp: 2000,
+    // Expose top-level vocabulary so callers (LessonFactory, etc.)
+    // can use rawMock?.vocabulary directly without digging into sections.
+    vocabulary: mock.vocabulary || null,
     sections: sections
   };
 };

@@ -134,7 +134,7 @@
 }
 
 .quick-card {
-  background: white;
+  background: var(--surface-white);
   padding: 32px;
   border-radius: 20px;
   border: 1px solid var(--invictus-gray-200);
@@ -153,13 +153,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
-  padding: 0 40px;
+  padding: 0 10px;
 }
 
 .dual-section-box {
-  background: white;
+  background: var(--surface-white);
   border-radius: 24px;
-  border: 1px solid var(--invictus-gray-200);
   padding: 32px;
   display: flex;
   flex-direction: column;
@@ -175,7 +174,7 @@
 .exam-list-item {
   display: flex;
   align-items: center;
-  padding: 16px 0;
+  padding: 16px 10px;
   border-bottom: 1px solid var(--invictus-gray-100);
   justify-content: space-between;
 }
@@ -234,4 +233,20 @@
   padding: 14px;
   margin: 10px;    
   }
+
+  .hero-title {
+  font-size: 36px;
+}
+
+.precision-grid {
+  padding: 0 10px;
+}
+
+.dual-section-container {
+  padding: 0 10px;
+}
+
+.dual-section-box {
+  padding: 0;
+}
 }

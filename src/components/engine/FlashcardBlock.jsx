@@ -263,7 +263,13 @@ const handleNextArrow = () => {
       console.log('[FlashcardBlock] Effect triggered: sessionStarted changed or vocabProgress changed');
       console.log('[FlashcardBlock] Current words length:', words.length, 'currentIndex:', currentIndex);
       
-      const rawWords = getFilteredWords.slice(0, wordCount);
+      // Prefer data.words (lesson / free-mock vocab) when present;
+      // fall back to getFilteredWords (VOCAB_HUB topic/level path).
+      const sourceWords = (data?.words && data.words.length > 0)
+        ? data.words
+        : getFilteredWords;
+      
+      const rawWords = sourceWords.slice(0, wordCount);
       const prioritizedWords = prioritizeWords(rawWords, vocabProgress);
       const shuffledWords = data?.isRandomMix ? shuffleArray(prioritizedWords) : prioritizedWords;
       

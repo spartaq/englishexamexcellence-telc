@@ -163,13 +163,13 @@ export const LessonFactory = {
         return LessonFactory.createMiniTest(level);
       }
 
-      // Mini-test with ALL skills (from free-mock /free-mock route)
+        // Mini-test with ALL skills (from free-mock /free-mock route)
       if (taskMetadata.id && taskMetadata.id.includes('mini-test')) {
-        const type = taskMetadata.id.match(/telc-(b1|b2|c1)/)?.[1] || 'b2';
+        const type = taskMetadata.id.match(/telc-(b1|b2|c1)/i)?.[1] || 'b2';
         const rawMock = pluckRandomFullMock(type);
         const readingExercise = pluckRandom('reading', type);
         let vocabExercise = rawMock?.vocabulary ? { ...rawMock.vocabulary, skill: 'vocab', type: 'VOCAB' } : null;
-        if (!vocabExercise) vocabExercise = findVocabFromReading(readingExercise);
+        if (!vocabExercise) vocabExercise = findVocabFromReading(readingExercise, rawMock?.vocabulary?.words);
         const sections = [];
         if (vocabExercise) sections.push({ ...vocabExercise, skill: 'vocab' });
         if (readingExercise) sections.push({ ...readingExercise, skill: 'reading' });

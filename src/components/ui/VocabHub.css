@@ -2,7 +2,7 @@
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  color: var(--on-surface);
+  color: var(--text-primary);
 }
 
 /* ==========================================
@@ -142,7 +142,7 @@
   border: none;
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--on-surface);
+  color: var(--text-primary);
   cursor: pointer;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -338,7 +338,7 @@
 .card-top p {
   margin: 0.25rem 0 0;
   font-size: 0.85rem;
-  color: var(--on-surface-variant);
+  color: var(--text-primary);
 }
 
 .xp-label {
@@ -747,7 +747,7 @@
 }
 
 .prof-card:hover {
-  background: var(--bg-subtle);
+  background: var(--surface-white);
   transform: translateX(4px);
 }
 
@@ -772,7 +772,7 @@
 .card-top p {
   margin: 0.25rem 0 0;
   font-size: 0.85rem;
-  color: var(--on-surface-variant);
+  color: var(--text-primary);
 }
 
 .xp-label {

@@ -536,8 +536,11 @@ function App({ initialView, initialLevel }) {
         onNavigateToView={navigateToView}
         headerCenterContent={headerCenterContent}
         setActiveTest={setActiveTest}
-         onNavigateToMyWords={handleNavigateToMyWords}
-      >
+          onNavigateToMyWords={handleNavigateToMyWords}
+          onNavigateToVocabHub={() => navigate('/telc/vocabulary')}
+          onNavigateToDrillsHub={() => navigate('/telc/drillshub')}
+          onNavigateToLevel={(level) => navigate(`/telc/${level}`)}
+       >
         <main className="invictus-main-content">
           <div className="invictus-main-container workspace-container style-scrollbar">
 

@@ -21,9 +21,32 @@
   gap: 0.5rem;
 }
 
+/* Hide desktop sidebar on mobile */
+@media (max-width: 1268px) {
+  .invictus-sidebar {
+    display: none !important;
+  }
+}
+
 .invictus-nav-item-exit {
   margin-top: auto;
   opacity: 0.5;
+}
+
+/* Section label divider in sidebar */
+.nav-section-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.35);
+  padding: 16px 18px 6px;
+}
+
+/* Active level highlight */
+.invictus-nav-item-level.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: darkred;
 }
 
 .invictus-xp-badge-container {
@@ -32,6 +55,146 @@
 
 .exit-btn-icon {
   transform: rotate(180deg);
+}
+
+/* --- HEADER --- Invictus Style */
+.invictus-header {
+  height: 64px;
+  width: 100%;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  background: var(--invictus-red);
+  border-bottom: 2px solid var(--invictus-red);
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.invictus-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.invictus-header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invictus-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Header Tabs - for section and passage tabs in header */
+.header-tabs {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.header-tab {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.header-tab:hover {
+  background: white;
+  color: var(--invictus-red);
+}
+
+/* Logo styles */
+.invictus-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--invictus-slate);
+  letter-spacing: -0.01em;
+}
+
+.invictus-logo svg {
+  color: var(--invictus-red);
+}
+.header-tab.active {
+  background: white;
+  color: var(--invictus-red);
+}
+
+/* Header Subtabs (Passage/Part tabs) */
+.header-subtabs {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid var(--border-color);
+}
+
+.header-subtab {
+  padding: 6px 12px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.header-subtab:hover {
+  background: rgba(211, 47, 47, 0.1);
+  color: var(--invictus-red);
+}
+
+.header-subtab.active {
+  background: var(--invictus-red-pale);
+  color: var(--invictus-red);
+  font-weight: 600;
+}
+
+/* --- MOBILE HAMBURGER MENU --- */
+.mobile-menu-trigger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.mobile-menu-trigger:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.mobile-nav-overlay {
+  display: none;
+}
+
+/* Only show hamburger on mobile where sidebar is hidden */
+@media (max-width: 1268px) {
+  .mobile-menu-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /* Profile Dropdown */
@@ -102,3 +265,116 @@
   font-size: 18px;
   color: var(--secondary);
 }
+
+/* =============================================
+   MOBILE NAV OVERLAY - replaces the sidebar on mobile
+   ============================================= */
+
+/* Overlay backdrop - only visible on mobile breakpoints */
+@media (max-width: 1268px) {
+  .mobile-nav-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 900;
+    align-items: flex-start;
+    justify-content: flex-start;
+    pointer-events: none;
+  }
+
+  .mobile-nav-overlay.is-open {
+    pointer-events: all;
+  }
+
+.mobile-nav-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+  .mobile-nav-overlay.is-open::after {
+    opacity: 1;
+  }
+
+.mobile-nav-panel {
+  position: relative;
+  z-index: 1;
+  width: 280px;
+  max-width: 85vw;
+  background: var(--invictus-red);
+  min-height: 100vh;
+  padding: 40px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+  .mobile-nav-overlay.is-open .mobile-nav-panel {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-brand {
+    margin-bottom: 32px;
+  }
+
+  .mobile-nav-brand .invictus-brand-title {
+    color: white;
+  }
+
+  .mobile-nav-brand .invictus-brand-subtext {
+    color: rgba(255, 255, 255, 0.65);
+    opacity: 1;
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: var(--radius-md);
+    color: rgba(255, 255, 255, 0.8);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: var(--invictus-font);
+    font-weight: 700;
+    font-size: 15px;
+    width: 100%;
+    text-align: left;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  .mobile-nav-item.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+
+  .mobile-nav-section-label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.35);
+    padding: 16px 18px 6px;
+  }
+
+  .mobile-nav-item-level.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+  }
+}
+

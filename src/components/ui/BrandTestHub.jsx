@@ -52,7 +52,7 @@ const BrandTestHub = ({
       {/* --- 1. WELCOME HERO SECTION --- */}
       <header className="hero-banner">
         <div><span className="hero-badge">{levelBadge}</span>
-          <h2 className="hero-title">{"Welcome Back, John" || activeTest?.title || `${levelTitle} Hub`}</h2>
+          <h2 className="hero-title">{`${levelTitle} Exam`}</h2>
           <p className="hero-subtitle">
             Cycling Slogan
           </p></div>
@@ -130,7 +130,7 @@ const BrandTestHub = ({
          <div className="dual-section-box">
            <div className="section-header">
              <h2 className="section-title">Check Progress</h2>
-             <p style={{ color: '#64748b', fontSize: '15px', marginTop: '4px' }}>Review your development after building foundations</p>
+             <p style={{ color: '#64748b', fontSize: '15px', marginTop: '4px' }}>Take a full practice test</p>
            </div>
 
            <div className="quick-card">
@@ -187,6 +187,7 @@ const BrandTestHub = ({
          <div className="dual-section-box">
            <div className="section-header">
              <h2 className="section-title">Skill Practice</h2>
+             <p style={{ color: '#64748b', fontSize: '15px', marginTop: '4px' }}>Take practice tests for an individual part of the test</p>
            </div>
 
            <div className="quick-card">

@@ -71,7 +71,7 @@
   gap: 12px;
   padding: 14px 18px;
   border-radius: var(--radius-md);
-  color: #94a3b8;
+  color: var(--invictus-red);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -84,7 +84,7 @@
 
 .invictus-nav-item:hover {
   background: rgba(255,255,255,0.05);
-  color: white;
+  color: var(--invictus-slate);
   transform: translateX(4px);
 }
 
@@ -165,117 +165,7 @@
   max-width: 900px;
 }
 
-/* --- HEADER --- Invictus Style */
-.invictus-header {
-  height: 64px;
-  width: 100%;
-  grid-column: 1 / -1;
-  grid-row: 1;
-  background: var(--invictus-red);
-  border-bottom: 2px solid var(--invictus-red);
-  padding: 0 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
 
-.invictus-header-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.invictus-header-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.invictus-header-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* Header Tabs - for section and passage tabs in header */
-.header-tabs {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-}
-
-.header-tab {
-  padding: 8px 16px;
-  border: none;
-  background: transparent;
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.header-tab:hover {
-  background: white;
-  color: var(--invictus-red);
-}
-
-/* Logo styles */
-.invictus-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: var(--invictus-slate);
-  letter-spacing: -0.01em;
-}
-
-.invictus-logo svg {
-  color: var(--invictus-red);
-}
-.header-tab.active {
-  background: white;
-  color: var(--invictus-red);
-}
-
-/* Header Subtabs (Passage/Part tabs) */
-.header-subtabs {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  margin-left: 12px;
-  padding-left: 12px;
-  border-left: 1px solid var(--border-color);
-}
-
-.header-subtab {
-  padding: 6px 12px;
-  border: none;
-  background: transparent;
-  color: var(--text-muted);
-  font-size: 12px;
-  font-weight: 500;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.header-subtab:hover {
-  background: rgba(211, 47, 47, 0.1);
-  color: var(--invictus-red);
-}
-
-.header-subtab.active {
-  background: var(--invictus-red-pale);
-  color: var(--invictus-red);
-  font-weight: 600;
-}
 
 /* --- NAVIGATION --- Invictus Style */
 .invictus-nav-item {
@@ -284,7 +174,6 @@
   gap: 12px;
   padding: 12px 16px;
   border-radius: var(--radius-md);
-  color: #94a3b8;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -297,12 +186,12 @@
 }
 
 .invictus-nav-item:hover {
-  background: rgba(255,255,255,0.05);
+  background: var(--invictus-red);
   color: white;
 }
 
 .invictus-nav-item.active {
-  background: var(--invictus-red);
+  background: green;
   color: white;
 }
 
@@ -400,23 +289,22 @@
   }
   
   .invictus-header {
-    padding: 0 16px;
-    flex-wrap: nowrap;
+    padding: 0 12px;
     min-height: 56px;
-    gap: 8px;
+    gap: 6px;
     max-width: 100%;
   }
-    .invictus-header-left {
+  .invictus-header-left {
     flex: 0 0 auto;
     min-width: 0;
   }
-  
+
   .invictus-header-right {
     flex: 0 0 auto;
     justify-content: flex-end;
     min-width: 0;
   }
-  
+
   .invictus-header-center {
     flex: 1;
     min-width: 0;
@@ -493,8 +381,7 @@
     top: 0;
     height: auto;
     min-height: 48px;
-    padding: 8px 12px;
-    flex-wrap: nowrap;
+    padding: 4px 10px;
     gap: 4px;
     display: flex;
     flex-direction: row;
@@ -509,18 +396,18 @@
   .invictus-header-left {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     flex: 0 0 auto;
-    min-width: auto;
+    min-width: 0;
   }
 
   .invictus-header-right {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     flex: 0 0 auto;
     justify-content: flex-end;
-    min-width: auto;
+    min-width: 0;
   }
 
   .invictus-header-center {
@@ -528,7 +415,7 @@
     min-width: 0;
     display: flex;
     justify-content: center;
-    padding-top: 4px;
+    padding-top: 2px;
   }
 
   .invictus-logo {
