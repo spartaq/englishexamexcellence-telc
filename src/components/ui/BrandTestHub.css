@@ -1,181 +1,31 @@
 /* =============================================================================
-   IELTS HUB STYLING
+   TELC HUB REFACTOR - Invictus Academic Design
    ============================================================================= */
 
 .hub-container {
-  margin: 0 auto;
+  background-color: var(--bg-app);
   min-height: 100vh;
-  padding: 20px 0px 80px 0px;
-  background: var(--surface-white);
+  padding-bottom: 80px;
+  font-family: var(--invictus-font);
 }
 
-.hub-header {
-  margin-bottom: 48px;
-  text-align: center;
-}
-
-.hub-header h1 {
-  font-size: 42px;
-  font-weight: 800;
-  color: var(--invictus-slate);
-  margin-bottom: 16px;
-  letter-spacing: -0.02em;
-}
-
-.hub-header p {
-  font-size: 18px;
-  color: #64748b;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-.btn-back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: #2563eb;
-  font-weight: 600;
-  font-size: 15px;
-  transition: color 0.2s, transform 0.2s, box-shadow 0.2s;
-}
-
-.btn-back-link:hover {
-  color: #1d4ed8;
-  transform: translateX(-4px);
-}
-
-.btn-back-link:focus-visible,
-.btn-back-link:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
-  color: #1d4ed8;
-}
-
-/* --- Four Pillars Section (IELTS Exam Description) --- */
-.intel-section {
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  border-radius: 20px;
-  padding: 40px;
-  border: 1px solid var(--invictus-gray-200);
-}
-
-.intel-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 40px;
-}
-
-.intel-header h2 {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--invictus-slate);
-  letter-spacing: -0.02em;
-}
-
-.pillar-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-bottom: 40px;
-}
-
-.pillar-item {
-  background: var(--surface-white);
-  border-radius: 16px;
-  padding: 28px;
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  border: 1px solid var(--invictus-gray-100);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-}
-
-.pillar-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-  border-color: var(--invictus-red);
-}
-
-.pillar-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.pillar-content h4 {
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--invictus-slate);
-  margin-bottom: 12px;
-  letter-spacing: -0.01em;
-}
-
-.pillar-content p {
-  font-size: 15px;
-  color: #64748b;
-  line-height: 1.7;
-  margin: 0;
-}
-
-.pillar-content p strong {
-  color: var(--invictus-slate);
-  font-weight: 700;
-}
-
-.teacher-note {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  border-radius: 12px;
-  padding: 24px 28px;
-  border-left: 4px solid #f59e0b;
-}
-
-.teacher-note h4 {
-  font-size: 14px;
-  font-weight: 800;
-  color: #92400e;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 12px;
-}
-
-.teacher-note p {
-  font-size: 16px;
-  color: #78350f;
-  line-height: 1.7;
-  margin: 0;
-  font-style: italic;
-}
-
-.teacher-note p strong {
-  color: #b45309;
-}
-
-/* =============================================================================
-   IELTS HUB HERO & CATALOG LAYOUT
-   ============================================================================= */
-
+/* --- 1. HERO BANNER --- */
 .hero-banner {
-  background: var(--invictus-red);
-  padding: 80px 60px;
+  background-color: var(--invictus-red);
+  padding: 64px;
   border-radius: 24px;
   margin: 40px;
   position: relative;
   overflow: hidden;
   color: white;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 20px 40px rgba(211, 47, 47, 0.15);
-  gap:100px;
 }
 
+/* Large Background Text Watermark */
 .hero-banner::after {
   content: "TELC";
   position: absolute;
@@ -190,85 +40,81 @@
 
 .hero-content {
   max-width: 600px;
-  position: relative;
   z-index: 2;
 }
 
 .hero-badge {
   display: inline-block;
   padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 6px;
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .hero-title {
-  font-size: 64px;
+  font-size: 56px;
   font-weight: 800;
   line-height: 1.1;
-  letter-spacing: -0.03em;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .hero-subtitle {
   font-size: 18px;
   opacity: 0.9;
-  line-height: 1.6;
-  font-weight: 500;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .hero-actions {
-  display: flex;
-  gap: 16px;
-}
-.hero-text {
-  padding:24px;
-  background-color: #b45309;
-}
-.hero-text p {
-  margin-bottom: 15px;
+  margin: auto;
 }
 
-.btn-white {
-  background: var(--surface-white);
-  color: var(--invictus-red);
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-weight: 700;
-  border: none;
-  transition: all 0.2s;
-}
-
-.btn-outline-white {
-  background: transparent;
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  padding: 12px 28px;
-  border-radius: 10px;
-  font-weight: 700;
-  transition: all 0.2s;
-}
-
-.level-card {
-  background: rgba(255, 255, 255, 0.08);
+/* Frosted Glass header Note */
+.header-note {
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 32px;
-  border-radius: 20px;
-  width: 280px;
-  position: relative;
-  z-index: 2;
+  padding: 24px;
+  border-radius: 16px;
+  /*width: 320px;*/
 }
 
-/* --- Quick Start / Daily Atoms Section --- */
-.section-header {
+.header-note h3 {
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.progress-item {
+  margin-bottom: 12px;
+}
+
+.progress-label {
+  font-size: 10px;
+  font-weight: 700;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  margin-bottom: 4px;
+}
+
+.progress-track {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: white;
+  border-radius: 2px;
+}
+
+/* --- 2. GRID SECTIONS --- */
+.section-header {
   padding: 0 40px;
   margin-bottom: 24px;
 }
@@ -277,10 +123,9 @@
   font-size: 24px;
   font-weight: 800;
   color: var(--invictus-slate);
-  letter-spacing: -0.02em;
 }
 
-.quick-start-grid {
+.precision-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
@@ -289,8 +134,8 @@
 }
 
 .quick-card {
-  background: var(--surface-white);
-  padding: 40px;
+  background: white;
+  padding: 32px;
   border-radius: 20px;
   border: 1px solid var(--invictus-gray-200);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -298,263 +143,52 @@
 }
 
 .quick-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(211, 47, 47, 0.06);
+  transform: translateY(-4px);
   border-color: var(--invictus-red);
+  box-shadow: 0 12px 24px rgba(211, 47, 47, 0.05);
 }
 
-.quick-icon-box {
-  width: 48px;
-  height: 48px;
-  background: var(--invictus-red);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  margin-bottom: 24px;
-}
-
-/* --- Inline Skill Grid (Practice Atoms) --- */
-.inline-skill-grid {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 16px 0 24px;
-}
-
-.inline-skill-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  padding: 14px 16px;
-  background: var(--surface-white);
-  border: 1px solid var(--invictus-gray-200);
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  min-width: 80px;
-  color: var(--invictus-slate);
-}
-
-.inline-skill-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-  border-color: var(--invictus-blue);
-}
-
-.inline-skill-btn:focus-visible,
-.inline-skill-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
-  border-color: var(--invictus-blue);
-}
-
-.inline-skill-btn.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-.inline-skill-btn span {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--invictus-slate);
-}
-
-/* --- Skill Tests Grid (Specific Skills) --- */
-.skill-tests-grid {
+/* --- 3. DUAL SECTION (SIDE-BY-SIDE) --- */
+.dual-section-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
   padding: 0 40px;
-  margin-bottom: 60px;
 }
 
-.skill-test-card {
-  background: var(--surface-white);
-  padding: 32px 24px;
-  border-radius: 20px;
+.dual-section-box {
+  background: white;
+  border-radius: 24px;
   border: 1px solid var(--invictus-gray-200);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
 }
 
-.skill-test-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  border-color: var(--invictus-blue);
-}
-
-.skill-test-card h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--invictus-slate);
-  margin: 16px 0 8px;
-}
-
-.skill-test-card p {
-  font-size: 13px;
-  color: #64748b;
-  margin: 0 0 16px;
-  line-height: 1.5;
-}
-
-.skill-icon-wrapper {
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.skill-icon-wrapper.reading {
-  background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
-}
-
-.skill-icon-wrapper.listening {
-  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
-}
-
-.skill-icon-wrapper.writing {
-  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-}
-
-.skill-icon-wrapper.speaking {
-  background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
-}
-
-.skill-icon-wrapper.vocab {
-  background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%);
-}
-
-.skill-xp-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  color: #92400e;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 20px;
-  margin-top: auto;
-}
-
-/* --- Exam Archive (Mock Library) --- */
-.exam-archive-container {
-  background: var(--surface-white);
-  border-radius: 16px;
-  margin: 0 40px 40px;
-  padding: 24px;
-  border: 1px solid var(--invictus-gray-200);
-}
-
-.archive-controls {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 20px;
-  align-items: center;
-}
-
-.search-input-wrapper {
+.exam-list-scroll {
   flex: 1;
-  position: relative;
-}
-
-.search-input-wrapper input {
-  width: 100%;
-  padding: 12px 16px 12px 40px;
-  background: var(--invictus-gray-100);
-  border: 1px solid transparent;
-  border-radius: 10px;
-  font-family: var(--invictus-font);
-  font-weight: 600;
-  font-size: 14px;
-  transition: all 0.2s;
-}
-
-.search-input-wrapper input:focus {
-  background: var(--surface-white);
-  border-color: var(--invictus-red);
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.05);
-}
-
-.filter-tabs {
-  display: flex;
-  background: var(--invictus-gray-100);
-  padding: 4px;
-  border-radius: 8px;
-}
-
-.filter-tab {
-  padding: 8px 16px;
-  border: none;
-  background: transparent;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 13px;
-  color: var(--invictus-slate);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.filter-tab.active {
-  background: var(--surface-white);
-  color: var(--invictus-red);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+  margin-top: 24px;
+  max-height: 400px;
 }
 
 .exam-list-item {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  padding: 20px 0px;
+  padding: 16px 0;
   border-bottom: 1px solid var(--invictus-gray-100);
-  transition: background 0.2s;
-  gap: 1px;
+  justify-content: space-between;
 }
 
-.exam-list-item:last-child {
-  border-bottom: none;
-}
-
-.exam-list-item:hover {
-  background: var(--invictus-red);
-}
-
-.exam-id {
-  font-weight: 800;
+/* --- 4. BUTTONS & UTILITIES --- */
+.btn-white {
+  background: white;
   color: var(--invictus-red);
-  width: 60px;
-  font-size: 16px;
-}
-
-.exam-info {
-  flex: 1;
-}
-
-.exam-title {
-  font-weight: 800;
-  color: var(--invictus-slate);
-  font-size: 16px;
-  margin-bottom: 4px;
-}
-
-.exam-meta {
-  display: flex;
-  gap: 16px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: none;
+  transition: all 0.2s;
 }
 
 .btn-start-exam {
@@ -564,232 +198,40 @@
   border-radius: 8px;
   font-weight: 700;
   border: none;
-  transition: all 0.2s;
 }
 
-.btn-start-exam:hover {
-  background: var(--invictus-red-dark);
-  transform: translateY(-1px);
-}
-
-/* --- Precision Training (Extra Tools) --- */
-.precision-grid {
+.inline-skill-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  padding: 0 40px;
-  margin-bottom: 60px;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
 }
 
-/* --- Dual Section Container (Side by Side) --- */
-.dual-section-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  padding: 0 40px;
-  margin-bottom: 60px;
-}
-
-.dual-section-box {
-  background: var(--surface-white);
-  border-radius: 20px;
-  padding: 32px;
-  height: 520px;
+.inline-skill-btn {
+  padding: 16px;
+  background: var(--invictus-red-pale);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: var(--invictus-red);
+  font-weight: 700;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
-.exam-list-scroll {
-  max-height: 360px;
-  overflow-y: auto;
-  margin-top: 16px;
-  flex: 1;
-}
-
-/* =============================================================================
-   RESPONSIVE STYLES
-   ============================================================================= */
-
-/* Tablet (1024px) */
+/* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
-  .skill-tests-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .dual-section-container, .precision-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-/* Mobile Large (768px) */
+
 @media (max-width: 768px) {
-  .hub-container {
-    padding: 24px 0px;
-  }
-
-  .hub-header h1 {
-    font-size: 28px;
-  }
-
-  .hub-header p {
-    font-size: 16px;
-  }
-
-  .intel-section {
-    padding: 24px 16px;
-  }
-
-  .intel-header h2 {
-    font-size: 22px;
-  }
-
-  .pillar-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .pillar-item {
-    padding: 20px;
-  }
-
-  .pillar-icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  .teacher-note {
-    padding: 16px;
-  }
-
-  .teacher-note p {
-    font-size: 14px;
-  }
-
   .hero-banner {
-    padding: 24px 16px;
-    margin: 16px;
-    border-radius: 16px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .hero-title {
-    font-size: 36px;
-  }
-
-  .hero-subtitle {
-    font-size: 14px;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-  }
-
-  .btn-white, .btn-outline-white {
-    width: 100%;
-    text-align: center;
-    padding: 12px 20px;
-  }
-
-  .level-card {
-    width: 100%;
-    padding: 20px;
-    margin-top: 20px;
-  }
-
-  .section-header {
-    padding: 0 16px;
-    margin-bottom: 16px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .section-title {
-    font-size: 18px;
-  }
-
-  .quick-start-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 0 16px;
-  }
-
-  .quick-card {
-    padding: 20px;
-  }
-
-  .skill-tests-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    padding: 0 16px;
-  }
-
-  .skill-test-card {
-    padding: 20px 16px;
-  }
-
-  .skill-test-card h3 {
-    font-size: 14px;
-  }
-
-  .skill-icon-wrapper {
-    width: 40px;
-    height: 40px;
-  }
-
-  .exam-archive-container {
-    margin: 0 16px 40px;
-    padding: 16px;
-  }
-
-  .archive-controls {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .filter-tabs {
-    flex-wrap: wrap;
-  }
-
-  .precision-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 0 16px;
-  }
-
-  .dual-section-container {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 0 16px;
-  }
-
-  .dual-section-box {
-    padding: 20px;
-    height: 460px;
-  }
-
-  .exam-list-scroll {
-    max-height: 280px;
-  }
-}
-
-/* Mobile Small (480px) */
-@media (max-width: 480px) {
-  .hero-banner {
-    margin: 16px;
-  }
-
-  .hero-banner::after {
-    font-size: 80px;
-    right: -10px;
-    bottom: -20px;
-  }
-
-  .hero-badge {
-    font-size: 10px;
-    padding: 4px 8px;
-  }
-
-  .exam-description {
-    font-size: 12px;
+  grid-template-columns: 1fr;
+  padding: 14px;
+  margin: 10px;    
   }
 }

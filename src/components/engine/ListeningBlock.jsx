@@ -215,11 +215,11 @@ const getQuestionRange = () => {
             {/* Visual Aids (Maps/Diagrams) */}
             {currentPart?.imageUrl ? (
               <div className="listening-diagram">
-                <img src={currentPart.imageUrl} alt="Exam Visual" />
+                <img src={currentPart.imageUrl} alt={currentPart.imageCaption || 'Listening comprehension diagram'} />
               </div>
             ) : listeningData.imageUrl ? (
               <div className="listening-diagram">
-                <img src={listeningData.imageUrl} alt="Exam Visual" />
+                <img src={listeningData.imageUrl} alt={listeningData.imageCaption || 'Listening comprehension diagram'} />
               </div>
             ) : null}
 

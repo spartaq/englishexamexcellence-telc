@@ -23,26 +23,25 @@ const LandingPage = () => {
   };
 
   return (
-    <>
-      <title>The Exam Lab - Stop Practicing, Start Training</title>
-      <meta name="description" content="Prepare for TELC B1, B2, and C1 exams with 15-minute training sessions. Build real skills daily instead of just taking practice tests." />
-      
-      <div className="landing-container">
+    <div className="landing-container">
         <nav className="navbar">
           <div className="logo">
             <GraduationCap size={24} color="var(--invictus-red)" />
             <span>INVICTUS</span>
           </div>
-          <div className="nav-actions">
-            <button className="btn-text">The Methodology</button>
-            {isSignedIn ? (
-              <UserButton />
-            ) : (
-              <SignInButton mode="modal">
-                <button className="btn-outline">Sign In</button>
-              </SignInButton>
-            )}
-          </div>
+           <div className="nav-actions">
+             <button className="btn-text">The Methodology</button>
+             <button className="btn-text" onClick={() => navigate('/pricing')}>
+               Pricing
+             </button>
+             {isSignedIn ? (
+               <UserButton />
+             ) : (
+               <SignInButton mode="modal">
+                 <button className="btn-outline">Sign In</button>
+               </SignInButton>
+             )}
+           </div>
         </nav>
 
         <header className="hero">
@@ -148,7 +147,6 @@ const LandingPage = () => {
           </div>
         </section>
       </div>
-    </>
   );
 };
 

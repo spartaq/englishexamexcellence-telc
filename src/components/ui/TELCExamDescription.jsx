@@ -28,7 +28,7 @@ const ExamDescription = ({ activeTest, onBack }) => {
             <ArrowLeft size={24} /> Back to TELC Hub
           </Link>
         )}
-        <h1>About the {activeTest?.title || 'TELC'}</h1>
+        <h2>About the {activeTest?.title || 'TELC'}</h2>
         <p>
           Understanding the exam structure is the first step to mastering it.
           Here's what you need to know about each section.

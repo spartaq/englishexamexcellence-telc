@@ -51,26 +51,17 @@ const BrandTestHub = ({
 
       {/* --- 1. WELCOME HERO SECTION --- */}
       <header className="hero-banner">
-        <div className="hero-content">
-          <span className="hero-badge">{levelBadge}</span>
-          <h1 className="hero-title">{activeTest?.title || `${levelTitle} Hub`}</h1>
+        <div><span className="hero-badge">{levelBadge}</span>
+          <h2 className="hero-title">{"Welcome Back, John" || activeTest?.title || `${levelTitle} Hub`}</h2>
           <p className="hero-subtitle">
-            Stop practicing. Start training.
-          </p>
+            Cycling Slogan
+          </p></div>
+        <div className="hero-content">
+          
+          
           {/* TEACHER'S MESSAGE */}
-          <div className="teacher-note" style={{ marginTop: '16px', maxWidth: '500px' }}>
-            <h4>The Real Solution</h4>
-            <p>You could take endless mock tests, but that's not so useful. To truly improve, you need to expand your passive vocabulary and master skills that are both test-relevant and generally useful.</p>
-          </div>
-          <div className="hero-actions">
-            <button className="btn-white" onClick={() => onSelectPath(singleExercisePath)}>
-              Quick Start
-            </button>
-          </div>
-        </div>
-
-        <div className="hero-text">
-          <h1>What should you practice today?</h1> 
+          <div className="header-note">
+            <h2>What should you practice today?</h2> 
           <p>
             Vocab progress bar
           </p> 
@@ -80,7 +71,19 @@ const BrandTestHub = ({
           <p>
            Drills progress bar
           </p>
+           <div className="hero-actions">
+            <button className="btn-white" onClick={() => onSelectPath(singleExercisePath)}>
+              Jump in!
+            </button>
+          </div>
+          </div>
+        
         </div>
+
+        
+          
+         
+      
         
       </header>
 
@@ -134,7 +137,7 @@ const BrandTestHub = ({
              <div className="archive-controls">
                <div className="search-input-wrapper">
                  <Search size={20} style={{ position: 'absolute', left: '16px', top: '18px', color: '#94a3b8' }} />
-                 <input type="text" placeholder="Search mocks by number or title..." />
+                  <input type="text" placeholder="Search mocks by number or title..." aria-label="Search mocks by number or title" />
                </div>
                <div className="filter-tabs">
                  <button className="filter-tab active">All Mocks</button>

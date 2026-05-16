@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Zap, Target, BookOpen, PenTool, ArrowRight, Layers } from 'lucide-react';
+import { Zap, Target, BookOpen, PenTool, ArrowLeft, ArrowRight, Layers } from 'lucide-react';
 import './DrillsHub.css';
 
 const categoryIcons = {
@@ -147,7 +147,7 @@ const hub = data;
       {/* BACK TO LEVEL SELECTOR */}
       <div className="hub-nav-bar">
         <button className="back-link" onClick={onNavigateToLevelSelector}>
-          <ArrowRight size={16} /> All Levels
+          <ArrowLeft size={16} /> All Levels
         </button>
       </div>
 

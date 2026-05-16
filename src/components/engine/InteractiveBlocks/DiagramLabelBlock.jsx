@@ -68,7 +68,7 @@ const DiagramLabelBlock = ({
         {diagram.src && (
           <img
             src={diagram.src}
-            alt={diagram.alt || 'Diagram'}
+            alt={diagram.alt || diagram.title || 'Study diagram'}
             className="diagram-image"
             style={{
               maxWidth: diagram.width || '100%',

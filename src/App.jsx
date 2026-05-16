@@ -132,32 +132,32 @@ function App({ initialView, initialLevel }) {
   const navigateBack = () => {
     console.log('[navigateBack] view:', view, 'lessonOrigin:', lessonOrigin, 'viewHistory:', viewHistory);
     
+    // Determine if we're currently in Vocab Hub (with a level selected)
+    const isVocabHub = activeCategory?.title === 'Vocab Lab';
+
     // If we have history with more than just 'lesson' entries, find the first non-lesson view
     if (viewHistory.length > 1) {
       let newHistory = [...viewHistory];
       newHistory.pop(); // Remove current view
-      
+
       // Skip backwards over any 'lesson' entries to find the actual hub
       let previousView = newHistory[newHistory.length - 1];
       while (newHistory.length > 1 && previousView === 'lesson') {
         newHistory.pop();
         previousView = newHistory[newHistory.length - 1];
       }
-      
+
       console.log('[navigateBack] going to previousView:', previousView);
       setViewHistory(newHistory);
       setView(previousView);
       setCurrentView(previousView);
-      
+
       // Handle special case - clean up lesson state when going back from results
       if (previousView !== 'lesson' && view === 'results') {
         setActiveLesson(null);
       }
-      
+
       // Update URL based on previous view + check if coming from Vocab Hub (stored in activeCategory)
-      const isVocabHub = activeCategory?.title === 'Vocab Lab';
-      
-      // Update URL based on previous view
       if (previousView === 'landing') {
         navigate('/telc/b2');
       } else if (previousView === 'telc-b2-hub') {
@@ -180,13 +180,22 @@ function App({ initialView, initialLevel }) {
       }
       return;
     }
-    
-    // No history, use lessonOrigin or go to default
+
+    // No history (single-entry viewHistory, e.g. directly navigating to drillsHub view)
+    // Use activeCategory to determine the correct back destination
+    if (view === 'drillsHub' || view === 'selection') {
+      if (isVocabHub) {
+        navigate('/telc/vocabulary');
+      } else {
+        navigate('/telc/drillshub');
+      }
+      return;
+    }
+
+    // Use lessonOrigin or go to default
     if (lessonOrigin) {
       console.log('[navigateBack] no history, using lessonOrigin:', lessonOrigin);
-      // Check if coming from Vocab Hub (stored in activeCategory)
-      const isVocabHub = activeCategory?.title === 'Vocab Lab';
-      
+
       if (lessonOrigin === 'telc-b1-hub') {
         navigate('/telc/b1');
       } else if (lessonOrigin === 'telc-b2-hub') {
@@ -237,9 +246,28 @@ function App({ initialView, initialLevel }) {
       // Use NavigationResolver to determine the navigation plan
       const plan = resolvePath(initialView);
 
-      // Apply the plan to the states
+      // Preserve the existing view history when navigating to drillsHub (shared view for vocab/drills hubs).
+      // Without this, the history gets reset to just ['drillsHub'], causing the back button to fall through
+      // to the default B2 hub instead of the correct previous hub.
+      if (plan.view === 'drillsHub') {
+        setViewHistory(prev => {
+          const lastEntry = prev[prev.length - 1];
+          // If already on drillsHub, just keep existing history (e.g., switching between vocab/drills levels)
+          if (lastEntry === 'drillsHub') return prev;
+          // If the last entry is a valid hub, append drillsHub so back navigation works
+          const validHubs = ['telc-b1-hub', 'telc-b2-hub', 'telc-c1-hub', 'drillsHub', 'landing'];
+          if (validHubs.includes(lastEntry)) {
+            return [...prev, 'drillsHub'];
+          }
+          // Otherwise (direct URL access), replace with a default hub + drillsHub
+          return ['telc-b2-hub', 'drillsHub'];
+        });
+      } else {
+        setViewHistory(plan.viewHistory);
+      }
+
+      // Apply the rest of the plan to the states
       setView(plan.view);
-      setViewHistory(plan.viewHistory);
       setActiveCategory(plan.activeCategory);
       setActiveSection(plan.activeSection);
       // Handle vocab level from context (for /telc/vocabulary/b2 etc)
@@ -410,9 +438,10 @@ function App({ initialView, initialLevel }) {
     claimXp(lessonResults.earnedXP || activeLesson.xpReward || activeLesson.xp || 0);
     // Use lessonOrigin to go back to the correct hub
     const targetHub = lessonOrigin || 'telc-b2-hub';
+    const isVocabHub = activeCategory?.title === 'Vocab Lab';
     setActiveLesson(null);
     setLessonOrigin(null);
-    
+
     // Navigate to the appropriate hub
     if (targetHub === 'telc-b1-hub') {
       navigate('/telc/b1');
@@ -421,7 +450,11 @@ function App({ initialView, initialLevel }) {
     } else if (targetHub === 'telc-c1-hub') {
       navigate('/telc/c1');
     } else if (targetHub === 'drillsHub') {
-      navigate('/telc/drillshub');
+      if (isVocabHub) {
+        navigate('/telc/vocabulary');
+      } else {
+        navigate('/telc/drillshub');
+      }
     } else {
       navigate('/telc/b2');
     }
@@ -466,6 +499,7 @@ function App({ initialView, initialLevel }) {
       setIsReviewMode={setIsReviewMode}
       setActivePassageIndex={setActivePassageIndex}
     />
+    
   ) : null;
 
   return (
@@ -478,6 +512,24 @@ function App({ initialView, initialLevel }) {
         showSidebar={showSidebar}
         showHeader={showHeader}
         onNavigateBack={() => {
+          // Check if we're coming from mini test results before clearing state
+          if (view === 'results' && activeLesson) {
+            const isMiniTest = (activeLesson.type === 'mixed-flow' && 
+                               activeLesson.title && 
+                               activeLesson.title.endsWith('Mini Test')) ||
+                              (activeLesson.id && 
+                               activeLesson.id.startsWith('mini-test-full-'));
+                            
+            if (isMiniTest) {
+              console.log('[navigateBack] Detected mini test results, navigating to landing page');
+              navigate('/');
+              // Don't call setActiveLesson(null) or navigateBack() for mini tests
+              // to avoid intermediate blank page
+              return;
+            }
+          }
+          
+          // Otherwise, proceed with normal back navigation
           setActiveLesson(null);
           navigateBack();
         }}
@@ -720,24 +772,24 @@ function App({ initialView, initialLevel }) {
           )}
 
             {/* DYNAMIC HUB & SELECTION */}
-           {view === 'drillsHub' && activeCategory?.title === 'Drills Hub' && <DrillsHub 
-                data={activeCategory} 
-                selectedLevel={selectedDrillLevel}
-                onSelectSection={handleSelectSection} 
-                onStartTask={handleStartTask}
-                onNavigateToLevelSelector={handleNavigateToLevelSelector}
-                onNavigateToLevel={handleNavigateToLevel}
-              />}
-            {view === 'drillsHub' && activeCategory?.title !== 'Drills Hub' && (
-              <VocabHub
-                data={activeCategory}
-                selectedLevel={selectedVocabLevel}
-                onSelectSection={handleSelectSection}
-                onNavigateToMyWords={handleNavigateToMyWords}
-                onNavigateToLevelSelector={handleNavigateToLevelSelector}
-                onNavigateToLevel={handleNavigateToLevel}
-              />
-            )}
+{view === 'drillsHub' && activeCategory?.title === 'Drills Hub' && <DrillsHub
+                 data={activeCategory}
+                 selectedLevel={selectedDrillLevel}
+                 onSelectSection={handleSelectSection}
+                 onStartTask={handleStartTask}
+                 onNavigateToLevelSelector={handleNavigateToDrillLevelSelector}
+                 onNavigateToLevel={handleNavigateToDrillLevel}
+               />}
+             {view === 'drillsHub' && activeCategory?.title !== 'Drills Hub' && (
+               <VocabHub
+                 data={activeCategory}
+                 selectedLevel={selectedVocabLevel}
+                 onSelectSection={handleSelectSection}
+                 onNavigateToMyWords={handleNavigateToMyWords}
+                 onNavigateToLevelSelector={handleNavigateToLevelSelector}
+                 onNavigateToLevel={handleNavigateToLevel}
+               />
+             )}
             {view === 'mywords' && <MyWords onBack={handleBackFromMyWords} />}
           {view === 'selection' && <TaskSelection section={activeSection} onSelectTask={handleStartTask} />}
 

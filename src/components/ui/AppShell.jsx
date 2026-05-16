@@ -13,7 +13,8 @@ import './AppShell.css';
  */
 const AppShell = ({
   children,
-  view,
+  view, 
+  onSelectPath,
   activeTest,
   showSidebar,
   showHeader,
@@ -122,7 +123,7 @@ const AppShell = ({
                   user.imageUrl ? (
                     <img 
                       src={user.imageUrl} 
-                      alt="Profile" 
+                      alt={`${user?.firstName ? user.firstName + "'s" : 'User'} profile photo`}
                       className="profile-avatar"
                     />
                   ) : (
@@ -135,29 +136,42 @@ const AppShell = ({
                 )}
               </button>
               
-              {showProfileMenu && (
-                <div className="profile-dropdown">
-                  {onNavigateToMyWords && (
-                    <button 
-                      className="profile-dropdown-item"
-                      onClick={() => {
-                        onNavigateToMyWords();
-                        setShowProfileMenu(false);
-                      }}
-                    >
-                      <span className="material-symbols-outlined">book</span>
-                      My Words
-                    </button>
-                  )}
-                  <button 
-                    className="profile-dropdown-item"
-                    onClick={handleSignOut}
-                  >
-                    <span className="material-symbols-outlined">logout</span>
-                    Sign Out
-                  </button>
-                </div>
-              )}
+               {showProfileMenu && (
+                 <div className="profile-dropdown">
+                   {onNavigateToMyWords && (
+                     <button 
+                       className="profile-dropdown-item"
+                       onClick={() => {
+                         onNavigateToMyWords();
+                         setShowProfileMenu(false);
+                       }}
+                     >
+                       <span className="material-symbols-outlined">book</span>
+                       My Words
+                     </button>
+                   )}
+                   {/* Upgrade option - only show if not on Gold tier */}
+                   {!user?.publicMetadata?.plan === 'gold' && (
+                     <button 
+                       className="profile-dropdown-item"
+                       onClick={() => {
+                         navigate('/pricing');
+                         setShowProfileMenu(false);
+                       }}
+                     >
+                       <span className="material-symbols-outlined">star</span>
+                       Upgrade to Gold
+                     </button>
+                   )}
+                   <button 
+                     className="profile-dropdown-item"
+                     onClick={handleSignOut}
+                   >
+                     <span className="material-symbols-outlined">logout</span>
+                     Sign Out
+                   </button>
+                 </div>
+               )}
             </div>
           </div>
         </header>

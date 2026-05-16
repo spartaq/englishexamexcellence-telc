@@ -4,6 +4,8 @@ import { useUser } from '@clerk/react';
 import App from './App';
 import LandingPage from './components/LandingPage/LandingPage';
 import ExamDescription from './components/ui/TELCExamDescription';
+import PricingPage from './components/ui/PricingPage';
+import SitemapPage from './components/ui/SitemapPage';
 
 const ProtectedRoute = ({ children }) => {
   const { isSignedIn, isLoaded } = useUser();
@@ -27,13 +29,19 @@ const Router = () => {
       {/* Public route for SEO - TELC Info page */}
       <Route path="/telc-info" element={<ExamDescription activeTest={{ title: 'TELC' }} />} />
       
-      {/* Public route - Free mock without login (level selection) */}
-      <Route path="/free-mock" element={<App initialView="telc-b2-mini-test" />} />
-      <Route path="/free-mock/b1" element={<App initialView="telc-b1-mini-test" />} />
-      <Route path="/free-mock/b2" element={<App initialView="telc-b2-mini-test" />} />
-      <Route path="/free-mock/c1" element={<App initialView="telc-c1-mini-test" />} />
-      
-      {/* TELC B1 routes */}
+       {/* Public route - Free mock without login (level selection) */}
+       <Route path="/free-mock" element={<App initialView="telc-b2-mini-test" />} />
+       <Route path="/free-mock/b1" element={<App initialView="telc-b1-mini-test" />} />
+       <Route path="/free-mock/b2" element={<App initialView="telc-b2-mini-test" />} />
+       <Route path="/free-mock/c1" element={<App initialView="telc-c1-mini-test" />} />
+       
+        {/* Public route - Pricing page */}
+        <Route path="/pricing" element={<PricingPage />} />
+
+       {/* Public route - Human-readable sitemap */}
+       <Route path="/sitemap" element={<SitemapPage />} />
+
+       {/* TELC B1 routes */}
       <Route path="/telc/b1" element={
         <ProtectedRoute>
           <App initialView="telc-b1-hub" />

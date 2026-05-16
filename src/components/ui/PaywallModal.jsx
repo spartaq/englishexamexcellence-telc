@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PaywallModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -6,20 +7,29 @@ const PaywallModal = ({ isOpen, onClose }) => {
   return (
     <div className="paywall-overlay">
       <div className="paywall-card">
-        <div className="badge gold">GOLD TIER REQUIRED</div>
-        <h2>Unlock Advanced Lab Tasks</h2>
-        <p>Silver and Gold tier tasks include complex interactions, detailed analytics, and official mock exams.</p>
+        <div className="badge gold">UNLOCK FULL ACCESS</div>
+        <h2>Upgrade to Gold for Lifetime Access</h2>
+        <p>Get AI-powered feedback, community forum access, and priority support with a one-time payment.</p>
         
         <div className="benefits">
-          <div>✓ Advanced Writing Analysis</div>
-          <div>✓ Full Length Mock Tests</div>
-          <div>✓ Priority Rank Support</div>
+          <div>✓ AI Writing & Speaking Feedback</div>
+          <div>✓ Community Forum Access</div>
+          <div>✓ Priority Support</div>
+          <div>✓ Lifetime Access - Pay Once</div>
         </div>
 
-        <button className="btn-primary" onClick={() => alert("Redirecting to checkout...")}>
-          Upgrade to Gold
-        </button>
-        <button className="btn-text" onClick={onClose}>Maybe Later</button>
+        <div className="paywall-actions">
+          <Link 
+            to="/pricing" 
+            className="btn-outline"
+          >
+            View Pricing
+          </Link>
+          <button className="btn-primary" onClick={() => alert("Redirecting to checkout...")}>
+            Upgrade to Gold (9,000 Ft)
+          </button>
+          <button className="btn-text" onClick={onClose}>Maybe Later</button>
+        </div>
       </div>
     </div>
   );

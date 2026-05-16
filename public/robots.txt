@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
+# Public pages are indexed normally
+# /telc/* are behind authentication and must not be indexed by search engines
+Disallow: /telc/
+Disallow: /dashboard/
+
 Sitemap: https://telc.englishexamexercises.com/sitemap.xml
+Sitemap: https://telc.englishexamexercises.com/sitemap

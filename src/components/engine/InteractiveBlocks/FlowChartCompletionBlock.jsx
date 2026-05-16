@@ -74,7 +74,7 @@ const FlowChartCompletionBlock = ({
         {flowchart.src && (
           <img
             src={flowchart.src}
-            alt={flowchart.alt || 'Flowchart'}
+            alt={flowchart.alt || flowchart.title || 'Study flowchart'}
             className="flowchart-image"
             style={{
               maxWidth: flowchart.width || '100%',
