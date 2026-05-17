@@ -1,35 +1,49 @@
 /* ============================================================
-    LandingPage.css — Stitch design, plain CSS, grid-based
-    Uses existing CSS variables from globals.css
+    LandingPage.css — Refactored for a modern, sales-oriented look
+    Uses existing CSS variables from globals.css where applicable,
+    and introduces new ones for better control.
    ============================================================ */
+
+/* Root variables for easier theme management */
+:root {
+  
+  --accent-color: #006855; /* Teal for specific highlights */
+  --background-light: #F8F8F8;
+  --border-color: #E0E0E0;
+  --shadow-light: rgba(0, 0, 0, 0.05);
+  --shadow-medium: rgba(0, 0, 0, 0.1);
+
+  --font-primary: 'Plus Jakarta Sans', sans-serif;
+  --font-secondary: 'Inter', sans-serif; /* A more neutral secondary font */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+}
 
 /* ── Page Wrapper ── */
 .landing-page {
-  background: var(--background);
-  background: var(--bg-app);
+  background: var(--background-light);
   color: var(--text-primary);
   min-width: 0;
+  font-family: var(--font-secondary);
 }
 
 /* ═══════════════════════════════════════════
    NAVBAR
    ═══════════════════════════════════════════ */
 
-/* Navbar background — matches the Material 3 imported image */
 .lp-navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  background: var(--invictus-red);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  background: var(--invictus-slate); /* Darker, more premium feel */
+  box-shadow: 0 2px 10px var(--shadow-medium);
 }
 
 .lp-nav-inner {
-  max-width: 1120px;
+  max-width: 1200px; /* Slightly wider for more space */
   margin: 0 auto;
   padding: 1rem 2rem;
   display: flex;
@@ -42,119 +56,153 @@
 .lp-logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-weight: 900;
-  font-size: 1.2rem;
-  color:white;
-  letter-spacing: -0.025em;
+  gap: 0.6rem;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: white;
+  letter-spacing: -0.03em;
   flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.lp-logo svg {
+  color: var(--primary-color); /* Accentuate icon */
 }
 
 /* Nav Links */
+.lp-nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .lp-nav-links {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .lp-nav-link {
   background: none;
   border: none;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.85rem;
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: white;
+  color: rgba(255, 255, 255, 0.7); /* Softer white */
   cursor: pointer;
-  padding: 0.25rem 0;
-  transition: color 0.15s ease;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease, border-bottom 0.2s ease;
 }
 
 .lp-nav-link:hover {
-  color: var(--invictus-red);
+  color: white;
+  border-bottom: 2px solid var(--primary-color);
 }
 
 .lp-nav-link--active {
-  color: var(--invictus-red);
-  border-bottom: 2px solid var(--invictus-red);
-  padding-bottom: 2px;
+  color: white;
+  border-bottom: 2px solid var(--primary-color);
 }
 
 /* Nav Actions */
 .lp-nav-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
   flex-shrink: 0;
 }
 
 .lp-btn-ghost {
   background: none;
   border: none;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.85rem;
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
   font-weight: 600;
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
-  transition: color 0.15s ease;
+  transition: color 0.2s ease;
 }
 
 .lp-btn-ghost:hover {
-  color: var(--invictus-red);
+  color: white;
 }
 
 .lp-btn-primary {
-  background: var(--invictus-red);
+  background: var(--primary-color);
   color: #fff;
   border: none;
-  padding: 0.6rem 1.5rem;
-  border-radius: 0.5rem;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.85rem;
+  padding: 0.7rem 1.8rem;
+  border-radius: var(--border-radius-md);
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease;
-  box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.4);
 }
 
 .lp-btn-primary:hover {
-  background: var(--invictus-red-dark);
-  transform: translateY(-1px);
+  background: var(--primary-dark-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(211, 47, 47, 0.5);
 }
 
 /* ── Hide header logo / nav buttons from Clerk UserButton to avoid clashes ── */
 .lp-nav-actions [data-clerk-user-button] button {
-  background: var(--primary-container);
-  color: var(--on-primary);
-  border-radius: var(--radius-full);
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 50%; /* Make it round */
   overflow: hidden;
+  border: 2px solid white; /* Add a subtle white border */
+  box-shadow: 0 0 0 2px var(--primary-color); /* To make it stand out */
 }
 
 /* ═══════════════════════════════════════════
    MAIN WRAPPER — pushes content below fixed navbar
    ═══════════════════════════════════════════ */
 .lp-main {
-  padding-top: 5.75rem; /* height of fixed navbar ≈ 72px + gap */
+  padding-top: 5.5rem; /* Adjust based on new navbar height */
 }
 
 /* ═══════════════════════════════════════════
    HERO
    ═══════════════════════════════════════════ */
 .lp-hero {
-  padding: 4rem 2rem 5rem;
+  padding: 5rem 2rem 6rem;
+  background-color: var(--invictus-slate); /* Dark background for contrast */
+  position: relative;
+  overflow: hidden;
+}
+
+.lp-hero-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  background-image: url('/public/images/building-diagram1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3; /* Apply opacity only to the image */
+  z-index: 0; /* Keep it behind text */
 }
 
 .lp-hero-inner {
-  max-width: 1120px;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.22fr 1fr; /* left slightly wider, balanced */
-  gap: 4rem;
-  align-items: start;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 5rem;
+  align-items: center; /* Align items vertically */
   position: relative;
+  z-index: 1; /* Ensure text is above the image */
+  color: white; /* Ensure text is visible on dark background */
 }
 
 /* ── Left Column ── */
@@ -164,84 +212,87 @@
 }
 
 .lp-hero-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 3.25rem;
+  font-family: var(--font-primary);
+  font-size: 3.8rem; /* Larger, more impactful */
   font-weight: 900;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  color: var(--on-surface);
-  margin: 0 0 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: white; /* White for contrast */
+  margin: 0 0 1.8rem;
 }
 
 .lp-hero-title-accent {
-  color: var(--invictus-red);
+  color: var(--primary-color); /* Primary accent color */
 }
 
 .lp-hero-subtext {
-  font-size: 1.05rem;
-  line-height: 1.65;
-  color: var(--text-secondary);
-  max-width: 540px;
-  margin-bottom: 2.5rem;
+  font-size: 1.15rem; /* Larger, more readable */
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8); /* Softer white */
+  max-width: 600px;
+  margin-bottom: 3rem;
 }
 
 /* ── Level Selection Cards ── */
 .lp-level-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .lp-level-card {
-  background: var(--surface-container-lowest);
-  border: 1px solid var(--outline-variant);
-  border-radius: var(--radius-md);
-  padding: 1.25rem 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.08); /* Slightly transparent white on dark background */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--border-radius-md);
+  padding: 1.5rem 1.25rem 1.8rem;
   text-align: center;
-  transition: transform 0.15s ease, box-shadow 0.15s ease,
-              border-color 0.15s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+              border-color 0.2s ease, background 0.2s ease;
+  cursor: pointer;
 }
 
 .lp-level-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  border-color: var(--invictus-red);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px var(--shadow-medium);
+  border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .lp-level-card-tag {
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--invictus-red);
-  margin-bottom: 0.3rem;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .lp-level-card-label {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-  letter-spacing: 0.02em;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.03em;
 }
 
-/* Internal Card Button (dark green → inline with HTML) */
 .lp-btn-level {
-  background: var(--surface-container-high);
-  color: var(--on-secondary-container);
+  background: var(--primary-color);
+  color: #fff;
   border: none;
   width: 100%;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 0.7rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-primary);
   font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 
 .lp-btn-level:hover {
-  background: var(--invictus-red);
-  color: #fff;
+  background: var(--primary-dark-color);
+  transform: translateY(-1px);
 }
 
 /* ── Right Column ── */
@@ -249,60 +300,43 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
-}
-
-.lp-btn-outline {
-  background: transparent;
-  color: var(--invictus-red);
-  border: 1.5px solid var(--invictus-red);
-  padding: 0.6rem 1.4rem;
-  border-radius: var(--radius-md);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.lp-btn-outline:hover {
-  background: var(--invictus-red);
-  color: #fff;
+  justify-content: center; /* Center content vertically */
 }
 
 /* ── CTA Box ── */
 .lp-cta-box {
-  background: var(--surface-container-low);
-  border: 1px solid var(--outline-variant);
-  border-left: 4px solid var(--invictus-red);
-  border-radius: var(--radius-lg);
-  padding: 2.25rem 2rem;
+  background: var(--surface-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem 2.25rem;
   width: 100%;
-  max-width: 420px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  box-shadow: 0 16px 40px var(--shadow-medium);
   position: relative;
   z-index: 1;
+  text-align: left; /* Align text left */
 }
 
 .lp-cta-title {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 800;
-  color: var(--on-surface);
-  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
   letter-spacing: -0.01em;
+  font-family: var(--font-primary);
 }
 
 .lp-cta-subtext {
-  color: var(--on-surface-variant);
-  font-size: 0.95rem;
-  line-height: 1.55;
-  margin-bottom: 1.75rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
 }
 
 .lp-mock-buttons {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.8rem;
 }
 
 .lp-mock-btn {
@@ -310,246 +344,477 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0.85rem 1.15rem;
-  background: var(--surface-container-lowest);
-  border: 1px solid var(--outline-variant);
-  border-radius: 0.75rem;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 0.9rem 1.25rem;
+  background: var(--background-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  font-family: var(--font-primary);
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--text-primary);
   cursor: pointer;
-  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
 }
 
 .lp-mock-btn:hover {
-  background: var(--invictus-red);
+  background: var(--primary-color);
   color: #fff;
-  border-color: var(--invictus-red);
+  border-color: var(--primary-color);
+  transform: translateX(4px);
 }
 
 .lp-mock-btn-arrow {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   transition: transform 0.2s ease;
 }
 
 .lp-mock-btn:hover .lp-mock-btn-arrow {
-  transform: translateX(4px);
-}
-
-.lp-cta-box-back {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 100%;
-  height: 100%;
-  background: var(--invictus-red);
-  opacity: 0.06;
-  border-radius: var(--radius-lg);
-  z-index: 0;
+  transform: translateX(4px); /* Arrow moves further */
 }
 
 /* ═══════════════════════════════════════════
    FEATURE GRID
    ═══════════════════════════════════════════ */
 .lp-features {
-  background: var(--surface-container-low);
-  padding: 5rem 2rem;
+  background: var(--surface-white); /* White background for this section */
+  padding: 6rem 2rem;
 }
 
 .lp-features-inner {
-  max-width: 1120px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .lp-section-header {
-  margin-bottom: 3rem;
+  text-align: center; /* Center the header */
+  margin-bottom: 4rem;
 }
 
 .lp-section-eyebrow {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--invictus-red);
+  color: var(--primary-color);
+  display: block; /* Ensure it takes full width for centering */
+  margin-bottom: 0.5rem;
 }
 
 .lp-section-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 2.4rem;
+  font-family: var(--font-primary);
+  font-size: 2.8rem;
   font-weight: 900;
   letter-spacing: -0.02em;
-  color: var(--on-surface);
-  margin-top: 0.5rem;
+  color: var(--text-primary);
+  margin-top: 0.75rem;
 }
 
 .lp-feature-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .lp-feature-card {
-  background: var(--surface-container-lowest);
-  border: 1px solid var(--outline-variant);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  background: var(--background-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 6px 16px var(--shadow-light);
+  text-align: center; /* Center content within cards */
 }
 
 .lp-feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px var(--shadow-medium);
+  border-color: var(--primary-color);
 }
 
 .lp-feature-icon {
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-md);
-  margin-bottom: 1.25rem;
-  background: rgba(211, 47, 47, 0.1);
+  border-radius: 50%; /* Make icons round */
+  margin: 0 auto 1.5rem; /* Center and add more margin */
+  background: rgba(211, 47, 47, 0.1); /* Default rose */
+}
+
+.lp-feature-icon svg {
+  color: var(--primary-color); /* Ensure icon color matches theme */
 }
 
 .lp-feature-icon--teal {
   background: rgba(0, 104, 85, 0.1);
 }
+.lp-feature-icon--teal svg {
+  color: var(--accent-color);
+}
 
 .lp-feature-icon--rose {
   background: rgba(211, 47, 47, 0.1);
 }
+.lp-feature-icon--rose svg {
+  color: var(--primary-color);
+}
+
 
 .lp-feature-title {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--on-surface);
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.005em;
+  color: var(--text-primary);
+  margin-bottom: 0.9rem;
+  letter-spacing: -0.01em;
+  font-family: var(--font-primary);
 }
 
 .lp-feature-desc {
-  font-size: 0.92rem;
-  line-height: 1.65;
-  color: var(--on-surface-variant);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 300px;
+  margin: 0 auto; /* Center description */
 }
 
 /* ═══════════════════════════════════════════
    TEACHER'S NOTE
    ═══════════════════════════════════════════ */
 .lp-teacher-note {
-  padding: 5rem 2rem;
-  max-width: 940px;
+  padding: 6rem 2rem;
+  max-width: 1000px; /* Slightly wider for quote */
   margin: 0 auto;
+  background: var(--background-light); /* Consistent background */
 }
 
 .lp-teacher-inner {
-  background: var(--surface-container-low);
-  border: 2px solid var(--outline-variant);
-  border-radius: 2rem;
-  padding: 3rem 3rem 2.5rem;
+  background: var(--surface-white);
+  border: 1px solid var(--border-color);
+  border-radius: 1.5rem; /* Softer border-radius */
+  padding: 3.5rem 3.5rem 3rem;
   text-align: center;
   position: relative;
+  box-shadow: 0 10px 30px var(--shadow-light);
 }
 
 .lp-teacher-quote-mark {
-  opacity: 0.35;
-  margin-bottom: 0.5rem;
+  opacity: 0.2; /* Lighter opacity */
+  margin-bottom: 1rem;
   display: flex;
   justify-content: center;
 }
 
+.lp-teacher-quote-mark svg {
+  color: var(--primary-color); /* Apply primary color to quote icon */
+}
+
 .lp-teacher-quote {
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-family: var(--font-secondary);
+  font-size: 1.25rem; /* Larger quote */
+  font-weight: 500; /* Lighter weight for readability */
   font-style: italic;
-  color: var(--on-surface);
-  line-height: 1.65;
-  max-width: 600px;
-  margin: 0 auto 1.5rem;
+  color: var(--text-primary);
+  line-height: 1.75;
+  max-width: 700px;
+  margin: 0 auto 2rem;
 }
 
 .lp-teacher-attribution {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  font-size: 0.82rem;
+  gap: 1.2rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--invictus-red);
+  color: var(--text-muted); /* Softer color for attribution */
 }
 
 .lp-teacher-rule {
   display: block;
-  width: 2.5rem;
-  height: 3px;
-  background: var(--invictus-red);
-  border-radius: 2px;
+  width: 3rem; /* Slightly longer rule */
+  height: 2px;
+  background: var(--primary-color); /* Primary color for rule */
+  border-radius: 1px;
   flex-shrink: 0;
 }
 
 /* ═══════════════════════════════════════════
    RESPONSIVE — 900px breakpoint (tablet / small)
    ═══════════════════════════════════════════ */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  .lp-nav-inner {
+    padding: 1rem 1.5rem;
+  }
   .lp-hero-inner {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 4rem;
   }
 
-  .lp-hero-left {
+  .lp-hero-left,
+  .lp-hero-right {
     align-items: center;
     text-align: center;
+  }
+
+  .lp-hero-title {
+    font-size: 3rem;
   }
 
   .lp-hero-subtext {
-    margin: 0 auto 2.5rem;
-    text-align: center;
-  }
-
-  .lp-hero-title {
-    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .lp-level-cards {
-    grid-template-columns: 1fr;
-    max-width: 320px;
-    width: 100%;
-  }
-
-  .lp-hero-right {
-    align-items: center;
+    grid-template-columns: repeat(3, 1fr); /* Keep 3 for wider tablets */
+    max-width: none; /* Allow cards to stretch */
+    width: auto;
+    margin: 0 auto;
+    gap: 1rem;
   }
 
   .lp-cta-box {
-    align-self: center;
+    max-width: 500px; /* Allow CTA box to be wider */
+    padding: 2rem;
+  }
+
+  .lp-section-title {
+    font-size: 2.2rem;
   }
 
   .lp-feature-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for features */
   }
 
-  .lp-nav-links {
-    gap: 0.75rem;
+  .lp-teacher-quote {
+    font-size: 1.1rem;
   }
 }
 
-@media (max-width: 600px) {
-  .lp-hero-inner {
-    gap: 2.5rem;
+@media (max-width: 768px) {
+  .lp-nav-desktop {
+    display: none;
+  }
+  .lp-nav-mobile {
+    display: flex;
+  }
+
+  .lp-hero {
+    padding: 4rem 1.5rem 5rem;
   }
 
   .lp-hero-title {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .lp-hero-subtext {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .lp-level-cards {
+    grid-template-columns: 1fr; /* Stack cards vertically */
+    max-width: 300px; /* Constrain width */
+  }
+
+  .lp-cta-title {
+    font-size: 1.5rem;
+  }
+
+  .lp-features {
+    padding: 4rem 1.5rem;
+  }
+
+  .lp-section-title {
+    font-size: 1.8rem;
+  }
+
+  .lp-feature-grid {
+    grid-template-columns: 1fr; /* Single column for features */
+  }
+
+  .lp-teacher-note {
+    padding: 4rem 1.5rem;
   }
 
   .lp-teacher-inner {
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 1.5rem;
   }
+
+  .lp-teacher-quote {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .lp-logo {
+    font-size: 1.1rem;
+  }
+  .lp-hero {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .lp-hero-title {
+    font-size: 2rem;
+  }
+  .lp-cta-box {
+    padding: 1.5rem;
+  }
+  .lp-mock-btn {
+    font-size: 0.85rem;
+    padding: 0.75rem 1rem;
+  }
+  .lp-feature-card {
+    padding: 1.5rem;
+  }
+  .lp-feature-title {
+    font-size: 1.1rem;
+  }
+}
+
+
+/* ═══════════════════════════════════════════
+   MOBILE MENU (Hamburger)
+   ═══════════════════════════════════════════ */
+.lp-nav-desktop {
+  display: flex; /* Default to flex for desktop */
+}
+
+.lp-nav-mobile {
+  display: none; /* Hide mobile menu toggle on desktop */
+}
+
+@media (max-width: 1024px) { /* Adjust breakpoint for mobile menu */
+  .lp-nav-desktop {
+    display: none; /* Hide desktop nav */
+  }
+  .lp-nav-mobile {
+    display: flex; /* Show mobile nav toggle */
+    align-items: center;
+  }
+}
+
+/* Hamburger button */
+.lp-hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile menu */
+.lp-mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0; /* Changed to right for common mobile drawer pattern */
+  height: 100vh;
+  width: 75%; /* Slightly wider */
+  max-width: 300px; /* Max width for larger screens */
+  background: var(--invictus-slate); /* Matches navbar dark background */
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem 2rem; /* More padding */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* More space between sections */
+  z-index: 110;
+  transform: translateX(100%); /* Start off-screen to the right */
+  transition: transform 0.3s ease-in-out; /* Smoother transition */
+}
+
+.lp-mobile-menu.open {
+  transform: translateX(0);
+}
+
+/* Style for mobile menu links */
+.lp-mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* More space between links */
+}
+
+.lp-mobile-nav-link {
+  background: none;
+  border: none;
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85); /* Slightly brighter */
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: color 0.15s ease;
+  text-align: left;
+}
+
+.lp-mobile-nav-link:hover {
+  color: white;
+  border-left: 3px solid var(--primary-color); /* Add a left border on hover */
+  padding-left: 0.5rem;
+}
+
+/* Style for mobile menu actions */
+.lp-mobile-menu-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: stretch;
+  margin-top: auto; /* Push actions to the bottom */
+}
+
+.lp-mobile-btn-ghost,
+.lp-mobile-btn-primary {
+  width: 100%;
+  padding: 0.9rem; /* Larger padding for better touch targets */
+  text-align: center;
+  font-size: 0.95rem; /* Slightly larger font */
+}
+
+.lp-mobile-btn-ghost {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle border */
+  font-family: var(--font-primary);
+  font-weight: 600;
+  color: white;
+  border-radius: var(--border-radius-md);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.lp-mobile-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+.lp-mobile-btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.4);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.lp-mobile-btn-primary:hover {
+  background: var(--primary-dark-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(211, 47, 47, 0.5);
+}
+
+/* Adjust the user button in mobile menu */
+.lp-mobile-user-button {
+  width: 100%;
+  justify-content: center; /* Center the user button */
 }

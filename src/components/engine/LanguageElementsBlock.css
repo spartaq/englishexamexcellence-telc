@@ -4,7 +4,7 @@
 .invictus-language-elements-layout {
   display: flex;
   flex-direction: column;
-  background: var(--surface-container-lowest);
+  background: var(--surface-white);
   font-family: 'Plus Jakarta Sans', sans-serif;
   overflow-y: auto;
   height: 100%;
@@ -32,7 +32,7 @@
 /* Exercise Panel */
 /* Assuming a similar structure where a panel might hold the questions */
 .language-elements-exercise-panel {
-  background: var(--surface-container-lowest);
+  background: var(--surface-white);
   height: 100%;
   display: flex;
   flex-direction: column;

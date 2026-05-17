@@ -84,7 +84,7 @@
 }
 
 .pricing-card.popular {
-  border: 2px solid var(--invictus-red);
+  border: 2px solid var(--primary);
   transform: scale(1.03);
 }
 
@@ -103,7 +103,7 @@
 .pricing-price {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--invictus-red);
+  color: var(--primary);
   margin-bottom: 0.5rem;
 }
 
@@ -117,7 +117,7 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: var(--invictus-red);
+  background: var(--primary);
   color: white;
   font-size: 0.75rem;
   font-weight: 600;
@@ -153,14 +153,14 @@
 
 .feature-check {
   font-weight: 700;
-  color: var(--invictus-red);
+  color: var(--primary);
 }
 
 .pricing-cta-button {
   display: block;
   width: 100%;
   padding: 1rem;
-  background: var(--invictus-red);
+  background: var(--primary);
   color: white;
   border: none;
   font-size: 1rem;
@@ -276,7 +276,7 @@
 .pricing-footer-cta {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background: var(--invictus-red);
+  background: var(--primary);
   color: white;
   text-decoration: none;
   font-weight: 600;

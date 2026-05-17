@@ -200,7 +200,7 @@
 }
 
 .step-text .question-label {
-  color: var(--invictus-red);
+  color: var(--primary);
   font-weight: 800;
   margin-right: 8px;
   display: inline;

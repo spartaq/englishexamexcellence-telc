@@ -120,7 +120,7 @@
 
 /* Question Number */
 .label-question-number {
-  color: var(--invictus-red);
+  color: var(--primary);
   font-weight: 800;
   font-size: 14px;
 }
@@ -317,7 +317,7 @@
   
   /* Question Number - Dark Mode */
   .label-question-number {
-    color: var(--invictus-red);
+    color: var(--primary);
   }
   
   /* Label Description - Dark Mode */

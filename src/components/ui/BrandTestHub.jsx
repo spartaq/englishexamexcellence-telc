@@ -79,11 +79,6 @@ const BrandTestHub = ({
           </div>
         
         </div>
-
-        
-          
-         
-      
         
       </header>
 
@@ -129,11 +124,11 @@ const BrandTestHub = ({
        <div className="dual-section-container">
          <div className="dual-section-box">
            <div className="section-header">
-             <h2 className="section-title">Check Progress</h2>
+             <h2 className="section-title">Take a full practice exam</h2>
              <p style={{ color: '#64748b', fontSize: '15px', marginTop: '4px' }}>Take a full practice test</p>
            </div>
 
-           <div className="quick-card">
+           
              <div className="archive-controls">
                <div className="search-input-wrapper">
                  <Search size={20} style={{ position: 'absolute', left: '16px', top: '18px', color: '#94a3b8' }} />
@@ -181,18 +176,21 @@ const BrandTestHub = ({
                  );
                })}
              </div>
-           </div>
+
+
+          
+
+
          </div>
 
          <div className="dual-section-box">
            <div className="section-header">
-             <h2 className="section-title">Skill Practice</h2>
+             <h2 className="section-title">Practice individual skills</h2>
              <p style={{ color: '#64748b', fontSize: '15px', marginTop: '4px' }}>Take practice tests for an individual part of the test</p>
            </div>
 
-           <div className="quick-card">
-             <h3 className="exam-title">Practice Atoms</h3>
-             <p className="exam-meta">CHOOSE YOUR ATOM</p>
+          
+          
 
              <div className="inline-skill-grid">
                <button 
@@ -243,7 +241,10 @@ const BrandTestHub = ({
              </div>
 
              <p className="exam-description">Target individual skills with focused practice sessions tailored to your weak areas.</p>
-           </div>
+           
+           
+         
+         
          </div>
        </div>
     </div>

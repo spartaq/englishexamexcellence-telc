@@ -166,7 +166,7 @@ const AppShell = ({
           </div>
 
           <div className="invictus-header-right">
-            {view === 'lesson' && <XPBadge mode="time" />}
+           
             
             {/* Custom Profile Dropdown */}
             <div className="profile-dropdown-container">

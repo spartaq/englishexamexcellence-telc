@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GraduationCap, Clock, Brain, Atom, Quote } from 'lucide-react';
+import { GraduationCap, Clock, Brain, Atom, Quote, Menu } from 'lucide-react';
 import { SignInButton, UserButton, useUser } from '@clerk/react';
 import './LandingPage.css';
 
 const LandingPage = () => {
   const navigate = useNavigate();
   const { isSignedIn } = useUser();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleStartTraining = (level) => {
     navigate(`/telc/${level}`);
@@ -29,27 +30,80 @@ const LandingPage = () => {
             <GraduationCap size={24} color="white" />
             <span>ENGLISH EXAM EXERCISES</span>
           </div>
-          <div className="lp-nav-links">
-            <button className="lp-nav-link lp-nav-link--active">TELC Levels</button>
-            <button className="lp-nav-link">Methodology</button>
-            <button className="lp-nav-link" onClick={() => navigate('/pricing')}>
+          <div className="lp-nav-desktop">
+            <div className="lp-nav-links">
+              <button className="lp-nav-link lp-nav-link--active">TELC Levels</button>
+              <button className="lp-nav-link">Methodology</button>
+              <button className="lp-nav-link" onClick={() => navigate('/pricing')}>
+                Pricing
+              </button>
+              <button className="lp-nav-link" onClick={() => handleTelcInfo()}>
+                Telc Info
+              </button>
+            </div>
+            <div className="lp-nav-actions">
+              {isSignedIn ? (
+                <UserButton />
+              ) : (
+                <SignInButton mode="modal">
+                  <button className="lp-btn-ghost">Sign In</button>
+                </SignInButton>
+              )}
+              <button
+                className="lp-btn-primary"
+                onClick={() => navigate('/telc/b1')}
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
+          <div className="lp-nav-mobile">
+            <button className="lp-hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              <Menu size={24} color="white" />
+            </button>
+          </div>
+        </div>
+        <div className={`lp-mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+          <div className="lp-mobile-menu-links">
+            <button className="lp-mobile-nav-link" onClick={() => {
+              setIsMobileMenuOpen(false);
+              navigate('/telc/b1');
+            }}>
+              TELC Levels
+            </button>
+            <button className="lp-mobile-nav-link" onClick={() => {
+              setIsMobileMenuOpen(false);
+              navigate('/methodology');
+            }}>
+              Methodology
+            </button>
+            <button className="lp-mobile-nav-link" onClick={() => {
+              setIsMobileMenuOpen(false);
+              navigate('/pricing');
+            }}>
               Pricing
             </button>
-            <button className="lp-nav-link" onClick={() => handleTelcInfo()}>
+            <button className="lp-mobile-nav-link" onClick={() => {
+              setIsMobileMenuOpen(false);
+              handleTelcInfo();
+            }}>
               Telc Info
             </button>
           </div>
-          <div className="lp-nav-actions">
+          <div className="lp-mobile-menu-actions">
             {isSignedIn ? (
-              <UserButton />
+              <UserButton className="lp-mobile-user-button" />
             ) : (
               <SignInButton mode="modal">
-                <button className="lp-btn-ghost">Sign In</button>
+                <button className="lp-btn-ghost lp-mobile-btn-ghost">Sign In</button>
               </SignInButton>
             )}
             <button
-              className="lp-btn-primary"
-              onClick={() => navigate('/telc/b1')}
+              className="lp-btn-primary lp-mobile-btn-primary"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                navigate('/telc/b1');
+              }}
             >
               Get Started
             </button>
@@ -142,7 +196,7 @@ const LandingPage = () => {
             <div className="lp-feature-grid">
               <div className="lp-feature-card">
                 <div className="lp-feature-icon lp-feature-icon--rose">
-                  <Clock size={28} color="var(--invictus-red)" />
+                  <Clock size={28} color="var(--primary)" />
                 </div>
                 <h4 className="lp-feature-title">Focus That Counts</h4>
                 <p className="lp-feature-desc">
@@ -163,7 +217,7 @@ const LandingPage = () => {
               </div>
               <div className="lp-feature-card">
                 <div className="lp-feature-icon lp-feature-icon--rose">
-                  <Atom size={28} color="var(--invictus-red)" />
+                  <Atom size={28} color="var(--primary)" />
                 </div>
                 <h4 className="lp-feature-title">Exam Atoms</h4>
                 <p className="lp-feature-desc">
@@ -179,7 +233,7 @@ const LandingPage = () => {
         <section className="lp-teacher-note">
           <div className="lp-teacher-inner">
             <div className="lp-teacher-quote-mark">
-              <Quote size={48} color="var(--invictus-red-pale)" />
+              <Quote size={48} color="var(--primary-pale)" />
             </div>
             <blockquote className="lp-teacher-quote">
               "Preparation should be a marathon, not a sprint. We focus on the precision

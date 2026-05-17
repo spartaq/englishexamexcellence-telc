@@ -15,7 +15,7 @@
 }
 
 .mcq-question-label {
-  color: var(--invictus-red);
+  color: var(--primary);
   margin-right: 8px;
 }
 
@@ -77,7 +77,7 @@
 /* Selected States */
 .mcq-option.selected {
   border-color: var(--lab-indigo);
-  background: var(--invictus-red-dark);
+  background: var(--primary-dark);
 }
 
 .mcq-option.selected.multiselect {

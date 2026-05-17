@@ -2,7 +2,7 @@
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  color: var(--on-surface);
+  color: var(--text-primary);
 }
 
 /* Header */
@@ -16,7 +16,7 @@
   gap: 0.5rem;
   background: none;
   border: none;
-  color: var(--on-surface-variant);
+  color: var(--text-primary);
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
@@ -26,11 +26,11 @@
 }
 
 .back-btn:hover {
-  color: var(--invictus-red);
+  color: var(--primary);
 }
 
 .header-content {
-  border-left: 2px solid var(--invictus-red);
+  border-left: 2px solid var(--primary);
   padding-left: 1.5rem;
 }
 
@@ -43,7 +43,7 @@
 
 .my-words-subtitle {
   margin: 0.5rem 0 0;
-  color: var(--on-surface-variant);
+  color: var(--text-primary);
   font-size: 1rem;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .stat-card.primary {
-  border-left: 4px solid var(--invictus-red);
+  border-left: 4px solid var(--primary);
 }
 
 .stat-icon {
@@ -79,7 +79,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--invictus-red);
+  color: var(--primary);
 }
 
 .stat-info {
@@ -95,7 +95,7 @@
 
 .stat-label {
   font-size: 0.875rem;
-  color: var(--on-surface-variant);
+  color: var(--text-primary);
   margin-top: 0.25rem;
 }
 
@@ -113,14 +113,14 @@
 
 .progress-fill {
   height: 100%;
-  background: var(--invictus-red);
+  background: var(--primary);
   border-radius: 3px;
   transition: width 0.5s ease;
 }
 
 .progress-text {
   font-size: 0.75rem;
-  color: var(--on-surface-variant);
+  color: var(--text-primary);
   margin-top: 0.5rem;
   display: block;
 }
@@ -166,7 +166,7 @@
 .topic-stats {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--on-surface-variant);
+  color: var(--text-primary);
 }
 
 .topic-bar-bg {
@@ -179,7 +179,7 @@
 
 .topic-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--invictus-red), #ff6b6b);
+  background: linear-gradient(90deg, var(--primary), #ff6b6b);
   border-radius: 4px;
   transition: width 0.5s ease;
 }
@@ -211,19 +211,19 @@
   border-bottom: 3px solid transparent;
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--on-surface-variant);
+  color: var(--text-primary);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .tab:hover {
-  color: var(--on-surface);
+  color: var(--text-primary);
   background: var(--bg-subtle);
 }
 
 .tab.active {
-  color: var(--invictus-red);
-  border-bottom-color: var(--invictus-red);
+  color: var(--primary);
+  border-bottom-color: var(--primary);
 }
 
 .tab-count {
@@ -235,7 +235,7 @@
 }
 
 .tab.active .tab-count {
-  background: var(--invictus-red);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -267,7 +267,7 @@
 }
 
 .search-box svg {
-  color: var(--on-surface-variant);
+  color: var(--text-primary);
 }
 
 .filter-dropdown {
@@ -289,7 +289,7 @@
 }
 
 .filter-dropdown svg {
-  color: var(--on-surface-variant);
+  color: var(--text-primary);
 }
 
 /* Words List */
@@ -305,7 +305,7 @@
   justify-content: center;
   padding: 4rem 2rem;
   text-align: center;
-  color: var(--on-surface-variant);
+  color: var(--text-primary);
 }
 
 .empty-state svg {
@@ -391,7 +391,7 @@
 .word-definition {
   margin: 0 0 0.75rem;
   font-size: 0.875rem;
-  color: var(--on-surface-variant);
+  color: var(--text-primary);
   line-height: 1.5;
 }
 
@@ -410,7 +410,7 @@
   text-transform: uppercase;
   padding: 0.25rem 0.5rem;
   background: #f3f4f6;
-  color: var(--on-surface-variant);
+  color: var(--text-primary);
 }
 
 .mastered-date {
@@ -424,7 +424,7 @@
 .word-translation {
   margin: 0.5rem 0 0;
   font-size: 0.75rem;
-  color: var(--on-surface-variant);
+  color: var(--text-primary);
   font-style: italic;
 }
 

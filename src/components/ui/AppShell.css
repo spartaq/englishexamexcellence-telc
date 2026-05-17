@@ -7,7 +7,7 @@
 .invictus-brand-title {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--invictus-red);
+  color: var(--primary);
 }
 
 .invictus-brand-subtext {
@@ -63,8 +63,8 @@
   width: 100%;
   grid-column: 1 / -1;
   grid-row: 1;
-  background: var(--invictus-red);
-  border-bottom: 2px solid var(--invictus-red);
+  background: var(--primary);
+  border-bottom: 2px solid var(--primary);
   padding: 0 40px;
   display: flex;
   justify-content: space-between;
@@ -114,7 +114,7 @@
 
 .header-tab:hover {
   background: white;
-  color: var(--invictus-red);
+  color: var(--primary);
 }
 
 /* Logo styles */
@@ -129,11 +129,11 @@
 }
 
 .invictus-logo svg {
-  color: var(--invictus-red);
+  color: var(--primary);
 }
 .header-tab.active {
   background: white;
-  color: var(--invictus-red);
+  color: var(--primary);
 }
 
 /* Header Subtabs (Passage/Part tabs) */
@@ -160,12 +160,12 @@
 
 .header-subtab:hover {
   background: rgba(211, 47, 47, 0.1);
-  color: var(--invictus-red);
+  color: var(--primary);
 }
 
 .header-subtab.active {
-  background: var(--invictus-red-pale);
-  color: var(--invictus-red);
+  background: var(--primary-pale);
+  color: var(--primary);
   font-weight: 600;
 }
 
@@ -234,7 +234,7 @@
   top: calc(100% + 8px);
   right: 0;
   background: white;
-  border: 1px solid var(--outline-variant);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   min-width: 160px;
@@ -252,18 +252,18 @@
   border: none;
   cursor: pointer;
   font-size: 14px;
-  color: var(--on-surface);
+  color: var(--text-primary);
   text-align: left;
   transition: background 0.15s;
 }
 
 .profile-dropdown-item:hover {
-  background: var(--surface-container);
+  background: var(--surface-white);
 }
 
 .profile-dropdown-item .material-symbols-outlined {
   font-size: 18px;
-  color: var(--secondary);
+  color: var(--secondary-color);
 }
 
 /* =============================================
@@ -308,7 +308,7 @@
   z-index: 1;
   width: 280px;
   max-width: 85vw;
-  background: var(--invictus-red);
+  background: var(--primary);
   min-height: 100vh;
   padding: 40px 20px 40px;
   display: flex;

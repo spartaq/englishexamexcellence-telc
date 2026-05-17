@@ -45,7 +45,7 @@
   display: flex;
   flex-direction: column;
   background: var(--surface-white);
-  border: 1px solid var(--outline-variant);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 24px;
   gap: 20px;
@@ -61,7 +61,7 @@
 }
 
 .config-item {
-  background: var(--invictus-red);
+  background: var(--primary);
   padding: 16px;
   border-radius: var(--radius-sm);
   border: 1px solid rgba(0,0,0,0.05);
@@ -87,7 +87,7 @@
   flex: 1;
   padding: 12px 16px;
   background: var(--surface-white);
-  border: 2px solid var(--outline-variant);
+  border: 2px solid var(--border-color);
   border-radius: var(--radius-sm);
   font-weight: 700;
   font-size: 11px;
@@ -111,7 +111,7 @@
 .topic-select {
   width: 100%;
   padding: 12px;
-  border: 2px solid var(--outline-variant);
+  border: 2px solid var(--border-color);
   border-radius: var(--radius-sm);
   font-size: 14px;
   font-weight: 600;
@@ -134,7 +134,7 @@
   width: 100%;
   height: 6px;
   border-radius: 3px;
-  background: var(--outline-variant);
+  background: var(--border-color);
   outline: none;
   -webkit-appearance: none;
   appearance: none;
@@ -190,7 +190,7 @@
   width: 100%;
   padding: 18px;
   margin-top: 10px;
-  background: var(--invictus-red);
+  background: var(--primary);
   color: white;
   border: none;
   font-weight: 800;
@@ -206,7 +206,7 @@
 }
 
 .start-session-btn:disabled {
-  background: var(--outline-variant);
+  background: var(--border-color);
   cursor: not-allowed;
   opacity: 0.7;
 }
@@ -314,7 +314,7 @@
   align-items: center;
   justify-content: center;
   background: white;
-  border: 1px solid var(--outline-variant);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   margin: 16px 0;
   position: relative;
@@ -446,7 +446,7 @@
   width: 48px;
   height: 48px;
   background: rgba(255, 255, 255, 0.9);
-  border: 1px solid var(--outline-variant);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   cursor: pointer;
   display: flex;
@@ -495,14 +495,14 @@
 .srs-btn {
   padding: 20px;
   background: var(--surface-white);
-  border: 1px solid var(--outline-variant);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .srs-btn:hover {
-  background: var(--outline-variant);
+  background: var(--border-color);
   transform: translateY(-2px);
 }
 
@@ -528,6 +528,9 @@
 /* =============================================================================
    MOBILE SLIDE-IN MENU
    ============================================================================= */
+   .material-symbols-outlined {
+    color:black;
+   }
 
 .mobile-menu-trigger {
   display: none;
@@ -585,7 +588,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px;
-  border-bottom: 1px solid var(--outline-variant);
+  border-bottom: 1px solid var(--border-color);
   flex-shrink: 0;
 }
 
@@ -613,7 +616,7 @@
 }
 
 .mobile-menu-close:hover {
-  background: var(--outline-variant);
+  background: var(--border-color);
 }
 
 .mobile-menu-close .material-symbols-outlined {
@@ -642,7 +645,7 @@
 
 .mobile-menu-panel .protocol-section {
   padding: 20px 24px;
-  border-top: 1px solid var(--outline-variant);
+  border-top: 1px solid var(--border-color);
   flex-shrink: 0;
 }
 
@@ -679,17 +682,17 @@
  
   .session-config {
     background: var(--surface-white);
-    border-color: var(--outline-variant);
+    border-color: var(--border-color);
   }
   
   .config-item {
-    background: var(--invictus-red);
-    border-color: var(--outline-variant);
+    background: var(--primary);
+    border-color: var(--border-color);
   }
   
   .level-btn {
     background: var(--surface-white);
-    border-color: var(--outline-variant);
+    border-color: var(--border-color);
     color: var(--text-primary);
   }
   
@@ -706,7 +709,7 @@
   
   .topic-select {
     background: var(--surface-white);
-    border-color: var(--outline-variant);
+    border-color: var(--border-color);
     color: var(--invictus-slate);
   }
   
@@ -719,7 +722,7 @@
   }
   
   .start-session-btn {
-    background: var(--invictus-red);
+    background: var(--primary);
     color: white;
   }
   
@@ -728,17 +731,17 @@
   }
   
   .start-session-btn:disabled {
-    background: var(--outline-variant);
+    background: var(--border-color);
   }
   
   .flashcard-container {
     background: var(--bg-app);
-    border-color: var(--outline-variant);
+    border-color: var(--border-color);
   }
   
   .flashcard-nav-arrow {
     background: rgba(30, 30, 30, 0.9);
-    border-color: var(--outline-variant);
+    border-color: var(--border-color);
     color: var(--invictus-slate);
   }
   
@@ -747,7 +750,7 @@
   }
   
   .flashcard-nav-arrow:hover:not(:disabled) {
-    background: var(--surface-container);
+    background: var(--surface-white);
     border-color: var(--primary);
     color: var(--text-primary);
   }
@@ -788,7 +791,7 @@
   }
   
   .srs-btn:hover {
-    background: var(--outline-variant);
+    background: var(--border-color);
   }
   
   .srs-label {
@@ -801,7 +804,7 @@
   
   .kbd {
     background: var(--surface-white);
-    border-color: var(--outline-variant);
+    border-color: var(--border-color);
     color: var(--invictus-slate);
   }
   
@@ -887,7 +890,7 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  border: 1px solid var(--outline-variant);
+  border: 1px solid var(--border-color);
   border-radius: 6px;
   background: var(--surface-white);
   color: var(--text-primary);

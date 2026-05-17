@@ -52,7 +52,7 @@
 .invictus-brand-subtext {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--invictus-red);
+  color: var(--primary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   opacity: 0.9;
@@ -71,7 +71,7 @@
   gap: 12px;
   padding: 14px 18px;
   border-radius: var(--radius-md);
-  color: var(--invictus-red);
+  color: var(--primary);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -89,7 +89,7 @@
 }
 
 .invictus-nav-item.active {
-  background: var(--invictus-red);
+  background: var(--primary);
   color: white;
   box-shadow: 0 4px 12px rgba(211, 47, 47, 0.2);
 }
@@ -101,7 +101,7 @@
 
 .invictus-nav-item.exit:hover {
   opacity: 1;
-  color: var(--invictus-red);
+  color: var(--primary);
 }
 
 /* --- MAIN CONTENT --- Invictus Style */
@@ -186,7 +186,7 @@
 }
 
 .invictus-nav-item:hover {
-  background: var(--invictus-red);
+  background: var(--primary);
   color: white;
 }
 
@@ -229,7 +229,7 @@
 .invictus-brand-title {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--invictus-red);
+  color: var(--primary);
 }
 
 .invictus-brand-subtext {
@@ -353,7 +353,7 @@
   }
 
   .mobile-nav-item.active {
-    color: var(--invictus-red);
+    color: var(--primary);
   }
 }
 

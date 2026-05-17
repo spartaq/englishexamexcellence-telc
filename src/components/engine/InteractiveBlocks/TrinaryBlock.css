@@ -10,7 +10,7 @@
 .trinary-row {
   border-bottom: 1px solid #edf2f7;
   padding-bottom: 1.5rem;
-  background: var(--invictus-red-pale);
+  background: var(--primary-pale);
 }
 
 .trinary-row:last-child {
@@ -136,7 +136,7 @@
 /* Style the question number */
 .q-number {
   font-weight: 800;
-  color: var(--invictus-red);
+  color: var(--primary);
   margin-right: 8px;
   display: inline;
 }

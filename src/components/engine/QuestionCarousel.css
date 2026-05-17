@@ -28,12 +28,12 @@
 }
 
 .question-carousel::-webkit-scrollbar-thumb {
-  background: var(--outline-variant);
+  background: var(--border-color);
   border-radius: 10px;
 }
 
 .question-carousel::-webkit-scrollbar-thumb:hover {
-  background: var(--outline);
+  background: var(--to-be-determined);
 }
 
 /* Question Slide */
@@ -69,7 +69,7 @@
     padding: 12px;
     margin-top:10px;
     flex-wrap: nowrap;
-    background: var(--invictus-red);
+    background: var(--primary);
   }
 }
 
@@ -140,16 +140,16 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  border: 1px solid var(--outline-variant);
+  border: 1px solid var(--border-color);
   border-radius: 6px;
-  background: var(--surface-container-lowest);
-  color: var(--on-surface-variant);
+  background: var(--surface-white);
+  color: var(--to-be-determined);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .carousel-nav-arrow:hover:not(:disabled) {
-  background: var(--surface-container-low);
+  background: var(--surface-white);
   border-color: var(--primary);
   color: var(--primary);
 }
@@ -168,10 +168,10 @@
 
 .carousel-part-tab {
   padding: 6px 10px;
-  border: 1px solid var(--outline-variant);
+  border: 1px solid var(--border-color);
   border-radius: 6px;
-  background: var(--surface-container-lowest);
-  color: var(--on-surface-variant);
+  background: var(--surface-white);
+  color: var(--to-be-determined);
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -180,7 +180,7 @@
 }
 
 .carousel-part-tab:hover {
-  background: var(--surface-container-low);
+  background: var(--surface-white);
   border-color: var(--primary);
   color: var(--primary);
 }
@@ -188,7 +188,7 @@
 .carousel-part-tab.active {
   background: var(--primary-container);
   border-color: var(--primary);
-  color: var(--on-primary-container);
+  color: var(--to-be-determined-container);
   font-weight: 600;
 }
 
