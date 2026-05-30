@@ -483,6 +483,10 @@
   font-weight: bold;
 }
 
+.flashnav {
+  margin:auto;
+}
+
 /* SRS CONTROLS: Always at bottom of viewport */
 .srs-controls {
   display: grid;
@@ -677,146 +681,7 @@
   margin: 0;
 }
 
-/* Dark mode styles for FlashcardBlock */
-@media (prefers-color-scheme: dark) {
- 
-  .session-config {
-    background: var(--surface-white);
-    border-color: var(--border-color);
-  }
-  
-  .config-item {
-    background: var(--primary);
-    border-color: var(--border-color);
-  }
-  
-  .level-btn {
-    background: var(--surface-white);
-    border-color: var(--border-color);
-    color: var(--text-primary);
-  }
-  
-  .level-btn:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-  }
-  
-  .level-btn.active {
-    background: var(--surface-white);
-    border-color: var(--primary);
-    color: white;
-  }
-  
-  .topic-select {
-    background: var(--surface-white);
-    border-color: var(--border-color);
-    color: var(--invictus-slate);
-  }
-  
-  .topic-select:hover {
-    border-color: var(--primary);
-  }
-  
-  .topic-select:focus {
-    border-color: var(--primary);
-  }
-  
-  .start-session-btn {
-    background: var(--primary);
-    color: white;
-  }
-  
-  .start-session-btn:hover:not(:disabled) {
-    box-shadow: 0 4px 12px rgba(175, 16, 26, 0.3);
-  }
-  
-  .start-session-btn:disabled {
-    background: var(--border-color);
-  }
-  
-  .flashcard-container {
-    background: var(--bg-app);
-    border-color: var(--border-color);
-  }
-  
-  .flashcard-nav-arrow {
-    background: rgba(30, 30, 30, 0.9);
-    border-color: var(--border-color);
-    color: var(--invictus-slate);
-  }
-  
-  .flashcard-container:hover .flashcard-nav-arrow {
-    opacity: 0.7;
-  }
-  
-  .flashcard-nav-arrow:hover:not(:disabled) {
-    background: var(--surface-white);
-    border-color: var(--primary);
-    color: var(--text-primary);
-  }
-  
-  .flashcard-nav-arrow:disabled {
-    opacity: 0;
-  }
-  
-  .flashcard-term {
-    color: var(--invictus-slate);
-  }
-  
-  .flashcard-divider {
-    background: var(--surface-white);
-  }
-  
-  .flashcard-hint {
-    color: var(--text-primary);
-  }
-  
-  .definition-label,
-  .example-label,
-  .translation-label {
-    color: var(--primary);
-  }
-  
-  .definition-text,
-  .example-text {
-    color: var(--invictus-slate);
-  }
-  
-  .translation-text {
-    color: var(--invictus-slate);
-  }
-  
-  .srs-btn {
-    background: var(--surface-white);
-  }
-  
-  .srs-btn:hover {
-    background: var(--border-color);
-  }
-  
-  .srs-label {
-    color: var(--text-primary);
-  }
-  
-  .keyboard-shortcuts {
-    color: var(--text-primary);
-  }
-  
-  .kbd {
-    background: var(--surface-white);
-    border-color: var(--border-color);
-    color: var(--invictus-slate);
-  }
-  
-  .grid-texture {
-    opacity: 0.02;
-  }
 
-  /* Dark mode for mobile menu */
-  .mobile-menu-panel {
-    background: var(--bg-app);
-  }
-}
 
 /* --- MOBILE NAV --- */
 @media (max-width: 768px) {
@@ -840,12 +705,12 @@
 
   .flashcard-section {
     order: 1;
-    margin-top: 40px;
+    margin-top: 0px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: calc(100vh - 158px);
+    height: calc(100vh - 53px);
   }
 
   .flashcard-main-content {
@@ -876,12 +741,17 @@
     width: 100%;
     justify-content: center;
   }
+
+  .flashnav {
+  margin:53px 0 0;
+}
 }
 
 /* Nav Arrows */
 .carousel-nav-arrows {
   display: flex;
   gap: 4px;
+  margin:auto;
 }
 
 .carousel-nav-arrow {
@@ -904,7 +774,5 @@
   color: var(--primary);
 }
 
-.flashnav {
-  margin:auto;
-}
+
 

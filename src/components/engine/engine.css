@@ -61,8 +61,7 @@
 .invictus-total-range {
   font-size: 24px;
   font-weight: 800;
-  color: #ffffff;
-  background: var(--primary);
+  color: var(--primary);
   margin-bottom: 24px;
   letter-spacing: -0.02em;
   font-family: var(--invictus-font);
@@ -379,8 +378,7 @@
 @media (max-width: 768px) {/* this is the problem layout for less than 768 */
   .invictus-split-pane-layout {
     flex-direction: column;
-    height: auto;
-    max-height: calc(100vh - 53px);
+    height: calc(100vh - 53px);
   }
 
   .invictus-content-column {
@@ -409,7 +407,7 @@
     scroll-behavior: smooth;
     min-width: 0;
     min-height: 0;
-    border:1px darkred solid;
+    border-top:1px darkred solid;
   }
 
   .invictus-total-range {

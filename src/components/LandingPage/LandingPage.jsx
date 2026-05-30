@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GraduationCap, Clock, Brain, Atom, Quote, Menu } from 'lucide-react';
 import { SignInButton, UserButton, useUser } from '@clerk/react';
@@ -14,7 +14,7 @@ const LandingPage = () => {
   };
 
   const handleStartFreeMock = (level) => {
-    navigate(`/free-mock/${level}`);
+    navigate(`/free-test/${level}`);
   };
 
   const handleTelcInfo = () => {
@@ -23,7 +23,7 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page">
-      {/* ── Navbar ── */}
+      {/* Navbar */}
       <nav className="lp-navbar">
         <div className="lp-nav-inner">
           <div className="lp-logo">
@@ -64,6 +64,9 @@ const LandingPage = () => {
           </div>
         </div>
         <div className={`lp-mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+          
+          
+          
           <div className="lp-mobile-menu-links">
             <button className="lp-mobile-nav-link" onClick={() => {
               setIsMobileMenuOpen(false);
@@ -112,7 +115,7 @@ const LandingPage = () => {
       </nav>
 
       <main className="lp-main">
-        {/* ── Hero ── */}
+        {/* â”€â”€ Hero â”€â”€ */}
         <section className="lp-hero">
           <div className="lp-hero-inner">
             {/* Left Column */}
@@ -161,21 +164,21 @@ const LandingPage = () => {
                     className="lp-mock-btn"
                     onClick={() => handleStartFreeMock('b1')}
                   >
-                    <span>B1 Free Mock Test</span>
+                    <span>B1 Free Test</span>
                     <span className="lp-mock-btn-arrow">&#8594;</span>
                   </button>
                   <button
                     className="lp-mock-btn"
                     onClick={() => handleStartFreeMock('b2')}
                   >
-                    <span>B2 Free Mock Test</span>
+                    <span>B2 Free Test</span>
                     <span className="lp-mock-btn-arrow">&#8594;</span>
                   </button>
                   <button
                     className="lp-mock-btn"
                     onClick={() => handleStartFreeMock('c1')}
                   >
-                    <span>C1 Free Mock Test</span>
+                    <span>C1 Free Test</span>
                     <span className="lp-mock-btn-arrow">&#8594;</span>
                   </button>
                 </div>
@@ -186,7 +189,7 @@ const LandingPage = () => {
           </div>
         </section>
 
-        {/* ── Feature Grid ── */}
+        {/* â”€â”€ Feature Grid â”€â”€ */}
         <section className="lp-features">
           <div className="lp-features-inner">
             <div className="lp-section-header">
@@ -229,7 +232,7 @@ const LandingPage = () => {
           </div>
         </section>
 
-        {/* ── Teacher's Note ── */}
+        {/* â”€â”€ Teacher's Note â”€â”€ */}
         <section className="lp-teacher-note">
           <div className="lp-teacher-inner">
             <div className="lp-teacher-quote-mark">
@@ -237,7 +240,7 @@ const LandingPage = () => {
             </div>
             <blockquote className="lp-teacher-quote">
               "Preparation should be a marathon, not a sprint. We focus on the precision
-              of language — the atoms of academic success — to ensure that when you sit
+              of language â€” the atoms of academic success â€” to ensure that when you sit
               for the exam, you aren't just guessing. You are asserting your knowledge."
             </blockquote>
             <div className="lp-teacher-attribution">
@@ -252,3 +255,4 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+

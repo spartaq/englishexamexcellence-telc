@@ -4,25 +4,10 @@
     and introduces new ones for better control.
    ============================================================ */
 
-/* Root variables for easier theme management */
-:root {
-  
-  --accent-color: #006855; /* Teal for specific highlights */
-  --background-light: #F8F8F8;
-  --border-color: #E0E0E0;
-  --shadow-light: rgba(0, 0, 0, 0.05);
-  --shadow-medium: rgba(0, 0, 0, 0.1);
-
-  --font-primary: 'Plus Jakarta Sans', sans-serif;
-  --font-secondary: 'Inter', sans-serif; /* A more neutral secondary font */
-  --border-radius-sm: 0.25rem;
-  --border-radius-md: 0.5rem;
-  --border-radius-lg: 0.75rem;
-}
 
 /* ── Page Wrapper ── */
 .landing-page {
-  background: var(--background-light);
+  background: var(--invictus-red);
   color: var(--text-primary);
   min-width: 0;
   font-family: var(--font-secondary);
@@ -38,7 +23,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: var(--invictus-slate); /* Darker, more premium feel */
+  background: var(--primary); /* Darker, more premium feel */
   box-shadow: 0 2px 10px var(--shadow-medium);
 }
 
@@ -173,7 +158,7 @@
    ═══════════════════════════════════════════ */
 .lp-hero {
   padding: 5rem 2rem 6rem;
-  background-color: var(--invictus-slate); /* Dark background for contrast */
+  background-color: var(--surface-white); /* Dark background for contrast */
   position: relative;
   overflow: hidden;
 }
@@ -217,18 +202,18 @@
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  color: white; /* White for contrast */
+  color: var(--text-primary);
   margin: 0 0 1.8rem;
 }
 
 .lp-hero-title-accent {
-  color: var(--primary-color); /* Primary accent color */
+  color: var(--primary); /* Primary accent color */
 }
 
 .lp-hero-subtext {
   font-size: 1.15rem; /* Larger, more readable */
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.8); /* Softer white */
+  color: var(--text-primary); 
   max-width: 600px;
   margin-bottom: 3rem;
 }
@@ -238,6 +223,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
+  background: var(--surface-white);
 }
 
 .lp-level-card {
@@ -269,7 +255,7 @@
 
 .lp-level-card-label {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-primary);
   margin-bottom: 1.25rem;
   letter-spacing: 0.03em;
 }
@@ -291,7 +277,9 @@
 }
 
 .lp-btn-level:hover {
-  background: var(--primary-dark-color);
+  background: white;
+  color: var(--primary);
+  border: 1px solid var(--primary);
   transform: translateY(-1px);
 }
 
@@ -305,7 +293,7 @@
 
 /* ── CTA Box ── */
 .lp-cta-box {
-  background: var(--surface-white);
+  background: var(--primary);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-lg);
   padding: 2.5rem 2.25rem;
@@ -320,14 +308,14 @@
 .lp-cta-title {
   font-size: 1.8rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color:white;
   margin-bottom: 0.8rem;
   letter-spacing: -0.01em;
   font-family: var(--font-primary);
 }
 
 .lp-cta-subtext {
-  color: var(--text-secondary);
+  color: white;
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 2rem;
@@ -345,7 +333,7 @@
   align-items: center;
   width: 100%;
   padding: 0.9rem 1.25rem;
-  background: var(--background-light);
+  background: var(--bg-app);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-md);
   font-family: var(--font-primary);
@@ -376,7 +364,7 @@
    FEATURE GRID
    ═══════════════════════════════════════════ */
 .lp-features {
-  background: var(--surface-white); /* White background for this section */
+  background: var(--bg-app); /* White background for this section */
   padding: 6rem 2rem;
 }
 
@@ -486,7 +474,7 @@
   padding: 6rem 2rem;
   max-width: 1000px; /* Slightly wider for quote */
   margin: 0 auto;
-  background: var(--background-light); /* Consistent background */
+  background: var(--bg-app); /* Consistent background */
 }
 
 .lp-teacher-inner {
@@ -619,8 +607,9 @@
   }
 
   .lp-level-cards {
-    grid-template-columns: 1fr; /* Stack cards vertically */
-    max-width: 300px; /* Constrain width */
+    grid-template-columns: 1fr 1fr; /* Stack cards vertically */
+    width: 100%; /* Constrain width */
+    padding: 20px;
   }
 
   .lp-cta-title {
@@ -719,7 +708,7 @@
   height: 100vh;
   width: 75%; /* Slightly wider */
   max-width: 300px; /* Max width for larger screens */
-  background: var(--invictus-slate); /* Matches navbar dark background */
+  background: var(--bg-app); /* Matches navbar dark background */
   box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3);
   padding: 2.5rem 2rem; /* More padding */
   display: flex;
@@ -749,7 +738,7 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.85); /* Slightly brighter */
+  color: var(--text-primary);
   cursor: pointer;
   padding: 0.5rem 0;
   transition: color 0.15s ease;

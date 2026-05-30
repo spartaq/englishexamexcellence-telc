@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useUser } from '@clerk/react';
 import App from './App';
@@ -30,10 +30,10 @@ const Router = () => {
       <Route path="/telc-info" element={<ExamDescription activeTest={{ title: 'TELC' }} />} />
       
        {/* Public route - Free mock without login (level selection) */}
-       <Route path="/free-mock" element={<App initialView="telc-b2-mini-test" />} />
-       <Route path="/free-mock/b1" element={<App initialView="telc-b1-mini-test" />} />
-       <Route path="/free-mock/b2" element={<App initialView="telc-b2-mini-test" />} />
-       <Route path="/free-mock/c1" element={<App initialView="telc-c1-mini-test" />} />
+       <Route path="/free-test" element={<App initialView="telc-b2-free-test" />} />
+       <Route path="/free-test/b1" element={<App initialView="telc-b1-free-test" />} />
+       <Route path="/free-test/b2" element={<App initialView="telc-b2-free-test" />} />
+       <Route path="/free-test/c1" element={<App initialView="telc-c1-free-test" />} />
        
         {/* Public route - Pricing page */}
         <Route path="/pricing" element={<PricingPage />} />
@@ -194,3 +194,5 @@ const Router = () => {
 };
 
 export default Router;
+
+

@@ -94,16 +94,10 @@ const ListeningBlock = ({
     setProgress((audioRef.current.currentTime / audioRef.current.duration) * 100);
   };
 
-  // Get questions for current part only (based on activeSectionIndex)
-  // Uses centralized flattenQuestions utility
-  const getQsForPart = (partIndex) => {
-    const section = listeningSections[partIndex];
-    if (!section) return [];
-    return flattenQuestions(section.subTasks || section.questions || []);
-  };
+ 
 
-  // For the carousel, use the current part's questions only
-  const allQs = getQsForPart(activeSectionIndex);
+    // For the carousel, use questions from the already-resolved current part
+  const allQs = flattenQuestions(currentPart.subTasks || currentPart.questions || []);
   const totalQs = allQs.length;
 
   // Inside ListeningBlock component, before getQuestionRange

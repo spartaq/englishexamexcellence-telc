@@ -1,4 +1,4 @@
-/**
+﻿/**
  * NavigationResolver - Centralized navigation logic
  * 
  * This module handles all "navigation thinking" - parsing routes,
@@ -52,7 +52,7 @@ export const resolvePath = (path) => {
 
     // Handle vocabulary hub routes (with or without level)
     if (path === 'vocabulary' || path.startsWith('vocabulary/')) {
-      // Extract level if present: 'vocabulary/b2' → 'b2'
+      // Extract level if present: 'vocabulary/b2' â†’ 'b2'
       const levelParam = path === 'vocabulary' ? null : path.split('/')[1];
       return {
         view: 'drillsHub',
@@ -68,7 +68,7 @@ export const resolvePath = (path) => {
     
     // Handle drillshub routes (with or without level)
     if (path === 'drillshub' || path.startsWith('drillshub/')) {
-      // Extract level if present: 'drillshub/b2' → 'b2'
+      // Extract level if present: 'drillshub/b2' â†’ 'b2'
       const levelParam = path === 'drillshub' ? null : path.split('/')[1];
       return {
         view: 'drillsHub',
@@ -116,36 +116,36 @@ export const resolvePath = (path) => {
     };
   }
 
-  // Mini test routes for each level
-  if (path === 'telc-b1-mini-test') {
+  // Free test routes for each level
+  if (path === 'telc-b1-free-test') {
     return {
       view: 'lesson',
       viewHistory: ['lesson'],
       activeCategory: null,
       activeSection: null,
-      triggerTask: { id: 'telc-b1-mini-test', skill: 'mini-test', level: 'b1' },
+      triggerTask: { id: 'telc-b1-free-test', skill: 'free-test', level: 'b1' },
       triggerFullTest: null,
     };
   }
 
-  if (path === 'telc-b2-mini-test') {
+  if (path === 'telc-b2-free-test') {
     return {
       view: 'lesson',
       viewHistory: ['lesson'],
       activeCategory: null,
       activeSection: null,
-      triggerTask: { id: 'telc-b2-mini-test', skill: 'mini-test', level: 'b2' },
+      triggerTask: { id: 'telc-b2-free-test', skill: 'free-test', level: 'b2' },
       triggerFullTest: null,
     };
   }
 
-  if (path === 'telc-c1-mini-test') {
+  if (path === 'telc-c1-free-test') {
     return {
       view: 'lesson',
       viewHistory: ['lesson'],
       activeCategory: null,
       activeSection: null,
-      triggerTask: { id: 'telc-c1-mini-test', skill: 'mini-test', level: 'c1' },
+      triggerTask: { id: 'telc-c1-free-test', skill: 'free-test', level: 'c1' },
       triggerFullTest: null,
     };
   }

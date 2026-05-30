@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import './SitemapPage.css';
 
@@ -11,7 +11,7 @@ const SitemapPage = () => {
           <p>A complete map of every page on English Exam Excellence.</p>
         </header>
 
-        {/* ── PUBLIC ─────────────────────────────────────────────── */}
+        {/* â”€â”€ PUBLIC â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <section className="sitemap-section">
           <h2>
             <span className="badge badge-public">Public</span>
@@ -31,12 +31,12 @@ const SitemapPage = () => {
               </ul>
             </div>
             <div className="sitemap-card">
-              <h3>Free Mock Tests</h3>
+              <h3>Free Tests</h3>
               <ul>
-                <li><Link to="/free-mock">All Levels (default: B2)</Link></li>
-                <li><Link to="/free-mock/b1">B1 Free Mock</Link></li>
-                <li><Link to="/free-mock/b2">B2 Free Mock</Link></li>
-                <li><Link to="/free-mock/c1">C1 Free Mock</Link></li>
+                <li><Link to="/free-test">All Levels (default: B2)</Link></li>
+                <li><Link to="/free-test/b1">B1 Free Test</Link></li>
+                <li><Link to="/free-test/b2">B2 Free Test</Link></li>
+                <li><Link to="/free-test/c1">C1 Free Test</Link></li>
               </ul>
             </div>
             <div className="sitemap-card">
@@ -48,7 +48,7 @@ const SitemapPage = () => {
           </div>
         </section>
 
-        {/* ── PROTECTED ──────────────────────────────────────────── */}
+        {/* â”€â”€ PROTECTED â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <section className="sitemap-section">
           <h2>
             <span className="badge badge-protected">Protected</span>
@@ -158,3 +158,4 @@ const SitemapPage = () => {
 };
 
 export default SitemapPage;
+

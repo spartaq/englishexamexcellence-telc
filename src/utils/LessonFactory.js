@@ -163,8 +163,8 @@ export const LessonFactory = {
         return LessonFactory.createMiniTest(level);
       }
 
-        // Mini-test with ALL skills (from free-mock /free-mock route)
-      if (taskMetadata.id && taskMetadata.id.includes('mini-test')) {
+        // Free test with ALL skills (from /free-test/ route)
+      if (taskMetadata.id && taskMetadata.id.includes('free-test')) {
         const type = taskMetadata.id.match(/telc-(b1|b2|c1)/i)?.[1] || 'b2';
         const rawMock = pluckRandomFullMock(type);
         const readingExercise = pluckRandom('reading', type);
@@ -173,17 +173,17 @@ export const LessonFactory = {
         const sections = [];
         if (vocabExercise) sections.push({ ...vocabExercise, skill: 'vocab' });
         if (readingExercise) sections.push({ ...readingExercise, skill: 'reading' });
+        const langElem = pluckRandom('language-elements', type);
+        if (langElem) sections.push({ ...langElem, skill: 'language-elements' });
         const listening = pluckRandom('listening', type);
         if (listening) sections.push({ ...listening, skill: 'listening' });
         const speaking = pluckRandom('speaking', type);
         if (speaking) sections.push({ ...speaking, skill: 'speaking' });
         const writing = pluckRandom('writing', type);
         if (writing) sections.push({ ...writing, skill: 'writing' });
-        const langElem = pluckRandom('language-elements', type);
-        if (langElem) sections.push({ ...langElem, skill: 'language-elements' });
         return {
-          id: `mini-test-full-${Date.now()}`,
-          title: `${type.toUpperCase()} Mini Test`,
+          id: `free-test-full-${Date.now()}`,
+          title: `${type.toUpperCase()} Free Test`,
           type: 'mixed-flow',
           xpReward: 1500,
           sections

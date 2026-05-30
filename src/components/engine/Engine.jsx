@@ -102,7 +102,7 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
 
     // E. LANGUAGE ELEMENTS (TELC B2 specific - similar to Reading, uses LanguageElementsBlock)
     const isFullMockLanguageElements = lessonType === 'full-mock' && currentSection?.skill === 'language-elements';
-    if (lessonType === 'LANGUAGE_ELEMENTS' || (lessonType === 'mini-test-flow' && skill === 'language-elements') || skill === 'language-elements' || isFullMockLanguageElements) {
+    if (lessonType === 'LANGUAGE_ELEMENTS' || (lessonType === 'free-test-flow' && skill === 'language-elements') || skill === 'language-elements' || isFullMockLanguageElements) {
       // Gather all LE parts from the global flattened array
       const leParts = availableSections.filter(s => s.skill === 'language-elements');
       // Fallback: wrap nested parts with skill field (for legacy/atom cases)
@@ -213,7 +213,7 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
 
    // F. VOCAB / FLASHCARDS (including full-mock vocab sections)
    const isFullMockVocab = lessonType === 'full-mock' && currentSection?.skill === 'vocab';
-   if (lessonType === 'VOCAB' || lessonType === 'VOCAB_FLASHCARDS' || (lessonType === 'mini-test-flow' && skill === 'vocab') || skill === 'vocab' || isFullMockVocab) {
+   if (lessonType === 'VOCAB' || lessonType === 'VOCAB_FLASHCARDS' || (lessonType === 'free-test-flow' && skill === 'vocab') || skill === 'vocab' || isFullMockVocab) {
   // If the data came from a passage's vocabList, 
   // ensure we pass the correct array to the FlashcardBlock
   const vocabData = currentSection.vocabList ? { ...currentSection, questions: currentSection.vocabList } : currentSection;

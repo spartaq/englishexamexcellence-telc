@@ -1,4 +1,4 @@
-// Mock Plucker - Dynamically pulls content from TELC full mocks
+﻿// Mock Plucker - Dynamically pulls content from TELC full mocks
 // This is the "source of truth" for generating atom tests
 
 // Import from JSON mocks (single source of truth)
@@ -154,13 +154,13 @@ export const pluckRandom = (skill, level = null) => {
       words: [
         {
           term: 'ubiquitous',
-          hu: 'mindenhol jelenlevő',
+          hu: 'mindenhol jelenlevÅ‘',
           definition: 'Present, appearing, or found everywhere',
           example: 'Smartphones have become ubiquitous in modern society.'
         },
         {
           term: 'ephemeral',
-          hu: 'rövid életű',
+          hu: 'rÃ¶vid Ã©letÅ±',
           definition: 'Lasting for a very short time',
           example: 'The ephemeral beauty of cherry blossoms makes them special.'
         },
@@ -400,10 +400,10 @@ if (skill === 'language-elements') {
 export const findVocabFromReading = (readingExercise, mockVocabWords = null) => {
   let vocabExercise = null;
   
-  // Build a Map from term strings → full word objects when a vocab list is provided
+  // Build a Map from term strings â†’ full word objects when a vocab list is provided
   const vocabWordMap = mockVocabWords
     ? mockVocabWords.reduce((map, w) => {
-        if (typeof w === 'string') return map;               // plain string — no resolution possible
+        if (typeof w === 'string') return map;               // plain string â€” no resolution possible
         if (w.term) map.set(w.term.toLowerCase(), w);       // index by lowercased term
         return map;
       }, new Map())
@@ -498,7 +498,7 @@ export const findVocabFromReading = (readingExercise, mockVocabWords = null) => 
 };
 
 /**
- * Pluck a single speaking part (for mini tests)
+ * Pluck a single speaking part (for mini-test)
  * Returns just one part instead of all 3 parts
  */
 export const pluckSingleSpeakingPart = (level = null) => {
@@ -546,15 +546,15 @@ export const pluckSingleSpeakingPart = (level = null) => {
 };
 
 /**
- * Generate a complete mini-test atom with all 4 skills plus vocab
- * This is used by the "Mini Test" atom type
+ * Generate a complete free-test atom with all 4 skills plus vocab
+ * This is used by the "Free Test" atom type
  * @param {string} level - Optional level filter (b1, b2, c1)
  */
-export const generateMiniTest = (level = null) => {
+export const generateFreeTest = (level = null) => {
   return {
-    id: `mini-test-${Date.now()}`,
-    type: 'mini-test',
-    title: 'TELC Mini Test',
+    id: `free-test-${Date.now()}`,
+    type: 'free-test',
+    title: 'TELC Free Test',
     description: 'A quick blast of all 5 skills plus vocab',
     skills: {
       vocab: pluckRandom('vocabulary', level),

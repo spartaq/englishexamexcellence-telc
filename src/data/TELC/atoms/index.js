@@ -1,7 +1,7 @@
 // TELC Atoms - Configuration for TELC skill practice
 // Data is dynamically pulled from full mocks using mockPlucker utility
 
-import { pluckRandom, generateMiniTest, getAllReadingDrills, pluckRandomFullMock } from '../../../utils/mockPlucker';
+import { pluckRandom, generateFreeTest, getAllReadingDrills, pluckRandomFullMock } from '../../../utils/mockPlucker';
 
 export const atomsData = {
   getReading: () => pluckRandom('reading'),
@@ -9,7 +9,7 @@ export const atomsData = {
   getSpeaking: () => pluckRandom('speaking'),
   getWriting: () => pluckRandom('writing'),
   getVocab: () => pluckRandom('vocabulary'),
-  getMiniTest: () => generateMiniTest()
+  getFreeTest: () => generateFreeTest()
 };
 
 export const TELC_ATOMS = {
@@ -27,15 +27,15 @@ export const TELC_ATOMS = {
       tier: 'bronze',
       getContent: () => pluckRandomFullMock()
     },
-    'telc-mini-test': {
-      id: 'telc-mini-test',
-      title: 'Mini Test',
+    'telc-free-test': {
+      id: 'telc-free-test',
+      title: 'Free Test',
       description: 'A quick blast of all 4 skills plus vocab',
       type: 'flow',
       sequence: ['vocab', 'reading', 'listening', 'speaking', 'writing'], 
       xp: 1500,
       tier: 'bronze',
-      getContent: () => generateMiniTest()
+      getContent: () => generateFreeTest()
     },
     'reading': {
       id: 'reading',
@@ -81,14 +81,14 @@ export const TELC_ATOMS = {
   
   categories: [
     {
-      id: 'mini-test-flow',
-      title: 'Take a Full Mini-Test',
+      id: 'free-test-flow',
+      title: 'Take a Full Free-Test',
       description: 'A quick blast of all 4 skills',
       type: 'flow',
       sequence: ['vocab', 'reading', 'writing'], 
       xp: 1000,
       tier: 'bronze',
-      getContent: () => generateMiniTest()
+      getContent: () => generateFreeTest()
     },
     {
       id: 'reading-practice',
