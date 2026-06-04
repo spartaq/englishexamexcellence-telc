@@ -122,7 +122,11 @@ function App({ initialView, initialLevel }) {
   // Helper to set view with history tracking
   const navigateToView = (newView) => {
     if (newView !== view) {
-      setViewHistory(prev => [...prev, newView]);
+      setViewHistory(prev => {
+        // Don't append duplicate consecutive entries (fixes free-test double 'lesson')
+        if (prev[prev.length - 1] === newView) return prev;
+        return [...prev, newView];
+      });
       setView(newView);
       setCurrentView(newView); // Update Zustand store for ScrollToTop
     }
@@ -196,7 +200,10 @@ function App({ initialView, initialLevel }) {
     if (lessonOrigin) {
       console.log('[navigateBack] no history, using lessonOrigin:', lessonOrigin);
 
-      if (lessonOrigin === 'telc-b1-hub') {
+      // Free-test origins go straight back to the landing page
+      if (lessonOrigin.endsWith('-free-test')) {
+        navigate('/');
+      } else if (lessonOrigin === 'telc-b1-hub') {
         navigate('/telc/b1');
       } else if (lessonOrigin === 'telc-b2-hub') {
         navigate('/telc/b2');
@@ -512,18 +519,19 @@ function App({ initialView, initialLevel }) {
         showSidebar={showSidebar}
         showHeader={showHeader}
         onNavigateBack={() => {
-          // Check if we're coming from mini test results before clearing state
-          if (view === 'results' && activeLesson) {
-            const isMiniTest = (activeLesson.type === 'mixed-flow' && 
-                               activeLesson.title && 
-                               activeLesson.title.endsWith('Mini Test')) ||
-                              (activeLesson.id && 
-                               activeLesson.id.startsWith('mini-test-full-'));
+  // Check if we're coming from mini test or free test results before clearing state
+  if (view === 'results' && activeLesson) {
+    const isDirectTest = (activeLesson.type === 'mixed-flow' && 
+                         activeLesson.title && 
+                         activeLesson.title.endsWith('Mini Test')) ||
+                         (activeLesson.id && 
+                          (activeLesson.id.startsWith('mini-test-full-') || 
+                           activeLesson.id.startsWith('free-test-full-')));
                             
-            if (isMiniTest) {
-              console.log('[navigateBack] Detected mini test results, navigating to landing page');
+            if (isDirectTest) {
+              console.log('[navigateBack] Detected direct test results, navigating to landing page');
               navigate('/');
-              // Don't call setActiveLesson(null) or navigateBack() for mini tests
+              // Don't call setActiveLesson(null) or navigateBack() for direct tests
               // to avoid intermediate blank page
               return;
             }

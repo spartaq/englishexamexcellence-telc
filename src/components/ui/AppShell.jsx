@@ -145,17 +145,17 @@ const AppShell = ({
               </button>
             )}
             {view === 'results' && (
-              <button onClick={() => onNavigateBack()} className="exit-btn">
+              <button onClick={() => { if (onNavigateBack) onNavigateBack(); }} className="exit-btn">
                 <ArrowRight size={14} className="exit-btn-icon" /> Back
               </button>
             )}
             {view === 'skillTests' && (
-              <button onClick={() => onNavigateBack()} className="exit-btn">
+              <button onClick={() => { if (onNavigateBack) onNavigateBack(); }} className="exit-btn">
                 <ArrowRight size={14} className="exit-btn-icon" /> Back
               </button>
             )}
             {(view === 'drillsHub' || view === 'selection') && (
-              <button onClick={() => onNavigateBack()} className="exit-btn">
+              <button onClick={() => { if (onNavigateBack) onNavigateBack(); }} className="exit-btn">
                 <ArrowRight size={14} className="exit-btn-icon" /> Back
               </button>
             )}
