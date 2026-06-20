@@ -8,6 +8,13 @@
 
 /* --- 2. CSS CUSTOM PROPERTIES --- */
 :root {
+
+/* Add after existing color variables */
+--lab-indigo: #6366f1;          /* Indigo 500 - for MCQ accents */
+--lab-indigo-bg: rgba(88, 80, 236, 0.03); /* Light indigo background */
+--primary-dark: #1e293b;        /* Dark slate for selected state */
+
+
   /* --- Primary Colors (Invictus Academic Red) --- */
   --primary: darkred;
   --primary-container: #e11d48;
