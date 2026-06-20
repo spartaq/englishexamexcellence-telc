@@ -211,8 +211,12 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
       );
     }
 
-   // F. VOCAB / FLASHCARDS (including full-mock vocab sections)
+   // F. VOCAB / FLASHCARDS (including full-mock and free-test vocab sections)
    const isFullMockVocab = lessonType === 'full-mock' && currentSection?.skill === 'vocab';
+   const isFreeTestVocab =
+    (lessonType === 'mixed-flow' || lessonType === 'free-test-flow') &&
+    currentSection?.skill === 'vocab';
+   const isLockedVocab = isFullMockVocab || isFreeTestVocab;
    if (lessonType === 'VOCAB' || lessonType === 'VOCAB_FLASHCARDS' || (lessonType === 'free-test-flow' && skill === 'vocab') || skill === 'vocab' || isFullMockVocab) {
   // If the data came from a passage's vocabList, 
   // ensure we pass the correct array to the FlashcardBlock
@@ -221,6 +225,7 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
   return (
     <FlashcardBlock 
       data={vocabData} 
+      showFilters={!isLockedVocab}
       onComplete={onCheckAnswers}
       onNavigateToMyWords={onNavigateToMyWords}
       sections={availableSections}

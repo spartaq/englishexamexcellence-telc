@@ -1,13 +1,29 @@
 ﻿import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { GraduationCap, Clock, Brain, Atom, Quote, Menu } from 'lucide-react';
 import { SignInButton, UserButton, useUser } from '@clerk/react';
 import './LandingPage.css';
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { isSignedIn } = useUser();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const safeReturnTo = (() => {
+    const returnTo = searchParams.get('returnTo');
+    return typeof returnTo === 'string' && returnTo.startsWith('/') && !returnTo.startsWith('//')
+      ? returnTo
+      : '/telc/b1';
+  })();
+
+  const loginRequired = searchParams.get('loginRequired') === '1';
+
+  const handleDismissLoginPrompt = () => {
+    if (loginRequired) {
+      navigate('/', { replace: true });
+    }
+  };
 
   const handleStartTraining = (level) => {
     navigate(`/telc/${level}`);
@@ -92,15 +108,17 @@ const LandingPage = () => {
             }}>
               Telc Info
             </button>
-          </div>
-          <div className="lp-mobile-menu-actions">
             {isSignedIn ? (
               <UserButton className="lp-mobile-user-button" />
             ) : (
               <SignInButton mode="modal">
-                <button className="lp-btn-ghost lp-mobile-btn-ghost">Sign In</button>
+                <button className="lp-mobile-nav-link lp-mobile-nav-link--auth">
+                  Sign In
+                </button>
               </SignInButton>
             )}
+          </div>
+          <div className="lp-mobile-menu-actions">
             <button
               className="lp-btn-primary lp-mobile-btn-primary"
               onClick={() => {
@@ -113,6 +131,37 @@ const LandingPage = () => {
           </div>
         </div>
       </nav>
+
+      {loginRequired && !isSignedIn && (
+        <div className="lp-login-alert" role="presentation" onClick={handleDismissLoginPrompt}>
+          <div
+            className="lp-login-alert-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="lp-login-alert-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="lp-login-alert-content">
+              <strong id="lp-login-alert-title" className="lp-login-alert-title">Sign in required</strong>
+              <p className="lp-login-alert-text">
+                Sign in to access the TELC practice lab and continue your progress.
+              </p>
+            </div>
+            <div className="lp-login-alert-actions">
+              <SignInButton mode="modal" fallbackRedirectUrl={safeReturnTo}>
+                <button className="lp-login-alert-btn">Sign In</button>
+              </SignInButton>
+              <button
+                className="lp-login-alert-close"
+                onClick={handleDismissLoginPrompt}
+                aria-label="Dismiss login prompt"
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <main className="lp-main">
         {/* â”€â”€ Hero â”€â”€ */}

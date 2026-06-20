@@ -514,6 +514,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.topic-card-minimal:hover,
+.topic-card-minimal:focus {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  background: rgba(175, 16, 26, 0.12);
+  outline: none;
+  box-shadow: 0 10px 24px rgba(175, 16, 26, 0.12);
 }
 
 .topic-info {
@@ -543,40 +554,39 @@
   gap: 4px;
 }
 
-.topic-actions button {
+.topic-actions span {
   background: #f3f4f6;
   border: none;
   font-size: 10px;
   font-weight: 800;
   padding: 0.5rem;
-  cursor: pointer;
 }
 
-.topic-actions button.level-b1 {
+.topic-actions span.level-b1 {
   background: #dbeafe;
   color: #1e40af;
 }
 
-.topic-actions button.level-b2 {
+.topic-actions span.level-b2 {
   background: #fef3c7;
   color: #92400e;
 }
 
-.topic-actions button.level-c1, /* Combined 'accent' with 'level-c1' for consistency */
-.topic-actions button.accent { /* Keep accent for direct usage, if any */
+.topic-actions span.level-c1, /* Combined 'accent' with 'level-c1' for consistency */
+.topic-actions span.accent { /* Keep accent for direct usage, if any */
   background: #000;
   color: #fff;
 }
 
-.topic-actions button:hover {
+.topic-actions span:hover {
   background: var(--primary);
   color: #fff;
 }
 
-/* Level-specific button styles (overrides for hover) */
-.topic-actions button.level-b1:hover,
-.topic-actions button.level-b2:hover,
-.topic-actions button.level-c1:hover {
+/* Level-specific badge styles (overrides for hover) */
+.topic-actions span.level-b1:hover,
+.topic-actions span.level-b2:hover,
+.topic-actions span.level-c1:hover {
   background: var(--primary);
   color: #fff;
 }

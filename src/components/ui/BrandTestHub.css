@@ -3,24 +3,7 @@
    Uses globals for everything it can; keeps local overrides for BrandTestHub-specific values
    ============================================================================= */
 
-:root {
-  /* BrandTestHub overrides — values not covered by globals.css */
-  --primary-color: var(--primary);
-  --primary-dark-color: var(--primary-dark);
-  --text-primary: #263238;
-  --text-dark: var(--text-primary);
-  --text-medium: #555;
-  --text-light: #777;
-  --background-light: var(--bg-app);
-  --surface-color: var(--surface-white);
-  --shadow-light: var(--shadow-light);
-  --shadow-medium: var(--shadow-medium);
-  --font-primary: var(--invictus-font);
-  --font-secondary: 'Inter', sans-serif;
-  --border-radius-sm: var(--radius-sm);
-  --border-radius-md: var(--radius-md);
-  --border-radius-lg: var(--radius-lg);
-}
+
 
 .hub-container {
   background-color: var(--bg-app);
@@ -238,6 +221,32 @@
   font-size: 1.5rem;
 }
 
+
+
+.skills-title {
+  font-family: var(--invictus-font);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.skills-meta {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.skills-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-medium);
+  margin-bottom: 1.5rem;
+}
+
 .exam-title {
   font-family: var(--invictus-font);
   font-size: 2.5rem;
@@ -249,7 +258,7 @@
 
 .exam-meta {
   font-size: 0.85rem;
-  color: var(--text-light);
+  color: var(--text-primary);
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -395,7 +404,7 @@
   color: var(--text-primary);
 }
 .exam-list-item .exam-title svg {
-  color: var(--text-light) !important;
+  color: green !important;
 }
 
 .exam-list-item .exam-meta {

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Trophy, Zap, Layers, Activity, Book, Globe, Shield, School, Lock, ArrowRight, BookOpen, ArrowLeft } from 'lucide-react';
+import { Zap, Layers, Activity, Book, Globe, Shield, School, ArrowRight, BookOpen, ArrowLeft } from 'lucide-react';
 import { useExamStore } from '../../store/useExamStore';
 import './VocabHub.css';
 
@@ -213,7 +213,14 @@ const VocabHub = ({
 
           <div className="prof-card active" onClick={() => {
             if (quickFlashTask) {
-              onSelectSection({ ...quickFlashTask, type: 'VOCAB_FLASHCARDS', isRandomMix: true });
+              onSelectSection({
+                ...quickFlashTask,
+                type: 'VOCAB_FLASHCARDS',
+                topic: 'All Topics',
+                categoryTitle: 'All Topics',
+                title: `${selectedLevel} Mixed Topics`,
+                isRandomMix: true
+              });
             }
           }}>
                 <div className="card-top">
@@ -243,22 +250,45 @@ const VocabHub = ({
           {filteredCategories.map(cat => {
             // For selected level, each topic should have exactly 1 task (or 0)
             const task = cat.tasks[0];
+            const handleTopicSelect = () => {
+              if (task) {
+                onSelectSection({
+                  ...task,
+                  type: 'VOCAB_FLASHCARDS',
+                  topic: cat.title,
+                  categoryTitle: cat.title,
+                  title: cat.title
+                });
+              }
+            };
+
             return (
-              <div key={cat.id} className="topic-card-minimal">
+              <div
+                key={cat.id}
+                className="topic-card-minimal"
+                onClick={handleTopicSelect}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleTopicSelect();
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+              >
                 <div className="topic-info">
                   <div className="topic-icon-hex">{topicIcons[cat.title] || <Layers size={20} />}</div>
                   <span className="topic-name">{cat.title.toUpperCase()}</span>
                 </div>
-                <div className="topic-actions">
-                  <button
+                <div className="topic-actions" aria-hidden="true">
+                  <span
                     className={
                       selectedLevel === 'B1' ? 'level-b1' :
                       selectedLevel === 'B2' ? 'level-b2' : 'accent'
                     }
-                    onClick={() => task && onSelectSection({ ...task, type: 'VOCAB_FLASHCARDS' })}
                   >
                     {selectedLevel}
-                  </button>
+                  </span>
                 </div>
               </div>
             );
@@ -288,6 +318,8 @@ const VocabHub = ({
             words: dueWords.slice(0, 20),
             isRandomMix: true,
             title: 'Review Due Words',
+            topic: 'Due Words',
+            categoryTitle: 'Due Words',
             level: selectedLevel
           });
         }

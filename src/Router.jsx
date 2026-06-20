@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useUser } from '@clerk/react';
 import App from './App';
 import LandingPage from './components/LandingPage/LandingPage';
@@ -9,13 +9,15 @@ import SitemapPage from './components/ui/SitemapPage';
 
 const ProtectedRoute = ({ children }) => {
   const { isSignedIn, isLoaded } = useUser();
+  const location = useLocation();
   
   if (!isLoaded) {
     return <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'100vh'}}>Loading...</div>;
   }
   
   if (!isSignedIn) {
-    return <Navigate to="/" replace />;
+    const returnTo = `${location.pathname}${location.search}`;
+    return <Navigate to={{ pathname: '/', search: `?loginRequired=1&returnTo=${encodeURIComponent(returnTo)}` }} replace />;
   }
   
   return children;

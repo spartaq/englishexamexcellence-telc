@@ -85,7 +85,7 @@ const BrandTestHub = ({
       {/* --- 2. TRAINING VS TESTING SECTION --- */}
       <div className="section-header">
         <h2 className="section-title">The Real Solution</h2>
-        <p style={{ color: '#64748b', fontSize: '15px', marginTop: '4px' }}>Targeted vocabulary and skill mastery beats endless testing</p>
+        <p style={{ color: 'var(--text-primary)', fontSize: '15px', marginTop: '4px' }}>Targeted vocabulary and skill mastery beats endless testing</p>
       </div>
 
       <div className="precision-grid">
@@ -112,9 +112,9 @@ const BrandTestHub = ({
               <div className="quick-icon-box" style={{ background, color: validHex ? tool.color : '#0f172a' }}>
                 {iconContent}
               </div>
-              <h3 className="exam-title">{tool.title}</h3>
-              <p className="exam-meta">SKILL BUILDING</p>
-              <p className="exam-description">{tool.description}</p>
+              <h3 className="skills-title">{tool.title}</h3>
+              <p className="skills-meta">SKILL BUILDING</p>
+              <p className="skills-description">{tool.description}</p>
             </div>
           );
         })}

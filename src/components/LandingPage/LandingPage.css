@@ -83,12 +83,12 @@
 
 .lp-nav-link:hover {
   color: white;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
 }
 
 .lp-nav-link--active {
   color: white;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
 }
 
 /* Nav Actions */
@@ -149,6 +149,91 @@
 /* ═══════════════════════════════════════════
    MAIN WRAPPER — pushes content below fixed navbar
    ═══════════════════════════════════════════ */
+.lp-login-alert {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.58);
+  backdrop-filter: blur(4px);
+}
+
+.lp-login-alert-panel {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  padding: 1.5rem;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.lp-login-alert-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-right: 2rem;
+}
+
+.lp-login-alert-title {
+  font-family: var(--font-primary);
+  font-weight: 800;
+  color: var(--text-primary);
+  font-size: 1.15rem;
+}
+
+.lp-login-alert-text {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.lp-login-alert-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.lp-login-alert-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 0.65rem 1rem;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.lp-login-alert-btn:hover {
+  background: var(--primary-dark-color);
+}
+
+.lp-login-alert-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.lp-login-alert-close:hover {
+  color: var(--text-primary);
+}
+
 .lp-main {
   padding-top: 5.5rem; /* Adjust based on new navbar height */
 }
@@ -228,7 +313,7 @@
 
 .lp-level-card {
   background: rgba(255, 255, 255, 0.08); /* Slightly transparent white on dark background */
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--primary);
   border-radius: var(--border-radius-md);
   padding: 1.5rem 1.25rem 1.8rem;
   text-align: center;
@@ -240,14 +325,14 @@
 .lp-level-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 30px var(--shadow-medium);
-  border-color: var(--primary-color);
+  border-color: red;
   background: rgba(255, 255, 255, 0.12);
 }
 
 .lp-level-card-tag {
   font-weight: 800;
   font-size: 1rem;
-  color: var(--primary-color);
+  color: var(--primary);
   margin-bottom: 0.4rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -261,7 +346,7 @@
 }
 
 .lp-btn-level {
-  background: var(--primary-color);
+  background: var(--primary);
   color: #fff;
   border: none;
   width: 100%;
@@ -592,6 +677,26 @@
     display: flex;
   }
 
+  .lp-login-alert {
+    padding: 1rem;
+  }
+
+  .lp-login-alert-panel {
+    padding: 1.25rem;
+  }
+
+  .lp-login-alert-content {
+    padding-right: 0;
+  }
+
+  .lp-login-alert-actions {
+    justify-content: flex-end;
+  }
+
+  .lp-login-alert-btn {
+    flex: 1;
+  }
+
   .lp-hero {
     padding: 4rem 1.5rem 5rem;
   }
@@ -645,6 +750,10 @@
   .lp-logo {
     font-size: 1.1rem;
   }
+  .lp-login-alert {
+    padding: 0.75rem;
+  }
+
   .lp-hero {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -747,8 +856,17 @@
 
 .lp-mobile-nav-link:hover {
   color: white;
-  border-left: 3px solid var(--primary-color); /* Add a left border on hover */
+  border-left: 3px solid var(--primary-color);
   padding-left: 0.5rem;
+}
+
+.lp-mobile-nav-link--auth {
+  color: var(--primary-color);
+  font-weight: 800;
+}
+
+.lp-mobile-user-button {
+  margin: 0.25rem 0 0.25rem 0.3rem;
 }
 
 /* Style for mobile menu actions */
@@ -800,10 +918,4 @@
   background: var(--primary-dark-color);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(211, 47, 47, 0.5);
-}
-
-/* Adjust the user button in mobile menu */
-.lp-mobile-user-button {
-  width: 100%;
-  justify-content: center; /* Center the user button */
 }
