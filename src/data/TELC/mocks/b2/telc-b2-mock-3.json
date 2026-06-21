@@ -160,27 +160,27 @@
                   {
                     "id": "1",
                     "text": "Paragraph 1",
-                    "answer": 5
+                    "answer": 4
                   },
                   {
                     "id": "2",
                     "text": "Paragraph 2",
-                    "answer": 1
+                    "answer": 0
                   },
                   {
                     "id": "3",
                     "text": "Paragraph 3",
-                    "answer": 7
+                    "answer": 6
                   },
                   {
                     "id": "4",
                     "text": "Paragraph 4",
-                    "answer": 3
+                    "answer": 2
                   },
                   {
                     "id": "5",
                     "text": "Paragraph 5",
-                    "answer": 6
+                    "answer": 5
                   }
                 ],
                 "headings": [
@@ -561,27 +561,27 @@
               {
                 "id": 1,
                 "text": "Situation 1",
-                "answer": "2"
+                "answer": "1"
               },
               {
                 "id": 2,
                 "text": "Situation 2",
-                "answer": "4"
+                "answer": "3"
               },
               {
                 "id": 3,
                 "text": "Situation 3",
-                "answer": "1"
+                "answer": "0"
               },
               {
                 "id": 4,
                 "text": "Situation 4",
-                "answer": "6"
+                "answer": "5"
               },
               {
                 "id": 5,
                 "text": "Situation 5",
-                "answer": "3"
+                "answer": "2"
               }
             ],
             "headings": [
@@ -660,7 +660,7 @@
               {
                 "id": 11,
                 "text": "Speaker 1",
-                "answer": 4,
+                "answer": "The hotel owners had children of their own.",
                 "options": [
                   "The hotel provided a separate space for teenagers.",
                   "Children under a certain age ate for free.",
@@ -675,7 +675,7 @@
               {
                 "id": 12,
                 "text": "Speaker 2",
-                "answer": 0,
+                "answer": "The hotel provided a separate space for teenagers.",
                 "options": [
                   "The hotel provided a separate space for teenagers.",
                   "Children under a certain age ate for free.",
@@ -690,7 +690,7 @@
               {
                 "id": 13,
                 "text": "Speaker 3",
-                "answer": 1,
+                "answer": "Children under a certain age ate for free.",
                 "options": [
                   "The hotel provided a separate space for teenagers.",
                   "Children under a certain age ate for free.",
@@ -705,7 +705,7 @@
               {
                 "id": 14,
                 "text": "Speaker 4",
-                "answer": 6,
+                "answer": "The hotel had limited activities for children.",
                 "options": [
                   "The hotel provided a separate space for teenagers.",
                   "Children under a certain age ate for free.",
@@ -720,7 +720,7 @@
               {
                 "id": 15,
                 "text": "Speaker 5",
-                "answer": 7,
+                "answer": "The hotel felt like a family environment due to its small size.",
                 "options": [
                   "The hotel provided a separate space for teenagers.",
                   "Children under a certain age ate for free.",

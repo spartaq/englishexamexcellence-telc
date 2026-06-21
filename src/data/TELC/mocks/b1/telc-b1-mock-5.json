@@ -499,7 +499,7 @@
               {
                 "id": 15,
                 "text": "Mike says that at school he",
-                "answer": "A",
+                "answer": "is good at science.",
                 "options": [
                   "is good at science.",
                   "is interested in English.",
@@ -509,7 +509,7 @@
               {
                 "id": 16,
                 "text": "How does Mike get to school?",
-                "answer": "B",
+                "answer": "by bicycle",
                 "options": [
                   "by bus",
                   "by bicycle",
@@ -519,7 +519,7 @@
               {
                 "id": 17,
                 "text": "What does Mike do at his uncle’s farm?",
-                "answer": "C",
+                "answer": "He helps with the cows.",
                 "options": [
                   "He looks after horses.",
                   "He helps with the painting.",
@@ -529,7 +529,7 @@
               {
                 "id": 18,
                 "text": "What does Mike enjoy most about the Young Farmers’ Group?",
-                "answer": "A",
+                "answer": "learning about animals",
                 "options": [
                   "learning about animals",
                   "having fun",
@@ -539,7 +539,7 @@
               {
                 "id": 19,
                 "text": "What does Mike want to do when he leaves school?",
-                "answer": "C",
+                "answer": "have his own farm",
                 "options": [
                   "work for his father",
                   "live in a town",
@@ -549,7 +549,7 @@
               {
                 "id": 20,
                 "text": "Mike’s mother thinks he should",
-                "answer": "A",
+                "answer": "go to college.",
                 "options": [
                   "go to college.",
                   "pass his exams.",

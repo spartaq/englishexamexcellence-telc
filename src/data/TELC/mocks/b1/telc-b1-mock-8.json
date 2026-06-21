@@ -338,7 +338,7 @@
                   "MUSEUM",
                   "SIGHTSEEING",
                   "TICKET",
-                  "TOURISTS",
+                  "SUNBATHING",
                   "WEATHER"
                 ],
                 "answers": {
@@ -435,11 +435,11 @@
             "type": "mcq",
             "instruction": "Choose the correct answer (A, B, or C) for each question.",
             "questions": [
-              { "id": 11, "text": "Where can the man buy tickets?", "options": ["At the ticket office or online", "Only at the entrance", "At the hotel"], "answer": 0 },
-              { "id": 12, "text": "When is the Spanish tour?", "options": ["At 2pm", "At 10am", "Every Monday"], "answer": 0 },
-              { "id": 13, "text": "How can you tour the city?", "options": ["By bus or bike", "Only by walking", "By boat only"], "answer": 0 },
-              { "id": 14, "text": "Where are the restaurants?", "options": ["Near the square", "Inside the museum", "At the train station"], "answer": 0 },
-              { "id": 15, "text": "When is the museum closed?", "options": ["Mondays", "Tuesdays", "Sundays"], "answer": 0 }
+              { "id": 11, "text": "Where can the man buy tickets?", "options": ["At the ticket office or online", "Only at the entrance", "At the hotel"], "answer": "At the ticket office or online" },
+              { "id": 12, "text": "When is the Spanish tour?", "options": ["At 2pm", "At 10am", "Every Monday"], "answer": "At 2pm" },
+              { "id": 13, "text": "How can you tour the city?", "options": ["By bus or bike", "Only by walking", "By boat only"], "answer": "By bus or bike" },
+              { "id": 14, "text": "Where are the restaurants?", "options": ["Near the square", "Inside the museum", "At the train station"], "answer": "Near the square" },
+              { "id": 15, "text": "When is the museum closed?", "options": ["Mondays", "Tuesdays", "Sundays"], "answer": "Mondays" }
             ]
           }
         ]

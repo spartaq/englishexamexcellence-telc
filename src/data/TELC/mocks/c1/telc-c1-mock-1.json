@@ -40,27 +40,23 @@
             "content": [
               {
                 "id": "1",
-                "text": "The majority of today's children are growing up detached from nature, a new survey reveals. For the first time in history, more than half the world's population is living in large towns and cities due to ever increasing urban growth. __(1)__ after school hours become filled with scheduled activities such as music lessons or sports, less time is devoted to just getting muddy and exploring what nature has to offer."
+                "text": "The majority of today's children are growing up detached from nature, a new survey reveals. For the first time in history, more than half the world's population is living in large towns and cities due to ever increasing urban growth. __(1)__.  As after school hours become filled with scheduled activities such as music lessons or sports, less time is devoted to just getting muddy and exploring what nature has to offer."
               },
               {
                 "id": "2",
-                "text": "One antidote to this is Forest Nurseries, popular in Denmark, Sweden and Germany, and now growing in numbers in the UK. __(2)__ Learning, through play and exploration, takes place in a natural environment regardless of the weather. The idea comes from the eighteenth century creator of the 'kindergarten' concept, Friedrich Wilhelm August Froebel. He believed that play was vital for young children's development and that the outdoors was as obvious a place for this as any classroom. In Denmark in the 1950s, this concept was revisited and adapted, and a new type of preschool education was created."
+                "text": "One antidote to this is Forest Nurseries, popular in Denmark, Sweden and Germany, and now growing in numbers in the UK. __(2)__ Learning, through play and exploration, takes place in a natural environment regardless of the weather. The idea comes from the eighteenth century creator of the 'kindergarten' concept, Friedrich Wilhelm August Froebel. He believed that play was vital for young children's development and that the outdoors was as obvious a place for this as any classroom. In Denmark in the 1950s, this concept was revisited and adapted, and a new type of preschool education was created. __(3)__ "
               },
               {
                 "id": "3",
-                "text": "The focus is on fresh air, exercise and understanding the local environment. Children are given the freedom to build huts, climb trees and cross streams. They stop and investigate what interests them as they head out on planned walks and fashion their own toys using whatever resources they find. __(3)__ They foster independence, curiosity and creativity, and lead to an increased attention span, greater physical strength and improved motor function."
+                "text": "The focus is on fresh air, exercise and understanding the local environment. Children are given the freedom to build huts, climb trees and cross streams. They stop and investigate what interests them as they head out on planned walks and fashion their own toys using whatever resources they find. __(4)__ They foster independence, curiosity and creativity, and lead to an increased attention span, greater physical strength and improved motor function."
               },
               {
                 "id": "4",
-                "text": "Can these kindergartens compete with standard kindergartens? __(4)__ However, a recent study in Germany showed that forest kindergarten children actually outperformed their peers in areas such as cognitive tasks, social behaviour and creativity, as well as physical ability."
+                "text": "Can these kindergartens compete with standard kindergartens? __(5)__ However, a recent study in Germany showed that forest kindergarten children actually outperformed their peers in areas such as cognitive tasks, social behaviour and creativity, as well as physical ability. __(6)__ The research shows it helps them become physically self-confident."
               },
               {
                 "id": "5",
-                "text": "__(5)__ The research shows it helps them become physically self-confident."
-              },
-              {
-                "id": "6",
-                "text": "This type of education will not attract so-called 'helicopter parents', those who hover over their children being over-protective. __(6)__ But here rain, sun and snow are all welcome. After all, as the saying goes, there is no such thing as bad weather, only bad clothing. And all agree that the odd bump or bruise is nothing to worry about, especially when parents see how the outdoor world helps their children thrive. With the popularity of these schools growing, more urban children will be taking advantage of the natural world to explore and learn while cultivating strong bodies and healthy minds."
+                "text": "This type of education will not attract so-called 'helicopter parents', those who hover over their children being over-protective. __(7)__ But here rain, sun and snow are all welcome. After all, as the saying goes, there is no such thing as bad weather, only bad clothing. And all agree that the odd bump or bruise is nothing to worry about, especially when parents see how the outdoor world helps their children thrive. With the popularity of these schools growing, more urban children will be taking advantage of the natural world to explore and learn while cultivating strong bodies and healthy minds."
               }
             ],
             "subTasks": [
@@ -68,22 +64,24 @@
                 "type": "sentence-insert",
                 "instruction": "Which of the sentences a–h is missing in each gap? There is only one correct answer for each item. Two sentences do not fit into any of the gaps.",
                 "options": [
-                  { "id": "a", "text": "For this reason, child carers are often sceptic of the benefits of forest education for children's health." },
-                  { "id": "b", "text": "Furthermore, parents can participate and help the children build toys and prepare their own meals." },
-                  { "id": "c", "text": "Girls in particular are said to profit from their outdoor experience." },
-                  { "id": "d", "text": "Such activities help develop problem solving skills and the ability to assess risks." },
-                  { "id": "e", "text": "The idea quickly caught on and now thousands of these kindergartens exist throughout Europe." },
-                  { "id": "f", "text": "There is some concern that, although children are likely to have fun, they may be at a disadvantage once they progress to primary education." },
-                  { "id": "g", "text": "These are a type of preschool education where children spend most of their time outdoors." },
-                  { "id": "h", "text": "They argue that being outside will cause illness and that too much walking, climbing and outdoor play leads to physical exhaustion." }
+                  { "id": "a", "text": "This means that many children never get to experience the natural world in the way their parents and grandparents did." }, 
+                  { "id": "b", "text": "For this reason, child carers are often sceptic of the benefits of forest education for children's health." },
+                  { "id": "c", "text": "Furthermore, parents can participate and help the children build toys and prepare their own meals." },
+                  { "id": "d", "text": "Girls in particular are said to profit from their outdoor experience." },
+                  { "id": "e", "text": "Such activities help develop problem solving skills and the ability to assess risks." },
+                  { "id": "f", "text": "The idea quickly caught on and now thousands of these kindergartens exist throughout Europe." },
+                  { "id": "g", "text": "There is some concern that, although children are likely to have fun, they may be at a disadvantage once they progress to primary education." },
+                  { "id": "h", "text": "These are a type of preschool education where children spend most of their time outdoors." },
+                  { "id": "i", "text": "They argue that being outside will cause illness and that too much walking, climbing and outdoor play leads to physical exhaustion." }
                 ],
-                "answers": {
+                "answers": { 
                   "1": "a",
-                  "2": "g",
-                  "3": "g",
-                  "4": "f",
-                  "5": "e",
-                  "6": "c"
+                  "2": "h",
+                  "3": "f",
+                  "4": "e",
+                  "5": "g",
+                  "6": "d",
+                  "7": "i"
                 }
               }
             ]
@@ -330,133 +328,133 @@
                     "id": "0",
                     "text": "The Camino de Santiago, also ____(0)____ as the way of Saint James, is a network of hiking routes...",
                     "options": ["a actually", "b easily", "c eventually", "d known"],
-                    "answer": "known"
+                    "answer": "d known"
                   },
                   {
                     "id": "25",
                     "text": "is a network of hiking routes or pilgrimages ____(25)____ to the shrine...",
                     "options": ["a following", "b leading", "c pointing", "d wandering"],
-                    "answer": 1
+                    "answer": "b leading"
                   },
                   {
                     "id": "26",
                     "text": "Many people complete a route as a form of spiritual journey or retreat for their spiritual ____(26)____",
                     "options": ["a grow", "b growing", "c grows", "d growth"],
-                    "answer": 3
+                    "answer": "d growth"
                   },
                   {
                     "id": "27",
                     "text": "but the route ____(27)____ attract religious devotees;",
                     "options": ["a cannot really", "b does not only", "c should definitely", "d will mainly"],
-                    "answer": 1
+                    "answer": "b does not only"
                   },
                   {
                     "id": "28",
                     "text": "While the routes ____(28)____ length, most take around a month...",
                     "options": ["a are different", "b differ from", "c have various", "d vary in"],
-                    "answer": 3
+                    "answer": "d vary in"
                   },
                   {
                     "id": "29",
                     "text": "most take around a month ____(29)____, walking between 20 and 30 km a day.",
                     "options": ["a for completing", "b if completed", "c in completion", "d to complete"],
-                    "answer": 3
+                    "answer": "d to complete"
                   },
                   {
                     "id": "30",
                     "text": "The main route, the Camino Frances, takes, ____(30)____ average five weeks, passing through...",
                     "options": ["a for", "b in", "c on", "d with"],
-                    "answer": 2
+                    "answer": "c on"
                   },
                   {
                     "id": "31",
                     "text": "In October 1987, the route ____(31)____ the first European Cultural Route by the Council of Europe;",
                     "options": ["a declared", "b has been named", "c names", "d was declared"],
-                    "answer": 3
+                    "answer": "d was declared"
                   },
                   {
                     "id": "32",
                     "text": "The ____(32)____ of the Camino stretches back to the Middle Ages...",
                     "options": ["a background", "b birth", "c origin", "d source"],
-                    "answer": 2
+                    "answer": "c origin"
                   },
                   {
                     "id": "33",
                     "text": "when pilgrims made their way on foot to ____(33)____ from Saint James...",
                     "options": ["a ask to forgive", "b beg and forgive", "c seek forgiveness", "d want the forgiveness"],
-                    "answer": 2
+                    "answer": "c seek forgiveness"
                   },
                   {
                     "id": "34",
                     "text": "whose remains are ____(34)____ buried on the site of what is now the city's cathedral.",
                     "options": ["a believed to have been", "b known for having", "c perceiving to be", "d thought to have"],
-                    "answer": 0
+                    "answer": "a believed to have been"
                   },
                   {
                     "id": "35",
                     "text": "The route was part of a trio of pilgrimages, the ____(35)____ to Rome and Jerusalem.",
                     "options": ["a other one is", "b other route goes", "c others being", "d others passing"],
-                    "answer": 2
+                    "answer": "c others being"
                   },
                   {
                     "id": "36",
                     "text": "Completing all three routes was thought to guarantee forgiveness for every ____(36)____.",
                     "options": ["a failure done", "b mistakes made", "c offence taken", "d sin committed"],
-                    "answer": 3
+                    "answer": "d sin committed"
                   },
                   {
                     "id": "37",
                     "text": "Over the centuries, the pilgrimage's popularity has ____(37)____ as a result of dramatic events...",
                     "options": ["a been climbing and sinking", "b decreased and declined", "c risen and fallen", "d sunk and rose"],
-                    "answer": 2
+                    "answer": "c risen and fallen"
                   },
                   {
                     "id": "38",
                     "text": "____(38)____ outbreaks of various diseases or war, which made travelling long distances dangerous.",
                     "options": ["a among which", "b called for", "c like in", "d such as"],
-                    "answer": 3
+                    "answer": "d such as"
                   },
                   {
                     "id": "39",
                     "text": "Nowadays, pilgrims come from around the ____(39)____ and walk these routes...",
                     "options": ["a block", "b clock", "c corner", "d globe"],
-                    "answer": 3
+                    "answer": "d globe"
                   },
                   {
                     "id": "40",
                     "text": "and walk these routes for a ____(40)____ ranging from religious motivation...",
                     "options": ["a different reason", "b number of reasons", "c reason that is important", "d round of reasons"],
-                    "answer": 1
+                    "answer": "b number of reasons"
                   },
                   {
                     "id": "41",
                     "text": "to ____(41)____ to see another country.",
                     "options": ["a a hard wish", "b a main goal", "c a simple desire", "d an easy plan"],
-                    "answer": 2
+                    "answer": "c a simple desire"
                   },
                   {
                     "id": "42",
                     "text": "Modern pilgrims carry a 'credential' or 'pilgrim's passport ____(42)____ at each hostel or town...",
                     "options": ["a that has stamped", "b which is stamped", "c who issues stamps", "d whose stamps stay"],
-                    "answer": 1
+                    "answer": "b which is stamped"
                   },
                   {
                     "id": "43",
                     "text": "____(43)____ at the Santiago cathedral, the credential is exchanged for a certificate...",
                     "options": ["a Before having arrived", "b Once arriving", "c Upon arrival", "d When he arrives"],
-                    "answer": 2
+                    "answer": "c Upon arrival"
                   },
                   {
                     "id": "44",
                     "text": "The challenge of spending a few ____(44)____ walking and the sense of achievement...",
                     "options": ["a week of", "b week's", "c weeks", "d weeks in"],
-                    "answer": 2
+                    "answer": "c weeks"
                   },
                   {
                     "id": "45",
                     "text": "make the Camino a ____(45)____ journey of discovery.",
                     "options": ["a certain", "b really", "c rightful", "d true"],
-                    "answer": 3
+                    "answer": "d true"
                   }
                 ]
               }

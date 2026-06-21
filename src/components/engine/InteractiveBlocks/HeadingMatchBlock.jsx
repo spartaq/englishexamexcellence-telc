@@ -10,7 +10,7 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
 
   // Helper to format heading label - support both "a Clear proof" and "1. Clear proof" formats
   // Helper to format heading label - display as-is (headings already include their labels)
-  const getHeadingLabel = (heading, idx) => {
+  const getHeadingLabel = (heading) => {
     // Check if heading starts with number prefix like "1. Clear proof"
     const numMatch = heading.match(/^(\d+)\s*\.\s*(.+)/);
     if (numMatch) {
@@ -43,7 +43,7 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
           <div className="hm-flex-col">
             {headings.map((heading, idx) => (
               <div key={idx} className="hm-heading-item">
-                {getHeadingLabel(heading, idx)}
+                {getHeadingLabel(heading)}
               </div>
             ))}
           </div>
@@ -89,9 +89,9 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
   placeholder="Select Heading..."
   options={[
     { value: "", label: "Select Heading...", disabled: true },
-    ...headings.map((heading, idx) => ({
+    ...headings.map((_, idx) => ({
       value: idx,
-      label: getHeadingLabel(heading, idx)
+      label: getHeadingLabel(headings[idx], idx)
     }))
   ]}
 />

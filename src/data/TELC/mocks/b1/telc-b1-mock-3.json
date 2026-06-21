@@ -92,11 +92,11 @@
                 "type": "heading-match",
                 "instruction": "Choose the correct heading for each paragraph.",
                 "questions": [
-                  { "id": "1", "text": "Paragraph 1", "answer": 3 },
-                  { "id": "2", "text": "Paragraph 2", "answer": 1 },
-                  { "id": "3", "text": "Paragraph 3", "answer": 4 },
-                  { "id": "4", "text": "Paragraph 4", "answer": 5 },
-                  { "id": "5", "text": "Paragraph 5", "answer": 2 }
+                  { "id": "1", "text": "Paragraph 1", "answer": 2 },
+                  { "id": "2", "text": "Paragraph 2", "answer": 0 },
+                  { "id": "3", "text": "Paragraph 3", "answer": 3 },
+                  { "id": "4", "text": "Paragraph 4", "answer": 4 },
+                  { "id": "5", "text": "Paragraph 5", "answer": 1 }
                 ],
                 "headings": [
                   "Saving a forest from destruction",
@@ -501,7 +501,7 @@
               {
                 "id": 15,
                 "text": "What does Caspar’s mother do?",
-                "answer": "B",
+                "answer": "She dances on a rope.",
                 "options": [
                   "She plays the violin.",
                   "She dances on a rope.",
@@ -511,7 +511,7 @@
               {
                 "id": 16,
                 "text": "Caspar’s brother and sister",
-                "answer": "A",
+                "answer": "are part of a motorbike act.",
                 "options": [
                   "are part of a motorbike act.",
                   "perform with twenty people.",
@@ -521,7 +521,7 @@
               {
                 "id": 17,
                 "text": "What is Caspar’s father’s job?",
-                "answer": "C",
+                "answer": "He introduces the acts.",
                 "options": [
                   "He trains the performers.",
                   "He plays in the band.",
@@ -531,7 +531,7 @@
               {
                 "id": 18,
                 "text": "What does Caspar do in the show?",
-                "answer": "B",
+                "answer": "He walks with his father.",
                 "options": [
                   "He performs with his family.",
                   "He walks with his father.",
@@ -541,7 +541,7 @@
               {
                 "id": 19,
                 "text": "What does Caspar say about the animals in the circus?",
-                "answer": "A",
+                "answer": "The children love the rabbit.",
                 "options": [
                   "The children love the rabbit.",
                   "The rabbit does clever things.",
@@ -551,7 +551,7 @@
               {
                 "id": 20,
                 "text": "What is Caspar’s favourite part of circus life?",
-                "answer": "A",
+                "answer": "travelling to different places",
                 "options": [
                   "travelling to different places",
                   "meeting other performers",

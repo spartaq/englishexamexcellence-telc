@@ -382,55 +382,55 @@
                     "id": "22",
                     "text": "While most other people thankfully ____(22)____ me financial gifts too,",
                     "options": ["are giving", "gave", "has given"],
-                    "answer": "for"
+                    "answer": "gave"
                   },
                   {
                     "id": "23",
                     "text": "whose identities remain ____(23)____ connected in some way.",
                     "options": ["suspect", "suspicious", "suspiciously"],
-                    "answer": "for"
+                    "answer": "suspiciously"
                   },
                   {
                     "id": "24",
                     "text": "My little brother, who was not at all happy with his presents, decided ____(24)____ all our gifts differently",
                     "options": ["arrange", "arranging", "to arrange"],
-                    "answer": "for"
+                    "answer": "to arrange"
                   },
                   {
                     "id": "25",
                     "text": "I'm in my second year at university and the past ____(25)____ has been ____(26)____ as before,",
                     "options": ["semester", "year", "term"],
-                    "answer": "for"
+                    "answer": "year"
                   },
                   {
                     "id": "26",
                     "text": "I'm in my second year at university and the past ____(25)____ has been ____(26)____ as before,",
                     "options": ["the same", "similar", "alike"],
-                    "answer": "for"
+                    "answer": "the same"
                   },
                   {
                     "id": "27",
                     "text": "It's slightly smaller than the last and I still don't have my own shower, but at least it has proper heating and isn't right ____(27)____ to a noisy bar.",
                     "options": ["next", "beside", "nearby"],
-                    "answer": "for"
+                    "answer": "next"
                   },
                   {
                     "id": "28",
                     "text": "Other than that, there was a university-wide strike ____(28)____ the last week of term,",
                     "options": ["at", "in", "on"],
-                    "answer": "for"
+                    "answer": "in"
                   },
                   {
                     "id": "29",
                     "text": "This Christmas break was a week shorter ____(29)____ it usually is,",
                     "options": ["than", "then", "as"],
-                    "answer": "for"
+                    "answer": "than"
                   },
                   {
                     "id": "30",
                     "text": "____(30)____ there are things about the coming term I'm looking forward to, I think I still would have preferred the additional week of holiday.",
                     "options": ["Although", "Despite", "However"],
-                    "answer": "for"
+                    "answer": "Although"
                   }
                 ]
               }
@@ -471,17 +471,17 @@
                 "KEEP",
                 "LIKE",
                 "MEET",
-                "REMAIN",
-                "SHARE",
+                "STAY",
+                "SHARING",
                 "TALK",
                 "WEAR"
               ],
               "answers": {
                 "a": "GO",
-                "b": "REMAIN",
+                "b": "STAY",
                 "c": "HURRY",
                 "d": "COMFORTABLE",
-                "e": "SHARE",
+                "e": "SHARING",
                 "f": "TALK",
                 "g": "DIET",
                 "h": "LIKE",
@@ -640,7 +640,7 @@
               {
                 "id": 15,
                 "text": "Ben says that the 'Nature' organisation",
-                "answer": "A",
+                "answer": "teaches young people about wildlife.",
                 "options": [
                   "teaches young people about wildlife.",
                   "helps young people with schoolwork.",
@@ -650,7 +650,7 @@
               {
                 "id": 16,
                 "text": "What type of place will Ben’s group be visiting?",
-                "answer": "C",
+                "answer": "a forest",
                 "options": [
                   "a lake",
                   "a beach",
@@ -660,7 +660,7 @@
               {
                 "id": 17,
                 "text": "The Saturday course will last for",
-                "answer": "B",
+                "answer": "12 weeks.",
                 "options": [
                   "6 weeks.",
                   "12 weeks.",
@@ -670,7 +670,7 @@
               {
                 "id": 18,
                 "text": "What can students do on the course that they cannot do at home?",
-                "answer": "A",
+                "answer": "build a fire",
                 "options": [
                   "build a fire",
                   "climb trees",
@@ -680,7 +680,7 @@
               {
                 "id": 19,
                 "text": "On the last course, students designed",
-                "answer": "B",
+                "answer": "backpacks.",
                 "options": [
                   "birdhouses.",
                   "backpacks.",
@@ -690,7 +690,7 @@
               {
                 "id": 20,
                 "text": "What will students make on the course?",
-                "answer": "A",
+                "answer": "a birdhouse",
                 "options": [
                   "a birdhouse",
                   "a backpack",

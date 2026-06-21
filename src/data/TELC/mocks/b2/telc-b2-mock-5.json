@@ -519,11 +519,11 @@
             "type": "mcq",
             "instruction": "Choose the correct answer (A, B, or C) for each question.",
             "questions": [
-              { "id": "41", "text": "What is the announcement about?", "options": ["A. A flight cancellation", "B. A final boarding call", "C. A gate change"], "answer": 1 },
-              { "id": "42", "text": "What topic will be discussed on the radio show?", "options": ["A. Cardiovascular exercise", "B. Diet and nutrition", "C. Mental health awareness"], "answer": 0 },
-              { "id": "43", "text": "What will the weather be like in the north tomorrow?", "options": ["A. Heavy rain", "B. Sunny and warm", "C. Clear and cold"], "answer": 0 },
-              { "id": "44", "text": "What does Maria Santos need to collect?", "options": ["A. A package", "B. An email", "C. A receipt"], "answer": 0 },
-              { "id": "45", "text": "What kind of workshop is being advertised?", "options": ["A. A cooking class", "B. A creative writing workshop", "C. A painting course"], "answer": 1 }
+              { "id": "41", "text": "What is the announcement about?", "options": ["A. A flight cancellation", "B. A final boarding call", "C. A gate change"], "answer": "B. A final boarding call" },
+              { "id": "42", "text": "What topic will be discussed on the radio show?", "options": ["A. Cardiovascular exercise", "B. Diet and nutrition", "C. Mental health awareness"], "answer": "A. Cardiovascular exercise" },
+              { "id": "43", "text": "What will the weather be like in the north tomorrow?", "options": ["A. Heavy rain", "B. Sunny and warm", "C. Clear and cold"], "answer": "A. Heavy rain" },
+              { "id": "44", "text": "What does Maria Santos need to collect?", "options": ["A. A package", "B. An email", "C. A receipt"], "answer": "A. A package" },
+              { "id": "45", "text": "What kind of workshop is being advertised?", "options": ["A. A cooking class", "B. A creative writing workshop", "C. A painting course"], "answer": "B. A creative writing workshop" }
             ]
           }
         ]

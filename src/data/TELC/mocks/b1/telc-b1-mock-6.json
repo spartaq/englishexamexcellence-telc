@@ -500,7 +500,7 @@
               {
                 "id": 15,
                 "text": "The aim of the Language Study Fair is to",
-                "answer": "A",
+                "answer": "help you with self-study.",
                 "options": [
                   "help you with self-study.",
                   "teach you a new language.",
@@ -510,7 +510,7 @@
               {
                 "id": 16,
                 "text": "The Language Study Fair will help you to avoid",
-                "answer": "C",
+                "answer": "studying in an unsuitable way.",
                 "options": [
                   "buying expensive equipment.",
                   "making the wrong choices.",
@@ -520,7 +520,7 @@
               {
                 "id": 17,
                 "text": "What does the fair offer apart from books and talks?",
-                "answer": "B",
+                "answer": "the latest computer programs",
                 "options": [
                   "free language classes",
                   "the latest computer programs",
@@ -530,7 +530,7 @@
               {
                 "id": 18,
                 "text": "On Saturday, the fair closes at",
-                "answer": "C",
+                "answer": "8.00 p.m.",
                 "options": [
                   "4.00 p.m.",
                   "5.00 p.m.",
@@ -540,7 +540,7 @@
               {
                 "id": 19,
                 "text": "How much does a student ticket cost?",
-                "answer": "B",
+                "answer": "£3",
                 "options": [
                   "£2.50",
                   "£3",
@@ -550,7 +550,7 @@
               {
                 "id": 20,
                 "text": "What information is given about parking?",
-                "answer": "A",
+                "answer": "You can book a space for £2.50.",
                 "options": [
                   "You can book a space for £2.50.",
                   "It is difficult to find a space.",

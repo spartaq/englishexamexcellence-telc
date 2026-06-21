@@ -168,10 +168,10 @@
 
 .carousel-part-tab {
   padding: 6px 10px;
-  border: 1px solid var(--border-color);
   border-radius: 6px;
-  background: var(--surface-white);
-  color: var(--to-be-determined);
+  background: var(--primary);
+  border-color: var(--primary-container);
+  color: white;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -180,15 +180,15 @@
 }
 
 .carousel-part-tab:hover {
-  background: var(--surface-white);
-  border-color: var(--primary);
-  color: var(--primary);
+  background: var(--bg-app);
+  border-color: var(--border-color);
+  color: white;
 }
 
 .carousel-part-tab.active {
-  background: var(--primary-container);
-  border-color: var(--primary);
-  color: var(--to-be-determined-container);
+  background: var(--bg-app);
+  border: 1px solid var(--border-color);
+  color: var(--primary);
   font-weight: 600;
 }
 

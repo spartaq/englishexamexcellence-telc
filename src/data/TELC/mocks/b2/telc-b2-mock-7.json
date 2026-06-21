@@ -158,27 +158,27 @@
                   {
                     "id": "1",
                     "text": "Paragraph 1",
-                    "answer": 3
+                    "answer": 2
                   },
                   {
                     "id": "2",
                     "text": "Paragraph 2",
-                    "answer": 5
+                    "answer": 4
                   },
                   {
                     "id": "3",
                     "text": "Paragraph 3",
-                    "answer": 1
+                    "answer": 0
                   },
                   {
                     "id": "4",
                     "text": "Paragraph 4",
-                    "answer": 6
+                    "answer": 5
                   },
                   {
                     "id": "5",
                     "text": "Paragraph 5",
-                    "answer": 2
+                    "answer": 1
                   }
                 ],
                 "headings": [
@@ -609,11 +609,11 @@
             "type": "mcq",
             "instruction": "Choose the correct answer (A, B, or C) for each question.",
             "questions": [
-              { "id": "1", "text": "What is the announcement about?", "options": ["A. A flight delay", "B. A final boarding call", "C. A gate change"], "answer": 1 },
-              { "id": "2", "text": "What topic will be discussed on the radio show?", "options": ["A. Physical exercise", "B. Diet and nutrition", "C. Mental health"], "answer": 0 },
-              { "id": "3", "text": "What will the weather be like in the west tomorrow?", "options": ["A. Heavy rain", "B. Sunny and warm", "C. Showers and thunderstorms"], "answer": 2 },
-              { "id": "4", "text": "What does Carlos Mendez need to collect?", "options": ["A. A package", "B. An email", "C. A receipt"], "answer": 0 },
-              { "id": "5", "text": "What kind of workshop is being advertised?", "options": ["A. A photography workshop", "B. A painting class", "C. A creative writing course"], "answer": 0 }
+              { "id": "1", "text": "What is the announcement about?", "options": ["A. A flight delay", "B. A final boarding call", "C. A gate change"], "answer": "B. A final boarding call" },
+              { "id": "2", "text": "What topic will be discussed on the radio show?", "options": ["A. Physical exercise", "B. Diet and nutrition", "C. Mental health"], "answer": "A. Physical exercise" },
+              { "id": "3", "text": "What will the weather be like in the west tomorrow?", "options": ["A. Heavy rain", "B. Sunny and warm", "C. Showers and thunderstorms"], "answer": "C. Showers and thunderstorms" },
+              { "id": "4", "text": "What does Carlos Mendez need to collect?", "options": ["A. A package", "B. An email", "C. A receipt"], "answer": "A. A package" },
+              { "id": "5", "text": "What kind of workshop is being advertised?", "options": ["A. A photography workshop", "B. A painting class", "C. A creative writing course"], "answer": "A. A photography workshop" }
             ]
           }
         ]

@@ -12,7 +12,24 @@ const CustomSelect = ({
   isIncorrect = false
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [menuPlacement, setMenuPlacement] = useState('bottom');
   const wrapperRef = useRef(null);
+  const triggerRef = useRef(null);
+  const menuRef = useRef(null);
+
+  const updateMenuPlacement = () => {
+    const triggerRect = triggerRef.current?.getBoundingClientRect();
+    const menuRect = menuRef.current?.getBoundingClientRect();
+
+    if (!triggerRect || !menuRect) return 'bottom';
+
+    const margin = 8;
+    const spaceBelow = window.innerHeight - triggerRect.bottom - margin;
+    const spaceAbove = triggerRect.top - margin;
+    const shouldOpenAbove = spaceBelow < menuRect.height && spaceAbove >= menuRect.height;
+
+    return shouldOpenAbove ? 'top' : 'bottom';
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -26,9 +43,26 @@ const CustomSelect = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    const updatePlacement = () => setMenuPlacement(updateMenuPlacement());
+    const frame = requestAnimationFrame(updatePlacement);
+
+    window.addEventListener('resize', updatePlacement);
+    window.addEventListener('scroll', updatePlacement, true);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('resize', updatePlacement);
+      window.removeEventListener('scroll', updatePlacement, true);
+    };
+  }, [isOpen]);
+
   const selectedOption = options.find(opt => opt.value === value);
 
   const handleSelect = (optionValue) => {
+    if (disabled) return;
     onChange(optionValue);
     setIsOpen(false);
   };
@@ -50,6 +84,7 @@ const CustomSelect = ({
         disabled={disabled}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
+        ref={triggerRef}
       >
         <span className="custom-select-value">
           {selectedOption ? selectedOption.label : placeholder}
@@ -72,7 +107,7 @@ const CustomSelect = ({
       </button>
 
       {isOpen && (
-        <div className="custom-select-menu" role="listbox">
+        <div className={`custom-select-menu ${menuPlacement === 'top' ? 'open-above' : ''}`} role="listbox" ref={menuRef}>
           {options.map((option) => (
             <button
               key={option.value}

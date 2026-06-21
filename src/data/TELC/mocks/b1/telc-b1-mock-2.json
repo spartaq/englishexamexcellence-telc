@@ -90,30 +90,30 @@
                 "type": "heading-match",
                 "instruction": "Choose the correct heading for each paragraph.",
                 "questions": [
-                  {
+                 {
                     "id": "1",
                     "text": "Paragraph 1",
-                    "answer": 3
+                    "answer": 2
                   },
                   {
                     "id": "2",
                     "text": "Paragraph 2",
-                    "answer": 5
+                    "answer": 4
                   },
                   {
                     "id": "3",
                     "text": "Paragraph 3",
-                    "answer": 1
+                    "answer": 0
                   },
                   {
                     "id": "4",
                     "text": "Paragraph 4",
-                    "answer": 4
+                    "answer": 3
                   },
                   {
                     "id": "5",
                     "text": "Paragraph 5",
-                    "answer": 2
+                    "answer": 1
                   }
                 ],
                 "headings": [
@@ -592,7 +592,7 @@
               {
                 "id": 15,
                 "text": "When will Griffon take part in his first international show?",
-                "answer": "C",
+                "answer": "next March",
                 "options": [
                   "in December",
                   "when Hannah is 15",
@@ -602,7 +602,7 @@
               {
                 "id": 16,
                 "text": "Where will Hannah’s family stay during the show?",
-                "answer": "A",
+                "answer": "with friends",
                 "options": [
                   "with friends",
                   "in a hotel",
@@ -612,7 +612,7 @@
               {
                 "id": 17,
                 "text": "Who will ride Griffon in front of the judges?",
-                "answer": "B",
+                "answer": "her father",
                 "options": [
                   "Hannah",
                   "her father",
@@ -622,7 +622,7 @@
               {
                 "id": 18,
                 "text": "What prize did Griffon win recently?",
-                "answer": "C",
+                "answer": "some money",
                 "options": [
                   "a cup",
                   "a new saddle",
@@ -632,7 +632,7 @@
               {
                 "id": 19,
                 "text": "What does Hannah want to do in the future?",
-                "answer": "A",
+                "answer": "train horses",
                 "options": [
                   "train horses",
                   "become a doctor",
@@ -642,7 +642,7 @@
               {
                 "id": 20,
                 "text": "What does Griffon get when he wins a competition?",
-                "answer": "B",
+                "answer": "apples",
                 "options": [
                   "sweets",
                   "apples",

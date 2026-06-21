@@ -665,7 +665,7 @@
             {
               "id": 16,
               "text": "What problem did Speaker 1 experience during the race?",
-              "answer": "B",
+              "answer": "back pain",
               "options": [
                 "a damaged bicycle",
                 "back pain",
@@ -675,7 +675,7 @@
             {
               "id": 17,
               "text": "Why was Speaker 2 disappointed?",
-              "answer": "A",
+              "answer": "The support team was too slow.",
               "options": [
                 "The support team was too slow.",
                 "The hills were too difficult.",
@@ -685,7 +685,7 @@
             {
               "id": 18,
               "text": "Why did Speaker 3 stop racing?",
-              "answer": "C",
+              "answer": "He was not physically prepared enough.",
               "options": [
                 "His bicycle broke down.",
                 "He got lost on the route.",
@@ -695,7 +695,7 @@
             {
               "id": 19,
               "text": "What prevented Speaker 4 from doing better in the race?",
-              "answer": "B",
+              "answer": "slow traffic on a narrow road",
               "options": [
                 "a problem with her bicycle",
                 "slow traffic on a narrow road",
@@ -705,7 +705,7 @@
             {
               "id": 20,
               "text": "What surprised Speaker 5 most during the race?",
-              "answer": "A",
+              "answer": "his bicycle developed problems",
               "options": [
                 "his bicycle developed problems",
                 "his elbow injury returned",

@@ -434,11 +434,11 @@
             "type": "mcq",
             "instruction": "Choose the correct answer (A, B, or C) for each question.",
             "questions": [
-              { "id": 11, "text": "When is the meeting?", "options": ["At 2pm", "At 3pm", "In the morning"], "answer": 0 },
-              { "id": 12, "text": "What does the man offer?", "options": ["Spare keys", "A new lock", "To drive her home"], "answer": 0 },
-              { "id": 13, "text": "What does the woman offer to do?", "options": ["Carry the bag", "Open the door", "Find help"], "answer": 0 },
-              { "id": 14, "text": "What directions does the man give?", "options": ["Go straight, then left", "Turn right immediately", "Take the bus"], "answer": 0 },
-              { "id": 15, "text": "What time will they meet?", "options": ["7:45pm", "8:00pm", "8:15pm"], "answer": 0 }
+              { "id": 11, "text": "When is the meeting?", "options": ["At 2pm", "At 3pm", "In the morning"], "answer": "At 2pm" },
+              { "id": 12, "text": "What does the man offer?", "options": ["Spare keys", "A new lock", "To drive her home"], "answer": "Spare keys" },
+              { "id": 13, "text": "What does the woman offer to do?", "options": ["Carry the bag", "Open the door", "Find help"], "answer": "Carry the bag" },
+              { "id": 14, "text": "What directions does the man give?", "options": ["Go straight, then left", "Turn right immediately", "Take the bus"], "answer": "Go straight, then left" },
+              { "id": 15, "text": "What time will they meet?", "options": ["7:45pm", "8:00pm", "8:15pm"], "answer": "7:45pm" }
             ]
           }
         ]

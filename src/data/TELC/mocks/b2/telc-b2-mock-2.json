@@ -699,7 +699,7 @@
               {
                 "id": 11,
                 "text": "Speaker 1",
-                "answer": 3,
+                "answer": "I study best early in the morning.",
                 "options": [
                   "I get distracted by background noise.",
                   "I find working with others helpful.",
@@ -714,7 +714,7 @@
               {
                 "id": 12,
                 "text": "Speaker 2",
-                "answer": 0,
+                "answer": "I get distracted by background noise.",
                 "options": [
                   "I get distracted by background noise.",
                   "I find working with others helpful.",
@@ -729,7 +729,7 @@
               {
                 "id": 13,
                 "text": "Speaker 3",
-                "answer": 2,
+                "answer": "I have a specific way of getting comfortable to study.",
                 "options": [
                   "I get distracted by background noise.",
                   "I find working with others helpful.",
@@ -744,7 +744,7 @@
               {
                 "id": 14,
                 "text": "Speaker 4",
-                "answer": 1,
+                "answer": "I find working with others helpful.",
                 "options": [
                   "I get distracted by background noise.",
                   "I find working with others helpful.",
@@ -759,7 +759,7 @@
               {
                 "id": 15,
                 "text": "Speaker 5",
-                "answer": 6,
+                "answer": "I get disturbed by family members.",
                 "options": [
                   "I get distracted by background noise.",
                   "I find working with others helpful.",

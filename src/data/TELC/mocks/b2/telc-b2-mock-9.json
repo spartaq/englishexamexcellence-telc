@@ -755,7 +755,7 @@
               {
                 "id": 15,
                 "text": "What is the entry fee for children?",
-                "answer": "B",
+                "answer": "£2",
                 "options": [
                   "£3.70",
                   "£2",
@@ -765,7 +765,7 @@
               {
                 "id": 16,
                 "text": "When are the animals and fish fed?",
-                "answer": "A",
+                "answer": "hourly from 9.30",
                 "options": [
                   "hourly from 9.30",
                   "every morning at 10.00",
@@ -775,7 +775,7 @@
               {
                 "id": 17,
                 "text": "Children can watch slide and video shows",
-                "answer": "B",
+                "answer": "every morning.",
                 "options": [
                   "all day.",
                   "every morning.",
@@ -785,7 +785,7 @@
               {
                 "id": 18,
                 "text": "A guided tour is available for",
-                "answer": "C",
+                "answer": "groups of six or more.",
                 "options": [
                   "individuals.",
                   "families.",
@@ -795,7 +795,7 @@
               {
                 "id": 19,
                 "text": "What is the new attraction at the centre?",
-                "answer": "A",
+                "answer": "a glass tunnel",
                 "options": [
                   "a glass tunnel",
                   "a special cinema",
@@ -805,7 +805,7 @@
               {
                 "id": 20,
                 "text": "What type of food is available at the centre?",
-                "answer": "B",
+                "answer": "snacks and ice creams",
                 "options": [
                   "hot meals",
                   "snacks and ice creams",

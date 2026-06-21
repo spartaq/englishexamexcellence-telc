@@ -435,11 +435,11 @@
             "type": "mcq",
             "instruction": "Choose the correct answer (A, B, or C) for each question.",
             "questions": [
-              { "id": 11, "text": "What does the woman offer to do?", "options": ["Bring the bill", "Take the order", "Clear the table"], "answer": 0 },
-              { "id": 12, "text": "How spicy is the dish?", "options": ["Not spicy", "Very spicy", "Unknown"], "answer": 0 },
-              { "id": 13, "text": "What does the man recommend?", "options": ["Grilled salmon", "Chicken soup", "Vegetable curry"], "answer": 0 },
-              { "id": 14, "text": "What information does the man need?", "options": ["Time and number of guests", "Food preferences", "Budget"], "answer": 0 },
-              { "id": 15, "text": "What does the woman offer to do about the soup?", "options": ["Replace it", "Refund it", "Ignore it"], "answer": 0 }
+              { "id": 11, "text": "What does the woman offer to do?", "options": ["Bring the bill", "Take the order", "Clear the table"], "answer": "Bring the bill" },
+              { "id": 12, "text": "How spicy is the dish?", "options": ["Not spicy", "Very spicy", "Unknown"], "answer": "Not spicy" },
+              { "id": 13, "text": "What does the man recommend?", "options": ["Grilled salmon", "Chicken soup", "Vegetable curry"], "answer": "Grilled salmon" },
+              { "id": 14, "text": "What information does the man need?", "options": ["Time and number of guests", "Food preferences", "Budget"], "answer": "Time and number of guests" },
+              { "id": 15, "text": "What does the woman offer to do about the soup?", "options": ["Replace it", "Refund it", "Ignore it"], "answer": "Replace it" }
             ]
           }
         ]

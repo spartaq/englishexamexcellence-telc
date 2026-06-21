@@ -92,11 +92,11 @@
                 "type": "heading-match",
                 "instruction": "Choose the correct heading for each paragraph.",
                 "questions": [
-                  { "id": "1", "text": "Paragraph 1", "answer": 2 },
-                  { "id": "2", "text": "Paragraph 2", "answer": 1 },
-                  { "id": "3", "text": "Paragraph 3", "answer": 5 },
-                  { "id": "4", "text": "Paragraph 4", "answer": 3 },
-                  { "id": "5", "text": "Paragraph 5", "answer": 4 }
+                  { "id": "1", "text": "Paragraph 1", "answer": 1 },
+                  { "id": "2", "text": "Paragraph 2", "answer": 0 },
+                  { "id": "3", "text": "Paragraph 3", "answer": 4 },
+                  { "id": "4", "text": "Paragraph 4", "answer": 2 },
+                  { "id": "5", "text": "Paragraph 5", "answer": 3 }
                 ],
                 "headings": [
                   "A doctor's advice for better health",
@@ -500,7 +500,7 @@
               {
                 "id": 15,
                 "text": "The poetry competition for this age group is called the",
-                "answer": "B",
+                "answer": "Tiger Prize.",
                 "options": [
                   "Dolphin Prize.",
                   "Tiger Prize.",
@@ -510,7 +510,7 @@
               {
                 "id": 16,
                 "text": "What is the theme for this year’s competition?",
-                "answer": "A",
+                "answer": "Change",
                 "options": [
                   "Change",
                   "Weather",
@@ -520,7 +520,7 @@
               {
                 "id": 17,
                 "text": "What was the title of last year’s winning poem?",
-                "answer": "A",
+                "answer": "Trains",
                 "options": [
                   "Trains",
                   "Travelling",
@@ -530,7 +530,7 @@
               {
                 "id": 18,
                 "text": "How much money will this year’s winner get for the school?",
-                "answer": "C",
+                "answer": "2,000 euros",
                 "options": [
                   "1,000 euros",
                   "1,500 euros",
@@ -540,7 +540,7 @@
               {
                 "id": 19,
                 "text": "What will the prize money be spent on this year?",
-                "answer": "B",
+                "answer": "the library",
                 "options": [
                   "new computer software",
                   "the library",
@@ -550,7 +550,7 @@
               {
                 "id": 20,
                 "text": "Where can students find more help with the competition?",
-                "answer": "A",
+                "answer": "on the website",
                 "options": [
                   "on the website",
                   "from Mr. Winters",

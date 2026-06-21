@@ -2,7 +2,7 @@
 .heading-match-container {
   background: var(--surface-white);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  overflow: visible;
   margin-top: 10px;
     display: flex;
   flex-direction: column;

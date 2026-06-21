@@ -124,27 +124,27 @@
             "content": [
               {
                 "id": "1",
-                "text": "Artificial Intelligence has moved from science fiction to everyday reality in remarkably short time. __(1)__ what once seemed like distant future technology is now embedded in our daily lives, from voice assistants to recommendation algorithms."
+                "text": "Artificial Intelligence has moved from science fiction to everyday reality in remarkably short time. __(1)__. What once seemed like distant future technology is now embedded in our daily lives, from voice assistants to recommendation algorithms."
               },
               {
                 "id": "2",
-                "text": "The development of autonomous vehicles represents one of AI's most ambitious applications. __(2)__ the technology promises to reduce accidents caused by human error, significant challenges remain in developing systems that can handle complex real-world driving scenarios."
+                "text": "The development of autonomous vehicles represents one of AI's most ambitious applications. __(2)__. Although the technology promises to reduce accidents caused by human error, significant challenges remain in developing systems that can handle complex real-world driving scenarios."
               },
               {
                 "id": "3",
-                "text": "However, the rise of AI has not been without controversy. Concerns about job displacement have led to widespread debate. __(3)__ while certain roles may become redundant, AI is also creating new employment opportunities in fields that did not exist a decade ago."
+                "text": "However, the rise of AI has not been without controversy. Concerns about job displacement have led to widespread debate. __(3)__. While certain roles may become redundant, AI is also creating new employment opportunities in fields that did not exist a decade ago."
               },
               {
                 "id": "4",
-                "text": "Privacy advocates have raised alarms about the proliferation of surveillance technologies. __(4)__ facial recognition and data collection practices have prompted calls for stricter regulation across the globe."
+                "text": "Privacy advocates have raised alarms about the proliferation of surveillance technologies. __(4)__. Facial recognition and data collection practices have prompted calls for stricter regulation across the globe."
               },
               {
                 "id": "5",
-                "text": "__(5)__ the debate continues, there is consensus that AI literacy should be incorporated into education systems. Understanding the fundamentals of how these systems work will be essential for future generations."
+                "text": "__(5)__. As the debate continues, there is consensus that AI literacy should be incorporated into education systems. Understanding the fundamentals of how these systems work will be essential for future generations."
               },
               {
                 "id": "6",
-                "text": "Looking ahead, the most successful AI applications will be those that augment human capabilities rather than replace them. __(6)__ the technology serves as a tool for solving some of humanity's most pressing challenges, from healthcare to climate change."
+                "text": "Looking ahead, the most successful AI applications will be those that augment human capabilities rather than replace them. __(6)__. The technology serves as a tool for solving some of humanity's most pressing challenges, from healthcare to climate change."
               }
             ],
             "subTasks": [
@@ -399,61 +399,61 @@
                     "id": "21",
                     "text": "city planners must ____(21)____ creative solutions",
                     "options": ["a come up with", "b come across with", "c come into with", "d come forward with"],
-                    "answer": 0
+                    "answer": "a come up with"
                   },
                   {
                     "id": "22",
                     "text": "The concept of 'smart cities' has emerged as a way to ____(22)____ technology",
                     "options": ["a harness", "b launch", "c start", "d make"],
-                    "answer": 0
+                    "answer": "a harness"
                   },
                   {
                     "id": "23",
                     "text": "By ____(23)____ data from sensors",
                     "options": ["a exploiting", "b harnessing", "c tapping", "d mining"],
-                    "answer": 2
+                    "answer": "c tapping"
                   },
                   {
                     "id": "24",
                     "text": "raise important questions about privacy and ____(24)____",
                     "options": ["a safety", "b security", "c surveillance", "d monitoring"],
-                    "answer": 1
+                    "answer": "b security"
                   },
                   {
                     "id": "25",
                     "text": "These are questions that ____(25)____ answered",
                     "options": ["a must be", "b have to be", "c need to be", "d will be"],
-                    "answer": 0
+                    "answer": "a must be"
                   },
                   {
                     "id": "26",
                     "text": "smart city initiatives must be ____(26)____ to ensure",
                     "options": ["a carefully designed", "b carefully planning", "c carefully implementing", "d careful management"],
-                    "answer": 0
+                    "answer": "a carefully designed"
                   },
                   {
                     "id": "27",
                     "text": "the challenge of ____(27)____ existing infrastructure",
                     "options": ["a integrating", "b linking", "c connecting", "d combining"],
-                    "answer": 0
+                    "answer": "a integrating"
                   },
                   {
                     "id": "28",
                     "text": "Many cities were designed ____(28)____ a very different era",
                     "options": ["a on", "b in", "c during", "d for"],
-                    "answer": 1
+                    "answer": "b in"
                   },
                   {
                     "id": "29",
                     "text": "the potential benefits are ____(29)____",
                     "options": ["a enormous", "b tremendous", "c significant", "d vast"],
-                    "answer": 1
+                    "answer": "b tremendous"
                   },
                   {
                     "id": "30",
                     "text": "implement these solutions ____(30)____ while maintaining",
                     "options": ["a sensibly", "b carefully", "c thoughtfully", "d wisely"],
-                    "answer": 2
+                    "answer": "c thoughtfully"
                   }
                 ]
               }

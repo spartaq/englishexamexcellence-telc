@@ -69,6 +69,11 @@
   padding: 4px;
 }
 
+.custom-select-menu.open-above {
+  top: auto;
+  bottom: calc(100% + 4px);
+}
+
 .custom-select-option {
   width: 100%;
   padding: 10px 12px;

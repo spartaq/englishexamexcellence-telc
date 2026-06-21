@@ -694,7 +694,7 @@
               {
                 "id": 56,
                 "text": "Speaker 1",
-                "answer": 2,
+                "answer": "Technology is most effective when it enhances rather than replaces traditional methods.",
                 "options": [
                   "Technology can engage students in meaningful projects.",
                   "Technology should be used to support students with disabilities.",
@@ -707,7 +707,7 @@
               {
                 "id": 57,
                 "text": "Speaker 2",
-                "answer": 3,
+                "answer": "Technology can create barriers for teachers who lack training.",
                 "options": [
                   "Technology can engage students in meaningful projects.",
                   "Technology should be used to support students with disabilities.",
@@ -720,7 +720,7 @@
               {
                 "id": 58,
                 "text": "Speaker 3",
-                "answer": 1,
+                "answer": "Technology should be used to support students with disabilities.",
                 "options": [
                   "Technology can engage students in meaningful projects.",
                   "Technology should be used to support students with disabilities.",
@@ -733,7 +733,7 @@
               {
                 "id": 59,
                 "text": "Speaker 4",
-                "answer": 4,
+                "answer": "Technology implementation requires careful planning and consideration of costs.",
                 "options": [
                   "Technology can engage students in meaningful projects.",
                   "Technology should be used to support students with disabilities.",
@@ -746,7 +746,7 @@
               {
                 "id": 60,
                 "text": "Speaker 5",
-                "answer": 2,
+                "answer": "Technology is most effective when it enhances rather than replaces traditional methods.",
                 "options": [
                   "Technology can engage students in meaningful projects.",
                   "Technology should be used to support students with disabilities.",

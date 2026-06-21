@@ -156,10 +156,11 @@ function App({ initialView, initialLevel }) {
       setView(previousView);
       setCurrentView(previousView);
 
-      // Handle special case - clean up lesson state when going back from results
-      if (previousView !== 'lesson' && view === 'results') {
-        setActiveLesson(null);
-      }
+// Handle special case - clean up lesson state when going back from results
+       if (previousView !== 'lesson' && view === 'results') {
+         setActiveLesson(null);
+         setUserAnswers({});
+       }
 
       // Update URL based on previous view + check if coming from Vocab Hub (stored in activeCategory)
       if (previousView === 'landing') {
@@ -416,6 +417,7 @@ function App({ initialView, initialLevel }) {
       setActiveLesson(lesson);
       setActiveSectionIndex(0);
       setActiveSkillTab(0);
+      setUserAnswers({});
       navigateToView('lesson');
     } else {
       console.error('[handleStartTask] Failed to create lesson for:', taskMetadata.id);
@@ -435,6 +437,7 @@ function App({ initialView, initialLevel }) {
       setActiveLesson(fullMock);
       setActiveSectionIndex(0);
       setActiveSkillTab(0);
+      setUserAnswers({});
       navigateToView('lesson');
     }
   };
@@ -528,18 +531,20 @@ function App({ initialView, initialLevel }) {
                           (activeLesson.id.startsWith('mini-test-full-') || 
                            activeLesson.id.startsWith('free-test-full-')));
                             
-            if (isDirectTest) {
-              console.log('[navigateBack] Detected direct test results, navigating to landing page');
-              navigate('/');
-              // Don't call setActiveLesson(null) or navigateBack() for direct tests
-              // to avoid intermediate blank page
-              return;
-            }
+if (isDirectTest) {
+               console.log('[navigateBack] Detected direct test results, navigating to landing page');
+               navigate('/');
+               setUserAnswers({});
+               // Don't call setActiveLesson(null) or navigateBack() for direct tests
+               // to avoid intermediate blank page
+               return;
+             }
           }
           
-          // Otherwise, proceed with normal back navigation
-          setActiveLesson(null);
-          navigateBack();
+// Otherwise, proceed with normal back navigation
+           setActiveLesson(null);
+           setUserAnswers({});
+           navigateBack();
         }}
         onNavigateToView={navigateToView}
         headerCenterContent={headerCenterContent}

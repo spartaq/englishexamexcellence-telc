@@ -93,10 +93,10 @@
                 "instruction": "Choose the correct heading for each paragraph.",
                 "questions": [
                   { "id": "1", "text": "Paragraph 1", "answer": 3 },
-                  { "id": "2", "text": "Paragraph 2", "answer": 5 },
-                  { "id": "3", "text": "Paragraph 3", "answer": 2 },
+                  { "id": "2", "text": "Paragraph 2", "answer": 2 },
+                  { "id": "3", "text": "Paragraph 3", "answer": 1 },
                   { "id": "4", "text": "Paragraph 4", "answer": 0 },
-                  { "id": "5", "text": "Paragraph 5", "answer": 1 }
+                  { "id": "5", "text": "Paragraph 5", "answer": 4 }
                 ],
                 "headings": [
                   "New multilingual library resources",
@@ -284,7 +284,7 @@
             "content": [
               {
                 "id": "1",
-                "text": "Learning a new language can be challenging, but it is also very rewarding. First, you need to ____(21)____ a language course that suits your level. Many people start with beginner classes at a language school or online.\n\nPractice is essential. Try to ____(22)____ every day, even if only for 15 minutes. You can use language apps, watch movies, or read books in the target language. Don't be afraid to make ____(23)____ - they're part of the learning process.\n\nListening and speaking are important skills. Find a language partner or join a conversation club. Don't worry about being perfect. The more you ____(24)____, the more confident you will become.\n\nFinally, be patient with yourself. Learning a language ____(25)____ time and effort. Set small, achievable goals and celebrate your progress. Remember that every successful speaker was once a beginner too."
+                "text": "Learning a new language can be challenging, but it is also very rewarding. First, you need to find a language course that  ____(21)____  your level. Many people start with beginner classes at a language school or online.\n\nPractice is essential. Try to ____(22)____ every day, even if only for 15 minutes. You can use language apps, watch movies, or read books in the target language. Don't be afraid to make ____(23)____ - they're part of the learning process.\n\nListening and speaking are important skills. Find a language partner or join a conversation club. Don't worry about being perfect. The more you ____(24)____, the more confident you will become.\n\nFinally, be patient with yourself. Learning a language ____(25)____ time and effort. Set small, achievable goals and celebrate your progress. Remember that every successful speaker was once a beginner too."
               }
             ],
             "subTasks": [
@@ -299,9 +299,9 @@
                   { "id": "25", "text": "Learning a language ____(25)____ time", "options": ["takes", "needs", "spends"], "answer": "takes" },
                   { "id": "26", "text": "Set ____(26)____ goals", "options": ["realistic", "achievable", "possible"], "answer": "realistic" },
                   { "id": "27", "text": "____(27)____ your progress", "options": ["Celebrate", "Enjoy", "Appreciate"], "answer": "Celebrate" },
-                  { "id": "28", "text": "You will improve ____(28)____", "options": ["gradually", "slowly", "step by step"] },
-                  { "id": "29", "text": "____(29)____ is important", "options": ["Consistency", "Regularity", "Practice"] },
-                  { "id": "30", "text": "Never give ____(30)____", "options": ["up", "in", "out"] }
+                  { "id": "28", "text": "You will improve ____(28)____", "options": ["gradually", "slowly", "step by step"], "answer": "gradually"  },
+                  { "id": "29", "text": "____(29)____ is important", "options": ["Consistency", "Regularity", "Practice"], "answer": "Consistency"  },
+                  { "id": "30", "text": "Never give ____(30)____", "options": ["up", "in", "out"], "answer": "up"  }
                 ]
               }
             ]
@@ -500,7 +500,7 @@
               {
                 "id": 15,
                 "text": "Miss Brownlow originally intended to stay abroad for",
-                "answer": "B",
+                "answer": "six months.",
                 "options": [
                   "two years.",
                   "six months.",
@@ -510,7 +510,7 @@
               {
                 "id": 16,
                 "text": "She left her first job because",
-                "answer": "A",
+                "answer": "she wanted a change.",
                 "options": [
                   "she wanted a change.",
                   "she didn’t like the children.",
@@ -520,7 +520,7 @@
               {
                 "id": 17,
                 "text": "What was a benefit of her job as a receptionist?",
-                "answer": "B",
+                "answer": "She could practice her languages.",
                 "options": [
                   "She had her own apartment.",
                   "She could practice her languages.",
@@ -530,7 +530,7 @@
               {
                 "id": 18,
                 "text": "What did she find difficult about working in the bakery?",
-                "answer": "A",
+                "answer": "getting up early",
                 "options": [
                   "getting up early",
                   "the work was hard",
@@ -540,7 +540,7 @@
               {
                 "id": 19,
                 "text": "Why did she decide to return home?",
-                "answer": "A",
+                "answer": "Her parents persuaded her.",
                 "options": [
                   "Her parents persuaded her.",
                   "She ran out of money.",
@@ -550,7 +550,7 @@
               {
                 "id": 20,
                 "text": "Her current job involves",
-                "answer": "C",
+                "answer": "both A and B.",
                 "options": [
                   "working in a bank.",
                   "using her language skills.",
