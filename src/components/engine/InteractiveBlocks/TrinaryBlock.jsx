@@ -17,17 +17,7 @@ export default function TrinaryBlock({ data, userAnswers, onUpdate, isReviewMode
     <div className="trinary-container">
       {/* Instruction Box */}
       {data.instruction && (
-        <div style={{
-          background: '#f1f5f9',
-          padding: '16px 20px',
-          borderRadius: '12px',
-          marginBottom: '20px',
-          fontSize: '14px',
-          color: '#334155',
-          whiteSpace: 'pre-wrap',
-          lineHeight: 1.6,
-          border: '1px solid #e2e8f0'
-        }}>
+        <div className="trinary-instruction">
           {data.instruction}
         </div>
       )}

@@ -364,7 +364,7 @@
             "content": [
               {
                 "id": "1",
-                "text": "To the team of 'Great Escapes'\n\nI am a faithful reader of your travel magazine and,  ____(21)____ I cannot afford all the trips you  suggest, I always enjoy  ____(22)____ your articles, and I love the fantastic pictures that you provide.\n\n\n\n Recently, I  ____(23)____ a long weekend at the Bradshaw Hotel in Cork. Everything was exactly as you had described it: The lobby was furnished  ____(24)____ antiques, every room looked a little  ____(25)____ , and the library had a wonderful fireplace with the  ____(26)____ comfortable sofas to relax on after a day out and about.\n\n\n\n However, I'm sure you  ____(27)____ like to know that the hotel has closed  ____(28)____ French à la carte restaurant. Only the main restaurant now offers a daily menu. But the food was  ____(29)____ excellent and the service left nothing to be desired. Thank you for your recommendation. I am looking forward  ____(30)____ your next issue of 'Great Escapes'. \n\n\n\nKind regards"
+                "text": "To the team of 'Great Escapes'\n\nI am a faithful reader of your travel magazine and,  ____(21)____ I cannot afford all the trips you suggest, I always enjoy  ____(22)____ your articles, and I love the fantastic pictures that you provide.\n\n\n\n Recently, I  ____(23)____ a long weekend at the Bradshaw Hotel in Cork. Everything was exactly as you had described it: The lobby was furnished  ____(24)____ antiques, every room looked a little  ____(25)____ , and the library had a wonderful fireplace with the  ____(26)____ comfortable sofas to relax on after a day out and about.\n\n\n\n However, I'm sure you  ____(27)____ like to know that the hotel has closed  ____(28)____ French à la carte restaurant. Only the main restaurant now offers a daily menu. But the food was  ____(29)____ excellent and the service left nothing to be desired. Thank you for your recommendation. I am looking forward  ____(30)____ your next issue of 'Great Escapes'. \n\n\n\nKind regards"
               }
             ],
             "subTasks": [
@@ -374,64 +374,65 @@
                 "questions": [
                   {
                     "id": "21",
-                    "text": "I'm sure I'll find good use ____(21)____ it.",
-                    "options": ["for", "from", "of"],
-                    "answer": "for"
+					          "text": "____(21)____",
+                    "options": ["for", "while", "if"],
+                    "answer": "while"
                   },
                   {
                     "id": "22",
-                    "text": "While most other people thankfully ____(22)____ me financial gifts too,",
-                    "options": ["are giving", "gave", "has given"],
-                    "answer": "gave"
+					          "text": "____(22)____",
+                    "options": ["are reading", "to reading", "reading"],
+                    "answer": "reading"
                   },
                   {
                     "id": "23",
-                    "text": "whose identities remain ____(23)____ connected in some way.",
-                    "options": ["suspect", "suspicious", "suspiciously"],
-                    "answer": "suspiciously"
+					          "text": "____(23)____",
+                    "options": ["spent", "spending", "was spent"],
+                    "answer": "spent"
                   },
                   {
                     "id": "24",
-                    "text": "My little brother, who was not at all happy with his presents, decided ____(24)____ all our gifts differently",
-                    "options": ["arrange", "arranging", "to arrange"],
-                    "answer": "to arrange"
+					          "text": "____(24)____",
+                    "options": ["in", "with", "to"],
+                    "answer": "with"
                   },
                   {
                     "id": "25",
-                    "text": "I'm in my second year at university and the past ____(25)____ has been ____(26)____ as before,",
-                    "options": ["semester", "year", "term"],
-                    "answer": "year"
+					          "text": "____(25)____",
+                    "options": ["old", "older", "oldest"],
+                    "answer": "old"
                   },
                   {
                     "id": "26",
-                    "text": "I'm in my second year at university and the past ____(25)____ has been ____(26)____ as before,",
-                    "options": ["the same", "similar", "alike"],
-                    "answer": "the same"
+					          "text": "____(26)____",
+                    "options": ["more", "morer", "most"],
+                    "answer": "most"
                   },
                   {
                     "id": "27",
-                    "text": "It's slightly smaller than the last and I still don't have my own shower, but at least it has proper heating and isn't right ____(27)____ to a noisy bar.",
-                    "options": ["next", "beside", "nearby"],
-                    "answer": "next"
+					          "text": "____(27)____",
+                    "options": ["want", "would", "will"],
+                    "answer": "would"
                   },
                   {
                     "id": "28",
-                    "text": "Other than that, there was a university-wide strike ____(28)____ the last week of term,",
-                    "options": ["at", "in", "on"],
+					          "text": "____(28)____",
+                    "options": ["a", "the", "-"],
                     "answer": "in"
                   },
                   {
                     "id": "29",
-                    "text": "This Christmas break was a week shorter ____(29)____ it usually is,",
-                    "options": ["than", "then", "as"],
-                    "answer": "than"
+					          "text": "____(29)____",
+                    "options": ["quite", "quiet", "very"],
+                    "answer": "quite"
                   },
                   {
                     "id": "30",
-                    "text": "____(30)____ there are things about the coming term I'm looking forward to, I think I still would have preferred the additional week of holiday.",
-                    "options": ["Although", "Despite", "However"],
-                    "answer": "Although"
+					          "text": "____(30)____",
+                    "options": ["on", "in", "to"],
+                    "answer": "to"
                   }
+				  
                 ]
               }
             ]

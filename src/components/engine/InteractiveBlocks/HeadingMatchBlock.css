@@ -24,7 +24,7 @@
 
 /* Headings List Box */
 .hm-headings-list {
-  background: var(--bg-elevated);
+  background: var(--invictus-red-pale);
   padding: var(--space-md) var(--space-lg);
   border-radius: var(--radius-sm);
   margin-bottom: var(--space-md);

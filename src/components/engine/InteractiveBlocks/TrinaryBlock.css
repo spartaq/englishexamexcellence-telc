@@ -1,5 +1,17 @@
 /* TrinaryBlock.css */
 
+.trinary-instruction {
+  background: var(--bg-app);
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  line-height: 1.6;
+  border: 1px solid #e2e8f0;
+}
+
 .trinary-container {
   display: flex;
   flex-direction: column;
@@ -20,7 +32,7 @@
 .trinary-q {
   font-size: 16px;
   font-weight: 800;
-  color: #2d3748;
+  color: var(--text-primary);
   margin-bottom: 24px;
   line-height: 1.5;
   padding-right: 60px;
@@ -40,8 +52,8 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.025em;
-  background-color: #ffffff;
-  color: #4a5568;
+  background: var(--bg-app);
+  color: var(--text-primary);
   border: 2px solid #e2e8f0;
   border-radius: 6px;
   cursor: pointer;
@@ -83,9 +95,10 @@
 /* Trinary Review Mode Styles */
 
 .trinary-row {
+  background-color: var(--invictus-red-pale);
   padding: 1.5rem;
   border-radius: 12px;
-  /*border: 1px solid #e2e8f0;*/
+  border: 1px solid #e2e8f0;
   margin-bottom: 1rem;
   transition: all 0.2s ease;
 }

@@ -1,7 +1,6 @@
 /* MatchingInfoBlock.css */
 
 .matching-choice-container {
-  background: var(--surface-white);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -203,78 +202,3 @@
   border-color: #e2e8f0;
 }
 
-/* ============================================
-   DARK MODE STYLES
-   ============================================ */
-@media (prefers-color-scheme: dark) {
-  .matching-choice-container {
-    background: var(--surface-white);
-  }
-  
-  .matching-choice-row {
-    background-color: var(--surface-white);
-    border-color: var(--border-color);
-  }
-  
-  .matching-choice-row:hover {
-    border-color: #3b82f6;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-  
-  .matching-choice-text {
-    color: #F3F4F6;
-  }
-  
-  .choice-btn {
-    background-color: var(--surface-white);
-    border-color: var(--border-color);
-    color: #9CA3AF;
-  }
-  
-  .choice-btn:hover:not(:disabled) {
-    border-color: #6B7280;
-    color: #F3F4F6;
-    background-color: var(--bg-app);
-  }
-  
-  /* Review Mode Row Styles */
-  .matching-choice-row.row-correct {
-    border-left: 4px solid #10b981;
-    background-color: rgba(16, 185, 129, 0.1);
-  }
-  
-  .matching-choice-row.row-incorrect {
-    border-left: 4px solid #ef4444;
-    background-color: rgba(239, 68, 68, 0.1);
-  }
-  
-  /* Button Feedback States - Dark mode adjustments */
-  .choice-btn.btn-correct, .choice-btn.review-correct {
-    background-color: #10b981 !important;
-    border-color: #10b981 !important;
-    color: white !important;
-  }
-  
-  .choice-btn.btn-wrong, .choice-btn.review-incorrect {
-    background-color: #ef4444 !important;
-    border-color: #ef4444 !important;
-    color: white !important;
-  }
-  
-  .choice-btn.btn-should-have-been {
-    border: 2px dashed #10b981 !important;
-    color: #4ade80 !important;
-    background-color: rgba(16, 185, 129, 0.15) !important;
-  }
-  
-  .choice-btn.review-dimmed {
-    opacity: 0.3;
-    border-color: var(--border-color);
-  }
-  
-  /* Ensure disabled buttons aren't too faded during review */
-  .choice-btn:disabled:not(.btn-correct):not(.btn-wrong):not(.btn-should-have-been) {
-    opacity: 0.3;
-    border-color: var(--border-color);
-  }
-}

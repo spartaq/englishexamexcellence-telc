@@ -326,8 +326,8 @@
 }
 
 .drill-category {
-  background: #fff;
-  border: 1px solid var(--border-subtle);
+  background: var(--bg-app);
+  border: 1px solid var(--primary);
   padding: 2rem;
 }
 
@@ -349,11 +349,12 @@
 .category-icon {
   width: 40px;
   height: 40px;
-  background: var(--bg-subtle);
+  background: var(--bg-app);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--drills-amber);
+  border: 1px solid var(--primary);
 }
 
 .category-title {
@@ -377,8 +378,8 @@
 }
 
 .drill-card {
-  background: #fff;
-  border: 1px solid var(--border-subtle);
+  background: var(--bg-app);
+  border: 1px solid var(--primary);
   border-left: 4px solid #d1d5db;
   padding: 1.5rem;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -472,9 +473,10 @@
 .tier-badge {
   font-size: 10px;
   font-weight: 800;
-  background: #f3f4f6;
+  background: var(--bg-app);
   padding: 0.2rem 0.5rem;
   text-transform: uppercase;
+  border: 1px solid var(--primary);
 }
 
 .drill-action {
@@ -513,8 +515,8 @@
 }
 
 .drill-type-card {
-  background: #fff;
-  border: 1px solid var(--border-subtle);
+  background: var(--bg-app);
+  border: 1px solid var(--primary);
   padding: 1.5rem;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;

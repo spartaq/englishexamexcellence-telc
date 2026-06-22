@@ -36,13 +36,16 @@
   text-align: left;
   border-radius: 12px;
   border: 2px solid #e2e8f0;
-  background: white;
+  background: var(--bg-app);
   font-weight: 600;
   font-size: 14px;
   transition: all 0.2s;
   cursor: pointer;
   position: relative;
   pointer-events: auto;
+}
+.option-text {
+  color: var(--text-primary);
 }
 
 /* Hover and Selected States for mcq-option */

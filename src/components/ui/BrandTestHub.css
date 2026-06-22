@@ -188,7 +188,7 @@
   background: var(--surface-white);
   padding: 2.5rem;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--primary);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   display: flex;
@@ -287,7 +287,7 @@
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--primary);
   box-shadow: 0 6px 16px var(--shadow-light);
 }
 

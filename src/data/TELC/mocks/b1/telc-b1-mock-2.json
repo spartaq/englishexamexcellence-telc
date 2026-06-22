@@ -427,7 +427,7 @@
             "subTasks": [
               {
                 "type": "gap-fill-tokens",
-                "instruction": "Choose the correct word (a-o) to complete each gap (a-d).",
+                "instruction": "Choose the correct word to complete each gap (a-d).",
                 "tokens": [
                   "WOULD LIKE",
                   "WOULD APPRECIATE",
