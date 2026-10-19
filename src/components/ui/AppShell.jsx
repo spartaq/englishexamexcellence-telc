@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { LogOut, ArrowRight, Home, Menu, X, GraduationCap, BookOpen, Zap } from 'lucide-react';
-import { useUser, useSignIn, useClerk } from '@clerk/react';
 import { useNavigate } from 'react-router-dom';
 import XPBadge from '../gamified/XPBadge';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '../../contexts/LanguageContext';
 import './AppShell.css';
 
 /**
@@ -22,31 +23,18 @@ const AppShell = ({
   onNavigateToView,
   headerCenterContent,
   setActiveTest,
-  onNavigateToMyWords,
-  onNavigateToVocabHub,
-  onNavigateToDrillsHub,
-  onNavigateToLevel
+   onNavigateToVocabHub,
+   onNavigateToDrillsHub,
+   onNavigateToLevel
 }) => {
-  const { user, isLoaded } = useUser();
-  const { signOut } = useClerk();
-  const [showProfileMenu, setShowProfileMenu] = useState(false);
   const navigate = useNavigate();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const { t } = useLanguage();
 
   // Close mobile nav on outside click
   const handleNavItemClick = (onClick) => {
     onClick?.();
     setMobileNavOpen(false);
-  };
-
-  const handleSignOut = async () => {
-    try {
-      await signOut();
-      window.location.href = '/';
-    } catch (error) {
-      console.error('Sign out failed:', error);
-      window.location.href = '/';
-    }
   };
 
   const handleGoHome = () => {
@@ -60,10 +48,10 @@ const AppShell = ({
         <aside className="invictus-sidebar">
           <div className="invictus-brand">
             <h2 className="invictus-brand-title">
-              TELCHub
+              {t('nav.home')}
             </h2>
             <p className="invictus-brand-subtext">
-              {activeTest ? activeTest.title.toUpperCase() : 'SELECT EXAM'}
+              {activeTest ? activeTest.title.toUpperCase() : t('nav.telc.info')}
             </p>
           </div>
           <nav className="invictus-nav">
@@ -71,11 +59,11 @@ const AppShell = ({
               onClick={() => handleNavItemClick(handleGoHome)}
               className="invictus-nav-item"
             >
-              <Home size={18} /> TELCHub
+              <Home size={18} /> {t('nav.home')}
             </button>
 
             {/* Exam Levels */}
-            <div className="nav-section-label">Exam Levels</div>
+            <div className="nav-section-label">{t('hub.exams')}</div>
             <button
               onClick={() => handleNavItemClick(() => onNavigateToLevel?.('b1'))}
               className="invictus-nav-item invictus-nav-item-level"
@@ -96,7 +84,7 @@ const AppShell = ({
             </button>
 
             {/* Skill Hubs */}
-            <div className="nav-section-label">Skill Hubs</div>
+            <div className="nav-section-label">{t('hub.skills')}</div>
             <button
               onClick={() => handleNavItemClick(onNavigateToVocabHub)}
               className="invictus-nav-item"
@@ -111,10 +99,10 @@ const AppShell = ({
             </button>
 
             <button 
-              className="invictus-nav-item invictus-nav-item-exit" 
-              onClick={() => handleNavItemClick(handleSignOut)}
-            >
-              <LogOut size={18} /> Exit Lab
+               className="invictus-nav-item invictus-nav-item-exit" 
+               onClick={() => handleNavItemClick(handleGoHome)}
+             >
+              <LogOut size={18} /> {t('common.close')}
             </button>
           </nav>
           
@@ -141,22 +129,22 @@ const AppShell = ({
                 }} 
                 className="exit-btn"
               >
-                <ArrowRight size={14} className="exit-btn-icon" /> Back
+                <ArrowRight size={14} className="exit-btn-icon" /> {t('common.close')}
               </button>
             )}
             {view === 'results' && (
               <button onClick={() => { if (onNavigateBack) onNavigateBack(); }} className="exit-btn">
-                <ArrowRight size={14} className="exit-btn-icon" /> Back
+                <ArrowRight size={14} className="exit-btn-icon" /> {t('common.close')}
               </button>
             )}
             {view === 'skillTests' && (
               <button onClick={() => { if (onNavigateBack) onNavigateBack(); }} className="exit-btn">
-                <ArrowRight size={14} className="exit-btn-icon" /> Back
+                <ArrowRight size={14} className="exit-btn-icon" /> {t('common.close')}
               </button>
             )}
             {(view === 'drillsHub' || view === 'selection') && (
               <button onClick={() => { if (onNavigateBack) onNavigateBack(); }} className="exit-btn">
-                <ArrowRight size={14} className="exit-btn-icon" /> Back
+                <ArrowRight size={14} className="exit-btn-icon" /> {t('common.close')}
               </button>
             )}
           </div>
@@ -165,70 +153,9 @@ const AppShell = ({
             {headerCenterContent}
           </div>
 
-          <div className="invictus-header-right">
-           
-            
-            {/* Custom Profile Dropdown */}
-            <div className="profile-dropdown-container">
-              <button 
-                className="profile-trigger"
-                onClick={() => setShowProfileMenu(!showProfileMenu)}
-              >
-                {isLoaded && user ? (
-                  user.imageUrl ? (
-                    <img 
-                      src={user.imageUrl} 
-                      alt={`${user?.firstName ? user.firstName + "'s" : 'User'} profile photo`}
-                      className="profile-avatar"
-                    />
-                  ) : (
-                    <div className="profile-avatar-fallback">
-                      {user.firstName?.[0] || user.username?.[0] || 'U'}
-                    </div>
-                  )
-                ) : (
-                  <div className="profile-avatar-fallback">?</div>
-                )}
-              </button>
-              
-               {showProfileMenu && (
-                 <div className="profile-dropdown">
-                   {onNavigateToMyWords && (
-                     <button 
-                       className="profile-dropdown-item"
-                       onClick={() => {
-                         onNavigateToMyWords();
-                         setShowProfileMenu(false);
-                       }}
-                     >
-                       <span className="material-symbols-outlined">book</span>
-                       My Words
-                     </button>
-                   )}
-                   {/* Upgrade option - only show if not on Gold tier */}
-                   {!user?.publicMetadata?.plan === 'gold' && (
-                     <button 
-                       className="profile-dropdown-item"
-                       onClick={() => {
-                         navigate('/pricing');
-                         setShowProfileMenu(false);
-                       }}
-                     >
-                       <span className="material-symbols-outlined">star</span>
-                       Upgrade to Gold
-                     </button>
-                   )}
-                   <button 
-                     className="profile-dropdown-item"
-                     onClick={handleSignOut}
-                   >
-                     <span className="material-symbols-outlined">logout</span>
-                     Sign Out
-                   </button>
-                 </div>
-               )}
+           <div className="invictus-header-right">
+              <LanguageSwitcher />
             </div>
-          </div>
         </header>
       )}
 
@@ -245,6 +172,14 @@ const AppShell = ({
               {activeTest ? activeTest.title.toUpperCase() : 'SELECT EXAM'}
             </p>
           </div>
+
+          <button
+            className="mobile-nav-close"
+            onClick={() => setMobileNavOpen(false)}
+            aria-label="Close menu"
+          >
+            <X size={20} />
+          </button>
 
           <button
             onClick={() => handleNavItemClick(handleGoHome)}
@@ -291,7 +226,7 @@ const AppShell = ({
 
           <button
             className="mobile-nav-item invictus-nav-item-exit"
-            onClick={() => handleNavItemClick(handleSignOut)}
+            onClick={() => handleNavItemClick(handleGoHome)}
           >
             <LogOut size={18} /> Exit Lab
           </button>

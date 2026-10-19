@@ -156,6 +156,21 @@
   font-size: 12px;
 }
 
+.sitemap-legal-links {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.sitemap-legal-links a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.sitemap-legal-links a:hover {
+  text-decoration: underline;
+}
+
 /* ── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
   .sitemap-page {

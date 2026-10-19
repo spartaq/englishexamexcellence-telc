@@ -7,9 +7,21 @@ import {
   breadcrumbSchema,
   courseSchema,
 } from '../utils/structuredData';
-
-const SITE_URL = 'https://telc.englishexamexercises.com';
-const OG_IMAGE = `${SITE_URL}/og-image.png`;
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_HU_DESCRIPTION,
+  DEFAULT_HU_KEYWORDS,
+  DEFAULT_HU_TITLE,
+  DEFAULT_TITLE,
+  DEFAULT_KEYWORDS,
+  OG_IMAGE,
+  SITE_URL,
+  absoluteUrl,
+  formatHuTitle,
+  formatTitle,
+  isIndexable,
+  normalizePath,
+} from '../seo/routes';
 
 const JSON_META_KEY = 'data-schema-type';
 
@@ -21,28 +33,41 @@ const JSON_META_KEY = 'data-schema-type';
  * title         — Optional page-specific title (appended to brand suffix).
  * description   — Optional meta description override.
  * keywords      — Optional meta keywords override (deprecated by Google; kept for Bing/Yahoo).
- * canonicalUrl  — Optional absolute canonical URL. Falls back to window.location.href.
+ * canonicalUrl  — Optional absolute canonical URL. Defaults to the registry entry
+ *                 for the current path; unknown paths fall back to the site root.
+ * noindex       — Force noindex (unknown URLs are noindexed automatically).
  * schemaBlock   — Structured-data extras for this page.
  *                 breadcrumbs: [{ name, url }]   → BreadcrumbList
  *                 faq: [{ question, answer }]   → FAQPage
  *                 course: { level, title, description, url } → Course
  *                 website: true                  → WebSite + SearchAction (landing page)
- *                 noindex: true                 → Adds <meta name="robots" content="noindex, nofollow">
- */
-const SEO = ({ title, description, keywords, canonicalUrl, schemaBlock }) => {
+*/
+const SEO = ({ title, description, keywords, canonicalUrl, noindex, schemaBlock, lang }) => {
+  const currentPath =
+    typeof window !== 'undefined' ? normalizePath(window.location.pathname) : '/';
+
+  // Resolve language: explicit prop > path prefix > default 'en'
+  const resolvedLang =
+    lang ||
+    (typeof window !== 'undefined' && currentPath.startsWith('/hu/') ? 'hu' : 'en') ||
+    'en';
+
+  // Unknown paths (junk URLs, 404s) must not be indexed, and must never
+  // canonicalise to themselves or they compete with the real pages.
+  const resolvedNoindex = Boolean(noindex ?? schemaBlock?.noindex ?? !isIndexable(currentPath));
+
   const resolvedCanonical =
-    canonicalUrl || (typeof window !== 'undefined' ? window.location.href : SITE_URL);
+    canonicalUrl || (isIndexable(currentPath) ? absoluteUrl(currentPath) : `${SITE_URL}/`);
+
+  // Alternate-language URLs for hreflang
+  const enUrl = resolvedLang === 'hu' ? absoluteUrl(currentPath.replace(/^\/hu/, '')) : resolvedCanonical;
+  const huUrl = resolvedLang === 'en' ? absoluteUrl(`/hu${currentPath}`) : resolvedCanonical;
 
   useEffect(() => {
-    const defaultTitle = 'English Exam Excellence — TELC B1, B2 & C1 Preparation';
-    const defaultDescription =
-      'Prepare for TELC B1, B2, and C1 exams with expert strategies, practice tests, and interactive 15-minute training sessions for English exam success.';
-    const defaultKeywords =
-      'TELC preparation, TELC practice tests, TELC B1, TELC B2, TELC C1, TELC English, English exam strategies, test-taking tips';
-
-    const pageTitle = title ? `${title} | English Exam Excellence` : defaultTitle;
-    const pageDescription = description || defaultDescription;
-    const pageKeywords = keywords || defaultKeywords;
+    const baseTitle = title || (resolvedLang === 'hu' ? DEFAULT_HU_TITLE : DEFAULT_TITLE);
+    const pageTitle = formatHuTitle(baseTitle);
+    const pageDescription = description || (resolvedLang === 'hu' ? DEFAULT_HU_DESCRIPTION : DEFAULT_DESCRIPTION);
+    const pageKeywords = keywords || (resolvedLang === 'hu' ? DEFAULT_HU_KEYWORDS : DEFAULT_KEYWORDS);
 
     // ══════════════════════════════════════════════════════════
     // 1. Document <title>
@@ -72,47 +97,65 @@ const SEO = ({ title, description, keywords, canonicalUrl, schemaBlock }) => {
     setMeta('property', 'og:image:width', '1200');
     setMeta('property', 'og:image:height', '630');
     setMeta('property', 'og:site_name', 'English Exam Excellence');
-    setMeta('property', 'og:locale', 'en_US');
+    setMeta('property', 'og:locale', resolvedLang === 'hu' ? 'hu_HU' : 'en_US');
 
-    // ══════════════════════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════════
     // 5. Twitter Card tags
-    // ══════════════════════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════════
     setMeta('name', 'twitter:card', 'summary_large_image');
     setMeta('name', 'twitter:url', resolvedCanonical);
     setMeta('name', 'twitter:title', pageTitle);
     setMeta('name', 'twitter:description', pageDescription);
     setMeta('name', 'twitter:image', OG_IMAGE);
 
-    // ══════════════════════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════════
     // 6. Lang / hreflang
-    // ══════════════════════════════════════════════════════════
-    document.documentElement.lang = 'en';
+    // ═══════════════════════════════════════════════════════════
+    document.documentElement.lang = resolvedLang;
     let langLink = document.querySelector('link[hreflang="en"]');
     if (langLink) {
-      langLink.setAttribute('href', resolvedCanonical);
+      langLink.setAttribute('href', enUrl);
     } else {
       langLink = document.createElement('link');
       langLink.rel = 'alternate';
       langLink.hreflang = 'en';
-      langLink.href = resolvedCanonical;
+      langLink.href = enUrl;
       document.head.appendChild(langLink);
     }
 
-    // ══════════════════════════════════════════════════════════
-    // 7. Robots meta (add noindex for protected / auth-only routes)
-    // ══════════════════════════════════════════════════════════
-    if (schemaBlock?.noindex) {
-      setMeta('name', 'robots', 'noindex, nofollow');
+    let huLink = document.querySelector('link[hreflang="hu"]');
+    if (huLink) {
+      huLink.setAttribute('href', huUrl);
     } else {
-      removeMeta('robots');
+      huLink = document.createElement('link');
+      huLink.rel = 'alternate';
+      huLink.hreflang = 'hu';
+      huLink.href = huUrl;
+      document.head.appendChild(huLink);
     }
+
+    let xDefaultLink = document.querySelector('link[hreflang="x-default"]');
+    if (xDefaultLink) {
+      xDefaultLink.setAttribute('href', enUrl);
+    } else {
+      xDefaultLink = document.createElement('link');
+      xDefaultLink.rel = 'alternate';
+      xDefaultLink.hreflang = 'x-default';
+      xDefaultLink.href = enUrl;
+      document.head.appendChild(xDefaultLink);
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    // 7. Robots meta — noindex for the 404 catch-all and anything
+    //    not in the public route registry.
+    // ═══════════════════════════════════════════════════════════
+    setMeta('name', 'robots', resolvedNoindex ? 'noindex, nofollow' : 'index, follow');
 
     // ══════════════════════════════════════════════════════════
     // 8. JSON-LD structured data
     // ══════════════════════════════════════════════════════════
     updateJsonLd(schemaBlock);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [title, description, keywords, resolvedCanonical, schemaBlock]);
+  }, [title, description, keywords, resolvedLang, resolvedCanonical, resolvedNoindex, schemaBlock]);
 
   return null;
 };
@@ -128,12 +171,6 @@ function setMeta(attrName, attrValue, content) {
     document.head.appendChild(el);
   }
   if (content !== undefined) el.setAttribute('content', content);
-}
-
-/** Remove a <meta> element identified by its `name` attribute */
-function removeMeta(name) {
-  const el = document.querySelector(`meta[name="${name}"]`);
-  if (el) el.remove();
 }
 
 /** Create or update a <link> element identified by its `rel` attribute */
@@ -199,7 +236,7 @@ function updateJsonLd(schemaBlock) {
     });
 
   // Create or update matching script elements
-  for (const { type, selectorSuffix, jsonText } of pageSchemas) {
+  for (const { type, jsonText } of pageSchemas) {
     const existing = document.querySelector(
       `script[type="application/ld+json"][${JSON_META_KEY}="${type}"]`
     );
@@ -223,7 +260,6 @@ function buildSchemaEntry(jsonText) {
   const parsed = JSON.parse(jsonText);
   return {
     type: String(parsed['@type'] ?? 'generic'),
-    selectorSuffix: `[${JSON_META_KEY}="${parsed['@type'] ?? 'generic'}"]`,
     jsonText,
   };
 }

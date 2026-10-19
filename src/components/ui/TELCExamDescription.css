@@ -1,0 +1,299 @@
+/* =============================================================================
+   TELCExamDescription.css - Dedicated styles for TELC info page
+   ============================================================================= */
+
+.telc-hub-container {
+  background-color: var(--bg-app);
+  min-height: 100vh;
+  padding-top: 0.5rem;
+  padding-bottom: 5rem;
+  font-family: var(--invictus-font);
+  color: var(--text-primary);
+}
+
+/* --- Header --- */
+.telc-hub-header {
+  max-width: 1200px;
+  margin: 3rem auto 2rem;
+  padding: 0 2rem;
+  text-align: left;
+}
+
+.telc-hub-header h2 {
+  font-family: var(--invictus-font);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.telc-hub-header p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* --- Info Section --- */
+.intel-section {
+  background: var(--surface-white);
+  border-radius: var(--radius-lg);
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 3rem 2rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.04);
+}
+
+.intel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.intel-header h2 {
+  font-family: var(--invictus-font);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* --- Content Typography --- */
+.info-content h3 {
+  font-family: var(--invictus-font);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 1.5rem 0 1rem;
+}
+
+.info-content h3:first-child {
+  margin-top: 0;
+}
+
+.info-content p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.info-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0 1.5rem;
+}
+
+.info-content li {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.info-content li::before {
+  content: "•";
+  color: var(--primary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.info-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* --- Four Pillar Grid --- */
+.four-pillars-section {
+  background: var(--surface-white);
+  border-radius: var(--radius-lg);
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 3rem 2rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.04);
+}
+
+.pillars-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.pillars-header h2 {
+  font-family: var(--invictus-font);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.pillars-header p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.pillar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  transition: all 0.2s ease;
+}
+
+.pillar-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary);
+}
+
+.pillar-item .icon-wrapper {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.pillar-item .icon-wrapper svg {
+  font-size: 1.5rem;
+}
+
+.pillar-item h4 {
+  font-family: var(--invictus-font);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.pillar-item p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --- Recognition Section --- */
+.recognition-section {
+  background: var(--invictus-red-pale);
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-lg);
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 3rem 2rem;
+}
+
+.recognition-section h2 {
+  font-family: var(--invictus-font);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.recognition-section p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.recognition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.recognition-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+
+.recognition-item h4 {
+  font-family: var(--invictus-font);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.recognition-item p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .telc-hub-header,
+  .intel-section,
+  .four-pillars-section,
+  .recognition-section {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .telc-hub-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .telc-hub-header,
+  .intel-section,
+  .four-pillars-section,
+  .recognition-section {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .telc-hub-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .intel-section h2,
+  .pillars-header h2,
+  .recognition-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .pillar-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .telc-hub-header,
+  .intel-section,
+  .four-pillars-section,
+  .recognition-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .telc-hub-header h2 {
+    font-size: 1.5rem;
+  }
+}

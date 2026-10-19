@@ -230,7 +230,7 @@ const SpeakingBlock = ({
                 </motion.div>
               )}
 
-              {/* UI for IELTS Part 3: Discussion topics */}
+              {/* UI for Discussion topics (Part 3) */}
               {currentPart.topics && mode !== 'review' && (
                 <motion.div key="topics" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="topics-list">
                   {currentPart.topics.map((t, i) => (

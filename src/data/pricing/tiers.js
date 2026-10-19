@@ -4,19 +4,19 @@ export const PRICING_TIERS = {
   bronze: {
     id: 'bronze',
     name: 'Bronze',
-    title: 'Free Access',
+    title: 'Completely Free',
     price: {
       amount: 0,
       currency: 'Ft',
       period: null
     },
-    description: 'Try before you buy',
+    description: 'All content free, no account required',
     features: [
-      'Free mock test on landing page',
-      '2 mock exams per level per month (~6 total)',
-      'Limited Atoms (skill exercises)',
-      '10 vocabulary words per day',
-      'No progress tracking'
+      'Full access to all mock exams (B1/B2/C1)',
+      'All skill exercises and reading drills',
+      'All vocabulary and grammar drills',
+      'Unlimited practice — no limits',
+      'AI-powered results and feedback',
     ],
     cta: 'Start Learning',
     ctaLink: '/telc/b2',
@@ -31,19 +31,16 @@ export const PRICING_TIERS = {
       currency: 'Ft',
       period: null
     },
-    description: 'Full access - just register',
+    description: 'Save your progress — free to register',
     features: [
-      'Full access to all mocks and drills',
-      'Unlimited mock exams (B1/B2/C1)',
-      'Full drill exercises library',
-      'Unlimited vocabulary practice',
-      'Spaced repetition system',
-      'Progress tracking',
-      'Basic feedback'
+      'Everything in Bronze',
+      'Progress tracking across sessions',
+      'Saved vocabulary list (My Words)',
+      'Personalised study insights',
     ],
     cta: 'Register Free',
-    ctaLink: '/sign-up',
-    popular: false
+    ctaLink: '/telc/b2',
+    popular: true
   },
   gold: {
     id: 'gold',

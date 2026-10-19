@@ -3,7 +3,7 @@ import { CheckCircle, XCircle } from 'lucide-react';
 import './TableCompletionBlock.css';
 
 /**
- * TableCompletionBlock - IELTS Type 9: Table Completion
+ * TableCompletionBlock - Table Completion Question Block
  * 
  * Complete a table using words from text or from a word list.
  * Word limit applies (e.g., "NO MORE THAN TWO WORDS AND/OR A NUMBER")

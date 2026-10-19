@@ -1,20 +1,26 @@
 // 1. Lookup Table for Exercises
 import { findPassive1Data } from './C1Drills/reading/c1-drill-find-passive-1';
 import { findPresentPerfect1Data } from './B2Drills/reading/b2-drill-find-presperf-1';
+import { findPresentPerfectB1Data } from './B1Drills/reading/b1-drill-find-presperf-1';
 import { findNoun1Data } from './B1Drills/reading/b1-drill-find-noun-1';
+import { findPassive1Data as findPassiveB1Data } from './B1Drills/reading/b1-drill-passive-1';
 import { commaDrill1Data, commaDrill2Data, commaDrill3Data } from './C1Drills/writing/c1-drill-comma-1';
 import { conjunctions1Data } from './B2Drills/writing/b2-drill-conjunctions-1';
+import { wordFormsMCQ1Data } from './B1Drills/language-elements/wordforms-mcq-1';
 
 export const drillsData = {
   'find-passive-1': { ...findPassive1Data, level: 'c1' },
   'find-presperf-1': { ...findPresentPerfect1Data, level: 'b2' },
+  'find-presperf-b1-1': { ...findPresentPerfectB1Data, level: 'b1' },
   'find-noun-1': { ...findNoun1Data, level: 'b1' },
+  'find-noun-passive-1': { ...findPassiveB1Data, level: 'b1' },
   'comma-drill-1': { ...commaDrill1Data, level: 'c1' },
   'comma-drill-2': { ...commaDrill2Data, level: 'c1' },
   'comma-drill-3': { ...commaDrill3Data, level: 'c1' },
   'conjunctions-1': { ...conjunctions1Data, level: 'b2' },
   'ideas-list-1': { id: 'ideas-list-1', title: 'Ideas List', type: 'writing-prompt', xp: 50, level: 'b1' },
   'wordforms': { id: 'wordforms', title: 'Word Forms', type: 'language-element', xp: 75, level: 'b1' },
+  'wordforms-mcq-1': { ...wordFormsMCQ1Data, level: 'b1' },
   'thinkingwhatyoullsay': { id: 'thinkingwhatyoullsay', title: 'Thinking What You\'ll Say', type: 'speaking-preparation', xp: 100, level: 'b2' },
 }
 
@@ -30,6 +36,8 @@ export const DRILLS_HUB = {
         { id: 'find-passive-1', title: 'Find the passive voice', xp: 500, type: 'reading-drill', tier: 'bronze', level: 'c1' },
         { id: 'find-presperf-1', title: 'Find the present perfect', xp: 500, type: 'reading-drill', tier: 'bronze', level: 'b2' },
         { id: 'find-noun-1', title: 'Find the noun phrase', xp: 500, type: 'reading-drill', tier: 'bronze', level: 'b1' },
+        { id: 'find-noun-passive-1', title: 'Find the passive voice', xp: 500, type: 'reading-drill', tier: 'bronze', level: 'b1' },
+        { id: 'find-presperf-b1-1', title: 'Find the present perfect', xp: 500, type: 'reading-drill', tier: 'bronze', level: 'b1' },
       ]
     },
     {
@@ -48,6 +56,7 @@ export const DRILLS_HUB = {
       title: 'Language Elements',
       tasks: [
         { id: 'wordforms', title: 'Word Forms', xp: 75, type: 'language-element', tier: 'bronze', level: 'b1' },
+        { id: 'wordforms-mcq-1', title: 'Word Forms: Multiple Choice', xp: 100, type: 'language-element', tier: 'bronze', level: 'b1' },
       ]
     },
     {

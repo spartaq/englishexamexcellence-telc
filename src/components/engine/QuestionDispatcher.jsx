@@ -18,6 +18,7 @@ import PunctuationCorrectionBlock from './InteractiveBlocks/PunctuationCorrectio
 import SentenceMatchingBlock from './InteractiveBlocks/SentenceMatchingBlock';
 import SentenceInsertBlock from './InteractiveBlocks/SentenceInsertBlock';
 import LanguageElementsBlock from './LanguageElementsBlock';
+import { flattenQuestions } from '../../utils/questionFlattener';
 
 /**
  * The Universal Question Dispatcher
@@ -116,26 +117,29 @@ case 'gap-fill-tokens':
           />
         );
 
-    case 'language_elements':
-      // Language Elements - Use LanguageElementsBlock for both MCQ and gap-fill formats
-      // LanguageElementsBlock handles the SplitPane layout and carousel navigation
-      console.log('[QuestionDispatcher] Using LanguageElementsBlock for language_elements');
+case 'language_elements':
+    case 'language-element':
+      // Language Elements - handled by Engine/LanguageElementsBlock for full structure
+      // Fallback: render nested MCQ questions if any exist
+      if (data.subTasks) {
+        const allQuestions = flattenQuestions(data.subTasks);
+        return (
+          <div className="nested-questions-container">
+            {data.instruction && <p className="instruction-text">{data.instruction}</p>}
+            {allQuestions.map((q) => (
+              <MCQBlock 
+                key={q.id}
+                data={q}
+                userAnswers={userAnswers}
+                onUpdate={onUpdate}
+                isReviewMode={isReviewMode}
+              />
+            ))}
+          </div>
+        );
+      }
       return (
-        <LanguageElementsBlock
-          data={data}
-          userAnswers={userAnswers}
-          onUpdate={onUpdate}
-          onCheckAnswers={onCheckAnswers}
-          isReviewMode={isReviewMode}
-          showCheckAnswers={showCheckAnswers}
-          sections={sections}
-          activeSkillTab={activeSkillTab}
-          activeSectionIndex={activeSectionIndex}
-          setActiveSectionIndex={setActiveSectionIndex}
-          setActivePassageIndex={setActivePassageIndex}
-          setIsReviewMode={setIsReviewMode}
-          availableSkills={availableSkills}
-        />
+        <div className="error-text">Unsupported language-element structure</div>
       );
 
     case 'heading-match':

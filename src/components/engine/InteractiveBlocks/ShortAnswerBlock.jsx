@@ -3,7 +3,7 @@ import { CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
 import './ShortAnswerBlock.css';
 
 /**
- * ShortAnswerBlock - IELTS Type 11: Short-Answer Questions
+ * ShortAnswerBlock - Short-Answer Questions Block
  * Handles a group of questions under a single instruction.
  */
 const ShortAnswerBlock = ({ 

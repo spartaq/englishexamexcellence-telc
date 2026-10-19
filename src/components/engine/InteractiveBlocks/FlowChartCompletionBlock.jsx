@@ -3,7 +3,7 @@ import { CheckCircle, XCircle, ArrowDown } from 'lucide-react';
 import './FlowChartCompletionBlock.css';
 
 /**
- * FlowChartCompletionBlock - IELTS Type 9: Flow-Chart Completion
+ * FlowChartCompletionBlock - Flow-Chart Completion Question Block
  * 
  * Complete a flow-chart (series of boxes/steps linked by arrows).
  * Word limit applies (e.g., "NO MORE THAN TWO WORDS AND/OR A NUMBER")

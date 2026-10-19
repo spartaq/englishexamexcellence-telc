@@ -136,16 +136,9 @@
   box-shadow: 0 6px 16px rgba(211, 47, 47, 0.5);
 }
 
-/* ── Hide header logo / nav buttons from Clerk UserButton to avoid clashes ── */
-.lp-nav-actions [data-clerk-user-button] button {
-  background: var(--primary-color);
-  color: #fff;
-  border-radius: 50%; /* Make it round */
-  overflow: hidden;
-  border: 2px solid white; /* Add a subtle white border */
-  box-shadow: 0 0 0 2px var(--primary-color); /* To make it stand out */
-}
-
+/* ═══════════════════════════════════════════════════
+   MAIN WRAPPER — pushes content below fixed navbar
+   ═══════════════════════════════════════════════════ */
 /* ═══════════════════════════════════════════
    MAIN WRAPPER — pushes content below fixed navbar
    ═══════════════════════════════════════════ */
@@ -362,7 +355,7 @@
 }
 
 .lp-btn-level:hover {
-  background: white;
+  background: rgb(44, 13, 13);
   color: var(--primary);
   border: 1px solid var(--primary);
   transform: translateY(-1px);

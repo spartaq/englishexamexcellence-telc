@@ -62,8 +62,8 @@ const useCheckAnswers = ({
   // 4. MAIN LOGIC: The Grading Engine
   const checkAnswers = useCallback((drillAnswers = null) => {
     // Context Detection
-    const isIeltsComplex = activeLesson.type === 'ielts-complex' || activeLesson.type === 'READING';
-    const currentSection = isIeltsComplex ? activeLesson : activeLesson.sections?.[activeSectionIndex];
+    const isComplexReadingLayout = activeLesson.type === 'ielts-complex' || activeLesson.type === 'READING';
+    const currentSection = isComplexReadingLayout ? activeLesson : activeLesson.sections?.[activeSectionIndex];
     const passages = currentSection?.passages || [];
     const currentPassage = passages[activePassageIndex] || currentSection;
 

@@ -3,10 +3,23 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, Globe, Sparkles, Users, ShieldCheck } from 'lucide-react';
 import PRICING_TIERS from '../../data/pricing/tiers';
 import PRICING_TESTIMONIALS from '../../data/pricing/testimonials';
+import SEO from '../SEO';
+import { routeMeta } from '../../seo/routes';
 import './PricingPage.css';
+
+const PRICING_FAQ = [
+  { question: 'Is this a subscription?', answer: 'No! You pay once for lifetime access. No recurring charges, no auto-renewals.' },
+  { question: 'What payment methods do you accept?', answer: 'We accept all major credit cards through our secure payment processor.' },
+  { question: 'Do I get all future updates?', answer: 'Yes! Your lifetime access includes all future content updates and improvements.' },
+  { question: 'What is the Community Forum?', answer: 'Ask English learning questions and get answers from our teaching team. Responses typically come within a few hours (not real-time chat).' },
+  { question: 'Can I get a refund?', answer: 'Absolutely. If you are not satisfied within 14 days of purchase, we will give you a full refund.' },
+  { question: 'Is my progress saved forever?', answer: 'Yes! All your progress, scores, and achievements are permanently saved to your account.' },
+];
 
 const PricingPage = () => {
   return (
+    <>
+      <SEO {...routeMeta('/pricing')} schemaBlock={{ faq: PRICING_FAQ }} />
     <div className="pricing-page">
       <header className="pricing-hero">
         <div className="pricing-hero-content">
@@ -141,6 +154,7 @@ const PricingPage = () => {
         </Link>
       </footer>
     </div>
+    </>
   );
 };
 

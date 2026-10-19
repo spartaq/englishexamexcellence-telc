@@ -326,6 +326,25 @@
     margin-bottom: 32px;
   }
 
+  .mobile-nav-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    z-index: 2;
+  }
+
+  .mobile-nav-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
   .mobile-nav-brand .invictus-brand-title {
     color: white;
   }

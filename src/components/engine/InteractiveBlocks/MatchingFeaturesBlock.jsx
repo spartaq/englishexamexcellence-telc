@@ -3,7 +3,7 @@ import { CheckCircle, XCircle, AlertCircle } from 'lucide-react';
 import './MatchingFeaturesBlock.css';
 
 /**
- * MatchingFeaturesBlock - IELTS Type 6: Matching Features
+ * MatchingFeaturesBlock - Matching Features Question Block
  * 
  * Match statements or pieces of information to a list of options (features).
  * Features are identified by letters (A, B, C, etc.).

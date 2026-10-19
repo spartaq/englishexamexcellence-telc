@@ -22,7 +22,7 @@ lessonDatabase (from data/index.js)
     ↓ drillsData from data/DrillsHub/index.js
 Engine.jsx (Renderer)
     ↓ QuestionDispatcherWithCheck Wrapper
-Interactive Blocks (TokenSelectBlock | PunctuationCorrectionBlock)
+Interactive Blocks (TokenSelectBlock | PunctuationCorrectionBlock | GapFillBlock)
 ```
 
 ### Available Drill Types
@@ -32,10 +32,11 @@ Interactive Blocks (TokenSelectBlock | PunctuationCorrectionBlock)
    - `find-presperf-1` - Identify present perfect tense  
    - `find-noun-1` - Identify noun phrases
 
-2. **Writing Drills** (type: `punctuation-correction`)
+2. **Writing Drills** (type: `punctuation-correction`, `gap-fill-tokens`)
    - `comma-drill-1` - Commas with introductory elements
    - `comma-drill-2` - Commas with compound sentences
    - `comma-drill-3` - Commas with lists and series
+   - `conjunctions-1` - Conjunctions and linking words
 
 ---
 
@@ -67,7 +68,7 @@ Interactive Blocks (TokenSelectBlock | PunctuationCorrectionBlock)
 Lines 91-97 handle both drill types:
 
 ```javascript
-else if (activeLesson.type === 'token-select' || activeLesson.type === 'punctuation-correction') {
+else if (activeLesson.type === 'token-select' || activeLesson.type === 'punctuation-correction' || activeLesson.type === 'gap-fill-tokens') {
   const userSelections = userAnswers[activeLesson.id] || [];
   const correctOnes = activeLesson.correctTokens || activeLesson.correctPositions || [];
   const correct = userSelections.filter(s => correctOnes.includes(s)).length;
@@ -108,6 +109,12 @@ PunctuationCorrectionBlock.jsx
 ├── State: placements { sentenceId: Set<position> }
 ├── Output: serializable placements via onUpdate(qId, placements)
 └── Review: Shows results + explanations
+
+GapFillBlock.jsx
+├── Props: data, onUpdate, isReviewMode
+├── State: selections { gapKey: selectedWord }
+├── Output: selections via onUpdate(qId, selections)
+└── Review: Shows correct/incorrect/missed highlighting
 ```
 
 ---
@@ -128,6 +135,20 @@ PunctuationCorrectionBlock.jsx
     "are often left",
     "are often assumed",
   ]
+}
+```
+
+### Gap Fill Tokens Drill (conjunctions-1)
+```javascript
+{
+  id: 'conjunctions-1',
+  type: 'gap-fill-tokens',
+  title: 'Conjunctions & Connectors',
+  instruction: 'Select the correct connector for each gap.',
+  xpReward: 100,
+  passage: `Many students struggle with English exams. ____(a)____ they study hard...`,
+  tokens: ['ALTHOUGH', 'HOWEVER', 'EVEN THOUGH', ...],
+  answers: { "a": "ALTHOUGH", "b": "HOWEVER" }
 }
 ```
 
@@ -169,13 +190,20 @@ PunctuationCorrectionBlock.jsx
 - Score display with perfect/success state
 - Explanation text styling
 
+### GapFillBlock.css
+- Token bank styling with hover states
+- Gap highlighting for active/filled states
+- Review mode legend and score display
+- Responsive token grid layout
+
 ---
 
 ## Testing Checklist
 
 - [x] Check Answers button appears for token-select drills
 - [x] Check Answers button appears for punctuation-correction drills  
-- [x] Grading works correctly for both drill types
+- [x] Check Answers button appears for gap-fill-tokens drills
+- [x] Grading works correctly for all three drill types
 - [x] Review mode shows correct/incorrect/missed items
 - [x] XP is calculated and displayed correctly
 - [x] Styling is consistent across drill types
@@ -190,18 +218,139 @@ PunctuationCorrectionBlock.jsx
 2. **src/components/engine/QuestionDispatcher.jsx** - Question routing + Check button wrapper
 3. **src/components/engine/InteractiveBlocks/TokenSelectBlock.jsx** - Reading drill block  
 4. **src/components/engine/InteractiveBlocks/PunctuationCorrectionBlock.jsx** - Writing drill block
-5. **src/components/engine/useCheckAnswers.js** - Grading logic
+5. **src/components/engine/InteractiveBlocks/GapFillBlock.jsx** - Gap-fill-tokens drill block
+6. **src/components/engine/useCheckAnswers.js** - Grading logic
 
 ### Styling
 1. **src/components/engine/InteractiveBlocks/TokenSelectBlock.css**
 2. **src/components/engine/InteractiveBlocks/PunctuationCorrectionBlock.css**
+3. **src/components/engine/InteractiveBlocks/GapFillBlock.css**
 
 ### Data
 1. **src/data/DrillsHub/index.js** - Hub config + drills lookup
-2. **src/data/DrillsHub/reading/find-passive-1.js**
-3. **src/data/DrillsHub/reading/find-presperf-1.js**
-4. **src/data/DrillsHub/reading/find-noun-1.js**
-5. **src/data/DrillsHub/writing/comma-drill-1.js**
+2. **src/data/DrillsHub/C1Drills/reading/c1-drill-find-passive-1.js**
+3. **src/data/DrillsHub/B2Drills/reading/b2-drill-find-presperf-1.js**
+4. **src/data/DrillsHub/B1Drills/reading/b1-drill-find-noun-1.js**
+5. **src/data/DrillsHub/C1Drills/writing/c1-drill-comma-1.js**
+6. **src/data/DrillsHub/B2Drills/writing/b2-drill-conjunctions-1.js**
+
+---
+
+## How to Add New Drills to the Hub
+
+### Step 1: Create the Drill Data File
+
+Place the file in the correct folder under `src/data/DrillsHub/{Level}Drills/{skill}/`:
+
+**Example: Adding a new B1 reading drill**
+Create: `src/data/DrillsHub/B1Drills/reading/b1-drill-find-adjectives-1.js`
+
+### Step 2: Export Drill Data (by type)
+
+#### A. Token-Select Drill (Reading)
+```javascript
+export const findAdjectives1Data = {
+  id: 'find-adjectives-1',
+  type: 'token-select',
+  title: 'Identifying Adjectives',
+  xpReward: 150,
+  instruction: 'Tap all adjectives in each sentence.',
+  content: "The beautiful old house stands on a quiet street...",
+  correctTokens: ["beautiful", "old", "quiet", "modern"]
+};
+```
+
+#### B. Punctuation-Correction Drill (Writing)
+```javascript
+export const myPunctuationDrill = {
+  id: 'punctuation-drill-4',
+  type: 'punctuation-correction',
+  title: 'Comma Usage: Complex Structures',
+  instruction: 'Click between words to add commas where needed.',
+  xpReward: 100,
+  punctuationMark: ',',
+  sentences: [
+    {
+      id: 's1',
+      text: 'Because it was raining heavily we stayed indoors.',
+      correctPositions: [3],
+      explanation: 'Use a comma after introductory dependent clauses.'
+    }
+  ]
+};
+```
+
+#### C. Gap-Fill-Tokens Drill (Writing)
+```javascript
+export const myGapFillDrill = {
+  id: 'gapfill-new-1',
+  type: 'gap-fill-tokens',
+  title: 'Linking Words Practice',
+  instruction: 'Select the correct linking word for each gap.',
+  xpReward: 100,
+  passage: `First, they planned the project. ____(a)____, they gathered materials. ____(b)____, they started working.`,
+  tokens: ['AFTERWARD', 'NEXT', 'MEANWHILE', 'FINALLY'],
+  answers: { "a": "NEXT", "b": "AFTERWARD" }
+};
+```
+
+### Step 3: Register in index.js
+
+Edit `src/data/DrillsHub/index.js`:
+
+```javascript
+// 1. Add import at top
+import { findAdjectives1Data } from './B1Drills/reading/b1-drill-find-adjectives-1';
+
+// 2. Add to drillsData lookup
+export const drillsData = {
+  // ... existing drills
+  'find-adjectives-1': { ...findAdjectives1Data, level: 'b1' },
+};
+
+// 3. Add to appropriate category in DRILLS_HUB
+export const DRILLS_HUB = {
+  // ...
+  categories: [
+    {
+      id: 'reading-drills',
+      title: 'Reading Skills',
+      tasks: [
+        // ... existing tasks
+        { id: 'find-adjectives-1', title: 'Find the adjectives', xp: 500, type: 'reading-drill', tier: 'bronze', level: 'b1' },
+      ]
+    }
+  ]
+};
+```
+
+### Step 4: Verify Component Support
+
+The `QuestionDispatcher.jsx` already handles these types:
+- `token-select` → TokenSelectBlock
+- `punctuation-correction` → PunctuationCorrectionBlock
+- `gap-fill-tokens` → GapFillBlock
+
+### Current Available Categories
+| Category | Skill | Example Types |
+|----------|-------|---------------|
+| `reading-drills` | reading | `reading-drill`, `token-select` |
+| `writing-drills` | writing | `punctuation-correction`, `gap-fill-tokens`, `writing-prompt` |
+| `language-elements` | language-elements | `language-element` |
+| `speaking-drills` | speaking | `speaking-preparation` |
+
+### Field Reference
+- `id` - Unique identifier for the drill
+- `type` - Determines which component renders it
+- `title` - Display title in UI
+- `xpReward` - XP earned on completion
+- `instruction` - Brief instruction text
+- `correctTokens` (token-select) - Array of phrases/words to identify
+- `content` (token-select) - The paragraph text to analyze
+- `sentences` (punctuation-correction) - Array of sentences with comma positions
+- `passage` (gap-fill-tokens) - Text with `____(a)____` gap markers
+- `tokens` (gap-fill-tokens) - Word bank options
+- `answers` (gap-fill-tokens) - Mapping of gap letters to correct answers
 
 ---
 

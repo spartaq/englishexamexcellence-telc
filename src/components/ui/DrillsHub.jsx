@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Zap, Target, BookOpen, PenTool, ArrowLeft, ArrowRight, Layers } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 import './DrillsHub.css';
 
 const categoryIcons = {
@@ -24,8 +25,9 @@ const DrillsHub = ({
   onNavigateToLevelSelector,
   onNavigateToLevel
 }) => {
-const hub = data;
-   if (!hub) return <div className="drills-loading">Initializing Drill Engine...</div>;
+  const { t } = useLanguage();
+  const hub = data;
+   if (!hub) return <div className="drills-loading">{t('common.loading')}</div>;
 
    const categories = hub.categories || [];
 
@@ -78,12 +80,12 @@ const hub = data;
         {/* HEADER */}
         <header className="drills-hub-header">
           <div className="header-top">
-            <h1 className="drills-hub-title">DRILLS HUB</h1>
+            <h1 className="drills-hub-title">{t('drills.hub.title')}</h1>
             <div className="system-tag">
               <span className="dot"></span> SYSTEM ACTIVE
             </div>
           </div>
-          <p className="drills-hub-subtitle">Select your proficiency level to begin targeted skill training.</p>
+          <p className="drills-hub-subtitle">{t('drills.select.level')}</p>
         </header>
 
         {/* LEVEL SELECTOR GRID */}
@@ -100,11 +102,11 @@ const hub = data;
                   <div className="level-card-header">
                     <h2 className="level-title">{level}</h2>
                     <span className="level-badge">
-                      {level === 'B1' ? 'Intermediate' : level === 'B2' ? 'Upper-Intermediate' : 'Advanced'}
+                      {level === 'B1' ? t('drills.level.b1') : level === 'B2' ? t('drills.level.b2') : t('drills.level.c1')}
                     </span>
                   </div>
                   <div className="level-card-body">
-                    <p className="level-drill-count">{stats.drillCount} Skill Drills</p>
+                    <p className="level-drill-count">{stats.drillCount} {t('drills.select.level')}</p>
                     <div className="level-progress">
                       <div className="progress-bar-bg">
                         <div className="progress-bar-fill" style={{ width: `${stats.completion}%` }}></div>
@@ -113,7 +115,7 @@ const hub = data;
                     </div>
                   </div>
                   <div className="level-card-footer">
-                    <span className="start-button">Enter Level</span>
+                    <span className="start-button">{t('drills.start')}</span>
                   </div>
                 </div>
               );
@@ -131,9 +133,9 @@ const hub = data;
   return (
     <div className="drills-hub">
       {/* HEADER */}
-      <header className="drills-hub-header">
+        <header className="drills-hub-header">
         <div className="header-top">
-          <h1 className="drills-hub-title">DRILLS HUB — {selectedLevel}</h1>
+          <h1 className="drills-hub-title">{t('drills.hub.title')} — {selectedLevel}</h1>
           <div className="system-tag">
             <span className="dot"></span> SYSTEM ACTIVE
           </div>
@@ -141,7 +143,7 @@ const hub = data;
         <p className="drills-hub-subtitle">
           {allFilteredTasks.length} targeted exercises for {selectedLevel} level
         </p>
-        <p className="drills-hub-tagline">Skills that serve you beyond the exam</p>
+        <p className="drills-hub-tagline">{t('drills.select.level')}</p>
       </header>
 
       {/* BACK TO LEVEL SELECTOR */}

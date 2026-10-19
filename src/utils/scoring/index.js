@@ -4,20 +4,20 @@
  * Factory pattern for platform-specific scoring systems
  */
 
-// IELTS Scoring
+// TELC Scoring
 export { 
-  calculateIELTSReadingScore, 
-  calculateIELTSListeningScore, 
-  calculateOverallBand,
-  calculateIELTSScore 
-} from './ieltsScoring';
+  calculateTELCScore,
+  calculateWrittenScore,
+  calculateOralScore,
+  calculateSimpleTELCScore
+} from './telcScoring';
 
 // Base scoring utilities
 export { calculateAccuracy, calculateXP } from './baseScorer';
 
 /**
  * Factory function to get the appropriate scorer for a platform
- * @param {string} platform - 'ielts', 'toefl', 'langcert', etc.
+ * @param {string} platform - 'telc'
  * @returns {object} - Platform scoring functions
  */
 export const getScorer = (platform) => {
@@ -25,54 +25,24 @@ export const getScorer = (platform) => {
   const normalizedPlatform = (platform ?? '').toLowerCase();
   
   switch (normalizedPlatform) {
-    case 'ielts':
+    case 'telc':
       return {
-        calculateReadingScore: (correctAnswers, testType) => 
-          require('./ieltsScoring').calculateIELTSReadingScore(correctAnswers, testType),
-        calculateListeningScore: (correctAnswers) => 
-          require('./ieltsScoring').calculateIELTSListeningScore(correctAnswers),
+        calculateReadingScore: (correctAnswers, totalQuestions, skill = 'reading') => 
+          require('./telcScoring').calculateSimpleTELCScore(correctAnswers, totalQuestions, skill),
+        calculateListeningScore: (correctAnswers, totalQuestions) => 
+          require('./telcScoring').calculateSimpleTELCScore(correctAnswers, totalQuestions, 'listening'),
         calculateOverall: (scores) => 
-          require('./ieltsScoring').calculateOverallBand(scores),
+          require('./telcScoring').calculateTELCScore(scores),
         calculateFull: (answers, options) => 
-          require('./ieltsScoring').calculateIELTSScore(answers, options)
+          require('./telcScoring').calculateTELCScore(answers, options)
       };
     
-    case 'toefl':
-      // TOEFL scorer not implemented
-      return {
-        calculateReadingScore: () => {
-          throw new Error('TOEFL scorer not implemented: call calculateReadingScore');
-        },
-        calculateListeningScore: () => {
-          throw new Error('TOEFL scorer not implemented: call calculateListeningScore');
-        },
-        calculateOverall: () => {
-          throw new Error('TOEFL scorer not implemented: call calculateOverall');
-        },
-        calculateFull: () => {
-          throw new Error('TOEFL scorer not implemented: call calculateFull');
-        }
-      };
+   
     
-    case 'langcert':
-      // LangCert scorer not implemented
-      return {
-        calculateReadingScore: () => {
-          throw new Error('LangCert scorer not implemented: call calculateReadingScore');
-        },
-        calculateListeningScore: () => {
-          throw new Error('LangCert scorer not implemented: call calculateListeningScore');
-        },
-        calculateOverall: () => {
-          throw new Error('LangCert scorer not implemented: call calculateOverall');
-        },
-        calculateFull: () => {
-          throw new Error('LangCert scorer not implemented: call calculateFull');
-        }
-      };
+    
     
     default:
-      console.warn(`No scorer found for platform: ${platform}. Using IELTS as fallback.`);
+      console.warn(`No scorer found for platform: ${platform}. Using TELC as fallback.`);
       return {
         calculateReadingScore: () => {
           throw new Error(`Unknown platform scorer: no implementation for "${normalizedPlatform}"`);
@@ -96,7 +66,7 @@ export const getScorer = (platform) => {
  * @returns {string} - Platform name
  */
 export const detectPlatform = (lessonType) => {
-  if (!lessonType) return 'ielts';
+  if (!lessonType) return 'telc';
   
   let type = '';
   
@@ -117,11 +87,9 @@ export const detectPlatform = (lessonType) => {
     type = String(lessonType).toLowerCase();
   }
   
-  if (type.includes('ielts')) return 'ielts';
-  if (type.includes('toefl')) return 'toefl';
-  if (type.includes('langcert')) return 'langcert';
+  if (type.includes('telc')) return 'telc';
   
-  return 'ielts'; // Default
+  return 'telc'; // Default to TELC for this platform
 };
 
 export default {

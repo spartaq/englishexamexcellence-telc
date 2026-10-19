@@ -1,0 +1,96 @@
+/* ==========================================================================
+   NotFoundPage — 404 fallback for unknown routes
+   ========================================================================== */
+
+.notfound-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-app);
+}
+
+.notfound-container {
+  max-width: 560px;
+  text-align: center;
+}
+
+.notfound-code {
+  margin: 0;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--primary);
+}
+
+.notfound-container h1 {
+  margin: 12px 0 8px;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.notfound-text {
+  margin: 0 0 28px;
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.notfound-links {
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.notfound-links a {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.notfound-links a:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.notfound-cta {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  background: var(--primary);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.notfound-cta:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 640px) {
+  .notfound-page {
+    padding: 32px 16px;
+  }
+
+  .notfound-code {
+    font-size: 56px;
+  }
+
+  .notfound-container h1 {
+    font-size: 22px;
+  }
+}

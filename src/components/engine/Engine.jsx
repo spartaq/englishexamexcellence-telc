@@ -7,7 +7,6 @@ import FlashcardBlock from './FlashcardBlock';
 import QuestionDispatcher from './QuestionDispatcher';
 import LanguageElementsBlock from './LanguageElementsBlock';
 import './engine.css';
-import './engine.css';
 
 const Engine = ({
   activeLesson,
@@ -75,7 +74,7 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
       console.log('availableSections:', availableSections?.map(s => s.skill));
     }
     
-    // A. READING LAYOUT (IELTS / TOEFL / Reading Drills / Full Mocks reading sections)
+    // A. READING LAYOUT (Reading Drills / Full Mocks reading sections)
     const isFullMockReading = lessonType === 'full-mock' && currentSection?.skill === 'reading';
     if (lessonType === 'ielts-complex' || isFullMockReading || lessonType === 'READING' || skill === 'reading' || lessonType === 'reading-practice') {
       return (
@@ -102,7 +101,7 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
 
     // E. LANGUAGE ELEMENTS (TELC B2 specific - similar to Reading, uses LanguageElementsBlock)
     const isFullMockLanguageElements = lessonType === 'full-mock' && currentSection?.skill === 'language-elements';
-    if (lessonType === 'LANGUAGE_ELEMENTS' || (lessonType === 'free-test-flow' && skill === 'language-elements') || skill === 'language-elements' || isFullMockLanguageElements) {
+    if (lessonType === 'LANGUAGE_ELEMENTS' || lessonType === 'language-element' || (lessonType === 'free-test-flow' && skill === 'language-elements') || skill === 'language-elements' || isFullMockLanguageElements) {
       // Gather all LE parts from the global flattened array
       const leParts = availableSections.filter(s => s.skill === 'language-elements');
       // Fallback: wrap nested parts with skill field (for legacy/atom cases)

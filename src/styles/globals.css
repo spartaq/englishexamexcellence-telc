@@ -92,6 +92,16 @@
   --invictus-gray-100: #f2d3d3;
   --invictus-gray-200: #e5bdbe;
   --invictus-radius: 8px;
+
+  /* Additional UI tokens (referenced by components but previously undefined) */
+  --primary-color: #e11d48;
+  --primary-dark-color: #b91c1c;
+  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --background-light: #f8fafc;
+  --font-primary: 'Plus Jakarta Sans', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+  --accent-color: #006855;
 }
 
 /* --- 3. RESET & BASE --- */

@@ -5,8 +5,8 @@ export const useExamStore = create(
   persist(
     (set) => ({  
       xp: 0,
-      isPremium: false,
-      hasLifetimeAccess: false, // Track if user has purchased lifetime access
+      isPremium: true,
+      hasLifetimeAccess: true,
       totalXp: 1250,        // The user's lifetime earnings
       activeSeconds: 0,    // Time spent on the current task
       isActive: true,

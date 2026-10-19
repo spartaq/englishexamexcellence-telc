@@ -55,7 +55,7 @@ const ResultScreen = ({ lesson, results, userAnswers = {}, onClaim, activeSectio
         });
       }
       
-      // Handle subTasks (common in IELTS reading)
+      // Handle subTasks (reading passage tasks)
       if (source.subTasks) {
         source.subTasks.forEach(st => {
           if (st.questions) {
@@ -100,10 +100,10 @@ const ResultScreen = ({ lesson, results, userAnswers = {}, onClaim, activeSectio
     // Use a flag to track what's been processed to avoid duplicates
     const processed = new Set();
     
-    // For ielts-complex or random-mock tests, extract from current section/passage
-    const isIeltsComplex = lesson.type === 'ielts-complex' || lesson.type === 'full-mock';
+    // For complex reading or full-mock tests, extract from current section/passage
+    const isComplexReading = lesson.type === 'ielts-complex' || lesson.type === 'full-mock';
     
-    if (isIeltsComplex && lesson.sections) {
+    if (isComplexReading && lesson.sections) {
       // Extract from the current section based on activeSectionIndex
       const currentSection = lesson.sections[activeSectionIndex];
       if (currentSection) {
@@ -138,8 +138,8 @@ const ResultScreen = ({ lesson, results, userAnswers = {}, onClaim, activeSectio
                     lesson?.reading !== undefined;
   const isListening = lesson?.skill === 'listening' || 
                      lesson?.type === 'LISTENING' ||
-                     lesson?.type === 'ielts-listening-mock' ||
-                     lesson?.listening !== undefined;
+                      lesson?.type === 'LISTENING' ||
+                      lesson?.listening !== undefined;
   
   // Filter questions to only show relevant ones for the current test
   const allQuestions = getQuestionsForReview();

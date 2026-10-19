@@ -53,7 +53,7 @@ export const evaluateDrill = (lesson, selectedTokens) => {
 
   const wrongCount = cleanedSelection.length - correctCount;
   
-  // 3. Simple IELTS-style scoring (penalizing for wrong guesses prevents spamming)
+  // 3. Simple scoring (penalizing for wrong guesses prevents spamming)
   const score = Math.max(0, correctCount - (wrongCount * 0.5));
   const accuracy = Math.round((score / correctOnes.length) * 100);
 

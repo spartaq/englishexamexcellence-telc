@@ -3,7 +3,7 @@ import { CheckCircle, XCircle, AlertCircle } from 'lucide-react';
 import './MCQBlock.css';
 
 /**
- * MCQBlock - IELTS Type 1: Multiple Choice
+ * MCQBlock - Multiple Choice Question Block
  * 
  * Handles both array of questions (from subTasks) and single question.
  * Supports multi-select mode.

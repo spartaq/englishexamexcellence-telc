@@ -1,12 +1,8 @@
 import React from 'react';
-import { ArrowLeft, Zap, Clock, Play, Lock } from 'lucide-react';
-import { useExamStore } from '../../store/useExamStore'; // Adjust path to your store
+import { ArrowLeft, Zap, Clock, Play } from 'lucide-react';
 import './TaskSelection.css';
 
 const TaskSelection = ({ section, onBack, onSelectTask }) => {
-  // 1. Get premium status from global store
-  const isPremium = useExamStore(state => state.isPremium);
-
   if (!section) return null;
 
   // Check if a specific task was selected (from DrillsHub)
@@ -46,14 +42,10 @@ const TaskSelection = ({ section, onBack, onSelectTask }) => {
           <p className="no-tasks-message">No tasks available for this section.</p>
         ) : (
           filteredTasks.map(task => {
-            // 2. Calculate if this specific task is locked
-            // Task is locked if it's NOT bronze and user is NOT premium
-            const isLocked = task.tier !== 'bronze' && !isPremium;
-
             return (
               <div 
                 key={task.id} 
-                className={`task-item-compact ${isLocked ? 'is-locked' : ''}`}
+                className={`task-item-compact`}
                 onClick={() => onSelectTask(task)}
               >
               <div className="task-info-main">
@@ -89,13 +81,9 @@ const TaskSelection = ({ section, onBack, onSelectTask }) => {
                 </div>
               </div>
 
-              {/* 3. Conditional Icon: Lock vs Play */}
-              <div className={isLocked ? "lock-container" : "play-container"}>
-                {isLocked ? (
-                  <Lock size={16} />
-                ) : (
-                  <Play size={16} fill="currentColor" />
-                )}
+              {/* Icon: always Play since all content is free */}
+              <div className="play-container">
+                <Play size={16} fill="currentColor" />
               </div>
             </div>
           );

@@ -108,7 +108,7 @@ const LessonHeaderTabs = ({
               <><FileText size={14} /></>
             ) : s.type === 'VOCAB' ? (
               <><Zap size={14} /> Vocab</>
-            ) : (s.type && (s.type.includes('reading') || s.type === 'reading-practice' || s.type.includes('ielts'))) ? (
+             ) : (s.type && (s.type.includes('reading') || s.type === 'reading-practice')) ? (
               <><BookOpen size={14} /> Reading</>
             ) : (
               `Part ${idx + 1}`

@@ -3,7 +3,7 @@ import { CheckCircle, XCircle } from 'lucide-react';
 import './DiagramLabelBlock.css';
 
 /**
- * DiagramLabelBlock - IELTS Type 10: Diagram Label Completion
+ * DiagramLabelBlock - Diagram Label Completion Question Block
  * 
  * Complete labels on a diagram based on text description.
  * Word limit applies (e.g., "NO MORE THAN TWO WORDS AND/OR A NUMBER")

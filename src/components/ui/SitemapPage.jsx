@@ -1,9 +1,13 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import './SitemapPage.css';
+import SEO from '../SEO';
+import { routeMeta } from '../../seo/routes';
 
 const SitemapPage = () => {
   return (
+    <>
+      <SEO {...routeMeta('/sitemap')} />
     <div className="sitemap-page">
       <div className="sitemap-container">
         <header className="sitemap-header">
@@ -11,11 +15,11 @@ const SitemapPage = () => {
           <p>A complete map of every page on English Exam Excellence.</p>
         </header>
 
-        {/* â”€â”€ PUBLIC â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ALL PAGES — Now fully free, no sign-in required */}
         <section className="sitemap-section">
           <h2>
-            <span className="badge badge-public">Public</span>
-            Accessible without signing in
+            <span className="badge badge-public">All Pages</span>
+            Free to explore — no account needed
           </h2>
           <div className="sitemap-group">
             <div className="sitemap-card">
@@ -45,14 +49,21 @@ const SitemapPage = () => {
                 <li><Link to="/pricing">Pricing Tiers &amp; FAQ</Link></li>
               </ul>
             </div>
+            <div className="sitemap-card">
+              <h3>Legal &amp; Support</h3>
+              <ul>
+                <li><Link to="/privacy">Privacy Policy</Link></li>
+                <li><Link to="/contact">Contact Us</Link></li>
+              </ul>
+            </div>
           </div>
         </section>
 
-        {/* â”€â”€ PROTECTED â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* TELC Hubs, Vocabulary, Drills & More — All free now */}
         <section className="sitemap-section">
           <h2>
-            <span className="badge badge-protected">Protected</span>
-            Sign in required to access
+            <span className="badge badge-protected">Learning Areas</span>
+            All fully accessible
           </h2>
 
           {/* B1 */}
@@ -148,12 +159,16 @@ const SitemapPage = () => {
             Sessions started from the B1 / B2 / C1 hubs generate unique URLs per mock
             test (e.g. <code>telc-b1-mock-1</code> up to <code>telc-c1-mock-9</code>),
             which are served dynamically from <code>src/data/TELC/mocks/</code> and are
-            not individually listed here. Total accessible routes: <strong>34 unique
+            not individually listed here. Total accessible routes: <strong>37 unique
             URLs</strong>.
           </p>
+          <div className="sitemap-legal-links">
+            <Link to="/privacy">Privacy Policy</Link> • <Link to="/contact">Contact</Link>
+          </div>
         </footer>
       </div>
     </div>
+    </>
   );
 };
 

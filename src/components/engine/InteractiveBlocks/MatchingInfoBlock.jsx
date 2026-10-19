@@ -3,11 +3,10 @@ import { CheckCircle, XCircle, AlertCircle } from 'lucide-react';
 import './MatchingInfoBlock.css';
 
 /**
- * MatchingInfoBlock - IELTS Type 4: Matching Information
+ * MatchingInfoBlock - Matching Information Question Block
  * 
  * Match questions to letter options (A, B, C, etc.).
  * Options may represent paragraphs, sections, or categories.
- * 
  * Enhanced with:
  * - Support for "use any letter more than once"
  * - Visual tracking of option usage

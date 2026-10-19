@@ -1,36 +1,19 @@
 ﻿import React, { useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { GraduationCap, Clock, Brain, Atom, Quote, Menu } from 'lucide-react';
-import { SignInButton, UserButton, useUser } from '@clerk/react';
+import { useLanguage } from '../../contexts/LanguageContext';
+import LanguageSwitcher from '../../components/ui/LanguageSwitcher';
 import './LandingPage.css';
+import SEO from '../SEO';
+import { routeMeta } from '../../seo/routes';
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const { isSignedIn } = useUser();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const safeReturnTo = (() => {
-    const returnTo = searchParams.get('returnTo');
-    return typeof returnTo === 'string' && returnTo.startsWith('/') && !returnTo.startsWith('//')
-      ? returnTo
-      : '/telc/b1';
-  })();
-
-  const loginRequired = searchParams.get('loginRequired') === '1';
-
-  const handleDismissLoginPrompt = () => {
-    if (loginRequired) {
-      navigate('/', { replace: true });
-    }
-  };
+  const { t } = useLanguage();
 
   const handleStartTraining = (level) => {
     navigate(`/telc/${level}`);
-  };
-
-  const handleStartFreeMock = (level) => {
-    navigate(`/free-test/${level}`);
   };
 
   const handleTelcInfo = () => {
@@ -38,38 +21,35 @@ const LandingPage = () => {
   };
 
   return (
+    <>
+      <SEO {...routeMeta('/')} schemaBlock={{ website: true }} />
     <div className="landing-page">
       {/* Navbar */}
       <nav className="lp-navbar">
         <div className="lp-nav-inner">
           <div className="lp-logo">
             <GraduationCap size={24} color="white" />
-            <span>ENGLISH EXAM EXERCISES</span>
+            <span>{t('nav.site-title')}</span>
           </div>
           <div className="lp-nav-desktop">
             <div className="lp-nav-links">
-              <button className="lp-nav-link lp-nav-link--active">TELC Levels</button>
-              <button className="lp-nav-link">Methodology</button>
+              <button className="lp-nav-link lp-nav-link--active">{t('nav.telc.levels')}</button>
+              <button className="lp-nav-link" onClick={() => navigate('/telc-info')}>
+                {t('nav.methodology')}
+              </button>
               <button className="lp-nav-link" onClick={() => navigate('/pricing')}>
-                Pricing
+                {t('nav.pricing')}
               </button>
               <button className="lp-nav-link" onClick={() => handleTelcInfo()}>
-                Telc Info
+                {t('nav.telc.info')}
               </button>
             </div>
             <div className="lp-nav-actions">
-              {isSignedIn ? (
-                <UserButton />
-              ) : (
-                <SignInButton mode="modal">
-                  <button className="lp-btn-ghost">Sign In</button>
-                </SignInButton>
-              )}
               <button
                 className="lp-btn-primary"
                 onClick={() => navigate('/telc/b1')}
               >
-                Get Started
+                {t('nav.get.started')}
               </button>
             </div>
           </div>
@@ -88,35 +68,26 @@ const LandingPage = () => {
               setIsMobileMenuOpen(false);
               navigate('/telc/b1');
             }}>
-              TELC Levels
+              {t('nav.telc.levels')}
             </button>
-            <button className="lp-mobile-nav-link" onClick={() => {
+              <button className="lp-mobile-nav-link" onClick={() => {
               setIsMobileMenuOpen(false);
-              navigate('/methodology');
+              navigate('/telc-info');
             }}>
-              Methodology
-            </button>
+                {t('nav.methodology')}
+              </button>
             <button className="lp-mobile-nav-link" onClick={() => {
               setIsMobileMenuOpen(false);
               navigate('/pricing');
             }}>
-              Pricing
+              {t('nav.pricing')}
             </button>
             <button className="lp-mobile-nav-link" onClick={() => {
               setIsMobileMenuOpen(false);
               handleTelcInfo();
             }}>
-              Telc Info
+              {t('nav.telc.info')}
             </button>
-            {isSignedIn ? (
-              <UserButton className="lp-mobile-user-button" />
-            ) : (
-              <SignInButton mode="modal">
-                <button className="lp-mobile-nav-link lp-mobile-nav-link--auth">
-                  Sign In
-                </button>
-              </SignInButton>
-            )}
           </div>
           <div className="lp-mobile-menu-actions">
             <button
@@ -126,42 +97,11 @@ const LandingPage = () => {
                 navigate('/telc/b1');
               }}
             >
-              Get Started
+              {t('nav.get.started')}
             </button>
           </div>
         </div>
       </nav>
-
-      {loginRequired && !isSignedIn && (
-        <div className="lp-login-alert" role="presentation" onClick={handleDismissLoginPrompt}>
-          <div
-            className="lp-login-alert-panel"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="lp-login-alert-title"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="lp-login-alert-content">
-              <strong id="lp-login-alert-title" className="lp-login-alert-title">Sign in required</strong>
-              <p className="lp-login-alert-text">
-                Sign in to access the TELC practice lab and continue your progress.
-              </p>
-            </div>
-            <div className="lp-login-alert-actions">
-              <SignInButton mode="modal" fallbackRedirectUrl={safeReturnTo}>
-                <button className="lp-login-alert-btn">Sign In</button>
-              </SignInButton>
-              <button
-                className="lp-login-alert-close"
-                onClick={handleDismissLoginPrompt}
-                aria-label="Dismiss login prompt"
-              >
-                ×
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       <main className="lp-main">
         {/* â”€â”€ Hero â”€â”€ */}
@@ -169,71 +109,38 @@ const LandingPage = () => {
           <div className="lp-hero-inner">
             {/* Left Column */}
             <div className="lp-hero-left">
+              <LanguageSwitcher />
               <h1 className="lp-hero-title">
-                TELC Exam Lab.
+                {t('hero.title')}
                 <br />
-                <span className="lp-hero-title-accent">Really get prepared.</span>
+                <span className="lp-hero-title-accent">{t('hero.start')}</span>
               </h1>
               <p className="lp-hero-subtext">
-                Serious preparation means building deep vocabulary and solid grammar.
-                We don't just teach you how to pass; we teach you how to master the
-                language until success is inevitable.
+                {t('hero.subtitle')}
               </p>
 
               {/* Level Selection Cards */}
               <div className="lp-level-cards">
                 <div className="lp-level-card" onClick={() => handleStartTraining('b1')}>
                   <div className="lp-level-card-tag">TELC B1</div>
-                  <div className="lp-level-card-label">Foundation</div>
-                  <button className="lp-btn-level">START</button>
+                  <div className="lp-level-card-label">{t('hero.foundation')}</div>
+                  <button className="lp-btn-level">{t('hero.start')}</button>
                 </div>
                 <div className="lp-level-card" onClick={() => handleStartTraining('b2')}>
                   <div className="lp-level-card-tag">TELC B2</div>
-                  <div className="lp-level-card-label">Upper Intermediate</div>
-                  <button className="lp-btn-level">START</button>
+                  <div className="lp-level-card-label">{t('hero.upper.intermediate')}</div>
+                  <button className="lp-btn-level">{t('hero.start')}</button>
                 </div>
                 <div className="lp-level-card" onClick={() => handleStartTraining('c1')}>
                   <div className="lp-level-card-tag">TELC C1</div>
-                  <div className="lp-level-card-label">Advanced</div>
-                  <button className="lp-btn-level">START</button>
+                  <div className="lp-level-card-label">{t('hero.advanced')}</div>
+                  <button className="lp-btn-level">{t('hero.start')}</button>
                 </div>
               </div>
             </div>
 
             {/* Right Column */}
             <div className="lp-hero-right">
-              <div className="lp-cta-box">
-                <h3 className="lp-cta-title">Ready to test your skills?</h3>
-                <p className="lp-cta-subtext">
-                  Access our full-length mock examinations.
-                  Precise scoring, realistic timing.
-                </p>
-                <div className="lp-mock-buttons">
-                  <button
-                    className="lp-mock-btn"
-                    onClick={() => handleStartFreeMock('b1')}
-                  >
-                    <span>B1 Free Test</span>
-                    <span className="lp-mock-btn-arrow">&#8594;</span>
-                  </button>
-                  <button
-                    className="lp-mock-btn"
-                    onClick={() => handleStartFreeMock('b2')}
-                  >
-                    <span>B2 Free Test</span>
-                    <span className="lp-mock-btn-arrow">&#8594;</span>
-                  </button>
-                  <button
-                    className="lp-mock-btn"
-                    onClick={() => handleStartFreeMock('c1')}
-                  >
-                    <span>C1 Free Test</span>
-                    <span className="lp-mock-btn-arrow">&#8594;</span>
-                  </button>
-                </div>
-              </div>
-
-              
             </div>
           </div>
         </section>
@@ -242,39 +149,35 @@ const LandingPage = () => {
         <section className="lp-features">
           <div className="lp-features-inner">
             <div className="lp-section-header">
-              <span className="lp-section-eyebrow">The Methodology</span>
-              <h2 className="lp-section-title">Engineered for Results</h2>
+              <span className="lp-section-eyebrow">{t('features.methodology')}</span>
+              <h2 className="lp-section-title">{t('features.results')}</h2>
             </div>
             <div className="lp-feature-grid">
               <div className="lp-feature-card">
                 <div className="lp-feature-icon lp-feature-icon--rose">
                   <Clock size={28} color="var(--primary)" />
                 </div>
-                <h4 className="lp-feature-title">Focus That Counts</h4>
+                <h4 className="lp-feature-title">{t('features.focus')}</h4>
                 <p className="lp-feature-desc">
-                  Highly targeted exercises designed to bridge the gap between intermediate
-                  and advanced mastery. We prioritise high-yield vocabulary and nuanced
-                  exam skills.
+                  {t('features.focus.desc')}
                 </p>
               </div>
               <div className="lp-feature-card">
                 <div className="lp-feature-icon lp-feature-icon--teal">
                   <Brain size={28} color="var(--tertiary)" />
                 </div>
-                <h4 className="lp-feature-title">AI Assessments</h4>
+                <h4 className="lp-feature-title">{t('features.ai')}</h4>
                 <p className="lp-feature-desc">
-                  Our gold-tier AI feedback engine provides granular, authoritative critiques
-                  for Writing and Speaking modules, mimicking actual examiner benchmarks.
+                  {t('features.ai.desc')}
                 </p>
               </div>
               <div className="lp-feature-card">
                 <div className="lp-feature-icon lp-feature-icon--rose">
                   <Atom size={28} color="var(--primary)" />
                 </div>
-                <h4 className="lp-feature-title">Exam Atoms</h4>
+                <h4 className="lp-feature-title">{t('features.atoms')}</h4>
                 <p className="lp-feature-desc">
-                  Short, 15-minute intensive drills designed to isolate and strengthen your
-                  weakest areas. Maximum efficiency for the time-constrained student.
+                  {t('features.atoms.desc')}
                 </p>
               </div>
             </div>
@@ -288,20 +191,18 @@ const LandingPage = () => {
               <Quote size={48} color="var(--primary-pale)" />
             </div>
             <blockquote className="lp-teacher-quote">
-              "Preparation should be a marathon, not a sprint. We focus on the precision
-              of language â€” the atoms of academic success â€” to ensure that when you sit
-              for the exam, you aren't just guessing. You are asserting your knowledge."
+              "{t('teacher.note')}"
             </blockquote>
             <div className="lp-teacher-attribution">
               <span className="lp-teacher-rule" />
-              <span>Senior Academic Director, Invictus Lab</span>
+              <span>{t('teacher.title')}</span>
             </div>
           </div>
         </section>
       </main>
     </div>
+    </>
   );
 };
 
 export default LandingPage;
-

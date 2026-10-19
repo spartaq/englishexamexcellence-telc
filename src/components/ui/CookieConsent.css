@@ -1,0 +1,123 @@
+/* ==========================================================================
+   CookieConsent — floating bottom banner
+   ========================================================================== */
+
+.cookie-consent-banner {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  max-width: 420px;
+  width: calc(100% - 48px);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  padding: 18px 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-primary);
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cookie-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cookie-content p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.cookie-content a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-accept,
+.btn-reject {
+  flex: 1;
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-accept {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-accept:hover {
+  opacity: 0.9;
+}
+
+.btn-reject {
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-reject:hover {
+  opacity: 0.8;
+}
+
+.btn-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-close:hover {
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .cookie-consent-banner {
+    bottom: 12px;
+    right: 12px;
+    width: calc(100% - 24px);
+    max-width: none;
+  }
+
+  .cookie-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .cookie-content p {
+    font-size: 12px;
+  }
+}
