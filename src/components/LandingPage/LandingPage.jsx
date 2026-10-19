@@ -1,16 +1,40 @@
 ﻿import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GraduationCap, Clock, Brain, Atom, Quote, Menu } from 'lucide-react';
+import { GraduationCap, Menu, BookOpen, Clock, Check, Target, Languages, FileText } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import LanguageSwitcher from '../../components/ui/LanguageSwitcher';
 import './LandingPage.css';
 import SEO from '../SEO';
 import { routeMeta } from '../../seo/routes';
 
+const LEVELS = [
+  {
+    id: 'b1',
+    tag: 'TELC B1',
+    icon: BookOpen,
+    labelKey: 'hero.foundation',
+    descKey: 'lp.level.b1.desc',
+  },
+  {
+    id: 'b2',
+    tag: 'TELC B2',
+    icon: Target,
+    labelKey: 'hero.upper.intermediate',
+    descKey: 'lp.level.b2.desc',
+  },
+  {
+    id: 'c1',
+    tag: 'TELC C1',
+    icon: Check,
+    labelKey: 'hero.advanced',
+    descKey: 'lp.level.c1.desc',
+  },
+];
+
 const LandingPage = () => {
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const handleStartTraining = (level) => {
     navigate(`/telc/${level}`);
@@ -23,184 +47,187 @@ const LandingPage = () => {
   return (
     <>
       <SEO {...routeMeta('/')} schemaBlock={{ website: true }} />
-    <div className="landing-page">
-      {/* Navbar */}
-      <nav className="lp-navbar">
-        <div className="lp-nav-inner">
-          <div className="lp-logo">
-            <GraduationCap size={24} color="white" />
-            <span>{t('nav.site-title')}</span>
+      <div className="landing-page">
+        {/* Navbar */}
+        <nav className="lp-navbar">
+          <div className="lp-nav-inner">
+            <div className="lp-logo">
+              <GraduationCap size={24} />
+              <span className="lp-logo-wordmark">{t('nav.site-title')}</span>
+            </div>
+            <div className="lp-nav-desktop">
+              <div className="lp-nav-links">
+                <button className="lp-nav-link lp-nav-link--active" onClick={() => navigate('/telc/b2')}>
+                  {t('nav.telc.levels')}
+                </button>
+                <button className="lp-nav-link" onClick={() => navigate('/telc-info')}>
+                  {t('nav.methodology')}
+                </button>
+                <button className="lp-nav-link" onClick={() => handleTelcInfo()}>
+                  {t('nav.telc.info')}
+                </button>
+              </div>
+              <div className="lp-nav-actions">
+                <LanguageSwitcher />
+              </div>
+            </div>
+            <div className="lp-nav-mobile">
+              <button className="lp-hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                <Menu size={24} />
+              </button>
+            </div>
           </div>
-          <div className="lp-nav-desktop">
-            <div className="lp-nav-links">
-              <button className="lp-nav-link lp-nav-link--active">{t('nav.telc.levels')}</button>
-              <button className="lp-nav-link" onClick={() => navigate('/telc-info')}>
+          <div className={`lp-mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+            <div className="lp-mobile-menu-links">
+              <button className="lp-mobile-nav-link" onClick={() => {
+                setIsMobileMenuOpen(false);
+                navigate('/telc/b2');
+              }}>
+                {t('nav.telc.levels')}
+              </button>
+              <button className="lp-mobile-nav-link" onClick={() => {
+                setIsMobileMenuOpen(false);
+                navigate('/telc-info');
+              }}>
                 {t('nav.methodology')}
               </button>
-              <button className="lp-nav-link" onClick={() => navigate('/pricing')}>
-                {t('nav.pricing')}
-              </button>
-              <button className="lp-nav-link" onClick={() => handleTelcInfo()}>
+              <button className="lp-mobile-nav-link" onClick={() => {
+                setIsMobileMenuOpen(false);
+                handleTelcInfo();
+              }}>
                 {t('nav.telc.info')}
               </button>
             </div>
-            <div className="lp-nav-actions">
-              <button
-                className="lp-btn-primary"
-                onClick={() => navigate('/telc/b1')}
-              >
-                {t('nav.get.started')}
-              </button>
+            <div className="lp-mobile-menu-actions">
+              <LanguageSwitcher className="lp-mobile-lang-switcher" />
             </div>
           </div>
-          <div className="lp-nav-mobile">
-            <button className="lp-hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              <Menu size={24} color="white" />
-            </button>
-          </div>
-        </div>
-        <div className={`lp-mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-          
-          
-          
-          <div className="lp-mobile-menu-links">
-            <button className="lp-mobile-nav-link" onClick={() => {
-              setIsMobileMenuOpen(false);
-              navigate('/telc/b1');
-            }}>
-              {t('nav.telc.levels')}
-            </button>
-              <button className="lp-mobile-nav-link" onClick={() => {
-              setIsMobileMenuOpen(false);
-              navigate('/telc-info');
-            }}>
-                {t('nav.methodology')}
-              </button>
-            <button className="lp-mobile-nav-link" onClick={() => {
-              setIsMobileMenuOpen(false);
-              navigate('/pricing');
-            }}>
-              {t('nav.pricing')}
-            </button>
-            <button className="lp-mobile-nav-link" onClick={() => {
-              setIsMobileMenuOpen(false);
-              handleTelcInfo();
-            }}>
-              {t('nav.telc.info')}
-            </button>
-          </div>
-          <div className="lp-mobile-menu-actions">
-            <button
-              className="lp-btn-primary lp-mobile-btn-primary"
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                navigate('/telc/b1');
-              }}
-            >
-              {t('nav.get.started')}
-            </button>
-          </div>
-        </div>
-      </nav>
+        </nav>
 
-      <main className="lp-main">
-        {/* â”€â”€ Hero â”€â”€ */}
-        <section className="lp-hero">
-          <div className="lp-hero-inner">
-            {/* Left Column */}
-            <div className="lp-hero-left">
-              <LanguageSwitcher />
-              <h1 className="lp-hero-title">
-                {t('hero.title')}
-                <br />
-                <span className="lp-hero-title-accent">{t('hero.start')}</span>
-              </h1>
-              <p className="lp-hero-subtext">
-                {t('hero.subtitle')}
-              </p>
-
-              {/* Level Selection Cards */}
-              <div className="lp-level-cards">
-                <div className="lp-level-card" onClick={() => handleStartTraining('b1')}>
-                  <div className="lp-level-card-tag">TELC B1</div>
-                  <div className="lp-level-card-label">{t('hero.foundation')}</div>
-                  <button className="lp-btn-level">{t('hero.start')}</button>
-                </div>
-                <div className="lp-level-card" onClick={() => handleStartTraining('b2')}>
-                  <div className="lp-level-card-tag">TELC B2</div>
-                  <div className="lp-level-card-label">{t('hero.upper.intermediate')}</div>
-                  <button className="lp-btn-level">{t('hero.start')}</button>
-                </div>
-                <div className="lp-level-card" onClick={() => handleStartTraining('c1')}>
-                  <div className="lp-level-card-tag">TELC C1</div>
-                  <div className="lp-level-card-label">{t('hero.advanced')}</div>
-                  <button className="lp-btn-level">{t('hero.start')}</button>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column */}
-            <div className="lp-hero-right">
-            </div>
-          </div>
-        </section>
-
-        {/* â”€â”€ Feature Grid â”€â”€ */}
-        <section className="lp-features">
-          <div className="lp-features-inner">
-            <div className="lp-section-header">
-              <span className="lp-section-eyebrow">{t('features.methodology')}</span>
-              <h2 className="lp-section-title">{t('features.results')}</h2>
-            </div>
-            <div className="lp-feature-grid">
-              <div className="lp-feature-card">
-                <div className="lp-feature-icon lp-feature-icon--rose">
-                  <Clock size={28} color="var(--primary)" />
-                </div>
-                <h4 className="lp-feature-title">{t('features.focus')}</h4>
-                <p className="lp-feature-desc">
-                  {t('features.focus.desc')}
+        <main className="lp-main">
+          {/* Hero — welcome, level cards are the crux */}
+          <section className="lp-hero">
+            <div className="lp-hero-inner">
+              <div className="lp-hero-content">
+                <div className="lp-hero-eyebrow">{t('lp.hero.eyebrow')}</div>
+                <h1 className="lp-hero-title">
+                  {t('hero.title')}
+                </h1>
+                <p className="lp-hero-subtext">
+                  {t('hero.subtitle')}
                 </p>
-              </div>
-              <div className="lp-feature-card">
-                <div className="lp-feature-icon lp-feature-icon--teal">
-                  <Brain size={28} color="var(--tertiary)" />
+                <div className="lp-level-cards">
+                  {LEVELS.map((level) => (
+                    <div
+                      key={level.id}
+                      className="lp-level-card"
+                      onClick={() => handleStartTraining(level.id)}
+                    >
+                      <div className="lp-level-card-icon">
+                        <level.icon size={22} />
+                      </div>
+                      <div className="lp-level-card-tag">{level.tag}</div>
+                      <div className="lp-level-card-label">{t(level.labelKey)}</div>
+                      <p className="lp-level-card-desc">{t(level.descKey)}</p>
+                    </div>
+                  ))}
                 </div>
-                <h4 className="lp-feature-title">{t('features.ai')}</h4>
-                <p className="lp-feature-desc">
-                  {t('features.ai.desc')}
-                </p>
-              </div>
-              <div className="lp-feature-card">
-                <div className="lp-feature-icon lp-feature-icon--rose">
-                  <Atom size={28} color="var(--primary)" />
-                </div>
-                <h4 className="lp-feature-title">{t('features.atoms')}</h4>
-                <p className="lp-feature-desc">
-                  {t('features.atoms.desc')}
-                </p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* â”€â”€ Teacher's Note â”€â”€ */}
-        <section className="lp-teacher-note">
-          <div className="lp-teacher-inner">
-            <div className="lp-teacher-quote-mark">
-              <Quote size={48} color="var(--primary-pale)" />
+          {/* What this site does for you — exam practice vs general learning */}
+          <section className="lp-practice">
+            <div className="lp-practice-inner">
+              <div className="lp-practice-grid">
+                <div className="lp-practice-col lp-practice-col--left">
+                  <h2 className="lp-practice-heading">{t('lp.practice.heading')}</h2>
+                  <p className="lp-practice-lead">
+                    {t('lp.practice.lead')}
+                  </p>
+                  <div className="lp-practice-list">
+                    <div className="lp-practice-item">
+                      <div className="lp-practice-item-icon">
+                        <Clock size={18} />
+                      </div>
+                      <div>
+                        <span className="lp-practice-item-title">{t('lp.practice.item.timed.title')}</span>
+                        <span className="lp-practice-item-desc">{t('lp.practice.item.timed.desc')}</span>
+                      </div>
+                    </div>
+                    <div className="lp-practice-item">
+                      <div className="lp-practice-item-icon">
+                        <Target size={18} />
+                      </div>
+                      <div>
+                        <span className="lp-practice-item-title">{t('lp.practice.item.format.title')}</span>
+                        <span className="lp-practice-item-desc">{t('lp.practice.item.format.desc')}</span>
+                      </div>
+                    </div>
+                    <div className="lp-practice-item">
+                    <div className="lp-practice-item-icon">
+                      <Languages size={18} />
+                    </div>
+                    <div>
+                      <span className="lp-practice-item-title">{t('lp.practice.item.skills.title')}</span>
+                      <span className="lp-practice-item-desc">{t('lp.practice.item.skills.desc')}</span>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="lp-practice-col lp-practice-col--right">
+                  <img
+                    src="/images/online-testing.webp"
+                    alt="TELC exam practice"
+                    className="lp-practice-img"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
             </div>
-            <blockquote className="lp-teacher-quote">
-              "{t('teacher.note')}"
-            </blockquote>
-            <div className="lp-teacher-attribution">
-              <span className="lp-teacher-rule" />
-              <span>{t('teacher.title')}</span>
+          </section>
+
+          {/* Simple CTA — just enter */}
+          <section className="lp-enter">
+            <div className="lp-enter-inner">
+              <h2 className="lp-enter-heading">{t('lp.enter.heading')}</h2>
+              <p className="lp-enter-desc">{t('lp.enter.desc')}</p>
+              <div className="lp-enter-buttons">
+                <button className="lp-btn-primary" onClick={() => navigate('/telc/b2')}>{t('nav.get.started')}</button>
+              </div>
             </div>
-          </div>
-        </section>
-      </main>
-    </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="lp-footer">
+            <div className="lp-footer-inner">
+              <div className="lp-footer-brand">
+                <div className="lp-logo">
+                  <GraduationCap size={22} />
+                  <span className="lp-logo-wordmark">{t('nav.site-title')}</span>
+                </div>
+                <p className="lp-footer-tagline">{t('lp.footer.tagline')}</p>
+              </div>
+              <nav className="lp-footer-nav">
+                <h4 className="lp-footer-section-title">{t('lp.footer.levels')}</h4>
+                <button className="lp-footer-link" onClick={() => navigate('/telc/b1')}>{'>'} TELC B1</button>
+                <button className="lp-footer-link" onClick={() => navigate('/telc/b2')}>{'>'} TELC B2</button>
+                <button className="lp-footer-link" onClick={() => navigate('/telc/c1')}>{'>'} TELC C1</button>
+                <h4 className="lp-footer-section-title">{t('lp.footer.telc.info')}</h4>
+                <button className="lp-footer-link" onClick={() => navigate('/telc-info')}>{'>'} {t('lp.footer.telc.info')}</button>
+                <button className="lp-footer-link" onClick={() => navigate('/privacy')}>{'>'} {t('lp.footer.privacy')}</button>
+                <button className="lp-footer-link" onClick={() => navigate('/contact')}>{'>'} {t('lp.footer.contact')}</button>
+              </nav>
+              <div className="lp-footer-lang">
+                <LanguageSwitcher />
+              </div>
+            </div>
+            <div className="lp-footer-bottom">
+              <p className="lp-footer-copyright">{t('lp.footer.copyright')}</p>
+            </div>
+          </footer>
+        </main>
+      </div>
     </>
   );
 };
