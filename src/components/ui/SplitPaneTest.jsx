@@ -4,19 +4,40 @@ const SplitPaneTest = () => {
   return (
     <div className="spt-root">
       <div className="spt-toolbar">
-        <span className="spt-title">Split Pane Layout Test</span>
-        <span className="spt-subtitle">Reading B2 Mock 1 — Part A</span>
+        <div className="spt-toolbar-left">
+          <span className="spt-location">Reading</span>
+        </div>
+
+        <div className="spt-toolbar-right">
+          <select className="spt-section-dropdown" defaultValue="reading">
+            <option value="vocab">Vocab</option>
+            <option value="reading">Reading</option>
+            <option value="language-elements">Lang. Elem.</option>
+            <option value="listening">Listening</option>
+            <option value="speaking">Speaking</option>
+            <option value="writing">Writing</option>
+          </select>
+          <button className="spt-close-btn">✕</button>
+        </div>
       </div>
 
       <div className="spt-split">
         <div className="spt-content">
           <div className="spt-content-inner">
             <div className="spt-header">
-              <span className="spt-badge">B2</span>
-              <span className="spt-eyebrow">Practice Test 1 · Part A</span>
+              <div className="spt-header-top">
+                <span className="spt-badge">B2</span>
+                <div className="spt-eyebrow">
+                  <span className="spt-eyebrow-location">Mock 1 · Reading</span>
+                  <div className="spt-eyebrow-parts">
+                    <button className="spt-part-link">Part 1</button>
+                    <button className="spt-part-link active">Part 2</button>
+                    <button className="spt-part-link">Part 3</button>
+                  </div>
+                </div>
+              </div>
               <h2 className="spt-title-main">Reading Comprehension</h2>
             </div>
-
             <div className="spt-passage">
               <p className="spt-para">
                 <strong>1.</strong> When I first moved to the city, I was overwhelmed by the pace of life. The streets were always crowded, the buildings were taller than anything I had seen before, and the noise never seemed to stop. I came from a small town where everyone knew each other and the biggest event of the year was the autumn fair. In the city, nobody looked at you on the bus, and that felt strangely lonely at first.
@@ -32,49 +53,56 @@ const SplitPaneTest = () => {
         </div>
 
         <div className="spt-questions">
+          <div className="spt-q-header">
+            <span className="spt-q-count">Questions 6–10</span>
+          </div>
+
           <div className="spt-questions-inner">
-            {/* Part navigation - between vocab/reading/writing/speaking/listening */}
-            <div className="spt-part-nav">
-              <button className="spt-part-arrow spt-part-arrow-prev">←</button>
-              <span className="spt-part-title">Reading · Part A</span>
-              <button className="spt-part-arrow spt-part-arrow-next">→</button>
-            </div>
-
-            {/* Subpart navigation - numbered buttons within current part */}
-            <div className="spt-subpart-tabs">
-              <button className="spt-subpart-tab active">1</button>
-              <button className="spt-subpart-tab">2</button>
-              <button className="spt-subpart-tab">3</button>
-            </div>
-
-            <div className="spt-q-header">
-              <span className="spt-q-count">Questions 1–5</span>
-              <span className="spt-q-progress">Question 1 of 5</span>
+            {/* Section icons row - indicates current section (desktop only) */}
+            <div className="spt-section-icons">
+              <button className="spt-section-icon" title="Vocabulary">
+                <span className="spt-section-icon-label">Vocab</span>
+              </button>
+              <button className="spt-section-icon active" title="Reading">
+                <span className="spt-section-icon-label">Reading</span>
+              </button>
+              <button className="spt-section-icon" title="Language Elements">
+                <span className="spt-section-icon-label">Lang. Elem.</span>
+              </button>
+              <button className="spt-section-icon" title="Listening">
+                <span className="spt-section-icon-label">Listening</span>
+              </button>
+              <button className="spt-section-icon" title="Speaking">
+                <span className="spt-section-icon-label">Speaking</span>
+              </button>
+              <button className="spt-section-icon" title="Writing">
+                <span className="spt-section-icon-label">Writing</span>
+              </button>
             </div>
 
             <div className="spt-question-card">
               <div className="spt-q-top">
-                <span className="spt-q-num">1</span>
+                <span className="spt-q-num">6</span>
                 <span className="spt-q-text">What was the writer's first impression of the city?</span>
               </div>
               <div className="spt-options">
                 <label className="spt-option">
-                  <input type="radio" name="q1" />
+                  <input type="radio" name="q6" />
                   <span className="spt-option-mark">A</span>
                   <span>It was exciting and full of opportunities.</span>
                 </label>
                 <label className="spt-option">
-                  <input type="radio" name="q1" />
+                  <input type="radio" name="q6" />
                   <span className="spt-option-mark">B</span>
                   <span>It was overwhelming and strangely lonely.</span>
                 </label>
                 <label className="spt-option">
-                  <input type="radio" name="q1" />
+                  <input type="radio" name="q6" />
                   <span className="spt-option-mark">C</span>
                   <span>It was noisy and difficult to study in.</span>
                 </label>
                 <label className="spt-option">
-                  <input type="radio" name="q1" />
+                  <input type="radio" name="q6" />
                   <span className="spt-option-mark">D</span>
                   <span>It was expensive and hard to find accommodation.</span>
                 </label>
@@ -83,27 +111,27 @@ const SplitPaneTest = () => {
 
             <div className="spt-question-card">
               <div className="spt-q-top">
-                <span className="spt-q-num">2</span>
+                <span className="spt-q-num">7</span>
                 <span className="spt-q-text">How did the writer eventually feel at home?</span>
               </div>
               <div className="spt-options">
                 <label className="spt-option">
-                  <input type="radio" name="q2" />
+                  <input type="radio" name="q7" />
                   <span className="spt-option-mark">A</span>
                   <span>By getting a better-paid job.</span>
                 </label>
                 <label className="spt-option">
-                  <input type="radio" name="q2" />
+                  <input type="radio" name="q7" />
                   <span className="spt-option-mark">B</span>
                   <span>By joining a book club and meeting new people.</span>
                 </label>
                 <label className="spt-option">
-                  <input type="radio" name="q2" />
+                  <input type="radio" name="q7" />
                   <span className="spt-option-mark">C</span>
                   <span>By moving to a quieter neighbourhood.</span>
                 </label>
                 <label className="spt-option">
-                  <input type="radio" name="q2" />
+                  <input type="radio" name="q7" />
                   <span className="spt-option-mark">D</span>
                   <span>By learning the local language.</span>
                 </label>

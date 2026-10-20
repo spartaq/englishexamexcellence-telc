@@ -546,7 +546,7 @@ function App({ initialView, initialLevel, locale }) {
             lang={locale}
           />
         )}
-        <div className="app-shell">
+        <div className={`app-shell ${view === 'split-pane-test' ? 'spt-active' : ''}`}>
         <ScrollToTop />
         
         <AppShell
