@@ -1,4 +1,4 @@
-// ScrollToTop.jsx
+﻿// ScrollToTop.jsx
 import { useLayoutEffect } from 'react';
 import { useExamStore } from './store/useExamStore'; // Path to your Zustand store
 
@@ -10,7 +10,7 @@ const ScrollToTop = () => {
   useLayoutEffect(() => {
     // 2. Scroll to top instantly before the browser paints the new view
     // Try to scroll the main container first (which has overflow-y: auto)
-    const mainContainer = document.querySelector('.invictus-main-container');
+    const mainContainer = document.querySelector('.main-container');
     if (mainContainer) {
       mainContainer.scrollTo(0, 0);
     } else {

@@ -12,6 +12,7 @@ const LEVELS = [
     id: 'b1',
     tag: 'TELC B1',
     icon: BookOpen,
+    image: '/images/1person2.webp',
     labelKey: 'hero.foundation',
     descKey: 'lp.level.b1.desc',
   },
@@ -19,6 +20,7 @@ const LEVELS = [
     id: 'b2',
     tag: 'TELC B2',
     icon: Target,
+    image: '/images/1person3.webp',
     labelKey: 'hero.upper.intermediate',
     descKey: 'lp.level.b2.desc',
   },
@@ -26,6 +28,7 @@ const LEVELS = [
     id: 'c1',
     tag: 'TELC C1',
     icon: Check,
+    image: '/images/1person4.webp',
     labelKey: 'hero.advanced',
     descKey: 'lp.level.c1.desc',
   },
@@ -109,6 +112,8 @@ const LandingPage = () => {
           <section className="lp-hero">
             <div className="lp-hero-inner">
               <div className="lp-hero-content">
+
+<div className="lp-hero-top">
                 <div className="lp-hero-eyebrow">{t('lp.hero.eyebrow')}</div>
                 <h1 className="lp-hero-title">
                   {t('hero.title')}
@@ -116,6 +121,19 @@ const LandingPage = () => {
                 <p className="lp-hero-subtext">
                   {t('hero.subtitle')}
                 </p>
+</div>
+               
+
+                
+              </div>
+            </div>
+          </section>
+
+          <section className="lp-cards">
+            <div className="lp-cards-inner">
+              
+
+
                 <div className="lp-level-cards">
                   {LEVELS.map((level) => (
                     <div
@@ -123,16 +141,26 @@ const LandingPage = () => {
                       className="lp-level-card"
                       onClick={() => handleStartTraining(level.id)}
                     >
-                      <div className="lp-level-card-icon">
-                        <level.icon size={22} />
+                      <div className="lp-level-card-media">
+                        <img
+                          className="lp-level-card-img"
+                          src={level.image}
+                          alt={`${level.tag} — ${t(level.labelKey)}`}
+                          decoding="async"
+                        />
+                        <div className="lp-level-card-icon">
+                          <level.icon size={22} />
+                        </div>
                       </div>
-                      <div className="lp-level-card-tag">{level.tag}</div>
-                      <div className="lp-level-card-label">{t(level.labelKey)}</div>
-                      <p className="lp-level-card-desc">{t(level.descKey)}</p>
+                      <div className="lp-level-card-body">
+                        <div className="lp-level-card-tag">{level.tag}</div>
+                        <div className="lp-level-card-label">{t(level.labelKey)}</div>
+                        <p className="lp-level-card-desc">{t(level.descKey)}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
-              </div>
+              
             </div>
           </section>
 

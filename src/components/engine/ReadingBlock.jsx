@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import QuestionCarousel from './QuestionCarousel';
 import SplitPane from './SplitPane';
 import QuestionDispatcher from './QuestionDispatcher';
@@ -80,24 +80,24 @@ const ReadingBlock = ({
   };
 
   return (
-    <div className="invictus-reading-layout reading-wrapper">
+    <div className="reading-layout reading-wrapper">
       <SplitPane
          content={<>
            {(title || subtitle) && (
-             <div className="invictus-content-header">
+             <div className="content-header">
                {subtitle && (
-                 <p className="invictus-content-subtitle">
+                 <p className="content-subtitle">
                    {data?.level ? `${data.level.toUpperCase()} Practice Test ${data.mockNumber} - ` : ''}
                    {subtitle}
                  </p>
                )}
-               {title && <h2 className="invictus-content-title">{title}</h2>}
+               {title && <h2 className="content-title">{title}</h2>}
              </div>
            )}
 
             {/* Passage Content Rendering */}
             {typeof content === 'string' ? (
-              <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: content }} />
+              <div className="passage-text" dangerouslySetInnerHTML={{ __html: content }} />
             ) : Array.isArray(content) ? (
               content.map((item, index) => {
                 // For sentence-insert, render as plain text (gaps shown as markers)
@@ -105,13 +105,13 @@ const ReadingBlock = ({
                 const pId = typeof item === 'object' ? item.id : null;
                 const pText = typeof item === 'object' ? item.text : item;
                 return (
-                  <div key={index} className="invictus-paragraph-wrapper">
-                    {pId && <span className="invictus-paragraph-letter">{pId}</span>}
+                  <div key={index} className="paragraph-wrapper">
+                    {pId && <span className="paragraph-letter">{pId}</span>}
                     {hasSentenceInsert ? (
                       // For sentence-insert, render as plain text (gaps shown as markers)
-                      <div className="invictus-passage-text" style={{ whiteSpace: 'pre-wrap' }}>{pText}</div>
+                      <div className="passage-text" style={{ whiteSpace: 'pre-wrap' }}>{pText}</div>
                     ) : (
-                      <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: pText }} />
+                      <div className="passage-text" dangerouslySetInnerHTML={{ __html: pText }} />
                     )}
                   </div>
                 );
@@ -121,7 +121,7 @@ const ReadingBlock = ({
 
         exercise={<>
           
-            <h2 className="invictus-total-range">{getQuestionRange()}</h2>
+            <h2 className="total-range">{getQuestionRange()}</h2>
             
             {flatQuestions.length > 0 && (
                 useCarousel ? (
@@ -156,7 +156,7 @@ const ReadingBlock = ({
                     allSections={allSections}
                   />
                 ) : (
-                  <div className="invictus-static-list">
+                  <div className="static-list">
                     {flatQuestions.map((q, idx) => (
                       <QuestionDispatcher 
                         key={q.id || idx}

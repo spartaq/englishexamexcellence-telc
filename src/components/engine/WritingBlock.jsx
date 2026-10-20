@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { useExamStore } from '../../store/useExamStore';
 import QuestionCarousel from './QuestionCarousel';
 import SplitPane from './SplitPane';
@@ -77,13 +77,13 @@ const WritingBlock = ({
           <>
             {/* Task Header */}
             {data.title && (
-              <div className="invictus-content-header">
-                <p className="invictus-content-subtitle">
+              <div className="content-header">
+                <p className="content-subtitle">
                   {data?.level ? `${data.level.toUpperCase()} Practice Test ${data.mockNumber} - ` : ''}
                   {data.subtitle}
                 </p>
-                <h2 className="invictus-content-title">{data.title}</h2>
-                {data.description && <p className="invictus-content-description">{data.description}</p>}
+                <h2 className="content-title">{data.title}</h2>
+                {data.description && <p className="content-description">{data.description}</p>}
               </div>
             )}  
             {/* Instruction - shown above context */}
@@ -116,7 +116,7 @@ const WritingBlock = ({
                     >
                       <div className="option-header">
                         <span className="option-radio">
-                          {selectedOption === idx ? '●' : '○'}
+                          {selectedOption === idx ? 'â—' : 'â—‹'}
                         </span>
                         <span className="option-label">{opt.title || opt.id}</span>
                       </div>
@@ -278,3 +278,4 @@ const WritingBlock = ({
 };
 
 export default WritingBlock;
+

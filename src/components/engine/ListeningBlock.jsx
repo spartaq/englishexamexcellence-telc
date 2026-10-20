@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+﻿import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Headphones, List } from 'lucide-react';
 import { useExamStore } from '../../store/useExamStore';
 import QuestionCarousel from './QuestionCarousel';
@@ -135,7 +135,7 @@ const getQuestionRange = () => {
   const minId = ids[0];
   const maxId = ids[ids.length - 1];
 
-  return ids.length > 1 ? `Questions ${minId}–${maxId}` : `Question ${minId}`;
+  return ids.length > 1 ? `Questions ${minId}â€“${maxId}` : `Question ${minId}`;
 };
 
   return (
@@ -145,25 +145,25 @@ const getQuestionRange = () => {
           <>
             {/* Header Section - Show current part info */}
             {(currentTitle || currentSubtitle || currentDescription) ? (
-                <div className="invictus-content-header">
+                <div className="content-header">
                   {currentSubtitle && (
-                    <p className="invictus-content-subtitle">
+                    <p className="content-subtitle">
                       {(currentPart?.level || listeningData?.level) ? `${(currentPart?.level || listeningData?.level).toUpperCase()} Practice Test ${currentPart?.mockNumber || listeningData?.mockNumber} - ` : ''}
                       {currentSubtitle}
                     </p>
                   )}
-                  {currentTitle && <h2 className="invictus-content-title">{currentTitle}</h2>}
+                  {currentTitle && <h2 className="content-title">{currentTitle}</h2>}
                   {currentDescription && <p className="listening-description">{currentDescription}</p>}
                 </div>
               ) : listeningData.title ? (
-                <div className="invictus-content-header">
+                <div className="content-header">
                   {listeningData.subtitle && (
-                    <p className="invictus-content-subtitle">
+                    <p className="content-subtitle">
                       {listeningData?.level ? `${listeningData.level.toUpperCase()} Practice Test ${listeningData.mockNumber} - ` : ''}
                       {listeningData.subtitle}
                     </p>
                   )}
-                  <h2 className="invictus-content-title">{listeningData.title}</h2>
+                  <h2 className="content-title">{listeningData.title}</h2>
                   {listeningData.description && <p className="listening-description">{listeningData.description}</p>}
                 </div>
               ) : null}
@@ -184,7 +184,7 @@ const getQuestionRange = () => {
                       onClick={handlePrevAudio}
                       disabled={activeAudioIndex === 0}
                     >
-                      ‹
+                      â€¹
                     </button>
                     <span className="audio-item-label">{currentAudioLabel}</span>
                     <button 
@@ -192,7 +192,7 @@ const getQuestionRange = () => {
                       onClick={handleNextAudio}
                       disabled={activeAudioIndex === audioUrls.length - 1}
                     >
-                      ›
+                      â€º
                     </button>
                   </div>
                 )}
@@ -238,8 +238,8 @@ const getQuestionRange = () => {
           </>
         }
         exercise={
-          <div className="invictus-question-column">
-            <h2 className="invictus-total-range">{getQuestionRange()}</h2>
+          <div className="question-column">
+            <h2 className="total-range">{getQuestionRange()}</h2>
 
             {/* Core Interaction */}
             <QuestionCarousel 

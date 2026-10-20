@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import './engine.css';
 
 /**
@@ -6,7 +6,7 @@ import './engine.css';
  * 
  * Implements the split-pane layout from LAYOUT README:
  * - Desktop (>768px): Content on left, Exercise carousel on right
- * - Mobile (≤768px): Stacked vertically
+ * - Mobile (â‰¤768px): Stacked vertically
  * 
  * @param {React.ReactNode} content - Left pane content (reading text, prompts, etc.)
  * @param {React.ReactNode} exercise - Right pane content (questions, editor, recording)
@@ -14,11 +14,11 @@ import './engine.css';
  */
 const SplitPane = ({ content, exercise, className = '' }) => {
   return (
-    <div className={`invictus-split-pane-layout ${className}`}>
-      <div className="invictus-content-column">
+    <div className={`split-pane-layout ${className}`}>
+      <div className="content-column">
         {content}
       </div>
-      <div className="invictus-question-column">
+      <div className="question-column">
         {exercise}
       </div>
     </div>
@@ -26,4 +26,5 @@ const SplitPane = ({ content, exercise, className = '' }) => {
 };
 
 export default SplitPane;
+
 

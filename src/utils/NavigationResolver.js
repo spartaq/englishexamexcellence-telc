@@ -193,6 +193,18 @@ export const resolvePath = (path) => {
     };
   }
 
+  // Split pane test prototype
+  if (path === 'split-pane-test') {
+    return {
+      view: 'split-pane-test',
+      viewHistory: ['split-pane-test'],
+      activeCategory: null,
+      activeSection: null,
+      triggerTask: null,
+      triggerFullTest: null,
+    };
+  }
+
   // For any other route not matching known patterns, go to telc-b2-hub
   return defaultPlan;
 };

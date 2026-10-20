@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import ReadingBlock from './ReadingBlock';
 import ListeningBlock from './ListeningBlock';
 import WritingBlock from './WritingBlock';
@@ -257,10 +257,11 @@ console.log('!!! ENGINE COMPONENT RENDERING !!!');
   };
 
   return (
-    <div className="invictus-engine-root">
+    <div className="engine-root">
       {renderLayout()}
     </div>
   );
 };
 
 export default Engine;
+

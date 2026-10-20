@@ -1,4 +1,4 @@
-
+﻿
 /* =============================================================================
    GLOBAL STYLES - Invictus Academic Refactor
    ============================================================================= */
@@ -19,9 +19,9 @@
   --primary: darkred;
   --primary-container: #e11d48;
   --secondary-color: #263238; /* Dark Grey for text/accents */
-  --invictus-red-dark: #B71C1C;
-  --invictus-red-pale: #fff2f2;
-  --invictus-slate: #1F2937;
+  --red-dark: #B71C1C;
+  --red-pale: #fff2f2;
+  --slate: #1F2937;
   --surface-white: #FFFFFF;/* --- card backgrounds --- */
   --to-be-determined: #ffffff;
   
@@ -64,7 +64,6 @@
   --radius-full: 100px;
 
   /* --- Layout --- */
-  --sidebar-width: 200px;
   --max-content-width: 1400px;
 
    
@@ -88,10 +87,10 @@
   --background: #fff8f7;
 
   /* Legacy Invictus tokens (for backward compatibility) */
-  --invictus-font: 'Plus Jakarta Sans', sans-serif;
-  --invictus-gray-100: #f2d3d3;
-  --invictus-gray-200: #e5bdbe;
-  --invictus-radius: 8px;
+  --font: 'Plus Jakarta Sans', sans-serif;
+  --gray-100: #f2d3d3;
+  --gray-200: #e5bdbe;
+  --radius: 8px;
 
   /* Additional UI tokens (referenced by components but previously undefined) */
   --primary-color: #e11d48;
@@ -118,14 +117,14 @@ button {
 }
 
 button:focus-visible {
-  outline: 2px solid var(--invictus-red);
+  outline: 2px solid var(--red);
   outline-offset: 2px;
 }
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background: #fff8f7;
-  color: var(--invictus-slate);
+  color: var(--slate);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
@@ -168,7 +167,7 @@ html {
     --border-color: #334155;
     --text-primary: #F8FAFC;
     --text-secondary: #94A3B8;
-    --invictus-slate: #F8FAFC;
+    --slate: #F8FAFC;
     --to-be-determined: #1E293B;
     
     --tertiary: #74d8bd;
@@ -187,8 +186,8 @@ html {
     --background: #1a1415;
     
   
-    --invictus-gray-100: #3d2527;
-    --invictus-gray-200: #4d2f31;
+    --gray-100: #3d2527;
+    --gray-200: #4d2f31;
   }
 
   body {
@@ -223,3 +222,4 @@ html {
     -webkit-text-size-adjust: 100%;
   }
 }
+

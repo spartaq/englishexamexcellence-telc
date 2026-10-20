@@ -52,12 +52,16 @@ const SEO = ({ title, description, keywords, canonicalUrl, noindex, schemaBlock,
     (typeof window !== 'undefined' && currentPath.startsWith('/hu/') ? 'hu' : 'en') ||
     'en';
 
+  // Strip /hu prefix for route-registry lookup (registry stores EN paths only)
+  const registryPath =
+    resolvedLang === 'hu' ? currentPath.replace(/^\/hu/, '') : currentPath;
+
   // Unknown paths (junk URLs, 404s) must not be indexed, and must never
   // canonicalise to themselves or they compete with the real pages.
-  const resolvedNoindex = Boolean(noindex ?? schemaBlock?.noindex ?? !isIndexable(currentPath));
+  const resolvedNoindex = Boolean(noindex ?? schemaBlock?.noindex ?? !isIndexable(registryPath));
 
   const resolvedCanonical =
-    canonicalUrl || (isIndexable(currentPath) ? absoluteUrl(currentPath) : `${SITE_URL}/`);
+    canonicalUrl || (isIndexable(registryPath) ? absoluteUrl(currentPath) : `${SITE_URL}/`);
 
   // Alternate-language URLs for hreflang
   const enUrl = resolvedLang === 'hu' ? absoluteUrl(currentPath.replace(/^\/hu/, '')) : resolvedCanonical;

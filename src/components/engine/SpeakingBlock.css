@@ -1,4 +1,4 @@
-/* SpeakingBlock Styles - Material Design 3 Rose Theme */
+﻿/* SpeakingBlock Styles - Material Design 3 Rose Theme */
 
 /* Main container */
 .speaking-container {
@@ -802,6 +802,7 @@
   }
   
   .btn-secondary:hover {
-    background: var(--invictus-red);
+    background: var(--red);
   }
 }
+

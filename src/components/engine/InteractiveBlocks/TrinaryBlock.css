@@ -1,4 +1,4 @@
-/* TrinaryBlock.css */
+﻿/* TrinaryBlock.css */
 
 .trinary-instruction {
   background: var(--bg-app);
@@ -95,7 +95,7 @@
 /* Trinary Review Mode Styles */
 
 .trinary-row {
-  background-color: var(--invictus-red-pale);
+  background-color: var(--red-pale);
   padding: 1.5rem;
   border-radius: 12px;
   border: 1px solid #e2e8f0;

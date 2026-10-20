@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+﻿import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useExamStore } from '../../store/useExamStore';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { VOCAB_HUB } from '../../data/vocabulary';
@@ -197,13 +197,13 @@ const FlashcardBlock = ({
   
   if (visibleWords.length === 0) {
     return (
-      <div className="invictus-flashcard-session-layout">
+      <div className="flashcard-session-layout">
         <div className="flashcard-container">
           <div className="flashcard-empty">
             <h3>No vocabulary words available</h3>
             <p>This exercise needs a words array to display.</p>
             <button 
-              onClick={onComplete} className="invictus-finish-btn"
+              onClick={onComplete} className="finish-btn"
             >
               Continue
             </button>
@@ -253,7 +253,7 @@ const FlashcardBlock = ({
   };
 
   return (
-    <div className="invictus-flashcard-session-layout">
+    <div className="flashcard-session-layout">
       <main className="flashcard-main-content">
         <div className="flashcard-main-content-inner">
           <section className="flashcard-section">
@@ -449,3 +449,4 @@ const FlashcardBlock = ({
 };
 
 export default FlashcardBlock;
+

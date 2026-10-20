@@ -1,4 +1,4 @@
-/* ListeningBlock Styles - Material Design 3 Rose Theme */
+﻿/* ListeningBlock Styles - Material Design 3 Rose Theme */
 
 /* Main container */
 .listening-container {
@@ -12,7 +12,7 @@
     height: calc(100vh - 53px);
   }
   
-  .listening-container .invictus-split-pane-layout {
+  .listening-container .split-pane-layout {
     height: 100%;
   }
 }
@@ -406,3 +406,4 @@
     height: 48px;
   }
 }
+

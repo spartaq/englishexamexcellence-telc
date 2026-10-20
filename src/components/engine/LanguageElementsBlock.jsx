@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+﻿import React, { useCallback } from 'react';
 import QuestionCarousel from './QuestionCarousel';
 import SplitPane from './SplitPane';
 import QuestionDispatcher from './QuestionDispatcher';
@@ -17,8 +17,8 @@ const LanguageElementsBlock = ({
   onCheckAnswers,
   isReviewMode = false,
   // Props from Engine
-  sections = [],           // LE parts array (2–3 items)
-  allSections = [],        // full global sections array (vocab, reading, LE parts, listening…)
+  sections = [],           // LE parts array (2â€“3 items)
+  allSections = [],        // full global sections array (vocab, reading, LE parts, listeningâ€¦)
   activeSkillTab = 0,
   activeSectionIndex = 0,
   setActiveSectionIndex,
@@ -55,11 +55,11 @@ const LanguageElementsBlock = ({
    const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
    
 const renderInteractiveGaps = (text) => {
-  if (!text || !isGapFillTokens) return <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: text }} />;
+  if (!text || !isGapFillTokens) return <div className="passage-text" dangerouslySetInnerHTML={{ __html: text }} />;
   const answers = subTasks[0]?.answers || {};
   const parts = text.split(/____\(([a-z])\)____/g);
   return (
-    <div className="invictus-passage-text">
+    <div className="passage-text">
       {parts.map((part, idx) => {
         if (idx % 2 === 0) return <span key={idx} dangerouslySetInnerHTML={{ __html: part }} />;
         const gapId = part; // Now a string letter like "b"
@@ -153,43 +153,43 @@ const renderInteractiveGaps = (text) => {
   ), [userAnswers, handleLeUpdate, isReviewMode, content, activeGap, setActiveGap]);
 
   return (
-    <div className="invictus-language-elements-layout language-elements-wrapper">
+    <div className="language-elements-layout language-elements-wrapper">
       <SplitPane
         content={
           <>
              {(title || subtitle) && (
-               <div className="invictus-content-header">
+               <div className="content-header">
                  {subtitle && (
-                   <p className="invictus-content-subtitle">
+                   <p className="content-subtitle">
                      {currentPassage?.level || data?.level ? `${(currentPassage?.level || data?.level).toUpperCase()} Practice Test ${currentPassage?.mockNumber || data?.mockNumber} - ` : ''}
                      {subtitle}
                    </p>
                  )}
-                 {title && <h2 className="invictus-content-title">{title}</h2>}
+                 {title && <h2 className="content-title">{title}</h2>}
                </div>
              )}
             {/* Passage content */}
             {typeof content === 'string' ? (
-              isGapFillTokens ? renderInteractiveGaps(content) : <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: content }} />
+              isGapFillTokens ? renderInteractiveGaps(content) : <div className="passage-text" dangerouslySetInnerHTML={{ __html: content }} />
             ) : Array.isArray(content) ? (
               content.map((item, index) => {
                 const pId = typeof item === 'object' ? item.id : null;
                 const pText = typeof item === 'object' ? (item.text || item.passage) : item;
                 return (
-                  <div key={index} className="invictus-paragraph-wrapper">
-                    {pId && <span className="invictus-paragraph-letter">{pId}</span>}
-                    {isGapFillTokens ? renderInteractiveGaps(pText) : <div className="invictus-passage-text" dangerouslySetInnerHTML={{ __html: pText }} />}
+                  <div key={index} className="paragraph-wrapper">
+                    {pId && <span className="paragraph-letter">{pId}</span>}
+                    {isGapFillTokens ? renderInteractiveGaps(pText) : <div className="passage-text" dangerouslySetInnerHTML={{ __html: pText }} />}
                   </div>
                 );
               })
             ) : (
-              <div className="invictus-passage-text">No content available</div>
+              <div className="passage-text">No content available</div>
             )}
           </>
         }
         exercise={
-          <div className="invictus-question-column">
-            <h2 className="invictus-total-range">{getQuestionRange()}</h2>
+          <div className="question-column">
+            <h2 className="total-range">{getQuestionRange()}</h2>
             {flatQuestions.length > 0 ? (
               useCarousel ? (
                 <QuestionCarousel
@@ -215,7 +215,7 @@ const renderInteractiveGaps = (text) => {
                   showPartsTabs={sections.length > 1}
                 />
                ) : (
-                 <div className="invictus-static-list">
+                 <div className="static-list">
                    {flatQuestions.map((q, idx) => (
                      <QuestionDispatcher
                        key={q.id || idx}

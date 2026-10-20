@@ -1,4 +1,4 @@
-.invictus-vocab-hub {
+﻿.vocab-hub {
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
@@ -206,7 +206,7 @@
    HEADER
    ========================================== */
 
-.invictus-hub-header {
+.hub-header {
   margin-bottom: 3rem;
   border-left: 2px solid var(--primary);
   padding-left: 1.5rem;
@@ -218,7 +218,7 @@
   gap: 1.5rem;
 }
 
-.invictus-hub-title {
+.hub-title {
   font-size: 2.5rem;
   font-weight: 900;
   letter-spacing: -0.05em;
@@ -246,7 +246,7 @@
   box-shadow: 0 0 8px #22c55e;
 }
 
-.invictus-hub-subtitle {
+.hub-subtitle {
    margin-top: 0.5rem;
    font-size: 1rem;
    opacity: 0.7;
@@ -508,7 +508,7 @@
 }
 
 .topic-card-minimal {
-  background: var(--invictus-red-pale);
+  background: var(--red-pale);
   border: 1px solid var(--primary);
   padding: 1rem;
   display: flex;
@@ -595,7 +595,7 @@
    LOADING
    ========================================== */
 
-.invictus-loading {
+.loading {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -609,11 +609,11 @@
    RESPONSIVE
    ========================================== */
 @media (max-width: 480px) {
-  .invictus-vocab-hub {
+  .vocab-hub {
     padding: 1rem;
   }
 
-  .invictus-hub-title {
+  .hub-title {
     font-size: 1.5rem;
   }
 

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+﻿import React, { useMemo } from 'react';
 import { Zap, Layers, Activity, Book, Globe, Shield, School, ArrowRight, BookOpen, ArrowLeft } from 'lucide-react';
 import { useExamStore } from '../../store/useExamStore';
 import './VocabHub.css';
@@ -50,7 +50,7 @@ const VocabHub = ({
   const hub = data;
   const vocabProgress = useExamStore(state => state.vocabProgress);
 
-  if (!hub) return <div className="invictus-loading">Initializing Lexical Engine...</div>;
+  if (!hub) return <div className="loading">Initializing Lexical Engine...</div>;
 
   const categories = hub.categories || [];
 
@@ -93,7 +93,7 @@ const VocabHub = ({
   }, [allFilteredTasks]);
 
   // ==========================================
-  // VIEW A: NO LEVEL SELECTED → Level Selector Cards
+  // VIEW A: NO LEVEL SELECTED â†’ Level Selector Cards
   // ==========================================
   if (!selectedLevel) {
     // Compute stats per level across all topics
@@ -113,16 +113,16 @@ const VocabHub = ({
     }, [categories, vocabProgress]);
 
     return (
-      <div className="invictus-vocab-hub">
+      <div className="vocab-hub">
         {/* HEADER */}
-        <header className="invictus-hub-header">
+        <header className="hub-header">
           <div className="header-top">
-            <h1 className="invictus-hub-title">VOCABULARY LAB</h1>
+            <h1 className="hub-title">VOCABULARY LAB</h1>
             <div className="system-tag">
               <span className="dot"></span> SYSTEM ACTIVE
             </div>
           </div>
-          <p className="invictus-hub-subtitle">Select your proficiency level to begin targeted lexical training.</p>
+          <p className="hub-subtitle">Select your proficiency level to begin targeted lexical training.</p>
         </header>
 
         {/* LEVEL SELECTOR GRID */}
@@ -162,7 +162,7 @@ const VocabHub = ({
   }
 
   // ==========================================
-  // VIEW B: LEVEL SELECTED → Filtered Topic View
+  // VIEW B: LEVEL SELECTED â†’ Filtered Topic View
   // ==========================================
 
   // Due words count across all filtered categories
@@ -176,16 +176,16 @@ const VocabHub = ({
   }, [filteredCategories, vocabProgress]);
 
   return (
-    <div className="invictus-vocab-hub">
+    <div className="vocab-hub">
       {/* HEADER */}
-      <header className="invictus-hub-header">
+      <header className="hub-header">
         <div className="header-top">
-          <h1 className="invictus-hub-title">VOCABULARY LAB — {selectedLevel}</h1>
+          <h1 className="hub-title">VOCABULARY LAB â€” {selectedLevel}</h1>
           <div className="system-tag">
             <span className="dot"></span> SYSTEM ACTIVE
           </div>
         </div>
-        <p className="invictus-hub-subtitle">
+        <p className="hub-subtitle">
           {allFilteredWords.length.toLocaleString()} academic tokens across {filteredCategories.length} topics
         </p>
         <p className="vocab-hub-tagline">Passive vocabulary = reading fluency + comprehension</p>
@@ -337,3 +337,4 @@ const VocabHub = ({
 };
 
 export default VocabHub;
+

@@ -1,7 +1,7 @@
-/* ReadingBlock Styles - Material Design 3 Rose Theme */
+﻿/* ReadingBlock Styles - Material Design 3 Rose Theme */
 
 /* Reading Layout */
-.invictus-reading-layout {
+.reading-layout {
   display: flex;
   flex-direction: column;
   background: var(--surface-white);
@@ -27,7 +27,7 @@
 }
 
 /* Paragraph wrapper for inline letters */
-.invictus-paragraph-wrapper {
+.paragraph-wrapper {
   display: flex;
   align-items: flex-start;
   margin-bottom: 12px;
@@ -35,7 +35,7 @@
 }
 
 /* Paragraph letter (A, B, C...) - red box with pink background */
-.invictus-paragraph-letter {
+.paragraph-letter {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -54,11 +54,11 @@
 
 /* Mobile styles */
 @media (max-width: 768px) {
-  .invictus-reading-layout {
+  .reading-layout {
     height: calc(100vh - 53px);
   }
   
-  .invictus-reading-layout .invictus-split-pane-layout {
+  .reading-layout .split-pane-layout {
     height: 100%;
   }
   
@@ -67,37 +67,37 @@
     min-height: 0;
   }
   
-  .invictus-content-text {
+  .content-text {
     font-size: 15px;
     line-height: 1.7;
   }
   
   
-  .invictus-question-number {
+  .question-number {
     font-size: 14px;
     padding: 8px 12px;
   }
   
-  .invictus-instruction-box {
+  .instruction-box {
     padding: 16px;
     margin-bottom: 16px;
   }
   
-  .invictus-instruction-text {
+  .instruction-text {
     font-size: 14px;
   }
   
-  .invictus-sub-question {
+  .sub-question {
     padding: 12px 16px;
     margin-bottom: 12px;
   }
 
   
-.invictus-paragraph-wrapper {
+.paragraph-wrapper {
   flex-direction: column;
 }
   
-  .invictus-paragraph-id {
+  .paragraph-id {
     font-size: 12px;
     padding: 4px 8px;
   }
@@ -105,11 +105,11 @@
 
 /* Mobile (400px target) */
 @media (max-width: 480px) {
-  .invictus-reading-layout {
+  .reading-layout {
     height: calc(100vh - 53px);
   }
   
-  .invictus-reading-layout .invictus-split-pane-layout {
+  .reading-layout .split-pane-layout {
     height: 100%;
   }
   
@@ -118,33 +118,34 @@
     min-height: 0;
   }
 
-  .invictus-content-text {
+  .content-text {
     font-size: 14px;
     line-height: 1.6;
   }
 
 
-  .invictus-question-number {
+  .question-number {
     font-size: 12px;
     padding: 6px 10px;
   }
 
-  .invictus-instruction-box {
+  .instruction-box {
     padding: 12px;
     margin-bottom: 12px;
   }
 
-  .invictus-instruction-text {
+  .instruction-text {
     font-size: 13px;
   }
 
-  .invictus-sub-question {
+  .sub-question {
     padding: 10px 12px;
     margin-bottom: 10px;
   }
 
-  .invictus-paragraph-id {
+  .paragraph-id {
     font-size: 10px;
     padding: 3px 6px;
   }
 }
+

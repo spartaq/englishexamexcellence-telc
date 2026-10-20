@@ -59,6 +59,9 @@ const Router = () => {
         <Route path="/telc/b2/speaking" element={<App initialView="telc_b2_speaking" />} />
         <Route path="/telc/b2/listening" element={<App initialView="telc_b2_listening" />} />
 
+        {/* Split Pane Test Prototype */}
+        <Route path="/split-pane-test" element={<App initialView="split-pane-test" />} />
+
         {/* TELC C1 routes */}
         <Route path="/telc/c1" element={<App initialView="telc-c1-hub" />} />
         <Route path="/telc/c1/mini-test" element={<App initialView="telc-c1-mini-test" />} />

@@ -1,4 +1,4 @@
-/* =============================================================================
+﻿/* =============================================================================
    FLASHCARD TRAINING ENVIRONMENT - Clinical Design System
    ============================================================================= */
 
@@ -6,7 +6,7 @@
    LAYOUT STRUCTURE
    ============================================================================= */
 
-.invictus-flashcard-session-layout {
+.flashcard-session-layout {
   display: flex;
   max-height: 100vh;
   width: 100%;
@@ -282,7 +282,7 @@
   z-index: 10;
   transition: all 0.2s;
   opacity: 1;
-  color: var(--invictus-slate);
+  color: var(--slate);
 }
 
 .flashcard-nav-arrow:hover:not(:disabled) {
@@ -464,7 +464,7 @@
 .mobile-menu-title {
   font-size: 14px;
   font-weight: 800;
-  color: var(--invictus-slate);
+  color: var(--slate);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin: 0;
@@ -480,7 +480,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--invictus-slate);
+  color: var(--slate);
   transition: all 0.2s;
 }
 
@@ -686,3 +686,4 @@
   border-color: var(--primary);
   color: var(--primary);
 }
+

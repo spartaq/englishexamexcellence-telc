@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+﻿import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './styles/globals.css';
 import './App.css';
@@ -18,6 +18,7 @@ import VocabHub from './components/ui/VocabHub';
 import MyWords from './components/ui/MyWords';
 import DrillsHub from './components/ui/DrillsHub';
 import TaskSelection from './components/ui/TaskSelection';
+import SplitPaneTest from './components/ui/SplitPaneTest';
 
 import ResultScreen from './components/engine/ResultScreen'; 
 
@@ -56,7 +57,8 @@ function App({ initialView, initialLevel, locale }) {
       description: 'Build lasting vocabulary with spaced-repetition. Essential for reading comprehension.', 
       icon: <Library size={24} />, 
       hubKey: 'vocabulary',
-      color: '#8b5cf6' 
+      color: '#8b5cf6',
+      image: '/images/1person2.webp'
     },
     { 
       id: 'drillshub', 
@@ -64,7 +66,8 @@ function App({ initialView, initialLevel, locale }) {
       description: 'Master grammar, reading, and writing skills that transfer beyond any test.', 
       icon: <Zap size={24} />, 
       hubKey: 'drillshub',
-      color: '#f59e0b' 
+      color: '#f59e0b',
+      image: '/images/1person3.webp'
     }
   ];
 
@@ -319,11 +322,8 @@ function App({ initialView, initialLevel, locale }) {
        }
      }, [initialView]);
 
-   // Layout logic for specialized views
-   // Note: All skill types removed from isHighFocus to show sidebar for all exercises if && view !== 'lesson' is not present
-   const isHighFocus = false;
-   const showSidebar = !isHighFocus && view !== 'results' && view !== 'landing' && view !== 'lesson';
-   const showHeader = view !== 'results' && view !== 'landing';
+    // Layout logic for specialized views
+    const showHeader = view !== 'results' && view !== 'landing';
 
 
    // ============================================================
@@ -546,13 +546,12 @@ function App({ initialView, initialLevel, locale }) {
             lang={locale}
           />
         )}
-        <div className={`invictus-app-shell ${isHighFocus ? 'high-focus-layout' : ''} ${!showSidebar ? 'no-sidebar' : ''}`}>
+        <div className="app-shell">
         <ScrollToTop />
         
         <AppShell
           view={view}
           activeTest={activeTest}
-          showSidebar={showSidebar}
           showHeader={showHeader}
           onNavigateBack={() => {
   // Check if we're coming from mini test or free test results before clearing state
@@ -586,8 +585,8 @@ if (isDirectTest) {
            onNavigateToDrillsHub={() => navigate('/telc/drillshub')}
            onNavigateToLevel={(level) => navigate(`/telc/${level}`)}
         >
-          <main className="invictus-main-content">
-            <div className="invictus-main-container workspace-container style-scrollbar">
+          <main className="main-content">
+            <div className="main-container workspace-container style-scrollbar">
 
                      {/* TELC B1 HUB VIEW */}
            {view === 'telc-b1-hub' && (
@@ -835,8 +834,11 @@ if (isDirectTest) {
                   onNavigateToLevel={handleNavigateToLevel}
                 />
               )}
-              {view === 'mywords' && <MyWords onBack={handleBackFromMyWords} />}
-            {view === 'selection' && <TaskSelection section={activeSection} onSelectTask={handleStartTask} />}
+{view === 'mywords' && <MyWords onBack={handleBackFromMyWords} />}
+             {view === 'selection' && <TaskSelection section={activeSection} onSelectTask={handleStartTask} />}
+             {view === 'split-pane-test' && <SplitPaneTest />}
+
+            {/* THE LESSON ENGINE */}
 
            {/* THE LESSON ENGINE */}
  {view === 'lesson' && activeLesson && (

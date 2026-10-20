@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mic, Square, Play, RefreshCw, Info, Sparkles } from 'lucide-react';
 import { useExamStore } from '../../store/useExamStore';
@@ -155,13 +155,13 @@ const SpeakingBlock = ({
           <>
             {/* Task Header - Inside SplitPane like ReadingBlock */}
             {data.title && (
-              <div className="invictus-content-header">
-                <p className="invictus-content-subtitle">
+              <div className="content-header">
+                <p className="content-subtitle">
                   {data?.level ? `${data.level.toUpperCase()} Practice Test ${data.mockNumber} - ` : ''}
                   {data.subtitle}
                 </p>
-                <h2 className="invictus-content-title">{data.title}</h2>
-                <p className="invictus-content-description">{data.description}</p>
+                <h2 className="content-title">{data.title}</h2>
+                <p className="content-description">{data.description}</p>
               </div>
             )}
 
@@ -205,7 +205,7 @@ const SpeakingBlock = ({
                         onClick={() => setSelectedTopicIndex(tIndex)}
                       >
                         <div className="topic-option-radio">
-                          {selectedTopicIndex === tIndex ? '●' : '○'}
+                          {selectedTopicIndex === tIndex ? 'â—' : 'â—‹'}
                         </div>
                         <div className="topic-option-content">
                           <span className="topic-option-title">{topic.topic}</span>
@@ -323,8 +323,8 @@ const SpeakingBlock = ({
           </>
         }
         exercise={
-          <div className="invictus-question-column">
-            <h2 className="invictus-total-range">Speaking Task</h2>
+          <div className="question-column">
+            <h2 className="total-range">Speaking Task</h2>
             <QuestionCarousel
               questions={[data]}
               showInstruction={false}

@@ -1,7 +1,7 @@
-/* LanguageElementsBlock Styles - Material Design 3 Rose Theme */
+﻿/* LanguageElementsBlock Styles - Material Design 3 Rose Theme */
 
 /* Language Elements Layout */
-.invictus-language-elements-layout {
+.language-elements-layout {
   display: flex;
   flex-direction: column;
   background: var(--surface-white);
@@ -11,15 +11,15 @@
 }
 
 /* Interactive gap styles - ensure clickability */
-.invictus-passage-text {
+.passage-text {
   user-select: none;
 }
 
-.invictus-passage-text span {
+.passage-text span {
   user-select: none;
 }
 
-.invictus-passage-text .interactive-gap {
+.passage-text .interactive-gap {
   user-select: none;
   cursor: pointer;
   pointer-events: auto;
@@ -41,14 +41,14 @@
 }
 
 /* Paragraph wrapper for inline letters */
-.invictus-paragraph-wrapper {
+.paragraph-wrapper {
   display: flex;
   align-items: flex-start;
   margin-bottom: 12px;
 }
 
 /* Paragraph letter (A, B, C...) - red box with pink background */
-.invictus-paragraph-letter {
+.paragraph-letter {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -67,12 +67,12 @@
 
 /* Mobile styles */
 @media (max-width: 768px) {
-  .invictus-language-elements-layout {
+  .language-elements-layout {
     height: calc(100vh - 53px);
   }
 
   /* This class seems to apply to an internal SplitPane layout, which is generic */
-  .invictus-language-elements-layout .invictus-split-pane-layout {
+  .language-elements-layout .split-pane-layout {
     height: 100%;
   }
 
@@ -81,13 +81,13 @@
     min-height: 0;
   }
 
-  /* These classes (invictus-content-text, invictus-question-number, etc.) are generic
+  /* These classes (content-text, question-number, etc.) are generic
      and not explicitly defined in the provided ReadingBlock.css snippet,
-     but are in the media queries. I'll include them with 'invictus-content-text' as is,
-     as it's generic, and 'invictus-question-number' etc., are also likely generic
+     but are in the media queries. I'll include them with 'content-text' as is,
+     as it's generic, and 'question-number' etc., are also likely generic
      components used within the blocks. */
 
-  .invictus-question-column {
+  .question-column {
     flex: 55;
     padding: 0px;
     overflow-y: auto;
@@ -99,36 +99,36 @@
   }
 
   @media (max-width: 480px) {
-    .invictus-question-column {
+    .question-column {
       height: calc(100vh - 108px);
     }
   }
 
-  .invictus-content-text {
+  .content-text {
     font-size: 15px;
     line-height: 1.7;
   }
 
-  .invictus-question-number {
+  .question-number {
     font-size: 14px;
     padding: 8px 12px;
   }
 
-  .invictus-instruction-box {
+  .instruction-box {
     padding: 16px;
     margin-bottom: 16px;
   }
 
-  .invictus-instruction-text {
+  .instruction-text {
     font-size: 14px;
   }
 
-  .invictus-sub-question {
+  .sub-question {
     padding: 12px 16px;
     margin-bottom: 12px;
   }
 
-  .invictus-paragraph-id {
+  .paragraph-id {
     font-size: 12px;
     padding: 4px 8px;
   }
@@ -136,11 +136,11 @@
 
 /* Mobile (400px target) */
 @media (max-width: 480px) {
-  .invictus-language-elements-layout {
+  .language-elements-layout {
     height: calc(100vh - 53px);
   }
 
-  .invictus-language-elements-layout .invictus-split-pane-layout {
+  .language-elements-layout .split-pane-layout {
     height: 100%;
   }
 
@@ -149,36 +149,36 @@
     min-height: 0;
   }
 
-  .invictus-content-text {
+  .content-text {
     font-size: 14px;
     line-height: 1.6;
   }
 
-  .invictus-question-number {
+  .question-number {
     font-size: 12px;
     padding: 6px 10px;
   }
 
-  .invictus-instruction-box {
+  .instruction-box {
     padding: 12px;
     margin-bottom: 12px;
   }
 
-  .invictus-instruction-text {
+  .instruction-text {
     font-size: 13px;
   }
 
-  .invictus-sub-question {
+  .sub-question {
     padding: 10px 12px;
     margin-bottom: 10px;
   }
 
-   .invictus-paragraph-id {
+   .paragraph-id {
      font-size: 10px;
      padding: 3px 6px;
    }
 
-   .invictus-question-column {
+   .question-column {
      height: calc(100vh - 108px);
    }
  }

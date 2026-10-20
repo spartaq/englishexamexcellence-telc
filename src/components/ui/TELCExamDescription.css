@@ -1,4 +1,4 @@
-/* =============================================================================
+﻿/* =============================================================================
    TELCExamDescription.css - Dedicated styles for TELC info page
    ============================================================================= */
 
@@ -7,7 +7,7 @@
   min-height: 100vh;
   padding-top: 0.5rem;
   padding-bottom: 5rem;
-  font-family: var(--invictus-font);
+  font-family: var(--font);
   color: var(--text-primary);
 }
 
@@ -20,7 +20,7 @@
 }
 
 .telc-hub-header h2 {
-  font-family: var(--invictus-font);
+  font-family: var(--font);
   font-size: 2.5rem;
   font-weight: 800;
   color: var(--text-primary);
@@ -53,7 +53,7 @@
 }
 
 .intel-header h2 {
-  font-family: var(--invictus-font);
+  font-family: var(--font);
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -61,7 +61,7 @@
 
 /* --- Content Typography --- */
 .info-content h3 {
-  font-family: var(--invictus-font);
+  font-family: var(--font);
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -95,7 +95,7 @@
 }
 
 .info-content li::before {
-  content: "•";
+  content: "â€¢";
   color: var(--primary);
   font-weight: bold;
   position: absolute;
@@ -124,7 +124,7 @@
 }
 
 .pillars-header h2 {
-  font-family: var(--invictus-font);
+  font-family: var(--font);
   font-size: 2rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -176,7 +176,7 @@
 }
 
 .pillar-item h4 {
-  font-family: var(--invictus-font);
+  font-family: var(--font);
   font-size: 1rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -192,7 +192,7 @@
 
 /* --- Recognition Section --- */
 .recognition-section {
-  background: var(--invictus-red-pale);
+  background: var(--red-pale);
   border: 1px solid var(--primary);
   border-radius: var(--radius-lg);
   max-width: 1200px;
@@ -201,7 +201,7 @@
 }
 
 .recognition-section h2 {
-  font-family: var(--invictus-font);
+  font-family: var(--font);
   font-size: 2rem;
   font-weight: 700;
   color: var(--primary);
@@ -232,7 +232,7 @@
 }
 
 .recognition-item h4 {
-  font-family: var(--invictus-font);
+  font-family: var(--font);
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--primary);
