@@ -116,6 +116,19 @@
 /* ============================================
    SPLIT PANE TEST PROTOTYPE
    ============================================ */
+
+/* Hide main navbar on split pane test (all screen sizes) */
+.app-shell.spt-active .header {
+  display: none;
+}
+
+.app-shell.spt-active .main-content {
+  height: 100vh;
+}
+
+.app-shell.spt-active {
+  grid-template-rows: 1fr;
+}
 .spt-root {
   font-family: 'Plus Jakarta Sans', sans-serif;
   height: 100%;
@@ -212,7 +225,7 @@
 
 /* Content column */
 .spt-content {
-  flex: 65;
+  flex: 60;
   overflow-y: auto;
   overflow-x: hidden;
   background: #FFFFFF;
@@ -221,7 +234,7 @@
 }
 
 .spt-content-inner {
-  max-width: 100%;
+  max-width: 680px;
   margin: 0 auto;
   padding: 2.5rem 2rem 4rem;
   min-height: 100%;
@@ -231,7 +244,7 @@
 
 /* Questions column - flex column so nav stays pinned at bottom */
 .spt-questions {
-  flex: 35;
+  flex: 40;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -578,13 +591,10 @@
   cursor: pointer;
 }
 
-/* Section icons - desktop only */
+/* Section icons - desktop only, now in toolbar */
 .spt-section-icons {
   display: flex;
   gap: 0.4rem;
-  padding: 0.75rem 2rem;
-  background: #FDF8F3;
-  border-bottom: 1px solid #E5DED9;
   flex-shrink: 0;
   overflow-x: auto;
 }
@@ -594,25 +604,28 @@
   align-items: center;
   justify-content: center;
   padding: 0.4rem 0.75rem;
-  border: 1px solid #E5DED9;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
-  background: #fff;
-  color: #1F2937;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.15s ease;
+  font-family: inherit;
 }
 
 .spt-section-icon:hover {
-  border-color: #5E1620;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .spt-section-icon.active {
-  background: #5E1620;
+  background: rgba(255, 255, 255, 0.25);
   color: #fff;
-  border-color: #5E1620;
+  border-color: rgba(255, 255, 255, 0.6);
+  font-weight: 700;
 }
 
 .spt-section-icon-label {
@@ -635,14 +648,6 @@
 
 /* ── Mobile (≤ 768px) ── */
 @media (max-width: 768px) {
-  .app-shell.spt-active .header {
-    display: none;
-  }
-
-  .app-shell.spt-active .main-content {
-    height: 100vh;
-  }
-
   .app-shell {
     display: flex;
     flex-direction: column;
@@ -704,16 +709,6 @@
 
   .spt-section-dropdown {
     display: block;
-  }
-
-  .spt-section-icons {
-    padding: 0.5rem 1rem;
-    gap: 0.3rem;
-  }
-
-  .spt-section-icon {
-    padding: 0.3rem 0.5rem;
-    font-size: 0.7rem;
   }
 
   .spt-subpart-tabs {

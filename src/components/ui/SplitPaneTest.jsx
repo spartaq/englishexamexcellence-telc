@@ -9,6 +9,28 @@ const SplitPaneTest = () => {
         </div>
 
         <div className="spt-toolbar-right">
+          {/* Section icons - desktop only */}
+          <div className="spt-section-icons">
+            <button className="spt-section-icon" title="Vocabulary">
+              <span className="spt-section-icon-label">Vocab</span>
+            </button>
+            <button className="spt-section-icon active" title="Reading">
+              <span className="spt-section-icon-label">Reading</span>
+            </button>
+            <button className="spt-section-icon" title="Language Elements">
+              <span className="spt-section-icon-label">Lang. Elem.</span>
+            </button>
+            <button className="spt-section-icon" title="Listening">
+              <span className="spt-section-icon-label">Listening</span>
+            </button>
+            <button className="spt-section-icon" title="Speaking">
+              <span className="spt-section-icon-label">Speaking</span>
+            </button>
+            <button className="spt-section-icon" title="Writing">
+              <span className="spt-section-icon-label">Writing</span>
+            </button>
+          </div>
+          {/* Section dropdown - mobile only */}
           <select className="spt-section-dropdown" defaultValue="reading">
             <option value="vocab">Vocab</option>
             <option value="reading">Reading</option>
@@ -58,28 +80,7 @@ const SplitPaneTest = () => {
           </div>
 
           <div className="spt-questions-inner">
-            {/* Section icons row - indicates current section (desktop only) */}
-            <div className="spt-section-icons">
-              <button className="spt-section-icon" title="Vocabulary">
-                <span className="spt-section-icon-label">Vocab</span>
-              </button>
-              <button className="spt-section-icon active" title="Reading">
-                <span className="spt-section-icon-label">Reading</span>
-              </button>
-              <button className="spt-section-icon" title="Language Elements">
-                <span className="spt-section-icon-label">Lang. Elem.</span>
-              </button>
-              <button className="spt-section-icon" title="Listening">
-                <span className="spt-section-icon-label">Listening</span>
-              </button>
-              <button className="spt-section-icon" title="Speaking">
-                <span className="spt-section-icon-label">Speaking</span>
-              </button>
-              <button className="spt-section-icon" title="Writing">
-                <span className="spt-section-icon-label">Writing</span>
-              </button>
-            </div>
-
+         
             <div className="spt-question-card">
               <div className="spt-q-top">
                 <span className="spt-q-num">6</span>
