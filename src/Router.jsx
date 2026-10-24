@@ -25,12 +25,6 @@ const Router = () => {
         {/* Public route for SEO - TELC Info page */}
         <Route path="/telc-info" element={<ExamDescription activeTest={{ title: 'TELC' }} />} />
 
-        {/* Public route - Free mock without login (level selection) */}
-        <Route path="/free-test" element={<App initialView="telc-b2-free-test" />} />
-        <Route path="/free-test/b1" element={<App initialView="telc-b1-free-test" />} />
-        <Route path="/free-test/b2" element={<App initialView="telc-b2-free-test" />} />
-        <Route path="/free-test/c1" element={<App initialView="telc-c1-free-test" />} />
-
         {/* Public route - Pricing page */}
         <Route path="/pricing" element={<PricingPage />} />
 
@@ -84,12 +78,6 @@ const Router = () => {
         {/* Hungarian language routes (/hu/) */}
         <Route path="/hu/" element={<App initialView="telc-b2-hub" locale="hu" />} />
         <Route path="/hu/telc-info" element={<ExamDescription activeTest={{ title: 'TELC' }} locale="hu" />} />
-
-        {/* Public route - Free mock without login (level selection) */}
-        <Route path="/hu/free-test" element={<App initialView="telc-b2-free-test" locale="hu" />} />
-        <Route path="/hu/free-test/b1" element={<App initialView="telc-b1-free-test" locale="hu" />} />
-        <Route path="/hu/free-test/b2" element={<App initialView="telc-b2-free-test" locale="hu" />} />
-        <Route path="/hu/free-test/c1" element={<App initialView="telc-c1-free-test" locale="hu" />} />
 
         {/* Public route - Pricing page */}
         <Route path="/hu/pricing" element={<PricingPage locale="hu" />} />

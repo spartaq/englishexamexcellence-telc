@@ -6,7 +6,6 @@ import './NotFoundPage.css';
 const SUGGESTIONS = [
   { to: '/', label: 'Home' },
   { to: '/telc-info', label: 'About the TELC Exam' },
-  { to: '/free-test', label: 'Free Mock Test' },
   { to: '/telc/b2', label: 'TELC B2 Hub' },
   { to: '/telc/drillshub', label: 'Drills Hub' },
   { to: '/pricing', label: 'Pricing' },

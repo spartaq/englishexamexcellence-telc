@@ -116,40 +116,6 @@ export const resolvePath = (path) => {
     };
   }
 
-  // Free test routes for each level
-  if (path === 'telc-b1-free-test') {
-    return {
-      view: 'lesson',
-      viewHistory: ['lesson'],
-      activeCategory: null,
-      activeSection: null,
-      triggerTask: { id: 'telc-b1-free-test', skill: 'free-test', level: 'b1' },
-      triggerFullTest: null,
-    };
-  }
-
-  if (path === 'telc-b2-free-test') {
-    return {
-      view: 'lesson',
-      viewHistory: ['lesson'],
-      activeCategory: null,
-      activeSection: null,
-      triggerTask: { id: 'telc-b2-free-test', skill: 'free-test', level: 'b2' },
-      triggerFullTest: null,
-    };
-  }
-
-  if (path === 'telc-c1-free-test') {
-    return {
-      view: 'lesson',
-      viewHistory: ['lesson'],
-      activeCategory: null,
-      activeSection: null,
-      triggerTask: { id: 'telc-c1-free-test', skill: 'free-test', level: 'c1' },
-      triggerFullTest: null,
-    };
-  }
-
   // Normalize hubKey: convert hyphens to underscores to match HUBS keys
   const hubKey = path.replace(/-/g, '_');
 

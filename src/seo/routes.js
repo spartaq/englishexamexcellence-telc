@@ -94,19 +94,6 @@ const TOP_LEVEL = [
     priority: '0.9',
   },
   {
-    path: '/free-test',
-    title: 'Free TELC Mock Test',
-    huTitle: 'Ingyenes TELC Próbavizsga',
-    description:
-      'Take a free TELC mock test. Practice reading, listening, writing, and speaking with timed practice exams for TELC preparation.',
-    huDescription:
-      'Vegyél részlet ingyenes TELC próbavizsgában. Gyakorold az olvasást, hallást, írást és beszédet időzített gyakorlati vizsgákkal a TELC felkészítéshez.',
-    keywords: 'free TELC mock test, TELC practice test, TELC free practice',
-    huKeywords: 'ingyenes TELC teszt, TELC próbavizsga, ingyen TELC gyakorlat',
-    changefreq: 'weekly',
-    priority: '0.9',
-  },
-  {
     path: '/pricing',
     title: 'Pricing — Pay Once, Study Forever',
     huTitle: 'TELC Angol Tanfolyam — Árak',
@@ -261,22 +248,9 @@ const TOOL_ROUTES = [
   },
 ];
 
-const FREE_TEST_ROUTES = LEVELS.map((level) => ({
-  path: `/free-test/${level}`,
-  title: `Free TELC ${LEVEL_TITLES[level]} Mock Test`,
-  huTitle: `Ingyenes TELC ${LEVEL_TITLES_HU[level]} Próbavizsga`,
-  description: `Take a free ${LEVEL_TITLES[level]} level TELC mock test. Practice reading, listening, writing, and speaking with timed practice exams for TELC preparation.`,
-  huDescription: `Vegyél részlet ingyenes ${LEVEL_TITLES_HU[level]} szintű TELC próbavizsgában. Gyakorold az olvasást, hallást, írást és beszédet időzített gyakorlati vizsgákkal.`,
-  keywords: `free TELC ${LEVEL_TITLES[level]} mock test, TELC ${LEVEL_TITLES[level]} practice`,
-  huKeywords: `ingyenes TELC ${LEVEL_TITLES_HU[level]} teszt, ingyen TELC ${LEVEL_TITLES_HU[level]} próbavizsga`,
-  changefreq: 'weekly',
-  priority: '0.8',
-}));
-
 /** Every public, indexable route, in sitemap order. */
 export const PUBLIC_ROUTES = [
   ...TOP_LEVEL,
-  ...FREE_TEST_ROUTES,
   ...LEVEL_ROUTES,
   ...TOOL_ROUTES,
 ];

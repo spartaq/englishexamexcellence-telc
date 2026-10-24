@@ -70,9 +70,12 @@ const LandingPage = () => {
                   {t('nav.telc.info')}
                 </button>
               </div>
-              <div className="lp-nav-actions">
-                <LanguageSwitcher />
-              </div>
+            <div className="lp-nav-actions">
+              <LanguageSwitcher />
+              <button className="lp-close-btn" onClick={() => navigate('/')}>
+                ✕
+              </button>
+            </div>
             </div>
             <div className="lp-nav-mobile">
               <button className="lp-hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -81,6 +84,11 @@ const LandingPage = () => {
             </div>
           </div>
           <div className={`lp-mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+            <div className="lp-mobile-menu-header">
+              <button className="lp-close-btn lp-mobile-close-btn" onClick={() => setIsMobileMenuOpen(false)}>
+                ✕
+              </button>
+            </div>
             <div className="lp-mobile-menu-links">
               <button className="lp-mobile-nav-link" onClick={() => {
                 setIsMobileMenuOpen(false);
@@ -100,9 +108,6 @@ const LandingPage = () => {
               }}>
                 {t('nav.telc.info')}
               </button>
-            </div>
-            <div className="lp-mobile-menu-actions">
-              <LanguageSwitcher className="lp-mobile-lang-switcher" />
             </div>
           </div>
         </nav>

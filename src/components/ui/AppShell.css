@@ -6,8 +6,9 @@
   width: 100%;
   grid-column: 1 / -1;
   grid-row: 1;
-  background: var(--primary);
-  border-bottom: 2px solid var(--primary);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #E5DED9;
   padding: 0 40px;
   display: flex;
   justify-content: space-between;
@@ -21,6 +22,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  position: relative;
 }
 
 .header-center {
@@ -35,18 +37,38 @@
   gap: 12px;
 }
 
-/* Header navbar items — visible on the primary-colored header background */
+/* Header navbar items — visible on the light header background */
 .header-left .nav-item {
-  color: #fff;
-  opacity: 0.95;
+  color: #1F2937;
+  opacity: 0.9;
   white-space: nowrap;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.15s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
+
 .header-left .nav-item:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  background: rgba(94, 22, 32, 0.08);
+  color: #5E1620;
+  opacity: 1;
 }
+
 .header-left .nav-section-label {
-  color: rgba(255, 255, 255, 0.6);
+  color: #64748B;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 0;
+  opacity: 0.7;
 }
 .header-left .navbar {
   display: flex;
@@ -87,12 +109,12 @@
 
 .header-tab:hover {
   background: white;
-  color: var(--primary);
+  color: #5E1620;
 }
 
 .header-tab.active {
   background: white;
-  color: var(--primary);
+  color: #5E1620;
 }
 
 /* Header Subtabs (Passage/Part tabs) */
@@ -128,6 +150,100 @@
   font-weight: 600;
 }
 
-.exit-btn-icon {
-  transform: rotate(180deg);
+.exit-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid #E5DED9;
+  border-radius: 8px;
+  background: transparent;
+  color: #1F2937;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.exit-btn:hover {
+  background: rgba(94, 22, 32, 0.08);
+  border-color: #5E1620;
+  color: #5E1620;
+}
+
+/* Hamburger button — hidden on desktop */
+.hamburger-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #1F2937;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.hamburger-btn:hover {
+  background: rgba(94, 22, 32, 0.08);
+}
+
+/* --- RESPONSIVE NAVBAR --- */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 16px;
+    height: 56px;
+  }
+
+  .hamburger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-left .navbar {
+    display: none;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 12px 16px;
+    border-bottom: 2px solid #E5DED9;
+    z-index: 99;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .header-left .navbar.navbar-open {
+    display: flex;
+  }
+
+  .header-left .nav-item {
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .header-left .nav-section-label {
+    padding: 8px 14px 4px;
+    font-size: 0.7rem;
+  }
+
+  .header-right {
+    gap: 8px;
+  }
+
+  .exit-btn {
+    padding: 6px 10px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0 12px;
+  }
 }

@@ -35,15 +35,6 @@ const SitemapPage = () => {
               </ul>
             </div>
             <div className="sitemap-card">
-              <h3>Free Tests</h3>
-              <ul>
-                <li><Link to="/free-test">All Levels (default: B2)</Link></li>
-                <li><Link to="/free-test/b1">B1 Free Test</Link></li>
-                <li><Link to="/free-test/b2">B2 Free Test</Link></li>
-                <li><Link to="/free-test/c1">C1 Free Test</Link></li>
-              </ul>
-            </div>
-            <div className="sitemap-card">
               <h3>Pricing</h3>
               <ul>
                 <li><Link to="/pricing">Pricing Tiers &amp; FAQ</Link></li>

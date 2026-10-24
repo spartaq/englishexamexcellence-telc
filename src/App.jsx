@@ -546,7 +546,7 @@ function App({ initialView, initialLevel, locale }) {
             lang={locale}
           />
         )}
-        <div className={`app-shell ${view === 'split-pane-test' ? 'spt-active' : ''}`}>
+        <div className={`app-shell ${view === 'split-pane-test' || (view === 'lesson' && activeLesson?.type === 'full-mock') ? 'spt-active' : ''}`}>
         <ScrollToTop />
         
         <AppShell
@@ -841,14 +841,25 @@ if (isDirectTest) {
             {/* THE LESSON ENGINE */}
 
            {/* THE LESSON ENGINE */}
- {view === 'lesson' && activeLesson && (
-   <div className="lesson-engine">
-     {/* 
-        The Engine now handles 'ielts-complex', 'reading', 'listening', etc. 
-        We just pass it the activeLesson and let it work.
-     */}
-     <Engine 
-       activeLesson={activeLesson}
+  {view === 'lesson' && activeLesson && (
+    <div className="lesson-engine">
+      {activeLesson?.type === 'full-mock' && (
+        <div className="spt-toolbar">
+          <div className="spt-toolbar-left">
+            <span className="spt-location">Mock {activeLesson?.mockNumber} · {activeLesson?.sections?.[activeSectionIndex]?.skill || 'Test'}</span>
+          </div>
+          <div className="spt-toolbar-right">
+            <select className="spt-section-dropdown" defaultValue={activeLesson?.sections?.[activeSectionIndex]?.skill || 'reading'}>
+              {activeLesson?.sections?.map((s, i) => (
+                <option key={i} value={s.skill}>{s.skill}</option>
+              ))}
+            </select>
+            <button className="spt-close-btn" onClick={() => navigateToView(lessonOrigin || 'telc-b2-hub')}>✕</button>
+          </div>
+        </div>
+      )}
+      <Engine 
+        activeLesson={activeLesson}
        activeSectionIndex={activeSectionIndex}
        activePassageIndex={activePassageIndex}
        userAnswers={userAnswers}
