@@ -79,69 +79,6 @@ const BrandTestHub = ({
           </div>
         </header>
 
-        {/* Practice tools — Vocabulary + Drills */}
-        <section className="hub-tools">
-          <div className="hub-tools-inner">
-            <h2 className="hub-tools-heading">{t('hub.real.solution')}</h2>
-            <p className="hub-tools-lead">{t('hub.real.solution.desc')}</p>
-            <div className="hub-tools-grid">
-              {EXTRA_TOOLS && EXTRA_TOOLS.map(tool => {
-                const hubKey = tool && typeof tool.hubKey === 'string' && tool.hubKey.trim() ? tool.hubKey : null;
-                const titleKey = tool.hubKey === 'vocabulary' ? 'tool.vocab.title' : 'tool.drillshub.title';
-                const descKey = tool.hubKey === 'vocabulary' ? 'tool.vocab.desc' : 'tool.drillshub.desc';
-                return (
-                  <div
-                    key={tool.id}
-                    className="hub-tool-card"
-                    onClick={() => {
-                      if (hubKey && typeof onSelectModule === 'function') {
-                        const levelToPass = ['vocabulary', 'drillshub'].includes(hubKey) ? level : null;
-                        onSelectModule(hubKey, levelToPass);
-                      } else {
-                        console.warn('[BrandTestHub] onSelectModule called with invalid tool.hubKey', tool);
-                      }
-                    }}
-                  >
-                    <div className="hub-tool-image">
-                      <img
-                        className="hub-tool-image-img"
-                        src={tool.image}
-                        alt={t(titleKey)}
-                        decoding="async"
-                      />
-                    </div>
-                    <div className="hub-tool-icon">{React.cloneElement(tool.icon, { size: 24 })}</div>
-                    <h3 className="hub-tool-title">{t(titleKey)}</h3>
-                    <p className="hub-tool-desc">{t(descKey)}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Skills practice — six skills */}
-        <section className="hub-skills">
-          <div className="hub-skills-inner">
-            <h2 className="hub-skills-heading">{t('hub.practice.skills')}</h2>
-            <p className="hub-skills-lead">{t('hub.practice.part')}</p>
-            <div className="hub-skills-grid">
-              {skillSections.map((skill) => (
-                <button
-                  key={skill.id}
-                  className="hub-skill-btn"
-                  onClick={() => onStartSkill && onStartSkill(skill.id, level)}
-                  disabled={!onStartSkill}
-                  aria-disabled={!onStartSkill}
-                >
-                  <div className="hub-skill-icon">{React.createElement(skill.icon, { size: 20 })}</div>
-                  <span className="hub-skill-label">{t(skill.key)}</span>
-                </button>
-              ))}
-            </div>
-            <p className="hub-skills-note">{t('desc.target.skills')}</p>
-          </div>
-        </section>
 
         {/* Mock tests list */}
         <section className="hub-mocks">
@@ -188,6 +125,99 @@ const BrandTestHub = ({
             </div>
           </div>
         </section>
+
+
+
+        {/* Practice tools — Vocabulary + Drills */}
+        <section className="hub-tools">
+          <div className="hub-tools-inner">
+            <h2 className="hub-tools-heading">{t('hub.real.solution')}</h2>
+            <p className="hub-tools-lead">{t('hub.real.solution.desc')}</p>
+            <div className="hub-tools-grid">
+              {EXTRA_TOOLS && EXTRA_TOOLS.map(tool => {
+                const hubKey = tool && typeof tool.hubKey === 'string' && tool.hubKey.trim() ? tool.hubKey : null;
+                const titleKey = tool.hubKey === 'vocabulary' ? 'tool.vocab.title' : 'tool.drillshub.title';
+                const descKey = tool.hubKey === 'vocabulary' ? 'tool.vocab.desc' : 'tool.drillshub.desc';
+                return (
+                  <div
+                    key={tool.id}
+                    className="hub-tool-card"
+                    onClick={() => {
+                      if (hubKey && typeof onSelectModule === 'function') {
+                        const levelToPass = ['vocabulary', 'drillshub'].includes(hubKey) ? level : null;
+                        onSelectModule(hubKey, levelToPass);
+                      } else {
+                        console.warn('[BrandTestHub] onSelectModule called with invalid tool.hubKey', tool);
+                      }
+                    }}
+                  >
+                    <div className="hub-tool-image">
+                      <img
+                        className="hub-tool-image-img"
+                        src={tool.image}
+                        alt={t(titleKey)}
+                        decoding="async"
+                      />
+                    </div>
+                    <div className="hub-tool-icon">{React.cloneElement(tool.icon, { size: 24 })}</div>
+                    <h3 className="hub-tool-title">{t(titleKey)}</h3>
+                    <p className="hub-tool-desc">{t(descKey)}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+
+
+
+
+
+
+        {/* Skills practice — six skills */}
+        <section className="hub-skills">
+          <div className="hub-skills-inner">
+            <h2 className="hub-skills-heading">{t('hub.practice.skills')}</h2>
+            <p className="hub-skills-lead">{t('hub.practice.part')}</p>
+            <div className="hub-skills-grid">
+              {skillSections.map((skill) => (
+                <button
+                  key={skill.id}
+                  className="hub-skill-btn"
+                  onClick={() => onStartSkill && onStartSkill(skill.id, level)}
+                  disabled={!onStartSkill}
+                  aria-disabled={!onStartSkill}
+                >
+                  <div className="hub-skill-icon">{React.createElement(skill.icon, { size: 20 })}</div>
+                  <span className="hub-skill-label">{t(skill.key)}</span>
+                </button>
+              ))}
+            </div>
+            <p className="hub-skills-note">{t('desc.target.skills')}</p>
+          </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         {/* Bottom CTA */}
         <section className="hub-enter">

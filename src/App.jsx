@@ -840,43 +840,43 @@ if (isDirectTest) {
 
             {/* THE LESSON ENGINE */}
 
-           {/* THE LESSON ENGINE */}
-  {view === 'lesson' && activeLesson && (
-    <div className="lesson-engine">
-      {activeLesson?.type === 'full-mock' && (
-        <div className="spt-toolbar">
-          <div className="spt-toolbar-left">
-            <span className="spt-location">Mock {activeLesson?.mockNumber} · {activeLesson?.sections?.[activeSectionIndex]?.skill || 'Test'}</span>
-          </div>
-          <div className="spt-toolbar-right">
-            <select className="spt-section-dropdown" defaultValue={activeLesson?.sections?.[activeSectionIndex]?.skill || 'reading'}>
-              {activeLesson?.sections?.map((s, i) => (
-                <option key={i} value={s.skill}>{s.skill}</option>
-              ))}
-            </select>
-            <button className="spt-close-btn" onClick={() => navigateToView(lessonOrigin || 'telc-b2-hub')}>✕</button>
-          </div>
-        </div>
-      )}
-      <Engine 
-        activeLesson={activeLesson}
+            {/* THE LESSON ENGINE */}
+   {view === 'lesson' && activeLesson && activeLesson?.type === 'full-mock' && (
+     <SplitPaneTest
+       activeLesson={activeLesson}
        activeSectionIndex={activeSectionIndex}
        activePassageIndex={activePassageIndex}
        userAnswers={userAnswers}
-       onUpdateAnswers={handleUpdateAnswer} // This uses the bridge function we added
+       onUpdateAnswers={handleUpdateAnswer}
        onCheckAnswers={handleCheckAnswers}
        isReviewMode={isReviewMode}
-       availableSections={activeLesson?.sections || []}
-       activeSkillTab={activeSkillTab}
+       sections={activeLesson?.sections || []}
        setActiveSectionIndex={setActiveSectionIndex}
        setActivePassageIndex={setActivePassageIndex}
-       setIsReviewMode={setIsReviewMode}
-       setActiveSkillTab={setActiveSkillTab}
-       availableSkills={activeLesson?.sections?.map(s => s.skill).filter(Boolean) || []}
-       onNavigateToMyWords={() => navigateToView('mywords')}
+       onClose={() => navigateToView(lessonOrigin || 'telc-b2-hub')}
      />
-   </div>
- )}
+   )}
+   {view === 'lesson' && activeLesson && activeLesson?.type !== 'full-mock' && (
+     <div className="lesson-engine">
+       <Engine 
+         activeLesson={activeLesson}
+        activeSectionIndex={activeSectionIndex}
+        activePassageIndex={activePassageIndex}
+        userAnswers={userAnswers}
+        onUpdateAnswers={handleUpdateAnswer}
+        onCheckAnswers={handleCheckAnswers}
+        isReviewMode={isReviewMode}
+        availableSections={activeLesson?.sections || []}
+        activeSkillTab={activeSkillTab}
+        setActiveSectionIndex={setActiveSectionIndex}
+        setActivePassageIndex={setActivePassageIndex}
+        setIsReviewMode={setIsReviewMode}
+        setActiveSkillTab={setActiveSkillTab}
+        availableSkills={activeLesson?.sections?.map(s => s.skill).filter(Boolean) || []}
+        onNavigateToMyWords={() => navigateToView('mywords')}
+      />
+     </div>
+   )}
 
            {/* RESULTS SCREEN */}
            {view === 'results' && <ResultScreen lesson={activeLesson} results={lessonResults} userAnswers={userAnswers} onClaim={handleFinalClaim} activeSectionIndex={activeSectionIndex} activePassageIndex={activePassageIndex} />}

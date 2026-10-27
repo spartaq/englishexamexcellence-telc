@@ -41,8 +41,22 @@ const AppShell = ({
       {/* HEADER - normal top navbar */}
       {showHeader && (
         <header className="header">
+            
           <div className="header-left">
-            <button
+            <div className="lp-logo">
+                <GraduationCap size={24} />
+                <span className="lp-logo-wordmark">{t('nav.site-title')}</span>
+            </div>
+
+            
+          </div>
+
+          <div className="header-center">
+            {headerCenterContent}
+          </div>
+          
+           <div className="header-right">
+             <button
               className="hamburger-btn"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
@@ -125,14 +139,6 @@ const AppShell = ({
                 <ArrowRight size={14} className="exit-btn-icon" /> {t('common.close') || 'Close'}
               </button>
             )}
-          </div>
-
-          <div className="header-center">
-            {headerCenterContent}
-          </div>
-          
-           <div className="header-right">
-             <LanguageSwitcher />
            </div>
         </header>
       )}

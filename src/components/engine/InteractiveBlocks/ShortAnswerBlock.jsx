@@ -80,7 +80,7 @@ const ShortAnswerBlock = ({
           return (
             <div 
               key={q.id || index} 
-              className={`question-card ${isReviewMode ? (isCorrect ? 'correct' : 'incorrect') : overLimit ? 'over-limit' : ''}`}
+              className={`${isReviewMode ? (isCorrect ? 'correct' : 'incorrect') : overLimit ? 'over-limit' : ''}`}
             >
               <h3 className="sa-question">
                 <span className="question-label">{String(q.id || index + 1).replace(/^q/, '')}.</span>

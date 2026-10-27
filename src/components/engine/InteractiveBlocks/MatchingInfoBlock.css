@@ -11,7 +11,7 @@
 
 .matching-choice-row {
   display: flex;
-  flex-direction: column; /* Stack on mobile, side-by-side on desktop via media query */
+  flex-direction: row; /* Stack on mobile, side-by-side on desktop via media query */
   gap: 12px;
   padding: 16px;
   background-color: #ffffff;
@@ -26,6 +26,10 @@
 }
 
 .matching-choice-text {  
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
   font-size: 14px;
   font-weight: 800;
   margin-bottom: 24px;
@@ -42,12 +46,14 @@
   color: var(--primary);
   font-weight: 800;
   margin-right: 8px;
-  display: inline;
+  display: inline-flex;
+  flex-shrink: 0;
 }
 
 .question-text {
   margin-bottom: 0;
   flex: 1;
+  min-width: 0;
 }
 
 .usage-indicator {
@@ -128,6 +134,21 @@
   .choice-btn {
     width: 43px;
     height: 43px;
+  }
+}
+
+/* Mobile: small square choice buttons in a row */
+@media (max-width: 767px) {
+  .choice-button-group {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .choice-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+    font-weight: 700;
   }
 }
 

@@ -139,11 +139,11 @@ export default function MatchingInfoBlock({
         return (
           <div 
             key={q.id} 
-            className={`question-card ${isReviewMode ? (isCorrect ? 'correct' : isWrong ? 'incorrect' : '') : ''}`}
+            className={isReviewMode ? (isCorrect ? 'correct' : isWrong ? 'incorrect' : '') : ''}
           >
             <h3 className="matching-choice-text">
               <span className="question-label">{String(q.id).replace(/^q/, '')}.</span>
-              {q.text}
+              <span className="question-text">{q.text}</span>
               
               {isReviewMode && (
                 <span className="status-icon">

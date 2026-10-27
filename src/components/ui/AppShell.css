@@ -38,7 +38,7 @@
 }
 
 /* Header navbar items — visible on the light header background */
-.header-left .nav-item {
+.header-right .nav-item {
   color: #1F2937;
   opacity: 0.9;
   white-space: nowrap;
@@ -55,13 +55,13 @@
   gap: 6px;
 }
 
-.header-left .nav-item:hover {
+.header-right .nav-item:hover {
   background: rgba(94, 22, 32, 0.08);
   color: #5E1620;
   opacity: 1;
 }
 
-.header-left .nav-section-label {
+.header-right .nav-section-label {
   color: #64748B;
   font-size: 0.7rem;
   font-weight: 700;
@@ -70,14 +70,14 @@
   padding: 4px 0;
   opacity: 0.7;
 }
-.header-left .navbar {
+.header-right .navbar {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   gap: 10px;
   align-items: center;
 }
-.header-left .navbar .nav-section-label {
+.header-right .navbar .nav-section-label {
   font-size: 10px;
   font-weight: 800;
   text-transform: uppercase;
@@ -200,7 +200,7 @@
     justify-content: center;
   }
 
-  .header-left .navbar {
+  .header-right .navbar {
     display: none;
     position: fixed;
     top: 56px;
@@ -216,18 +216,18 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  .header-left .navbar.navbar-open {
+  .header-right .navbar.navbar-open {
     display: flex;
   }
 
-  .header-left .nav-item {
+  .header-right .nav-item {
     padding: 10px 14px;
     font-size: 0.88rem;
     width: 100%;
     justify-content: flex-start;
   }
 
-  .header-left .nav-section-label {
+  .header-right .nav-section-label {
     padding: 8px 14px 4px;
     font-size: 0.7rem;
   }

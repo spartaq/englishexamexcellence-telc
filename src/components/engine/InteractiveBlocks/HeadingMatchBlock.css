@@ -130,6 +130,10 @@
 }
 
 .hm-question {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
   font-size: 16px;
   font-weight: 800;
   line-height: 1.5;
@@ -139,8 +143,13 @@
 .question-label {
   color: var(--primary);
   font-weight: 800;
-  margin-right: 8px;
-  display: inline;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.question-text {
+  flex: 1;
+  min-width: 0;
 }
 
 .para-label {

@@ -104,18 +104,6 @@
 
 /* --- INTERACTIVE BLOCKS --- */
 
-/* Question Card - shared across Listening and InteractiveBlocks */
-.question-card {
-  background: #FFFFFF;
-  border-radius: 12px;
-  padding: 20px;
-  border: 1px solid #E5DED9;
-  margin: 10px;
-}
-
-  /* Question Card - shared across Listening and InteractiveBlocks */
-
-
 /* Instruction Box - shared across Listening and QuestionCarousel */
 .instruction-box {
   display: flex;
@@ -264,17 +252,6 @@
   border-color: var(--primary);
   color: var(--to-be-determined-container);
   font-weight: 600;
-}
-
-/* Unknown Type */
-.question-card.unknown-type {
-  background: var(--error-container);
-  border-color: var(--error);
-}
-
-.question-card.unknown-type p {
-  color: var(--on-error-container);
-  font-size: 14px;
 }
 
 .question-group {

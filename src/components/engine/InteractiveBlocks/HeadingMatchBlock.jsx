@@ -66,11 +66,11 @@ const HeadingMatchBlock = ({ data, userAnswers = {}, onUpdate, isReviewMode = fa
         return (
           <div 
             key={q.id} 
-            className={`question-card ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''} ${isReviewMode ? 'review' : ''}`}
+            className={`${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''} ${isReviewMode ? 'review' : ''}`}
           >
             <h3 className="hm-question">
               <span className="question-label">{String(q.id).replace(/^q/, '')}.</span>
-              {q.text}
+              <span className="question-text">{q.text}</span>
               {isReviewMode && (
                 <span className="status-icon">
                   {isCorrect ? <CheckCircle size={18} color="#10b981" /> : 

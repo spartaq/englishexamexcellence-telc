@@ -16,7 +16,7 @@
 
 /* ── Hero ── */
 .hub-hero {
-  padding: 6rem 0 5rem 0;
+  padding: 6rem 0 5rem 3rem;
   background: var(--lp-primary);
   position: relative;
   margin: 50px 0 0 0;
@@ -85,7 +85,7 @@
 
 /* ── Tools ── */
 .hub-tools {
-  padding: 6rem 2rem;
+  padding: 2rem 2rem;
   background: var(--lp-surface, #FFFFFF);
 }
 
@@ -533,10 +533,10 @@
     font-size: 2rem;
   }
   .hub-skills-grid {
-    grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   }
   .hub-mock-list {
-    grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   }
   .hub-mocks-inner {
     padding-left: 1.5rem;
@@ -589,10 +589,10 @@
     font-size: 1.8rem;
   }
   .hub-tools-grid {
-    grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   }
   .hub-skills-grid {
-    grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   }
   .hub-mock-header-band {
     padding: 0.85rem 1rem;

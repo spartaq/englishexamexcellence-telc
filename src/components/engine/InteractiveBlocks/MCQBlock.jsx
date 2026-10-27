@@ -143,7 +143,7 @@ const MCQBlock = ({
         
         // Single question renders
         return (
-          <div key={qId} className="question-card" style={{ marginBottom: '24px' }}>
+          <div key={qId} style={{ marginBottom: '24px' }}>
             {/* Question */}
             <h3 className={`mcq-question ${isMultiSelect ? 'multiselect' : ''}`}>
               <span className="mcq-question-label">{String(qId).replace(/^q/, '')}.</span>
