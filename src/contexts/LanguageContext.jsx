@@ -120,9 +120,9 @@ const LanguageProvider = ({ children }) => {
       
       // Extra Tools
       'tool.vocab.title': 'Vocab Hub',
-      'tool.vocab.desc': 'Build lasting vocabulary with spaced-repetition. Essential for reading comprehension.',
+      'tool.vocab.desc': 'Build lasting exam vocabulary with spaced repetition. The words and collocations you need for reading, listening, writing and speaking at this level.',
       'tool.drillshub.title': 'Drills Hub',
-      'tool.drillshub.desc': 'Master grammar, reading, and writing skills that transfer beyond any test.',
+      'tool.drillshub.desc': 'Short, focused drills for grammar, reading, writing and speaking. Isolate the skill, repeat until it is automatic, then take it into the full mock.',
       
       // Dual Section
       'dual.take.exam': 'Take a full practice exam',
@@ -148,6 +148,20 @@ const LanguageProvider = ({ children }) => {
       
       // Description
       'desc.target.skills': 'Target individual skills with focused practice sessions tailored to your weak areas.',
+      
+      // Test descriptions (about the exam)
+      'hub.test.desc.b1': 'TELC B1 is an intermediate exam that shows you can use English independently in everyday work, study and travel situations. Aligned with CEFR B1, it tests Reading, Listening, Writing, Speaking and Language Elements through real-life tasks — understanding straightforward texts, following conversations, writing simple connected texts, and speaking about familiar topics.',
+      'hub.test.desc.b2': 'TELC B2 is an upper-intermediate exam trusted by employers and universities worldwide. It measures whether you can communicate effectively in most work and academic settings — following complex discussions, reading authentic texts, writing clear detailed texts, and speaking fluently across Reading, Listening, Writing, Speaking and Language Elements.',
+      'hub.test.desc.c1': 'TELC C1 is an advanced exam for professional and academic use. It tests your ability to understand demanding longer texts, express yourself fluently without searching for expressions, and produce well-structured, detailed writing — at CEFR C1 level across all four skills plus Language Elements.',
+      'hub.mocks.lead': 'Full-length mock exams built on the real TELC format. Every mock covers all four skills plus Language Elements, with timed sections, authentic task types and examiner-style scoring — so you know exactly what to expect on exam day.',
+      
+      // Skill descriptions
+      'hub.skill.reading.desc': 'Read authentic texts and locate main ideas, details and attitudes. Practice the reading task types exactly as they appear on the TELC paper.',
+      'hub.skill.listening.desc': 'Listen to recordings played once and answer while you hear them. Build the concentration and timing of the real listening test.',
+      'hub.skill.writing.desc': 'Write letters, essays and reports with the right structure and tone. Practice the writing tasks that carry the most points on exam day.',
+      'hub.skill.speaking.desc': 'Speak fluently on familiar and abstract topics. Practice the speaking interview with timed tasks and model answers.',
+      'hub.skill.lang.elem.desc': 'Grammar and vocabulary in context. Gap-fill and multiple-choice tasks that test your command of English structures at this level.',
+      'hub.skill.vocabulary.desc': 'Topic-based word sets for reading, listening, writing and speaking. Learn the collocations that appear in real exam tasks.',
       
       // === 3. DRILLS HUB ===
       'drills.hub.title': 'DRILLS HUB',
@@ -250,6 +264,10 @@ const LanguageProvider = ({ children }) => {
       'flashcard.no.words': 'No vocabulary words available',
       'flashcard.needs.array': 'This exercise needs a words array to display.',
       'flashcard.continue': 'Continue',
+
+      // Flashcard page header
+      'flashcard.page.eyebrow': 'VOCABULARY TRAINING',
+      'flashcard.page.desc': 'Build durable vocabulary with spaced repetition. Review words at optimal intervals so they move from passive recognition to active use — the fastest route to reading fluency and exam confidence.',
       
       // === 9. APP SHELL ===
       'shell.brand': 'TELCHub',
@@ -405,9 +423,9 @@ const LanguageProvider = ({ children }) => {
       
       // Extra Tools
       'tool.vocab.title': 'Szókincs Hub',
-      'tool.vocab.desc': 'Állandó szókincs építése időintervallumos ismétléssel. Fontosságú az olvasási megértéshez.',
+      'tool.vocab.desc': 'Maradandó vizsga szókincs építése időintervallumos ismétléssel. A szókincs és szókapcsolatok, amelyeket olvasás, hallás, írás és beszédre szükséged lesz ezen a szinten.',
       'tool.drillshub.title': 'Gyakorlatok Hub',
-      'tool.drillshub.desc': 'Nyelvtan, olvasás és írás készségek elsajátítása, amelyek mindenhol hasznosak.',
+      'tool.drillshub.desc': 'Rövid, célzott gyakorlatok nyelvtanra, olvasásra, írásra és beszédre. Zárold le az adott készséget, addig ismételd, amíg automatikusá nem válik, majd vidd a teljes gyakorlati vizsgára.',
       
       // === 3. DUAL SECTION ===
       'dual.take.exam': 'Teljes gyakorlati vizsga',
@@ -423,6 +441,11 @@ const LanguageProvider = ({ children }) => {
       'controls.gold': 'Arany',
       'controls.start.mock': 'Indítás',
       
+      // Mock test descriptions
+      'mock.desc.b1': 'Teljes TELC B1 teszt az összes 4 készségre',
+      'mock.desc.b2': 'Teljes TELC B2 teszt az összes 4 készségre',
+      'mock.desc.c1': 'Teljes TELC C1 teszt az összes 4 készségre',
+      
       // === 5. SKILL BUTTONS ===
       'skill.reading': 'Olvasás',
       'skill.listening': 'Hallás',
@@ -433,6 +456,20 @@ const LanguageProvider = ({ children }) => {
       
       // === 6. DESCRIPTION ===
       'desc.target.skills': 'Célzott készségek gyakorlása gyengébb területeid alapján.',
+      
+      // Test descriptions (about the exam)
+      'hub.test.desc.b1': 'A TELC B1 középszintű vizsgája, amely bizonyítja, hogy függetlenül használsz az angol nyelvet minden napi munka-, tanulási és utazási helyzetben. A CEFR B1 szintre igazodva olvasást, hallást, írást, beszédet és nyelvi elemeket tesz ki valós életbeli feladatokkal — egyszerű szövegek megértése, beszédkövetés, egyszerű összefüggő szövegek írása és beszéd ismert témákról.',
+      'hub.test.desc.b2': 'A TELC B2 felső-középszintű vizsgája, amelyet munkaadók és egyetemek között világszerte elismernek. Méri, hogy hatékonyan kommunikálsz-e a legtöbb munka- és egyetemi helyzetben — bonyolult beszélgetések követése, hiteles szövegek olvasása, világos részletes szövegek írása és flowzisan beszéd olvasás, hallás, írás, beszéd és nyelvi elemek területen.',
+      'hub.test.desc.c1': 'A TELC C1 haladó szintű vizsgája szakmai és akadémikus használatra. Megköveteli a hosszabb, nehézebb szövegek megértését, a flowzisan beszédet kifejezés keresése nélkül, valamint jól strukturált, részletes írást — CEFR C1 szinten az összes négy készségben plusz nyelvi elemek területen.',
+      'hub.mocks.lead': 'Teljes hosszúságú gyakorlati vizsgák a valódi TELC formátum alapján. Minden gyakorlat az összes négy készességet és nyelvi elemeket tartalmazza időzített szakaszokkal, hiteles feladattípusokkal és vizsgáztói stílusú pontozással — így pontosan tudod, mit várj a vizsgán.',
+      
+      // Skill descriptions
+      'hub.skill.reading.desc': 'Olvasj hiteles szövegeket, és keresd meg a fő gondolatokat, részleteket és attitúdiókat. Gyakorold a TELC vizsgán megjelent olvasási feladattípusokat.',
+      'hub.skill.listening.desc': 'Hallgasd el a felvételeket, amelyek csak egyszer játszódnak le, és válaszolj hallás közben. Fejleszd a valódi hallási vizsgához szükséges koncentrációt és időzítést.',
+      'hub.skill.writing.desc': 'Írj leveleket, esszejeket és jelentéseket a megfelelő struktúrával és hangnemmel. Gyakorold az írási feladatokat, amelyek a legtöbb pontot érnek a vizsgán.',
+      'hub.skill.speaking.desc': 'Beszélj flowzisan ismert és absztrakt témákról. Gyakorold a beszédi interjút időzített feladatokkal és mintaválaszokkal.',
+      'hub.skill.lang.elem.desc': 'Nyelvtan és szókincs kontextusban. Hiányos kitöltés és többválasztós feladatok, amelyek ellenőrzik az angol nyelvi szerkezetek megértését ezen a szinten.',
+      'hub.skill.vocabulary.desc': 'Témakör alapú szavakhalmazok olvasás, hallás, írás és beszédre. Ismerd meg a valódi vizsgafeladatokban előforduló szavakkapcsolatokat.',
       
       // === 3. DRILLS HUB ===
       'drills.hub.title': 'GYAKORLATOK HUB',
@@ -536,6 +573,10 @@ const LanguageProvider = ({ children }) => {
       'flashcard.no.words': 'Nincs elérhető szó',
       'flashcard.needs.array': 'Ez a gyakorlat szótárral fog megjelenni.',
       'flashcard.continue': 'Folytatás',
+
+      // Flashcard page header
+      'flashcard.page.eyebrow': 'SZÓKINCSEK TRÉNINGE',
+      'flashcard.page.desc': 'Tartós szókincs építése időintervallumos ismétléssel. Ismételd meg a szavakat az optimális időpontokon, hogy az aktív használattá váljanak — a leghatékonyabb út az olvasási folyékonysághoz és a vizsga bizalmához.',
       
       // === 9. APP SHELL ===
       'shell.brand': 'TELCHub',

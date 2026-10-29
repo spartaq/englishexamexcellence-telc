@@ -100,7 +100,12 @@
   --background-light: #f8fafc;
   --font-primary: 'Plus Jakarta Sans', sans-serif;
   --font-secondary: 'Inter', sans-serif;
+  --font-mono: 'Plus Jakarta Sans', monospace;
   --accent-color: #006855;
+
+  /* --- Brand primary (used across engine, AppShell, BrandTestHub) --- */
+  --brand-primary: #5E1620;
+  --border-subtle: #E5E7EB;
 }
 
 /* --- 3. RESET & BASE --- */

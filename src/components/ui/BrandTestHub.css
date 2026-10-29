@@ -270,6 +270,15 @@
   font-weight: 600;
 }
 
+.hub-skill-desc {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--lp-muted, #64748B);
+  margin: 0.5rem 0 0 0;
+  text-align: center;
+  max-width: 210px;
+}
+
 .hub-skills-note {
   font-size: 0.9rem;
   color: var(--lp-muted, #64748B);
@@ -296,6 +305,14 @@
   flex-direction: column;
   gap: 1.5rem;
   margin-bottom: 2rem;
+}
+
+.hub-mocks-lead {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--lp-muted, #64748B);
+  margin: 0;
+  max-width: 600px;
 }
 
 .hub-mocks-heading {

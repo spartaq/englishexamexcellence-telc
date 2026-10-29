@@ -2,6 +2,7 @@
 import { useExamStore } from '../../store/useExamStore';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { VOCAB_HUB } from '../../data/vocabulary';
+import { useLanguage } from '../../contexts/LanguageContext';
 import './FlashcardBlock.css';
 
 // Fisher-Yates shuffle algorithm
@@ -79,6 +80,7 @@ const FlashcardBlock = ({
   const [isFlipped, setIsFlipped] = useState(false);
   const updateVocabMastery = useExamStore(state => state.updateVocabMastery);
   const vocabProgress = useExamStore(state => state.vocabProgress);
+  const { t } = useLanguage();
 
   const initialWords = useMemo(() => data?.words || data?.questions || [], [data?.words, data?.questions]);
   const initialTopic = data?.topic || data?.categoryTitle || 'All Topics';
@@ -256,8 +258,13 @@ const FlashcardBlock = ({
     <div className="flashcard-session-layout">
       <main className="flashcard-main-content">
         <div className="flashcard-main-content-inner">
-          <section className="flashcard-section">
-            <div className="flashcard-section-header">
+            <section className="flashcard-section">
+              <div className="flashcard-page-header">
+                <span className="flashcard-page-eyebrow">{t('flashcard.page.eyebrow')}</span>
+                <h1 className="flashcard-page-title">{data?.title || 'Vocabulary Lab'}</h1>
+                <p className="flashcard-page-desc">{t('flashcard.page.desc')}</p>
+              </div>
+              <div className="flashcard-section-header">
               <h2 className="flashcard-section-title">{vocabSubtitle}</h2>
               <div className="flashcard-header-actions">
                 {showFilters && (

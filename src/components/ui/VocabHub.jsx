@@ -179,11 +179,11 @@ const VocabHub = ({
     <div className="vocab-hub">
       {/* HEADER */}
       <header className="hub-header">
-        <div className="header-top">
-          <h1 className="hub-title">VOCABULARY LAB â€” {selectedLevel}</h1>
-          <div className="system-tag">
-            <span className="dot"></span> SYSTEM ACTIVE
+        <div className="header-top"><div className="system-tag">
+            <span className="dot"></span> {selectedLevel}
           </div>
+          <h1 className="hub-title">VOCABULARY LAB</h1>
+          
         </div>
         <p className="hub-subtitle">
           {allFilteredWords.length.toLocaleString()} academic tokens across {filteredCategories.length} topics
@@ -225,20 +225,25 @@ const VocabHub = ({
           }}>
                 <div className="card-top">
                   <div>
-                    <h3>{selectedLevel} Spaced-Repetition Flashcards</h3>
-                    <p>Mixed-topic randomized practice for comprehensive retention.</p>
+                    <h3>Start {selectedLevel} Flashcards</h3>
+                    <p>Begin spaced-repetition practice for {selectedLevel.toLowerCase()}.</p>
                   </div>
-                  <span className="xp-label featured">
-                    {selectedLevel === 'C1' ? '2500 XP' : '850 XP'}
-                  </span>
+                  <button className="cta-start" onClick={(e) => {
+                    e.stopPropagation();
+                    if (quickFlashTask) {
+                      onSelectSection({
+                        ...quickFlashTask,
+                        type: 'VOCAB_FLASHCARDS',
+                        topic: 'All Topics',
+                        categoryTitle: 'All Topics',
+                        title: `${selectedLevel} Mixed Topics`,
+                        isRandomMix: true
+                      });
+                    }
+                  }}>
+                    Start Flashcards
+                  </button>
                 </div>
-            <div className="bar-bg">
-              <div className="bar-fill" style={{ width: `${completionPercent}%` }}></div>
-            </div>
-            <div className="status-meta">
-              <span>COMPLETION</span>
-              <span>{completionPercent}%</span>
-            </div>
           </div>
         </section>
       </section>

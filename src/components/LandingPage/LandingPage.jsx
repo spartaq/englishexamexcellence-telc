@@ -69,9 +69,10 @@ const LandingPage = () => {
                 <button className="lp-nav-link" onClick={() => handleTelcInfo()}>
                   {t('nav.telc.info')}
                 </button>
+                 <LanguageSwitcher />
               </div>
             <div className="lp-nav-actions">
-              <LanguageSwitcher />
+             
               <button className="lp-close-btn" onClick={() => navigate('/')}>
                 ✕
               </button>
@@ -90,6 +91,7 @@ const LandingPage = () => {
               </button>
             </div>
             <div className="lp-mobile-menu-links">
+               <LanguageSwitcher />
               <button className="lp-mobile-nav-link" onClick={() => {
                 setIsMobileMenuOpen(false);
                 navigate('/telc/b2');

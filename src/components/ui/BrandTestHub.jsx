@@ -46,6 +46,10 @@ const BrandTestHub = ({
     : level === 'c1' ? t('lp.level.c1.desc')
     : t('lp.level.b2.desc');
 
+  const testDesc = level === 'b1' ? t('hub.test.desc.b1')
+    : level === 'c1' ? t('hub.test.desc.c1')
+    : t('hub.test.desc.b2');
+
   return (
     <>
       <SEO
@@ -69,7 +73,7 @@ const BrandTestHub = ({
               {levelTitle}
             </h1>
             <p className="hub-hero-subtext">
-              {levelDesc || t('hero.subtitle')}
+              {testDesc || levelDesc || t('hero.subtitle')}
             </p>
             <div className="hub-hero-actions">
               <button className="hub-btn-primary" onClick={() => onSelectPath(singleExercisePath)}>
@@ -85,6 +89,7 @@ const BrandTestHub = ({
           <div className="hub-mocks-inner">
             <div className="hub-mocks-header">
               <h2 className="hub-mocks-heading">{t('dual.take.exam')}</h2>
+              <p className="hub-mocks-lead">{t('hub.mocks.lead')}</p>
               <div className="hub-mocks-actions">
                 <div className="hub-search">
                   <Search size={18} />
@@ -116,7 +121,7 @@ const BrandTestHub = ({
                   </div>
                   <div className="hub-mock-info">
                     <div className="hub-mock-meta">
-                      <span>{mock.description}</span>
+                      <span>{t(`mock.desc.${level}`) || mock.description}</span>
                     </div>
                   </div>
                   <span className="hub-mock-link">{t('controls.start.mock')}</span>
@@ -191,6 +196,7 @@ const BrandTestHub = ({
                 >
                   <div className="hub-skill-icon">{React.createElement(skill.icon, { size: 20 })}</div>
                   <span className="hub-skill-label">{t(skill.key)}</span>
+                  <p className="hub-skill-desc">{t(`${skill.key}.desc`)}</p>
                 </button>
               ))}
             </div>
